@@ -1,0 +1,27 @@
+h1,
+.h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: $cads-font-weight__extra-bold;
+}
+
+h2,
+.h2 {
+    font-size: 1.75rem;
+    line-height: 3rem;
+    font-weight: $cads-font-weight__bold;
+}
+
+h3,
+.h3 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: $cads-font-weight__semi-bold;
+}
+
+p,
+.paragraph {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: $cads-font-weight__regular;
+}

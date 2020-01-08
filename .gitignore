@@ -1,0 +1,14 @@
+node_modules
+.cache
+.idea
+.history
+.DS_Store
+local.log
+*.iml
+.env
+npm-debug.log
+.vscode
+*.tgz
+yarn-error.log
+.npmrc
+lib.*.css
