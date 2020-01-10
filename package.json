@@ -11,7 +11,9 @@
     "scripts": {
         "build": "yarn clean && node ./scripts/build -r",
         "clean": "rm -fr ./lib.*.css",
-        "figma": "node ./scripts/figma"
+        "figma": "node ./scripts/figma",
+        "storybook": "start-storybook -p 6006 -s .",
+        "build-storybook": "build-storybook -o styleguide-static && cp lib.base.css ./styleguide-static"
     },
     "repository": {
         "type": "git",
@@ -24,12 +26,17 @@
     },
     "homepage": "https://github.com/panosvoudouris/cads2#readme",
     "devDependencies": {
+        "@babel/core": "^7.7.7",
+        "@storybook/html": "^5.2.8",
+        "babel-loader": "^8.0.6",
         "dotenv": "^8.2.0",
         "eslint": "^6.7.2",
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-prettier": "^3.1.1",
-        "prettier": "^1.19.1"
+        "marked": "^0.8.0",
+        "prettier": "^1.19.1",
+        "sass-loader": "^8.0.0"
     },
     "dependencies": {
         "autoprefixer": "^9.7.3",

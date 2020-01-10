@@ -1,0 +1,28 @@
+@import '../scss/base/1-settings/colour-palette';
+
+.cads-styleguide-wrapper {
+    padding: 16px;
+}
+
+.cads-styleguide-title {
+    color: #fff;
+    background: $cads-palette__heritage-blue;
+    padding: 0.5em;
+}
+
+.cads-styleguide-colour-tile {
+    height: 125px;
+    width: 125px;
+    border-radius: 100%;
+    border: solid 1px black;
+    display: inline-block;
+    text-align: center;
+    margin: 1em;
+
+    p {
+        font-size: 0.75em;
+        line-height: 1em;
+        margin: calc(50% - 1em) 0 0 0;
+        padding: 0;
+    }
+}
