@@ -1,26 +1,32 @@
 h1 {
-    font-size: 3rem;
-    line-height: 4rem;
+    font-size: 3em;
+    line-height: 4em;
     font-weight: $cads-font-weight__extra-bold;
     color: $cads-palette__heritage-blue;
+    margin: 0;
+    padding: 0;
 }
 
 h2 {
-    font-size: 1.75rem;
-    line-height: 3rem;
+    font-size: 1.75em;
+    line-height: 3em;
     font-weight: $cads-font-weight__bold;
     color: $cads-palette__heritage-blue;
+    margin: 0;
+    padding: 0;
 }
 
 h3 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 1.25em;
+    line-height: 1.75em;
     font-weight: $cads-font-weight__semi-bold;
     color: $cads-palette__heritage-blue;
+    margin: 0;
+    padding: 0;
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1em;
+    line-height: 1.5em;
     font-weight: $cads-font-weight__regular;
 }

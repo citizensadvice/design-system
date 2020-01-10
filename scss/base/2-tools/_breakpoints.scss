@@ -1,0 +1,123 @@
+// *********************************************************
+// ********|  BREAKPOINT AS AN EM OR OTHER UNIT  |**********
+// *********************************************************
+//  ________________________________________________________
+//
+//  Function that will read the $breakpoints map and return
+//  the correct breakpoint value converted to chosen unit.
+//  ________________________________________________________
+
+@function cads-get-breakpoint($size, $range: high, $unit: em) {
+    $result: null;
+
+    @if $range == high {
+        $result: map-get($cads-breakpoints, $size) / 16 * 1;
+    } @else {
+        $result: (map-get($cads-breakpoints, $size) - 1) / 16 * 1;
+    }
+
+    @if $unit {
+        $result: $result + $unit;
+    }
+
+    @return $result;
+}
+
+// Name of the next breakpoint, or null for the last breakpoint.
+@function cads-breakpoint-next(
+    $name,
+    $breakpoints: $cads-breakpoints,
+    $breakpoint-names: map-keys($cads-breakpoints)
+) {
+    $n: index($breakpoint-names, $name);
+    @return if(
+        $n < length($breakpoint-names),
+        nth($breakpoint-names, $n + 1),
+        null
+    );
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+@function cads-breakpoint-min($name, $breakpoints: $cads-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+@function cads-breakpoint-max($name, $breakpoints: $cads-breakpoints) {
+    $next: cads-breakpoint-next($name, $breakpoints);
+    @return if($next, cads-breakpoint-min($next, $breakpoints) - 0.02px, null);
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin cads-media-breakpoint-up($name, $breakpoints: $cads-breakpoints) {
+    $min: cads-breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin cads-media-breakpoint-down($name, $breakpoints: $cads-breakpoints) {
+    $max: cads-breakpoint-max($name, $breakpoints);
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin cads-media-breakpoint-between(
+    $lower,
+    $upper,
+    $breakpoints: $cads-breakpoints
+) {
+    $min: cads-breakpoint-min($lower, $breakpoints);
+    $max: cads-breakpoint-max($upper, $breakpoints);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include cads-media-breakpoint-up($lower, $breakpoints) {
+            @content;
+        }
+    } @else if $min == null {
+        @include cads-media-breakpoint-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin cads-media-breakpoint-only($name, $breakpoints: $cads-breakpoints) {
+    $min: cads-breakpoint-min($name, $breakpoints);
+    $max: cads-breakpoint-max($name, $breakpoints);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include cads-media-breakpoint-up($name, $breakpoints) {
+            @content;
+        }
+    } @else if $min == null {
+        @include cads-media-breakpoint-down($name, $breakpoints) {
+            @content;
+        }
+    }
+}

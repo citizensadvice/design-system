@@ -19,3 +19,29 @@ $cads-palette__grey: #9f9f9f;
 $cads-palette__light-grey: #dfdfdf;
 $cads-palette__pale-grey: #f2f2f2;
 $cads-palette__white: #ffffff;
+
+:export {
+    palette: {
+        heritageblue: $cads-palette__heritage-blue;
+        heritageyellow: $cads-palette__heritage-yellow;
+        heritageblue40: $cads-palette__heritage-blue-40;
+        heritageyellow40: $cads-palette__heritage-yellow-40;
+        bluedark: $cads-palette__blue-dark;
+        blueprimary: $cads-palette__blue-primary;
+        bluemid: $cads-palette__blue-mid;
+        bluelight: $cads-palette__blue-light;
+        turquoisedark: $cads-palette__turquoise-dark;
+        turquoiseprimary: $cads-palette__turquoise-primary;
+        turquoisemid: $cads-palette__turquoise-mid;
+        turquoiselight: $cads-palette__turquoise-light;
+        redprimary: $cads-palette__red-primary;
+        redlight: $cads-palette__red-light;
+        black: $cads-palette__black;
+        darkgrey: $cads-palette__dark-grey;
+        midgrey: $cads-palette__mid-grey;
+        grey: $cads-palette__grey;
+        lightgrey: $cads-palette__light-grey;
+        palegrey: $cads-palette__pale-grey;
+        white: $cads-palette__white;
+    }
+}

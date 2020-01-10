@@ -2,4 +2,9 @@ body {
     font-family: $cads-font-family;
     font-size: $cads-font-size;
     font-weight: $cads-font-weight__regular;
+
+    // Dinky example
+    @include cads-media-breakpoint-down(md) {
+        font-size: 0.5 * $cads-font-size;
+    }
 }

@@ -1,0 +1,65 @@
+@import './colour-palette';
+
+$cads-language__neutral-lighter: $cads-palette__black;
+$cads-language__neutral-light: $cads-palette__grey;
+$cads-language__neutral-mid: $cads-palette__grey;
+$cads-language__neutral-dark: $cads-palette__grey;
+$cads-language__neutral-darker: $cads-palette__grey;
+
+$cads-language__wayfinding-action: $cads-palette__heritage-blue;
+$cads-language__wayfinding-active: $cads-palette__heritage-blue;
+$cads-language__wayfinding-inactive: $cads-palette__heritage-blue;
+$cads-language__wayfinding-highlight: $cads-palette__heritage-blue;
+$cads-language__wayfinding-focus: $cads-palette__heritage-blue;
+
+$cads-language__navigation-forward: $cads-palette__heritage-yellow;
+$cads-language__navigation-backwards: $cads-palette__heritage-yellow;
+$cads-language__navigation-sideways: $cads-palette__heritage-yellow;
+
+$cads-language__emotion-joy: $cads-palette__heritage-yellow;
+$cads-language__emotion-positive: $cads-palette__heritage-yellow;
+$cads-language__emotion-neutral: $cads-palette__heritage-yellow;
+$cads-language__emotion-negative: $cads-palette__heritage-yellow;
+
+$cads-language__volume-whisper: $cads-palette__heritage-yellow;
+$cads-language__volume-lower: $cads-palette__heritage-yellow;
+$cads-language__volume-normal: $cads-palette__heritage-yellow;
+$cads-language__volume-raised: $cads-palette__heritage-yellow;
+$cads-language__volume-shout: $cads-palette__heritage-yellow;
+
+$cads-language__utility-danger: $cads-palette__heritage-yellow;
+$cads-language__utility-success: $cads-palette__heritage-yellow;
+$cads-language__utility-note: $cads-palette__heritage-yellow;
+$cads-language__utility-warning: $cads-palette__heritage-yellow; // Design to confirm from palette
+
+// The following map is only used to provide a loop for displaying the colours in Storybook.
+:export {
+    language: {
+        neutrallighter: $cads-language__neutral-lighter;
+        neutrallight: $cads-language__neutral-light;
+        neutralmid: $cads-language__neutral-mid;
+        neutraldark: $cads-language__neutral-dark;
+        neutraldarker: $cads-language__neutral-darker;
+        wayfindingaction: $cads-language__wayfinding-action;
+        wayfindingactive: $cads-language__wayfinding-active;
+        wayfindinginactive: $cads-language__wayfinding-inactive;
+        wayfindinghighlight: $cads-language__wayfinding-highlight;
+        wayfindingfocus: $cads-language__wayfinding-focus;
+        navigationforward: $cads-language__navigation-forward;
+        navigationbackwards: $cads-language__navigation-backwards;
+        navigationsideways: $cads-language__navigation-sideways;
+        emotionjoy: $cads-language__emotion-joy;
+        emotionpositive: $cads-language__emotion-positive;
+        emotionneutral: $cads-language__emotion-neutral;
+        emotionnegative: $cads-language__emotion-negative;
+        volumewhisper: $cads-language__volume-whisper;
+        volumelower: $cads-language__volume-lower;
+        volumenormal: $cads-language__volume-normal;
+        volumeraised: $cads-language__volume-raised;
+        volumeshout: $cads-language__volume-shout;
+        utilitydanger: $cads-language__utility-danger;
+        utilitysuccess: $cads-language__utility-success;
+        utilitynote: $cads-language__utility-note;
+        utilitywarning: $cads-language__utility-warning;
+    }
+}
