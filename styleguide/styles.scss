@@ -1,4 +1,6 @@
 @import '../scss/base/1-settings/colour-palette';
+@import '../scss/base/1-settings/breakpoints';
+@import '../scss/base/2-tools/breakpoints';
 
 .cads-styleguide-wrapper {
     padding: 16px;
@@ -24,5 +26,27 @@
         line-height: 1em;
         margin: calc(50% - 1em) 0 0 0;
         padding: 0;
+    }
+}
+
+.cads-styleguide-breakpoint-label {
+    position: fixed;
+    background: rgba($cads-palette__heritage-blue, 0.5);
+    color: $cads-palette__white;
+    top: 0;
+    right: 0;
+    font-size: 0.75em;
+    padding: 0.75em;
+    z-index: 1000;
+
+    &::after {
+        // @extend .ds-ui-xsmall;
+        display: block;
+
+        @each $breakpoint in map-keys($cads-breakpoints) {
+            @include cads-media-breakpoint-up($breakpoint) {
+                content: '#{$breakpoint}';
+            }
+        }
     }
 }

@@ -1,31 +1,50 @@
-h1 {
+h1,
+.h1 {
     font-size: 3em;
     line-height: 4em;
     font-weight: $cads-font-weight__extra-bold;
     color: $cads-palette__heritage-blue;
     margin: 0;
     padding: 0;
+
+    @include cads-media-breakpoint-down(md) {
+        font-size: 1.75em;
+        line-height: 2.25em;
+    }
 }
 
-h2 {
+h2,
+.h2 {
     font-size: 1.75em;
     line-height: 3em;
     font-weight: $cads-font-weight__bold;
     color: $cads-palette__heritage-blue;
     margin: 0;
     padding: 0;
+
+    @include cads-media-breakpoint-down(md) {
+        font-size: 1.25em;
+        line-height: 1.75em;
+    }
 }
 
-h3 {
+h3,
+.h3 {
     font-size: 1.25em;
     line-height: 1.75em;
     font-weight: $cads-font-weight__semi-bold;
     color: $cads-palette__heritage-blue;
     margin: 0;
     padding: 0;
+
+    @include cads-media-breakpoint-down(md) {
+        font-size: 1.25em;
+        line-height: 1.75em;
+    }
 }
 
-p {
+p,
+.paragraph {
     font-size: 1em;
     line-height: 1.5em;
     font-weight: $cads-font-weight__regular;
