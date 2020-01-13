@@ -73,58 +73,53 @@ sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
 placerat ac ligula. Ut luctus vitae ante eu euismod.
 </p>`;
 
-export const spacing = () => {
-    return `<h2 class="cads-styleguide__title">Spacing</h2>
+export const spacing = () => `<h2 class="cads-styleguide__title">Spacing</h2>
 <p>Spacing variables can be used directly in your SASS.</p>
 
 <table class="cads-styleguide__table">
 <tbody>
 <tr>
-	<td>$cads-spacing-1</td>
-	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-1" /></td>
-	<td>4px</td>
+<td>$cads-spacing-1</td>
+<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-1" /></td>
+<td>4px</td>
 </tr>
 <tr>
-	<td>$cads-spacing-2</td>
-	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-2" /></td>
-	<td>8px</td>
+<td>$cads-spacing-2</td>
+<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-2" /></td>
+<td>8px</td>
 </tr>
 <tr>
-	<td>$cads-spacing-3</td>
-	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-3" /></td>
-	<td>12px</td>
+<td>$cads-spacing-3</td>
+<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-3" /></td>
+<td>12px</td>
 </tr>
 <tr>
-	<td>$cads-spacing-4</td>
-	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-4" /></td>
-	<td>16px</td>
+<td>$cads-spacing-4</td>
+<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-4" /></td>
+<td>16px</td>
 </tr>
 <tr>
-	<td>$cads-spacing-5</td>
-	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-5" /></td>
-	<td>24px</td>
+<td>$cads-spacing-5</td>
+<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-5" /></td>
+<td>24px</td>
 </tr>
 <tr>
-	<td>$cads-spacing-6</td>
-	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-6" /></td>
-	<td>32px</td>
+<td>$cads-spacing-6</td>
+<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-6" /></td>
+<td>32px</td>
 </tr>
 <tr>
-	<td>$cads-spacing-7</td>
-	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-7" /></td>
-	<td>40px</td>
+<td>$cads-spacing-7</td>
+<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-7" /></td>
+<td>40px</td>
 </tr>
 </tbody>
 </table>
 `;
-};
 
-export const grid = () => {
-    return '<h2 class="cads-styleguide__title">Grid</h2>';
-};
+export const grid = () => '<h2 class="cads-styleguide__title">Grid</h2>';
 
-export const breakpoints = () => {
-    return `<h2 class="cads-styleguide__title">Breakpoints</h2>
+export const breakpoints = () => `<h2 class="cads-styleguide__title">Breakpoints</h2>
 <h2>SASS mixins</h2>
 <h3>Media breakpoint up</h3>
 Targeting screen sizes from minimum breakpoint width
@@ -194,4 +189,3 @@ Targeting screen sizes between multiple breakpoint widths
 </code>
 </pre>
 `;
-};
