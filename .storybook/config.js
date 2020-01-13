@@ -2,7 +2,10 @@ import { configure, addDecorator, addParameters } from '@storybook/html';
 import theme from './theme';
 
 addDecorator(
-    storyFn => `<div class="cads-styleguide-wrapper">${storyFn()}</div>`
+    storyFn => `<div class="cads-styleguide__wrapper">
+<div class="cads-styleguide__breakpoint-label"></div>
+${storyFn()}
+</div>`
 );
 
 // Option defaults:

@@ -1,18 +1,20 @@
 @import '../scss/base/1-settings/colour-palette';
+@import '../scss/base/1-settings/colour-language';
 @import '../scss/base/1-settings/breakpoints';
 @import '../scss/base/2-tools/breakpoints';
+@import '../scss/base/1-settings/spacing';
 
-.cads-styleguide-wrapper {
+.cads-styleguide__wrapper {
     padding: 16px;
 }
 
-.cads-styleguide-title {
+.cads-styleguide__title {
     color: #fff;
     background: $cads-palette__heritage-blue;
     padding: 0.5em;
 }
 
-.cads-styleguide-colour-tile {
+.cads-styleguide__colour-tile {
     height: 125px;
     width: 125px;
     border-radius: 100%;
@@ -29,7 +31,7 @@
     }
 }
 
-.cads-styleguide-breakpoint-label {
+.cads-styleguide__breakpoint-label {
     position: fixed;
     background: rgba($cads-palette__heritage-blue, 0.5);
     color: $cads-palette__white;
@@ -47,6 +49,33 @@
             @include cads-media-breakpoint-up($breakpoint) {
                 content: '#{$breakpoint}';
             }
+        }
+    }
+}
+
+.cads-styleguide__table {
+    box-shadow: none;
+
+    td {
+        border: none;
+        vertical-align: middle;
+        padding-right: 1em;
+        padding-bottom: 1em;
+    }
+}
+
+.cads-styleguide__spacing-block {
+    display: inline-block;
+    width: $cads-spacing-0;
+    height: $cads-spacing-0;
+    vertical-align: middle;
+    background: rgba($cads-language__neutral-dark, 0.4);
+    border: dotted 1px $cads-language__neutral-dark;
+
+    @each $size, $length in $cads-spacers {
+        &--spacing-#{$size} {
+            width: $length;
+            height: $length;
         }
     }
 }

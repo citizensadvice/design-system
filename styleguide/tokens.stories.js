@@ -30,10 +30,10 @@ function getColours(type, sass) {
     const colours = Object.keys(sass).filter(
         item => item.indexOf(`${type}-`) !== -1
     );
-    let result = `<h2 class="cads-styleguide-title">Colour ${type}</h2>`;
+    let result = `<h2 class="cads-styleguide__title">Colour ${type}</h2>`;
     colours.forEach(item => {
         const colour = sass[item];
-        result += `<div class="cads-styleguide-colour-tile" style="background: ${colour}">
+        result += `<div class="cads-styleguide__colour-tile" style="background: ${colour}">
 <p style="color: ${getBrightness(colour)}">${item.replace(
             /([A-Z])/g,
             g => `-${g[0].toLowerCase()}`
@@ -48,114 +48,150 @@ export const colourPalette = () => getColours('palette', sassPalette);
 
 export const colourLanguage = () => getColours('language', sassLanguage);
 
-export const typography = () => `<h2 class="cads-styleguide-title">Typography</h2>
+export const typography = () => `<h2 class="cads-styleguide__title">Typography</h2>
 <h1>H1 Citizens Advice helps people find a way</h1>
 <h2>H2 Citizens Advice helps people find a way</h2>
 <h3>H3 Citizens Advice helps people find a way</h3>
 <p>Paragraph text:</p>
 <p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-	luctus non mauris et interdum. Etiam non interdum sem, sit amet
-	interdum risus. Aenean mauris mi, tincidunt at ante sit amet,
-	facilisis ultricies arcu. Aenean consectetur orci diam, non accumsan
-	dolor hendrerit ac. Vivamus commodo libero magna, sit amet
-	ullamcorper ligula egestas non. Nullam et consectetur libero. Sed ut
-	congue dui. Suspendisse elementum purus at pulvinar rutrum.
-	Vestibulum ultrices, metus et consectetur hendrerit, tortor urna
-	iaculis est, ut ullamcorper diam turpis nec lacus. Sed eu lorem
-	nisl.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+luctus non mauris et interdum. Etiam non interdum sem, sit amet
+interdum risus. Aenean mauris mi, tincidunt at ante sit amet,
+facilisis ultricies arcu. Aenean consectetur orci diam, non accumsan
+dolor hendrerit ac. Vivamus commodo libero magna, sit amet
+ullamcorper ligula egestas non. Nullam et consectetur libero. Sed ut
+congue dui. Suspendisse elementum purus at pulvinar rutrum.
+Vestibulum ultrices, metus et consectetur hendrerit, tortor urna
+iaculis est, ut ullamcorper diam turpis nec lacus. Sed eu lorem
+nisl.
 </p>
 <p>
-	Nunc nunc dolor, malesuada ut felis vel, mollis auctor turpis.
-	Curabitur quis diam sed justo cursus ullamcorper. Aenean elementum
-	tempor neque eu ullamcorper. Cras sit amet vehicula dolor. Aenean
-	sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
-	placerat ac ligula. Ut luctus vitae ante eu euismod.
+Nunc nunc dolor, malesuada ut felis vel, mollis auctor turpis.
+Curabitur quis diam sed justo cursus ullamcorper. Aenean elementum
+tempor neque eu ullamcorper. Cras sit amet vehicula dolor. Aenean
+sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
+placerat ac ligula. Ut luctus vitae ante eu euismod.
 </p>`;
 
 export const spacing = () => {
-    return '<h2 class="cads-styleguide-title">Spacing</h2>';
+    return `<h2 class="cads-styleguide__title">Spacing</h2>
+<p>Spacing variables can be used directly in your SASS.</p>
+
+<table class="cads-styleguide__table">
+<tbody>
+<tr>
+	<td>$cads-spacing-1</td>
+	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-1" /></td>
+	<td>4px</td>
+</tr>
+<tr>
+	<td>$cads-spacing-2</td>
+	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-2" /></td>
+	<td>8px</td>
+</tr>
+<tr>
+	<td>$cads-spacing-3</td>
+	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-3" /></td>
+	<td>12px</td>
+</tr>
+<tr>
+	<td>$cads-spacing-4</td>
+	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-4" /></td>
+	<td>16px</td>
+</tr>
+<tr>
+	<td>$cads-spacing-5</td>
+	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-5" /></td>
+	<td>24px</td>
+</tr>
+<tr>
+	<td>$cads-spacing-6</td>
+	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-6" /></td>
+	<td>32px</td>
+</tr>
+<tr>
+	<td>$cads-spacing-7</td>
+	<td><div class="cads-styleguide__spacing-block cads-styleguide__spacing-block--spacing-7" /></td>
+	<td>40px</td>
+</tr>
+</tbody>
+</table>
+`;
 };
 
 export const grid = () => {
-    return '<h2 class="cads-styleguide-title">Grid</h2>';
+    return '<h2 class="cads-styleguide__title">Grid</h2>';
 };
 
 export const breakpoints = () => {
-    return `<h2 class="cads-styleguide-title">Breakpoints</h2>
+    return `<h2 class="cads-styleguide__title">Breakpoints</h2>
 <h2>SASS mixins</h2>
 <h3>Media breakpoint up</h3>
 Targeting screen sizes from minimum breakpoint width
 
 <pre>
-@include ds-media-breakpoint-up(xs) { ... }
-@include ds-media-breakpoint-up(sm) { ... }
-@include ds-media-breakpoint-up(md) { ... }
-@include ds-media-breakpoint-up(lg) { ... }
-@include ds-media-breakpoint-up(xl) { ... }
+<code class="language-css">
+@include cads-media-breakpoint-up(sm) { ... }
+@include cads-media-breakpoint-up(md) { ... }
+@include cads-media-breakpoint-up(lg) { ... }
 
 // Example usage:
-@include ds-media-breakpoint-up(sm) {
-	.some-class {
-	display: block;
-	}
+@include cads-media-breakpoint-up(sm) {
+  .some-class {
+    display: block;
+  }
 }
+</code>
 </pre>
 
 <h3>Media breakpoint down</h3>
 Targeting screen sizes up to maximum breakpoint width
 <pre>
-@include ds-media-breakpoint-down(sm) { ... }
-@include ds-media-breakpoint-down(md) { ... }
-@include ds-media-breakpoint-down(lg) { ... }
-@include ds-media-breakpoint-down(xl) { ... }
+<code class="language-css">
+@include cads-media-breakpoint-down(sm) { ... }
+@include cads-media-breakpoint-down(md) { ... }
+@include cads-media-breakpoint-down(lg) { ... }
 
 // Example usage:
-@include ds-media-breakpoint-down(lg) {
+@include cads-media-breakpoint-down(lg) {
   .some-class {
-	display: block;
+    display: block;
   }
 }
+</code>
 </pre>
 
 <h3>Media breakpoint only</h3>
 Targeting a single segment of screen sizes using the minimum and maximum breakpoint widths
 <pre>
-@include ds-media-breakpoint-only(xs) { ... }
-@include ds-media-breakpoint-only(sm) { ... }
-@include ds-media-breakpoint-only(md) { ... }
-@include ds-media-breakpoint-only(lg) { ... }
-@include ds-media-breakpoint-only(xl) { ... }
+<code class="language-css">
+@include cads-media-breakpoint-only(sm) { ... }
+@include cads-media-breakpoint-only(md) { ... }
+@include cads-media-breakpoint-only(lg) { ... }
 
 // Example usage:
-@include ds-media-breakpoint-only(md) {
+@include cads-media-breakpoint-only(md) {
   .some-class {
-	display: block;
+    display: block;
   }
 }
+</code>
 </pre>
 
 <h3>Media breakpoint between</h3>
 Targeting screen sizes between multiple breakpoint widths
 <pre>
-@include ds-media-breakpoint-between(sm, lg) { ... }
-@include ds-media-breakpoint-between(md, lg) { ... }
-@include ds-media-breakpoint-between(md, xl) { ... }
+<code class="language-css">
+@include cads-media-breakpoint-between(sm, lg) { ... }
+@include cads-media-breakpoint-between(md, lg) { ... }
 
 // Example usage:
-@include ds-media-breakpoint-between(md, xl) { ... }
+@include cads-media-breakpoint-between(md, lg) { ... }
   .some-class {
-	display: block;
+    display: block;
   }
 }
+</code>
 </pre>
 `;
 };
-
-// export const button = () => {
-//     const btn = document.createElement('button');
-//     btn.type = 'button';
-//     btn.innerText = 'Hello Button';
-//     btn.addEventListener('click', e => console.log(e));
-//     return btn;
-// };

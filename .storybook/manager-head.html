@@ -1,0 +1,12 @@
+<script>
+    document.title = 'CADS';
+    var observer = new MutationObserver(function(mutations) {
+        if (document.title.match(/Storybook$/)) {
+            document.title = 'CADS';
+        }
+    }).observe(document.querySelector('title'), {
+        childList: true,
+        subtree: true,
+        characterData: true
+    });
+</script>
