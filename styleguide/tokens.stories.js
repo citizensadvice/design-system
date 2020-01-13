@@ -3,7 +3,7 @@ import sassPalette from '../scss/base/1-settings/_colour-palette.scss';
 import sassLanguage from '../scss/base/1-settings/_colour-language.scss';
 
 export default {
-    title: 'Design Tokens'
+    title: '2 Design Tokens'
 };
 
 function getBrightness(colour) {
