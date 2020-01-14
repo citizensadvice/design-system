@@ -1,5 +1,7 @@
+import ComponentExample from './components/_component-example.md';
+
 export default {
     title: '3 Components'
 };
 
-export const aComponent = () => 'This is a component';
+export const componentExample = () => ComponentExample;
