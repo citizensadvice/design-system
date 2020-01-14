@@ -1,0 +1,27 @@
+// Set border
+@mixin cads-border(
+    $side: a,
+    $width: $cads-border-width-medium,
+    $radius: 0,
+    $colour: $cads-language__neutral-mid
+) {
+    border-style: solid;
+    border-color: $colour;
+    border-radius: $radius;
+
+    @if $side == t {
+        border-width: $width 0 0 0;
+    } @else if $side == r {
+        border-width: 0 $width 0 0;
+    } @else if $side == b {
+        border-width: 0 0 $width 0;
+    } @else if $side == l {
+        border-width: 0 0 0 $width;
+    } @else if $side == v {
+        border-width: $width 0;
+    } @else if $side == h {
+        border-width: 0 $width;
+    } @else {
+        border-width: $width;
+    }
+}

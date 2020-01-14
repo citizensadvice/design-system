@@ -1,12 +1,10 @@
 # Breakpoints
 
-There are 3 breakpoints defined:
+There are 3 breakpoints defined.
 
-<pre><code class="css">
-sm: 0,
-md: 768px
-lg: 1024px
-</code></pre>
+-   `sm`: up to 767px
+-   `md`: between 768 and 1023px
+-   `lg`: up from 1024px
 
 <div class="cads-styleguide__breakpoint-label-in-context">
 	On the top right of this styleguide you can see which breakpoint is currently active. Look out for this:

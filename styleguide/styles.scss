@@ -1,8 +1,4 @@
-@import '../scss/base/1-settings/colour-palette';
-@import '../scss/base/1-settings/colour-language';
-@import '../scss/base/1-settings/breakpoints';
-@import '../scss/base/2-tools/breakpoints';
-@import '../scss/base/1-settings/spacing';
+@import '../scss/lib.base';
 
 .cads-styleguide__wrapper {
     padding: 16px;
@@ -78,4 +74,19 @@
             height: $length;
         }
     }
+}
+
+.cads-styleguide__sizing-border-medium {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    vertical-align: middle;
+    @include cads-border();
+    margin-left: 11px;
+}
+
+.cads-styleguide__sizing-border-large {
+    @extend .cads-styleguide__sizing-border-medium;
+    @include cads-border(a, $cads-border-width-large);
+    margin-left: 10px;
 }
