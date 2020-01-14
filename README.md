@@ -9,6 +9,12 @@ yarn
 yarn storybook
 ```
 
+or if you do not have yarn:
+```
+npm install
+npm run storybook
+```
+
 ## ITCSS
 
 What are the different layers?
