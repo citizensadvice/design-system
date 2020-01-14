@@ -44,7 +44,8 @@ function getColours(type, sass) {
 <p style="color: ${getBrightness(colour)}">${name.replace(
             /([A-Z])/g,
             g => `-${g[0].toLowerCase()}`
-        )}<br/>${colour.toUpperCase()}</p>
+        )}
+<br/>${colour.toUpperCase()}</p>
 </div>`;
     });
 
@@ -55,6 +56,6 @@ export const colourPalette = () => getColours('palette', sassPalette);
 export const colourLanguage = () => getColours('language', sassLanguage);
 export const typography = () => Typography;
 export const spacing = () => Spacing;
-export const grid = () => Grid;
+// export const grid = () => Grid;
 export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;

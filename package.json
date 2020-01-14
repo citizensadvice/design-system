@@ -27,6 +27,8 @@
     "homepage": "https://github.com/panosvoudouris/cads2#readme",
     "devDependencies": {
         "@babel/core": "^7.7.7",
+        "@storybook/addon-actions": "^5.3.3",
+        "@storybook/addon-knobs": "^5.3.3",
         "@storybook/html": "^5.2.8",
         "babel-loader": "^8.0.6",
         "dotenv": "^8.2.0",
