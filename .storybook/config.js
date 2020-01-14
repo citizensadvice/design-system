@@ -11,7 +11,8 @@ ${storyFn()}
 // Option defaults:
 addParameters({
     options: {
-        showPanel: true,
+        showPanel: false,
+        panelPosition: 'right',
         storySort: (a, b) => a[1].id.localeCompare(b[1].id),
         theme
     }

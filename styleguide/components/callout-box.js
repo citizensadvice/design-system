@@ -4,7 +4,7 @@ import hljs from 'highlight.js'; // eslint-disable-line
 const callout = () => {
     const heading = text('Heading', 'Callout title');
     const content = text('Content', 'The callout box content');
-    const component = `<div class="cads-callout">
+    const component = `<div id="a11yComponentToTest" class="cads-callout">
   <h1>${heading}</h1>
   ${content}
 </div>`;
