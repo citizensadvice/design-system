@@ -33,22 +33,44 @@ The `border` mixin can be used in your custom classes for a more semantic approa
 ### Mixin usage example
 
 <pre><code class="css">
-.my-semantic-class {
+.myClass {
   @include cads-border(
     a,
     $cads-border-width-medium,
-    $cads-border-radius-small,
-    $cads-language__grey
+    $cads-border-radius-medium,
+    $cads-language__neutral-mid
   );
 }
 
 // Output
-// .my-semantic-class {
-//   border-style: solid;
-//   border-color: #aaa;
-//   border-radius: 2px;
-//   border-width: 1px;
-// }
+.myClass {
+  border-style: solid;
+  border-color: #9f9f9f;
+  border-radius: 4px;
+  border-width: 1px;
+}
 </code></pre>
 
 ## Radii
+
+The following radii are available:
+
+<table class="cads-stylebuide__table">
+	<tbody>
+		<tr>
+			<td>$cads-border-radius-medium</td>
+			<td><div class="cads-styleguide__sizing-radius-medium" /></td>
+			<td>4px</td>
+		</tr>
+		<tr>
+			<td>$cads-border-radius-large</td>
+			<td><div class="cads-styleguide__sizing-radius-large" /></td>
+			<td>8px</td>
+		</tr>
+		<tr>
+			<td>$cads-border-radius-pill</td>
+			<td><div class="cads-styleguide__sizing-radius-pill" /></td>
+			<td>96px</td>
+		</tr>
+	</tbody>
+</table>
