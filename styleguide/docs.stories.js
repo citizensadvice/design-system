@@ -3,9 +3,9 @@ import Contact from './documentation/contact.md';
 import Contributing from './documentation/contributing.md';
 
 export default {
-    title: '1 Documentation'
+    title: '1 How do I…'
 };
 
-export const quickstartGuide = () => Quickstart;
-export const contributing = () => Contributing;
-export const contact = () => Contact;
+export const useThis = () => Quickstart;
+export const contribute = () => Contributing;
+export const getHelp = () => Contact;
