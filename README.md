@@ -1,5 +1,14 @@
 # cads2
 
+## How to use this
+
+To see the styleguide:
+
+```
+yarn
+yarn storybook
+```
+
 ## ITCSS
 
 What are the different layers?
