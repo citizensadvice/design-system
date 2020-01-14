@@ -1,15 +1,11 @@
+import Quickstart from './documentation/quickstart.md';
+import Contact from './documentation/contact.md';
+import Contributing from './documentation/contributing.md';
+
 export default {
     title: '1 Documentation'
 };
 
-export const quickstartGuide = () => {
-    return '<h2 class="cads-styleguide__title">Quickstart Guide</h2>';
-};
-
-export const contributing = () => {
-    return '<h2 class="cads-styleguide__title">Contributing</h2>';
-};
-
-export const contact = () => {
-    return '<h2 class="cads-styleguide__title">Contact</h2>';
-};
+export const quickstartGuide = () => Quickstart;
+export const contributing = () => Contributing;
+export const contact = () => Contact;
