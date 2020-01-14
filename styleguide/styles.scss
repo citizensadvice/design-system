@@ -45,6 +45,12 @@
             }
         }
     }
+
+    .cads-styleguide__breakpoint-label-in-context & {
+        background: $cads-palette__heritage-blue;
+        position: relative;
+        display: inline-block;
+    }
 }
 
 .cads-styleguide__table {

@@ -6,6 +6,7 @@ import Breakpoints from './tokens/breakpoints.md';
 import Typography from './tokens/typography.md';
 import Spacing from './tokens/spacing.md';
 import Grid from './tokens/grid.md';
+import Borders from './tokens/borders.md';
 
 export default {
     title: '2 Design Tokens'
@@ -37,9 +38,10 @@ function getColours(type, sass) {
     );
     let result = `<h1>Colour ${type}</h1>`;
     colours.forEach(item => {
+        const name = item.replace(`${type}-`, '');
         const colour = sass[item];
         result += `<div class="cads-styleguide__colour-tile" style="background: ${colour}">
-<p style="color: ${getBrightness(colour)}">${item.replace(
+<p style="color: ${getBrightness(colour)}">${name.replace(
             /([A-Z])/g,
             g => `-${g[0].toLowerCase()}`
         )}<br/>${colour.toUpperCase()}</p>
@@ -55,3 +57,4 @@ export const typography = () => Typography;
 export const spacing = () => Spacing;
 export const grid = () => Grid;
 export const breakpoints = () => Breakpoints;
+export const borders = () => Borders;

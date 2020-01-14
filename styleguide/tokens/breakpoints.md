@@ -1,5 +1,20 @@
 # Breakpoints
 
+There are 3 breakpoints defined:
+
+<pre><code class="css">
+sm: 0,
+md: 768px
+lg: 1024px
+</code></pre>
+
+<div class="cads-styleguide__breakpoint-label-in-context">
+	On the top right of this styleguide you can see which breakpoint is currently active. Look out for this:
+	<div class="cads-styleguide__breakpoint-label"></div>
+</div>
+
+To see how any tokens or components respond to different screen sizes just resize this window and look out for the breakpoint indicator.
+
 ## SASS mixins
 
 ### Media breakpoint up

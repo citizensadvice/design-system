@@ -21,27 +21,28 @@ $cads-palette__pale-grey: #f2f2f2;
 $cads-palette__white: #ffffff;
 
 :export {
+    /* prettier-ignore */
     palette: {
-        heritageblue: $cads-palette__heritage-blue;
-        heritageyellow: $cads-palette__heritage-yellow;
-        heritageblue40: $cads-palette__heritage-blue-40;
-        heritageyellow40: $cads-palette__heritage-yellow-40;
-        bluedark: $cads-palette__blue-dark;
-        blueprimary: $cads-palette__blue-primary;
-        bluemid: $cads-palette__blue-mid;
-        bluelight: $cads-palette__blue-light;
-        turquoisedark: $cads-palette__turquoise-dark;
-        turquoiseprimary: $cads-palette__turquoise-primary;
-        turquoisemid: $cads-palette__turquoise-mid;
-        turquoiselight: $cads-palette__turquoise-light;
-        redprimary: $cads-palette__red-primary;
-        redlight: $cads-palette__red-light;
+        heritageBlue: $cads-palette__heritage-blue;
+        heritageYellow: $cads-palette__heritage-yellow;
+        heritageBlue40: $cads-palette__heritage-blue-40;
+        heritageYellow40: $cads-palette__heritage-yellow-40;
+        blueDark: $cads-palette__blue-dark;
+        bluePrimary: $cads-palette__blue-primary;
+        blueMid: $cads-palette__blue-mid;
+        blueLight: $cads-palette__blue-light;
+        turquoiseDark: $cads-palette__turquoise-dark;
+        turquoisePrimary: $cads-palette__turquoise-primary;
+        turquoiseMid: $cads-palette__turquoise-mid;
+        turquoiseLight: $cads-palette__turquoise-light;
+        redPrimary: $cads-palette__red-primary;
+        redLight: $cads-palette__red-light;
         black: $cads-palette__black;
-        darkgrey: $cads-palette__dark-grey;
-        midgrey: $cads-palette__mid-grey;
+        darkGrey: $cads-palette__dark-grey;
+        midGrey: $cads-palette__mid-grey;
         grey: $cads-palette__grey;
-        lightgrey: $cads-palette__light-grey;
-        palegrey: $cads-palette__pale-grey;
+        lightGrey: $cads-palette__light-grey;
+        paleGrey: $cads-palette__pale-grey;
         white: $cads-palette__white;
     }
 }

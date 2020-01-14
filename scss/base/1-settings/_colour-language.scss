@@ -34,32 +34,33 @@ $cads-language__utility-warning: $cads-palette__heritage-yellow; // Design to co
 
 // The following map is only used to provide a loop for displaying the colours in Storybook.
 :export {
+    /* prettier-ignore */
     language: {
-        neutrallighter: $cads-language__neutral-lighter;
-        neutrallight: $cads-language__neutral-light;
-        neutralmid: $cads-language__neutral-mid;
-        neutraldark: $cads-language__neutral-dark;
-        neutraldarker: $cads-language__neutral-darker;
-        wayfindingaction: $cads-language__wayfinding-action;
-        wayfindingactive: $cads-language__wayfinding-active;
-        wayfindinginactive: $cads-language__wayfinding-inactive;
-        wayfindinghighlight: $cads-language__wayfinding-highlight;
-        wayfindingfocus: $cads-language__wayfinding-focus;
-        navigationforward: $cads-language__navigation-forward;
-        navigationbackwards: $cads-language__navigation-backwards;
-        navigationsideways: $cads-language__navigation-sideways;
-        emotionjoy: $cads-language__emotion-joy;
-        emotionpositive: $cads-language__emotion-positive;
-        emotionneutral: $cads-language__emotion-neutral;
-        emotionnegative: $cads-language__emotion-negative;
-        volumewhisper: $cads-language__volume-whisper;
-        volumelower: $cads-language__volume-lower;
-        volumenormal: $cads-language__volume-normal;
-        volumeraised: $cads-language__volume-raised;
-        volumeshout: $cads-language__volume-shout;
-        utilitydanger: $cads-language__utility-danger;
-        utilitysuccess: $cads-language__utility-success;
-        utilitynote: $cads-language__utility-note;
-        utilitywarning: $cads-language__utility-warning;
+        neutralLighter: $cads-language__neutral-lighter;
+        neutralLight: $cads-language__neutral-light;
+        neutralMid: $cads-language__neutral-mid;
+        neutralDark: $cads-language__neutral-dark;
+        neutralDarker: $cads-language__neutral-darker;
+        wayfindingAction: $cads-language__wayfinding-action;
+        wayfindingActive: $cads-language__wayfinding-active;
+        wayfindingInactive: $cads-language__wayfinding-inactive;
+        wayfindingHighlight: $cads-language__wayfinding-highlight;
+        wayfindingFocus: $cads-language__wayfinding-focus;
+        navigationForward: $cads-language__navigation-forward;
+        navigationBackwards: $cads-language__navigation-backwards;
+        navigationSideways: $cads-language__navigation-sideways;
+        emotionJoy: $cads-language__emotion-joy;
+        emotionPositive: $cads-language__emotion-positive;
+        emotionNeutral: $cads-language__emotion-neutral;
+        emotionNegative: $cads-language__emotion-negative;
+        volumeWhisper: $cads-language__volume-whisper;
+        volumeLower: $cads-language__volume-lower;
+        volumeNormal: $cads-language__volume-normal;
+        volumeRaised: $cads-language__volume-raised;
+        volumeShout: $cads-language__volume-shout;
+        utilityDanger: $cads-language__utility-danger;
+        utilitySuccess: $cads-language__utility-success;
+        utilityNote: $cads-language__utility-note;
+        utilityWarning: $cads-language__utility-warning;
     }
 }
