@@ -1,6 +1,3 @@
-// *********************************************************
-// ********|  BREAKPOINT AS AN EM OR OTHER UNIT  |**********
-// *********************************************************
 //  ________________________________________________________
 //
 //  Function that will read the $breakpoints map and return
@@ -120,4 +117,13 @@
             @content;
         }
     }
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+@function cads-breakpoint-infix($name, $breakpoints: $cads-breakpoints) {
+    @return if(
+        cads-breakpoint-min($name, $breakpoints) == null,
+        '',
+        '-#{$name}'
+    );
 }

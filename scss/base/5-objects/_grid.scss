@@ -1,8 +1,25 @@
+// Set the container width, and override it for fixed navbars in media queries.
 .cads-grid-container {
+    @include cads-make-container();
 }
 
+// Rows contain and clear the floats of your columns.
 .cads-grid-row {
+    @include cads-make-row();
+
+    // Remove the negative margin from default .row, then the horizontal padding
+    // from all immediate children columns (to prevent runaway style inheritance).
+    &--no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+
+        > .cads-grid-col,
+        > [class*='cads-grid-col-'] {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
 }
 
-.cads-grid-column {
-}
+// Common styles for small and large grid columns
+@include cads-make-grid-columns();

@@ -119,3 +119,36 @@
         $cads-border-radius-pill
     );
 }
+
+.cads-styleguide-grid {
+    @include cads-border($cads-language__neutral-dark);
+
+    .cads-grid-row {
+        margin-top: $cads-spacing-3;
+        margin-bottom: $cads-spacing-3;
+
+        > div {
+            @include cads-border($cads-language__neutral-dark);
+            background: rgba($cads-language__neutral-dark, 0.2);
+            text-align: center;
+
+            span {
+                padding-top: $cads-spacing-2;
+                padding-bottom: $cads-spacing-2;
+                display: block;
+                background: rgba($cads-language__neutral-dark, 0.4);
+            }
+        }
+    }
+}
+
+.cads-styleguide-table {
+    text-align: center;
+
+    thead tr th {
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: $cads-language__neutral-lighter;
+    }
+}

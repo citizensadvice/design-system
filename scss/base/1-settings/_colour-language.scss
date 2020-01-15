@@ -1,10 +1,10 @@
 @import './colour-palette'; // This is needed for storybook
 
-$cads-language__neutral-lighter: $cads-palette__black;
+$cads-language__neutral-lighter: $cads-palette__light-grey;
 $cads-language__neutral-light: $cads-palette__grey;
 $cads-language__neutral-mid: $cads-palette__grey;
 $cads-language__neutral-dark: $cads-palette__grey;
-$cads-language__neutral-darker: $cads-palette__grey;
+$cads-language__neutral-darker: $cads-palette__dark-grey;
 
 $cads-language__wayfinding-action: $cads-palette__heritage-blue;
 $cads-language__wayfinding-active: $cads-palette__heritage-blue;

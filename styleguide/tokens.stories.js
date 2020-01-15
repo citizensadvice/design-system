@@ -56,6 +56,6 @@ export const colourPalette = () => getColours('palette', sassPalette);
 export const colourLanguage = () => getColours('language', sassLanguage);
 export const typography = () => Typography;
 export const spacing = () => Spacing;
-// export const grid = () => Grid;
+export const grid = () => Grid;
 export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;

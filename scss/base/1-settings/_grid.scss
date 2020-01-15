@@ -1,0 +1,11 @@
+$cads-grid-columns: 12 !default;
+
+$cads-grid-breakpoint-gutters: (
+    sm: $cads-spacing-3,
+    md: $cads-spacing-3,
+    lg: $cads-spacing-4
+) !default;
+
+$cads-container-max-widths: (
+    lg: 1200px
+) !default;
