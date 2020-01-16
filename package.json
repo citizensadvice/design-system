@@ -17,14 +17,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/panosvoudouris/cads2.git"
+        "url": "git+https://github.com/citizensadvice/design-system-testing.git"
     },
     "author": "",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/panosvoudouris/cads2/issues"
+        "url": "https://github.com/citizensadvice/design-system-testing/issues"
     },
-    "homepage": "https://github.com/panosvoudouris/cads2#readme",
+    "homepage": "https://github.com/citizensadvice/design-system-testing#readme",
     "devDependencies": {
         "@babel/core": "^7.7.7",
         "@storybook/addon-a11y": "^5.3.3",
