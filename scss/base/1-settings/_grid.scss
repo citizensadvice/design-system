@@ -7,5 +7,5 @@ $cads-grid-breakpoint-gutters: (
 ) !default;
 
 $cads-container-max-widths: (
-    lg: 1200px
+    lg: $cads-max-content-size
 ) !default;

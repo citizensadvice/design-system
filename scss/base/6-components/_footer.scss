@@ -4,6 +4,7 @@ footer,
     padding: $cads-spacing-4;
 
     .cads-footer__company-info {
+        @include cads-restrict-content-width();
         margin-top: 3em;
         display: flex;
         flex-direction: row;
