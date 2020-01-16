@@ -2,6 +2,7 @@ import './styles.scss';
 import sassPalette from '../scss/base/1-settings/_colour-palette.scss';
 import sassLanguage from '../scss/base/1-settings/_colour-language.scss';
 
+import Animations from './tokens/animations.md';
 import Breakpoints from './tokens/breakpoints.md';
 import Typography from './tokens/typography.md';
 import Spacing from './tokens/spacing.md';
@@ -55,7 +56,8 @@ function getColours(type, sass) {
 export const colourPalette = () => getColours('palette', sassPalette);
 export const colourLanguage = () => getColours('language', sassLanguage);
 export const typography = () => Typography;
-export const spacing = () => Spacing;
+export const spacingAndSizing = () => Spacing;
 export const grid = () => Grid;
 export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;
+export const animations = () => Animations;

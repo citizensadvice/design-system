@@ -2,7 +2,7 @@ import hljs from 'highlight.js'; // eslint-disable-line
 
 const a11yid = 'a11yComponentToTest';
 
-const wrapper = (title, component) => {
+const wrapper = (title, component, usage) => {
     const source = hljs.highlightAuto(component).value;
 
     return `
@@ -15,6 +15,8 @@ ${component}
 <pre><code class="html">
 ${source}
 </code></pre>
+
+${usage && `<h2>Usage info</h2>${usage}`}
 `;
 };
 

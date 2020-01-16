@@ -1,4 +1,10 @@
-# Spacing
+# Spacing & Sizing
+
+## Sizing
+
+All page content should be limited to 1200px wide. Use the `$cads-max-content-size` variable if needed to restrict the content of your components. See the `footer` component as an example of how to restrict content but let things like background colours expand.
+
+## Spacing
 
 Spacing variables can be used directly in your SASS.
 
