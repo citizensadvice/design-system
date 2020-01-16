@@ -4,7 +4,7 @@
 
 To use the design system you first need to install the npm package.
 
-`npm i cads2`
+`npm i @citizensadvice/design-system`
 
 If you just need the compiled CSS you only import `lib.base.css`, eg by adding this to the `<head>`:
 

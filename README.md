@@ -1,4 +1,4 @@
-# cads2
+# Design system
 
 ## How to use this
 
