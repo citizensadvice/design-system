@@ -1,0 +1,15 @@
+footer,
+.cads-footer {
+    background-color: $cads-palette__blue-light;
+    padding: $cads-spacing-4;
+
+    .cads-footer__company-info {
+        margin-top: 3em;
+        display: flex;
+        flex-direction: row;
+
+        .cads-logo {
+            flex: none;
+        }
+    }
+}

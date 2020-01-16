@@ -15,6 +15,10 @@ npm install
 npm run storybook
 ```
 
+### Assets
+
+TODO: There are a number of images and other assets under the `assets` folder. These will need to be processed/inlined for things to work, eg logo.
+
 ## ITCSS
 
 What are the different layers?

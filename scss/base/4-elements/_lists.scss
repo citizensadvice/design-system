@@ -1,0 +1,11 @@
+ul,
+.cads-list-unordered {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li,
+    .cads-list-element {
+        line-height: 1.5em;
+    }
+}

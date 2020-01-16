@@ -1,0 +1,17 @@
+a,
+.hyperlink {
+    color: $cads-palette__black;
+    line-height: 1.25em;
+
+    &:visited {
+        color: green;
+    }
+
+    &:hover {
+        color: blue;
+    }
+
+    &:active {
+        color: white;
+    }
+}

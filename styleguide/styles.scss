@@ -124,9 +124,6 @@
     @include cads-border($cads-language__neutral-dark);
 
     .cads-grid-row {
-        margin-top: $cads-spacing-3;
-        margin-bottom: $cads-spacing-3;
-
         > div {
             @include cads-border($cads-language__neutral-dark);
             background: rgba($cads-language__neutral-dark, 0.2);

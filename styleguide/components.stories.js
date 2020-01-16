@@ -4,6 +4,7 @@ import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 import CalloutBox from './components/callout-box';
 import Header from './components/header';
 import Footer from './components/footer';
+import Logo from './components/logo';
 
 export default {
     title: '3 Components',
@@ -26,3 +27,6 @@ export default {
 export const calloutBox = () => CalloutBox();
 export const header = () => Header();
 export const footer = () => Footer();
+footer.story = { parameters: { knobs: { escapeHTML: false } } };
+
+export const logo = () => Logo();
