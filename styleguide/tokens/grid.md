@@ -330,7 +330,7 @@ Use a combination of breakpoint width classes to create different layouts for ea
 </div>
 ```
 
-### Reordering columns
+<!-- ### Reordering columns
 
 Use `.cads-order-` classes for controlling the visual order of your content. These classes are responsive, so you can set the order by breakpoint (e.g., `.cads-order-1.cads-order-md-2`). Includes support for 1 through 12 across all five grid tiers.
 
@@ -370,9 +370,9 @@ There are also responsive `.cads-order-first` and `.cads-order-last` classes tha
         <div class="cads-grid-col cads-order-first"><span>3</span></div>
     </div>
 </div>
-```
+``` -->
 
-### Offsetting columns
+<!-- ### Offsetting columns
 
 You can offset grid columns using the `.cads-offset-*` classes, these are sized to match columns and used to move columns to the right. These classes increase the left margin of a column by * columns. For example, `.cads-offset-md-4` moves '.cads-grid-col-md-4` over four columns on the medium breakpoint.
 
@@ -404,4 +404,4 @@ You can offset grid columns using the `.cads-offset-*` classes, these are sized 
 		<div class="cads-grid-col-3 cads-offset-1 cads-offset-md-4 cads-offset-lg-6"><span>1</span></div>
 	</div>
 </div>
-```
+``` -->

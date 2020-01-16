@@ -121,29 +121,29 @@
                 }
             }
 
-            .cads-order#{$infix}-first {
-                order: -1;
-            }
+            // .cads-order#{$infix}-first {
+            //     order: -1;
+            // }
 
-            .cads-order#{$infix}-last {
-                order: $cads-grid-columns + 1;
-            }
+            // .cads-order#{$infix}-last {
+            //     order: $cads-grid-columns + 1;
+            // }
 
-            @for $i from 0 through $cads-grid-columns {
-                .cads-order#{$infix}-#{$i} {
-                    order: $i;
-                }
-            }
+            // @for $i from 0 through $cads-grid-columns {
+            //     .cads-order#{$infix}-#{$i} {
+            //         order: $i;
+            //     }
+            // }
 
             // `$columns - 1` because offsetting by the width of an entire row isn't possible
-            @for $i from 0 through ($cads-grid-columns - 1) {
-                @if not($infix == '' and $i == 0) {
-                    // Avoid emitting useless .offset-0
-                    .cads-offset#{$infix}-#{$i} {
-                        @include cads-make-col-offset($i, $cads-grid-columns);
-                    }
-                }
-            }
+            // @for $i from 0 through ($cads-grid-columns - 1) {
+            //     @if not($infix == '' and $i == 0) {
+            //         // Avoid emitting useless .offset-0
+            //         .cads-offset#{$infix}-#{$i} {
+            //             @include cads-make-col-offset($i, $cads-grid-columns);
+            //         }
+            //     }
+            // }
         }
     }
 }
