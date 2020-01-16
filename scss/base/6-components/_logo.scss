@@ -4,4 +4,9 @@
     height: 100px;
     margin-right: 2em; // Always leave a gap to anything after it
     display: inline-block;
+    transition: scale $cads-animation-speed;
+
+    &:hover {
+        scale: 1.1;
+    }
 }

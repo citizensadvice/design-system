@@ -60,7 +60,7 @@ Registered office: Citizens Advice, 3rd Floor North, 200 Aldersgate, London, EC1
   </div>
 </div>
 <div class="cads-footer__company-info">
-    <div class="cads-logo"></div>
+    <a class="cads-logo" href="javascript:;" title="Citizens Advice Logo"></a>
     <div>
         ${footerContent}
     </div>
