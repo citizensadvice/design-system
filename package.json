@@ -13,7 +13,7 @@
         "clean": "rm -fr ./lib.*.css",
         "figma": "node ./scripts/figma",
         "storybook": "start-storybook -p 6006 -s .",
-        "build-storybook": "build-storybook -o styleguide-static && cp -r assets lib.base.css ./styleguide-static"
+        "build-docs": "build-storybook -o docs && cp -r assets lib.base.css ./docs"
     },
     "repository": {
         "type": "git",
