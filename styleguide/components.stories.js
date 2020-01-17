@@ -1,6 +1,8 @@
 import { withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line
 import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 
+import './styles.scss';
+
 import CalloutBox from './components/callout-box';
 import Header from './components/header';
 import Footer from './components/footer';

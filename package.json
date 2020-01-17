@@ -12,7 +12,7 @@
         "build": "yarn clean && node ./scripts/build -r",
         "clean": "rm -fr ./lib",
         "figma": "node ./scripts/figma",
-        "storybook": "start-storybook -p 6006 -s .",
+        "storybook": "start-storybook -p 6006",
         "build-docs": "build-storybook -o docs",
         "serve-docs": "http-server docs"
     },
