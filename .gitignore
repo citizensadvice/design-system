@@ -11,5 +11,3 @@ npm-debug.log
 *.tgz
 yarn-error.log
 .npmrc
-lib.*.css
-styleguide-static
