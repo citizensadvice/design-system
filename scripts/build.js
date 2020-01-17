@@ -9,12 +9,13 @@ const chalk = require('chalk');
 const { log } = console;
 const PATH = path.join(__dirname, '..'); // Where's stuff?
 const themes = require(`${PATH}/config/themes`); // eslint-disable-line
+const OUTPUT_DIR = path.join(PATH, 'lib');
 
 function compileCSS() {
     Object.keys(themes).forEach(key => {
         const file = themes[key].css;
         const source = `${PATH}/scss/${file}.scss`;
-        const dest = `${PATH}/${file}.css`;
+        const dest = `${OUTPUT_DIR}/${file}.css`;
         sass.render(
             {
                 file: source,
@@ -49,6 +50,10 @@ function compileCSS() {
 
 // Only run if the -r param is given
 if (process.argv[2] === '-r') {
+    // Make sure the output dir exists
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR);
+    }
     compileCSS();
 }
 

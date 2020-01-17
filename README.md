@@ -2,7 +2,9 @@
 
 ## How to use this
 
-To see the styleguide:
+The styleguide is hosted here: https://citizensadvice.github.io/design-system-testing/
+
+To build the styleguide:
 
 ```
 yarn

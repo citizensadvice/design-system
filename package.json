@@ -10,10 +10,10 @@
     ],
     "scripts": {
         "build": "yarn clean && node ./scripts/build -r",
-        "clean": "rm -fr ./lib.*.css",
+        "clean": "rm -fr ./lib",
         "figma": "node ./scripts/figma",
         "storybook": "start-storybook -p 6006 -s .",
-        "build-docs": "yarn build && build-storybook -o docs && cp -r assets lib.base.css ./docs"
+        "build-docs": "yarn build && build-storybook -o docs && cp -r ./assets ./lib/lib.base.css ./docs"
     },
     "repository": {
         "type": "git",
