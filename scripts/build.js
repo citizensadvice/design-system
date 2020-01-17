@@ -16,6 +16,7 @@ function compileCSS() {
         const file = themes[key].css;
         const source = `${PATH}/scss/${file}.scss`;
         const dest = `${OUTPUT_DIR}/${file}.css`;
+
         sass.render(
             {
                 file: source,
@@ -27,7 +28,11 @@ function compileCSS() {
                     postcss([autoprefixer, cssnano])
                         .process(result.css, { from: source, to: dest })
                         .then(postCssResult => {
-                            fs.writeFile(dest, postCssResult.css, err => {
+                            const replaceUrlPaths = postCssResult.css.replace(
+                                'url(../assets/',
+                                'url(/assets/'
+                            );
+                            fs.writeFile(dest, replaceUrlPaths, err => {
                                 if (!err) {
                                     // eslint-disable-next-line no-console
                                     log(chalk.green(`${file}.css written`));

@@ -6,14 +6,15 @@
         "assets",
         "favicons",
         "scss",
-        "lib.*.css"
+        "lib"
     ],
     "scripts": {
         "build": "yarn clean && node ./scripts/build -r",
         "clean": "rm -fr ./lib",
         "figma": "node ./scripts/figma",
         "storybook": "start-storybook -p 6006 -s .",
-        "build-docs": "yarn build && build-storybook -o docs && cp -r ./assets ./lib/lib.base.css ./docs"
+        "build-docs": "build-storybook -o docs",
+        "serve-docs": "http-server docs"
     },
     "repository": {
         "type": "git",
@@ -39,6 +40,7 @@
         "eslint-plugin-prettier": "^3.1.1",
         "highlight-loader": "^0.7.3",
         "highlight.js": "^9.17.1",
+        "http-server": "^0.12.1",
         "markdown-loader": "^5.1.0",
         "prettier": "^1.19.1",
         "sass-loader": "^8.0.0"
