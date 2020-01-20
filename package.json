@@ -9,12 +9,13 @@
         "lib"
     ],
     "scripts": {
-        "build": "yarn clean && node ./scripts/build -r",
-        "clean": "rm -fr ./lib",
+        "build": "yarn clean && node ./scripts/build -r && yarn ruby-build",
+        "clean": "rm -fr ./css",
         "figma": "node ./scripts/figma",
         "storybook": "start-storybook -p 6006",
         "build-docs": "build-storybook -o docs",
-        "serve-docs": "http-server docs"
+        "serve-docs": "http-server docs",
+        "ruby-build": "gem build design-system.gemspec"
     },
     "repository": {
         "type": "git",

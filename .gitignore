@@ -11,4 +11,5 @@ npm-debug.log
 *.tgz
 yarn-error.log
 .npmrc
-/lib
+*.gem
+/css

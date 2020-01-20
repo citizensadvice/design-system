@@ -9,7 +9,7 @@ const chalk = require('chalk');
 const { log } = console;
 const PATH = path.join(__dirname, '..'); // Where's stuff?
 const themes = require(`${PATH}/config/themes`); // eslint-disable-line
-const OUTPUT_DIR = path.join(PATH, 'lib');
+const OUTPUT_DIR = path.join(PATH, 'css');
 
 function compileCSS() {
     Object.keys(themes).forEach(key => {
