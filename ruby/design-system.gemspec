@@ -13,5 +13,4 @@ Gem::Specification.new do |s|
     ]
     s.homepage    =
       'https://citizensadvice.github.io/design-system-testing'
-    s.license       = 'MIT'
   end
