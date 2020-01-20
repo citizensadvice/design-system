@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
     s.authors     = ["Panos Voudouris"]
     s.email       = 'panos.voudouris@citizensadvice.org.uk'
     s.files       = [
+        "design-system.gemspec",
         "lib/design-system.rb",
         "lib/components/_footer.html.haml"
     ]
