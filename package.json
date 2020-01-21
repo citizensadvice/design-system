@@ -3,16 +3,16 @@
     "version": "2.0.1",
     "description": "",
     "files": [
-        "assets",
         "favicons",
         "scss",
-        "lib"
+        "lib",
+        "dist"
     ],
     "scripts": {
         "build": "yarn clean && node ./scripts/build -r && yarn ruby-build",
-        "clean": "rm -fr ./css",
+        "clean": "rm -fr ./dist",
         "figma": "node ./scripts/figma",
-        "storybook": "start-storybook -p 6006",
+        "styleguide": "start-storybook -p 6006",
         "build-docs": "build-storybook -o docs",
         "serve-docs": "http-server docs",
         "ruby-build": "gem build design-system.gemspec"
@@ -33,25 +33,24 @@
         "@storybook/addon-actions": "^5.3.3",
         "@storybook/addon-knobs": "^5.3.3",
         "@storybook/html": "^5.2.8",
+        "autoprefixer": "^9.7.3",
         "babel-loader": "^8.0.6",
+        "chalk": "^3.0.0",
+        "cssnano": "^4.1.10",
         "dotenv": "^8.2.0",
         "eslint": "^6.7.2",
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-prettier": "^3.1.1",
+        "fs-extra": "^8.1.0",
         "highlight-loader": "^0.7.3",
         "highlight.js": "^9.17.1",
         "http-server": "^0.12.1",
         "markdown-loader": "^5.1.0",
+        "node-sass": "^4.13.0",
+        "postcss": "^7.0.23",
         "prettier": "^1.19.1",
         "sass-loader": "^8.0.0"
     },
-    "dependencies": {
-        "autoprefixer": "^9.7.3",
-        "chalk": "^3.0.0",
-        "cssnano": "^4.1.10",
-        "fs-extra": "^8.1.0",
-        "node-sass": "^4.13.0",
-        "postcss": "^7.0.23"
-    }
+    "dependencies": {}
 }

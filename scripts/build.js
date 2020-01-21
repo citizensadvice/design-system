@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const sass = require('node-sass');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -9,7 +10,7 @@ const chalk = require('chalk');
 const { log } = console;
 const PATH = path.join(__dirname, '..'); // Where's stuff?
 const themes = require(`${PATH}/config/themes`); // eslint-disable-line
-const OUTPUT_DIR = path.join(PATH, 'css');
+const OUTPUT_DIR = path.join(PATH, 'dist');
 
 function compileCSS() {
     Object.keys(themes).forEach(key => {
@@ -20,19 +21,14 @@ function compileCSS() {
         sass.render(
             {
                 file: source,
-                outputStyle: 'compressed',
-                includePaths: ['node_modules/normalize-scss/sass']
+                outputStyle: 'compressed'
             },
             (error, result) => {
                 if (!error) {
                     postcss([autoprefixer, cssnano])
                         .process(result.css, { from: source, to: dest })
                         .then(postCssResult => {
-                            const replaceUrlPaths = postCssResult.css.replace(
-                                'url(../assets/',
-                                'url(/assets/'
-                            );
-                            fs.writeFile(dest, replaceUrlPaths, err => {
+                            fs.writeFile(dest, postCssResult, err => {
                                 if (!err) {
                                     // eslint-disable-next-line no-console
                                     log(chalk.green(`${file}.css written`));
