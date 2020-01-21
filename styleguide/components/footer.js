@@ -1,5 +1,6 @@
 import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 import wrapper from './component-wrapper';
+import { markup as Logo } from './logo';
 
 const footer = () => {
     const section1Heading = text('Section 1 heading', 'Advice');
@@ -60,7 +61,7 @@ Registered office: Citizens Advice, 3rd Floor North, 200 Aldersgate, London, EC1
   </div>
 </div>
 <div class="cads-footer__company-info">
-    <a class="cads-logo" href="javascript:;" title="Citizens Advice Logo"></a>
+    ${Logo}
     <div>
         ${footerContent}
     </div>
