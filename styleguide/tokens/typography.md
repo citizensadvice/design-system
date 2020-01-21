@@ -5,6 +5,7 @@
 <h1>H1 Citizens Advice helps people find a way</h1>
 <h2>H2 Citizens Advice helps people find a way</h2>
 <h3>H3 Citizens Advice helps people find a way</h3>
+<h4>H4 Citizens Advice helps people find a way</h4>
 
 ## Body text, hyperlinks, lists
 
@@ -27,3 +28,5 @@ tempor neque eu ullamcorper. Cras sit amet vehicula dolor. Aenean
 sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
 placerat ac ligula. Ut luctus vitae ante eu euismod.
 </p>
+
+<p class="paragraph-s">This is small text for metadata and some components</p>

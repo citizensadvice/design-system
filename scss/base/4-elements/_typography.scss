@@ -43,9 +43,40 @@ h3,
     }
 }
 
+h4,
+.h4 {
+    font-size: 1.125em;
+    line-height: 1.5em;
+    font-weight: $cads-font-weight__bold;
+    color: $cads-palette__black;
+    margin: 0;
+    padding: 0.75em 0 0 0;
+
+    @include cads-media-breakpoint-down(sm) {
+        font-size: 1em;
+        padding: 0.75em 0 0.75em 0;
+    }
+}
+
 p,
 .paragraph {
+    font-size: 1.125em;
+    line-height: 1.5em;
+    font-weight: $cads-font-weight__regular;
+
+    @include cads-media-breakpoint-down(sm) {
+        font-size: 1em;
+        padding: 0.75em 0 0.75em 0;
+    }
+}
+
+.paragraph-s {
     font-size: 1em;
     line-height: 1.5em;
     font-weight: $cads-font-weight__regular;
+
+    @include cads-media-breakpoint-down(sm) {
+        font-size: .875em;
+        padding: 0.75em 0 0.75em 0;
+    }
 }
