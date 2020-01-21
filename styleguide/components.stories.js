@@ -7,6 +7,8 @@ import CalloutBox from './components/callout-box';
 import Header from './components/header';
 import Footer from './components/footer';
 import Logo from './components/logo';
+import Navigation from './components/navigation';
+import Search from './components/search';
 
 export default {
     title: '3 Components',
@@ -28,7 +30,11 @@ export default {
 
 export const calloutBox = () => CalloutBox();
 export const header = () => Header();
+export const navigation = () => Navigation();
+export const search = () => Search();
+
 export const footer = () => Footer();
+// Allow HTML into the storybook content control
 footer.story = { parameters: { knobs: { escapeHTML: false } } };
 
 export const logo = () => Logo();
