@@ -8,4 +8,21 @@ ul,
     .cads-list-element {
         line-height: 1.5em;
     }
+
+    &.cads-list-unordered__inline {
+        li,
+        .cads-list-element {
+            display: inline-block;
+            margin-right: 1em;
+        }
+
+        // Reverse margins if this is right aligned
+        .cads-align-right & {
+            li,
+            .cads-list-element {
+                margin-right: 0;
+                margin-left: 1em;
+            }
+        }
+    }
 }

@@ -9,7 +9,13 @@ const header = () => {
             ${Logo}
         </div>
         <div class="cads-grid-col cads-align-right">
-            &lt;Insert Search Component Here&gt;
+            <ul class="cads-list-unordered cads-list-unordered__inline">
+                <li><a href="javascript:;">Item 1</a</li>
+                <li><a href="javascript:;">Item 2</a></li>
+            </ul>
+            <div class="cads-search">
+                &lt;Insert Search Component Here&gt;
+            </div>
         </div>
     </div>
 </div>
