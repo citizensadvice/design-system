@@ -1,14 +1,7 @@
 button,
 .cads-button {
-    display: inline-block;
-    outline: none;
-    border: none;
-    padding: calc(0.5em - 1px) 1em;
+    @include cads-interactive-element();
     cursor: pointer;
-    transition: all $cads-animation-speed;
-    box-shadow: none;
-    border: 1px solid;
-    border-color: none;
 
     &,
     &__primary {

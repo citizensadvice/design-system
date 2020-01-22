@@ -1,0 +1,11 @@
+@mixin cads-interactive-element() {
+    font-size: 1em;
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: calc(1em - 1px) 1em;
+    transition: all $cads-animation-speed;
+    box-shadow: none;
+    border: 1px solid;
+    border-color: none;
+}
