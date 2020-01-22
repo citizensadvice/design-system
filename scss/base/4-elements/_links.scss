@@ -1,11 +1,9 @@
 a,
 .hyperlink {
     color: $cads-palette__heritage-blue;
-    line-height: 1.25em;
+    line-height: 1.25em; 
 
-    &:visited {
-        color: #53388D;
-    }
+    // Visited links should be browser default
 
     &:hover {
         color: #002F55;
