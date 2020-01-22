@@ -9,6 +9,7 @@ import Footer from './components/footer';
 import Logo from './components/logo';
 import Navigation from './components/navigation';
 import Search from './components/search';
+import Buttons from './components/buttons';
 
 export default {
     title: '3 Components',
@@ -38,3 +39,4 @@ export const footer = () => Footer();
 footer.story = { parameters: { knobs: { escapeHTML: false } } };
 
 export const logo = () => Logo();
+export const buttons = () => Buttons();

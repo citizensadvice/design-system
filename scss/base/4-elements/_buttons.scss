@@ -1,0 +1,41 @@
+button,
+.cads-button {
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: calc(0.5em - 1px) 1em;
+    cursor: pointer;
+    transition: all $cads-animation-speed;
+    box-shadow: none;
+    border: 1px solid;
+    border-color: none;
+
+    &,
+    &__primary {
+        background-color: $cads-palette__heritage-blue;
+        color: $cads-palette__white;
+        border-color: $cads-palette__heritage-blue;
+
+        &:hover {
+            color: $cads-palette__heritage-blue;
+            background-color: $cads-palette__white;
+        }
+    }
+
+    &__secondary {
+        background-color: $cads-palette__heritage-yellow;
+        color: $cads-palette__black;
+        border-color: $cads-palette__heritage-yellow;
+
+        &:hover {
+            color: $cads-palette__black;
+            background-color: $cads-palette__white;
+        }
+    }
+
+    &:active {
+        background-color: $cads-palette__heritage-yellow;
+        color: $cads-palette__black;
+        border-color: $cads-palette__black;
+    }
+}

@@ -1,12 +1,14 @@
-import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 import wrapper from './component-wrapper';
 
 const search = () => {
-    const content = text('Content', 'Some search content');
     const component = `<div class="cads-search">
-  ${content}
+<input type="search" name="q" aria-label="Search through site content" placeholder="Search for something..."><button class="cads-button cads-search-button">Search</button>
 </div>`;
-    return wrapper('Search', component);
+    return wrapper(
+        'Search',
+        component,
+        'Make sure there is no space between the <code>input</code> and the <code>button</code> in your markup.'
+    );
 };
 
 export default search;

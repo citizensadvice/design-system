@@ -1,3 +1,19 @@
 .cads-search {
     position: relative;
+
+    input {
+        display: inline-block;
+        outline: none;
+        border: none;
+        padding: calc(0.5em - 1px) 1em;
+        cursor: pointer;
+        transition: all $cads-animation-speed;
+        box-shadow: none;
+        border: 1px solid;
+        border-color: none;
+
+        &::placeholder {
+            color: $cads-language__neutral-mid;
+        }
+    }
 }

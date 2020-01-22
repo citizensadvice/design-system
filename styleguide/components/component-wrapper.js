@@ -16,7 +16,7 @@ ${component}
 ${source}
 </code></pre>
 
-${usage && `<h2>Usage info</h2>${usage}`}
+${usage ? `<h2>Usage info</h2>${usage}` : ''}
 `;
 };
 

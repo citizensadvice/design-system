@@ -2,12 +2,34 @@ nav,
 .cads-navigation {
     background-color: $cads-palette__heritage-blue;
     width: 100%;
-    color: $cads-palette__white;
+    overflow: hidden;
+    height: 3em;
 
     li,
     .cads-list-item {
         display: inline-block;
-        padding: 1em;
         font-weight: $cads-font-weight__bold;
+    }
+
+    .cads-nav-link {
+        color: $cads-palette__white;
+        padding: calc(1em - 1px);
+        display: inline-block;
+        text-decoration: none;
+        transition: all $cads-animation-speed;
+        border: 1px solid;
+        border-color: $cads-palette__heritage-blue;
+        line-height: 1em;
+
+        &:hover {
+            background-color: $cads-palette__blue-dark;
+            border-color: $cads-palette__blue-dark;
+        }
+
+        &:active {
+            border-color: $cads-palette__heritage-yellow;
+            background-color: $cads-palette__white;
+            color: $cads-palette__heritage-blue;
+        }
     }
 }
