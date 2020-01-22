@@ -1,6 +1,6 @@
 import './styles.scss';
-import sassPalette from '../scss/base/1-settings/_colour-palette.scss';
-import sassLanguage from '../scss/base/1-settings/_colour-language.scss';
+import sassPalette from '../scss/1-settings/_colour-palette.scss';
+import sassLanguage from '../scss/1-settings/_colour-language.scss';
 
 import Animations from './tokens/animations.md';
 import Breakpoints from './tokens/breakpoints.md';

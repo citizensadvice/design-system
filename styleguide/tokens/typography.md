@@ -18,8 +18,6 @@ This is what text in a paragraph looks like. Below is a list:
 	<li>Item 5</li>
 </ul>
 
-
-
 <p><a href="javascript:;">Hyperlinks show up like this</a>. Here's some more text.
 Nunc nunc dolor, malesuada ut felis vel, mollis auctor turpis.
 Curabitur quis diam sed justo cursus ullamcorper. Aenean elementum
