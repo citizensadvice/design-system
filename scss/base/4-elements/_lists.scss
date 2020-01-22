@@ -5,13 +5,13 @@ ul,
     padding: 0;
 
     li,
-    .cads-list-element {
+    .cads-list-item {
         line-height: 1.5em;
     }
 
     &.cads-list-unordered__inline {
         li,
-        .cads-list-element {
+        .cads-list-item {
             display: inline-block;
             margin-right: 1em;
         }
@@ -19,7 +19,7 @@ ul,
         // Reverse margins if this is right aligned
         .cads-align-right & {
             li,
-            .cads-list-element {
+            .cads-list-item {
                 margin-right: 0;
                 margin-left: 1em;
             }

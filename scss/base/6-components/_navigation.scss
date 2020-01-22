@@ -1,2 +1,13 @@
+nav,
 .cads-navigation {
+    background-color: $cads-palette__heritage-blue;
+    width: 100%;
+    color: $cads-palette__white;
+
+    li,
+    .cads-list-item {
+        display: inline-block;
+        padding: 1em;
+        font-weight: $cads-font-weight__bold;
+    }
 }

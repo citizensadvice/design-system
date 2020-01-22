@@ -32,7 +32,7 @@ TODO
 
 ### Assets
 
-TODO: There are a number of images and other assets under the `assets` folder. These will need to be processed/inlined for things to work, eg logo.
+Any icons/etc should be inlined into the class that needs to use them to avoid url issues on deployment. The original assets should  be stored in the `assets` folder for reference.
 
 ## Building
 

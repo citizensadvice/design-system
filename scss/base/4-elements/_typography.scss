@@ -76,7 +76,7 @@ p,
     font-weight: $cads-font-weight__regular;
 
     @include cads-media-breakpoint-down(sm) {
-        font-size: .875em;
+        font-size: 0.875em;
         padding: 0.75em 0 0.75em 0;
     }
 }

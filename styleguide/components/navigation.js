@@ -1,10 +1,13 @@
-import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 import wrapper from './component-wrapper';
 
 const navigation = () => {
-    const content = text('Content', 'Some navigation content');
     const component = `<div class="cads-navigation">
-  ${content}
+    <ul class="cads-list-unordered">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
 </div>`;
     return wrapper('Navigation', component);
 };

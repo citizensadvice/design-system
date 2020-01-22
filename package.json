@@ -9,13 +9,15 @@
         "dist"
     ],
     "scripts": {
+        "pre-commit": "lint-staged",
         "build": "yarn clean && node ./scripts/build -r && yarn ruby-build",
         "clean": "rm -fr ./dist",
         "figma": "node ./scripts/figma",
         "styleguide": "start-storybook -p 6006",
         "build-docs": "build-storybook -o docs",
         "serve-docs": "http-server docs",
-        "ruby-build": "gem build design-system.gemspec"
+        "ruby-build": "gem build design-system.gemspec",
+        "lint": "stylelint \"./scss/**/*.scss\""
     },
     "repository": {
         "type": "git",
@@ -50,7 +52,24 @@
         "node-sass": "^4.13.0",
         "postcss": "^7.0.23",
         "prettier": "^1.19.1",
-        "sass-loader": "^8.0.0"
+        "sass-loader": "^8.0.0",
+        "stylelint": "^13.0.0",
+        "stylelint-scss": "^3.13.0",
+        "stylelint-selector-bem-pattern": "^2.1.0"
     },
-    "dependencies": {}
+    "dependencies": {},
+    "browserslist": [
+        "IE 11",
+        "last 2 Edge versions",
+        "last 2 Chrome versions",
+        "last 2 Firefox versions",
+        "last 2 Safari versions",
+        "last 2 ChromeAndroid versions",
+        "last 2 iOS versions"
+    ],
+    "lint-staged": {
+        "*.scss": [
+            "stylelint"
+        ]
+    }
 }
