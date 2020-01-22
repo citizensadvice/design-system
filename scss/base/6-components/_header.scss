@@ -2,4 +2,8 @@ header,
 .cads-header {
     background-color: $cads-palette__white;
     padding: $cads-spacing-4;
+
+    .cads-search {
+        margin-top: 1em;
+    }
 }

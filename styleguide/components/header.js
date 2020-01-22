@@ -1,5 +1,6 @@
 import wrapper from './component-wrapper';
 import { markup as Logo } from './logo';
+import { markup as Search } from './search';
 
 const header = () => {
     const component = `<header class="cads-header">
@@ -13,11 +14,7 @@ const header = () => {
                 <li><a href="javascript:;">Item 1</a</li>
                 <li><a href="javascript:;">Item 2</a></li>
             </ul>
-            <div class="cads-search">
-                <div class="cads-search">
-                    <input type="search" name="q" aria-label="Search through site content" placeholder="Search for something..."><button class="cads-button cads-search-button">Search</button>
-                </div>
-            </div>
+            ${Search}
         </div>
     </div>
 </div>

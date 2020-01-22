@@ -1,9 +1,10 @@
 import wrapper from './component-wrapper';
 
-const search = () => {
-    const component = `<div class="cads-search">
-<input type="search" name="q" aria-label="Search through site content" placeholder="Search for something..."><button class="cads-button cads-search-button">Search</button>
+const component = `<div class="cads-search">
+<input type="search" name="q" aria-label="Search through site content"><button class="cads-button cads-search-button">Search</button>
 </div>`;
+
+const search = () => {
     return wrapper(
         'Search',
         component,
@@ -12,3 +13,4 @@ const search = () => {
 };
 
 export default search;
+export { component as markup };
