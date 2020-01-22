@@ -8,6 +8,7 @@ import Typography from './tokens/typography.md';
 import Spacing from './tokens/spacing.md';
 import Grid from './tokens/grid.md';
 import Borders from './tokens/borders.md';
+import Visibility from './tokens/visibility.md';
 
 export default {
     title: '2 Design Tokens'
@@ -61,3 +62,4 @@ export const grid = () => Grid;
 export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;
 export const animations = () => Animations;
+export const visibility = () => Visibility;
