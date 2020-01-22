@@ -1,3 +1,5 @@
+// Use this for some basic sizing and styling of interactive components
+// e.g. buttons and inputs
 @mixin cads-interactive-element() {
     font-size: 1em;
     padding: calc(1em - 1px) 1em;

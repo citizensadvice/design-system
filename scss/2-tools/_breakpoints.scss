@@ -1,26 +1,4 @@
-//  ________________________________________________________
-//
-//  Function that will read the $breakpoints map and return
-//  the correct breakpoint value converted to chosen unit.
-//  ________________________________________________________
-
-@function cads-get-breakpoint($size, $range: high, $unit: em) {
-    $result: null;
-
-    @if $range == high {
-        $result: map-get($cads-breakpoints, $size) / 16 * 1;
-    } @else {
-        $result: (map-get($cads-breakpoints, $size) - 1) / 16 * 1;
-    }
-
-    @if $unit {
-        $result: $result + $unit;
-    }
-
-    @return $result;
-}
-
-// Name of the next breakpoint, or null for the last breakpoint.
+// Name of the next breakpoint (null for the last one)
 @function cads-breakpoint-next(
     $name,
     $breakpoints: $cads-breakpoints,
@@ -34,13 +12,13 @@
     );
 }
 
-// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+// Minimum breakpoint width (null for the first one)
 @function cads-breakpoint-min($name, $breakpoints: $cads-breakpoints) {
     $min: map-get($breakpoints, $name);
     @return if($min != 0, $min, null);
 }
 
-// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// Maximum breakpoint width (null for the last one)
 @function cads-breakpoint-max($name, $breakpoints: $cads-breakpoints) {
     $next: cads-breakpoint-next($name, $breakpoints);
     @return if($next, cads-breakpoint-min($next, $breakpoints) - 0.02px, null);
@@ -99,7 +77,7 @@
 
 // Media between the breakpoint's minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
-// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+// Makes the @content apply ONLY to the given breakpoint.
 @mixin cads-media-breakpoint-only($name, $breakpoints: $cads-breakpoints) {
     $min: cads-breakpoint-min($name, $breakpoints);
     $max: cads-breakpoint-max($name, $breakpoints);

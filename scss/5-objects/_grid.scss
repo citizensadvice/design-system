@@ -1,9 +1,8 @@
-// Set the container width, and override it for fixed navbars in media queries.
+// Top level grid container
 .cads-grid-container {
     @include cads-make-container();
 }
 
-// Rows contain and clear the floats of your columns.
 .cads-grid-row {
     @include cads-make-row();
 

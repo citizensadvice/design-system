@@ -19,7 +19,7 @@
 
 ### SASS mixin
 
-The `border` mixin can be used in your custom classes for a more semantic approach
+The `border` mixin can be used in your custom classes
 
 `@mixin cads-border($side: a, $width: $cads-border-width-medium, $radius: 0, $colour: $cads-language__neutral-mid)`
 
@@ -33,7 +33,7 @@ The `border` mixin can be used in your custom classes for a more semantic approa
 ### Mixin usage example
 
 <pre><code class="css">
-.myClass {
+.yourClass {
   @include cads-border(
     a,
     $cads-border-width-medium,
@@ -43,7 +43,7 @@ The `border` mixin can be used in your custom classes for a more semantic approa
 }
 
 // Output
-.myClass {
+.yourClass {
   border-style: solid;
   border-color: #9f9f9f;
   border-radius: 4px;

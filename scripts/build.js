@@ -9,44 +9,37 @@ const chalk = require('chalk');
 
 const { log } = console;
 const PATH = path.join(__dirname, '..'); // Where's stuff?
-const themes = require(`${PATH}/config/themes`); // eslint-disable-line
 const OUTPUT_DIR = path.join(PATH, 'dist');
 
-function compileCSS() {
-    Object.keys(themes).forEach(key => {
-        const file = themes[key].css;
-        const source = `${PATH}/scss/${file}.scss`;
-        const dest = `${OUTPUT_DIR}/${file}.css`;
+const file = 'lib';
+const source = `${PATH}/scss/${file}.scss`;
+const dest = `${OUTPUT_DIR}/${file}.css`;
 
-        sass.render(
-            {
-                file: source,
-                outputStyle: 'compressed'
-            },
-            (error, result) => {
-                if (!error) {
-                    postcss([autoprefixer, cssnano])
-                        .process(result.css, { from: source, to: dest })
-                        .then(postCssResult => {
-                            fs.writeFile(dest, postCssResult, err => {
-                                if (!err) {
-                                    // eslint-disable-next-line no-console
-                                    log(chalk.green(`${file}.css written`));
-                                } else {
-                                    log(
-                                        chalk.red(
-                                            `Error writing ${file}: ${err}`
-                                        )
-                                    );
-                                }
-                            });
+function compileSass() {
+    sass.render(
+        {
+            file: source,
+            outputStyle: 'compressed'
+        },
+        (error, result) => {
+            if (!error) {
+                postcss([autoprefixer, cssnano])
+                    .process(result.css, { from: source, to: dest })
+                    .then(compiledCSS => {
+                        fs.writeFile(dest, compiledCSS, err => {
+                            if (!err) {
+                                // eslint-disable-next-line no-console
+                                log(chalk.green(`${file}.css written`));
+                            } else {
+                                log(chalk.red(`Error writing ${file}: ${err}`));
+                            }
                         });
-                } else {
-                    log(chalk.red(`Error writing ${file}: ${error}`));
-                }
+                    });
+            } else {
+                log(chalk.red(`Error writing ${file}: ${error}`));
             }
-        );
-    });
+        }
+    );
 }
 
 // Only run if the -r param is given
@@ -55,9 +48,9 @@ if (process.argv[2] === '-r') {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR);
     }
-    compileCSS();
+    compileSass();
 }
 
 module.exports = {
-    compileCSS
+    compileSass
 };
