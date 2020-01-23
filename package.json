@@ -48,6 +48,7 @@
         "highlight-loader": "^0.7.3",
         "highlight.js": "^9.17.1",
         "http-server": "^0.12.1",
+        "husky": "^4.2.0",
         "lint-staged": "^10.0.2",
         "markdown-loader": "^5.1.0",
         "node-sass": "^4.13.0",
@@ -72,5 +73,10 @@
         "*.scss": [
             "stylelint"
         ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn pre-commit"
+        }
     }
 }
