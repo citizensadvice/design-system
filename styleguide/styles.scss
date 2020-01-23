@@ -67,8 +67,8 @@
     width: $cads-spacing-0;
     height: $cads-spacing-0;
     vertical-align: middle;
-    background: rgba($cads-language__neutral-dark, 0.4);
-    border: dotted 1px $cads-language__neutral-dark;
+    background: rgba($cads-language__border-colour, 0.4);
+    border: dotted 1px $cads-language__border-colour;
 
     @each $size, $length in $cads-spacers {
         &--spacing-#{$size} {
@@ -122,19 +122,19 @@
 }
 
 .cads-styleguide-grid {
-    @include cads-border($cads-language__neutral-dark);
+    @include cads-border($cads-language__border-colour);
 
     .cads-grid-row {
         > div {
-            @include cads-border($cads-language__neutral-dark);
-            background: rgba($cads-language__neutral-dark, 0.2);
+            @include cads-border($cads-language__border-colour);
+            background: rgba($cads-language__border-colour, 0.2);
             text-align: center;
 
             span {
                 padding-top: $cads-spacing-2;
                 padding-bottom: $cads-spacing-2;
                 display: block;
-                background: rgba($cads-language__neutral-dark, 0.4);
+                background: rgba($cads-language__border-colour, 0.4);
             }
         }
     }
@@ -147,6 +147,6 @@
         font-weight: bold;
     }
     tr:nth-child(even) {
-        background-color: $cads-language__neutral-lighter;
+        background-color: $cads-language__border-colour;
     }
 }
