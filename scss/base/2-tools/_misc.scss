@@ -1,3 +1,11 @@
+@mixin cads-transition-animation($property: all) {
+    transition: $property $cads-animation-speed;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
 @mixin cads-interactive-element() {
     font-size: 1em;
     padding: calc(1em - 1px) 1em;
@@ -5,7 +13,7 @@
     display: inline-block;
     outline: none;
 
-    transition: all $cads-animation-speed;
+    @include cads-transition-animation(background-color);
     border: none;
     box-shadow: none;
     border: 1px solid;
