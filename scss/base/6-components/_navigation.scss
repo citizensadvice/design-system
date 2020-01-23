@@ -22,8 +22,9 @@ nav,
         line-height: 1em;
 
         &:hover {
-            background-color: $cads-palette__blue-dark;
-            border-color: $cads-palette__blue-dark;
+            background-color: cads-language__link-hover-colour;
+            border-color: $cads-palette__heritage-blue;
+            color: $cads-palette__heritage-blue;
         }
 
         &:active {
