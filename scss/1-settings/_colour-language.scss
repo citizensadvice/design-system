@@ -1,4 +1,4 @@
-@import './colour-palette'; // This is needed for storybook 
+@import './colour-palette'; // This is needed for storybook
 
 $cads-language__text-colour: $cads-palette__black;
 $cads-language__secondary-text-colour: $cads-palette__dark-grey;
@@ -15,6 +15,7 @@ $cads-language__error-colour: $cads-palette__red;
 $cads-language__button-colour: $cads-palette__heritage-blue;
 
 // The following map is only used to provide a loop for displaying the colours in Storybook.
+/* stylelint-disable */
 :export {
     /* prettier-ignore */
     language: {
