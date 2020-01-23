@@ -5,16 +5,3 @@
         transition: none; /* stylelint-disable-line property-blacklist */
     }
 }
-
-@mixin cads-interactive-element() {
-    font-size: 1em;
-    padding: calc(1em - 1px) 1em;
-    display: inline-block;
-    outline: none;
-
-    @include cads-transition-animation(background-color);
-
-    box-shadow: none;
-    border: 1px solid;
-    border-color: none;
-}
