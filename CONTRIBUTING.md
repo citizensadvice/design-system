@@ -2,7 +2,23 @@
 
 To do...
 
+## Tooling
+
+Use node v10 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 10.
+
+### Building
+
+To compile the SCSS into CSS just ran the `build` script. The output goes into `dist`.
+
+#### Output checks
+
+The `check-size` script will check the current output and compare it to the last released build. It will flag up if the size has changed more than 10% either way. The script exports the functions so that you can run them individually in other node scripts. If you execute the script with the `-r` arg it will run and compare the build. If you supply a `-w` argument it will also store the results into `stats/size.json`. You should **only** do that if you are making a new release.
+
+### Testing
+
 ## Structure
+
+
 
 ### ITCSS
 

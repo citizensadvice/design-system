@@ -10,6 +10,8 @@
     ],
     "scripts": {
         "pre-commit": "lint-staged",
+        "check-size": "node ./scripts/check-size -r",
+        "check-size:write": "node ./scripts/check-size -r -w",
         "build": "yarn clean && node ./scripts/build -r && yarn ruby-build",
         "clean": "rm -fr ./dist",
         "figma": "node ./scripts/figma",
