@@ -1,14 +1,19 @@
-// Use this for some basic sizing and styling of interactive components
-// e.g. buttons and inputs
+@mixin cads-transition-animation($property: all) {
+    transition: $property $cads-animation-speed; /* stylelint-disable-line property-blacklist */
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none; /* stylelint-disable-line property-blacklist */
+    }
+}
+
 @mixin cads-interactive-element() {
     font-size: 1em;
     padding: calc(1em - 1px) 1em;
-
     display: inline-block;
     outline: none;
 
-    transition: all $cads-animation-speed;
-    border: none;
+    @include cads-transition-animation(background-color);
+
     box-shadow: none;
     border: 1px solid;
     border-color: none;

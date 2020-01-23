@@ -7,6 +7,7 @@
 
     input {
         @include cads-interactive-element();
+
         flex: 1 1;
 
         &::placeholder {

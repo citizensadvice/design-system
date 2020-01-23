@@ -33,6 +33,7 @@
     @if $name != 'sm' {
         .cads-show-#{$name}-up {
             display: none !important;
+
             @include cads-media-breakpoint-up($name) {
                 display: inherit !important;
             }
@@ -40,6 +41,7 @@
 
         .cads-show-#{$name}-down {
             display: inherit !important;
+
             @include cads-media-breakpoint-up($name) {
                 display: none !important;
             }
@@ -47,6 +49,7 @@
 
         .cads-show-#{$name}-only {
             display: none !important;
+
             @include cads-media-breakpoint-only($name) {
                 display: inherit !important;
             }
@@ -60,6 +63,7 @@
 
         .cads-hide-#{$name}-down {
             display: none !important;
+
             @include cads-media-breakpoint-up($name) {
                 display: inherit !important;
             }

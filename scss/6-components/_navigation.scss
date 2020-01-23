@@ -16,7 +16,9 @@ nav,
         padding: calc(1em - 1px);
         display: inline-block;
         text-decoration: none;
-        transition: all $cads-animation-speed;
+
+        @include cads-transition-animation();
+
         border: 1px solid;
         border-color: $cads-palette__heritage-blue;
         line-height: 1em;
@@ -26,7 +28,9 @@ nav,
             border-color: $cads-palette__blue-dark;
         }
 
+        /* stylelint-disable */
         &:active {
+            /* stylelint-enable */
             border-color: $cads-palette__heritage-yellow;
             background-color: $cads-palette__white;
             color: $cads-palette__heritage-blue;

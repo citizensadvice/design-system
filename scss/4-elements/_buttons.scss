@@ -1,6 +1,7 @@
 button,
 .cads-button {
     @include cads-interactive-element();
+
     cursor: pointer;
 
     &,
