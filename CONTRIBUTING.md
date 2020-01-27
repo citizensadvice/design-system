@@ -41,7 +41,7 @@ yarn storybook
 
 The styleguide runs on http://localhost:6006. The documentation is generated using storybook and the code lives under `styleguide`.
 
-The static version of the styleguide is build into `docs` using `yarn build-docs`, which then gets automatically hosted into Github pages. You can serve the generated files from `docs` by running `yarn serve-docs`.
+The static version of the styleguide is build into `docs` using `yarn docs:build`, which then gets automatically hosted into Github pages. You can serve the generated files from `docs` by running `yarn docs:serve`.
 
 Currently there is no automated process to rebuild the contents of the `docs` folder, so you need to remember to do that whenever you make a release (currently that is merging into `master`).
 
