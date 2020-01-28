@@ -9,7 +9,7 @@
         "dist"
     ],
     "scripts": {
-        "pre-commit": "lint-staged",
+        "pre-commit": "lint-staged && echo \"*** Dont' forget to rebuild the documentation! ***\"",
         "check-size": "node ./scripts/check-size -r",
         "check-size:write": "node ./scripts/check-size -r -w",
         "build": "yarn clean && node ./scripts/build -r && yarn check-size -r",
