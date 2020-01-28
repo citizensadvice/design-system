@@ -36,7 +36,7 @@ The styleguide is automatically hosted in [Github pages](https://citizensadvice.
 To build and run the styleguide in dev mode locally:
 
 ```
-yarn storybook
+yarn styleguide
 ```
 
 The styleguide runs on http://localhost:6006. The documentation is generated using storybook and the code lives under `styleguide`.
