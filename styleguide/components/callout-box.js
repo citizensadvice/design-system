@@ -6,13 +6,13 @@ const callout = () => {
     const content = text('Content', 'The callout box content');
     const options = {
         Info: 'info',
-        Quote: 'quote',
+        Notice: 'notice',
         Important: 'important'
     };
-    const boxType = select('Callout type', options, 'quote');
+    const boxType = select('Callout type', options, 'notice');
 
     const component = `<div class="cads-callout cads-callout-${boxType}">
-  <h1><span class="cads-callout-label"></span>${heading}</h1>
+  <h3><span class="cads-callout-label"></span>${heading}</h3>
   ${content}
 </div>`;
     return wrapper('Callout', component);
