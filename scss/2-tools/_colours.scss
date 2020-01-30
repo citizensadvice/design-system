@@ -1,0 +1,5 @@
+$cads-colour-to-bg-opacity: 0.15;
+
+@function cads-colour-to-bg($colour) {
+    @return rgba($colour, $cads-colour-to-bg-opacity);
+}

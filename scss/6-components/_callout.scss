@@ -1,3 +1,75 @@
 .cads-callout {
-    @include cads-border();
+    @include cads-border(l, $cads-border-width-medium);
+
+    position: relative;
+    border-left-width: $cads-border-width-large;
+    padding: $cads-spacing-4;
+
+    @include cads-media-breakpoint-up(md) {
+        padding: $cads-spacing-5;
+    }
+
+    .cads-callout-label {
+        display: none;
+        position: absolute;
+        padding: 0.75em;
+        top: -1em;
+        left: -$cads-border-width-large;
+        font-weight: $cads-font-weight__bold;
+        font-size: 0.75em;
+        line-height: 0.75em;
+        color: $cads-palette__white;
+    }
+
+    &.cads-callout- {
+        &example {
+            background-color: cads-colour-to-bg($cads-language__border-colour);
+
+            .cads-callout-label {
+                display: block;
+                background-color: $cads-language__border-colour;
+                color: $cads-font-colour__base;
+
+                &::after {
+                    content: 'Example';
+                }
+
+                .cads-lang-gd &::after {
+                    content: 'Eisimpleir';
+                }
+
+                .cads-lang-cy &::after {
+                    content: 'Enghraifft';
+                }
+            }
+        }
+
+        &info {
+            border-color: $cads-palette__heritage-yellow;
+            background-color: cads-colour-to-bg($cads-palette__heritage-yellow);
+        }
+
+        &important {
+            border-color: $cads-language__error-colour;
+            background-color: cads-colour-to-bg($cads-language__error-colour);
+
+            .cads-callout-label {
+                display: block;
+                background-color: $cads-language__error-colour;
+
+                /* stylelint-disable-next-line */
+                &::after {
+                    content: 'Important';
+                }
+
+                .cads-lang-gd &::after {
+                    content: 'Cudromach';
+                }
+
+                .cads-lang-cy &::after {
+                    content: 'Bwysig';
+                }
+            }
+        }
+    }
 }

@@ -10,6 +10,7 @@ import Logo from './components/logo';
 import Navigation from './components/navigation';
 import Search from './components/search';
 import Buttons from './components/buttons';
+import Breadcrumbs from './components/breadcrumbs';
 
 export default {
     title: '3 Components',
@@ -40,3 +41,4 @@ footer.story = { parameters: { knobs: { escapeHTML: false } } };
 
 export const logo = () => Logo();
 export const buttons = () => Buttons();
+export const breadcrumbs = () => Breadcrumbs();

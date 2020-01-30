@@ -1,0 +1,22 @@
+.cads-breadcrumbs {
+    @include cads-restrict-content-width();
+
+    li {
+        display: inline-block;
+
+        &::before {
+            color: $cads-language__link-colour;
+            content: '>';
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+        }
+
+        &:first-of-type {
+            margin-left: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+}

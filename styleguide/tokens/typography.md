@@ -3,17 +3,16 @@
 <h2>Font</h2>
 
 <p>
-Our typeface is Open Sans, it's modern, easy to read and available to download for free. We use font weight bold (700) and normal (400) on our websites.
+Our typeface is Open Sans, it's modern, easy to read and available to download for free. We use font weight bold (700) and normal (400) on our websites. Scroll to the bottom for an example of how all types show
+together.
 </p>
-
 
 <h2>Headings</h2>
 
-<h1>H1 Citizens Advice helps people find a way</h1>
-<h2>H2 Citizens Advice helps people find a way</h2>
-<h3>H3 Citizens Advice helps people find a way</h3>
-<h4>H4 Citizens Advice helps people find a way</h4>
-
+<h1>Heading 1 &lt;h1> Use this for the main page heading</h1>
+<h2>Heading 2 &lt;h2> Citizens Advice helps people find a way</h2>
+<h3>Heading 3 &lt;h3> Citizens Advice helps people find a way</h3>
+<h4>Heading 4 &lt;h4> Citizens Advice helps people find a way</h4>
 
 <h2>Paragraphs</h2>
 
@@ -35,16 +34,6 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 <h2>Links</h2>
 
 <p><a href="javascript:;">Hyperlinks show up like this</a></p>
-
-<h2>Lists</h2>
-
-<ul>
-	<li>Item 1</li>
-	<li>Item 2</li>
-	<li>Item 3</li>
-	<li>Item 4</li>
-	<li>Item 5</li>
-</ul>
 
 <h3>Bullet lists (to do)</h3>
 
@@ -101,3 +90,4 @@ You’re unlikely to get compensation if the delay was because of something outs
 
 <h4>Citizens Advice consumer helpline</h4>
 <p>03454 04 05 06</p>
+<p class="paragraph-s">This is small text for metadata and some components</p>

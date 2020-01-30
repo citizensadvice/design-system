@@ -9,6 +9,7 @@ import Spacing from './tokens/spacing.md';
 import Grid from './tokens/grid.md';
 import Borders from './tokens/borders.md';
 import Visibility from './tokens/visibility.md';
+import Languages from './tokens/languages.md';
 
 export default {
     title: '2 Design Tokens'
@@ -63,3 +64,4 @@ export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;
 export const animations = () => Animations;
 export const visibility = () => Visibility;
+export const languages = () => Languages;
