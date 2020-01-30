@@ -6,13 +6,13 @@ const wrapper = (title, component, usage) => {
     const source = hljs.highlightAuto(component).value;
 
     return `
-<h1>${title}</h1>
+<h1 aria-hidden="true">${title}</h1>
 <div id="${a11yid}">
 ${component}
 </div>
-<h2>Component source</h2>
+<h2 aria-hidden="true">Component source</h2>
 
-<pre><code class="html">
+<pre aria-hidden="true"><code class="html">
 ${source}
 </code></pre>
 
