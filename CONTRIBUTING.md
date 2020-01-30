@@ -47,7 +47,19 @@ Currently there is no automated process to rebuild the contents of the `docs` fo
 
 ## Structure
 
+## IDE setup
 
+If you are using VSCode here is a list of useful plugins that can help with this repo:
+
+* Auto Close Tag
+* Bracket Pair Colorizer
+* EditorConfig for VS Code
+* ESLint
+* GitLens
+* Node Debug
+* npm Intellisense
+* Prettier
+* stylelint
 
 ### ITCSS
 
