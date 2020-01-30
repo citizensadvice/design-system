@@ -17,7 +17,7 @@
         "styleguide": "start-storybook -p 6006",
         "docs:build": "build-storybook -o docs",
         "docs:serve": "http-server docs",
-        "lint": "stylelint \"./scss/**/*.scss\""
+        "lint": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\""
     },
     "repository": {
         "type": "git",
