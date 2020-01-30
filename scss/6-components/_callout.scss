@@ -22,11 +22,29 @@
     }
 
     &.cads-callout- {
-        &info {
+        &example {
             background-color: cads-colour-to-bg($cads-language__border-colour);
+
+            .cads-callout-label {
+                display: block;
+                background-color: $cads-language__border-colour;
+                color: $cads-font-colour__base;
+
+                &::after {
+                    content: 'Example';
+                }
+
+                .cads-lang-gd &::after {
+                    content: 'Eisimpleir';
+                }
+
+                .cads-lang-cy &::after {
+                    content: 'Enghraifft';
+                }
+            }
         }
 
-        &notice {
+        &info {
             border-color: $cads-palette__heritage-yellow;
             background-color: cads-colour-to-bg($cads-palette__heritage-yellow);
         }
@@ -39,6 +57,7 @@
                 display: block;
                 background-color: $cads-language__error-colour;
 
+                /* stylelint-disable-next-line */
                 &::after {
                     content: 'Important';
                 }
