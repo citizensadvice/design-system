@@ -20,6 +20,8 @@ h2,
     color: $cads-font-colour__headings;
     margin: 0 0 0.75em 0;
 
+    @include cads-adjacent-heading-margin(2em);
+
     @include cads-media-breakpoint-down(sm) {
         font-size: 1.5em;
         margin: 0 0 0.5em 0;
@@ -34,6 +36,8 @@ h3,
     color: $cads-font-colour__headings;
     margin: 0 0 0.75em 0;
 
+    @include cads-adjacent-heading-margin(2em);
+
     @include cads-media-breakpoint-down(sm) {
         font-size: 1.25em;
         margin: 0 0 0.5em 0;
@@ -47,6 +51,8 @@ h4,
     font-weight: $cads-font-weight__bold;
     color: $cads-font-colour__headings;
     margin: 0;
+
+    @include cads-adjacent-heading-margin(2em);
 
     @include cads-media-breakpoint-down(sm) {
         font-size: 1em;

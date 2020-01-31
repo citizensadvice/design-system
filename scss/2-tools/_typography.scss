@@ -1,0 +1,9 @@
+@mixin cads-adjacent-heading-margin($m) {
+    h2 + &,
+    h3 + &,
+    h4 + &,
+    p + &,
+    ul + & {
+        margin-top: $m;
+    }
+}
