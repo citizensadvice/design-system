@@ -6,7 +6,8 @@
         "favicons",
         "scss",
         "lib",
-        "dist"
+        "dist",
+        "haml"
     ],
     "scripts": {
         "pre-commit": "lint-staged && echo \"***\n***\nDont' forget to rebuild the documentation!\n***\n***\"",
