@@ -1,0 +1,10 @@
+.cads-notice-banner {
+    @include cads-border(
+        l,
+        $cads-border-width-large,
+        0,
+        $cads-palette__heritage-yellow
+    );
+
+    padding: $cads-spacing-2;
+}
