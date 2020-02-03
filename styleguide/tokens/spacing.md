@@ -2,7 +2,7 @@
 
 ## Sizing
 
-All page content should be limited to 1200px wide. Use the `$cads-max-content-size` variable if needed to restrict the content of your components. See the `footer` component as an example of how to restrict content but let things like background colours expand.
+All page content should be limited to 1200px wide. Use the `$cads-max-content-size` variable for setting the `width` or apply the `.cads-max-content-width` class to restrict the content of your components on large screen sizes. See the `footer` component as an example of how to restrict content but let things like background colours expand.
 
 ## Spacing
 

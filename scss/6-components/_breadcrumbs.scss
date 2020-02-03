@@ -1,6 +1,8 @@
 .cads-breadcrumbs {
     @include cads-restrict-content-width();
 
+    margin-bottom: $cads-spacing-7;
+
     li {
         display: inline-block;
 
