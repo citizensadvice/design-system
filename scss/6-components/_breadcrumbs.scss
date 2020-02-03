@@ -5,12 +5,16 @@
 
     li {
         display: inline-block;
+        max-width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &::before {
             color: $cads-language__link-colour;
             content: '>';
-            margin-left: 0.5em;
-            margin-right: 0.5em;
+            margin-left: $cads-spacing-2;
+            margin-right: $cads-spacing-2;
         }
 
         &:first-of-type {
