@@ -14,6 +14,20 @@ together.
 <h3>Heading 3 &lt;h3> Citizens Advice helps people find a way</h3>
 <h4>Heading 4 &lt;h4> Citizens Advice helps people find a way</h4>
 
+<h3>Notes on heading spacing</h3>
+h2 and h3 headings will automatically add a top margin if they are preceded by certain elements, eg p, lists or other headings. See the examples below:
+<hr/>
+<div>This text is within a div tag</div>
+<h2>This H2 does not have a top margin</h2>
+<hr/>
+<p>This text is within a p tag</p>
+<h2>This H2 has a top margin applied automatically</h2>
+<hr/>
+To manually add a margin apply the <code class="css">adjacent-heading-margin</code> class to the heading.
+<div>This text is within a div tag</div>
+<h2 class="adjacent-heading-margin">manually applied margin</h2>
+<hr/>
+
 <h2>Paragraphs</h2>
 
 <h3>Body text</h3>
@@ -55,9 +69,63 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 	<li>Item 5</li>
 </ol>
 
+<h3>List within text</h3>
+
+<p>
+This is what text in a paragraph looks like. Here's some more text.
+Nunc nunc dolor, malesuada ut felis vel, mollis auctor turpis.
+Curabitur quis diam sed justo cursus ullamcorper. Aenean elementum
+tempor neque eu ullamcorper. Cras sit amet vehicula dolor. Aenean
+sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
+placerat ac ligula. Ut luctus vitae ante eu euismod.
+</p>
+<ol>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+	<li>Item 4</li>
+	<li>Item 5</li>
+</ol>
+<p>
+This is what text in a paragraph looks like. Here's some more text.
+Nunc nunc dolor, malesuada ut felis vel, mollis auctor turpis.
+Curabitur quis diam sed justo cursus ullamcorper. Aenean elementum
+tempor neque eu ullamcorper. Cras sit amet vehicula dolor. Aenean
+sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
+placerat ac ligula. Ut luctus vitae ante eu euismod.
+</p>
+<ul>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+	<li>Item 4</li>
+	<li>Item 5</li>
+</ul>
+<p>
+This is what text in a paragraph looks like. Here's some more text.
+Nunc nunc dolor, malesuada ut felis vel, mollis auctor turpis.
+Curabitur quis diam sed justo cursus ullamcorper. Aenean elementum
+tempor neque eu ullamcorper. Cras sit amet vehicula dolor. Aenean
+sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
+placerat ac ligula. Ut luctus vitae ante eu euismod.
+</p>
+
+<h3>Inline lists</h3>
+<p>Applying the <code class="lang-css">cads-list-unordered__inline</code> class to a ul makes the list inline. e.g.</p>
+
+<ul class="cads-list-unordered cads-list-unordered__inline">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+</ul>
+
+
+
 ----
 
-<h1>Claim compensation if your flight's delayed or cancelled</h1>
+<h1>Claim compensation if your flight is delayed or cancelled</h1>
 
 <p>You might be able to get compensation under EU law if your flight either:</p>
 
