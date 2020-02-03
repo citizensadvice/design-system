@@ -20,11 +20,15 @@ h2,
     color: $cads-font-colour__headings;
     margin: 0 0 $cads-spacing-4 0;
 
-    @include cads-adjacent-heading-margin($cads-spacing-6);
-
     @include cads-media-breakpoint-down(sm) {
         font-size: 1.5em;
         margin: 0 0 $cads-spacing-3 0;
+    }
+
+    @include cads-adjacent-heading-margin($cads-spacing-6);
+
+    &.adjacent-heading-margin {
+        margin-top: $cads-spacing-6;
     }
 }
 
@@ -36,11 +40,15 @@ h3,
     color: $cads-font-colour__headings;
     margin: 0 0 $cads-spacing-3 0;
 
-    @include cads-adjacent-heading-margin($cads-spacing-6);
-
     @include cads-media-breakpoint-down(sm) {
         font-size: 1.25em;
         margin: 0 0 $cads-spacing-3 0;
+    }
+
+    @include cads-adjacent-heading-margin($cads-spacing-6);
+
+    &.adjacent-heading-margin {
+        margin-top: $cads-spacing-6;
     }
 }
 
@@ -67,7 +75,6 @@ p,
 
     @include cads-media-breakpoint-down(sm) {
         font-size: 1em;
-        margin: 0 0 $cads-spacing-4 0;
     }
 }
 
@@ -79,6 +86,5 @@ p,
 
     @include cads-media-breakpoint-down(sm) {
         font-size: 0.875em;
-        margin: 0 0 $cads-spacing-3 0;
     }
 }

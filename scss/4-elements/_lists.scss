@@ -1,13 +1,19 @@
+li,
+.cads-list-item {
+    line-height: 1.5em;
+}
+
+ol,
+.cads-list-ordered {
+    padding: 0 0 0 1.25em;
+    margin: 0 0 $cads-spacing-4 0;
+}
+
 ul,
 .cads-list-unordered {
     list-style: none;
-    margin: 0;
     padding: 0;
-
-    li,
-    .cads-list-item {
-        line-height: 1.5em;
-    }
+    margin: 0 0 $cads-spacing-4 0;
 
     &.cads-list-unordered__inline {
         li,
