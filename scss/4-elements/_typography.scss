@@ -18,9 +18,9 @@ h2,
     line-height: 1.25em;
     font-weight: $cads-font-weight__bold;
     color: $cads-font-colour__headings;
-    margin: 0 0 0.75em 0;
+    margin: 0 0 0.5em 0;
 
-    @include cads-adjacent-heading-margin(2em);
+    @include cads-adjacent-heading-margin(1em);
 
     @include cads-media-breakpoint-down(sm) {
         font-size: 1.5em;
@@ -34,9 +34,9 @@ h3,
     line-height: 1.25em;
     font-weight: $cads-font-weight__bold;
     color: $cads-font-colour__headings;
-    margin: 0 0 0.75em 0;
+    margin: 0 0 0.5em 0;
 
-    @include cads-adjacent-heading-margin(2em);
+    @include cads-adjacent-heading-margin(1em);
 
     @include cads-media-breakpoint-down(sm) {
         font-size: 1.25em;
@@ -51,8 +51,6 @@ h4,
     font-weight: $cads-font-weight__bold;
     color: $cads-font-colour__headings;
     margin: 0;
-
-    @include cads-adjacent-heading-margin(2em);
 
     @include cads-media-breakpoint-down(sm) {
         font-size: 1em;
