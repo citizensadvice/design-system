@@ -43,8 +43,9 @@ function getColours(type, sass) {
     colours.forEach(item => {
         const name = item.replace(`${type}-`, '');
         const colour = sass[item];
-        result += `<div class="cads-styleguide__colour-tile" style="background: ${colour}">
-<p style="color: ${getBrightness(colour)}">${name.replace(
+        result += `<div class="cads-styleguide__colour-tile">
+<div class="cads-styleguide__colour-tile-bg" style="background: ${colour}"></div>
+<p>${name.replace(
             /([A-Z])/g,
             g => `-${g[0].toLowerCase()}`
         )}
