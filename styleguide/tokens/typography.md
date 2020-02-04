@@ -41,9 +41,11 @@ sed tempor neque. Quisque enim risus, faucibus sed fringilla a,
 placerat ac ligula. Ut luctus vitae ante eu euismod.
 </p>
 
-<h3>Small text</h3>
+<h3>Small text .paragraph-s</h3>
 
 <p class="paragraph-s">This is small text for metadata and some UI components. Your body copy should use the standard 18px font size.</p>
+
+<pre><code class="lang-css">&lt;p class="paragraph-s">This is small text...&lt;/p></code></pre>
 
 <h2>Links</h2>
 

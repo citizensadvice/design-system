@@ -8,8 +8,8 @@ const noticeBanner = () => {
     );
 
     const component = `<div class="cads-notice-banner">
-    <h4>Notice</h4>
-${content}
+    <span class="cads-notice-banner__title">Notice</span>
+<p class="paragraph-s">${content}</p>
 </div>`;
     return wrapper('Notice Banner', component);
 };
