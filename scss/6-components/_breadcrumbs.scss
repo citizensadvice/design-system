@@ -12,7 +12,7 @@
 
         &::before {
             color: $cads-language__link-colour;
-            content: '>';
+            content: '\203A';
             margin-left: $cads-spacing-2;
             margin-right: $cads-spacing-2;
         }
@@ -22,6 +22,22 @@
 
             &::before {
                 display: none;
+            }
+        }
+    }
+
+    &.cads-breadcrumbs__previous-page-only {
+        @include cads-media-breakpoint-only(sm) {
+            li {
+                display: none;
+            }
+
+            li:nth-last-child(2) {
+                display: block;
+
+                &::before {
+                    content: '\2039';
+                }
             }
         }
     }
