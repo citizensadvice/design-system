@@ -3,7 +3,7 @@
         l,
         $cads-border-width-large,
         0,
-        $cads-language__focus-colour
+        $cads-language__brand-secondary
     );
 
     padding: $cads-spacing-2;
@@ -32,7 +32,7 @@
         .cads-notice-banner__title {
             flex-grow: 0;
             flex-shrink: 0;
-            background-color: $cads-language__focus-colour;
+            background-color: $cads-language__brand-secondary;
             padding: $cads-spacing-2;
             margin: 0 $cads-spacing-4 0 0;
         }
