@@ -12,7 +12,7 @@ import Visibility from './tokens/visibility.md';
 import Languages from './tokens/languages.md';
 
 export default {
-    title: '2 Design Tokens'
+    title: '2 Design Foundations'
 };
 
 function getBrightness(colour) {
