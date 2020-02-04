@@ -15,6 +15,7 @@
             content: '\203A';
             margin-left: $cads-spacing-2;
             margin-right: $cads-spacing-2;
+            font-size: 18px; // Fix size as this is a symbol
         }
 
         &:first-of-type {
@@ -37,6 +38,8 @@
 
                 &::before {
                     content: '\2039';
+                    margin-left: 0;
+                    margin-right: $cads-spacing-0;
                 }
             }
         }
