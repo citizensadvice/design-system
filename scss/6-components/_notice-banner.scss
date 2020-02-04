@@ -1,11 +1,4 @@
 .cads-notice-banner {
-    .cads-notice-banner__title {
-        @extend .h4;
-
-        display: block;
-        line-height: 1em;
-    }
-
     @include cads-border(
         l,
         $cads-border-width-large,
@@ -15,14 +8,24 @@
 
     padding: $cads-spacing-2;
 
+    .cads-notice-banner__title {
+        @extend .h4;
+
+        display: block;
+        line-height: 1em;
+    }
+
+    .paragraph-s {
+        margin: 0;
+    }
+
     @include cads-media-breakpoint-up(md) {
         border: none;
         display: flex;
         flex-direction: row;
         align-items: flex-start;
 
-        p,
-        .paragraph {
+        .paragraph-s {
             flex: 1 1 auto;
         }
 
@@ -31,7 +34,7 @@
             flex-shrink: 0;
             background-color: $cads-language__focus-colour;
             padding: $cads-spacing-2;
-            margin: 0 $cads-spacing-2 $cads-spacing-2 0;
+            margin: 0 $cads-spacing-4 0 0;
         }
     }
 }
