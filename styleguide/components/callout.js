@@ -16,7 +16,7 @@ const callout = () => {
 
     const component = `<div class="cads-callout cads-callout-${boxType}">
   <h3><span class="cads-callout-label"></span>${heading}</h3>
-  ${content}
+  <p>${content}</p>
 </div>`;
     return wrapper('Callout', component);
 };

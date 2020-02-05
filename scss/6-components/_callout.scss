@@ -6,24 +6,20 @@
     padding: $cads-spacing-4;
 
     @include cads-media-breakpoint-up(md) {
-        padding: $cads-spacing-5;
+        padding: $cads-spacing-4;
     }
 
-    h3 {
-        font-size: 1em;
-    }
-
-    @include cads-media-breakpoint-only(sm) {
-        h3 {
-            font-size: 0.875em;
-        }
+    p:last-of-type {
+        margin-bottom: 0;
     }
 
     .cads-callout-label {
         display: none;
         position: relative;
         color: $cads-language__secondary-text-colour;
-        margin-bottom: $cads-spacing-3;
+        margin-bottom: $cads-spacing-2;
+        font-size: 0.7em;
+        line-height: 0.7em;
     }
 
     &.cads-callout- {
