@@ -3,7 +3,7 @@ import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 
 import './styles.scss';
 
-import CalloutBox from './components/callout-box';
+import Callout from './components/callout';
 import Header from './components/header';
 import Footer from './components/footer';
 import Logo from './components/logo';
@@ -31,7 +31,7 @@ export default {
     }
 };
 
-export const calloutBox = () => CalloutBox();
+export const callout = () => Callout();
 export const header = () => Header();
 export const navigation = () => Navigation();
 export const search = () => Search();

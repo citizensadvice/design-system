@@ -3,7 +3,10 @@ import wrapper from './component-wrapper';
 
 const callout = () => {
     const heading = text('Heading', 'Callout title');
-    const content = text('Content', 'The callout box content');
+    const content = text(
+        'Content',
+        'Nunc nunc dolor, malesuada ut felis vel, mollis auctor turpis. Curabitur quis diam sed justo cursus ullamcorper. Aenean elementum tempor neque eu ullamcorper. Cras sit amet vehicula dolor. Aenean sed tempor neque. Quisque enim risus, faucibus sed fringilla a, placerat ac ligula. Ut luctus vitae ante eu euismod.'
+    );
     const options = {
         Example: 'example',
         Info: 'info',

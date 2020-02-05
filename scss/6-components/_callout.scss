@@ -9,12 +9,21 @@
         padding: $cads-spacing-5;
     }
 
+    h3 {
+        font-size: 1em;
+    }
+
+    @include cads-media-breakpoint-only(sm) {
+        h3 {
+            font-size: 0.875em;
+        }
+    }
+
     .cads-callout-label {
         display: none;
         position: relative;
-        font-size: 0.75em;
-        color: $cads-font-colour__base;
-        margin-bottom: 1em;
+        color: $cads-language__secondary-text-colour;
+        margin-bottom: $cads-spacing-3;
     }
 
     &.cads-callout- {
@@ -46,8 +55,10 @@
         }
 
         &info {
-            border-color: $cads-palette__heritage-yellow;
-            background-color: cads-colour-to-bg($cads-palette__heritage-yellow);
+            border-color: $cads-language__brand-secondary;
+            background-color: cads-colour-to-bg(
+                $cads-language__brand-secondary
+            );
         }
 
         &important {
