@@ -28,9 +28,10 @@
                 a,
                 $cads-border-width-medium,
                 0,
-                $cads-palette__mid-grey
+                $cads-language__border-colour
             );
 
+            border-left-color: $cads-palette__mid-grey;
             border-left-width: $cads-border-width-large;
 
             .cads-callout-label {
