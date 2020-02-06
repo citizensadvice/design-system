@@ -6,15 +6,17 @@ $cads-language__text-colour: $cads-palette__black;
 $cads-language__secondary-text-colour: $cads-palette__dark-grey;
 $cads-language__link-colour: $cads-palette__heritage-blue;
 $cads-language__link-hover-colour: $cads-palette__heritage-blue-dark;
-$cads-language__link-hover-background-colour: $cads-palette__blue-light;
 $cads-language__link-visited-colour: $cads-palette__purple;
 $cads-language__link-active-colour: $cads-palette__dark-grey;
+$cads-language__hover-background-colour: $cads-palette__blue-light;
 $cads-language__focus-colour: $cads-palette__yellow;
 $cads-language__focus-text-colour: $cads-palette__black;
 $cads-language__input-border-colour: $cads-palette__mid-grey;
 $cads-language__border-colour: $cads-palette__light-grey;
 $cads-language__error-colour: $cads-palette__red;
-$cads-language__button-colour: $cads-palette__heritage-blue;
+$cads-language__button-colour: $cads-palette__teal;
+$cads-language__button-hover-colour: $cads-palette__teal-dark;
+$cads-language__warning-colour: $cads-palette__red;
 
 // The following map is only used to provide a loop for displaying the colours in Storybook.
 /* stylelint-disable */
@@ -27,14 +29,16 @@ $cads-language__button-colour: $cads-palette__heritage-blue;
         secondaryTextColour: $cads-language__secondary-text-colour;
         linkColour: $cads-language__link-colour;
         linkHoverColour: $cads-language__link-hover-colour;
-        linkHoverBackgroundColour: $cads-language__link-hover-background-colour;
         linkVisitedColour: $cads-language__link-visited-colour;
         linkActiveColour: $cads-language__link-active-colour;
+        hoverBackgroundColour: $cads-language__link-hover-background-colour;
         focusColour: $cads-language__focus-colour;
         focusTextColour: $cads-language__focus-text-colour;
+        errorColour: $cads-language__error-colour;
         inputBorderColour: $cads-language__input-border-colour;
         borderColour: $cads-language__border-colour;
-        errorColour: $cads-language__error-colour;
         buttonColour: $cads-language__button-colour;
+        buttonHoverColour: $cads-language__button-hover-colour;
+        warningColour: $cads-language__warning-colour;
     }
 }

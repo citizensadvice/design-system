@@ -14,6 +14,8 @@ $cads-palette__dark-grey: #4a4e4f;
 $cads-palette__mid-grey: #8d9093;
 $cads-palette__light-grey: #e5e5e5;
 $cads-palette__white: #ffffff;
+$cads-palette__teal: #018176;
+$cads-palette__teal-dark: #006159;
 
 :export {
     /* prettier-ignore */
@@ -21,6 +23,8 @@ $cads-palette__white: #ffffff;
         heritageBlue: $cads-palette__heritage-blue;
         blueDark: $cads-palette__heritage-blue-dark;
         blueLight: $cads-palette__blue-light;
+        teal: $cads-palette__teal;
+        tealDark: $cads-palette__teal-dark;
         heritageYellow: $cads-palette__heritage-yellow;
         red: $cads-palette__red;
         redLight: $cads-palette__red-light;
