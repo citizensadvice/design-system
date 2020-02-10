@@ -9,7 +9,7 @@
     padding: $cads-spacing-2;
 
     .cads-notice-banner__title {
-        @extend .h4;
+        @extend .cads-heading-small;
 
         display: block;
         line-height: 1.5em;
