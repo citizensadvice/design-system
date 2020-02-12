@@ -1,0 +1,40 @@
+.cads-notice-banner {
+    @include cads-border(
+        l,
+        $cads-border-width-large,
+        0,
+        $cads-language__brand-secondary
+    );
+
+    padding: $cads-spacing-2;
+
+    .cads-notice-banner__title {
+        @extend .cads-heading-small;
+
+        display: block;
+        line-height: 1.5em;
+    }
+
+    .paragraph-s {
+        margin: 0;
+    }
+
+    @include cads-media-breakpoint-up(md) {
+        border: none;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        .paragraph-s {
+            flex: 1 1 auto;
+        }
+
+        .cads-notice-banner__title {
+            flex-grow: 0;
+            flex-shrink: 0;
+            background-color: $cads-language__brand-secondary;
+            padding: $cads-spacing-2;
+            margin: 0 $cads-spacing-4 0 0;
+        }
+    }
+}

@@ -6,29 +6,36 @@
     padding: $cads-spacing-4;
 
     @include cads-media-breakpoint-up(md) {
-        padding: $cads-spacing-5;
+        padding: $cads-spacing-4;
+    }
+
+    p:last-of-type {
+        margin-bottom: 0;
     }
 
     .cads-callout-label {
         display: none;
-        position: absolute;
-        padding: 0.75em;
-        top: -1em;
-        left: -$cads-border-width-large;
-        font-weight: $cads-font-weight__bold;
-        font-size: 0.75em;
-        line-height: 0.75em;
-        color: $cads-palette__white;
+        position: relative;
+        color: $cads-language__secondary-text-colour;
+        margin-bottom: $cads-spacing-3;
+        font-size: 0.7em;
+        line-height: 0.7em;
     }
 
     &.cads-callout- {
         &example {
-            background-color: cads-colour-to-bg($cads-language__border-colour);
+            @include cads-border(
+                a,
+                $cads-border-width-medium,
+                0,
+                $cads-language__border-colour
+            );
+
+            border-left-color: $cads-palette__mid-grey;
+            border-left-width: $cads-border-width-large;
 
             .cads-callout-label {
                 display: block;
-                background-color: $cads-language__border-colour;
-                color: $cads-font-colour__base;
 
                 &::after {
                     content: 'Example';
@@ -45,8 +52,10 @@
         }
 
         &info {
-            border-color: $cads-palette__heritage-yellow;
-            background-color: cads-colour-to-bg($cads-palette__heritage-yellow);
+            border-color: $cads-language__brand-secondary;
+            background-color: cads-colour-to-bg(
+                $cads-language__brand-secondary
+            );
         }
 
         &important {
@@ -55,7 +64,6 @@
 
             .cads-callout-label {
                 display: block;
-                background-color: $cads-language__error-colour;
 
                 /* stylelint-disable-next-line */
                 &::after {

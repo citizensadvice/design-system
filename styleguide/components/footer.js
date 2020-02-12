@@ -20,7 +20,7 @@ Advice, 3rd Floor North, 200 Aldersgate, London, EC1A 4HD</p>`
 <div class="cads-grid-container">
   <div class="cads-grid-row">
     <div class="cads-grid-col-md-3">
-      <h2 class="h3">${section1Heading}</h2>
+      <h2 class="cads-heading-medium">${section1Heading}</h2>
       <ul>
         <li><a href="javascript:;">Link 1</a></li>
         <li><a href="javascript:;">Link 2</a></li>
@@ -30,7 +30,7 @@ Advice, 3rd Floor North, 200 Aldersgate, London, EC1A 4HD</p>`
       </ul>
     </div>
     <div class="cads-grid-col-md-3">
-      <h2 class="h3">${section2Heading}</h2>
+      <h2 class="cads-heading-medium">${section2Heading}</h2>
       <ul>
         <li><a href="javascript:;">Link 1</a></li>
         <li><a href="javascript:;">Link 2</a></li>
@@ -40,7 +40,7 @@ Advice, 3rd Floor North, 200 Aldersgate, London, EC1A 4HD</p>`
       </ul>
     </div>
     <div class="cads-grid-col-md-3">
-      <h2 class="h3">${section3Heading}</h2>
+      <h2 class="cads-heading-medium">${section3Heading}</h2>
       <ul>
         <li><a href="javascript:;">Link 1</a></li>
         <li><a href="javascript:;">Link 2</a></li>
@@ -50,7 +50,7 @@ Advice, 3rd Floor North, 200 Aldersgate, London, EC1A 4HD</p>`
       </ul>
     </div>
     <div class="cads-grid-col-md-3">
-      <h2 class="h3">${section4Heading}</h2>
+      <h2 class="cads-heading-medium">${section4Heading}</h2>
       <ul>
         <li><a href="javascript:;">Link 1</a></li>
         <li><a href="javascript:;">Link 2</a></li>

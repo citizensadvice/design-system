@@ -3,7 +3,7 @@ import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 
 import './styles.scss';
 
-import CalloutBox from './components/callout-box';
+import Callout from './components/callout';
 import Header from './components/header';
 import Footer from './components/footer';
 import Logo from './components/logo';
@@ -11,6 +11,7 @@ import Navigation from './components/navigation';
 import Search from './components/search';
 import Buttons from './components/buttons';
 import Breadcrumbs from './components/breadcrumbs';
+import NoticeBanner from './components/notice-banner';
 
 export default {
     title: '3 Components',
@@ -30,7 +31,7 @@ export default {
     }
 };
 
-export const calloutBox = () => CalloutBox();
+export const callout = () => Callout();
 export const header = () => Header();
 export const navigation = () => Navigation();
 export const search = () => Search();
@@ -42,3 +43,4 @@ footer.story = { parameters: { knobs: { escapeHTML: false } } };
 export const logo = () => Logo();
 export const buttons = () => Buttons();
 export const breadcrumbs = () => Breadcrumbs();
+export const noticeBanner = () => NoticeBanner();

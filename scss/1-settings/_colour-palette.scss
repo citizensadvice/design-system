@@ -1,18 +1,21 @@
 /* stylelint-disable */
-$cads-palette__heritage-blue: #004291;
+$cads-palette__heritage-blue: #004B88;
 $cads-palette__heritage-blue-dark: #012760;
 $cads-palette__blue-light: #f2f8ff;
-$cads-palette__heritage-yellow: #ffd250;
+$cads-palette__heritage-yellow: #FCBB69;
 $cads-palette__heritage-blue-40: #97a8cc;
 $cads-palette__heritage-yellow-40: #fde5c4;
 $cads-palette__purple: #a33e89;
 $cads-palette__red: #df3034;
 $cads-palette__red-light: #fae1e1;
+$cads-palette__yellow: #FFD250;
 $cads-palette__black: #161616;
 $cads-palette__dark-grey: #4a4e4f;
 $cads-palette__mid-grey: #8d9093;
 $cads-palette__light-grey: #e5e5e5;
 $cads-palette__white: #ffffff;
+$cads-palette__teal: #018176;
+$cads-palette__teal-dark: #006159;
 
 :export {
     /* prettier-ignore */
@@ -20,6 +23,8 @@ $cads-palette__white: #ffffff;
         heritageBlue: $cads-palette__heritage-blue;
         blueDark: $cads-palette__heritage-blue-dark;
         blueLight: $cads-palette__blue-light;
+        teal: $cads-palette__teal;
+        tealDark: $cads-palette__teal-dark;
         heritageYellow: $cads-palette__heritage-yellow;
         red: $cads-palette__red;
         redLight: $cads-palette__red-light;
