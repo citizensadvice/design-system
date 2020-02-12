@@ -6,8 +6,8 @@ a,
     // Visited links should be browser default
 
     &:hover {
-        color: #002f55;
-        background-color: $cads-language__link-hover-colour;
+        color: $cads-language__link-hover-colour;
+        background-color: $cads-language__hover-background-colour;
     }
 
     &:active {
