@@ -7,10 +7,14 @@ a,
 
     &:hover {
         color: #002f55;
-        background-color: $cads-palette__blue-light;
+        background-color: $cads-language__link-hover-colour;
     }
 
     &:active {
+        color: $cads-palette__black;
+    }
+
+    &:focus {
         color: $cads-palette__black;
         background-color: $cads-palette__focus-colour;
         text-decoration: none;
