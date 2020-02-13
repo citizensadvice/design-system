@@ -1,18 +1,22 @@
 a,
 .hyperlink {
-    color: $cads-palette__heritage-blue;
+    color: $cads-palette__link-colour;
     line-height: 1.25em;
 
     // Visited links should be browser default
 
     &:hover {
-        color: #002f55;
-        background-color: $cads-palette__blue-light;
+        color: $cads-language__link-hover-colour;
+        background-color: $cads-language__hover-background-colour;
     }
 
     &:active {
         color: $cads-palette__black;
-        background-color: $cads-palette__heritage-yellow;
+    }
+
+    &:focus {
+        color: $cads-palette__black;
+        background-color: $cads-palette__focus-colour;
         text-decoration: none;
         border-bottom: 4px solid $cads-palette__black;
     }
