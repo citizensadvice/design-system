@@ -1,4 +1,4 @@
-import haml from '../../scripts/haml';
+import * as haml from '../../scripts/haml';
 import wrapper from './component-wrapper';
 import template from '../../haml/_footer.html.haml';
 

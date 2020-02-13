@@ -21,8 +21,9 @@
 
 let embedder;
 let forceXML;
-let escaperName = 'html_escape';
+const escaperName = 'html_escape';
 let escapeHtmlByDefault;
+let props;
 
 function html_escape(text) {
     return text
@@ -99,6 +100,7 @@ function render_attribs(attribs) {
                 default:
                     try {
                         value = JSON.parse(`[${attribs[key]}]`)[0];
+
                         if (value === true) {
                             value = key;
                         } else if (
@@ -113,8 +115,19 @@ function render_attribs(attribs) {
                         }
                         result.push(` ${key}=\\"${value}\\"`);
                     } catch (e) {
+                        let val = attribs[key];
+
+                        if (key !== '') {
+                            // Potentially this is a user supplied parameter, check if we can
+                            // find it in the props object
+                            const propValue = props[val];
+                            if (propValue) {
+                                val = `"${propValue}"`;
+                            }
+                        }
+
                         result.push(
-                            ` ${key}=\\"" + ${escaperName}(${attribs[key]}) + "\\"`
+                            ` ${key}=\\"" + ${escaperName}(${val}) + "\\"`
                         );
                     }
                     break;
@@ -679,115 +692,29 @@ function compile(lines) {
     return txt;
 }
 
-function optimize(js) {
-    const new_js = [];
-    let buffer = [];
-    let part;
-    let end;
-
-    function flush() {
-        if (buffer.length > 0) {
-            new_js.push(JSON.stringify(buffer.join('')) + end);
-            buffer = [];
-        }
-    }
-    js.replace(/\n\r|\r/g, '\n')
-        .split('\n')
-        .forEach(line => {
-            part = line.match(/^(".*")(\s*\+\s*)?$/);
-            if (!part) {
-                flush();
-                new_js.push(line);
-                return;
-            }
-            end = part[2] || '';
-            part = part[1];
-            try {
-                buffer.push(JSON.parse(part));
-            } catch (e) {
-                flush();
-                new_js.push(line);
-            }
-        });
-    flush();
-    return new_js.join('\n');
-}
-
-function execute(js, self) {
-    return function() {
-        try {
-            let _$output;
-            eval(`_$output =${js}`);
-            return _$output; // set in eval
-        } catch (e) {
-            return `\n<pre class='error'>${html_escape(
-                `${e}\n${e.stack}`
-            )}</pre>\n`;
-        }
-    }.call(self);
-}
-
-const Haml = function Haml(haml, config) {
-    if (typeof config !== 'object') {
-        forceXML = config;
-        config = {};
-    }
-
-    let escaper;
-    if (config.customEscape) {
-        escaper = '';
-        escaperName = config.customEscape;
-    } else {
-        escaper = `${html_escape.toString()}\n`;
-        escaperName = 'html_escape';
-    }
-
-    escapeHtmlByDefault =
-        config.escapeHtmlByDefault || config.escapeHTML || config.escape_html;
-
-    const js = optimize(compile(haml));
-
-    const str = `try {\n
-   var _$output=
-${js}
-;\n return _$output;
-  } catch (e) {\n
-    return "\\n<pre class='error'>" +
-${escaperName}
-(e + "\\n" + e.stack) + "</pre>\\n";\n
-}`;
-
+function execute(js) {
     try {
-        const f = new Function('locals', escaper + str);
-        return f;
+        let _$output;
+        eval(`_$output =${js}`);
+        return _$output; // set in eval
     } catch (e) {
-        if (typeof console !== 'undefined') {
-            console.error(str);
-        }
-        throw e;
+        return `\n<pre class='error'>${html_escape(
+            `${e}\n${e.stack}`
+        )}</pre>\n`;
     }
-};
+}
 
-function render(text, options) {
+function render(text, userProps) {
     if (!text || text === '') {
         return '<pre class="error">No input provided</pre>';
     }
 
-    const o = options || {};
-    let js = compile(text, o);
-    if (o.optimize) {
-        js = Haml.optimize(js);
-    }
-    return execute(js, o.context || Haml, o.locals);
+    props = userProps || {};
+    const js = compile(text);
+    return execute(js);
 }
 
-Haml.compile = compile;
-Haml.optimize = optimize;
-Haml.render = render;
-Haml.execute = execute;
-Haml.html_escape = html_escape;
-
-export default Haml;
+export { compile, render, execute, html_escape };
 /* eslint-disable */
 // To test from cli comment out the export above, uncomment the below and run
 // node haml.js <path to haml partial>
@@ -796,5 +723,7 @@ export default Haml;
 // const fs = require('fs');
 // const filename = path.join(__dirname, process.argv[2]);
 // const hf = fs.readFileSync(filename, 'utf8');
-// const hr = Haml.render(hf);
+// const hr = render(hf, {
+//     root_path: '/'
+// });
 // console.log(hr);
