@@ -1,6 +1,6 @@
 a,
 .hyperlink {
-    color: $cads-palette__link-colour;
+    color: $cads-language__link-colour;
     line-height: 1.25em;
 
     // Visited links should be browser default
@@ -16,7 +16,7 @@ a,
 
     &:focus {
         color: $cads-palette__black;
-        background-color: $cads-palette__focus-colour;
+        background-color: $cads-language__focus-colour;
         text-decoration: none;
         border-bottom: 4px solid $cads-palette__black;
     }
