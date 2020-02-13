@@ -1,0 +1,8 @@
+- if notice.notice_type == "alert"
+  .cads-callout.cads-callout-info
+    - if notice.title
+      %h3 =notice.title
+    = sanitize notice.body, scrubber: scrubber
+- else
+  .cads-callout.cads-callout-info
+    = sanitize notice.body, scrubber: scrubber

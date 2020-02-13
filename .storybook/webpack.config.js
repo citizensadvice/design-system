@@ -12,6 +12,10 @@ module.exports = async ({ config, mode }) => {
         {
             test: /\.md$/,
             use: ['highlight-loader', 'markdown-loader']
+        },
+        {
+            test: /\.haml$/,
+            use: 'raw-loader'
         }
     );
 
