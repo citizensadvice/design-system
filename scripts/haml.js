@@ -16,6 +16,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable space-before-function-paren */
 /* eslint-disable prefer-destructuring */
+/* eslint-disable no-continue */
+/* eslint-disable no-prototype-builtins */
 
 let embedder;
 let forceXML;
@@ -28,7 +30,45 @@ function html_escape(text) {
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
-        .replace(/\"/g, '&quot;');
+        .replace(/"/g, '&quot;');
+}
+
+// Split interpolated strings into an array of literals and code fragments.
+function parse_interpol(value) {
+    const items = [];
+    let pos = 0;
+    let next = 0;
+    let match;
+
+    while (true) {
+        // Match up to embedded string
+        next = value.substr(pos).search(embedder);
+        if (next < 0) {
+            if (pos < value.length) {
+                items.push(JSON.stringify(value.substr(pos)));
+            }
+            break;
+        }
+        items.push(JSON.stringify(value.substr(pos, next)));
+        pos += next;
+
+        // Match embedded string
+        match = value.substr(pos).match(embedder);
+        next = match[0].length;
+        if (next < 0) {
+            break;
+        }
+        if (match[1] === '#') {
+            items.push(`${escaperName}(${match[2] || match[3]})`);
+        } else {
+            // unsafe!!!
+            items.push(match[2] || match[3]);
+        }
+
+        pos += next;
+    }
+
+    return items.filter(part => part && part.length > 0).join(' +\n');
 }
 
 function render_attribs(attribs) {
@@ -39,19 +79,17 @@ function render_attribs(attribs) {
     // eslint-disable-next-line
     for (key in attribs) {
         if (key[key.length - 1] === '?') {
-            value = escaperName + '(' + attribs[key] + ')';
+            value = `${escaperName}(${attribs[key]})`;
             result.push(
-                '" + (' +
-                    attribs[key] +
-                    ' ? " ' +
-                    key.replace('?', '') +
-                    '=\\"" + ' +
-                    value +
-                    ' + "\\"" : "") + "'
+                `" + (${attribs[key]} ? " ${key.replace(
+                    '?',
+                    ''
+                )}=\\"" + ${value} + "\\"" : "") + "`
             );
             continue;
         }
         if (key !== '_content' && attribs.hasOwnProperty(key)) {
+            /* eslint-disable indent */
             switch (attribs[key]) {
                 case 'undefined':
                 case 'false':
@@ -60,33 +98,28 @@ function render_attribs(attribs) {
                     break;
                 default:
                     try {
-                        value = JSON.parse('[' + attribs[key] + ']')[0];
+                        value = JSON.parse(`[${attribs[key]}]`)[0];
                         if (value === true) {
                             value = key;
                         } else if (
                             typeof value === 'string' &&
                             embedder.test(value)
                         ) {
-                            value =
-                                '" +\n' +
-                                parse_interpol(html_escape(value)) +
-                                ' +\n"';
+                            value = `" +\n${parse_interpol(
+                                html_escape(value)
+                            )} +\n"`;
                         } else {
                             value = html_escape(value);
                         }
-                        result.push(' ' + key + '=\\"' + value + '\\"');
+                        result.push(` ${key}=\\"${value}\\"`);
                     } catch (e) {
                         result.push(
-                            ' ' +
-                                key +
-                                '=\\"" + ' +
-                                escaperName +
-                                '(' +
-                                attribs[key] +
-                                ') + "\\"'
+                            ` ${key}=\\"" + ${escaperName}(${attribs[key]}) + "\\"`
                         );
                     }
+                    break;
             }
+            /* eslint-enable indent */
         }
     }
     return result.join('');
@@ -183,44 +216,6 @@ function parse_attribs(line) {
 
     attributes._content = line.substr(i, line.length);
     return attributes;
-}
-
-// Split interpolated strings into an array of literals and code fragments.
-function parse_interpol(value) {
-    const items = [];
-    let pos = 0;
-    let next = 0;
-    let match;
-
-    while (true) {
-        // Match up to embedded string
-        next = value.substr(pos).search(embedder);
-        if (next < 0) {
-            if (pos < value.length) {
-                items.push(JSON.stringify(value.substr(pos)));
-            }
-            break;
-        }
-        items.push(JSON.stringify(value.substr(pos, next)));
-        pos += next;
-
-        // Match embedded string
-        match = value.substr(pos).match(embedder);
-        next = match[0].length;
-        if (next < 0) {
-            break;
-        }
-        if (match[1] === '#') {
-            items.push(`${escaperName}(${match[2] || match[3]})`);
-        } else {
-            // unsafe!!!
-            items.push(match[2] || match[3]);
-        }
-
-        pos += next;
-    }
-
-    return items.filter(part => part && part.length > 0).join(' +\n');
 }
 
 // Used to find embedded code in interpolated strings.
@@ -480,6 +475,7 @@ const matchers = [
         process: () => {
             let line = '';
 
+            /* eslint-disable indent */
             switch ((this.matches[2] || '').toLowerCase()) {
                 case '':
                     // XHTML 1.0 Transitional
@@ -527,6 +523,8 @@ const matchers = [
                 default:
                     break;
             }
+            /* eslint-enable indent */
+
             return JSON.stringify(`${line}\n`);
         }
     },
@@ -535,11 +533,8 @@ const matchers = [
     {
         name: 'markdown',
         regexp: /^(\s*):markdown\s*$/i,
-        process: () => {
-            return parse_interpol(
-                exports.Markdown.encode(this.contents.join('\n'))
-            );
-        }
+        process: () =>
+            parse_interpol(exports.Markdown.encode(this.contents.join('\n')))
     },
 
     // script blocks
@@ -792,13 +787,14 @@ Haml.render = render;
 Haml.execute = execute;
 Haml.html_escape = html_escape;
 
-// export default Haml;
+export default Haml;
+/* eslint-disable */
 // To test from cli comment out the export above, uncomment the below and run
 // node haml.js <path to haml partial>
 // When you're done comment the code below and uncomment the export line above
-const path = require('path');
-const fs = require('fs');
-const filename = path.join(__dirname, process.argv[2]);
-const hf = fs.readFileSync(filename, 'utf8');
-const hr = Haml.render(hf);
-console.log(hr);
+// const path = require('path');
+// const fs = require('fs');
+// const filename = path.join(__dirname, process.argv[2]);
+// const hf = fs.readFileSync(filename, 'utf8');
+// const hr = Haml.render(hf);
+// console.log(hr);
