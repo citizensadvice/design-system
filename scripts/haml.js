@@ -24,6 +24,7 @@ let forceXML;
 const escaperName = 'html_escape';
 let escapeHtmlByDefault;
 let props;
+const availableTemplates = [];
 
 function html_escape(text) {
     return text
@@ -248,6 +249,24 @@ const selfCloseTags = [
 // All matchers' regexps should capture leading whitespace in first capture
 // and trailing content in last capture
 const matchers = [
+    // render
+    {
+        name: 'render partial',
+        regexp: /^(= render)(\s*)"(.*)"/i,
+        process() {
+            // Find the template
+            const templateName = this.matches[3];
+            let output = `<pre class="error">Could not parse template ${templateName}</pre>`;
+            availableTemplates.forEach(t => {
+                if (t.name === templateName) {
+                    output = compile(t.template);
+                }
+            });
+
+            return output;
+        }
+    },
+
     // html tags
     {
         name: 'html tags',
@@ -714,16 +733,40 @@ function render(text, userProps) {
     return execute(js);
 }
 
-export { compile, render, execute, html_escape };
+function queueTemplate(name, template) {
+    let found = false;
+    availableTemplates.forEach(t => {
+        if (t.name === name) {
+            found = true;
+        }
+    });
+
+    if (!found) {
+        availableTemplates.push({
+            name,
+            template
+        });
+    }
+}
+
 /* eslint-disable */
+
+export { compile, render, execute, html_escape, queueTemplate };
+// ---
 // To test from cli comment out the export above, uncomment the below and run
 // node haml.js <path to haml partial>
 // When you're done comment the code below and uncomment the export line above
+// ---
 // const path = require('path');
 // const fs = require('fs');
-// const filename = path.join(__dirname, process.argv[2]);
-// const hf = fs.readFileSync(filename, 'utf8');
-// const hr = render(hf, {
-//     root_path: '/'
-// });
+// queueTemplate(
+//     'logo_clickable',
+//     fs.readFileSync(path.join(__dirname, process.argv[2]), 'utf8')
+// );
+// const hr = render(
+//     fs.readFileSync(path.join(__dirname, process.argv[3]), 'utf8'),
+//     {
+//         root_path: '/'
+//     }
+// );
 // console.log(hr);
