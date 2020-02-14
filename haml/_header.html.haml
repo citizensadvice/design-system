@@ -2,13 +2,13 @@
   .cads-grid-container
     .cads-grid-row
       .cads-grid-col-md-6
-        = render "design_system/logo_clickable"
+        = render "logo_clickable"
       .cads-grid-col-md-6.cads-align-right
         %ul.cads-list-unordered.cads-list-unordered__inline
           %li
             %a
               Language
-          %li
-            %a{:href => "https://www.citizensadvice.org.uk/login/?redirect=false&ReturnUrl=#{request.original_url}"} Sign in
-        = render "design_system/search"
+        -#   %li
+        -#     %a{href: "https://www.citizensadvice.org.uk/login/?redirect=false&ReturnUrl=#{request.original_url}"} Sign in
+        = render "search"
 

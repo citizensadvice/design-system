@@ -751,22 +751,32 @@ function queueTemplate(name, template) {
 
 /* eslint-disable */
 
-export { compile, render, execute, html_escape, queueTemplate };
+// export { compile, render, execute, html_escape, queueTemplate };
 // ---
 // To test from cli comment out the export above, uncomment the below and run
 // node haml.js <path to haml partial>
 // When you're done comment the code below and uncomment the export line above
 // ---
-// const path = require('path');
-// const fs = require('fs');
-// queueTemplate(
-//     'logo_clickable',
-//     fs.readFileSync(path.join(__dirname, process.argv[2]), 'utf8')
-// );
-// const hr = render(
-//     fs.readFileSync(path.join(__dirname, process.argv[3]), 'utf8'),
-//     {
-//         root_path: '/'
-//     }
-// );
-// console.log(hr);
+const path = require('path');
+const fs = require('fs');
+const _test_Templates = ['logo_clickable', 'search'];
+_test_Templates.forEach(item => {
+    queueTemplate(
+        item,
+        fs.readFileSync(
+            path.join(__dirname, `../haml/_${item}.html.haml`),
+            'utf8'
+        )
+    );
+});
+
+const hr = render(
+    fs.readFileSync(path.join(__dirname, '../haml/_header.html.haml'), 'utf8'),
+    {
+        root_path: '/',
+        request: {
+            original_url: 'abc'
+        }
+    }
+);
+console.log(hr);

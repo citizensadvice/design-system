@@ -1,24 +1,18 @@
+import * as haml from '../../scripts/haml';
 import wrapper from './component-wrapper';
-import { markup as Logo } from './logo';
-import { markup as Search } from './search';
+import template from '../../haml/_header.html.haml';
+import t1 from '../../haml/_logo_clickable.html.haml';
+import t2 from '../../haml/_search.html.haml';
+
+haml.queueTemplate('logo_clickable', t1);
+haml.queueTemplate('search', t2);
 
 const header = () => {
-    const component = `<header class="cads-header">
-<div class="cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-md-6">
-            ${Logo}
-        </div>
-        <div class="cads-grid-col-md-6 cads-align-right">
-            <ul class="cads-list-unordered cads-list-unordered__inline">
-                <li><a href="javascript:;">Item 1</a</li>
-                <li><a href="javascript:;">Item 2</a></li>
-            </ul>
-            ${Search}
-        </div>
-    </div>
-</div>
-</header>`;
+    const component = haml.render(template, {
+        request: {
+            original_url: 'abc'
+        }
+    });
     return wrapper('Header', component);
 };
 
