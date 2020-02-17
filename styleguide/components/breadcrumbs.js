@@ -1,5 +1,5 @@
 import { number, boolean } from '@storybook/addon-knobs'; // eslint-disable-line
-import wrapper from './component-wrapper';
+import wrapper from '../component-wrapper';
 
 const breadcrumbs = () => {
     const numberOfItems = number('How many crumbs to show', 4);

@@ -1,5 +1,5 @@
 import { text } from '@storybook/addon-knobs'; // eslint-disable-line
-import wrapper from './component-wrapper';
+import wrapper from '../component-wrapper';
 
 const noticeBanner = () => {
     const content = text(

@@ -778,9 +778,11 @@ export { compile, render, execute, html_escape, queueTemplate };
 // });
 
 // const hamlProps = require('../styleguide/haml_props.json');
-// console.log(hamlProps);
 // const hr = render(
-//     fs.readFileSync(path.join(__dirname, '../haml/_header.html.haml'), 'utf8'),
+//     fs.readFileSync(
+//         path.join(__dirname, '../haml/_notice_banner.html.haml'),
+//         'utf8'
+//     ),
 //     hamlProps
 // );
 // console.log(hr);

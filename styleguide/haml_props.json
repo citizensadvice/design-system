@@ -2,5 +2,6 @@
     "root_path": "/",
     "sign_in_url": "abc",
     "search_action_url": "https://www.citizensadvice.org.uk/resources-and-tools/search-navigation-tools/Search/",
-    "breadcrumb_links": ["a", "b"]
+    "breadcrumb_links": ["a", "b"],
+    "notice_banner_content": "If you’re a Thomas Cook customer and you’re stuck abroad or want to get your money back, get help from the Civil Aviation Authority."
 }
