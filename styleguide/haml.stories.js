@@ -20,8 +20,14 @@ haml.queueTemplate('logo_clickable', tLogo);
 haml.queueTemplate('search', tSearch);
 
 // Haml rendering wrapper for convenience
-function renderHamlTemplate(templateName, template, usage) {
-    return wrapper(templateName, haml.render(template, hamlProps), usage);
+function renderHamlTemplate(templateName, template, hamlLocation, usage) {
+    return wrapper(
+        templateName,
+        haml.render(template, hamlProps),
+        `The partial is available in:
+<pre><code>haml/_${hamlLocation}.html.haml</code></pre>
+${usage || ''}`
+    );
 }
 
 // Storybook section setup
@@ -44,13 +50,14 @@ export default {
 };
 
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
-export const search = () => renderHamlTemplate('Search', tSearch);
-export const footer = () => renderHamlTemplate('Footer', tFooter);
-export const header = () => renderHamlTemplate('Header', tHeader);
+export const search = () => renderHamlTemplate('Search', tSearch, 'search');
+export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
+export const header = () => renderHamlTemplate('Header', tHeader, 'header');
 export const logo = () =>
     renderHamlTemplate(
         'Logo',
         tLogo,
+        'logo_clickable',
         `You can use the <code>cads-logo</code> class on anything to display the logo.
 Make sure that an accessible title/etc is available.`
     );
