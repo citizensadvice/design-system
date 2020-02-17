@@ -102,6 +102,10 @@ function render_attribs(attribs) {
                     try {
                         value = JSON.parse(`[${attribs[key]}]`)[0];
 
+                        if (key === 'href') {
+                            debugger;
+                        }
+
                         if (value === true) {
                             value = key;
                         } else if (
@@ -114,7 +118,11 @@ function render_attribs(attribs) {
                         } else {
                             value = html_escape(value);
                         }
-                        result.push(` ${key}=\\"${value}\\"`);
+
+                        // Before rendering strip any quotes from the key
+                        // eg "aria-label" becomes aria-label
+                        const sanitisedKey = key.replace(/(^"|"$)/g, '');
+                        result.push(` ${sanitisedKey}=\\"${value}\\"`);
                     } catch (e) {
                         let val = attribs[key];
 
@@ -751,32 +759,32 @@ function queueTemplate(name, template) {
 
 /* eslint-disable */
 
-// export { compile, render, execute, html_escape, queueTemplate };
+export { compile, render, execute, html_escape, queueTemplate };
 // ---
 // To test from cli comment out the export above, uncomment the below and run
 // node haml.js <path to haml partial>
 // When you're done comment the code below and uncomment the export line above
 // ---
-const path = require('path');
-const fs = require('fs');
-const _test_Templates = ['logo_clickable', 'search'];
-_test_Templates.forEach(item => {
-    queueTemplate(
-        item,
-        fs.readFileSync(
-            path.join(__dirname, `../haml/_${item}.html.haml`),
-            'utf8'
-        )
-    );
-});
+// const path = require('path');
+// const fs = require('fs');
+// const _test_Templates = ['logo_clickable', 'search'];
+// _test_Templates.forEach(item => {
+//     queueTemplate(
+//         item,
+//         fs.readFileSync(
+//             path.join(__dirname, `../haml/_${item}.html.haml`),
+//             'utf8'
+//         )
+//     );
+// });
 
-const hr = render(
-    fs.readFileSync(path.join(__dirname, '../haml/_header.html.haml'), 'utf8'),
-    {
-        root_path: '/',
-        request: {
-            original_url: 'abc'
-        }
-    }
-);
-console.log(hr);
+// const hr = render(
+//     fs.readFileSync(path.join(__dirname, '../haml/_header.html.haml'), 'utf8'),
+//     {
+//         root_path: '/',
+//         sign_in_url: 'abc',
+//         search_action_url:
+//             'https://www.citizensadvice.org.uk/resources-and-tools/search-navigation-tools/Search/'
+//     }
+// );
+// console.log(hr);
