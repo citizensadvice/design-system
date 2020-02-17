@@ -758,7 +758,6 @@ function queueTemplate(name, template) {
 }
 
 /* eslint-disable */
-
 export { compile, render, execute, html_escape, queueTemplate };
 // ---
 // To test from cli comment out the export above, uncomment the below and run
@@ -778,13 +777,10 @@ export { compile, render, execute, html_escape, queueTemplate };
 //     );
 // });
 
+// const hamlProps = require('../styleguide/haml_props.json');
+// console.log(hamlProps);
 // const hr = render(
 //     fs.readFileSync(path.join(__dirname, '../haml/_header.html.haml'), 'utf8'),
-//     {
-//         root_path: '/',
-//         sign_in_url: 'abc',
-//         search_action_url:
-//             'https://www.citizensadvice.org.uk/resources-and-tools/search-navigation-tools/Search/'
-//     }
+//     hamlProps
 // );
 // console.log(hr);

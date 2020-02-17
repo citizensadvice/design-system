@@ -1,18 +1,49 @@
 import { withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line
 import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
+import hljs from 'highlight.js'; // eslint-disable-line
 
+// The styles
 import './styles.scss';
 
-import Callout from './components/callout';
-import Header from './components/header';
-import Footer from './components/footer';
-import Logo from './components/logo';
-import Navigation from './components/navigation';
-import Search from './components/search';
-import Buttons from './components/buttons';
-import Breadcrumbs from './components/breadcrumbs';
-import NoticeBanner from './components/notice-banner';
+// Haml setup
+import hamlProps from './haml_props.json';
+import * as haml from '../scripts/haml';
+// Import all the templates...
+import tFooter from '../haml/_footer.html.haml';
+import tHeader from '../haml/_header.html.haml';
+import tLogo from '../haml/_logo_clickable.html.haml';
+import tSearch from '../haml/_search.html.haml';
+import tBreadcrumb from '../haml/_breadcrumb.html.haml';
+// ...then queue in memory partials that are used by other partials
+haml.queueTemplate('logo_clickable', tLogo);
+haml.queueTemplate('search', tSearch);
 
+// Storybook component wrapper
+const a11yid = 'a11yComponentToTest';
+const wrapper = (title, component, usage) => {
+    const source = hljs.highlightAuto(component).value;
+
+    return `
+<h1 aria-hidden="true">${title}</h1>
+<div id="${a11yid}">
+${component}
+</div>
+<h2 aria-hidden="true">Component source</h2>
+
+<pre aria-hidden="true"><code class="html">
+${source}
+</code></pre>
+
+${usage ? `<h2>Usage info</h2>${usage}` : ''}
+`;
+};
+
+// Haml rendering wrapper for convenience
+function renderHamlTemplate(templateName, template, usage) {
+    return wrapper(templateName, haml.render(template, hamlProps), usage);
+}
+
+// Storybook section setup
 export default {
     title: '3 Components',
     decorators: [withKnobs, withA11y],
@@ -31,16 +62,22 @@ export default {
     }
 };
 
-export const callout = () => Callout();
-export const header = () => Header();
-export const navigation = () => Navigation();
-export const search = () => Search();
+// The haml components. Thet will be sorted alphabetically so the order here is not important.
+export const search = () => renderHamlTemplate('Search', tSearch);
+export const footer = () => renderHamlTemplate('Footer', tFooter);
+export const header = () => renderHamlTemplate('Header', tHeader);
+export const logo = () =>
+    renderHamlTemplate(
+        'Logo',
+        tLogo,
+        `You can use the <code>cads-logo</code> class on anything to display the logo.
+Make sure that an accessible title/etc is available.`
+    );
 
-export const footer = () => Footer();
-// Allow HTML into the storybook content control
-footer.story = { parameters: { knobs: { escapeHTML: false } } };
+export const breadcrumbs = () => renderHamlTemplate('Breadcrumbs', tBreadcrumb);
+// export const callout = () => Callout();
+// export const navigation = () => Navigation();
 
-export const logo = () => Logo();
-export const buttons = () => Buttons();
-export const breadcrumbs = () => Breadcrumbs();
-export const noticeBanner = () => NoticeBanner();
+// export const buttons = () => Buttons();
+// export const breadcrumbs = () => Breadcrumbs();
+// export const noticeBanner = () => NoticeBanner();

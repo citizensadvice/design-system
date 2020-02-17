@@ -1,0 +1,6 @@
+{
+    "root_path": "/",
+    "sign_in_url": "abc",
+    "search_action_url": "https://www.citizensadvice.org.uk/resources-and-tools/search-navigation-tools/Search/",
+    "breadcrumb_links": ["a", "b"]
+}
