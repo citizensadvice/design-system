@@ -1,5 +1,5 @@
 import { number } from '@storybook/addon-knobs'; // eslint-disable-line
-import wrapper from './component-wrapper';
+import wrapper from '../component-wrapper';
 
 const navigation = () => {
     const numberOfItems = number('How many links to show', 9);

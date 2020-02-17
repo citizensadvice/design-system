@@ -1,5 +1,5 @@
 import { text, select } from '@storybook/addon-knobs'; // eslint-disable-line
-import wrapper from './component-wrapper';
+import wrapper from '../component-wrapper';
 
 const callout = () => {
     const heading = text('Heading', 'Callout title');
