@@ -737,7 +737,8 @@ function render(text, userProps) {
     }
 
     props = userProps || {};
-    const js = compile(text);
+    const t = text.replace(/@citizensadvice\/design-system\/haml\//g, '');
+    const js = compile(t);
     return execute(js);
 }
 
