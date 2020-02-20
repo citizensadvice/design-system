@@ -10,5 +10,14 @@
     "arrowParens": "avoid",
     "requirePragma": false,
     "insertPragma": false,
-    "proseWrap": "preserve"
+    "proseWrap": "preserve",
+
+    "overrides": [
+        {
+            "files": "*.html.haml",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }
