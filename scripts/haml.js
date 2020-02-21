@@ -260,10 +260,10 @@ const matchers = [
     // render
     {
         name: 'render partial',
-        regexp: /^(= render)(\s*)"(.*)"/i,
+        regexp: /^(= render)(\s*)(partial: )?"(.*)"/i,
         process() {
             // Find the template
-            const templateName = this.matches[3];
+            const templateName = this.matches[4];
             let output = `<pre class="error">Could not parse template ${templateName}</pre>`;
             availableTemplates.forEach(t => {
                 if (t.name === templateName) {
@@ -780,10 +780,7 @@ export { compile, render, execute, html_escape, queueTemplate };
 
 // const hamlProps = require('../styleguide/haml_props.json');
 // const hr = render(
-//     fs.readFileSync(
-//         path.join(__dirname, '../haml/_notice_banner.html.haml'),
-//         'utf8'
-//     ),
+//     fs.readFileSync(path.join(__dirname, '../haml/_header.html.haml'), 'utf8'),
 //     hamlProps
 // );
 // console.log(hr);
