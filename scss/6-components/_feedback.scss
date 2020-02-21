@@ -1,0 +1,12 @@
+.cads-feedback {
+    padding: $cads-spacing-4;
+    text-align: center;
+
+    > div {
+        display: inline;
+    }
+
+    a {
+        font-weight: bold;
+    }
+}
