@@ -102,10 +102,6 @@ function render_attribs(attribs) {
                     try {
                         value = JSON.parse(`[${attribs[key]}]`)[0];
 
-                        if (key === 'href') {
-                            debugger;
-                        }
-
                         if (value === true) {
                             value = key;
                         } else if (
@@ -272,6 +268,17 @@ const matchers = [
             });
 
             return output;
+        }
+    },
+
+    // content lookup
+    {
+        name: 'content lookup',
+        regexp: /^= (.*)/i,
+        process() {
+            // Getting content from one of the props, replace the prop
+            const propName = this.matches[1];
+            return `"${props[propName] || ''}"`;
         }
     },
 
@@ -780,7 +787,10 @@ export { compile, render, execute, html_escape, queueTemplate };
 
 // const hamlProps = require('../styleguide/haml_props.json');
 // const hr = render(
-//     fs.readFileSync(path.join(__dirname, '../haml/_header.html.haml'), 'utf8'),
+//     fs.readFileSync(
+//         path.join(__dirname, '../haml/_notice_banner.html.haml'),
+//         'utf8'
+//     ),
 //     hamlProps
 // );
 // console.log(hr);

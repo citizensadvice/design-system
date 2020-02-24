@@ -1,5 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line
 import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
+import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 
 // The styles
 import './styles.scss';
@@ -20,10 +21,16 @@ haml.queueTemplate('logo_clickable', tLogo);
 haml.queueTemplate('search', tSearch);
 
 // Haml rendering wrapper for convenience
-function renderHamlTemplate(templateName, template, hamlLocation, usage) {
+function renderHamlTemplate(
+    templateName,
+    template,
+    hamlLocation,
+    usage,
+    optionalProps
+) {
     return wrapper(
         templateName,
-        haml.render(template, hamlProps),
+        haml.render(template, { ...hamlProps, ...optionalProps }),
         `The partial is available in:
 <pre><code>haml/_${hamlLocation}.html.haml</code></pre>
 ${usage || ''}`
@@ -61,5 +68,17 @@ export const logo = () =>
         `You can use the <code>cads-logo</code> class on anything to display the logo.
 Make sure that an accessible title/etc is available.`
     );
-// export const noticeBanner = () =>
-//     renderHamlTemplate('Notice banner', tNoticeBanner);
+export const noticeBanner = () => {
+    const notice_banner_content = text(
+        'Banner content',
+        'If you’re a Thomas Cook customer and you’re stuck abroad or want to get your money back, get help from the Civil Aviation Authority.'
+    );
+
+    return renderHamlTemplate(
+        'Notice banner',
+        tNoticeBanner,
+        'notice_banner',
+        null,
+        { notice_banner_content }
+    );
+};
