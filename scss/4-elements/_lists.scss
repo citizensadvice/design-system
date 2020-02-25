@@ -1,6 +1,7 @@
 li,
 .cads-list-item {
     line-height: 1.5em;
+    margin: 0 0 $cads-spacing-2 0;
 }
 
 ol,
@@ -11,9 +12,9 @@ ol,
 
 ul,
 .cads-list-unordered {
-    list-style: none;
     padding: 0;
     margin: 0 0 $cads-spacing-4 0;
+    list-style-type: none;
 
     &.cads-list-unordered__inline {
         li,
@@ -30,5 +31,11 @@ ul,
                 margin-left: 1em;
             }
         }
+    }
+
+    &.cads-list__bullet {
+        padding: 0 0 0 $cads-spacing-4;
+        margin: 0 0 $cads-spacing-4 0;
+        list-style-type: disc;
     }
 }

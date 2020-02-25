@@ -51,9 +51,20 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 
 <p><a href="javascript:;">Hyperlinks show up like this</a></p>
 
-<h3>Bullet lists (to do)</h3>
+<h3>Lists</h3>
 
 <ul>
+	<li><a href="javascript:;">Item 1</a></li>
+	<li><a href="javascript:;">Item 2</a></li>
+	<li><a href="javascript:;">Item 3</a></li>
+	<li><a href="javascript:;">Item 4</a></li>
+	<li><a href="javascript:;">Item 5</a></li>
+	
+</ul>
+
+<h3>Bullet lists</h3>
+
+<ul class="cads-list__bullet">
 	<li>Item 1</li>
 	<li>Item 2</li>
 	<li>Item 3</li>
