@@ -4,6 +4,10 @@
 
 .cads-styleguide__wrapper {
     padding: 16px;
+
+    @include cads-media-breakpoint-only(sm) {
+        padding: 0;
+    }
 }
 
 .cads-styleguide__colour-tile {

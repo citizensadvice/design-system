@@ -253,6 +253,33 @@ const selfCloseTags = [
 // All matchers' regexps should capture leading whitespace in first capture
 // and trailing content in last capture
 const matchers = [
+    // content each do loop
+    {
+        name: '.each do loop',
+        regexp: /-\s((.*)\.each\sdo\s\|([^|]*)\|)/i,
+        process() {
+            // Find the template
+            const doPropName = this.matches[2];
+            const doProp = props[doPropName] || null;
+            let output = `<pre class="error">Could not process ${this.matches[0]} block </pre>`;
+
+            if (doProp && Array.isArray(doProp)) {
+                output = '';
+                const localProp = this.matches[3];
+                const contents = this.contents;
+
+                for (let i = 0; i < doProp.length; i++) {
+                    contents.forEach(toDoItem => {
+                        output += compile(
+                            toDoItem.replace(localProp, `${doPropName}[${i}]`)
+                        );
+                    });
+                }
+            }
+
+            return output;
+        }
+    },
     // render
     {
         name: 'render partial',
@@ -274,7 +301,7 @@ const matchers = [
     // content lookup
     {
         name: 'content lookup',
-        regexp: /^= (.*)/i,
+        regexp: /^=\s(.*)/i,
         process() {
             // Getting content from one of the props, replace the prop
             const propName = this.matches[1];
@@ -788,9 +815,9 @@ export { compile, render, execute, html_escape, queueTemplate };
 // const hamlProps = require('../styleguide/haml_props.json');
 // const hr = render(
 //     fs.readFileSync(
-//         path.join(__dirname, '../haml/_notice_banner.html.haml'),
+//         path.join(__dirname, '../haml/_breadcrumb.html.haml'),
 //         'utf8'
 //     ),
-//     hamlProps
+//     { ...hamlProps, notice_banner_content: 'Notice banner content goes here' }
 // );
 // console.log(hr);

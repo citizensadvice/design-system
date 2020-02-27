@@ -18,5 +18,23 @@
     button {
         flex: 0 0;
         border-left-width: 0; // TODO: Do we want to do this? Hover looks a bit funny next to input box
+
+        &::after {
+            content: 'Search';
+        }
+
+        .cads-lang-gd &::after {
+            content: 'Rannsaich';
+        }
+
+        .cads-lang-cy &::after {
+            content: 'Chwilio';
+        }
+
+        @include cads-media-breakpoint-only(sm) {
+            &::after {
+                content: '';
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "@citizensadvice/design-system",
-    "version": "2.0.1",
+    "version": "0.1.0",
     "description": "",
     "files": [
         "favicons",
@@ -10,6 +10,7 @@
         "haml"
     ],
     "scripts": {
+        "preversion": "yarn lint && yarn build && yarn check-size:write",
         "pre-commit": "lint-staged && echo \"***\n***\nDont' forget to rebuild the documentation!\n***\n***\"",
         "check-size": "node ./scripts/check-size -r",
         "check-size:write": "node ./scripts/check-size -r -w",

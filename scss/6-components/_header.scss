@@ -6,4 +6,10 @@ header,
     .cads-search {
         margin-top: 1em;
     }
+
+    @include cads-media-breakpoint-only(sm) {
+        .cads-header-account-panel {
+            display: none;
+        }
+    }
 }
