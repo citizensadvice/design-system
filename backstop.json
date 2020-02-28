@@ -1,0 +1,60 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "Small",
+      "width": 640,
+      "height": 960
+    },
+    {
+      "label": "Small",
+      "width": 800,
+      "height": 600
+    },
+    {
+      "label": "Large",
+      "width": 1024,
+      "height": 768
+    }
+
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Design System Buttons",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/?path=/story/3-markup-components--buttons",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--buttons",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 2000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "[title='Go full screen']",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
