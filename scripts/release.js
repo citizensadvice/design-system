@@ -92,7 +92,7 @@ function updateVersionNumber(newVersion) {
     packageJson.version = newVersion;
     // Write the updated file
     fs.writeJsonSync(PACKAGE_JSON, packageJson, {
-        spaces: '4',
+        spaces: 4,
         EOL: '\n'
     });
     log(
