@@ -12,6 +12,8 @@ const STATS_DIR = path.resolve(__dirname, '../stats');
 const STATS_FILE = path.resolve(STATS_DIR, 'size.json');
 const DIST_DIR = path.resolve(__dirname, '../dist');
 
+let writeSizeResults = false;
+
 fs.readdirSync(DIST_DIR)
     .filter(file => fs.statSync(path.resolve(DIST_DIR, file)).isFile())
     .filter(componentName => componentName.indexOf('.css') !== -1)
@@ -168,8 +170,9 @@ function writeStats(statsFile, newStats, version) {
 
 function writeOutput(file, sizes, version) {
     if (
-        process.argv.length > 2 &&
-        (process.argv[2] === '-w' || process.argv[3] === '-w')
+        writeSizeResults ||
+        (process.argv.length > 2 &&
+            (process.argv[2] === '-w' || process.argv[3] === '-w'))
     ) {
         writeStats(file, sizes, version);
     }
@@ -213,7 +216,10 @@ function compareAndStore(sizes, threshold, statsFile, currentVersion) {
     }
 }
 
-function checkBuildOutput() {
+function checkBuildOutput(writeToStatsFile) {
+    if (writeToStatsFile) {
+        writeSizeResults = true;
+    }
     const sizes = getBuildSizes(FILE_LIST, DIST_DIR);
     displaySizes(sizes);
     compareAndStore(sizes, SIZE_CHANGE_THRESHOLD, STATS_FILE, CURRENT_VERSION);

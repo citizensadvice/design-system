@@ -204,7 +204,7 @@ prompt({
         }
 
         updateVersionNumber(newVersion);
-        checkBuildOutput();
+        checkBuildOutput(true);
 
         const changelogPath = path.join(PATH, 'CHANGELOG.md');
         const changelog = fs.readFileSync(changelogPath, 'utf8');
