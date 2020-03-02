@@ -10,8 +10,7 @@
         "haml"
     ],
     "scripts": {
-        "release-prep": "yarn lint && yarn build",
-        "release": "yarn release-prep && node ./scripts/release && npm publish",
+        "prepublish": "yarn lint && yarn build && node ./scripts/release",
         "pre-commit": "lint-staged && echo \"***\n***\nDont' forget to rebuild the documentation!\n***\n***\"",
         "check-size": "node ./scripts/check-size -r",
         "check-size:write": "node ./scripts/check-size -r -w",

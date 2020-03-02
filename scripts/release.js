@@ -245,7 +245,6 @@ prompt({
                             );
 
                             // publishToNPM(newVersion);
-                            // Run this from the shell as we require the OTP code
                         });
                 } else {
                     log(
