@@ -133,6 +133,19 @@ function publishToNPM(newVersion) {
 // Check the repo status and get the current branch name
 const branchName = checkRepoStatus(PATH);
 
+prompt([
+    {
+        message: 'Have you updated the Changelog?',
+        type: 'confirm',
+        name: 'confirmation',
+        default: false
+    }
+]).then(confirmation => {
+    if (!confirmation.confirmation) {
+        process.exit(1);
+    }
+});
+
 // Get the last published version from npm, we need to do this as alpha releases are not stored so
 // getting the version from package.json won't be reliable
 let packageVersions = spawnSync(`yarn info ${FULL_PACKAGE_NAME} versions`, {
