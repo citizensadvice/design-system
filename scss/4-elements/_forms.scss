@@ -1,0 +1,9 @@
+input {
+    @include cads-interactive-element();
+
+    min-width: 1px;
+
+    &::placeholder {
+        color: $cads-language__border-colour;
+    }
+}

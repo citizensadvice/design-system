@@ -8,8 +8,14 @@ header,
     }
 
     @include cads-media-breakpoint-only(sm) {
+        padding: $cads-spacing-0;
+
         .cads-header-account-panel {
             display: none;
+        }
+
+        .cads-search {
+            margin-top: 0;
         }
     }
 }
