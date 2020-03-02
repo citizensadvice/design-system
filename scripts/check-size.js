@@ -161,7 +161,9 @@ function writeStats(statsFile, newStats, version) {
             spaces: 2,
             EOL: '\n'
         }).then(() => {
-            log(chalk.green(`New stats written in ${statsFile}`));
+            if (!writeSizeResults) {
+                log(chalk.green(`New stats written in ${statsFile}`));
+            }
         });
     } catch (e) {
         log(chalk.red.bold(`* Error trying to write to output file: ${e}`));
