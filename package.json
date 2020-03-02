@@ -1,13 +1,14 @@
 {
     "name": "@citizensadvice/design-system",
     "version": "0.1.1",
-    "description": "",
+    "description": "Citizens Advice Design System",
     "files": [
-        "favicons",
         "scss",
         "lib",
         "dist",
-        "haml"
+        "haml",
+        "CHANGELOG.md",
+        "README.md"
     ],
     "scripts": {
         "prepublishOnly": "yarn lint && yarn build && node ./scripts/release",
@@ -25,7 +26,7 @@
         "type": "git",
         "url": "git+https://github.com/citizensadvice/design-system-testing.git"
     },
-    "author": "",
+    "author": "Citizens Advice",
     "license": "UNLICENCED",
     "bugs": {
         "url": "https://github.com/citizensadvice/design-system-testing/issues"
