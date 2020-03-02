@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_Design_System_Buttons_0_document_0_Small.png",
-        "test": "../bitmaps_test/20200228-100031/backstop_default_Design_System_Buttons_0_document_0_Small.png",
+        "test": "../bitmaps_test/20200228-164353/backstop_default_Design_System_Buttons_0_document_0_Small.png",
         "selector": "document",
         "fileName": "backstop_default_Design_System_Buttons_0_document_0_Small.png",
         "label": "Design System Buttons",
@@ -28,7 +28,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_Design_System_Buttons_0_document_1_Small.png",
-        "test": "../bitmaps_test/20200228-100031/backstop_default_Design_System_Buttons_0_document_1_Small.png",
+        "test": "../bitmaps_test/20200228-164353/backstop_default_Design_System_Buttons_0_document_1_Small.png",
         "selector": "document",
         "fileName": "backstop_default_Design_System_Buttons_0_document_1_Small.png",
         "label": "Design System Buttons",
@@ -52,7 +52,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_Design_System_Buttons_0_document_2_Large.png",
-        "test": "../bitmaps_test/20200228-100031/backstop_default_Design_System_Buttons_0_document_2_Large.png",
+        "test": "../bitmaps_test/20200228-164353/backstop_default_Design_System_Buttons_0_document_2_Large.png",
         "selector": "document",
         "fileName": "backstop_default_Design_System_Buttons_0_document_2_Large.png",
         "label": "Design System Buttons",
