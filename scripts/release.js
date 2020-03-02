@@ -144,132 +144,139 @@ prompt([
     if (!confirmation.confirmation) {
         process.exit(1);
     }
-});
 
-// Get the last published version from npm, we need to do this as alpha releases are not stored so
-// getting the version from package.json won't be reliable
-let packageVersions = spawnSync(`yarn info ${FULL_PACKAGE_NAME} versions`, {
-    cwd: __dirname,
-    shell: true
-})
-    .stdout.toString()
-    .split(',');
-packageVersions = packageVersions[packageVersions.length - 1];
-packageVersions = packageVersions.substring(packageVersions.indexOf("'") + 1);
-packageVersions = packageVersions.substring(0, packageVersions.indexOf("'"));
+    // Get the last published version from npm, we need to do this as alpha releases are not stored so
+    // getting the version from package.json won't be reliable
+    let packageVersions = spawnSync(`yarn info ${FULL_PACKAGE_NAME} versions`, {
+        cwd: __dirname,
+        shell: true
+    })
+        .stdout.toString()
+        .split(',');
+    packageVersions = packageVersions[packageVersions.length - 1];
+    packageVersions = packageVersions.substring(
+        packageVersions.indexOf("'") + 1
+    );
+    packageVersions = packageVersions.substring(
+        0,
+        packageVersions.indexOf("'")
+    );
 
-const packageVersion =
-    packageVersions ||
-    require(path.join(__dirname, '..', 'package.json')).version; // eslint-disable-line
-const packageSemver = semver.parse(packageVersion);
-log(
-    `The latest published version of ${FULL_PACKAGE_NAME} is currently ${chalk.bold(
-        packageVersion
-    )}`
-);
+    const packageVersion =
+        packageVersions ||
+        require(path.join(__dirname, '..', 'package.json')).version; // eslint-disable-line
+    const packageSemver = semver.parse(packageVersion);
+    log(
+        `The latest published version of ${FULL_PACKAGE_NAME} is currently ${chalk.bold(
+            packageVersion
+        )}`
+    );
 
-// Setup the available versions
-const choices = [];
-if (semver.prerelease(packageSemver)) {
-    choices.push(packageSemver.inc('prerelease').toString());
-} else {
-    choices.push(packageSemver.inc('prepatch', 'alpha').toString());
-}
-choices.push(
-    ...[
-        packageSemver.inc('patch').toString(),
-        packageSemver.inc('preminor', 'alpha').toString(),
-        packageSemver.inc('minor').toString(),
-        packageSemver.inc('premajor', 'alpha').toString(),
-        packageSemver.inc('patch').toString()
-    ]
-);
-choices.push(DO_NOT_RELEASE);
-
-const currentVersion = packageVersion; // eslint-disable-line
-
-log(chalk.dim('---'));
-
-// Ask what version we want to release these packages as
-prompt({
-    message: `Do you want to bump ${FULL_PACKAGE_NAME} from v${currentVersion} to`,
-    type: 'list',
-    name: 'newVersion',
-    choices
-}).then(answer => {
-    // Get confirmation
-    log(answer);
-    const { newVersion } = answer;
-    if (newVersion === DO_NOT_RELEASE) {
-        showError('You chose not to release any packaages.', true);
+    // Setup the available versions
+    const choices = [];
+    if (semver.prerelease(packageSemver)) {
+        choices.push(packageSemver.inc('prerelease').toString());
+    } else {
+        choices.push(packageSemver.inc('prepatch', 'alpha').toString());
     }
+    choices.push(
+        ...[
+            packageSemver.inc('patch').toString(),
+            packageSemver.inc('preminor', 'alpha').toString(),
+            packageSemver.inc('minor').toString(),
+            packageSemver.inc('premajor', 'alpha').toString(),
+            packageSemver.inc('patch').toString()
+        ]
+    );
+    choices.push(DO_NOT_RELEASE);
 
-    prompt([
-        {
-            message: `You chose to release:\n${FULL_PACKAGE_NAME}@${newVersion}\nIs this correct?`,
-            type: 'confirm',
-            name: 'confirmation',
-            default: false
+    const currentVersion = packageVersion; // eslint-disable-line
+
+    log(chalk.dim('---'));
+
+    // Ask what version we want to release these packages as
+    prompt({
+        message: `Do you want to bump ${FULL_PACKAGE_NAME} from v${currentVersion} to`,
+        type: 'list',
+        name: 'newVersion',
+        choices
+    }).then(answer => {
+        // Get confirmation
+        log(answer);
+        const { newVersion } = answer;
+        if (newVersion === DO_NOT_RELEASE) {
+            showError('You chose not to release any packaages.', true);
         }
-    ]).then(confirmation => {
-        if (!confirmation.confirmation) {
-            process.exit(1);
-        }
 
-        updateVersionNumber(newVersion);
-        checkBuildOutput(true);
+        prompt([
+            {
+                message: `You chose to release:\n${FULL_PACKAGE_NAME}@${newVersion}\nIs this correct?`,
+                type: 'confirm',
+                name: 'confirmation',
+                default: false
+            }
+        ]).then(confirmation => {
+            if (!confirmation.confirmation) {
+                process.exit(1);
+            }
 
-        const changelogPath = path.join(PATH, 'CHANGELOG.md');
-        const changelog = fs.readFileSync(changelogPath, 'utf8');
+            updateVersionNumber(newVersion);
+            checkBuildOutput(true);
 
-        // Add the new entry
-        const changelogEntry = `## <sub>v${newVersion}</sub>\n\n#### ${moment().format(
-            '_MMM. D, YYYY_'
-        )}`;
-        const newChangelog = `${changelogEntry}\n\n${changelog}`;
-        fs.writeFileSync(changelogPath, newChangelog, 'utf8');
+            const changelogPath = path.join(PATH, 'CHANGELOG.md');
+            const changelog = fs.readFileSync(changelogPath, 'utf8');
 
-        try {
-            const git = simpleGit(PATH);
-            log(chalk.green.bold('Release prepared.'));
+            // Add the new entry
+            const changelogEntry = `## <sub>v${newVersion}</sub>\n\n#### ${moment().format(
+                '_MMM. D, YYYY_'
+            )}`;
+            const newChangelog = `${changelogEntry}\n\n${changelog}`;
+            fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 
-            prompt([
-                {
-                    message:
-                        'Do you want to commit the changes, push and release?',
-                    type: 'confirm',
-                    name: 'confirmation',
-                    default: false
-                }
-            ]).then(commitChanges => {
-                if (commitChanges.confirmation) {
-                    let releaseMessage = '';
-                    releaseMessage += `v${newVersion}`;
+            try {
+                const git = simpleGit(PATH);
+                log(chalk.green.bold('Release prepared.'));
 
-                    git.add('.')
-                        .commit(releaseMessage)
-                        .push('origin', branchName, gitErr => {
-                            if (gitErr) {
-                                showError(gitErr, true);
-                            }
+                prompt([
+                    {
+                        message:
+                            'Do you want to commit the changes, push and release?',
+                        type: 'confirm',
+                        name: 'confirmation',
+                        default: false
+                    }
+                ]).then(commitChanges => {
+                    if (commitChanges.confirmation) {
+                        let releaseMessage = '';
+                        releaseMessage += `v${newVersion}`;
 
-                            log(
-                                chalk.green(`${ok} Changes commited and pushed`)
-                            );
+                        git.add('.')
+                            .commit(releaseMessage)
+                            .push('origin', branchName, gitErr => {
+                                if (gitErr) {
+                                    showError(gitErr, true);
+                                }
 
-                            // publishToNPM(newVersion);
-                        });
-                } else {
-                    log(
-                        chalk.bold(
-                            'Changes not commited. Check the repo status.'
-                        )
-                    );
-                    process.exit(0);
-                }
-            });
-        } catch (e) {
-            showError(e, true);
-        }
+                                log(
+                                    chalk.green(
+                                        `${ok} Changes commited and pushed`
+                                    )
+                                );
+
+                                // publishToNPM(newVersion);
+                            });
+                    } else {
+                        log(
+                            chalk.bold(
+                                'Changes not commited. Check the repo status.'
+                            )
+                        );
+                        process.exit(0);
+                    }
+                });
+            } catch (e) {
+                showError(e, true);
+            }
+        });
     });
 });
