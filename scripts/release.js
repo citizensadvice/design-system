@@ -8,6 +8,7 @@ const { prompt } = require('inquirer');
 const { spawnSync } = require('child_process');
 const semver = require('semver');
 const moment = require('moment');
+const { checkBuildOutput } = require('./check-size');
 
 const log = console.log; // eslint-disable-line
 const ok = '\u2713'; // The tick
@@ -91,7 +92,7 @@ function updateVersionNumber(newVersion) {
     packageJson.version = newVersion;
     // Write the updated file
     fs.writeJsonSync(PACKAGE_JSON, packageJson, {
-        spaces: '\t',
+        spaces: '4',
         EOL: '\n'
     });
     log(
@@ -203,6 +204,7 @@ prompt({
         }
 
         updateVersionNumber(newVersion);
+        checkBuildOutput();
 
         const changelogPath = path.join(PATH, 'CHANGELOG.md');
         const changelog = fs.readFileSync(changelogPath, 'utf8');
@@ -242,7 +244,8 @@ prompt({
                                 chalk.green(`${ok} Changes commited and pushed`)
                             );
 
-                            publishToNPM(newVersion);
+                            // publishToNPM(newVersion);
+                            // Run this from the shell as we require the OTP code
                         });
                 } else {
                     log(
