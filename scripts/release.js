@@ -102,30 +102,6 @@ function updateVersionNumber(newVersion) {
     );
 }
 
-function publishToNPM(newVersion) {
-    const publishDir = PATH;
-
-    /* eslint-disable prefer-destructuring */
-    const status = spawnSync(`npm publish ${publishDir}`, {
-        stdio: 'inherit',
-        shell: true
-    }).status;
-    /* eslint-enable */
-
-    if (status === 0) {
-        log(
-            chalk.green.dim(
-                `${ok} npm publish of ${FULL_PACKAGE_NAME}@${newVersion} successful`
-            )
-        );
-    } else {
-        showError(
-            `${error} npm publish of ${FULL_PACKAGE_NAME}@${newVersion} failed. Check your repo status and permissions and retry.`,
-            true
-        );
-    }
-}
-
 /* ///////////////////////////////////////////////////////////////////////// */
 /* START HERE ////////////////////////////////////////////////////////////// */
 /* ///////////////////////////////////////////////////////////////////////// */
@@ -140,13 +116,14 @@ prompt([
         name: 'confirmation',
         default: false
     }
-]).then(confirmation => {
-    if (!confirmation.confirmation) {
+]).then(changelogUpdated => {
+    if (!changelogUpdated.confirmation) {
         process.exit(1);
     }
 
-    // Get the last published version from npm, we need to do this as alpha releases are not stored so
-    // getting the version from package.json won't be reliable
+    // Get the last published version from npm, we need to do this
+    // as alpha releases are not stored so getting the version from
+    // package.json won't be reliable
     let packageVersions = spawnSync(`yarn info ${FULL_PACKAGE_NAME} versions`, {
         cwd: __dirname,
         shell: true
@@ -271,7 +248,7 @@ prompt([
                                 'Changes not commited. Check the repo status.'
                             )
                         );
-                        process.exit(0);
+                        process.exit(1);
                     }
                 });
             } catch (e) {

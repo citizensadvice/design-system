@@ -2,9 +2,6 @@ const path = require('path');
 const fs = require('fs-extra'); // eslint-disable-line
 const chalk = require('chalk'); // eslint-disable-line
 const { prompt } = require('inquirer'); // eslint-disable-line
-
-const CURRENT_VERSION = require(path.join(__dirname, '../package.json')) // eslint-disable-line
-    .version;
 const SIZE_CHANGE_THRESHOLD = 0.1; // 10%
 const FILE_LIST = [];
 const STATS_DIR = path.resolve(__dirname, '../stats');
@@ -229,7 +226,8 @@ function checkBuildOutput(writeToStatsFile) {
     }
     const sizes = getBuildSizes(FILE_LIST, DIST_DIR);
     displaySizes(sizes);
-    compareAndStore(sizes, SIZE_CHANGE_THRESHOLD, STATS_FILE, CURRENT_VERSION);
+    const v = require(path.join(__dirname, '../package.json')).version; // eslint-disable-line
+    compareAndStore(sizes, SIZE_CHANGE_THRESHOLD, STATS_FILE, v);
 }
 
 // Only run if the -r param is given
