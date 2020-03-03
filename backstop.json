@@ -7,7 +7,7 @@
       "height": 960
     },
     {
-      "label": "Small",
+      "label": "Medium",
       "width": 800,
       "height": 600
     },
@@ -28,7 +28,7 @@
       "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--buttons",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 2000,
+      "delay": 5000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -39,6 +39,33 @@
       "expect": 0,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions": true
+    },
+    
+    {
+      "label": "Design System Buttons - phone",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/?path=/story/3-markup-components--buttons",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--buttons",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 5000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "[class='css-4f5toi']",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "phone",
+          "width": 320,
+          "height": 480
+        }
+      ]
     }
   ],
   "paths": {
@@ -58,3 +85,13 @@
   "debug": false,
   "debugWindow": false
 }
+
+
+
+
+
+
+
+
+
+
