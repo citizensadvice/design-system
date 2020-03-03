@@ -1,4 +1,5 @@
-input {
+input,
+.cads-input {
     @include cads-interactive-element();
 
     min-width: 1px;
@@ -6,4 +7,14 @@ input {
     &::placeholder {
         color: $cads-language__border-colour;
     }
+}
+
+.cads-radio-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cads-radio-group__hint {
+    color: $cads-language__secondary-text-colour;
 }

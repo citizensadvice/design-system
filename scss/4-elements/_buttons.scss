@@ -6,29 +6,29 @@ button,
 
     &,
     &__primary {
-        background-color: $cads-palette__heritage-blue;
+        background-color: $cads-language__button-colour;
         color: $cads-palette__white;
-        border-color: $cads-palette__heritage-blue;
+        border-color: $cads-language__button-colour;
 
         &:hover {
-            color: $cads-palette__heritage-blue;
+            color: $cads-language__button-colour;
             background-color: $cads-palette__white;
         }
     }
 
     &__secondary {
-        background-color: $cads-palette__heritage-yellow;
-        color: $cads-palette__black;
-        border-color: $cads-palette__heritage-yellow;
+        background-color: $cads-language__secondary-button-colour;
+        color: $cads-palette__white;
+        border-color: $cads-language__secondary-button-colour;
 
         &:hover {
-            color: $cads-palette__black;
+            color: $cads-language__secondary-button-colour;
             background-color: $cads-palette__white;
         }
     }
 
     &:active {
-        background-color: $cads-palette__heritage-yellow;
+        background-color: $cads-language__secondary-button-colour;
         color: $cads-palette__black;
         border-color: $cads-palette__black;
     }

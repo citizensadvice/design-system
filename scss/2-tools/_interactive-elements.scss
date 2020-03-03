@@ -2,16 +2,26 @@
 // colour language and create the appropriate mixins for the various classes
 // or maybe create classes to do this...?
 @mixin cads-interactive-element-bg() {
-    @include cads-transition-animation(background-color);
+    // Todo
 }
 
 @mixin cads-interactive-element($hasBg: true) {
+    @include cads-transition-animation(border-color);
+    @include cads-transition-animation(outline-color);
+
     font-size: 1em;
     padding: calc(1em - 1px) 1em;
     display: inline-block;
-    outline: none;
+    outline: 2px solid rgba($cads-language__focus-colour, 0);
+    outline-offset: 0;
     box-shadow: none;
-    border: 1px solid $cads-language__input-border-colour;
+    border: 2px solid $cads-language__input-border-colour;
+
+    &:focus {
+        border-color: $cads-language__focus-border-colour;
+        outline: 2px solid $cads-language__focus-colour;
+        outline-offset: 0;
+    }
 
     @if ($hasBg) {
         @include cads-interactive-element-bg();
