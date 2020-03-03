@@ -6,8 +6,7 @@
 }
 
 @mixin cads-interactive-element($hasBg: true) {
-    @include cads-transition-animation(border-color);
-    @include cads-transition-animation(box-shadow);
+    @include cads-transition-animation();
 
     box-shadow: none;
     outline: none;

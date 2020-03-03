@@ -30,8 +30,6 @@ input,
 
     .cads-radio-button-checkmark {
         @include cads-interactive-element();
-        @include cads-transition-animation(border-color);
-        @include cads-transition-animation(box-shadow);
 
         position: absolute;
         top: 0;
@@ -51,7 +49,7 @@ input,
             border-radius: 50%;
             background: $cads-language__input-border-colour;
 
-            @include cads-transition-animation(background-color);
+            @include cads-transition-animation();
         }
     }
 
