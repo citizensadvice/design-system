@@ -2,12 +2,16 @@ import hljs from 'highlight.js'; // eslint-disable-line
 import beautify from 'js-beautify'; // eslint-disable-line
 
 const a11yid = 'a11yComponentToTest';
-const wrapper = (title, component, usage) => {
+const wrapper = (title, component, usage, js) => {
     const source = hljs.highlightAuto(
         beautify.html_beautify(component, {
             indent_size: 2
         })
     ).value;
+
+    if (js && js) {
+        setTimeout(js);
+    }
 
     return `
 <h1 aria-hidden="true">${title}</h1>
