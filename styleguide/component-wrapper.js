@@ -9,7 +9,7 @@ const wrapper = (title, component, usage, js) => {
         })
     ).value;
 
-    if (js && js) {
+    if (js) {
         setTimeout(js);
     }
 
