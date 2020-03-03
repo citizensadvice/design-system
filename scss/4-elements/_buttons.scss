@@ -2,6 +2,9 @@ button,
 .cads-button {
     @include cads-interactive-element();
 
+    font-size: 1em;
+    padding: calc(1em - 1px) 1em;
+    display: inline-block;
     cursor: pointer;
 
     &,

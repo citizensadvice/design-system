@@ -7,20 +7,17 @@
 
 @mixin cads-interactive-element($hasBg: true) {
     @include cads-transition-animation(border-color);
-    @include cads-transition-animation(outline-color);
+    @include cads-transition-animation(box-shadow);
 
-    font-size: 1em;
-    padding: calc(1em - 1px) 1em;
-    display: inline-block;
-    outline: 2px solid rgba($cads-language__focus-colour, 0);
-    outline-offset: 0;
     box-shadow: none;
+    outline: none;
     border: 2px solid $cads-language__input-border-colour;
 
     &:focus {
+        outline: none;
         border-color: $cads-language__focus-border-colour;
-        outline: 2px solid $cads-language__focus-colour;
-        outline-offset: 0;
+        // We need to use box-shadow instead of outline as outline does not have a radius
+        box-shadow: 0 0 0 2px $cads-language__focus-colour;
     }
 
     @if ($hasBg) {

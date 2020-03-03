@@ -3,6 +3,9 @@ input,
     @include cads-interactive-element();
 
     min-width: 1px;
+    font-size: 1em;
+    padding: calc(1em - 1px) 1em;
+    display: inline-block;
 
     &::placeholder {
         color: $cads-language__border-colour;
@@ -17,4 +20,75 @@ input,
 
 .cads-radio-group__hint {
     color: $cads-language__secondary-text-colour;
+    display: block;
+}
+
+.cads-radio-button {
+    display: block;
+    position: relative;
+    padding-left: calc(#{$cads-interactive-target-size} + #{$cads-spacing-2});
+    margin-bottom: $cads-spacing-4;
+    line-height: $cads-interactive-target-size;
+    height: $cads-interactive-target-size;
+    cursor: pointer;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .cads-radio-button-checkmark {
+        @include cads-interactive-element();
+        @include cads-transition-animation(border-color);
+        @include cads-transition-animation(box-shadow);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $cads-interactive-target-size;
+        width: $cads-interactive-target-size;
+        border-radius: 50%;
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: none;
+            top: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: $cads-language__input-border-colour;
+
+            @include cads-transition-animation(background-color);
+        }
+    }
+
+    input:checked ~ .cads-radio-button-checkmark {
+        border-color: $cads-language__input-border-colour;
+
+        &::after {
+            display: block;
+        }
+    }
+
+    &:hover input ~ .cads-radio-button-checkmark {
+        border-color: $cads-language__focus-border-colour;
+
+        &::after {
+            background-color: $cads-language__focus-border-colour;
+        }
+    }
+
+    input:focus ~ .cads-radio-button-checkmark {
+        border-color: $cads-language__focus-border-colour;
+        // We need to use box-shadow instead of outline as outline does not have a radius
+        box-shadow: 0 0 0 2px $cads-language__focus-colour;
+
+        &::after {
+            background-color: $cads-language__focus-border-colour;
+        }
+    }
 }
