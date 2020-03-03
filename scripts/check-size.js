@@ -2,15 +2,14 @@ const path = require('path');
 const fs = require('fs-extra'); // eslint-disable-line
 const chalk = require('chalk'); // eslint-disable-line
 const { prompt } = require('inquirer'); // eslint-disable-line
-
-const log = console.log; // eslint-disable-line
-const CURRENT_VERSION = require(path.join(__dirname, '../package.json')) // eslint-disable-line
-    .version;
 const SIZE_CHANGE_THRESHOLD = 0.1; // 10%
 const FILE_LIST = [];
 const STATS_DIR = path.resolve(__dirname, '../stats');
 const STATS_FILE = path.resolve(STATS_DIR, 'size.json');
 const DIST_DIR = path.resolve(__dirname, '../dist');
+
+let writeSizeResults = false;
+let silent = false;
 
 fs.readdirSync(DIST_DIR)
     .filter(file => fs.statSync(path.resolve(DIST_DIR, file)).isFile())
@@ -18,6 +17,12 @@ fs.readdirSync(DIST_DIR)
     .forEach(item => {
         FILE_LIST.push(item);
     });
+
+const log = content => {
+    if (!silent) {
+        console.log(content); // eslint-disable-line
+    }
+};
 
 function getLastBuildSizes(file) {
     try {
@@ -155,7 +160,7 @@ function writeStats(statsFile, newStats, version) {
         }
 
         // Write the updated file
-        fs.writeJson(statsFile, output, {
+        fs.writeJsonSync(statsFile, output, {
             spaces: 2,
             EOL: '\n'
         }).then(() => {
@@ -168,8 +173,9 @@ function writeStats(statsFile, newStats, version) {
 
 function writeOutput(file, sizes, version) {
     if (
-        process.argv.length > 2 &&
-        (process.argv[2] === '-w' || process.argv[3] === '-w')
+        writeSizeResults ||
+        (process.argv.length > 2 &&
+            (process.argv[2] === '-w' || process.argv[3] === '-w'))
     ) {
         writeStats(file, sizes, version);
     }
@@ -188,7 +194,7 @@ function displaySizes(sizes) {
 function compareAndStore(sizes, threshold, statsFile, currentVersion) {
     const lastStats = getLastBuildSizes(statsFile);
     const filesOverThreshold = compareSizes(lastStats.stats, sizes, threshold);
-    if (filesOverThreshold) {
+    if (!silent && filesOverThreshold) {
         log(
             chalk.red(`These files have changed size over ${threshold * 100}%:`)
         );
@@ -213,10 +219,15 @@ function compareAndStore(sizes, threshold, statsFile, currentVersion) {
     }
 }
 
-function checkBuildOutput() {
+function checkBuildOutput(writeToStatsFile) {
+    if (writeToStatsFile) {
+        writeSizeResults = true;
+        silent = true;
+    }
     const sizes = getBuildSizes(FILE_LIST, DIST_DIR);
     displaySizes(sizes);
-    compareAndStore(sizes, SIZE_CHANGE_THRESHOLD, STATS_FILE, CURRENT_VERSION);
+    const v = require(path.join(__dirname, '../package.json')).version; // eslint-disable-line
+    compareAndStore(sizes, SIZE_CHANGE_THRESHOLD, STATS_FILE, v);
 }
 
 // Only run if the -r param is given
