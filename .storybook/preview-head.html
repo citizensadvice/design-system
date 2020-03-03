@@ -1,0 +1,19 @@
+<script>
+    function styleguideChangeLangugage() {
+        try {
+            const el = document.getElementsByClassName(
+                'cads-styleguide__wrapper'
+            )[0];
+            if (el.classList.contains('cads-lang-cy')) {
+                el.classList.remove('cads-lang-cy');
+                el.classList.add('cads-lang-gd');
+            } else if (el.classList.contains('cads-lang-gd')) {
+                el.classList.remove('cads-lang-gd');
+            } else {
+                el.classList.add('cads-lang-cy');
+            }
+        } catch (e) {
+            console.log('Could not change language');
+        }
+    }
+</script>
