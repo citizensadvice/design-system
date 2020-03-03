@@ -19,6 +19,7 @@ import tSearch from '../haml/_search.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
+import tRadioSmall from '../haml/_radio_group_small.html.haml';
 // ...then queue in memory partials that are used by other partials
 haml.queueTemplate('logo_clickable', tLogo);
 haml.queueTemplate('search', tSearch);
@@ -64,7 +65,9 @@ export const search = () => renderHamlTemplate('Search', tSearch, 'search');
 export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
 export const header = () => renderHamlTemplate('Header', tHeader, 'header');
 export const radioGroup = () =>
-    renderHamlTemplate('Radio Group', tRadio, 'radioGroup');
+    renderHamlTemplate('Radio Group', tRadio, 'radio_group');
+export const radioGroupSmall = () =>
+    renderHamlTemplate('Radio Group Small', tRadioSmall, 'radio_group_small');
 export const breadcrumb = () =>
     renderHamlTemplate('Breadcrumbs', tBreadcrumb, 'breadcrumb');
 export const logo = () =>
