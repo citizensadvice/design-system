@@ -71,7 +71,9 @@
         "stylelint-selector-bem-pattern": "^2.1.0",
         "webdriverio": "^5.18.6"
     },
-    "dependencies": {},
+    "dependencies": {
+        "@baseonmars/priority-nav": "^1.1.0"
+    },
     "browserslist": [
         "IE 11",
         "last 2 Edge versions",
