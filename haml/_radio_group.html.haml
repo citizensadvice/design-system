@@ -1,15 +1,15 @@
 %fieldset.cads-radio-group{role: 'radiogroup', id:'fielsetabc'}
   %legend.cads-heading-small= radio_group_label
-  %label.paragraph-s.cads-radio-group__hint= radio_group_hint
+  %p.paragraph-s.cads-radio-group__hint= radio_group_hint
   %label.cads-radio-button{for: 'abc1'}
     Potato
-    %input{type: 'radio', id:'abc1', name:'tom', checked:'true'}
+    %input{type: 'radio', id:'abc1', name:radio_group_name, checked:'true'}
     %span.cads-radio-button-checkmark
   %label.cads-radio-button{for: 'abc2'}
     Lemon
-    %input{type: 'radio', id:'abc2', name:'lem'}
+    %input{type: 'radio', id:'abc2', name:radio_group_name}
     %span.cads-radio-button-checkmark
   %label.cads-radio-button{for: 'abc3'}
     Parsnip
-    %input{type: 'radio', id:'abc3', name:'par'}
+    %input{type: 'radio', id:'abc3', name:radio_group_name}
     %span.cads-radio-button-checkmark

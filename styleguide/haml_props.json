@@ -3,6 +3,7 @@
     "sign_in_url": "abc",
     "search_action_url": "https://www.citizensadvice.org.uk/resources-and-tools/search-navigation-tools/Search/",
     "breadcrumb_links": ["a", "b"],
+    "radio_group_name": "radiogroup-name",
     "radio_group_label": "This is a radio button group example",
     "radio_group_hint": "This is the hint text for the radio group"
 }
