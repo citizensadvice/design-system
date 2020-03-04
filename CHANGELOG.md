@@ -1,4 +1,5 @@
 * NP-138 radio buttons
+* Update navigation with Greedy/Priority+ UI pattern [NP-11]
 
 ## <sub>v0.2.0</sub>
 

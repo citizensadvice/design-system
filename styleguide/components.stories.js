@@ -7,7 +7,6 @@ import './styles.scss';
 // HTML components
 import Buttons from './components/buttons';
 import Callout from './components/callout';
-import Navigation from './components/navigation';
 
 // Storybook section setup
 export default {
@@ -29,5 +28,4 @@ export default {
 };
 
 export const callout = () => Callout();
-export const navigation = () => Navigation();
 export const buttons = () => Buttons();
