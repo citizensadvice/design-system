@@ -752,6 +752,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@baseonmars/priority-nav@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@baseonmars/priority-nav/-/priority-nav-1.2.0.tgz#a30f8e0eaeb24ef0bf2f9cf33adc4e1a49de31ed"
+  integrity sha512-K4PjD81cCEZetc2zpZ343/N6xrICc6Xz78MThsmUYCb4KqLr2MmAlVy/2B7JOZ7azRYRbzgS470Rs9FU8gu0vw==
+
 "@chromaui/localtunnel@1.10.1":
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/@chromaui/localtunnel/-/localtunnel-1.10.1.tgz#34da7dab7055a16b1b9034a9eb7e3054ebec4b98"

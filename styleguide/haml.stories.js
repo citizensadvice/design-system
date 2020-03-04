@@ -6,6 +6,7 @@ import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 // The styles
 import './styles.scss';
 
+import priorityNav from '@baseonmars/priority-nav';
 import wrapper from './component-wrapper';
 
 // Haml setup
@@ -15,9 +16,11 @@ import * as haml from '../scripts/haml';
 import tFooter from '../haml/_footer.html.haml';
 import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
+import tNavigation from '../haml/_navigation.html.haml';
 import tSearch from '../haml/_search.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.html.haml';
+
 // ...then queue in memory partials that are used by other partials
 haml.queueTemplate('logo_clickable', tLogo);
 haml.queueTemplate('search', tSearch);
@@ -28,14 +31,16 @@ function renderHamlTemplate(
     template,
     hamlLocation,
     usage,
-    optionalProps
+    optionalProps,
+    optionalJS
 ) {
     return wrapper(
         templateName,
         haml.render(template, { ...hamlProps, ...optionalProps }),
         `The partial is available in:
 <pre><code>haml/_${hamlLocation}.html.haml</code></pre>
-${usage || ''}`
+${usage || ''}`,
+        optionalJS
     );
 }
 
@@ -72,6 +77,22 @@ export const logo = () =>
         `You can use the <code>cads-logo</code> class on anything to display the logo.
 Make sure that an accessible title/etc is available.`
     );
+export const navigation = () =>
+    renderHamlTemplate(
+        'Navigation',
+        tNavigation,
+        'navigation',
+        `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
+        \n\n
+        To activate this you should load javascript from <kbd>design_system_path>/js/navigation.js</kbd> then initialise it using <code>priorityNav.init({breakPoint: 0, dropDownLabel: "More"})</code>`,
+        null,
+        () =>
+            priorityNav.init({
+                breakPoint: 0,
+                navDropdownLabel: 'More'
+            })
+    );
+
 export const noticeBanner = () => {
     const notice_banner_content = text(
         'Banner content',
