@@ -4,6 +4,7 @@
     "description": "Citizens Advice Design System",
     "files": [
         "scss",
+        "js",
         "lib",
         "dist",
         "haml",
