@@ -2,6 +2,11 @@
   "id": "backstop_default",
   "viewports": [
     {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
       "label": "Small",
       "width": 640,
       "height": 960
@@ -22,191 +27,63 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
-      "label": "3 Markup Components - Breadcrumbs",
+      "label": "3_Markup_Components_BREADCRUMBS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--breadcrumbs",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--breadcrumbs",
+      "url": "http://localhost:6006/iframe.html?id=3-markup-components--breadcrumbs",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--breadcrumbs",
       "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
-      "clickSelector": "[title='Go full screen']",
+      "clickSelector": "",
       "postInteractionWait": 0,
-      "selectors": [],
+      "selectors": ["#a11yComponentToTest"],
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions": true
-    },
-    
-    {
-      "label": "3 Markup Components - Breadcrumbs (xsmall)",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--breadcrumbs",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--breadcrumbs",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "[class='css-4f5toi']",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true,
-      "viewports": [
-        {
-          "label": "phone",
-          "width": 320,
-          "height": 480
-        }
-      ]
     },
 
     {
-      "label": "3 Markup Components - Buttons",
+      "label": "3_Markup_Components_BUTTONS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--buttons",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--buttons",
+      "url": "http://localhost:6006/iframe.html?id=3-markup-components--buttons",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--buttons",
       "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
-      "clickSelector": "[title='Go full screen']",
+      "clickSelector": "",
       "postInteractionWait": 0,
-      "selectors": [],
+      "selectors": ["#a11yComponentToTest"],
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions": true
-    },
-    
-    {
-      "label": "3 Markup Components - Buttons (xsmall)",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--buttons",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--buttons",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "[class='css-4f5toi']",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true,
-      "viewports": [
-        {
-          "label": "phone",
-          "width": 320,
-          "height": 480
-        }
-      ]
     },
 
     {
-      "label": "3 Markup Components - Callout",
+      "label": "3_Markup_Components_CALLLOUT",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--callout",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--callout",
+      "url": "http://localhost:6006/iframe.html?id=3-markup-components--callout",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--callout",
       "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
-      "clickSelector": "[title='Go full screen']",
+      "clickSelector": "",
       "postInteractionWait": 0,
-      "selectors": [],
+      "selectors": ["#a11yComponentToTest"],
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions": true
-    },
-    
-    {
-      "label": "3 Markup Components - Callout (xsmall)",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--callout",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--callout",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "[class='css-4f5toi']",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true,
-      "viewports": [
-        {
-          "label": "phone",
-          "width": 320,
-          "height": 480
-        }
-      ]
-    },
-
-    {
-      "label": "3 Markup Components - Navigation",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--navigation",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--navigation",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "[title='Go full screen']",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
-    },
-    
-    {
-      "label": "3 Markup Components - Navigation (xsmall)",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/?path=/story/3-markup-components--navigation",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/?path=/story/3-markup-components--navigation",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 5000,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "[class='css-4f5toi']",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true,
-      "viewports": [
-        {
-          "label": "phone",
-          "width": 320,
-          "height": 480
-        }
-      ]
     }
   ],
   "paths": {
