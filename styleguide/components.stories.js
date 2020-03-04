@@ -5,7 +5,6 @@ import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 import './styles.scss';
 
 // HTML components
-import Breadcrumbs from './components/breadcrumbs';
 import Buttons from './components/buttons';
 import Callout from './components/callout';
 import Navigation from './components/navigation';
@@ -32,4 +31,3 @@ export default {
 export const callout = () => Callout();
 export const navigation = () => Navigation();
 export const buttons = () => Buttons();
-export const breadcrumbs = () => Breadcrumbs();
