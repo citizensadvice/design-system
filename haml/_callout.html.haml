@@ -1,4 +1,5 @@
 %div{class: "cads-callout cads-callout-#{notice[:type]}"}
   %h3
-    %span.cads-callout-label= notice[:title]
+    %span.cads-callout-label
+    = notice[:title]
   = sanitize notice[:body], scrubber: scrubber
