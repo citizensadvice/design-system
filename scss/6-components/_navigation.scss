@@ -17,7 +17,8 @@ nav,
         font-weight: $cads-font-weight__bold;
     }
 
-    .nav__dropdown-toggle.priority-nav__dropdown-toggle {
+    .nav__dropdown-toggle.priority-nav__dropdown-toggle,
+    .nav__dropdown-toggle.priority-nav__dropdown-toggle:hover {
         height: 100%;
         font-weight: bold;
         border-left: 1px solid $cads-palette__white;
@@ -55,6 +56,7 @@ nav,
 
     .priority-nav__dropdown {
         background-color: $cads-palette__heritage-blue;
+        border-top: 1px solid $cads-palette__white;
         right: 0;
         top: 100%;
 
