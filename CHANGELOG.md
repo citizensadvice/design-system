@@ -1,3 +1,7 @@
+## <sub>v0.3.0</sub>
+
+#### _Mar. 4, 2020_
+
 * Update navigation with Greedy/Priority+ UI pattern [NP-11]
 
 ## <sub>v0.2.0</sub>
