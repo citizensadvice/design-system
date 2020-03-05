@@ -8,7 +8,6 @@ import './styles.scss';
 import Breadcrumbs from './components/breadcrumbs';
 import Buttons from './components/buttons';
 import Navigation from './components/navigation';
-import Callout from './components/callout';
 
 // Storybook section setup
 export default {
@@ -30,6 +29,5 @@ export default {
 };
 
 export const navigation = () => Navigation();
-export const callout = () => Callout();
 export const buttons = () => Buttons();
 export const breadcrumbs = () => Breadcrumbs();
