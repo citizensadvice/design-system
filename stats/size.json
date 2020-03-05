@@ -80,6 +80,24 @@
           "size": 28713
         }
       ]
+    },
+    {
+      "version": "0.3.2",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 28835
+        }
+      ]
+    },
+    {
+      "version": "0.3.3",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 28849
+        }
+      ]
     }
   ]
 }

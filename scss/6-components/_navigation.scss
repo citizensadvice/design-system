@@ -14,6 +14,7 @@ nav,
 
     li,
     .cads-list-item {
+        display: inline-block;
         font-weight: $cads-font-weight__bold;
     }
 
@@ -62,11 +63,20 @@ nav,
 
         li {
             margin-bottom: 0;
+            display: block;
         }
 
         a {
             display: block;
             transition-property: none;
         }
+    }
+}
+
+.cads-navigation-full-width-wrapper {
+    background-color: $cads-palette__heritage-blue;
+
+    nav {
+        @extend .cads-max-content-width;
     }
 }

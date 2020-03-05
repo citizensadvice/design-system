@@ -93,7 +93,7 @@ export const navigation = () =>
         'navigation',
         `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
         \n\n
-        To activate this you should load javascript from <kbd>design_system_path>/js/navigation.js</kbd> then initialise it using <code>priorityNav.init({breakPoint: 0, dropDownLabel: "More"})</code>`,
+        <code>import { initNavigation } from @citizensadvice/design-system/js/navigation</code> and execute that function after the navigation components html has loaded into the DOM.`,
         null,
         () =>
             priorityNav.init({
