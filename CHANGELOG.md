@@ -1,3 +1,5 @@
+* NP-91: Amend callout 
+
 ## <sub>v0.3.0</sub>
 
 #### _Mar. 4, 2020_
