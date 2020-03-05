@@ -1,3 +1,6 @@
+* NP-11: Fix layout of navigation when used in website
+* NP-11: Expose initialisation function with default options
+
 ## <sub>v0.3.1</sub>
 
 #### _Mar. 5, 2020_
@@ -8,7 +11,7 @@
 
 #### _Mar. 4, 2020_
 
-* Update navigation with Greedy/Priority+ UI pattern [NP-11]
+* NP-11: Update navigation with Greedy/Priority+ UI pattern
 
 ## <sub>v0.2.0</sub>
 
