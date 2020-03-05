@@ -1,4 +1,9 @@
 * Switch to npm from yarn
+
+## <sub>v0.3.2</sub>
+
+#### _Mar. 5, 2020_
+
 * NP-11: Fix layout of navigation when used in website
 * NP-11: Expose initialisation function with default options
 
