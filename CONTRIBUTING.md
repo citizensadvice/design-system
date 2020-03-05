@@ -10,11 +10,11 @@ To do...
 
 ## The Code
 
-Use node v10 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 10. `yarn` is the recommended package manager.
+Use node v10 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 10.
 
 ### Building
 
-Just run `yarn build` and this will compile all the SCSS into the `dist` folder.
+Just run `npm run build` and this will compile all the SCSS into the `dist` folder.
 
 #### Output checks
 
@@ -36,12 +36,12 @@ The styleguide is automatically hosted in [Github pages](https://citizensadvice.
 To build and run the styleguide in dev mode locally:
 
 ```
-yarn styleguide
+npm run styleguide
 ```
 
 The styleguide runs on http://localhost:6006. The documentation is generated using storybook and the code lives under `styleguide`.
 
-The static version of the styleguide is build into `docs` using `yarn docs:build`, which then gets automatically hosted into Github pages. You can serve the generated files from `docs` by running `yarn docs:serve`.
+The static version of the styleguide is build into `docs` using `npm run docs:build`, which then gets automatically hosted into Github pages. You can serve the generated files from `docs` by running `npm run docs:serve`.
 
 Currently there is no automated process to rebuild the contents of the `docs` folder, so you need to remember to do that whenever you make a release (currently that is merging into `master`).
 

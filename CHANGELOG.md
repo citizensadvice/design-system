@@ -1,3 +1,4 @@
+* Switch to npm from yarn
 * NP-11: Fix layout of navigation when used in website
 * NP-11: Expose initialisation function with default options
 

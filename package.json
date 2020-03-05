@@ -12,11 +12,11 @@
         "README.md"
     ],
     "scripts": {
-        "prepublishOnly": "yarn lint && yarn build && node ./scripts/release",
+        "prepublishOnly": "npm run lint && npm run build && node ./scripts/release",
         "pre-commit": "lint-staged && echo \"***\n***\nDont' forget to rebuild the documentation!\n***\n***\"",
         "check-size": "node ./scripts/check-size -r",
         "check-size:write": "node ./scripts/check-size -r -w",
-        "build": "yarn clean && node ./scripts/build -r && yarn check-size -r",
+        "build": "npm run clean && node ./scripts/build -r && npm run check-size -r",
         "clean": "rm -fr ./dist",
         "styleguide": "start-storybook -p 6006",
         "docs:build": "build-storybook -o docs",
@@ -91,7 +91,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn pre-commit"
+            "pre-commit": "npm run pre-commit"
         }
     }
 }
