@@ -13,6 +13,7 @@ import wrapper from './component-wrapper';
 import hamlProps from './haml_props.json';
 import * as haml from '../scripts/haml';
 // Import all the templates...
+import tCallout from '../haml/_callout.story.html.haml';
 import tFooter from '../haml/_footer.html.haml';
 import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
@@ -107,3 +108,4 @@ export const noticeBanner = () => {
         { notice_banner_content }
     );
 };
+export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');
