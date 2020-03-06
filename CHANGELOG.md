@@ -1,4 +1,5 @@
 * NP-138 radio buttons
+* Switch to npm from yarn
 
 ## <sub>v0.3.3</sub>
 
