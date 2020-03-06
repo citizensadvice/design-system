@@ -7,11 +7,11 @@
 
     input {
         flex: 1 1;
+        border-right-width: 0; // TODO: Do we want to do this? Hover looks a bit funny next to input box
     }
 
     button {
         flex: 0 0;
-        border-left-width: 0; // TODO: Do we want to do this? Hover looks a bit funny next to input box
 
         &::after {
             content: 'Search';

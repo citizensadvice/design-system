@@ -1,9 +1,113 @@
-input {
+input,
+.cads-input {
     @include cads-interactive-element();
 
     min-width: 1px;
+    font-size: 1em;
+    padding: calc(1em - 1px) 1em;
+    display: inline-block;
 
     &::placeholder {
         color: $cads-language__border-colour;
     }
+}
+
+.cads-radio-button {
+    display: block;
+    position: relative;
+    padding: 0 0 0 calc(#{$cads-interactive-target-size} + #{$cads-spacing-2});
+    margin-bottom: $cads-spacing-4;
+    line-height: $cads-interactive-target-size;
+    height: $cads-interactive-target-size;
+    cursor: pointer;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .cads-radio-button-checkmark {
+        @include cads-interactive-element();
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $cads-interactive-target-size;
+        width: $cads-interactive-target-size;
+        border-radius: 50%;
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: none;
+            top: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: $cads-language__input-border-colour;
+
+            @include cads-transition-animation();
+        }
+    }
+
+    input:checked ~ .cads-radio-button-checkmark {
+        border-color: $cads-language__input-border-colour;
+
+        &::after {
+            display: block;
+        }
+    }
+
+    &:hover input ~ .cads-radio-button-checkmark {
+        border-color: $cads-language__focus-border-colour;
+
+        &::after {
+            background-color: $cads-language__focus-border-colour;
+        }
+    }
+
+    input:focus ~ .cads-radio-button-checkmark {
+        border-color: $cads-language__focus-border-colour;
+        // We need to use box-shadow instead of outline as outline does not have a radius
+        box-shadow: 0 0 0 2px $cads-language__focus-colour;
+
+        &::after {
+            background-color: $cads-language__focus-border-colour;
+        }
+    }
+}
+
+.cads-radio-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    &.cads-radio-group__small {
+        .cads-radio-button {
+            display: inline-block;
+            margin-right: $cads-spacing-4;
+            padding: 0 0 0 calc(24px + #{$cads-spacing-2});
+            line-height: 24px;
+
+            .cads-radio-button-checkmark {
+                height: 24px;
+                width: 24px;
+
+                &::after {
+                    width: 10px;
+                    height: 10px;
+                    top: 5px;
+                    left: 5px;
+                }
+            }
+        }
+    }
+}
+
+.cads-radio-group__hint {
+    color: $cads-language__secondary-text-colour;
+    display: block;
 }

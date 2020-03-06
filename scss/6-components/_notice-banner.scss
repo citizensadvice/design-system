@@ -35,6 +35,19 @@
             background-color: $cads-language__brand-secondary;
             padding: $cads-spacing-2;
             margin: 0 $cads-spacing-4 0 0;
+
+            &::after {
+                display: block;
+                content: 'Notice';
+            }
+
+            .cads-lang-cy &::after {
+                content: 'Rhybudd';
+            }
+
+            .cads-lang-gd &::after {
+                content: 'Brath';
+            }
         }
     }
 }

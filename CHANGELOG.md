@@ -1,4 +1,5 @@
 * NP-139 Input boxes and textareas
+* NP-138 radio buttons
 
 ## <sub>v0.3.3</sub>
 
