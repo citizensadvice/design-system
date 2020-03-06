@@ -1,6 +1,8 @@
 %fieldset.cads-radio-group
-  %legend.cads-heading-small= radio_group_label
-  %p.paragraph-s.cads-radio-group__hint= radio_group_hint
+  %legend.cads-heading-small
+    = radio_group_label
+  %p.paragraph-s.cads-radio-group__hint
+    = radio_group_hint
   - radio_group_options.each do |radioItem|
     %label.cads-radio-button{for: "#{radio_group_name}-#{radioItem}"}
       = radioItem
