@@ -27,6 +27,46 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
+      "label": "2_Design_Foundations_COLOUR_LANGUAGE",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/iframe.html?id=2-design-foundations--colour-language",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=2-design-foundations--colour-language",
+      "readyEvent": "",
+      "readySelector": ".cads-styleguide__wrapper",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [".cads-styleguide__breakpoint-label", "h1"],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [".cads-styleguide__wrapper"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+
+    {
+      "label": "2_Design_Foundations_COLOUR_PALETTE",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/iframe.html?id=2-design-foundations--colour-palette",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=2-design-foundations--colour-palette",
+      "readyEvent": "",
+      "readySelector": ".cads-styleguide__wrapper",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [".cads-styleguide__breakpoint-label", "h1"],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [".cads-styleguide__wrapper"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+
+    {
       "label": "3_Markup_Components_BREADCRUMBS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=3-markup-components--breadcrumbs",
@@ -67,10 +107,10 @@
     },
 
     {
-      "label": "3_Markup_Components_CALLLOUT",
+      "label": "3_Markup_Components_NAVIGATION",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=3-markup-components--callout",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--callout",
+      "url": "http://localhost:6006/iframe.html?id=3-markup-components--navigation",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--navigation",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
