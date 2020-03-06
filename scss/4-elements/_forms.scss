@@ -8,7 +8,7 @@ input,
     display: inline-block;
 
     &::placeholder {
-        color: $cads-language__border-colour;
+        display: none;
     }
 }
 
@@ -107,7 +107,11 @@ input,
     }
 }
 
-.cads-radio-group__hint {
+.cads-form__hint {
     color: $cads-language__secondary-text-colour;
     display: block;
+}
+
+.cads-input-group {
+    // TODO
 }
