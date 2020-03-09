@@ -1,42 +1,3 @@
-.cads-form-error-marker {
-    display: none;
-}
-
-.cads-form-error {
-    position: relative;
-
-    .cads-form-error-marker {
-        display: block;
-        position: absolute;
-        height: calc(100% - #{$cads-spacing-4});
-        width: 0;
-        border: $cads-border-width-small solid $cads-language__warning-colour;
-        padding: 0;
-        left: 0;
-        top: 0;
-
-        &::before {
-            position: absolute;
-            content: '!';
-            font-weight: bold;
-            color: $cads-palette__white;
-            background-color: $cads-language__warning-colour;
-            border-radius: 50%;
-            width: $cads-spacing-4;
-            height: $cads-spacing-4;
-            line-height: $cads-spacing-4;
-            font-size: 0.8em;
-            text-align: center;
-            left: -$cads-spacing-4/2;
-            top: -($cads-spacing-4 + $cads-spacing-2);
-        }
-    }
-
-    &.cads-radio-group {
-        padding-left: $cads-spacing-4 !important;
-    }
-}
-
 input,
 .cads-input {
     @include cads-interactive-element();
@@ -44,6 +5,7 @@ input,
     min-width: 1px;
     font-size: 1em;
     padding: calc(1em - 1px) 1em;
+    margin: 0 0 $cads-spacing-4 0;
     display: inline-block;
 
     &::placeholder {
@@ -154,7 +116,7 @@ input,
 }
 
 .cads-form-optional {
-    legend::after {
+    .cads-form-label::after {
         content: ' (optional)';
         color: $cads-language__secondary-text-colour;
         font-weight: $cads-font-weight__regular;
@@ -174,6 +136,43 @@ input,
     display: block;
 }
 
-.cads-input-group {
-    // TODO
+// Keep the error-marker at the bottom of this file
+.cads-form-error-marker {
+    display: none;
+}
+
+.cads-form-error {
+    position: relative;
+
+    .cads-form-error-marker {
+        display: block;
+        position: absolute;
+        height: calc(100% - (2 * #{$cads-spacing-4}) - #{$cads-spacing-2});
+        width: 0;
+        border: $cads-border-width-small solid $cads-language__warning-colour;
+        padding: 0;
+        left: 0;
+        top: ($cads-spacing-4 + $cads-spacing-2);
+
+        &::before {
+            position: absolute;
+            content: '!';
+            font-weight: bold;
+            color: $cads-palette__white;
+            background-color: $cads-language__warning-colour;
+            border-radius: 50%;
+            width: $cads-spacing-4;
+            height: $cads-spacing-4;
+            line-height: $cads-spacing-4;
+            font-size: 0.8em;
+            text-align: center;
+            left: -$cads-spacing-4/2;
+            top: calc(2px - #{$cads-spacing-4} - #{$cads-spacing-2});
+        }
+    }
+
+    &.cads-input-group,
+    &.cads-radio-group {
+        padding-left: $cads-spacing-4 !important;
+    }
 }

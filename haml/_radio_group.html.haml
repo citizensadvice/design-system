@@ -1,11 +1,11 @@
 %fieldset.cads-radio-group
   .cads-form-error-marker
-  %legend.cads-heading-small
+  %legend.cads-form-label..cads-heading-small
     = radio_group_label
   %p.paragraph-s.cads-form__hint
     = radio_group_hint
   - radio_group_options.each do |radioItem|
-    %label.cads-radio-button{for: "#{radio_group_name}-#{radioItem}"}
+    %label.cads-form-label.cads-radio-button{for: "#{radio_group_name}-#{radioItem}"}
       = radioItem
       %input{type: "radio", id: "#{radio_group_name}-#{radioItem}", name: radio_group_name}
       %span.cads-radio-button-checkmark

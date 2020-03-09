@@ -1,5 +1,6 @@
-.cads-input-group
-  %label.cads-form-label{id: "abc-label", for: "abc-input" }
-    %span.cads-heading-small= input_label
-    %span.paragraph-s.cads-form__hint= input_hint
+.cads-input-group.cads-form-error.cads-form-optional
+  .cads-form-error-marker
+  %label.cads-form-label.cads-heading-small{id: "abc-label", for: "abc-input" }
+    = input_label
+  %p.paragraph-s.cads-form__hint= input_hint
   %input.cads-input{type: "text", id: "abc-input"}
