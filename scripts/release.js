@@ -124,7 +124,7 @@ prompt([
     // Get the last published version from npm, we need to do this
     // as alpha releases are not stored so getting the version from
     // package.json won't be reliable
-    let packageVersions = spawnSync(`yarn info ${FULL_PACKAGE_NAME} versions`, {
+    let packageVersions = spawnSync(`npm view ${FULL_PACKAGE_NAME} time`, {
         cwd: __dirname,
         shell: true
     })

@@ -1,3 +1,5 @@
+* Switch to npm from yarn
+
 ## <sub>v0.3.3</sub>
 
 #### _Mar. 5, 2020_
