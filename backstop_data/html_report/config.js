@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_0_phone.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_0_phone.png",
         "label": "2_Design_Foundations_COLOUR_LANGUAGE",
@@ -28,7 +28,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_1_Small.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_1_Small.png",
         "label": "2_Design_Foundations_COLOUR_LANGUAGE",
@@ -52,7 +52,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_2_Medium.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_2_Medium.png",
         "label": "2_Design_Foundations_COLOUR_LANGUAGE",
@@ -76,7 +76,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_3_Large.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_LANGUAGE_0_cads-styleguide__wrapper_3_Large.png",
         "label": "2_Design_Foundations_COLOUR_LANGUAGE",
@@ -100,7 +100,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_0_phone.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_0_phone.png",
         "label": "2_Design_Foundations_COLOUR_PALETTE",
@@ -117,7 +117,7 @@ report({
             "height": 0
           },
           "misMatchPercentage": "0.03",
-          "analysisTime": 18
+          "analysisTime": 26
         }
       },
       "status": "pass"
@@ -125,7 +125,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_1_Small.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_1_Small.png",
         "label": "2_Design_Foundations_COLOUR_PALETTE",
@@ -150,7 +150,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_2_Medium.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_2_Medium.png",
         "label": "2_Design_Foundations_COLOUR_PALETTE",
@@ -167,7 +167,7 @@ report({
             "height": 0
           },
           "misMatchPercentage": "0.03",
-          "analysisTime": 28
+          "analysisTime": 51
         }
       },
       "status": "pass"
@@ -175,7 +175,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_3_Large.png",
         "selector": ".cads-styleguide__wrapper",
         "fileName": "backstop_default_2_Design_Foundations_COLOUR_PALETTE_0_cads-styleguide__wrapper_3_Large.png",
         "label": "2_Design_Foundations_COLOUR_PALETTE",
@@ -192,7 +192,7 @@ report({
             "height": 0
           },
           "misMatchPercentage": "0.03",
-          "analysisTime": 35
+          "analysisTime": 100
         }
       },
       "status": "pass"
@@ -200,7 +200,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
         "label": "3_Markup_Components_BREADCRUMBS",
@@ -224,7 +224,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
         "label": "3_Markup_Components_BREADCRUMBS",
@@ -248,7 +248,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
         "label": "3_Markup_Components_BREADCRUMBS",
@@ -272,7 +272,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
         "label": "3_Markup_Components_BREADCRUMBS",
@@ -296,7 +296,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_0_phone.png",
         "label": "3_Markup_Components_BUTTONS",
@@ -320,7 +320,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_1_Small.png",
         "label": "3_Markup_Components_BUTTONS",
@@ -344,7 +344,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_2_Medium.png",
         "label": "3_Markup_Components_BUTTONS",
@@ -368,7 +368,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_BUTTONS_0_a11yComponentToTest_3_Large.png",
         "label": "3_Markup_Components_BUTTONS",
@@ -392,7 +392,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_0_phone.png",
         "label": "3_Markup_Components_NAVIGATION",
@@ -416,7 +416,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_1_Small.png",
         "label": "3_Markup_Components_NAVIGATION",
@@ -440,7 +440,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
         "label": "3_Markup_Components_NAVIGATION",
@@ -464,7 +464,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_3_Markup_Components_NAVIGATION_0_a11yComponentToTest_3_Large.png",
         "label": "3_Markup_Components_NAVIGATION",
@@ -488,7 +488,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_BREADCRUMBS",
@@ -504,15 +504,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "8.32",
+          "analysisTime": 98
+        },
+        "diffImage": "../bitmaps_test/20200309-100226/failed_diff_backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_0_phone.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_BREADCRUMBS",
@@ -528,15 +530,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "14.41",
+          "analysisTime": 49
+        },
+        "diffImage": "../bitmaps_test/20200309-100226/failed_diff_backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_1_Small.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_BREADCRUMBS",
@@ -552,15 +556,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "15.63",
+          "analysisTime": 93
+        },
+        "diffImage": "../bitmaps_test/20200309-100226/failed_diff_backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_2_Medium.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_BREADCRUMBS",
@@ -576,15 +582,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "15.76",
+          "analysisTime": 55
+        },
+        "diffImage": "../bitmaps_test/20200309-100226/failed_diff_backstop_default_4_Haml_Partials_BREADCRUMBS_0_a11yComponentToTest_3_Large.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_CALLOUTS",
@@ -608,7 +616,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_CALLOUTS",
@@ -632,7 +640,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_CALLOUTS",
@@ -656,7 +664,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_CALLOUTS_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_CALLOUTS",
@@ -680,7 +688,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_FOOTER",
@@ -704,7 +712,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_FOOTER",
@@ -728,7 +736,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_FOOTER",
@@ -752,7 +760,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_FOOTER_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_FOOTER",
@@ -776,7 +784,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_HEADER",
@@ -800,7 +808,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_HEADER",
@@ -824,7 +832,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_HEADER",
@@ -848,7 +856,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_HEADER_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_HEADER",
@@ -872,7 +880,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_LOGO",
@@ -896,7 +904,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_LOGO",
@@ -920,7 +928,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_LOGO",
@@ -944,7 +952,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_LOGO_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_LOGO",
@@ -968,7 +976,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_NAVIGATION",
@@ -992,7 +1000,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_NAVIGATION",
@@ -1016,7 +1024,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_NAVIGATION",
@@ -1040,7 +1048,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NAVIGATION_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_NAVIGATION",
@@ -1064,7 +1072,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_NOTICE_BANNER",
@@ -1088,7 +1096,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_NOTICE_BANNER",
@@ -1112,7 +1120,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_NOTICE_BANNER",
@@ -1136,7 +1144,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_NOTICE_BANNER_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_NOTICE_BANNER",
@@ -1160,7 +1168,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_0_phone.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_0_phone.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_0_phone.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_0_phone.png",
         "label": "4_Haml_Partials_SEARCH",
@@ -1184,7 +1192,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_1_Small.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_1_Small.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_1_Small.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_1_Small.png",
         "label": "4_Haml_Partials_SEARCH",
@@ -1208,7 +1216,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_2_Medium.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_2_Medium.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_2_Medium.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_2_Medium.png",
         "label": "4_Haml_Partials_SEARCH",
@@ -1232,7 +1240,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_3_Large.png",
-        "test": "../bitmaps_test/20200306-142435/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_3_Large.png",
+        "test": "../bitmaps_test/20200309-100226/backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_3_Large.png",
         "selector": "#a11yComponentToTest",
         "fileName": "backstop_default_4_Haml_Partials_SEARCH_0_a11yComponentToTest_3_Large.png",
         "label": "4_Haml_Partials_SEARCH",
