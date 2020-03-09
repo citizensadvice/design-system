@@ -65,6 +65,8 @@ input,
         position: absolute;
         opacity: 0;
         cursor: pointer;
+        height: 0;
+        width: 0;
     }
 
     .cads-radio-button-checkmark {
@@ -128,12 +130,17 @@ input,
         .cads-radio-button {
             display: inline-block;
             margin-right: $cads-spacing-4;
-            padding: 0 0 0 calc(24px + #{$cads-spacing-2});
-            line-height: 24px;
+            padding: 10px 0 10px
+                calc(
+                    #{$cads-interactive-target-size__small} + #{$cads-spacing-2}
+                );
+            line-height: $cads-interactive-target-size__small;
+            height: $cads-interactive-target-size;
 
             .cads-radio-button-checkmark {
-                height: 24px;
-                width: 24px;
+                height: $cads-interactive-target-size__small;
+                width: $cads-interactive-target-size__small;
+                top: 10px;
 
                 &::after {
                     width: 10px;
@@ -142,6 +149,22 @@ input,
                     left: 5px;
                 }
             }
+        }
+    }
+}
+
+.cads-form-optional {
+    legend::after {
+        content: ' (optional)';
+        color: $cads-language__secondary-text-colour;
+        font-weight: $cads-font-weight__regular;
+
+        .cads-lang-cy & {
+            content: ' (dewisol)';
+        }
+
+        .cads-lang-gd & {
+            content: ' (roghainneil)';
         }
     }
 }

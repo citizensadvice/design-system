@@ -2,7 +2,7 @@
 
 %h3 Regular size radio buttons
 
-%fieldset.cads-radio-group.cads-form-error
+%fieldset.cads-radio-group.cads-form-error.cads-form-optional
   .cads-form-error-marker
   %legend.cads-heading-small
     Select your favourite fruit
@@ -26,20 +26,21 @@
 %h3
   Small radio buttons
 
-%fieldset.cads-radio-group.cads-radio-group__small
+%fieldset.cads-radio-group.cads-radio-group__small.cads-form-error.cads-form-optional
+  .cads-form-error-marker
   %legend.cads-heading-small
     Select your favourite fruit
   %p.paragraph-s.cads-radio-group__hint
     All fruit are nice
-  %label.cads-radio-button{for: "fruit-banana"}
+  %label.cads-radio-button{for: "fruit-banana-s"}
     Banana
-    %input{type: "radio", id: "fruit-banana", name: "fruit"}
+    %input{type: "radio", id: "fruit-banana-s", name: "fruit-s"}
     %span.cads-radio-button-checkmark
-  %label.cads-radio-button{for: "fruit-apple"}
+  %label.cads-radio-button{for: "fruit-apple-s"}
     Apple
-    %input{type: "radio", id: "fruit-apple", name: "fruit"}
+    %input{type: "radio", id: "fruit-apple-s", name: "fruit-s"}
     %span.cads-radio-button-checkmark
-  %label.cads-radio-button{for: "fruit-orange"}
+  %label.cads-radio-button{for: "fruit-orange-s"}
     Orange
-    %input{type: "radio", id: "fruit-orange", name: "fruit"}
+    %input{type: "radio", id: "fruit-orange-s", name: "fruit-s"}
     %span.cads-radio-button-checkmark
