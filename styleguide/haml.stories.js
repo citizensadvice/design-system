@@ -22,7 +22,6 @@ import tSearch from '../haml/_search.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.story.html.haml';
 import tRadio from '../haml/_radio_group.story.html.haml';
-import tRadioSmall from '../haml/_radio_group_small.story.html.haml';
 import tInput from '../haml/_input.html.haml';
 
 // ...then queue in memory partials that are used by other partials
@@ -74,8 +73,6 @@ export const header = () => renderHamlTemplate('Header', tHeader, 'header');
 export const input = () => renderHamlTemplate('Input', tInput, 'input');
 export const radioGroup = () =>
     renderHamlTemplate('Radio Group', tRadio, 'radio_group');
-export const radioGroupSmall = () =>
-    renderHamlTemplate('Radio Group Small', tRadioSmall, 'radio_group_small');
 export const breadcrumb = () =>
     renderHamlTemplate('Breadcrumbs', tBreadcrumb, 'breadcrumb');
 export const logo = () =>
