@@ -1,3 +1,42 @@
+.cads-form-error-marker {
+    display: none;
+}
+
+.cads-form-error {
+    position: relative;
+
+    .cads-form-error-marker {
+        display: block;
+        position: absolute;
+        height: calc(100% - #{$cads-spacing-4});
+        width: 0;
+        border: $cads-border-width-small solid $cads-language__warning-colour;
+        padding: 0;
+        left: 0;
+        top: 0;
+
+        &::before {
+            position: absolute;
+            content: '!';
+            font-weight: bold;
+            color: $cads-palette__white;
+            background-color: $cads-language__warning-colour;
+            border-radius: 50%;
+            width: $cads-spacing-4;
+            height: $cads-spacing-4;
+            line-height: $cads-spacing-4;
+            font-size: 0.8em;
+            text-align: center;
+            left: -$cads-spacing-4/2;
+            top: -($cads-spacing-4 + $cads-spacing-2);
+        }
+    }
+
+    &.cads-radio-group {
+        padding-left: $cads-spacing-4 !important;
+    }
+}
+
 input,
 .cads-input {
     @include cads-interactive-element();
@@ -72,7 +111,7 @@ input,
     input:focus ~ .cads-radio-button-checkmark {
         border-color: $cads-language__focus-border-colour;
         // We need to use box-shadow instead of outline as outline does not have a radius
-        box-shadow: 0 0 0 2px $cads-language__focus-colour;
+        box-shadow: 0 0 0 $cads-border-width-medium $cads-language__focus-colour;
 
         &::after {
             background-color: $cads-language__focus-border-colour;
