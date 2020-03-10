@@ -6,12 +6,17 @@
     flex-direction: row;
 
     input {
+        font-size: 1em;
         flex: 1 1;
         border-right-width: 0; // TODO: Do we want to do this? Hover looks a bit funny next to input box
+        height: calc(4px + 3em);
     }
 
     button {
+        font-size: 1em;
         flex: 0 0;
+        padding: calc(1em - 1px) 1em;
+        height: calc(4px + 3em);
 
         &::after {
             content: 'Search';
