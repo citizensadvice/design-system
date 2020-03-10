@@ -5,7 +5,7 @@
 <table class="cads-stylebuide__table">
 	<tbody>
 		<tr>
-			<td>$cads-border-width-medium</td>
+			<td>$cads-border-width-small</td>
 			<td><div class="cads-styleguide__sizing-border-medium" /></td>
 			<td>1px</td>
 		</tr>
@@ -21,7 +21,7 @@
 
 The `border` mixin can be used in your custom classes
 
-`@mixin cads-border($side: a, $width: $cads-border-width-medium, $radius: 0, $colour: $cads-language__neutral-mid)`
+`@mixin cads-border($side: a, $width: $cads-border-width-small, $radius: 0, $colour: $cads-language__neutral-mid)`
 
 ### Parameters
 
@@ -36,7 +36,7 @@ The `border` mixin can be used in your custom classes
 .yourClass {
   @include cads-border(
     a,
-    $cads-border-width-medium,
+    $cads-border-width-small,
     $cads-border-radius-medium,
     $cads-language__neutral-mid
   );

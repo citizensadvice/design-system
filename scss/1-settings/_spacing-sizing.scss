@@ -21,3 +21,6 @@ $cads-spacers: (
         7: $cads-spacing-7
     )
 );
+
+$cads-interactive-target-size: 44px;
+$cads-interactive-target-size__small: 24px; // When using this you need to ensure the user can still taerget 44px
