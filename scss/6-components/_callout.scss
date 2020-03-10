@@ -1,5 +1,5 @@
 .cads-callout {
-    @include cads-border(l, $cads-border-width-medium);
+    @include cads-border(l, $cads-border-width-small);
 
     position: relative;
     border-left-width: $cads-border-width-large;
@@ -26,7 +26,7 @@
         &example {
             @include cads-border(
                 a,
-                $cads-border-width-medium,
+                $cads-border-width-small,
                 0,
                 $cads-language__border-colour
             );
