@@ -18,17 +18,17 @@
         &::before {
             position: absolute;
             content: '!';
-            font-weight: bold;
             color: $cads-palette__white;
             background-color: $cads-language__warning-colour;
             border-radius: 50%;
-            width: $cads-spacing-4;
-            height: $cads-spacing-4;
-            line-height: $cads-spacing-4;
-            font-size: 0.8em;
+            width: 18px;
+            height: 18px;
+            line-height: 20px;
+            font-size: 14px;
+            font-weight: bold;
             text-align: center;
-            left: -$cads-spacing-4/2;
-            top: -($cads-spacing-4 + $cads-spacing-2);
+            left: -9px;
+            top: -26px;
         }
     }
 
