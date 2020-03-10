@@ -2,5 +2,9 @@
     "root_path": "/",
     "sign_in_url": "abc",
     "search_action_url": "https://www.citizensadvice.org.uk/resources-and-tools/search-navigation-tools/Search/",
-    "breadcrumb_links": ["a", "b"]
+    "breadcrumb_links": ["a", "b"],
+    "radio_group_name": "radiogroup-fruit",
+    "radio_group_label": "Select your favourite fruit",
+    "radio_group_hint": "All fruit are nice",
+    "radio_group_options": ["Orange", "Apple", "Banana"]
 }

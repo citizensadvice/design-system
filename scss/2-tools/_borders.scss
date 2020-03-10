@@ -1,7 +1,7 @@
 // Set border
 @mixin cads-border(
     $side: a,
-    $width: $cads-border-width-medium,
+    $width: $cads-border-width-small,
     $radius: 0,
     $colour: $cads-language__border-colour
 ) {
