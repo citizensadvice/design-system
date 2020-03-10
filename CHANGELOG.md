@@ -1,3 +1,4 @@
+* NP-139 Input boxes and textareas
 * NP-138 radio buttons
 * Switch to npm from yarn
 

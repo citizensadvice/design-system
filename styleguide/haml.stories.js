@@ -22,7 +22,7 @@ import tSearch from '../haml/_search.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.story.html.haml';
 import tRadio from '../haml/_radio_group.story.html.haml';
-import tInput from '../haml/_input.html.haml';
+import tInput from '../haml/_input.story.html.haml';
 
 // ...then queue in memory partials that are used by other partials
 haml.queueTemplate('logo_clickable', tLogo);
