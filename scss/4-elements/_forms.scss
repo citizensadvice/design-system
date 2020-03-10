@@ -136,7 +136,9 @@ input,
             display: inline-block;
             margin-right: $cads-spacing-5;
             padding: 10px 0 10px
-                (em($cads-interactive-target-size__small) + $cads-spacing-2);
+                calc(
+                    #{$cads-interactive-target-size__small} + #{$cads-spacing-2}
+                );
             line-height: $cads-interactive-target-size__small + 3px;
             height: $cads-interactive-target-size;
 
