@@ -30,6 +30,16 @@
                 top: -2px;
                 left: -11px;
             }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 2px;
+                height: $cads-spacing-4;
+                bottom: -1px;
+                left: -1px;
+                background-color: $cads-palette__white;
+            }
         }
 
         .cads-form-content {
@@ -75,6 +85,7 @@ input,
 
     .cads-radio-button-checkmark {
         @include cads-interactive-element();
+        @include cads-transition-animation(none);
 
         position: absolute;
         top: 0;
@@ -93,16 +104,17 @@ input,
             height: 20px;
             border-radius: 50%;
             background: $cads-language__input-border-colour;
-
-            @include cads-transition-animation();
         }
     }
 
     input:checked ~ .cads-radio-button-checkmark {
         border-color: $cads-language__input-border-colour;
+        border-width: 4px;
 
         &::after {
             display: block;
+            left: 8px;
+            top: 8px;
         }
     }
 
