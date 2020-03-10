@@ -32,13 +32,6 @@
             }
         }
 
-        &.cads-input-group {
-            .cads-form-error-marker {
-                height: calc(100% - 28px);
-                top: 28px;
-            }
-        }
-
         .cads-form-content {
             padding-left: $cads-spacing-5 !important;
         }
