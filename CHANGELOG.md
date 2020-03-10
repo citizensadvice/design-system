@@ -1,5 +1,6 @@
 * NP-138 radio buttons
 * Switch to npm from yarn
+* Logo cleanup
 
 ## <sub>v0.3.3</sub>
 
