@@ -67,26 +67,6 @@
     },
 
     {
-      "label": "3_Markup_Components_BREADCRUMBS",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=3-markup-components--breadcrumbs",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--breadcrumbs",
-      "readyEvent": "",
-      "readySelector": "#a11yComponentToTest",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [".cads-styleguide__breakpoint-label"],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": ["#a11yComponentToTest"],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
-    },
-
-    {
       "label": "3_Markup_Components_BUTTONS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=3-markup-components--buttons",
