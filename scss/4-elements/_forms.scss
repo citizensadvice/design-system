@@ -42,7 +42,7 @@ input,
     @include cads-interactive-element();
 
     min-width: 1px;
-    font-size: 1em;
+    font-size: 1.125em;
     padding: calc(1em - 1px) 1em;
     display: inline-block;
 
@@ -54,9 +54,9 @@ input,
 .cads-radio-button {
     display: block;
     position: relative;
-    padding: 0 0 0 calc(#{$cads-interactive-target-size} + #{$cads-spacing-2});
+    padding: 0 0 0 calc(#{$cads-interactive-target-size} + #{$cads-spacing-3});
     margin-bottom: $cads-spacing-4;
-    line-height: $cads-interactive-target-size;
+    line-height: calc(#{$cads-interactive-target-size} + 2px);
     height: $cads-interactive-target-size;
     cursor: pointer;
     user-select: none;
@@ -125,16 +125,17 @@ input,
     border: none;
     padding: 0;
     margin: 0;
+    font-size: 1.125em;
 
     &.cads-radio-group__small {
         .cads-radio-button {
             display: inline-block;
-            margin-right: $cads-spacing-4;
+            margin-right: $cads-spacing-5;
             padding: 10px 0 10px
                 calc(
                     #{$cads-interactive-target-size__small} + #{$cads-spacing-2}
                 );
-            line-height: $cads-interactive-target-size__small;
+            line-height: calc(#{$cads-interactive-target-size__small} + 3px);
             height: $cads-interactive-target-size;
 
             .cads-radio-button-checkmark {
