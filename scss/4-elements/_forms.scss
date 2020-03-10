@@ -1,12 +1,60 @@
+.cads-form-error-marker {
+    display: none;
+}
+
+.cads-form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: stretch;
+
+    &.cads-form-error {
+        .cads-form-error-marker {
+            display: block;
+            width: 0;
+            border: $cads-border-width-small solid
+                $cads-language__warning-colour;
+            padding: 0;
+            position: relative;
+
+            &::before {
+                content: '';
+                background-image: url("data:image/svg+xml, %3Csvg width='16' height='16' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.8125 6C11.8125 9.21087 9.20993 11.8125 6 11.8125C2.79007 11.8125 0.1875 9.21087 0.1875 6C0.1875 2.79101 2.79007 0.1875 6 0.1875C9.20993 0.1875 11.8125 2.79101 11.8125 6ZM6 7.17188C5.40457 7.17188 4.92188 7.65457 4.92188 8.25C4.92188 8.84543 5.40457 9.32812 6 9.32812C6.59543 9.32812 7.07812 8.84543 7.07812 8.25C7.07812 7.65457 6.59543 7.17188 6 7.17188ZM4.97641 3.29658L5.15027 6.48408C5.15841 6.63323 5.28173 6.75 5.4311 6.75H6.5689C6.71827 6.75 6.84159 6.63323 6.84973 6.48408L7.02359 3.29658C7.03238 3.13547 6.9041 3 6.74276 3H5.25722C5.09587 3 4.96762 3.13547 4.97641 3.29658Z' fill='%23df3034'/%3E%3C/svg%3E%0A");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 22px;
+                height: 29px;
+                background-color: $cads-palette__white;
+                display: block;
+                position: absolute;
+                top: -2px;
+                left: -11px;
+            }
+        }
+
+        &.cads-input-group {
+            .cads-form-error-marker {
+                height: calc(100% - 28px);
+                top: 28px;
+            }
+        }
+
+        .cads-form-content {
+            padding-left: $cads-spacing-5 !important;
+        }
+    }
+}
+
 input,
 .cads-input {
     @include cads-interactive-element();
 
     min-width: 1px;
     font-size: 1.125em;
-    padding: calc(1em - 1px) 1em;
+    padding: round(em-to-px(1em) - 1px) 1em;
     margin: 0 0 $cads-spacing-4 0;
     display: inline-block;
+    line-height: 1em;
 
     &::placeholder {
         display: none;
@@ -16,9 +64,10 @@ input,
 .cads-radio-button {
     display: block;
     position: relative;
-    padding: 0 0 0 calc(#{$cads-interactive-target-size} + #{$cads-spacing-3});
+    padding: 0 0 0
+        round($cads-interactive-target-size + rem-to-px($cads-spacing-3));
     margin-bottom: $cads-spacing-4;
-    line-height: calc(#{$cads-interactive-target-size} + 2px);
+    line-height: $cads-interactive-target-size + 2px;
     height: $cads-interactive-target-size;
     cursor: pointer;
     user-select: none;
@@ -94,10 +143,8 @@ input,
             display: inline-block;
             margin-right: $cads-spacing-5;
             padding: 10px 0 10px
-                calc(
-                    #{$cads-interactive-target-size__small} + #{$cads-spacing-2}
-                );
-            line-height: calc(#{$cads-interactive-target-size__small} + 3px);
+                (em($cads-interactive-target-size__small) + $cads-spacing-2);
+            line-height: $cads-interactive-target-size__small + 3px;
             height: $cads-interactive-target-size;
 
             .cads-radio-button-checkmark {
@@ -135,48 +182,4 @@ input,
 .cads-form__hint {
     color: $cads-language__secondary-text-colour;
     display: block;
-}
-
-// Keep the error-marker at the bottom of this file
-.cads-form-error-marker {
-    display: none;
-}
-
-.cads-form-error {
-    position: relative;
-
-    .cads-form-error-marker {
-        display: block;
-        position: absolute;
-        height: calc(100% - #{$cads-spacing-4});
-        width: 0;
-        border: $cads-border-width-small solid $cads-language__warning-colour;
-        padding: 0;
-        left: 0;
-        top: 0;
-
-        &::before {
-            position: absolute;
-            content: '';
-            background-image: url("data:image/svg+xml, %3Csvg width='16' height='16' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.8125 6C11.8125 9.21087 9.20993 11.8125 6 11.8125C2.79007 11.8125 0.1875 9.21087 0.1875 6C0.1875 2.79101 2.79007 0.1875 6 0.1875C9.20993 0.1875 11.8125 2.79101 11.8125 6ZM6 7.17188C5.40457 7.17188 4.92188 7.65457 4.92188 8.25C4.92188 8.84543 5.40457 9.32812 6 9.32812C6.59543 9.32812 7.07812 8.84543 7.07812 8.25C7.07812 7.65457 6.59543 7.17188 6 7.17188ZM4.97641 3.29658L5.15027 6.48408C5.15841 6.63323 5.28173 6.75 5.4311 6.75H6.5689C6.71827 6.75 6.84159 6.63323 6.84973 6.48408L7.02359 3.29658C7.03238 3.13547 6.9041 3 6.74276 3H5.25722C5.09587 3 4.96762 3.13547 4.97641 3.29658Z' fill='%23df3034'/%3E%3C/svg%3E%0A");
-            background-repeat: no-repeat;
-            width: 16px;
-            height: 16px;
-            left: -7px;
-            top: -26px;
-        }
-    }
-
-    &.cads-input-group {
-        padding-left: $cads-spacing-5 !important;
-
-        .cads-form-error-marker {
-            height: calc(100% - 28px);
-            top: 28px;
-        }
-    }
-
-    &.cads-radio-group {
-        padding-left: $cads-spacing-5 !important;
-    }
 }
