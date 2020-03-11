@@ -169,7 +169,6 @@ input,
 
             input:checked ~ .cads-radio-button-checkmark {
                 &::after {
-                    display: block;
                     left: 3px;
                     top: 3px;
                 }
