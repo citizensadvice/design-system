@@ -5,3 +5,15 @@
     margin-right: auto;
     max-width: $size;
 }
+
+@function em($pixels) {
+    @return #{$pixels/$cads-font-size}em;
+}
+
+@function em-to-px($em) {
+    @return ($em / 1em) * $cads-font-size;
+}
+
+@function rem-to-px($rem) {
+    @return ($rem / 1rem) * $cads-font-size;
+}
