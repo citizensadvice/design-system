@@ -7,6 +7,8 @@ import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 import './styles.scss';
 
 import priorityNav from '@baseonmars/priority-nav';
+// eslint-disable-next-line
+import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
 // Haml setup

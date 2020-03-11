@@ -2,9 +2,12 @@ require 'rubygems'
 require 'bundler/setup'
 require 'haml'
 
+require('./styleguide/haml_locals.rb')
+
 HAML_DIR = File.join(Dir.pwd, 'haml')
 HTML_EXTENSION = '.html.haml'
 STORY_DIR = File.join(Dir.pwd, 'styleguide', 'components', 'haml')
+LOCALS = @locals
 
 ##
 # Emulates the rails render helper so that nested partials can be rendered
@@ -21,7 +24,7 @@ def render(partial, opts = {})
 
   File.open(File.join(HAML_DIR, haml_file), 'r') do |file|
     engine = Haml::Engine.new(file.read)
-    engine.render(Object.new, locals) 
+    engine.render(Object.new, LOCALS.merge(locals)) 
   end
 end
 
@@ -33,11 +36,9 @@ end
 
 # loads all the locals. Downside - getting templates
 # to regenerate when this changes.
-require('./styleguide/locals.rb')
+
 engine = Haml::Engine.new(ARGF.read)
-STDOUT.write(engine.render(Object.new, @locals))
-
-
+STDOUT.write(engine.render(Object.new, LOCALS))
 
 # This code takes a haml filename and writes out html to a temp folder
 # but I don't think we're gonna do it this way - piping seems better

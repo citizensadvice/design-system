@@ -22,6 +22,13 @@ module.exports = async ({ config, mode }) => {
                     options: { script: 'ruby ./scripts/haml.rb' }
                 }
             ]
+        },
+        {
+            test: /\.rb$/,
+            use: {
+                loader: 'shell-loader',
+                options: { script: 'touch ./haml/*' }
+            }
         }
     );
 
