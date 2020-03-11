@@ -7,11 +7,11 @@ import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 import './styles.scss';
 
 import priorityNav from '@baseonmars/priority-nav';
+// eslint-disable-next-line
+import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
 // Haml setup
-import hamlProps from './haml_props.json';
-import * as haml from '../scripts/haml';
 // Import all the templates...
 import tCallout from '../haml/_callout.story.html.haml';
 import tFooter from '../haml/_footer.html.haml';
@@ -24,10 +24,6 @@ import tBreadcrumb from '../haml/_breadcrumb.story.html.haml';
 import tRadio from '../haml/_radio_group.story.html.haml';
 import tInput from '../haml/_input.story.html.haml';
 
-// ...then queue in memory partials that are used by other partials
-haml.queueTemplate('logo_clickable', tLogo);
-haml.queueTemplate('search', tSearch);
-
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
     templateName,
@@ -39,7 +35,7 @@ function renderHamlTemplate(
 ) {
     return wrapper(
         templateName,
-        haml.render(template, { ...hamlProps, ...optionalProps }),
+        template,
         `The partial is available in:
 <pre><code>haml/_${hamlLocation}.html.haml</code></pre>
 ${usage || ''}`,
