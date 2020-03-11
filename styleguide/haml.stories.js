@@ -9,6 +9,8 @@ import './styles.scss';
 import priorityNav from '@baseonmars/priority-nav';
 import wrapper from './component-wrapper';
 
+import Buttons from './components/buttons';
+
 // Haml setup
 import hamlProps from './haml_props.json';
 import * as haml from '../scripts/haml';
@@ -49,7 +51,7 @@ ${usage || ''}`,
 
 // Storybook section setup
 export default {
-    title: '4 HAML Partials',
+    title: '3 Components',
     decorators: [withKnobs, withA11y],
     parameters: {
         options: {
@@ -65,6 +67,8 @@ export default {
         }
     }
 };
+
+export const buttons = () => Buttons();
 
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
 export const search = () => renderHamlTemplate('Search', tSearch, 'search');
