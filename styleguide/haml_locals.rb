@@ -11,7 +11,6 @@
 
   sign_in_url: '/sign-in/url',
   search_action_url: '/the/search-action-url',
-  
 
   notice_banner_content: "I'm actually rendering",
 

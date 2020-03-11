@@ -33,7 +33,7 @@ end
 
 # loads all the locals. Downside - getting templates
 # to regenerate when this changes.
-require('./styleguide/components/haml/locals.rb')
+require('./styleguide/locals.rb')
 engine = Haml::Engine.new(ARGF.read)
 STDOUT.write(engine.render(Object.new, @locals))
 
