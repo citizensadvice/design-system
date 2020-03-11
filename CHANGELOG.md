@@ -2,6 +2,7 @@
 * NP-139 Input boxes and textareas
 * NP-138 radio buttons
 * Switch to npm from yarn
+* NP-206 bug fix small radio button style
 
 ## <sub>v0.3.3</sub>
 
