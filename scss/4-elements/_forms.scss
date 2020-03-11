@@ -166,6 +166,13 @@ input,
                     left: 5px;
                 }
             }
+
+            input:checked ~ .cads-radio-button-checkmark {
+                &::after {
+                    left: 3px;
+                    top: 3px;
+                }
+            }
         }
     }
 }
