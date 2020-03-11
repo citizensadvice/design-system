@@ -10,7 +10,9 @@ To do...
 
 ## The Code
 
-Use node v10 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 10.
+Use node v12 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 12.
+
+You'll need to have Ruby and Bundler installed to build the haml templates. After you've got those sorted a quick `bundler install` will get the required gems (ruby libraries) in place.
 
 ### Building
 
