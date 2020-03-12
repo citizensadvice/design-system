@@ -1,6 +1,7 @@
 * NP-139 Input boxes and textareas
 * NP-138 radio buttons
 * Switch to npm from yarn
+* Logo cleanup
 * NP-206 bug fix small radio button style
 * NP-185 render HAML stories using Ruby
 * NP-208 bug fix radio button stories
