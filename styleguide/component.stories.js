@@ -25,7 +25,7 @@ import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.story.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
-import tInput from '../haml/_input.story.html.haml';
+import tInput from '../haml/_input.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
