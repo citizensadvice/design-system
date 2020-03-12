@@ -2,6 +2,7 @@
 * NP-138 radio buttons
 * Switch to npm from yarn
 * NP-206 bug fix small radio button style
+* NP-185 render HAML stories using Ruby
 * NP-208 bug fix radio button stories
 
 ## <sub>v0.3.3</sub>
