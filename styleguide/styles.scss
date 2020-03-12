@@ -2,6 +2,11 @@
 @import '../scss/lib';
 @import '~highlight.js/styles/default.css';
 
+code.cads-styleguide {
+    display: inline-block;
+    background: $cads-palette__dark-grey;
+}
+
 .cads-styleguide__wrapper {
     padding: 16px;
 
@@ -13,7 +18,7 @@
 .cads-styleguide__colour-tile {
     display: inline-grid;
     margin: 1em;
-    width: 80px;
+    width: 150px;
 
     .cads-styleguide__colour-tile-bg {
         height: 48px;
@@ -135,27 +140,9 @@
     margin-left: 10px;
 }
 
-.cads-styleguide__sizing-radius-medium {
+.cads-styleguide__sizing-radius {
     @extend .cads-styleguide__sizing-border-medium;
-    @include cads-border(
-        a,
-        $cads-border-width-small,
-        $cads-border-radius-medium
-    );
-}
-
-.cads-styleguide__sizing-radius-large {
-    @extend .cads-styleguide__sizing-radius-medium;
-    @include cads-border(
-        a,
-        $cads-border-width-small,
-        $cads-border-radius-large
-    );
-}
-
-.cads-styleguide__sizing-radius-pill {
-    @extend .cads-styleguide__sizing-radius-medium;
-    @include cads-border(a, $cads-border-width-small, $cads-border-radius-pill);
+    @include cads-border(a, $cads-border-width-small, $cads-border-radius);
 }
 
 .cads-styleguide-grid {
@@ -188,4 +175,10 @@
     tr:nth-child(even) {
         background-color: $cads-language__border-colour;
     }
+}
+
+.cads-styleguide__highlight-box {
+    padding: 1rem;
+    border: 1px solid $cads-language__border-colour;
+    margin-bottom: 1rem;
 }

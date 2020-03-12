@@ -11,6 +11,8 @@ import priorityNav from '@baseonmars/priority-nav';
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
+import Buttons from './components/buttons';
+
 // Haml setup
 // Import all the templates...
 import tCallout from '../haml/_callout.story.html.haml';
@@ -23,7 +25,7 @@ import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.story.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
-import tInput from '../haml/_input.story.html.haml';
+import tInput from '../haml/_input.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -46,7 +48,7 @@ ${usage || ''}`,
 
 // Storybook section setup
 export default {
-    title: '4 HAML Partials',
+    title: '3 Components',
     decorators: [withKnobs, withA11y],
     parameters: {
         options: {
@@ -62,6 +64,8 @@ export default {
         }
     }
 };
+
+export const buttons = () => Buttons();
 
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
 export const search = () => renderHamlTemplate('Search', tSearch, 'search');
@@ -98,18 +102,6 @@ export const navigation = () =>
             })
     );
 
-export const noticeBanner = () => {
-    const notice_banner_content = text(
-        'Banner content',
-        'If you’re a Thomas Cook customer and you’re stuck abroad or want to get your money back, get help from the Civil Aviation Authority.'
-    );
-
-    return renderHamlTemplate(
-        'Notice banner',
-        tNoticeBanner,
-        'notice_banner',
-        null,
-        { notice_banner_content }
-    );
-};
+export const noticeBanner = () =>
+    renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');
