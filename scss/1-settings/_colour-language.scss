@@ -25,6 +25,30 @@ $cads-language__warning-colour: $cads-palette__red;
 :export {
     /* prettier-ignore */
     language: {
+        Brand_Colours-brandPrimary: $cads-language__brand-primary;
+        Brand_Colours-brandSecondary: $cads-language__brand-secondary;
+        Text-textColour: $cads-language__text-colour;
+        Text-secondaryTextColour: $cads-language__secondary-text-colour;
+        Links-linkColour: $cads-language__link-colour;
+        Links-linkHoverColour: $cads-language__link-hover-colour;
+        Links-linkVisitedColour: $cads-language__link-visited-colour;
+        Links-linkActiveColour: $cads-language__link-active-colour;
+        Focus-hoverBackgroundColour: $cads-language__hover-background-colour;
+        Focus-focusColour: $cads-language__focus-colour;
+        Focus-focusBorderColour: $cads-language__focus-border-colour;
+        Focus-focusTextColour: $cads-language__focus-text-colour;
+        Error_State-errorColour: $cads-language__error-colour;
+        Borders-inputBorderColour: $cads-language__input-border-colour;
+        Borders-borderColour: $cads-language__border-colour;
+        Buttons-buttonColour: $cads-language__button-colour;
+        Buttons-buttonHoverColour: $cads-language__button-hover-colour;
+        Other-warningColour: $cads-language__warning-colour;
+    }
+}
+
+:export {
+    /* prettier-ignore */
+    language2: {
         brandPrimary: $cads-language__brand-primary;
         brandSecondary: $cads-language__brand-secondary;
         textColour: $cads-language__text-colour;

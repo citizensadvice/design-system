@@ -37,16 +37,16 @@ The `border` mixin can be used in your custom classes
   @include cads-border(
     a,
     $cads-border-width-small,
-    $cads-border-radius-medium,
-    $cads-language__neutral-mid
+    $cads-border-radius,
+    $cads-language__border-colour
   );
 }
 
 // Output
 .yourClass {
   border-style: solid;
-  border-color: #9f9f9f;
-  border-radius: 4px;
+  border-color: #e5e5e5;
+  border-radius: 1px;
   border-width: 1px;
 }
 </code></pre>
@@ -58,19 +58,9 @@ The following radii are available:
 <table class="cads-stylebuide__table">
 	<tbody>
 		<tr>
-			<td>$cads-border-radius-medium</td>
-			<td><div class="cads-styleguide__sizing-radius-medium" /></td>
-			<td>4px</td>
-		</tr>
-		<tr>
-			<td>$cads-border-radius-large</td>
-			<td><div class="cads-styleguide__sizing-radius-large" /></td>
-			<td>8px</td>
-		</tr>
-		<tr>
-			<td>$cads-border-radius-pill</td>
-			<td><div class="cads-styleguide__sizing-radius-pill" /></td>
-			<td>96px</td>
+			<td>$cads-border-radius</td>
+			<td><div class="cads-styleguide__sizing-radius" /></td>
+			<td>1px</td>
 		</tr>
 	</tbody>
 </table>
