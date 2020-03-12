@@ -2,6 +2,11 @@
 @import '../scss/lib';
 @import '~highlight.js/styles/default.css';
 
+code.cads-styleguide {
+    display: inline-block;
+    background: $cads-palette__dark-grey;
+}
+
 .cads-styleguide__wrapper {
     padding: 16px;
 

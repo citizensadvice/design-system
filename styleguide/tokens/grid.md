@@ -2,23 +2,43 @@
 
 ## Intro
 
-Use `.cads-grid-container` as a top level container for a responsive pixel width across all viewports and device sizes.
+Use
+
+<pre><code class="css">.cads-grid-container</code></pre>
+
+as a top level container for a responsive pixel width across all viewports and device sizes.
 
 Rows are wrappers for columns. Each column has horizontal `padding` (called a gutter) for controlling the space between them. This `padding` is then counteracted on the rows with negative margins. This way, all the content in your columns is visually aligned down the left side.
 
 In a grid layout, content must be placed within columns and only columns may be immediate children of rows.
 
-Grid columns without a specified `width` will automatically layout as equal width columns (the grid is flexbox based). E.g. four instances of `.cads-grid-col-md` will each automatically be 25% wide from the medium breakpoint and up.
+Grid columns without a specified `width` will automatically layout as equal width columns (the grid is flexbox based). E.g. four instances of
 
-Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use `.cads-grid-col-4`.
+<pre><code class="css">.cads-grid-col-md</code></pre>
+
+will each automatically be 25% wide from the medium breakpoint and up.
+
+Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use
+
+<pre><code class="css">.cads-grid-col-4</code></pre>
 
 Column `width`s are set in percentages, so they’re always fluid and sized relative to their parent element.
 
-Columns have horizontal `padding` to create the gutters between individual columns, however, you can remove the `margin` from rows and `padding` from columns with `.no-gutters` on the `.row`.
+Columns have horizontal `padding` to create the gutters between individual columns, however, you can remove the `margin` from rows and `padding` from columns with 
+
+<pre><code class="css">.no-gutters</code></pre>
+
+on the 
+
+<pre><code class="css">.row</code></pre>
 
 To make the grid responsive, there are three grid breakpoints, one for each responsive breakpoint: all breakpoints (small), medium and large.
 
-Grid breakpoints are based on minimum width media queries, meaning <strong>they apply to that one breakpoint and all those above it</strong> (e.g., `.cads-grid-col-md-4` applies to medium and large but not the first `sm` breakpoint).
+Grid breakpoints are based on minimum width media queries, meaning <strong>they apply to that one breakpoint and all those above it</strong>, e.g. 
+
+<pre><code class="css">.cads-grid-col-md-4</code></pre>
+
+applies to medium and large but not the first `sm` breakpoint.
 
 <table class="cads-styleguide-table">
   <thead>
@@ -64,8 +84,21 @@ Grid breakpoints are based on minimum width media queries, meaning <strong>they 
   </tbody>
 </table>
 
-For grids that are the same from the smallest of devices to the largest, use the `.cads-grid-col` and `.cads-grid-col-*` classes. 
-Using a single set of `.cads-grid-col-{breakpoint}-*` classes, you can create a basic grid system that starts out stacked before becoming horizontal with at the specified breakpoint.
+For grids that are the same from the smallest of devices to the largest, use the 
+
+<pre><code class="css">.cads-grid-col</code></pre>
+
+and 
+
+<pre><code class="css">.cads-grid-col-*</code></pre>
+
+classes. 
+
+Using a single set of 
+
+<pre><code class="css">.cads-grid-col-{breakpoint}-*</code></pre>
+
+classes, you can create a basic grid system that starts out stacked before becoming horizontal with at the specified breakpoint.
 
 ## Design/UX guidelines
 
@@ -82,7 +115,17 @@ The grid includes three tiers of predefined classes for building complex respons
 
 ### All breakpoints
 
-For grids that are the same from the smallest of devices to the largest, use the `.cads-grid-col` and `.cads-grid-col-*` classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to `.cads-grid-col`.
+For grids that are the same from the smallest of devices to the largest, use the 
+
+<pre><code class="css">.cads-grid-col</code></pre>
+
+and 
+
+<pre><code class="css">.cads-grid-col-*</code></pre>
+
+classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to
+
+<pre><code class="css">.cads-grid-col</code></pre>
 
 <div class="cads-styleguide-grid cads-grid-container">
     <div class="cads-grid-row">
@@ -130,7 +173,13 @@ For grids that are the same from the smallest of devices to the largest, use the
 
 ### Remove gutters
 
-Gutters can be removed by adding the `.cads-grid-row--no-gutter` modifier class to the `.cads-grid-row` element.
+Gutters can be removed by adding the
+
+<pre><code class="css">.cads-grid-row--no-gutter</code></pre>
+
+modifier class to the 
+
+<pre><code class="css">.cads-grid-row</code></pre> element.
 
 <div class="cads-styleguide-grid cads-grid-container">
     <div class="cads-grid-row cads-grid-row--no-gutters">
@@ -168,7 +217,11 @@ Gutters can be removed by adding the `.cads-grid-row--no-gutter` modifier class 
 
 ### Stacked to horizontal
 
-Using a single set of `.cads-grid-col-lg-*` classes, you can create a basic grid system that starts out stacked before becoming horizontal at the large breakpoint (lg).
+Using a single set of 
+
+<pre><code class="css">.cads-grid-col-lg-*</code></pre>
+
+classes, you can create a basic grid system that starts out stacked before becoming horizontal at the large breakpoint (lg).
 
 <div class="cads-styleguide-grid cads-grid-container">
     <div class="cads-grid-row">
