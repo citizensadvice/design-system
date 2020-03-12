@@ -11,7 +11,7 @@ module.exports = async ({ config, mode }) => {
         },
         {
             test: /\.md$/,
-            use: ['highlight-loader', 'markdown-loader']
+            use: ['@shahzainb/highlight-loader', 'markdown-loader']
         },
         {
             test: /\.haml$/,
