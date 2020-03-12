@@ -15,40 +15,29 @@ export default {
     title: '2 Design Foundations'
 };
 
-function getBrightness(colour) {
-    const m = colour
-        .substr(1)
-        .match(colour.length === 7 ? /(\S{2})/g : /(\S{1})/g);
-    let r = 0;
-    let g = 0;
-    let b = 0;
-
-    if (m) {
-        r = parseInt(m[0], 16);
-        g = parseInt(m[1], 16);
-        b = parseInt(m[2], 16);
-    }
-
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    const threshold = 123;
-
-    return brightness < threshold ? '#fff' : '#000';
-}
-
 function getColours(type, sass) {
+    // Since we get all the vars exported we need to filter them out
     const colours = Object.keys(sass).filter(
         item => item.indexOf(`${type}-`) !== -1
     );
+
     let result = `<h1>Colour ${type}</h1>`;
+    let lastSection = '';
     colours.forEach(item => {
-        const name = item.replace(`${type}-`, '');
+        // We need to split by section as well
+        const matches = item.split('-');
+        const section = matches.length > 2 ? matches[1].replace('_', ' ') : '';
+        const name = matches[matches.length > 2 ? 2 : 1];
         const colour = sass[item];
+
+        if (section !== lastSection) {
+            lastSection = section;
+            result += `<h2>${section}</h2>`;
+        }
+
         result += `<div class="cads-styleguide__colour-tile">
 <div class="cads-styleguide__colour-tile-bg" style="background: ${colour}"></div>
-<p>${name.replace(
-            /([A-Z])/g,
-            g => `-${g[0].toLowerCase()}`
-        )}
+<p>${name.replace(/([A-Z])/g, g => `-${g[0].toLowerCase()}`)}
 <br/>${colour.toUpperCase()}</p>
 </div>`;
     });
