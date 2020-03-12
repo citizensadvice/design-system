@@ -14,10 +14,10 @@
 
   notice_banner_content: "I'm actually rendering",
 
-  radio_group_name: "radiogroup-fruit",
-  radio_group_label: "Select your favourite fruit",
-  radio_group_hint: "All fruit are nice",
-  radio_group_options: ["Orange", "Apple", "Banana"],
+  radio_group_name: "radiogroup-1",
+  radio_group_label: "Select an option",
+  radio_group_hint: "There are two options",
+  radio_group_options: ["Option 1", "Option 2"],
 
   input_name: "inputABC",
   input_label: "This is the label for the input",
