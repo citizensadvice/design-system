@@ -13,9 +13,5 @@ yarn-error.log
 .npmrc
 *.gem
 /dist
-<<<<<<< HEAD
 backstop_data/bitmaps_test
 backstop_data/bitmaps_reference
-=======
-vendor
->>>>>>> fe3622d2d63fe5140c6f101189b5a04f9a9625fe
