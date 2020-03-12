@@ -15,7 +15,7 @@
   notice_banner_content: "I'm actually rendering",
 
   radio_group_name: "radiogroup-1",
-  radio_group_label: "Select an options",
+  radio_group_label: "Select an option",
   radio_group_hint: "There are two options",
   radio_group_options: ["Option 1", "Option 2"],
 

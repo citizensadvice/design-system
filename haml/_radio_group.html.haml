@@ -6,7 +6,7 @@
     %p.paragraph-s.cads-form__hint
       = radio_group_hint
     - radio_group_options.each do |radioItem|
-      %label.cads-form-label.cads-radio-button{for: "#{radio_group_name}-#{radioItem}"}
+      %label.cads-radio-button{for: "#{radio_group_name}-#{radioItem}"}
         = radioItem
         %input{type: "radio", id: "#{radio_group_name}-#{radioItem}", name: radio_group_name}
         %span.cads-radio-button-checkmark
