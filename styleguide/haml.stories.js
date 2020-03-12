@@ -102,18 +102,6 @@ export const navigation = () =>
             })
     );
 
-export const noticeBanner = () => {
-    const notice_banner_content = text(
-        'Banner content',
-        'If you’re a Thomas Cook customer and you’re stuck abroad or want to get your money back, get help from the Civil Aviation Authority.'
-    );
-
-    return renderHamlTemplate(
-        'Notice banner',
-        tNoticeBanner,
-        'notice_banner',
-        null,
-        { notice_banner_content }
-    );
-};
+export const noticeBanner = () =>
+    renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');

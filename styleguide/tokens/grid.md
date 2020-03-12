@@ -2,15 +2,23 @@
 
 ## Intro
 
-- Use `.cads-grid-container` as a top level container for a responsive pixel width across all viewports and device sizes.
-- Rows are wrappers for columns. Each column has horizontal `padding` (called a gutter) for controlling the space between them. This `padding` is then counteracted on the rows with negative margins. This way, all the content in your columns is visually aligned down the left side.
-- In a grid layout, content must be placed within columns and only columns may be immediate children of rows.
-- Grid columns without a specified `width` will automatically layout as equal width columns (the grid is flexbox based). E.g. four instances of `.cads-grid-col-md` will each automatically be 25% wide from the medium breakpoint and up.
-- Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use `.cads-grid-col-4`.
-- Column `width`s are set in percentages, so they’re always fluid and sized relative to their parent element.
-- Columns have horizontal `padding` to create the gutters between individual columns, however, you can remove the `margin` from rows and `padding` from columns with `.no-gutters` on the `.row`.
-- To make the grid responsive, there are three grid breakpoints, one for each responsive breakpoint: all breakpoints (small), medium and large.
-- Grid breakpoints are based on minimum width media queries, meaning <strong>they apply to that one breakpoint and all those above it</strong> (e.g., `.cads-grid-col-md-4` applies to medium and large but not the first `sm` breakpoint).
+Use `.cads-grid-container` as a top level container for a responsive pixel width across all viewports and device sizes.
+
+Rows are wrappers for columns. Each column has horizontal `padding` (called a gutter) for controlling the space between them. This `padding` is then counteracted on the rows with negative margins. This way, all the content in your columns is visually aligned down the left side.
+
+In a grid layout, content must be placed within columns and only columns may be immediate children of rows.
+
+Grid columns without a specified `width` will automatically layout as equal width columns (the grid is flexbox based). E.g. four instances of `.cads-grid-col-md` will each automatically be 25% wide from the medium breakpoint and up.
+
+Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use `.cads-grid-col-4`.
+
+Column `width`s are set in percentages, so they’re always fluid and sized relative to their parent element.
+
+Columns have horizontal `padding` to create the gutters between individual columns, however, you can remove the `margin` from rows and `padding` from columns with `.no-gutters` on the `.row`.
+
+To make the grid responsive, there are three grid breakpoints, one for each responsive breakpoint: all breakpoints (small), medium and large.
+
+Grid breakpoints are based on minimum width media queries, meaning <strong>they apply to that one breakpoint and all those above it</strong> (e.g., `.cads-grid-col-md-4` applies to medium and large but not the first `sm` breakpoint).
 
 <table class="cads-styleguide-table">
   <thead>
@@ -329,79 +337,3 @@ Use a combination of breakpoint width classes to create different layouts for ea
     </div>
 </div>
 ```
-
-<!-- ### Reordering columns
-
-Use `.cads-order-` classes for controlling the visual order of your content. These classes are responsive, so you can set the order by breakpoint (e.g., `.cads-order-1.cads-order-md-2`). Includes support for 1 through 12 across all five grid tiers.
-
-<div class="cads-styleguide-grid cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col"><span>1</span></div>
-        <div class="cads-grid-col cads-order-12"><span>2</span></div>
-        <div class="cads-grid-col cads-order-1"><span>3</span></div>
-    </div>
-</div>
-
-```html
-<div class="cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col"><span>1</span></div>
-        <div class="cads-grid-col cads-order-12"><span>2</span></div>
-        <div class="cads-grid-col cads-order-1"><span>3</span></div>
-    </div>
-</div>
-```
-
-There are also responsive `.cads-order-first` and `.cads-order-last` classes that change the order of an element by applying order: -1 and order: 13 (order: $columns + 1), respectively. These classes can also be intermixed with the numbered `.cads-order-*` classes as needed.
-
-<div class="cads-styleguide-grid cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col cads-order-last"><span>1</span></div>
-        <div class="cads-grid-col"><span>2</span></div>
-        <div class="cads-grid-col cads-order-first"><span>3</span></div>
-    </div>
-</div>
-
-```html
-<div class="cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col cads-order-last"><span>1</span></div>
-        <div class="cads-grid-col"><span>2</span></div>
-        <div class="cads-grid-col cads-order-first"><span>3</span></div>
-    </div>
-</div>
-``` -->
-
-<!-- ### Offsetting columns
-
-You can offset grid columns using the `.cads-offset-*` classes, these are sized to match columns and used to move columns to the right. These classes increase the left margin of a column by * columns. For example, `.cads-offset-md-4` moves '.cads-grid-col-md-4` over four columns on the medium breakpoint.
-
-<div class="cads-styleguide-grid cads-grid-container">
-	<div class="cads-grid-row">
-		<div class="cads-grid-col-4"><span>1</span></div>
-		<div class="cads-grid-col-4 cads-offset-4"><span>2</span></div>
-	</div>
-	<div class="cads-grid-row">
-		<div class="cads-grid-col-md-3 cads-offset-md-3"><span>1</span></div>
-		<div class="cads-grid-col-md-3 cads-offset-md-3"><span>2</span></div>
-	</div>
-	<div class="cads-grid-row">
-		<div class="cads-grid-col-3 cads-offset-1 cads-offset-md-4 cads-offset-lg-6"><span>1</span></div>
-	</div>
-</div>
-
-```html
-<div class="cads-grid-container">
-	<div class="cads-grid-row">
-		<div class="cads-grid-col-md-4"><span>1</span></div>
-		<div class="cads-grid-col-md-4 cads-offset-md-4"><span>2</span></div>
-	</div>
-	<div class="cads-grid-row">
-		<div class="cads-grid-col-md-3 cads-offset-md-3"><span>1</span></div>
-		<div class="cads-grid-col-md-3 cads-offset-md-3"><span>2</span></div>
-	</div>
-	<div class="cads-grid-row">
-		<div class="cads-grid-col-3 cads-offset-1 cads-offset-md-4 cads-offset-lg-6"><span>1</span></div>
-	</div>
-</div>
-``` -->

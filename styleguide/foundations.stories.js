@@ -2,7 +2,7 @@ import './styles.scss';
 import sassPalette from '../scss/1-settings/_colour-palette.scss';
 import sassLanguage from '../scss/1-settings/_colour-language.scss';
 
-import Animations from './tokens/animations.md';
+// import Animations from './tokens/animations.md';
 import Breakpoints from './tokens/breakpoints.md';
 import Typography from './tokens/typography.md';
 import Spacing from './tokens/spacing.md';
@@ -52,6 +52,6 @@ export const spacingAndSizing = () => Spacing;
 export const grid = () => Grid;
 export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;
-export const animations = () => Animations;
+// export const animations = () => Animations;
 export const visibility = () => Visibility;
 export const languages = () => Languages;
