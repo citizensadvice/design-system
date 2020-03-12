@@ -19,7 +19,7 @@ const wrapper = (title, component, usage, js) => {
 ${component}
 </div>
 <hr />
-<h2 aria-hidden="true">Component source</h2>
+<h2 aria-hidden="true">Code example</h2>
 <pre aria-hidden="true"><code class="html">
 ${source}
 </code></pre>
