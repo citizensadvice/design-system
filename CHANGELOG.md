@@ -1,3 +1,7 @@
+## <sub>v0.4.0</sub>
+
+#### _Mar. 12, 2020_
+
 * NP-122 Styleguide improvements
 * NP-139 Input boxes and textareas
 * NP-138 radio buttons
