@@ -13,7 +13,7 @@
     ],
     "scripts": {
         "prepublishOnly": "npm run lint && npm run build && node ./scripts/release",
-        "pre-commit": "lint-staged && echo \"***\n***\nDont' forget to rebuild the documentation!\n***\n***\"",
+        "pre-commit": "lint-staged",
         "check-size": "node ./scripts/check-size -r",
         "check-size:write": "node ./scripts/check-size -r -w",
         "build": "npm run clean && node ./scripts/build -r && npm run check-size -r",
