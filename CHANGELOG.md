@@ -1,3 +1,7 @@
+## <sub>v0.4.1</sub>
+
+#### _Mar. 13, 2020_
+
 * NP-16 Design System Automation Framework
 
 * NP-200, NP-205 Update priority-nav to latest, fixing tabbing and resizing bugs
