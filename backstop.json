@@ -67,47 +67,7 @@
     },
 
     {
-      "label": "3_Markup_Components_BUTTONS",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=3-markup-components--buttons",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--buttons",
-      "readyEvent": "",
-      "readySelector": "#a11yComponentToTest",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [".cads-styleguide__breakpoint-label", ".cads-styleguide__language-label"],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": ["#a11yComponentToTest"],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
-    },
-
-    {
-      "label": "3_Markup_Components_NAVIGATION",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=3-markup-components--navigation",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--navigation",
-      "readyEvent": "",
-      "readySelector": "#a11yComponentToTest",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [".cads-styleguide__breakpoint-label", ".cads-styleguide__language-label"],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": ["#a11yComponentToTest"],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
-    },
-
-    {
-      "label": "4_Haml_Partials_BREADCRUMBS",
+      "label": "3_Components_BREADCRUMBS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=4-haml-partials--breadcrumb",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--breadcrumb",
@@ -127,7 +87,27 @@
     },
 
     {
-      "label": "4_Haml_Partials_CALLOUTS",
+      "label": "3_Components_BUTTONS",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/iframe.html?id=3-markup-components--buttons",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--buttons",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [".cads-styleguide__breakpoint-label", ".cads-styleguide__language-label"],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+
+    {
+      "label": "3_Components_CALLOUTS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=4-haml-partials--callout",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--callout",
@@ -147,7 +127,7 @@
     },
 
     {
-      "label": "4_Haml_Partials_FOOTER",
+      "label": "3_Components_FOOTER",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=4-haml-partials--footer",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--footer",
@@ -167,7 +147,7 @@
     },
 
     {
-      "label": "4_Haml_Partials_HEADER",
+      "label": "3_Components_HEADER",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=4-haml-partials--header",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--header",
@@ -187,7 +167,7 @@
     },
 
     {
-      "label": "4_Haml_Partials_LOGO",
+      "label": "3_Components_LOGO",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=4-haml-partials--logo",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--logo",
@@ -207,10 +187,10 @@
     },
 
     {
-      "label": "4_Haml_Partials_NAVIGATION",
+      "label": "3_Components_NAVIGATION",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--navigation",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--navigation",
+      "url": "http://localhost:6006/iframe.html?id=3-markup-components--navigation",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--navigation",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -227,7 +207,7 @@
     },
 
     {
-      "label": "4_Haml_Partials_NOTICE_BANNER",
+      "label": "3_Components_NOTICE_BANNER",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=4-haml-partials--notice-banner",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--notice-banner",
@@ -247,7 +227,7 @@
     },
 
     {
-      "label": "4_Haml_Partials_SEARCH",
+      "label": "3_Components_SEARCH",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=4-haml-partials--search",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--search",
