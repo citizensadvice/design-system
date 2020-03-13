@@ -69,8 +69,8 @@
     {
       "label": "3_Components_BREADCRUMBS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--breadcrumb",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--breadcrumb",
+      "url": "http://localhost:6006/iframe.html?id=3-components--breadcrumb",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--breadcrumb",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -89,8 +89,8 @@
     {
       "label": "3_Components_BUTTONS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=3-markup-components--buttons",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--buttons",
+      "url": "http://localhost:6006/iframe.html?id=3-components--buttons",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--buttons",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -109,8 +109,8 @@
     {
       "label": "3_Components_CALLOUTS",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--callout",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--callout",
+      "url": "http://localhost:6006/iframe.html?id=3-components--callout",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--callout",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -129,8 +129,8 @@
     {
       "label": "3_Components_FOOTER",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--footer",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--footer",
+      "url": "http://localhost:6006/iframe.html?id=3-components--footer",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--footer",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -149,8 +149,8 @@
     {
       "label": "3_Components_HEADER",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--header",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--header",
+      "url": "http://localhost:6006/iframe.html?id=3-components--header",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--header",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -169,8 +169,8 @@
     {
       "label": "3_Components_LOGO",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--logo",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--logo",
+      "url": "http://localhost:6006/iframe.html?id=3-components--logo",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--logo",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -189,8 +189,8 @@
     {
       "label": "3_Components_NAVIGATION",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=3-markup-components--navigation",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-markup-components--navigation",
+      "url": "http://localhost:6006/iframe.html?id=3-components--navigation",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--navigation",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -209,8 +209,8 @@
     {
       "label": "3_Components_NOTICE_BANNER",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--notice-banner",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--notice-banner",
+      "url": "http://localhost:6006/iframe.html?id=3-components--notice-banner",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--notice-banner",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -229,8 +229,8 @@
     {
       "label": "3_Components_SEARCH",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:6006/iframe.html?id=4-haml-partials--search",
-      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=4-haml-partials--search",
+      "url": "http://localhost:6006/iframe.html?id=3-components--search",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--search",
       "readyEvent": "",
       "readySelector": "#a11yComponentToTest",
       "delay": 0,
@@ -245,6 +245,7 @@
       "misMatchThreshold" : 0.1,
       "requireSameDimensions": true
     }
+
   ],
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
