@@ -1,3 +1,5 @@
+* NP-16 Design System Automation Framework
+
 ## <sub>v0.4.0</sub>
 
 #### _Mar. 12, 2020_
@@ -9,7 +11,6 @@
 * NP-206 bug fix small radio button style
 * NP-185 render HAML stories using Ruby
 * NP-208 bug fix radio button stories
-* NP-16 Design System Automation Framework
 
 ## <sub>v0.3.3</sub>
 
