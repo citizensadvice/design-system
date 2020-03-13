@@ -1,4 +1,5 @@
 * NP-16 Design System Automation Framework
+* NP-52 Header
 
 ## <sub>v0.4.0</sub>
 
