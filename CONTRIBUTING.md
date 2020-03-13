@@ -26,7 +26,25 @@ The `check-size` script will check the current output and compare it to the last
 
 ### Testing
 
-TODO... As this is just a CSS library to test it we use storybook. The concept is that a test version of storybook is built which is then used to do screenshot comparison in browserstack/?.
+As this is just a CSS library to test it we use storybook. The concept is that a test version of storybook is built which is then used to do screenshot comparison in BackstopJS. BackstopJS automates visual regression testing of your responsive web UI by comparing DOM screenshots over time.
+
+To install BackstopJS:
+```
+npm install -g backstopjs
+``` 
+
+#### Usage
+
+- **`backstop init`:** Set up a new BackstopJS instance -- specify URLs, cookies, screen sizes, DOM selectors, interactions etc.
+
+- **`backstop reference`:**: Set up the baseline that you’re testing against.
+
+- **`backstop test`:** BackstopJS creates a set of test screenshots and compares them with your reference screenshots. Any changes show up in a visual report. (Run this after making CSS changes as many times as needed.)
+
+-  **`backstop approve`:** If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+
+For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
+
 
 ### Assets
 
