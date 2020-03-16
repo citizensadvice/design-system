@@ -32,6 +32,8 @@
         }
 
         @include cads-media-breakpoint-only(sm) {
+            width: $cads-interactive-target-size;
+
             &::after {
                 content: '';
             }
