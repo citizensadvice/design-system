@@ -38,7 +38,9 @@ header,
         }
 
         &.cads-header-show-search {
-            display: block;
+            .cads-header-search-row {
+                display: block;
+            }
         }
     }
 }
