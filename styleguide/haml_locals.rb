@@ -1,5 +1,18 @@
 @locals = {
-  breadcrumb_links: ['a', 'b', 'c'],
+  breadcrumb_links: [
+      {
+          url: "https://www.citizensadvice.org.uk/benefits/",
+          label: "Benefits"
+      },
+      {
+          url: "https://www.citizensadvice.org.uk/benefits/benefits-introduction/",
+          label: "Benefits - introduction"
+      },
+      {
+          url: "https://www.citizensadvice.org.uk/benefits/benefits-introduction/what-benefits-can-i-get/",
+          label: "Benefit calculators: what benefits can you get"
+      }
+  ],
 
   notice: {
     type: "warning",
