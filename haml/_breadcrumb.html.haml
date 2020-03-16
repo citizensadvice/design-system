@@ -3,4 +3,6 @@
     %li
       %a.cads-breadcrumb{:href => "/"} Home
     - breadcrumb_links.each do |link|
-      %li= link
+      %li
+        %a.cads-breadcrumb{:href => link[:url], :title => link[:label]}
+          = link[:label]
