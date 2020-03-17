@@ -5,7 +5,8 @@ import Contributing from '../CONTRIBUTING.md';
 export default {
     title: '1: How do I…',
     decorators: [
-        storyFn => `<div class="cads-max-content-width">${storyFn()}</div>`
+        storyFn =>
+            `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`
     ]
 };
 

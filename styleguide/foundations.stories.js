@@ -14,7 +14,8 @@ import Languages from './tokens/languages.md';
 export default {
     title: '2: Design Foundations',
     decorators: [
-        storyFn => `<div class="cads-max-content-width">${storyFn()}</div>`
+        storyFn =>
+            `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`
     ]
 };
 

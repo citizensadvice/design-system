@@ -1,6 +1,10 @@
 // These styles are for use in the storybook styleguide
 @import '../scss/lib';
 
+.cads-styleguide-max-content-width {
+    max-width: $cads-max-content-size * 0.6;
+}
+
 .html {
     font-family: monospace;
     font-size: 1rem;
