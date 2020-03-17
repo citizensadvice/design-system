@@ -50,7 +50,7 @@ ${usage || ''}`,
 
 // Storybook section setup
 export default {
-    title: '3 Components',
+    title: '3: Components',
     decorators: [withKnobs, withA11y],
     parameters: {
         options: {

@@ -3,7 +3,7 @@ import Contact from './documentation/contact.md';
 import Contributing from '../CONTRIBUTING.md';
 
 export default {
-    title: '1 How do I…',
+    title: '1: How do I…',
     decorators: [
         storyFn => `<div class="cads-max-content-width">${storyFn()}</div>`
     ]
