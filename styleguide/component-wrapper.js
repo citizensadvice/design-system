@@ -19,11 +19,13 @@ const wrapper = (title, component, usage, js) => {
 ${component}
 </div>
 <hr />
+<div class="cads-max-content-width">
 <h2 aria-hidden="true">Code example</h2>
 <pre aria-hidden="true"><code class="html">
 ${source}
 </code></pre>
-${usage ? `<hr /><h2>Usage info</h2>${usage}` : ''}
+${usage ? `<hr /><h2>Usage info</h2>${usage}` : ''}</div>
+
 `;
 };
 
