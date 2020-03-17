@@ -7,6 +7,8 @@ import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 import './styles.scss';
 
 import priorityNav from '@baseonmars/priority-nav';
+import initHeader from '../js/header';
+
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
@@ -40,7 +42,7 @@ function renderHamlTemplate(
         templateName,
         template,
         `The partial is available in:
-<pre><code>haml/_${hamlLocation}.html.haml</code></pre>
+<pre class="html"><code>haml/_${hamlLocation}.html.haml</code></pre>
 ${usage || ''}`,
         optionalJS
     );
@@ -48,7 +50,7 @@ ${usage || ''}`,
 
 // Storybook section setup
 export default {
-    title: '3 Components',
+    title: '3: Components',
     decorators: [withKnobs, withA11y],
     parameters: {
         options: {
@@ -70,7 +72,17 @@ export const buttons = () => Buttons();
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
 export const search = () => renderHamlTemplate('Search', tSearch, 'search');
 export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
-export const header = () => renderHamlTemplate('Header', tHeader, 'header');
+export const header = () =>
+    renderHamlTemplate(
+        'Header',
+        tHeader,
+        'header',
+        `The header component uses javascript to show/hide the search bar in small screen sizes.
+\n\n
+<code>import { initHeader } from @citizensadvice/design-system/js/header</code> and execute that function after the header html has loaded into the DOM.`,
+        null,
+        () => initHeader()
+    );
 export const input = () => renderHamlTemplate('Input', tInput, 'input');
 export const radioGroup = () =>
     renderHamlTemplate('Radio Group', tRadio, 'radio_group');

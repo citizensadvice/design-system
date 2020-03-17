@@ -12,7 +12,11 @@ import Visibility from './tokens/visibility.md';
 import Languages from './tokens/languages.md';
 
 export default {
-    title: '2 Design Foundations'
+    title: '2: Design Foundations',
+    decorators: [
+        storyFn =>
+            `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`
+    ]
 };
 
 function getColours(type, sass) {

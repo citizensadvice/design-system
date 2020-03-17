@@ -1,10 +1,12 @@
 * NP-209 HAML story cleanup
+* NP-52 Header
 
 ## <sub>v0.4.1</sub>
 
 #### _Mar. 13, 2020_
 
 * NP-16 Design System Automation Framework
+* NP-52 Header
 
 * NP-200, NP-205 Update priority-nav to latest, fixing tabbing and resizing bugs
 
@@ -16,6 +18,7 @@
 * NP-139 Input boxes and textareas
 * NP-138 radio buttons
 * Switch to npm from yarn
+* Logo cleanup
 * NP-206 bug fix small radio button style
 * NP-185 render HAML stories using Ruby
 * NP-208 bug fix radio button stories

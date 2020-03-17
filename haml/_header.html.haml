@@ -1,9 +1,10 @@
-%header.header
+%header.cads-header
   .cads-grid-container
     .cads-grid-row
-      .cads-grid-col-5.cads-grid-col-md-6
+      .cads-grid-col-md-5.cads-header-logo-row
         = render "@citizensadvice/design-system/haml/logo_clickable", locals: { root_path: root_path }
-      .cads-grid-col-7.cads-grid-col-md-6.cads-align-right
+        %button.cads-search-reveal
+      .cads-grid-col-md-7.cads-align-right.cads-header-search-row
         %ul.cads-list-unordered.cads-list-unordered__inline.cads-header-account-panel
           %li
             %a{href: "/?lang"} Language

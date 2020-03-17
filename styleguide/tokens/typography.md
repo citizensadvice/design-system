@@ -18,7 +18,7 @@ together.
 
 <h3>Notes on heading spacing</h3>
 
-h2 and h3 headings will automatically add a top margin if they are preceded by certain text content elements, eg p, lists or other headings. To manually add a margin apply the <code class="css">adjacent-heading-margin</code> class to the heading.
+h2 and h3 headings will automatically add a top margin if they are preceded by certain text content elements, eg p, lists or other headings. To manually add a margin apply the <code class="html">adjacent-heading-margin</code> class to the heading.
 
 <h2>Paragraphs</h2>
 
@@ -41,7 +41,7 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 <p class="paragraph-s">This is small text for metadata and some UI components. Your body copy should use the standard 18px font size.</p>
 </div>
 
-<pre><code class="lang-css">&lt;p class="paragraph-s">This is small text...&lt;/p></code></pre>
+<pre class="html"><code>&lt;p class="paragraph-s">This is small text...&lt;/p></code></pre>
 
 <h2>Links</h2>
 
@@ -130,7 +130,7 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 </div>
 
 <h3>Inline lists</h3>
-<p>Applying the <code class="lang-css">cads-list-unordered__inline</code> class to a ul makes the list inline. e.g.</p>
+<p>Applying the <span class="html inline">cads-list-unordered__inline</span> class to a ul makes the list inline. e.g.</p>
 
 <div class="cads-styleguide__highlight-box">
 <ul class="cads-list-unordered cads-list-unordered__inline">

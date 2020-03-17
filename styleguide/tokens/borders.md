@@ -19,9 +19,9 @@
 
 ### SASS mixin
 
-The `border` mixin can be used in your custom classes
+The <span class="html inline">border</span> mixin can be used in your custom classes
 
-`@mixin cads-border($side: a, $width: $cads-border-width-small, $radius: 0, $colour: $cads-language__neutral-mid)`
+<span class="html inline">@mixin cads-border($side: a, $width: $cads-border-width-small, $radius: 0, $colour: $cads-language__neutral-mid)</span>
 
 ### Parameters
 
@@ -32,7 +32,7 @@ The `border` mixin can be used in your custom classes
 
 ### Mixin usage example
 
-<pre><code class="css">
+<pre class="html"><code>
 .yourClass {
   @include cads-border(
     a,
