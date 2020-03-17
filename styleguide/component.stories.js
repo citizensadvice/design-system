@@ -42,7 +42,7 @@ function renderHamlTemplate(
         templateName,
         template,
         `The partial is available in:
-<pre><code>haml/_${hamlLocation}.html.haml</code></pre>
+<pre class="html"><code>haml/_${hamlLocation}.html.haml</code></pre>
 ${usage || ''}`,
         optionalJS
     );

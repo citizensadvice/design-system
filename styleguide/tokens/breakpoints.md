@@ -19,7 +19,7 @@ To see how any tokens or components respond to different screen sizes just resiz
 
 Targeting screen sizes from minimum breakpoint width
 
-<pre><code class="html">
+<pre class="html"><code>
 @include cads-media-breakpoint-up(sm) { ... }
 @include cads-media-breakpoint-up(md) { ... }
 @include cads-media-breakpoint-up(lg) { ... }
@@ -36,7 +36,7 @@ Targeting screen sizes from minimum breakpoint width
 
 Targeting screen sizes up to maximum breakpoint width
 
-<pre><code class="html">
+<pre class="html"><code>
 @include cads-media-breakpoint-down(sm) { ... }
 @include cads-media-breakpoint-down(md) { ... }
 @include cads-media-breakpoint-down(lg) { ... }
@@ -53,7 +53,7 @@ Targeting screen sizes up to maximum breakpoint width
 
 Targeting a single segment of screen sizes using the minimum and maximum breakpoint widths
 
-<pre><code class="html">
+<pre class="html"><code>
 @include cads-media-breakpoint-only(sm) { ... }
 @include cads-media-breakpoint-only(md) { ... }
 @include cads-media-breakpoint-only(lg) { ... }
@@ -70,7 +70,7 @@ Targeting a single segment of screen sizes using the minimum and maximum breakpo
 
 Targeting screen sizes between multiple breakpoint widths
 
-<pre><code class="html">
+<pre class="html"><code>
 @include cads-media-breakpoint-between(sm, lg) { ... }
 @include cads-media-breakpoint-between(md, lg) { ... }
 

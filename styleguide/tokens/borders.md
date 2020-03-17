@@ -32,7 +32,7 @@ The <span class="html inline">border</span> mixin can be used in your custom cla
 
 ### Mixin usage example
 
-<pre><code class="html">
+<pre class="html"><code>
 .yourClass {
   @include cads-border(
     a,
