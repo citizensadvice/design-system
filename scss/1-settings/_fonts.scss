@@ -12,8 +12,8 @@
     font-display: block;
 }
 
-[class^='icon-'],
-[class*=' icon-'] {
+[class^='cads-icon-'],
+[class*=' cads-icon-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'cads-icons' !important;
     speak: none;
@@ -28,34 +28,33 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-icon_arrow-left:before {
+.cads-icon-arrow-left:before {
     content: '\e900';
 }
-.icon-icon_arrow-right:before {
+.cads-icon-arrow-right:before {
     content: '\e901';
 }
-.icon-icon_checkmark:before {
+.cads-icon-checkmark:before {
     content: '\e902';
 }
-.icon-icon_exclamation-circle:before {
+.cads-icon-exclamation-circle:before {
     content: '\e903';
-    color: #df3034;
 }
-.icon-icon_external-link:before {
+.cads-icon-external-link:before {
     content: '\e904';
 }
-.icon-icon_minus:before {
+.cads-icon-minus:before {
     content: '\e905';
 }
-.icon-icon_plus:before {
+.cads-icon-plus:before {
     content: '\e906';
 }
-.icon-icon_print:before {
+.cads-icon-print:before {
     content: '\e907';
 }
-.icon-icon_redo:before {
+.cads-icon-redo:before {
     content: '\e908';
 }
-.icon-icon_search:before {
+.cads-icon-search:before {
     content: '\e909';
 }

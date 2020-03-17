@@ -18,12 +18,12 @@ If you need the variables and mixins then import the top level SCSS file `scss/l
 
 Haml partials are also available, import the npm package in your build and reference them as
 
-<pre><code>@citizensadvice/design-system/haml/&lt;partial-name></code></pre>
+<pre class="html"><code>@citizensadvice/design-system/haml/&lt;partial-name></code></pre>
 
 You will need to add a lookup path for `node_modules`, for example add 
 
-<pre><code>prepend_view_path(Rails.root.join("node_modules"))</code></pre>
+<pre class="html"><code>prepend_view_path(Rails.root.join("node_modules"))</code></pre>
 
 to your `ApplicationController`. You can then reference the partials in your haml like this
 
-<pre><code>= render partial: "@citizensadvice/design-system/haml/breadcrumb"</code></pre>
+<pre class="html"><code>= render partial: "@citizensadvice/design-system/haml/breadcrumb"</code></pre>
