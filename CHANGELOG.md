@@ -1,4 +1,5 @@
 * NP-209 HAML story cleanup
+* NP-52 Header
 
 ## <sub>v0.4.1</sub>
 
