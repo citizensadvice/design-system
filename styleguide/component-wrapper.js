@@ -1,13 +1,16 @@
-import hljs from 'highlight.js'; // eslint-disable-line
 import beautify from 'js-beautify'; // eslint-disable-line
 
 const a11yid = 'a11yComponentToTest';
 const wrapper = (title, component, usage, js) => {
-    const source = hljs.highlightAuto(
-        beautify.html_beautify(component, {
-            indent_size: 2
+    const source = beautify
+        .html_beautify(component, {
+            indent_size: 2,
+            unescape_strings: true,
+            wrap_line_length: 80
         })
-    ).value;
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
 
     if (js) {
         setTimeout(js);
@@ -21,7 +24,7 @@ ${component}
 <hr />
 <div class="cads-max-content-width">
 <h2 aria-hidden="true">Code example</h2>
-<pre aria-hidden="true"><code class="html">
+<pre class="html" aria-hidden="true"><code>
 ${source}
 </code></pre>
 ${usage ? `<hr /><h2>Usage info</h2>${usage}` : ''}</div>
