@@ -29,4 +29,13 @@ button,
             background-color: $cads-language__secondary-button-hover-colour;
         }
     }
+
+    &:focus,
+    &__primary:focus,
+    &__secondary:focus {
+        color: $cads-language__focus-text-colour;
+        border-color: $cads-language__focus-border-colour;
+        background-color: $cads-language__focus-colour;
+        box-shadow: none;
+    }
 }
