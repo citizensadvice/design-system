@@ -49,6 +49,11 @@
 .cads-icon-plus:before {
     content: '\e906';
 }
+.cads-icon-close:before {
+    content: '\e906';
+    display: inline-block;
+    transform: rotate(45deg);
+}
 .cads-icon-print:before {
     content: '\e907';
 }

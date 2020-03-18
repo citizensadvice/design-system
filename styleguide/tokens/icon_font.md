@@ -12,6 +12,7 @@ Do not forget to prefix the given class name with <span class="html inline">cads
 <li><span class="cads-icon-arrow-left"></span><span>arrow-left</span></li>
 <li><span class="cads-icon-arrow-right"></span><span>arrow-right</span></li>
 <li><span class="cads-icon-checkmark"></span><span>checkmark</span></li>
+<li><span class="cads-icon-close"></span><span>close</span></li>
 <li><span class="cads-icon-exclamation-circle"></span><span>exclamation-circle</span></li>
 <li><span class="cads-icon-external-link"></span><span>external-link</span></li>
 <li><span class="cads-icon-minus"></span><span>minus</span></li>
