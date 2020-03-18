@@ -9,30 +9,24 @@ button,
 
     &,
     &__primary {
-        background-color: $cads-language__button-colour;
+        background-color: $cads-language__primary-button-colour;
         color: $cads-palette__white;
-        border-color: $cads-language__button-colour;
+        border-color: $cads-language__primary-button-colour;
 
         &:hover {
-            color: $cads-language__button-colour;
-            background-color: $cads-palette__white;
+            color: $cads-palette__white;
+            background-color: $cads-language__primary-button-hover-colour;
+            border-color: $cads-language__primary-button-hover-colour;
         }
     }
 
     &__secondary {
-        background-color: $cads-language__secondary-button-colour;
-        color: $cads-palette__white;
-        border-color: $cads-language__secondary-button-colour;
+        background-color: $cads-palette__white;
+        color: $cads-palette__black;
 
         &:hover {
-            color: $cads-language__secondary-button-colour;
-            background-color: $cads-palette__white;
+            color: $cads-palette__black;
+            background-color: $cads-language__secondary-button-hover-colour;
         }
-    }
-
-    &:active {
-        background-color: $cads-language__secondary-button-colour;
-        color: $cads-palette__black;
-        border-color: $cads-palette__black;
     }
 }
