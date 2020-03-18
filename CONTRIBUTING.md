@@ -39,9 +39,15 @@ npm install -g backstopjs
 
 - **`backstop reference`:**: Set up the baseline that you’re testing against.
 
+- **`backstop reference --filter=<scenario.label>`:**: Set up the baseline for a specific scenario that you’re testing against using the label name.
+
 - **`backstop test`:** BackstopJS creates a set of test screenshots and compares them with your reference screenshots. Any changes show up in a visual report. (Run this after making CSS changes as many times as needed.)
 
+- **`backstop test --filter=<scenario.label>`:** Run the test for a specific scenario using the label name.
+
 -  **`backstop approve`:** If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+
+-  **`backstop approve --filter=<scenario.label>`:** Approve a specific scenario using the label name.
 
 For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
 
