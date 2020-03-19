@@ -26,6 +26,11 @@ nav,
     }
 
     .priority-nav__dropdown-toggle {
+        &::before {
+            content: 'More';
+            position: relative;
+        }
+
         &::after {
             /* Copied from the icon font setup */
             /* stylelint-disable-next-line */
@@ -45,9 +50,15 @@ nav,
             transform: rotate(270deg);
             font-size: 0.75em;
             margin-left: $cads-spacing-1;
+            top: 1px;
+            position: relative;
         }
 
         &.is-open {
+            &::before {
+                content: 'Close';
+            }
+
             &::after {
                 transform: rotate(90deg);
             }

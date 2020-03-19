@@ -110,7 +110,7 @@ export const navigation = () =>
         () =>
             priorityNav.init({
                 breakPoint: 0,
-                navDropdownLabel: 'More'
+                navDropdownLabel: ''
             })
     );
 
