@@ -7,8 +7,22 @@ header,
         margin-top: 1em;
     }
 
+    .cads-search-reveal {
+        display: none;
+    }
+
     @include cads-media-breakpoint-only(sm) {
         padding: $cads-spacing-0;
+
+        .cads-header-logo-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cads-search-reveal {
+            display: inline-block;
+            width: $cads-interactive-target-size;
+        }
 
         .cads-header-account-panel {
             display: none;
@@ -16,6 +30,17 @@ header,
 
         .cads-search {
             margin-top: 0;
+        }
+
+        .cads-header-search-row {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        &.cads-header-show-search {
+            .cads-header-search-row {
+                display: block;
+            }
         }
     }
 }
