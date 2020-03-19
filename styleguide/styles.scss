@@ -1,6 +1,34 @@
 // These styles are for use in the storybook styleguide
 @import '../scss/lib';
 
+.cads-styleguide-icon-list {
+    li {
+        display: inline-block;
+        border: 1px solid $cads-language__border-colour;
+        border-radius: $cads-border-radius;
+        padding: 1em;
+        margin-right: 0.25em;
+        margin-bottom: 0.25em;
+        text-align: center;
+        width: 200px;
+
+        @include cads-transition-animation();
+
+        &:hover {
+            background-color: $cads-language__border-colour;
+        }
+
+        span {
+            display: block;
+        }
+
+        span:first-child {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+    }
+}
+
 .cads-styleguide-max-content-width {
     max-width: $cads-max-content-size * 0.6;
 }

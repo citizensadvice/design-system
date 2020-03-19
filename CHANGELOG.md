@@ -1,5 +1,6 @@
 * NP-209 HAML story cleanup
 * NP-52 Header
+* NP-172 Header nav buttons
 
 ## <sub>v0.4.1</sub>
 

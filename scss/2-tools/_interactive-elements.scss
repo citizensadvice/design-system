@@ -1,11 +1,4 @@
-// TODO work out what the various states in conjuction with the
-// colour language and create the appropriate mixins for the various classes
-// or maybe create classes to do this...?
-@mixin cads-interactive-element-bg() {
-    // Todo
-}
-
-@mixin cads-interactive-element($hasBg: true) {
+@mixin cads-interactive-element() {
     @include cads-transition-animation();
 
     box-shadow: none;
@@ -17,9 +10,5 @@
         border-color: $cads-language__focus-border-colour;
         // We need to use box-shadow instead of outline as outline does not have a radius
         box-shadow: 0 0 0 2px $cads-language__focus-colour;
-    }
-
-    @if ($hasBg) {
-        @include cads-interactive-element-bg();
     }
 }

@@ -13,13 +13,18 @@
         margin-bottom: 0;
     }
 
-    button {
+    .cads-search-button {
         font-size: 1em;
         flex: 0 0;
         padding: calc(1em - 1px) 1em;
         height: calc(4px + 3em);
 
+        &::before {
+            display: none;
+        }
+
         &::after {
+            font-family: $cads-font-family;
             content: 'Search';
         }
 
@@ -33,17 +38,17 @@
     }
 
     @include cads-media-breakpoint-only(sm) {
-        button {
+        .cads-search-button {
             width: $cads-interactive-target-size;
             height: $cads-interactive-target-size;
-            padding: 11px;
+            padding: 11px 12px 11px 12px;
+
+            &::before {
+                display: inline;
+            }
 
             &::after {
-                width: 18px;
-                height: 18px;
-                content: '' !important;
-                display: inline-block;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 124.72 124.72'%3E%3Cpath d='M117.59,103.45l-22-23a48.72,48.72,0,0,0-7-60A48.58,48.58,0,0,0,5.67,54.82,48.57,48.57,0,0,0,81.22,95.29L103,118.08a5,5,0,0,0,7.1,0l7.51-7.52A5,5,0,0,0,117.59,103.45Zm-63.35-21a27.66,27.66,0,1,1,19.56-8.1A27.48,27.48,0,0,1,54.24,82.49Z'/%3E%3C/svg%3E%0A") !important;
+                display: none;
             }
         }
 
