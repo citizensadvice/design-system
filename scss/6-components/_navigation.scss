@@ -30,6 +30,24 @@ nav,
     }
 
     .priority-nav__dropdown-toggle {
+        background-color: $cads-palette__heritage-blue;
+        border: $cads-palette__heritage-blue;
+
+        &:hover {
+            background-color: $cads-language__link-hover-colour;
+            border-color: $cads-language__link-hover-colour;
+        }
+
+        /* stylelint-disable */
+        &:active,
+        &:focus {
+            /* stylelint-enable */
+            background-color: $cads-palette__white;
+            color: $cads-palette__heritage-blue;
+            border: 2px solid $cads-palette__heritage-yellow;
+            padding: calc(1em - 2px);
+        }
+
         &::before {
             content: 'More';
             speak: none;
