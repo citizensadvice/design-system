@@ -32,13 +32,8 @@ header,
             justify-content: space-between;
         }
 
-        .cads-search-reveal.cads-icon-search {
+        .cads-search-reveal {
             display: inline-block;
-            width: $cads-interactive-target-size;
-        }
-
-        .cads-search-reveal.cads-icon-close {
-            display: none;
             width: $cads-interactive-target-size;
         }
 
@@ -56,14 +51,6 @@ header,
         }
 
         &.cads-header-show-search {
-            .cads-search-reveal.cads-icon-search {
-                display: none;
-            }
-
-            .cads-search-reveal.cads-icon-close {
-                display: inline-block;
-            }
-
             .cads-header-search-row {
                 display: block;
             }
