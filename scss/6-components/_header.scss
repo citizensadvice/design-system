@@ -9,6 +9,19 @@ header,
 
     .cads-search-reveal {
         display: none;
+        padding: 11px 12px 11px 12px;
+        color: $cads-language__primary-button-colour;
+
+        &:hover {
+            color: $cads-language__primary-button-hover-colour;
+        }
+
+        /* stylelint-disable */
+        &:focus,
+        &:active {
+            color: $cads-language__focus-text-colour;
+        }
+        /* stylelint-enable */
     }
 
     @include cads-media-breakpoint-only(sm) {
