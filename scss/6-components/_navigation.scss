@@ -39,8 +39,8 @@ nav,
         }
 
         /* stylelint-disable */
-        &:active,
-        &:focus {
+        &:focus,
+        &:active {
             /* stylelint-enable */
             background-color: $cads-palette__white;
             color: $cads-palette__heritage-blue;
