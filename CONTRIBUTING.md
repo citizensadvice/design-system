@@ -12,13 +12,13 @@ To do...
 
 Use node v12 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 12.
 
-You'll need to have Ruby and Bundler installed to build the haml templates. After you've got those sorted a quick `bundler install` will get the required gems (ruby libraries) in place.
+You'll need to have Ruby and Bundler installed to build the haml templates. Ruby comes preinstalled on Macs. To install Bundler run `gem install bundler`. After you've got those sorted a quick `bundler install` will get the required gems (ruby libraries) in place.
 
-Run `npm install`
+Finally run `npm install`.
 
 ### Building
 
-Just run `npm run build` and this will compile all the SCSS into the `dist` folder.
+Run `npm run build` and this will compile all the SCSS into the `dist` folder.
 
 #### Output checks
 

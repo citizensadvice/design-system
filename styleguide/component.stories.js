@@ -110,7 +110,8 @@ export const navigation = () =>
         () =>
             priorityNav.init({
                 breakPoint: 0,
-                navDropdownLabel: 'More'
+                navDropdownLabel:
+                    '<span class="cads-navigation-toggle-label">More navigation items</span>'
             })
     );
 
