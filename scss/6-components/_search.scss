@@ -18,6 +18,7 @@
         flex: 0 0;
         padding: calc(1em - 1px) 1em;
         height: calc(4px + 3em);
+        font-weight: $cads-font-weight__bold;
 
         &::before {
             display: none;
