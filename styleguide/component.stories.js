@@ -28,6 +28,7 @@ import tBreadcrumb from '../haml/_breadcrumb.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
 import tInput from '../haml/_input.html.haml';
+import tContactDetails from '../haml/_contact_details.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -118,3 +119,5 @@ export const navigation = () =>
 export const noticeBanner = () =>
     renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');
+export const contactDetails = () =>
+    renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
