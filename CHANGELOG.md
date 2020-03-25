@@ -1,3 +1,7 @@
+## <sub>v0.5.1</sub>
+
+#### _Mar. 25, 2020_
+
 * NP-217 Fix Greedy Nav tabbing behaviour in IE 11
 
 ## <sub>v0.5.0</sub>
