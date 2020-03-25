@@ -10,6 +10,18 @@ module.exports = async ({ config, mode }) => {
             use: ['style-loader', 'css-loader', 'sass-loader']
         },
         {
+            test: /\.(woff|ttf|eot|svg).*$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
+                    }
+                }
+            ]
+        },
+        {
             test: /\.md$/,
             use: ['markdown-loader']
         },

@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const postcss = require('postcss');
 const fs = require('fs-extra');
+const { ncp } = require('ncp');
 const path = require('path');
 const chalk = require('chalk');
 
@@ -42,6 +43,14 @@ function compileSass() {
     );
 }
 
+function copyFonts() {
+    ncp(
+        `${PATH}/fonts/`,
+        `${OUTPUT_DIR}/fonts`,
+        err => err && log(chalk.red(`Error copying fonts: ${err}`))
+    );
+}
+
 // Only run if the -r param is given
 if (process.argv[2] === '-r') {
     // Make sure the output dir exists
@@ -49,6 +58,7 @@ if (process.argv[2] === '-r') {
         fs.mkdirSync(OUTPUT_DIR);
     }
     compileSass();
+    copyFonts();
 }
 
 module.exports = {
