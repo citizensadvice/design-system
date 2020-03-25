@@ -1,71 +1,74 @@
 ## <sub>v0.5.0</sub>
 
+-   NP-217 Fix Greedy Nav tabbing behaviour in IE 11
+
 #### _Mar. 24, 2020_
 
-* NP-209 HAML story cleanup
-* NP-52 Header
-* NP-172 Header nav buttons
+-   NP-209 HAML story cleanup
+-   NP-52 Header
+-   NP-172 Header nav buttons
 
 ## <sub>v0.4.1</sub>
 
 #### _Mar. 13, 2020_
 
-* NP-16 Design System Automation Framework
-* NP-52 Header
+-   NP-16 Design System Automation Framework
+-   NP-52 Header
 
-* NP-200, NP-205 Update priority-nav to latest, fixing tabbing and resizing bugs
+-   NP-200, NP-205 Update priority-nav to latest, fixing tabbing and resizing bugs
 
 ## <sub>v0.4.0</sub>
 
 #### _Mar. 12, 2020_
 
-* NP-122 Styleguide improvements
-* NP-139 Input boxes and textareas
-* NP-138 radio buttons
-* Switch to npm from yarn
-* Logo cleanup
-* NP-206 bug fix small radio button style
-* NP-185 render HAML stories using Ruby
-* NP-208 bug fix radio button stories
+-   NP-122 Styleguide improvements
+-   NP-139 Input boxes and textareas
+-   NP-138 radio buttons
+-   Switch to npm from yarn
+-   Logo cleanup
+-   NP-206 bug fix small radio button style
+-   NP-185 render HAML stories using Ruby
+-   NP-208 bug fix radio button stories
 
 ## <sub>v0.3.3</sub>
 
 #### _Mar. 5, 2020_
 
-* NP-11: Drop down menu items laid out vertically *bug*
+-   NP-11: Drop down menu items laid out vertically _bug_
+
 ## <sub>v0.3.2</sub>
 
 #### _Mar. 5, 2020_
 
-* NP-11: Fix layout of navigation when used in website
-* NP-11: Expose initialisation function with default options
+-   NP-11: Fix layout of navigation when used in website
+-   NP-11: Expose initialisation function with default options
 
 ## <sub>v0.3.1</sub>
 
 #### _Mar. 5, 2020_
 
-* NP-91: Amend callout 
+-   NP-91: Amend callout
 
 ## <sub>v0.3.0</sub>
 
 #### _Mar. 4, 2020_
 
-* NP-11: Update navigation with Greedy/Priority+ UI pattern
+-   NP-11: Update navigation with Greedy/Priority+ UI pattern
 
 ## <sub>v0.2.0</sub>
 
 #### _Mar. 2, 2020_
 
-* Test release
+-   Test release
 
 ## <sub>v0.1.1</sub>
 
 #### _Mar. 2, 2020_
 
-* Header updated
+-   Header updated
 
 ## <sub>v0.1.0</sub>
 
 #### _Mar. 2, 2020_
 
-* Add npm release script
+-   Add npm release script

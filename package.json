@@ -74,7 +74,7 @@
         "webdriverio": "^5.18.6"
     },
     "dependencies": {
-        "@baseonmars/priority-nav": "^1.3.0"
+        "@baseonmars/priority-nav": "^1.3.1"
     },
     "browserslist": [
         "IE 11",
