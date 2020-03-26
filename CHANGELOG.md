@@ -1,3 +1,5 @@
+* NP-12 Page Review component
+
 ## <sub>v0.5.1</sub>
 
 #### _Mar. 25, 2020_
