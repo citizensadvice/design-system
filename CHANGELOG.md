@@ -1,3 +1,9 @@
+## <sub>v0.5.1</sub>
+
+#### _Mar. 25, 2020_
+
+* NP-217 Fix Greedy Nav tabbing behaviour in IE 11
+
 ## <sub>v0.5.0</sub>
 
 #### _Mar. 24, 2020_
@@ -33,6 +39,7 @@
 #### _Mar. 5, 2020_
 
 * NP-11: Drop down menu items laid out vertically *bug*
+
 ## <sub>v0.3.2</sub>
 
 #### _Mar. 5, 2020_
