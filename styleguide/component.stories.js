@@ -27,6 +27,7 @@ import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
+import tPageReview from '../haml/_page_review.html.haml';
 import tInput from '../haml/_input.html.haml';
 
 // Haml rendering wrapper for convenience
@@ -84,6 +85,8 @@ export const header = () =>
         () => initHeader()
     );
 export const input = () => renderHamlTemplate('Input', tInput, 'input');
+export const pageReview = () =>
+    renderHamlTemplate('Page Review', tPageReview, 'page_review');
 export const radioGroup = () =>
     renderHamlTemplate('Radio Group', tRadio, 'radio_group');
 export const radioGroupSmall = () =>
