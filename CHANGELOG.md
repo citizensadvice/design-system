@@ -1,3 +1,4 @@
+* NP-243 Design Updates
 * NP-12 Page Review component
 
 ## <sub>v0.5.1</sub>

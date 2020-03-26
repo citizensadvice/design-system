@@ -3,7 +3,7 @@
   %fieldset.cads-form-content.cads-radio-group.cads-radio-group__small
     %legend.cads-form-label.cads-heading-small
       = radio_group_label
-    %p.paragraph-s.cads-form__hint
+    %p.cads-form__hint
       = radio_group_hint
     - radio_group_options.each do |radioItem|
       %label.cads-radio-button{for: "#{radio_group_name}-#{radioItem}"}

@@ -17,7 +17,7 @@ import Buttons from './components/buttons';
 
 // Haml setup
 // Import all the templates...
-import tCallout from '../haml/_callout.story.html.haml';
+import tCallout from '../haml/_callout.html.haml';
 import tFooter from '../haml/_footer.html.haml';
 import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
