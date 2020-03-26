@@ -109,12 +109,11 @@ input,
 
     input:checked ~ .cads-radio-button-checkmark {
         border-color: $cads-language__input-border-colour;
-        border-width: 4px;
 
         &::after {
             display: block;
-            left: 8px;
-            top: 8px;
+            left: 10px;
+            top: 10px;
         }
     }
 
@@ -169,8 +168,8 @@ input,
 
             input:checked ~ .cads-radio-button-checkmark {
                 &::after {
-                    left: 3px;
-                    top: 3px;
+                    left: 5px;
+                    top: 5px;
                 }
             }
         }
