@@ -3,6 +3,12 @@ footer,
     background-color: $cads-palette__blue-light;
     padding: $cads-spacing-4;
 
+    h2 {
+        @extend .cads-heading-small;
+
+        margin: 0 0 $cads-spacing-4 0;
+    }
+
     .cads-footer__company-info {
         @include cads-restrict-content-width();
 
