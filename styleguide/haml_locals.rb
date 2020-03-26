@@ -34,5 +34,7 @@
 
   input_name: "inputABC",
   input_label: "This is the label for the input",
-  input_hint: "This is the hint for the input"
+  input_hint: "This is the hint for the input",
+
+  page_review_date: "21 September 2019"
 }
