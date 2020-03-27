@@ -10,7 +10,7 @@ button,
 
     font-size: 1em;
     font-weight: $cads-font-weight__bold;
-    padding: calc(1em - 1px) 1em;
+    padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
     display: inline-block;
     cursor: pointer;
     box-shadow: 1px 1px 0 0 $cads-language__button-shadow-colour;
