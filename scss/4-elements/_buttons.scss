@@ -3,9 +3,12 @@ button,
     @include cads-interactive-element();
 
     font-size: 1em;
+    font-weight: $cads-font-weight__bold;
     padding: calc(1em - 1px) 1em;
     display: inline-block;
     cursor: pointer;
+    box-shadow: 1px 1px 0 0 $cads-language__button-shadow-colour;
+    outline: none !important;
 
     &,
     &__primary {
@@ -36,6 +39,6 @@ button,
         color: $cads-language__focus-text-colour;
         border-color: $cads-language__focus-border-colour;
         background-color: $cads-language__focus-colour;
-        box-shadow: none;
+        box-shadow: 1px 1px 0 0 $cads-language__button-shadow-colour;
     }
 }
