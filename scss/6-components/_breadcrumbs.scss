@@ -27,20 +27,18 @@
         }
     }
 
-    &.cads-breadcrumbs__previous-page-only {
-        @include cads-media-breakpoint-only(sm) {
-            li {
-                display: none;
-            }
+    @include cads-media-breakpoint-only(sm) {
+        li {
+            display: none;
+        }
 
-            li:nth-last-child(2) {
-                display: block;
+        li:nth-last-child(2) {
+            display: block;
 
-                &::before {
-                    content: '\2039';
-                    margin-left: 0;
-                    margin-right: $cads-spacing-1;
-                }
+            &::before {
+                content: '\2039';
+                margin-left: 0;
+                margin-right: $cads-spacing-1;
             }
         }
     }
