@@ -1,6 +1,12 @@
 button,
 .cads-button {
     @include cads-interactive-element();
+    @include cads-border(
+        a,
+        $cads-border-width-medium,
+        $cads-border-radius,
+        $cads-language__primary-button-colour
+    );
 
     font-size: 1em;
     font-weight: $cads-font-weight__bold;
@@ -14,7 +20,6 @@ button,
     &__primary {
         background-color: $cads-language__primary-button-colour;
         color: $cads-palette__white;
-        border-color: $cads-language__primary-button-colour;
 
         &:hover {
             color: $cads-palette__white;
