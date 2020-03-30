@@ -1,7 +1,8 @@
 a,
-.hyperlink {
+.cads-hyperlink {
     color: $cads-language__link-colour;
     line-height: 1.25em;
+    text-decoration: underline;
 
     // Visited links should be browser default
 

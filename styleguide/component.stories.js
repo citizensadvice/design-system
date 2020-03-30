@@ -8,6 +8,7 @@ import './styles.scss';
 
 import priorityNav from '@baseonmars/priority-nav';
 import initHeader from '../js/header';
+import initTargetedContent from '../js/targeted-content';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -27,6 +28,7 @@ import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
+import tTargetedContent from '../haml/_targeted-content.html.haml';
 import tPageReview from '../haml/_page_review.html.haml';
 import tInput from '../haml/_input.html.haml';
 
@@ -121,3 +123,12 @@ export const navigation = () =>
 export const noticeBanner = () =>
     renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');
+export const targetedContent = () =>
+    renderHamlTemplate(
+        'Targeted Content',
+        tTargetedContent,
+        'targeted-content',
+        null,
+        null,
+        () => initTargetedContent()
+    );

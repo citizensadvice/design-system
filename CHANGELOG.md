@@ -1,5 +1,6 @@
 * NP-243 Design Updates
 * NP-12 Page Review component
+* NP-39 Revealable panels
 
 ## <sub>v0.5.1</sub>
 
