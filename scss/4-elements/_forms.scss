@@ -2,6 +2,11 @@
     display: none;
 }
 
+.cads-form__error-message {
+    display: none;
+    color: $cads-language__warning-colour;
+}
+
 .cads-form {
     display: flex;
     flex-wrap: nowrap;
@@ -9,6 +14,10 @@
     align-items: stretch;
 
     &.cads-form-error {
+        .cads-form__error-message {
+            display: block;
+        }
+
         .cads-form-error-marker {
             display: block;
             width: 0;
