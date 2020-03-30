@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+source bin/docker/compose_files
+
+docker-compose ${COMPOSE_FILES[@]} run --rm --no-deps ca-styleguide bin/lint

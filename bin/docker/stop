@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+source bin/docker/compose_files
+
+echo "Stopping application..."
+docker-compose ${COMPOSE_FILES[@]} down $@
+echo "Application stopped..."

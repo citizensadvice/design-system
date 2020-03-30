@@ -20,6 +20,7 @@
         "build": "npm run clean && node ./scripts/build -r && npm run check-size -r",
         "clean": "rm -fr ./dist",
         "styleguide": "start-storybook -p 6006",
+        "styleguide:ci": "start-storybook -p 6006 --ci",
         "docs:build": "build-storybook -o docs",
         "docs:serve": "http-server docs",
         "lint": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\""
