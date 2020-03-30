@@ -12,6 +12,7 @@
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: stretch;
+    margin: 0 0 $cads-spacing-5 0;
 
     &.cads-form-error {
         .cads-form__error-message {

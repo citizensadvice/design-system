@@ -32,6 +32,7 @@ nav,
     .priority-nav__dropdown-toggle {
         background-color: $cads-palette__heritage-blue;
         border: $cads-palette__heritage-blue;
+        box-shadow: none;
 
         &:hover {
             background-color: $cads-language__link-hover-colour;

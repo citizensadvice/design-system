@@ -15,6 +15,7 @@ button,
     cursor: pointer;
     box-shadow: 1px 1px 0 0 $cads-language__button-shadow-colour;
     outline: none !important;
+    margin: 0 0 $cads-spacing-5 0;
 
     &,
     &__primary {
