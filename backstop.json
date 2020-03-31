@@ -247,6 +247,26 @@
     },
 
     {
+      "label": "3_Components_NOTICE_BANNER",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/iframe.html?id=3-components--page-review",
+      "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--page-review",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [".cads-styleguide__breakpoint-label", ".cads-styleguide__language-label"],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+
+    {
       "label": "3_Components_RADIO_GROUP",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=3-components--radio-group",
