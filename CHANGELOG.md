@@ -1,10 +1,10 @@
-* NP-243 Design Updates
 * NP-39 Revealable panels
 
 ## <sub>v0.6.0</sub>
 
 #### _Mar. 27, 2020_
 
+* NP-243 Design Updates
 * NP-12 Page Review component
 * NP-241 Fix the way fonts are referenced
 * Use correct option for setting navigation dropdown label
