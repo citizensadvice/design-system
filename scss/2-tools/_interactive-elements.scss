@@ -1,9 +1,14 @@
 @mixin cads-interactive-element() {
     @include cads-transition-animation();
+    @include cads-border(
+        a,
+        $cads-border-width-medium,
+        $cads-border-radius,
+        $cads-language__input-border-colour
+    );
 
     box-shadow: none;
     outline: none;
-    border: 2px solid $cads-language__input-border-colour;
 
     &:focus {
         outline: none;

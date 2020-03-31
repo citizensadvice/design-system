@@ -1,10 +1,9 @@
-.cads-form.cads-form-error.cads-form-error.cads-form-optional
+.cads-form.cads-form-optional{ class: [radio_has_error && 'cads-form-error'] }
   .cads-form-error-marker
   %fieldset.cads-form-content.cads-radio-group
-    %legend.cads-form-label.cads-heading-small
-      = radio_group_label
-    %p.cads-form__hint
-      = radio_group_hint
+    %legend.cads-form-label.cads-heading-small= radio_group_label
+    %p.cads-form__hint= radio_group_hint
+    %p.cads-form__error-message= radio_error_message
     - radio_group_options.each do |radioItem|
       %label.cads-radio-button{for: "#{radio_group_name}-#{radioItem}"}
         = radioItem
