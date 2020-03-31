@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+echo 'Running styleint'
+npm run lint
+echo 'Stylelint completed'
