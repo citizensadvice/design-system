@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+source bin/docker/compose_files
+IMAGE_ID=`docker-compose ps -q ca-styleguide`
+
+if [[ "$IMAGE_ID" != "" ]]; then
+  CURRENT_HASH=`docker-compose ${COMPOSE_FILES[@]} config --hash="ca-styleguide" | sed 's/ca-styleguide //'`
+  PREVIOUS_HASH=`docker inspect ${IMAGE_ID} --format='{{index .Config.Labels "com.docker.compose.config-hash" }}'`
+  if [[ "$CURRENT_HASH" != "$PREVIOUS_HASH" ]]; then
+    echo "Application started with new configuration - stopping application"
+    bin/docker/stop
+  fi
+fi
