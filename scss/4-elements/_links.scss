@@ -22,3 +22,13 @@ a,
         border-bottom: 4px solid $cads-palette__black;
     }
 }
+
+.cads-linkbutton {
+    border: none;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+
+    @extend .cads-heading-small;
+    @extend .cads-hyperlink;
+}

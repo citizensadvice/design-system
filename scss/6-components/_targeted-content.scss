@@ -15,6 +15,8 @@
         padding: (rem-to-px($cads-spacing-3) - 1px);
         display: flex;
         align-items: flex-start;
+        margin: 0;
+        box-shadow: none;
 
         h2 {
             margin: 0;
@@ -26,6 +28,10 @@
             color: $cads-language__brand-primary;
             margin: 0 0 0 1em;
             flex: 0 0;
+        }
+
+        &:hover {
+            background-color: $cads-language__hover-background-colour;
         }
     }
 

@@ -1,5 +1,5 @@
 .cads-targeted-content{:id => targetContent[:id]}
-  %button.cads-targeted-content__title{:"aria-label" => "#{targetContent[:title]}. Click to expand content"}
+  %button.cads-targeted-content__title{:"aria-label" => "Click to expand"}
     %h2.cads-heading-medium
       = targetContent[:title]
     %span.cads-heading-medium.cads-icon-minus
@@ -7,4 +7,4 @@
   .cads-targeted-content__content
     = targetContent[:body]
     %hr.separator
-    %button.cads-hyperlink.cads-targeted-content__close-button
+    %button.cads-linkbutton.cads-targeted-content__close-button{:"aria-label" => "Close #{targetContent[:title]}"}
