@@ -1,7 +1,8 @@
-.cads-form.cads-form-error.cads-form-optional
+.cads-form.cads-form-optional{ class: [input_has_error && 'cads-form-error'] }
   .cads-form-error-marker
   .cads-form-content.cads-input-group
     %label.cads-form-label.cads-heading-small{id: "#{input_name}-label", for: "#{input_name}-input" }
       = input_label
     %p.cads-form__hint= input_hint
+    %p.cads-form__error-message= input_error_message
     %input.cads-input{type: "text", id: "#{input_name}-input"}

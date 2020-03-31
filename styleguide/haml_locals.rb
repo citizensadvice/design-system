@@ -33,10 +33,14 @@
   radio_group_label: 'Select an option',
   radio_group_hint: 'There are two options',
   radio_group_options: ['Option 1', 'Option 2'],
+  radio_has_error: true,
+  radio_error_message: 'Please select an option',
 
   input_name: 'inputABC',
   input_label: 'This is the label for the input',
   input_hint: 'This is the hint for the input',
+  input_has_error: true,
+  input_error_message: 'This is an error messsage',
 
   page_review_date: '21 September 2019',
 

@@ -3,6 +3,7 @@ const sass = require('node-sass');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const postcss = require('postcss');
+const url = require('postcss-url');
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
@@ -23,7 +24,13 @@ function compileSass() {
         },
         (error, result) => {
             if (!error) {
-                postcss([autoprefixer, cssnano])
+                postcss([
+                    autoprefixer,
+                    cssnano,
+                    url({
+                        url: input => input.url.replace('../..', '')
+                    })
+                ])
                     .process(result.css, { from: source, to: dest })
                     .then(compiledCSS => {
                         fs.writeFile(dest, compiledCSS, err => {

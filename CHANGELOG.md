@@ -1,6 +1,13 @@
 * NP-243 Design Updates
-* NP-12 Page Review component
 * NP-39 Revealable panels
+
+## <sub>v0.6.0</sub>
+
+#### _Mar. 27, 2020_
+
+* NP-12 Page Review component
+* NP-241 Fix the way fonts are referenced
+* Use correct option for setting navigation dropdown label
 
 ## <sub>v0.5.1</sub>
 
@@ -55,7 +62,7 @@
 
 #### _Mar. 5, 2020_
 
-* NP-91: Amend callout 
+* NP-91: Amend callout
 
 ## <sub>v0.3.0</sub>
 
