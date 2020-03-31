@@ -247,7 +247,7 @@
     },
 
     {
-      "label": "3_Components_NOTICE_BANNER",
+      "label": "3_Components_PAGE_REVIEW",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:6006/iframe.html?id=3-components--page-review",
       "referenceUrl": "https://citizensadvice.github.io/design-system/iframe.html?id=3-components--page-review",
