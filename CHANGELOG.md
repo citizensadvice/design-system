@@ -1,5 +1,11 @@
 * NP-39 Revealable panels
 
+## <sub>v0.6.1</sub>
+
+#### _Apr. 1, 2020_
+
+* Update design of buttons
+
 ## <sub>v0.6.0</sub>
 
 #### _Mar. 27, 2020_
