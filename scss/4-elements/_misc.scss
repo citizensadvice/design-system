@@ -3,7 +3,7 @@ hr,
     padding: 0;
     width: 100%;
     display: block;
-    margin: 1em 0;
+    margin: $cads-spacing-3 0;
 
     @include cads-border(
         t,

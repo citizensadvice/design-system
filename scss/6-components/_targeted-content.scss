@@ -3,6 +3,7 @@
     box-sizing: border-box;
 
     &__summary {
+        @include cads-interactive-element();
         @include cads-border(
             a,
             $cads-border-width-small,
@@ -21,14 +22,14 @@
         width: 100%;
         text-align: left;
         background: $cads-palette__white;
-        padding: (rem-to-px($cads-spacing-3) - 1px);
+        padding: $cads-spacing-3 $cads-spacing-4;
         margin: 0;
         box-shadow: none;
         box-sizing: border-box;
 
         .cads-targeted-content__title,
         .cads-target-content__button {
-            @extend .cads-heading-medium;
+            @extend .cads-heading-small;
 
             color: $cads-language__brand-primary;
             margin: 0;
@@ -58,7 +59,7 @@
             $cads-language__brand-primary
         );
 
-        padding: (rem-to-px($cads-spacing-3) - 1px);
+        padding: $cads-spacing-3 $cads-spacing-4;
         border-bottom-width: $cads-border-width-small;
     }
 

@@ -21,6 +21,8 @@ const initTargetedContent = () => {
                 'cads-targeted-content__close-button'
             )[0].addEventListener('click', () => {
                 item.classList.remove('is-open');
+                summary.ariaExpanded = false;
+                item.open = false;
             });
         });
     } catch (e) {
