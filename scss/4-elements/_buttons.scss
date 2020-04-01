@@ -13,7 +13,7 @@ button,
     padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
     display: inline-block;
     cursor: pointer;
-    box-shadow: 1px 1px 0 0 $cads-language__button-shadow-colour;
+    box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
     outline: none !important;
     margin: 0 0 $cads-spacing-5 0;
 
@@ -31,11 +31,13 @@ button,
 
     &__secondary {
         background-color: $cads-palette__white;
-        color: $cads-palette__black;
+        color: $cads-language__primary-button-colour;
+        box-shadow: 0 2px 0 0 $cads-language__primary-button-colour;
 
         &:hover {
-            color: $cads-palette__black;
             background-color: $cads-language__secondary-button-hover-colour;
+            color: $cads-language__primary-button-hover-colour;
+            box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
         }
     }
 
@@ -45,6 +47,6 @@ button,
         color: $cads-language__focus-text-colour;
         border-color: $cads-language__focus-border-colour;
         background-color: $cads-language__focus-colour;
-        box-shadow: 1px 1px 0 0 $cads-language__button-shadow-colour;
+        box-shadow: 0 2px 0 0 $cads-language__focus-border-colour;
     }
 }
