@@ -1,3 +1,5 @@
+* Update design of buttons
+
 ## <sub>v0.6.0</sub>
 
 #### _Mar. 27, 2020_
