@@ -1,7 +1,8 @@
 .cads-targeted-content {
     display: block;
+    box-sizing: border-box;
 
-    &__title {
+    &__summary {
         @include cads-border(
             a,
             $cads-border-width-small,
@@ -9,25 +10,33 @@
             $cads-language__brand-primary
         );
 
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        list-style: none;
+        user-select: none;
+        -webkit-user-select: none;
+        cursor: pointer;
         width: 100%;
         text-align: left;
         background: $cads-palette__white;
         padding: (rem-to-px($cads-spacing-3) - 1px);
-        display: flex;
-        align-items: flex-start;
         margin: 0;
         box-shadow: none;
+        box-sizing: border-box;
 
-        h2 {
-            margin: 0;
+        .cads-targeted-content__title,
+        .cads-target-content__button {
+            @extend .cads-heading-medium;
+
             color: $cads-language__brand-primary;
-            flex: 1 1 auto;
+            margin: 0;
         }
 
-        span {
-            color: $cads-language__brand-primary;
-            margin: 0 0 0 1em;
-            flex: 0 0;
+        .cads-target-content__button {
+            margin-left: 1em;
+            float: right;
         }
 
         &:hover {
@@ -35,7 +44,7 @@
         }
     }
 
-    .cads-icon-plus {
+    .cads-icon-minus {
         display: none;
     }
 
@@ -59,11 +68,11 @@
         }
 
         .cads-icon-minus {
-            display: none;
+            display: inline-block;
         }
 
         .cads-icon-plus {
-            display: flex;
+            display: none;
         }
     }
 

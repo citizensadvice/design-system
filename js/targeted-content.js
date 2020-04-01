@@ -4,13 +4,17 @@ const initTargetedContent = () => {
             'cads-targeted-content'
         );
         content.forEach(item => {
-            item.getElementsByClassName(
-                'cads-targeted-content__title'
-            )[0].addEventListener('click', () => {
+            const summary = item.getElementsByClassName(
+                'cads-targeted-content__summary'
+            )[0];
+
+            summary.addEventListener('click', () => {
                 if (item.classList.contains('is-open')) {
                     item.classList.remove('is-open');
+                    summary.ariaExpanded = false;
                 } else {
                     item.classList.add('is-open');
+                    summary.ariaExpanded = true;
                 }
             });
             item.getElementsByClassName(
