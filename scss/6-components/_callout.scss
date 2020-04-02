@@ -1,5 +1,5 @@
 .cads-callout {
-    @include cads-border(l, $cads-border-width-small);
+    @include cads-border(l);
 
     position: relative;
     border-left-width: $cads-border-width-large;

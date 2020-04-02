@@ -42,5 +42,18 @@
   input_has_error: true,
   input_error_message: 'This is an error messsage',
 
-  page_review_date: '21 September 2019'
+  page_review_date: '21 September 2019',
+
+  targetContent: {
+    id: 'target-content-123',
+    title: 'If you are a citizen of a country outside the EU, EEA or Switzerland',
+    body: '<p>You should apply to the EU Settlement Scheme if both:</p>
+<ul class="cads-list__bullet">
+<li>you’re in the UK by 31 December 2020</li>
+<li>you have family in the UK from the EU, EEA or Switzerland</li>
+</ul>
+<p>You need to apply to the scheme even if you have a permanent residence card as
+it will not be valid after 31 December 2020.</p>
+<p><a href="https://www.citizensadvice.org.uk/immigration/staying-in-the-uk-after-brexit/keeping-your-family-in-the-uk-after-brexit/">Check if you can apply to the EU Settlement Scheme</a></p>'
+  }
 }

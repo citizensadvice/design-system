@@ -1,7 +1,8 @@
 a,
-.hyperlink {
+.cads-hyperlink {
     color: $cads-language__link-colour;
     line-height: 1.25em;
+    text-decoration: underline;
 
     // Visited links should be browser default
 
@@ -20,4 +21,14 @@ a,
         text-decoration: none;
         border-bottom: 4px solid $cads-palette__black;
     }
+}
+
+.cads-linkbutton {
+    border: none;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+
+    @extend .cads-heading-small;
+    @extend .cads-hyperlink;
 }

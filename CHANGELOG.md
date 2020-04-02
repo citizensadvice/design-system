@@ -1,3 +1,5 @@
+* NP-39 Revealable panels
+
 ## <sub>v0.6.1</sub>
 
 #### _Apr. 1, 2020_
