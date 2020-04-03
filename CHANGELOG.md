@@ -1,3 +1,4 @@
+* NP-237 Website feedback component
 * NP-39 Revealable panels
 
 ## <sub>v0.6.1</sub>

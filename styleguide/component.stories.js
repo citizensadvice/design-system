@@ -31,6 +31,7 @@ import tRadioSmall from '../haml/_radio_group_small.html.haml';
 import tTargetedContent from '../haml/_targeted-content.html.haml';
 import tPageReview from '../haml/_page_review.html.haml';
 import tInput from '../haml/_input.html.haml';
+import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -123,6 +124,12 @@ export const navigation = () =>
 export const noticeBanner = () =>
     renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');
+export const websiteFeedback = () =>
+    renderHamlTemplate(
+        'Website Feedback',
+        tWebsiteFeedback,
+        'website_feedback'
+    );
 export const targetedContent = () =>
     renderHamlTemplate(
         'Targeted Content',
