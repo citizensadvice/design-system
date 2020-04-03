@@ -23,7 +23,9 @@
         "styleguide:ci": "start-storybook -p 6006 --ci",
         "docs:build": "build-storybook -o docs",
         "docs:serve": "http-server docs",
-        "lint": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\""
+        "lint": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
+        "vr-test:test": "node scripts/vr-test.js",
+        "vr-test:test-ci": "node scripts/vr-test.js -- --ci"
     },
     "repository": {
         "type": "git",
