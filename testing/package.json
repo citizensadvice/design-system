@@ -1,7 +1,7 @@
 {
-    "name": "@citizensadvice/visual_regression_testing",
+    "name": "@citizensadvice/design-system-testing",
     "version": "1.0.0",
-    "description": "",
+    "description": "Visual Regression Testing for Citizens Advice Design System",
     "main": "index.js",
     "private": true,
     "dependencies": {
