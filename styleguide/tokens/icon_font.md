@@ -18,6 +18,5 @@ Do not forget to prefix the given class name with <span class="html inline">cads
 <li><span class="cads-icon-minus"></span><span>minus</span></li>
 <li><span class="cads-icon-plus"></span><span>plus</span></li>
 <li><span class="cads-icon-print"></span><span>print</span></li>
-<li><span class="cads-icon-redo"></span><span>redo</span></li>
 <li><span class="cads-icon-search"></span><span>search</span></li>
 </ul>

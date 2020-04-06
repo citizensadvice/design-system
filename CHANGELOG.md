@@ -1,5 +1,33 @@
 * NP-38 Add contact details component
 
+## <sub>v0.7.0</sub>
+
+#### _Apr. 6, 2020_
+
+* NP-237 Website feedback component
+* NP-39 Revealable panels
+
+## <sub>v0.6.1</sub>
+
+#### _Apr. 1, 2020_
+
+* Update design of buttons
+
+## <sub>v0.6.0</sub>
+
+#### _Mar. 27, 2020_
+
+* NP-243 Design Updates
+* NP-12 Page Review component
+* NP-241 Fix the way fonts are referenced
+* Use correct option for setting navigation dropdown label
+
+## <sub>v0.5.1</sub>
+
+#### _Mar. 25, 2020_
+
+* NP-217 Fix Greedy Nav tabbing behaviour in IE 11
+
 ## <sub>v0.5.0</sub>
 
 #### _Mar. 24, 2020_
@@ -35,6 +63,7 @@
 #### _Mar. 5, 2020_
 
 * NP-11: Drop down menu items laid out vertically *bug*
+
 ## <sub>v0.3.2</sub>
 
 #### _Mar. 5, 2020_
@@ -46,7 +75,7 @@
 
 #### _Mar. 5, 2020_
 
-* NP-91: Amend callout 
+* NP-91: Amend callout
 
 ## <sub>v0.3.0</sub>
 

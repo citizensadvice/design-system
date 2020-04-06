@@ -8,6 +8,7 @@ import './styles.scss';
 
 import priorityNav from '@baseonmars/priority-nav';
 import initHeader from '../js/header';
+import initTargetedContent from '../js/targeted-content';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -17,7 +18,7 @@ import Buttons from './components/buttons';
 
 // Haml setup
 // Import all the templates...
-import tCallout from '../haml/_callout.story.html.haml';
+import tCallout from '../haml/_callout.html.haml';
 import tFooter from '../haml/_footer.html.haml';
 import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
@@ -27,8 +28,11 @@ import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
+import tTargetedContent from '../haml/_targeted-content.html.haml';
+import tPageReview from '../haml/_page_review.html.haml';
 import tInput from '../haml/_input.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
+import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -85,6 +89,8 @@ export const header = () =>
         () => initHeader()
     );
 export const input = () => renderHamlTemplate('Input', tInput, 'input');
+export const pageReview = () =>
+    renderHamlTemplate('Page Review', tPageReview, 'page_review');
 export const radioGroup = () =>
     renderHamlTemplate('Radio Group', tRadio, 'radio_group');
 export const radioGroupSmall = () =>
@@ -121,3 +127,18 @@ export const noticeBanner = () =>
 export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');
 export const contactDetails = () =>
     renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
+export const websiteFeedback = () =>
+    renderHamlTemplate(
+        'Website Feedback',
+        tWebsiteFeedback,
+        'website_feedback'
+    );
+export const targetedContent = () =>
+    renderHamlTemplate(
+        'Targeted Content',
+        tTargetedContent,
+        'targeted-content',
+        null,
+        null,
+        () => initTargetedContent()
+    );

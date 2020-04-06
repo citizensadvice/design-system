@@ -1,0 +1,12 @@
+.git*
+.DS_Store
+Dockerfile
+public/assets
+log/*.log
+tmp/cache/*
+tmp/pids/*
+tmp/sockets/*
+tmp/jest/*
+coverage
+spec/reports
+node_modules

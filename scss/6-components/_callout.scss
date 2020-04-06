@@ -1,9 +1,10 @@
 .cads-callout {
-    @include cads-border(l, $cads-border-width-small);
+    @include cads-border(l);
 
     position: relative;
     border-left-width: $cads-border-width-large;
     padding: $cads-spacing-4;
+    margin: 0 0 $cads-spacing-5 0;
 
     @include cads-media-breakpoint-up(md) {
         padding: $cads-spacing-4;

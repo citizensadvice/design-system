@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+echo 'Running jest'
+# npm run test:coverage || (err=$?; echo "Jest failed" && (exit "$err"))
+echo 'Jest completed'

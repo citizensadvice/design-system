@@ -2,13 +2,23 @@
     display: none;
 }
 
+.cads-form__error-message {
+    display: none;
+    color: $cads-language__warning-colour;
+}
+
 .cads-form {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: stretch;
+    margin: 0 0 $cads-spacing-5 0;
 
     &.cads-form-error {
+        .cads-form__error-message {
+            display: block;
+        }
+
         .cads-form-error-marker {
             display: block;
             width: 0;
@@ -54,7 +64,7 @@ input,
 
     min-width: 1px;
     font-size: 1.125em;
-    padding: round(em-to-px(1em) - 1px) 1em;
+    padding: round(em-to-px(1em) - 9px) 1em;
     margin: 0 0 $cads-spacing-4 0;
     display: inline-block;
     line-height: 1em;
@@ -109,12 +119,11 @@ input,
 
     input:checked ~ .cads-radio-button-checkmark {
         border-color: $cads-language__input-border-colour;
-        border-width: 4px;
 
         &::after {
             display: block;
-            left: 8px;
-            top: 8px;
+            left: 10px;
+            top: 10px;
         }
     }
 
@@ -169,8 +178,8 @@ input,
 
             input:checked ~ .cads-radio-button-checkmark {
                 &::after {
-                    left: 3px;
-                    top: 3px;
+                    left: 5px;
+                    top: 5px;
                 }
             }
         }
