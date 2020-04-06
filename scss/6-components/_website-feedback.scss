@@ -1,0 +1,11 @@
+.cads-website-feedback {
+    width: 100%;
+    text-align: center;
+    color: $cads-language__brand-primary;
+    border-bottom: 1px solid $cads-language__brand-primary;
+    padding-bottom: $cads-spacing-4;
+
+    .cads-icon-external-link {
+        font-size: 0.7em;
+    }
+}
