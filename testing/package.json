@@ -1,0 +1,16 @@
+{
+    "name": "@citizensadvice/design-system-testing",
+    "version": "1.0.0",
+    "description": "Visual Regression Testing for Citizens Advice Design System",
+    "main": "index.js",
+    "private": true,
+    "dependencies": {
+        "backstopjs": "^4.5.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "npx backstop test"
+    },
+    "author": "Marcelo Nicolosi <marcelo.nicolosi@citizensadvice.org.uk>",
+    "license": "ISC"
+}

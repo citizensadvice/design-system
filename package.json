@@ -23,7 +23,11 @@
         "styleguide:ci": "start-storybook -p 6006 --ci",
         "docs:build": "build-storybook -o docs",
         "docs:serve": "http-server docs",
-        "lint": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\""
+        "lint": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
+        "vr-test:install": "cd testing && npm install",
+        "vr-test:test": "node scripts/vr-test.js",
+        "vr-test:ci": "node scripts/vr-test.js -- --ci",
+        "vr-test:standalone": "cd testing && npx backstop test --docker"
     },
     "repository": {
         "type": "git",
@@ -43,7 +47,6 @@
         "@storybook/html": "^5.3.17",
         "autoprefixer": "^9.7.5",
         "babel-loader": "^8.1.0",
-        "backstopjs": "^4.5.0",
         "chalk": "^3.0.0",
         "cssnano": "^4.1.10",
         "dotenv": "^8.2.0",
