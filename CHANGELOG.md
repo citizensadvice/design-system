@@ -1,3 +1,7 @@
+## <sub>v0.7.0</sub>
+
+#### _Apr. 6, 2020_
+
 * NP-237 Website feedback component
 * NP-39 Revealable panels
 
