@@ -58,7 +58,7 @@ let started = false;
 
 const storyBook = childProcess.exec(
     'npm run styleguide -- --ci',
-    [],
+    { maxBuffer: 1024 * 5000 },
     (err, _, stderr) => {
         if (err) {
             error(chalk.red(err));
@@ -76,7 +76,7 @@ storyBook.stdout.on('data', data => {
     if (!started && /^webpack built/.test(data)) {
         started = true;
         log(chalk.green('Storybook started'));
-        log(chalk.bold('Running BackstopJS visual regression tests'));
+        log(chalk.black('Running BackstopJS visual regression tests'));
 
         const backstop = childProcess.exec(`cd testing; ${command}`);
 
