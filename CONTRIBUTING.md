@@ -28,26 +28,39 @@ The `check-size` script will check the current output and compare it to the last
 
 As this is just a CSS library to test it we use storybook. The concept is that a test version of storybook is built which is then used to do screenshot comparison in BackstopJS. BackstopJS automates visual regression testing of your responsive web UI by comparing DOM screenshots over time.
 
-To install BackstopJS:
-```
-npm install -g backstopjs
-```
+You can install backstop by running `npm run vr-test:install`, this will install the visual regression testing tools. These are installed under `/testing` and have a separate package to the main Design System, this is done to keep the install time of the Design System low.
 
 #### Usage
 
-- **`backstop init`:** Set up a new BackstopJS instance -- specify URLs, cookies, screen sizes, DOM selectors, interactions etc.
+The tests are run inside of Docker to ensure consistency accross different environments (mac, windows and linux). You can install Docker by following the instructions at [docker.com](https://www.docker.com/products/docker-desktop).
 
-- **`backstop reference`:**: Set up the baseline that you’re testing against.
+To start the server, run the tests and then stop the server you can run:
 
-- **`backstop reference --filter=<scenario.label>`:**: Set up the baseline for a specific scenario that you’re testing against using the label name.
+```
+npm run vr-test:test
+```
 
-- **`backstop test`:** BackstopJS creates a set of test screenshots and compares them with your reference screenshots. Any changes show up in a visual report. (Run this after making CSS changes as many times as needed.)
+If you are running the tests in ci, or prefer not to have a browser showing the results opened at the end of the test-run then you can use `npm run vt-test:ci`.
 
-- **`backstop test --filter=<scenario.label>`:** Run the test for a specific scenario using the label name.
+You can also choose to run the tests without starting up the design-system server with `npm run vt-test:standalone`.
 
--  **`backstop approve`:** If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+#### Low-level Usage
 
--  **`backstop approve --filter=<scenario.label>`:** Approve a specific scenario using the label name.
+To run Backstop commands as per the [BackstopJS Github's page](https://github.com/garris/BackstopJS) simply cd into `/testing` and run the commands with `npx ` appended to the front - for example `npx backstop test` or `npx backstop approve`.
+
+- **`npx backstop init`:** Set up a new BackstopJS instance -- specify URLs, cookies, screen sizes, DOM selectors, interactions etc.
+
+- **`npx backstop reference`:**: Set up the baseline that you’re testing against.
+
+- **`npx backstop reference --filter=<scenario.label>`:**: Set up the baseline for a specific scenario that you’re testing against using the label name.
+
+- **`npx backstop test`:** BackstopJS creates a set of test screenshots and compares them with your reference screenshots. Any changes show up in a visual report. (Run this after making CSS changes as many times as needed.)
+
+- **`npx backstop test --filter=<scenario.label>`:** Run the test for a specific scenario using the label name.
+
+-  **`npx backstop approve`:** If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+
+-  **`npx backstop approve --filter=<scenario.label>`:** Approve a specific scenario using the label name.
 
 For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
 

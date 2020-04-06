@@ -7,13 +7,52 @@ const ci = process.argv.some(arg => arg === '--ci');
 
 const baseCommand = 'npx backstop test --docker';
 const command = ci ? `${baseCommand} --config=backstop-ci.json` : baseCommand;
+
+const boldLog = [/report \| \d+/];
 const errorLog = [
     /compare \| ERROR/,
-    /report \| [0-9]+ Failed/,
-    /report \| \*\*\* Mismatch errors found \*\*\*/
+    /report \| \*{3} Mismatch errors found \*{3}/
 ];
-const positiveLog = [/report \| [0-9]+ Passed/];
+const positiveLog = [/report \| Test completed.../];
 const neutralLog = [/SCENARIO/, /compare \| OK/, /report \|/];
+
+/*
+ * Prints out white listed log lines with highlighting.
+ *
+ * New lines are already appended to the end of log lines. `chunk`
+ * usually a single line but is sometimes multiline.
+ */
+const printWhitelistedLogLines = chunk => {
+    /* eslint-disable no-restricted-syntax */
+    for (const regexp of boldLog) {
+        if (regexp.test(chunk)) {
+            process.stdout.write(chalk.bold(chunk));
+            return;
+        }
+    }
+    for (const regexp of errorLog) {
+        if (regexp.test(chunk)) {
+            process.stderr.write(chalk.red(chunk));
+            return;
+        }
+    }
+
+    for (const regexp of positiveLog) {
+        if (regexp.test(chunk)) {
+            process.stdout.write(chalk.green(chunk));
+            return;
+        }
+    }
+
+    for (const regexp of neutralLog) {
+        if (regexp.test(chunk)) {
+            // output already has new line at end
+            process.stdout.write(chunk);
+            return;
+        }
+    }
+    /* eslint-enable no-restricted-syntax  */
+};
 
 let started = false;
 
@@ -37,35 +76,11 @@ storyBook.stdout.on('data', data => {
     if (!started && /^webpack built/.test(data)) {
         started = true;
         log(chalk.green('Storybook started'));
-        log(chalk.black('Running BackstopJS visual regression tests'));
+        log(chalk.bold('Running BackstopJS visual regression tests'));
 
         const backstop = childProcess.exec(`cd testing; ${command}`);
 
-        backstop.stdout.on('data', backstopLogLine => {
-            /* eslint-disable no-restricted-syntax */
-            for (const test of errorLog) {
-                if (test.test(backstopLogLine)) {
-                    process.stderr.write(chalk.red(backstopLogLine));
-                    return;
-                }
-            }
-
-            for (const test of positiveLog) {
-                if (test.test(backstopLogLine)) {
-                    process.stdout.write(chalk.green(backstopLogLine));
-                    return;
-                }
-            }
-
-            for (const test of neutralLog) {
-                if (test.test(backstopLogLine)) {
-                    // output already has new line at end
-                    process.stdout.write(chalk.black(backstopLogLine));
-                    return;
-                }
-            }
-            /* eslint-enable no-restricted-syntax  */
-        });
+        backstop.stdout.on('data', printWhitelistedLogLines);
 
         backstop.stderr.on('data', backstopError => {
             error(chalk.red(backstopError));

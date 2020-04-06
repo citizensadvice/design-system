@@ -24,8 +24,10 @@
         "docs:build": "build-storybook -o docs",
         "docs:serve": "http-server docs",
         "lint": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
+        "vr-test:install": "cd testing && npm install",
         "vr-test:test": "node scripts/vr-test.js",
-        "vr-test:test-ci": "node scripts/vr-test.js -- --ci"
+        "vr-test:ci": "node scripts/vr-test.js -- --ci",
+        "vr-test:standalone": "cd testing && npx backstop test --docker"
     },
     "repository": {
         "type": "git",
