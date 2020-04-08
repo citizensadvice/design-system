@@ -13,19 +13,6 @@
 
         display: block;
         line-height: 1.5em;
-
-        &::after {
-            display: block;
-            content: 'Notice';
-        }
-
-        .cads-lang-cy &::after {
-            content: 'Rhybudd';
-        }
-
-        .cads-lang-gd &::after {
-            content: 'Brath';
-        }
     }
 
     .paragraph-s {
