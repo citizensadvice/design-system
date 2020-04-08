@@ -1,3 +1,4 @@
+* NP-270 Dynamic notice banner label
 * NP-38 Add contact details component
 
 ## <sub>v0.7.0</sub>
