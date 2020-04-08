@@ -33,6 +33,16 @@
   radio_group_label: 'Select an option',
   radio_group_hint: 'There are two options',
   radio_group_options: ['Option 1', 'Option 2'],
+
+  input_name: 'inputABC',
+  input_label: 'This is the label for the input',
+  input_hint: 'This is the hint for the input',
+
+  contact_details: {
+    title: 'Bail for Immigration Detainees',
+    body: "<p>Telephone: 01234 567890</p><p>Monday to Thursday 8am to 1pm</p><p>Calls cost a lot of money</p><p><a href='http://link.to.the.website'>Link to the website</a></p>"
+  },
+
   radio_has_error: true,
   radio_error_message: 'Please select an option',
 

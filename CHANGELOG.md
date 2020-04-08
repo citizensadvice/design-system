@@ -1,3 +1,5 @@
+* NP-38 Add contact details component
+
 ## <sub>v0.7.0</sub>
 
 #### _Apr. 6, 2020_
