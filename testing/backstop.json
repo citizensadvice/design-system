@@ -143,6 +143,29 @@
         },
 
         {
+            "label": "3_Components_CONTACT DETAILS",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--contact-details",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--contact-details",
+            "readyEvent": "",
+            "readySelector": "#a11yComponentToTest",
+            "delay": 0,
+            "hideSelectors": [],
+            "removeSelectors": [
+                ".cads-styleguide__breakpoint-label",
+                ".cads-styleguide__language-label"
+            ],
+            "hoverSelector": "",
+            "clickSelector": "",
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
+            "selectorExpansion": true,
+            "expect": 0,
+            "misMatchThreshold": 0.1,
+            "requireSameDimensions": true
+        },
+
+        {
             "label": "3_Components_FOOTER",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://host.docker.internal:6006/iframe.html?id=3-components--footer",
@@ -354,6 +377,51 @@
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://host.docker.internal:6006/iframe.html?id=3-components--search",
             "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--search",
+            "readyEvent": "",
+            "readySelector": "#a11yComponentToTest",
+            "delay": 0,
+            "hideSelectors": [],
+            "removeSelectors": [
+                ".cads-styleguide__breakpoint-label",
+                ".cads-styleguide__language-label"
+            ],
+            "hoverSelector": "",
+            "clickSelector": "",
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
+            "selectorExpansion": true,
+            "expect": 0,
+            "misMatchThreshold": 0.1,
+            "requireSameDimensions": true
+        },
+
+        {
+            "label": "3_Components_TARGED_CONTENT",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--targeted-content",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--targeted-content",
+            "readyEvent": "",
+            "readySelector": "#a11yComponentToTest",
+            "delay": 0,
+            "hideSelectors": [],
+            "removeSelectors": [
+                ".cads-styleguide__breakpoint-label",
+                ".cads-styleguide__language-label"
+            ],
+            "hoverSelector": "",
+            "clickSelector": "",
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
+            "selectorExpansion": true,
+            "expect": 0,
+            "misMatchThreshold": 0.1,
+            "requireSameDimensions": true
+        },
+        {
+            "label": "3_Components_WEBSITE-FEEDBACK",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--website-feedback",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--website-feedback",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
