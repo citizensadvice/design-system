@@ -143,7 +143,7 @@
         },
 
         {
-            "label": "3_Components_CONTACT DETAILS",
+            "label": "3_Components_CONTACT_DETAILS",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://host.docker.internal:6006/iframe.html?id=3-components--contact-details",
             "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--contact-details",
