@@ -42,28 +42,26 @@ def dockerBuild(Map config) {
         echo "Nothing to lint"
       }
     }
-    // stage("Test ${config.tag}") {
-    //   def testScript = "bin/jenkins/test"
-    //   if(fileExists("${config.context}/${testScript}")) {
-    //     sh "${testScript}"
-    //       step([
-    //         $class : 'RcovPublisher', reportDir: './coverage/rcov',
-    //         targets: [
-    //             [metric: "CODE_COVERAGE", healthy: 80, unhealthy: 75, unstable: 70]
-    //         ]
-    //       ])
-    //       publishHTML([
-    //         allowMissing: false,
-    //         alwaysLinkToLastBuild: true,
-    //         keepAll: true,
-    //         reportDir: '.jenkins-jest/lcov-report',
-    //         reportFiles: 'index.html',
-    //         reportName: 'Jest Report'
-    //       ])
-    //   } else {
-    //     echo "No tests"
-    //   }
-    // }
+    stage("Test ${config.tag}") {
+      def testScript = "bin/jenkins/test"
+      if(fileExists("${config.context}/${testScript}")) {
+        sh "./bin/docker/start"
+        sleep 120
+        sh "${testScript}"
+        sh "./bin/jenkins/fix_visual_test_report"
+        step([$class: 'JUnitResultArchiver', testResults: 'testing/backstop_data/ci_report/*.xml'])
+        publishHTML([
+          allowMissing: false,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'testing/backstop_data/html_report',
+          reportFiles: 'index.html',
+          reportName: 'BackstopJS Report'
+        ])
+      } else {
+        echo "No tests"
+      }
+    }
   } finally {
     sh "./bin/docker/down || true"
   }

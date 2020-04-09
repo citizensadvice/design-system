@@ -76,7 +76,7 @@ storyBook.stdout.on('data', data => {
     if (!started && /^webpack built/.test(data)) {
         started = true;
         log(chalk.green('Storybook started'));
-        log(chalk.black('Running BackstopJS visual regression tests'));
+        log(chalk.green('Running BackstopJS visual regression tests'));
 
         const backstop = childProcess.exec(`cd testing; ${command}`);
 

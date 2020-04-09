@@ -3,5 +3,6 @@
 set -e
 
 source bin/docker/compose_files
+source bin/docker/network
 
 docker-compose ${COMPOSE_FILES[@]} run --rm --no-deps ca-styleguide bin/lint

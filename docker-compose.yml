@@ -7,7 +7,7 @@ services:
     container_name: ca-styleguide.test
     command: npm run styleguide:ci
     ports:
-      - "6006:6006"
+      - 6006
     tmpfs: /app/tmp
     user: root
     volumes:
@@ -15,6 +15,42 @@ services:
       - app-node_modules:/app/node_modules
     environment:
       - NODE_ENV=development
+    networks:
+      - cita
+    labels:
+      - "traefik.port=6006"
+      - "traefik.backend=ca-styleguide"
+      - "traefik.frontend.rule=Host: ca-styleguide.test"
+      - "traefik.enable=true"
+    links:
+      - styleguide_proxy
+
+  visual-tests:
+    image: backstopjs/backstopjs
+    container_name: visual-tests.test
+    command: test --config=backstop-ci.json
+    volumes:
+      - ./testing:/src
+    networks:
+      - cita
+
+  styleguide_proxy:
+    image: traefik:alpine
+    command: --configFile=/traefik.toml
+    container_name: styleguide_proxy.test
+    ports:
+      - "6006:6006"
+      - "8082:8082"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.toml:/traefik.toml
+    networks:
+      - cita
 
 volumes:
   app-node_modules: {}
+
+networks:
+  cita:
+    external:
+      name: cita
