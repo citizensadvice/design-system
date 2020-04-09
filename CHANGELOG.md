@@ -1,3 +1,7 @@
+## <sub>v0.8.0</sub>
+
+#### _Apr. 9, 2020_
+
 * NP-270 Dynamic notice banner label
 * NP-38 Add contact details component
 
