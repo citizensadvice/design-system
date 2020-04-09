@@ -68,5 +68,7 @@
 <p>You need to apply to the scheme even if you have a permanent residence card as
 it will not be valid after 31 December 2020.</p>
 <p><a href="https://www.citizensadvice.org.uk/immigration/staying-in-the-uk-after-brexit/keeping-your-family-in-the-uk-after-brexit/">Check if you can apply to the EU Settlement Scheme</a></p>'
-  }
+  },
+
+  success_message: "Thank you for your feedback"
 }

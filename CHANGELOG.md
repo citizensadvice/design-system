@@ -1,3 +1,4 @@
+* NP-290 Success message
 * NP-270 Dynamic notice banner label
 * NP-38 Add contact details component
 
