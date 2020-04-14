@@ -1,3 +1,5 @@
+* NP-214 Link benefits to the fully qualified URL of the public website.
+
 ## <sub>v0.9.0</sub>
 
 #### _Apr. 14, 2020_
