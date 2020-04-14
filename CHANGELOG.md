@@ -1,3 +1,7 @@
+## <sub>v0.9.0</sub>
+
+#### _Apr. 14, 2020_
+
 * NP-229 Navigation voiceover improvements
 
 ## <sub>v0.8.0</sub>
