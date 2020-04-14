@@ -1,7 +1,13 @@
-@mixin cads-transition-animation($property: all) {
-    transition: $property $cads-animation-speed; /* stylelint-disable-line property-blacklist */
+@mixin cads-transition-animation($property: '') {
+    /* stylelint-disable property-blacklist */
+    @if $property != '' {
+        transition: $property $cads-animation-speed;
+    } @else {
+        transition: background $cads-animation-speed,
+            border $cads-animation-speed;
+    }
 
     @media screen and (prefers-reduced-motion: reduce) {
-        transition: none; /* stylelint-disable-line property-blacklist */
+        transition: none !important;
     }
 }

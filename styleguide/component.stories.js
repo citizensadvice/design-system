@@ -33,6 +33,7 @@ import tPageReview from '../haml/_page_review.html.haml';
 import tInput from '../haml/_input.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
+import tTextarea from '../haml/_textarea.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -89,6 +90,8 @@ export const header = () =>
         () => initHeader()
     );
 export const input = () => renderHamlTemplate('Input', tInput, 'input');
+export const textarea = () =>
+    renderHamlTemplate('Textarea', tTextarea, 'textarea');
 export const pageReview = () =>
     renderHamlTemplate('Page Review', tPageReview, 'page_review');
 export const radioGroup = () =>
