@@ -33,6 +33,7 @@ import tPageReview from '../haml/_page_review.html.haml';
 import tInput from '../haml/_input.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
+import tSuccessMessage from '../haml/_success_message.html.haml';
 import tTextarea from '../haml/_textarea.html.haml';
 
 // Haml rendering wrapper for convenience
@@ -143,3 +144,6 @@ export const targetedContent = () =>
         null,
         () => initTargetedContent()
     );
+
+export const successMessage = () =>
+    renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');
