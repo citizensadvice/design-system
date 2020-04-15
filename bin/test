@@ -2,6 +2,6 @@
 
 set -e
 
-echo 'Running jest'
-# npm run test:coverage || (err=$?; echo "Jest failed" && (exit "$err"))
-echo 'Jest completed'
+echo 'Running BackstopJS'
+npm run vr-test:install && npm run vr-test:ci || (err=$?; echo "BackstopJS failed" && (exit "$err"))
+echo 'BackstopJS completed'
