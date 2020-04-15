@@ -19,7 +19,7 @@
   notice: {
     type: 'important',
     title: 'Callout title: Important',
-    body: 'The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.'
+    body: '<p>The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.</p>'
   },
 
   root_path: 'root_path',
@@ -37,9 +37,14 @@
   radio_group_hint: 'There are two options',
   radio_group_options: ['Option 1', 'Option 2'],
 
-  input_name: 'inputABC',
-  input_label: 'This is the label for the input',
-  input_hint: 'This is the hint for the input',
+  input: {
+    name: 'inputABC',
+    label: 'This is the label for the input',
+    hint: 'This is the hint for the input',
+    error_message: 'This is an error messsage',
+    has_error: true,
+    optional: true
+  },
 
   contact_details: {
     title: 'Bail for Immigration Detainees',
@@ -48,12 +53,6 @@
 
   radio_has_error: true,
   radio_error_message: 'Please select an option',
-
-  input_name: 'inputABC',
-  input_label: 'This is the label for the input',
-  input_hint: 'This is the hint for the input',
-  input_has_error: true,
-  input_error_message: 'This is an error messsage',
 
   page_review_date: '21 September 2019',
 
@@ -68,5 +67,7 @@
 <p>You need to apply to the scheme even if you have a permanent residence card as
 it will not be valid after 31 December 2020.</p>
 <p><a href="https://www.citizensadvice.org.uk/immigration/staying-in-the-uk-after-brexit/keeping-your-family-in-the-uk-after-brexit/">Check if you can apply to the EU Settlement Scheme</a></p>'
-  }
+  },
+
+  success_message: 'Thank you for your feedback'
 }

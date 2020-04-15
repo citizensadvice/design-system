@@ -3,5 +3,6 @@
 set -e
 
 source bin/docker/compose_files
+source bin/docker/network
 
-docker-compose ${COMPOSE_FILES[@]} run --rm -u 500 ca-styleguide bin/test
+docker-compose ${COMPOSE_FILES[@]} run --rm -u 500 visual-tests

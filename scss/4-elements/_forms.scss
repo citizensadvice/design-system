@@ -59,7 +59,9 @@
 }
 
 input,
-.cads-input {
+.cads-input,
+textarea,
+.cads-textarea {
     @include cads-interactive-element();
 
     min-width: 1px;
@@ -72,6 +74,11 @@ input,
     &::placeholder {
         display: none;
     }
+}
+
+textarea,
+.cads-textarea {
+    width: 100%;
 }
 
 .cads-radio-button {
