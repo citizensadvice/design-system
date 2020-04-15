@@ -1,4 +1,16 @@
 * NP-290 Success message
+* NP-214 Link benefits to the fully qualified URL of the public website.
+
+## <sub>v0.9.0</sub>
+
+#### _Apr. 14, 2020_
+
+* NP-229 Navigation voiceover improvements
+
+## <sub>v0.8.0</sub>
+
+#### _Apr. 9, 2020_
+
 * NP-270 Dynamic notice banner label
 * NP-38 Add contact details component
 
