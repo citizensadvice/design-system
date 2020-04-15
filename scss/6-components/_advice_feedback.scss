@@ -1,0 +1,25 @@
+.cads-advice-feedback {
+    &__step-1,
+    &__step-2,
+    &__step-3 {
+        display: none;
+    }
+
+    &.step-1 {
+        .cads-advice-feedback__step-1 {
+            display: block;
+        }
+    }
+
+    &.step-2 {
+        .cads-advice-feedback__step-2 {
+            display: block;
+        }
+    }
+
+    &.step-3 {
+        .cads-advice-feedback__step-3 {
+            display: block;
+        }
+    }
+}

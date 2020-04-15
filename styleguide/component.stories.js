@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import { withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line
 import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
-import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 
 // The styles
 import './styles.scss';
@@ -9,6 +8,7 @@ import './styles.scss';
 import priorityNav from '@baseonmars/priority-nav';
 import initHeader from '../js/header';
 import initTargetedContent from '../js/targeted-content';
+import initAdviceFeedback from '../js/advice-feedback';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -34,6 +34,7 @@ import tInput from '../haml/_input.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tTextarea from '../haml/_textarea.html.haml';
+import tAdviceFeedback from '../haml/_advice_feedback.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -142,4 +143,13 @@ export const targetedContent = () =>
         null,
         null,
         () => initTargetedContent()
+    );
+export const adviceFeedback = () =>
+    renderHamlTemplate(
+        'Advice feedback',
+        tAdviceFeedback,
+        'advice_feedback',
+        null,
+        null,
+        () => initAdviceFeedback()
     );
