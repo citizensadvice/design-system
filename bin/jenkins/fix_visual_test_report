@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+cp -R testing/backstop_data/bitmaps_reference testing/backstop_data/html_report/bitmaps_reference/
+cp -R testing/backstop_data/bitmaps_test testing/backstop_data/html_report/bitmaps_test/
+
+sed -i -e 's/\.\.\/bitmaps_reference\//bitmaps_reference\//g' testing/backstop_data/html_report/config.js
+sed -i -e 's/\.\.\/bitmaps_test\//bitmaps_test\//g' testing/backstop_data/html_report/config.js

@@ -3,9 +3,8 @@
 set -e
 
 source bin/docker/stop_if_compose_changed
-source bin/docker/network
 source bin/docker/compose_files
 
 echo "$(date) - Starting application..."
-docker-compose ${COMPOSE_FILES[@]} up --no-recreate -d ca-styleguide
+docker-compose ${COMPOSE_FILES[@]} run --rm --service-ports ca-styleguide
 echo "$(date) - Application started..."
