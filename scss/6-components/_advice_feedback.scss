@@ -1,24 +1,24 @@
 .cads-advice-feedback {
-    &__step-1,
-    &__step-2,
-    &__step-3 {
+    &__step1,
+    &__step2,
+    &__step3 {
         display: none;
     }
 
-    &.step-1 {
-        .cads-advice-feedback__step-1 {
+    &.step1 {
+        .cads-advice-feedback__step1 {
             display: block;
         }
     }
 
-    &.step-2 {
-        .cads-advice-feedback__step-2 {
+    &.step2 {
+        .cads-advice-feedback__step2 {
             display: block;
         }
     }
 
-    &.step-3 {
-        .cads-advice-feedback__step-3 {
+    &.step3 {
+        .cads-advice-feedback__step3 {
             display: block;
         }
     }

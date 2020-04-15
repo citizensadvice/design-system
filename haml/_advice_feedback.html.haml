@@ -1,7 +1,8 @@
 .cads-advice-feedback{id: 'cads-advice-feedback'}
   .cads-advice-feedback__step1
-    Step 1
+    = render partial: "@citizensadvice/design-system/haml/radio_group_small", locals: { radio: { name: 'radiogroup-1', label: 'Did this advice help?', options: ['Yes', 'No'] } }
   .cads-advice-feedback__step2
     Step 2
   .cads-advice-feedback__step3
-    Step 3
+    = render partial: "@citizensadvice/design-system/haml/success_message", locals: { success_message: "Thank you for your feedback." }
+
