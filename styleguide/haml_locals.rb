@@ -37,9 +37,14 @@
   radio_group_hint: 'There are two options',
   radio_group_options: ['Option 1', 'Option 2'],
 
-  input_name: 'inputABC',
-  input_label: 'This is the label for the input',
-  input_hint: 'This is the hint for the input',
+  input: {
+    name: 'inputABC',
+    label: 'This is the label for the input',
+    hint: 'This is the hint for the input',
+    error_message: 'This is an error messsage',
+    has_error: true,
+    optional: true
+  },
 
   contact_details: {
     title: 'Bail for Immigration Detainees',
@@ -48,12 +53,6 @@
 
   radio_has_error: true,
   radio_error_message: 'Please select an option',
-
-  input_name: 'inputABC',
-  input_label: 'This is the label for the input',
-  input_hint: 'This is the hint for the input',
-  input_has_error: true,
-  input_error_message: 'This is an error messsage',
 
   page_review_date: '21 September 2019',
 
