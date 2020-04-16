@@ -439,8 +439,8 @@
         {
             "label": "3_Components_TEXTAREA",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--textarea",
-            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--textarea",
+            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
+            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
