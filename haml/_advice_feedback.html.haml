@@ -4,7 +4,7 @@
   .cads-advice-feedback__step2
     = render partial: "@citizensadvice/design-system/haml/radio_group", locals: { radio: { name: 'radiogroup-advice-feedback-step2', label: 'Why wasn\'t this advice helpful?', options: [{value: '1', label: 'It isn\'t relevant to my situation'}, {value: '2', label: 'It doesn\'t have enough detail'}, {value: '3', label: 'I can\'t work out what I should do next'}, {value: '4', label: 'I don\'t understand'}] } }
     = render partial: "@citizensadvice/design-system/haml/textarea", locals: { input: { name: 'advice-feedback-optional', label: 'Is there anything else you\'d like to tell us?', has_error: false, optional: true } }
-    %button.cads-button__primary{type: "submit", value: "Submit", form: 'cads-advice-feedback'} Submit
+    %button.cads-button__primary{type: "submit", value: "Submit", form: 'cads-advice-feedback', 'aria-label': 'Submit feedback'} Submit
   .cads-advice-feedback__step3
     = render partial: "@citizensadvice/design-system/haml/success_message", locals: { success_message: "Thank you for your feedback." }
 

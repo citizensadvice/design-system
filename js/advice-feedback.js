@@ -7,7 +7,7 @@ const initAdviceFeedback = () => {
 
         rg[0].addEventListener('change', () => {
             // Yes
-            form.classList.remove('step1');
+            // form.classList.remove('step1');
             form.classList.add('step3');
 
             // TODO Send respong to API
@@ -16,7 +16,7 @@ const initAdviceFeedback = () => {
 
         rg[1].addEventListener('change', () => {
             // No
-            form.classList.remove('step1');
+            // form.classList.remove('step1');
             form.classList.add('step2');
             form.addEventListener('submit', e => {
                 e.preventDefault();
@@ -34,7 +34,7 @@ const initAdviceFeedback = () => {
                     }
                 }
 
-                form.classList.remove('step2');
+                // form.classList.remove('step2');
                 form.classList.add('step3');
 
                 // TODO Send response to API
