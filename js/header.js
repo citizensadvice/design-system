@@ -21,7 +21,7 @@ const initHeader = () => {
             }
         });
     } catch (e) {
-        console.log(`Could not initialise header ${e}`);
+        console.warn(`Could not initialise header ${e}`);
     }
 };
 

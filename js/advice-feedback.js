@@ -4,45 +4,45 @@ const initAdviceFeedback = () => {
         const form = d.getElementById('cads-advice-feedback');
         form.classList.add('step1');
         const rg = d.getElementsByName('radiogroup-advice-feedback');
-        for (let i = 0; i < rg.length; i++) {
-            const item = rg[i];
-            item.addEventListener('change', () => {
-                if (item.value.toLowerCase() === 'yes') {
-                    form.classList.remove('step1');
-                    form.classList.add('step3');
 
-                    // TODO Send respong to API
-                    console.log('Send "page was useful" reply');
-                } else {
-                    form.classList.remove('step1');
-                    form.classList.add('step2');
-                    form.addEventListener('submit', e => {
-                        e.preventDefault();
-                        const moreInfo = d.getElementById(
-                            'advice-feedback-optional-input'
-                        ).value;
-                        let reason = 'No reason given';
-                        const rg2 = d.getElementsByName(
-                            'radiogroup-advice-feedback-step2'
-                        );
-                        for (let i = 0; i < rg2.length; i++) {
-                            if (rg2[i].checked) {
-                                reason = rg2[i].value;
-                                break;
-                            }
-                        }
+        rg[0].addEventListener('change', () => {
+            // Yes
+            form.classList.remove('step1');
+            form.classList.add('step3');
 
-                        // TODO Send response to API
-                        console.log(reason, moreInfo);
+            // TODO Send respong to API
+            console.log('Send "page was useful" reply');
+        });
 
-                        form.classList.remove('step2');
-                        form.classList.add('step3');
-                    });
+        rg[1].addEventListener('change', () => {
+            // No
+            form.classList.remove('step1');
+            form.classList.add('step2');
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const moreInfo = d.getElementById(
+                    'advice-feedback-optional-input'
+                ).value;
+                let reason = 'No reason given';
+                const rg2 = d.getElementsByName(
+                    'radiogroup-advice-feedback-step2'
+                );
+                for (let j = 0; j < rg2.length; j++) {
+                    if (rg2[j].checked) {
+                        reason = rg2[j].value;
+                        break;
+                    }
                 }
+
+                form.classList.remove('step2');
+                form.classList.add('step3');
+
+                // TODO Send response to API
+                console.log(reason, moreInfo);
             });
-        }
+        });
     } catch (e) {
-        console.log(`Could not initialise header ${e}`);
+        console.warn(`Could not initialise advice feedback component. ${e}`);
     }
 };
 
