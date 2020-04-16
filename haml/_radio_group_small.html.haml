@@ -5,7 +5,7 @@
     %p.cads-form__hint= radio[:hint]
     %p.cads-form__error-message= radio[:error_message]
     - radio[:options].each do |radioItem|
-      %label.cads-radio-button{for: "#{radio[:name]}-#{radioItem}"}
-        = radioItem
-        %input{type: "radio", id: "#{radio[:name]}-#{radioItem}", name: radio[:name]}
+      %label.cads-radio-button{for: "#{radio[:name]}-#{radioItem[:value]}"}
+        = radioItem[:label]
+        %input{type: "radio", id: "#{radio[:name]}-#{radioItem[:value]}", name: radio[:name], value: radioItem[:value]}
         %span.cads-radio-button-checkmark

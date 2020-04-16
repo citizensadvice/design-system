@@ -36,7 +36,7 @@
     name: 'radiogroup-1',
     label: 'Select an option',
     hint: 'There are two options',
-    options: ['Option 1', 'Option 2'],
+    options: [{value: 'opt1', label: 'Option 1'}, {value: 'opt2', label: 'Option 2'}],
     error_message: 'This is an error message',
     has_error: true,
     optional: true
