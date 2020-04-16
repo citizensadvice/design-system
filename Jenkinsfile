@@ -1,5 +1,10 @@
 #!/usr/bin/env groovy
 
+properties([
+    buildDiscarder(logRotator(daysToKeepStr: '10', numToKeepStr: '7')),
+    disableConcurrentBuilds(),
+])
+
 appName = "design-system"
 
 isRelease = env.BRANCH_NAME == "master"
@@ -9,6 +14,9 @@ dockerTag = "${tagPrefix}${env.BUILD_TAG}"
 node("docker && awsaccess") {
   // docker tests create files as root
   sh "sudo rm -rf .jenkins*"
+
+  sh "echo ${env.SLACK_TOKEN}"
+
   checkout scm
   dockerTag += "_${getSha()}"
   currentBuild.displayName = "${env.BUILD_NUMBER}: ${dockerTag}"
