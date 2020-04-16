@@ -46,18 +46,26 @@ def dockerBuild(Map config) {
       def testScript = "bin/jenkins/test"
       if(fileExists("${config.context}/${testScript}")) {
         sh "./bin/docker/start"
+
         sleep 120
-        sh "${testScript}"
-        sh "./bin/jenkins/fix_visual_test_report"
-        step([$class: 'JUnitResultArchiver', testResults: 'testing/backstop_data/ci_report/*.xml'])
-        publishHTML([
-          allowMissing: false,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: 'testing/backstop_data/html_report',
-          reportFiles: 'index.html',
-          reportName: 'BackstopJS Report'
-        ])
+
+        try {
+          sh "${testScript}"
+        } catch (e) {
+          currentBuild.result = "FAILED"
+          echo "Test Error: ${e}"
+        } finally {
+          sh "./bin/jenkins/fix_visual_test_report"
+          step([$class: 'JUnitResultArchiver', testResults: 'testing/backstop_data/ci_report/*.xml'])
+          publishHTML([
+            allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'testing/backstop_data/html_report',
+            reportFiles: 'index.html',
+            reportName: 'BackstopJS Report'
+          ])
+        }
       } else {
         echo "No tests"
       }
