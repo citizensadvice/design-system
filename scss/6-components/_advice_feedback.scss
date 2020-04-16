@@ -1,4 +1,17 @@
 .cads-advice-feedback {
+    @include cads-border(
+        v,
+        $cads-border-width-small,
+        0,
+        $cads-language__border-colour
+    );
+
+    padding: $cads-spacing-5 0 0 0;
+
+    .cads-form {
+        margin: 0;
+    }
+
     &__step1,
     &__step2,
     &__step3 {
