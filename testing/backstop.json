@@ -1,7 +1,6 @@
 {
 	"id": "backstop_default",
-	"viewports": [
-		{
+	"viewports": [{
 			"label": "phone",
 			"width": 320,
 			"height": 480
@@ -24,15 +23,14 @@
 	],
 	"onBeforeScript": "puppet/onBefore.js",
 	"onReadyScript": "puppet/onReady.js",
-	"scenarios": [
-		{
+	"scenarios": [{
 			"label": "2_Design_Foundations_COLOUR_LANGUAGE",
 			"cookiePath": "backstop_data/engine_scripts/cookies.json",
 			"url": "http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-language",
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-language",
 			"readyEvent": "",
 			"readySelector": ".cads-styleguide__wrapper",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -42,9 +40,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				".cads-styleguide__wrapper"
-			],
+			"selectors": [".cads-styleguide__wrapper"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -57,7 +53,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-palette",
 			"readyEvent": "",
 			"readySelector": ".cads-styleguide__wrapper",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -67,9 +63,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				".cads-styleguide__wrapper"
-			],
+			"selectors": [".cads-styleguide__wrapper"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -82,7 +76,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--breadcrumb",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -91,9 +85,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -106,7 +98,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--buttons",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -115,9 +107,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -130,7 +120,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--callout",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -139,9 +129,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -154,7 +142,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--contact-details",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -163,9 +151,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -178,7 +164,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--footer",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -187,9 +173,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -202,7 +186,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--header",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -211,9 +195,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -226,7 +208,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--input",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -235,9 +217,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -250,7 +230,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--logo",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -259,9 +239,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -274,7 +252,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--navigation",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -283,9 +261,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -298,7 +274,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--notice-banner",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -307,9 +283,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -322,7 +296,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--page-review",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -331,9 +305,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -346,7 +318,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--radio-group",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -355,9 +327,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -370,7 +340,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--radio-group-small",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -379,9 +349,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -394,7 +362,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--search",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -403,9 +371,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -418,7 +384,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--success-message",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -427,9 +393,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -442,7 +406,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--targeted-content",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -451,9 +415,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -466,7 +428,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--textarea",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -475,9 +437,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -490,7 +450,7 @@
 			"referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--website-feedback",
 			"readyEvent": "",
 			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
+			"delay": 0,
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
@@ -499,9 +459,7 @@
 			"hoverSelector": "",
 			"clickSelector": "",
 			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"selectors": ["#a11yComponentToTest"],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
@@ -516,14 +474,10 @@
 		"html_report": "backstop_data/html_report",
 		"ci_report": "backstop_data/ci_report"
 	},
-	"report": [
-		"browser"
-	],
+	"report": ["browser"],
 	"engine": "puppeteer",
 	"engineOptions": {
-		"args": [
-			"--no-sandbox"
-		]
+		"args": ["--no-sandbox"]
 	},
 	"asyncCaptureLimit": 5,
 	"asyncCompareLimit": 50,
