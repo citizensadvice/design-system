@@ -6,18 +6,18 @@
     flex-direction: row;
 
     input {
-        font-size: 1em;
+        font-size: 1rem;
         flex: 1 1;
         border-right-width: 0; // TODO: Do we want to do this? Hover looks a bit funny next to input box
-        height: calc(4px + 3em);
+        height: calc(4px + 3rem);
         margin-bottom: 0;
     }
 
     .cads-search-button {
-        font-size: 1em;
+        font-size: 1rem;
         flex: 0 0;
-        padding: calc(1em - 1px) 1em;
-        height: calc(4px + 3em);
+        padding: calc(1em - 1px) 1rem;
+        height: calc(4px + 3rem);
         box-shadow: none;
 
         &::before {

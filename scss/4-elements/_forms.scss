@@ -65,11 +65,15 @@ textarea,
     @include cads-interactive-element();
 
     min-width: 1px;
-    font-size: 1.125em;
-    padding: round(em-to-px(1em) - 9px) 1em;
+    padding: round(rem-to-px(1rem) - 9px) 1rem;
     margin: 0 0 $cads-spacing-4 0;
     display: inline-block;
-    line-height: 1em;
+    font-size: 1.125rem;
+    line-height: 1.5rem; // Line-height remains the same
+
+    @include cads-media-breakpoint-down(sm) {
+        font-size: 1rem;
+    }
 
     &::placeholder {
         display: none;
@@ -157,7 +161,7 @@ textarea,
     border: none;
     padding: 0;
     margin: 0;
-    font-size: 1.125em;
+    font-size: 1.125rem;
 
     &.cads-radio-group__small {
         .cads-radio-button {
