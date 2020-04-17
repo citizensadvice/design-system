@@ -113,8 +113,8 @@
                 ".cads-styleguide__language-label"
             ],
             "hoverSelector": "",
-            "clickSelector": "",
-            "postInteractionWait": 0,
+            "clickSelector": ".cads-button",
+            "postInteractionWait": 300,
             "selectors": [
                 "#a11yComponentToTest"
             ],
