@@ -263,15 +263,9 @@
 				"h1"
 			],
 			"hoverSelector": "",
-<<<<<<< HEAD
 			"clickSelector": ".nav__dropdown-toggle",
 			"postInteractionWait": 500,
 			"selectors": [],
-=======
-			"clickSelector": "",
-			"postInteractionWait": 0,
-			"selectors": ["#a11yComponentToTest"],
->>>>>>> 938e6ce775983ccde22d2c909cb29a51ecdf85d2
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
