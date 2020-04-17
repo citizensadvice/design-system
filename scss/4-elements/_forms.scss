@@ -68,8 +68,7 @@ textarea,
 .cads-textarea {
     @include cads-interactive-element();
 
-    width: 100%;
-    max-width: 50%;
+    width: 50%;
     min-width: 1px;
     padding: round(rem-to-px(1rem) - 9px) 1rem;
     margin: 0 0 $cads-spacing-4 0;
@@ -79,7 +78,7 @@ textarea,
 
     @include cads-media-breakpoint-down(sm) {
         font-size: 1rem;
-        max-width: 100%;
+        width: 100%;
     }
 
     &::placeholder {
