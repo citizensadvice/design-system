@@ -13,6 +13,12 @@
     flex-direction: row;
     align-items: stretch;
     margin: 0 0 $cads-spacing-5 0;
+    font-size: 1.125rem;
+    line-height: 1.5rem; // Line-height remains the same
+
+    @include cads-media-breakpoint-down(sm) {
+        font-size: 1rem;
+    }
 
     .cads-form-content {
         width: 100%;
@@ -162,7 +168,6 @@ textarea,
     border: none;
     padding: 0;
     margin: 0;
-    font-size: 1.125rem;
 
     &.cads-radio-group__small {
         .cads-radio-button {

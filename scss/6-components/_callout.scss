@@ -19,8 +19,12 @@
         position: relative;
         color: $cads-language__secondary-text-colour;
         margin-bottom: $cads-spacing-3;
-        font-size: 0.7rem;
-        line-height: 0.7rem;
+        font-size: 0.875rem;
+        line-height: 1em;
+
+        @include cads-media-breakpoint-up(md) {
+            font-size: 1rem;
+        }
     }
 
     &.cads-callout- {
