@@ -5,6 +5,7 @@
 .cads-form__error-message {
     display: none;
     color: $cads-language__warning-colour;
+    margin-bottom: $cads-spacing-3;
 }
 
 .cads-form {
@@ -47,7 +48,7 @@
                 background-color: $cads-palette__white;
                 display: block;
                 position: absolute;
-                top: -2px;
+                top: -5px;
                 left: -11px;
             }
 
@@ -222,4 +223,5 @@ textarea,
 .cads-form__hint {
     color: $cads-language__secondary-text-colour;
     display: block;
+    margin-bottom: $cads-spacing-3;
 }
