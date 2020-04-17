@@ -32,7 +32,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
             "readyEvent": "",
             "readySelector": ".cads-styleguide__wrapper",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -57,7 +57,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
             "readyEvent": "",
             "readySelector": ".cads-styleguide__wrapper",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -82,7 +82,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -106,7 +106,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -130,7 +130,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -154,7 +154,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -178,7 +178,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -202,7 +202,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -226,7 +226,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -250,7 +250,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -274,7 +274,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -298,7 +298,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -322,7 +322,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -346,7 +346,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -370,7 +370,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -394,7 +394,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -418,7 +418,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -442,7 +442,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -466,7 +466,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -475,7 +475,9 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": ["#a11yComponentToTest"],
+            "selectors": [
+                "#a11yComponentToTest"
+            ],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -488,7 +490,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
