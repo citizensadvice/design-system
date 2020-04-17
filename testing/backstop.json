@@ -278,18 +278,40 @@
 			"hideSelectors": [],
 			"removeSelectors": [
 				".cads-styleguide__breakpoint-label",
-				".cads-styleguide__language-label"
+				".cads-styleguide__language-label",
+				".cads-styleguide-max-content-width",
+				"h1"
 			],
 			"hoverSelector": "",
-			"clickSelector": "",
-			"postInteractionWait": 0,
-			"selectors": [
-				"#a11yComponentToTest"
-			],
+			"clickSelector": ".nav__dropdown-toggle",
+			"postInteractionWait": 500,
+			"selectors": [],
 			"selectorExpansion": true,
 			"expect": 0,
 			"misMatchThreshold": 0.1,
-			"requireSameDimensions": true
+			"requireSameDimensions": true,
+			"viewports": [
+				{
+					"label": "phone",
+					"width": 320,
+					"height": 400
+				},
+				{
+					"label": "Small",
+					"width": 640,
+					"height": 300
+				},
+				{
+					"label": "Medium",
+					"width": 800,
+					"height": 200
+				},
+				{
+					"label": "Large",
+					"width": 1024,
+					"height": 100
+				}
+			]
 		},
 		{
 			"label": "3_Components_NOTICE_BANNER",
