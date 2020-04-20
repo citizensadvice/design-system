@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'dockerd --log-level error && npm run vr-test:ci'
+                sh 'npm run vr-test:ci'
             }
         }
     }
