@@ -27,7 +27,8 @@
         "vr-test:install": "cd testing && npm install",
         "vr-test:test": "node scripts/vr-test.js",
         "vr-test:ci": "node scripts/vr-test.js -- --ci",
-        "vr-test:standalone": "cd testing && npx backstop test --docker"
+        "vr-test:standalone": "cd testing && npx backstop test --docker",
+        "vr-test:approve": "cd testing && npx backstop approve"
     },
     "repository": {
         "type": "git",
