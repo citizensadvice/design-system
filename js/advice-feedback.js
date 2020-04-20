@@ -3,6 +3,9 @@ const initAdviceFeedback = () => {
         const d = document;
         const form = d.getElementById('cads-advice-feedback');
         const rg = d.getElementsByName('radiogroup-advice-feedback');
+        const form2 = d
+            .getElementById('cads-advice-feedback-form')
+            .getElementsByClassName('cads-form')[0];
 
         rg[0].addEventListener('change', () => {
             // Yes
@@ -16,6 +19,7 @@ const initAdviceFeedback = () => {
         rg[1].addEventListener('change', () => {
             // No
             form.classList.remove('step1');
+            form2.classList.remove('cads-form-error');
             form.classList.add('step2');
         });
 
@@ -23,7 +27,7 @@ const initAdviceFeedback = () => {
             e.preventDefault();
             const moreInfo = d.getElementById('advice-feedback-optional-input')
                 .value;
-            let reason = 'No reason given';
+            let reason = null;
             const rg2 = d.getElementsByName('radiogroup-advice-feedback-step2');
             for (let j = 0; j < rg2.length; j++) {
                 if (rg2[j].checked) {
@@ -32,11 +36,17 @@ const initAdviceFeedback = () => {
                 }
             }
 
-            form.classList.remove('step2');
-            form.classList.add('step3');
+            if (!reason) {
+                form.setAttribute('aria-invalid', true);
+                form2.classList.add('cads-form-error');
+            } else {
+                form.setAttribute('aria-invalid', false);
+                form.classList.remove('step2');
+                form.classList.add('step3');
 
-            // TODO Send response to API
-            console.log(reason, moreInfo);
+                // TODO Send response to API
+                console.log(reason, moreInfo);
+            }
         });
 
         const closeButton = form.getElementsByClassName(
