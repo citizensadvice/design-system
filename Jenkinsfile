@@ -72,5 +72,6 @@ def dockerBuild(Map config) {
     // }
   } finally {
     sh "./bin/docker/down || true"
+    sh "docker network rm cita"
   }
 }
