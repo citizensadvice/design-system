@@ -28,8 +28,8 @@
         {
             "label": "2_Design_Foundations_COLOUR_LANGUAGE",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
+            "url": "http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-language",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-language",
             "readyEvent": "",
             "readySelector": ".cads-styleguide__wrapper",
             "delay": 0,
@@ -42,9 +42,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                ".cads-styleguide__wrapper"
-            ],
+            "selectors": [".cads-styleguide__wrapper"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -53,8 +51,8 @@
         {
             "label": "2_Design_Foundations_COLOUR_PALETTE",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
+            "url": "http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-palette",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-palette",
             "readyEvent": "",
             "readySelector": ".cads-styleguide__wrapper",
             "delay": 0,
@@ -67,9 +65,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                ".cads-styleguide__wrapper"
-            ],
+            "selectors": [".cads-styleguide__wrapper"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -78,8 +74,8 @@
         {
             "label": "3_Components_BREADCRUMBS",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--breadcrumb",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--breadcrumb",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -91,9 +87,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -102,8 +96,8 @@
         {
             "label": "3_Components_BUTTONS",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--buttons",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--buttons",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -113,11 +107,9 @@
                 ".cads-styleguide__language-label"
             ],
             "hoverSelector": "",
-            "clickSelector": ".cads-button",
-            "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "clickSelector": "",
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -126,8 +118,8 @@
         {
             "label": "3_Components_CALLOUTS",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--callout",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--callout",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -139,9 +131,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -150,8 +140,8 @@
         {
             "label": "3_Components_CONTACT_DETAILS",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--contact-details",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--contact-details",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -163,9 +153,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -174,8 +162,8 @@
         {
             "label": "3_Components_FOOTER",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--footer",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--footer",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -187,9 +175,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -198,8 +184,8 @@
         {
             "label": "3_Components_HEADER",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--header",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--header",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -211,9 +197,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -222,8 +206,8 @@
         {
             "label": "3_Components_INPUT",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--input",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--input",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -235,9 +219,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -246,8 +228,8 @@
         {
             "label": "3_Components_LOGO",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--logo",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--logo",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -259,65 +241,63 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
             "requireSameDimensions": true
         },
         {
-			"label": "3_Components_NAVIGATION",
-			"cookiePath": "backstop_data/engine_scripts/cookies.json",
-			"url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
+            "label": "3_Components_NAVIGATION",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
+            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
-			"readyEvent": "",
-			"readySelector": "#a11yComponentToTest",
-			"delay": 500,
-			"hideSelectors": [],
-			"removeSelectors": [
-				".cads-styleguide__breakpoint-label",
-				".cads-styleguide__language-label",
-				".cads-styleguide-max-content-width",
-				"h1"
-			],
-			"hoverSelector": "",
-			"clickSelector": ".nav__dropdown-toggle",
-			"postInteractionWait": 500,
-			"selectors": [],
-			"selectorExpansion": true,
-			"expect": 0,
-			"misMatchThreshold": 0.1,
-			"requireSameDimensions": true,
-			"viewports": [
-				{
-					"label": "phone",
-					"width": 320,
-					"height": 400
-				},
-				{
-					"label": "Small",
-					"width": 640,
-					"height": 300
-				},
-				{
-					"label": "Medium",
-					"width": 800,
-					"height": 200
-				},
-				{
-					"label": "Large",
-					"width": 1024,
-					"height": 100
-				}
-			]
-		},
+            "readyEvent": "",
+            "readySelector": "#a11yComponentToTest",
+            "delay": 500,
+            "hideSelectors": [],
+            "removeSelectors": [
+                ".cads-styleguide__breakpoint-label",
+                ".cads-styleguide__language-label",
+                ".cads-styleguide-max-content-width",
+                "h1"
+            ],
+            "hoverSelector": "",
+            "clickSelector": ".nav__dropdown-toggle",
+            "postInteractionWait": 500,
+            "selectors": [],
+            "selectorExpansion": true,
+            "expect": 0,
+            "misMatchThreshold": 0.1,
+            "requireSameDimensions": true,
+            "viewports": [
+                {
+                    "label": "phone",
+                    "width": 320,
+                    "height": 400
+                },
+                {
+                    "label": "Small",
+                    "width": 640,
+                    "height": 300
+                },
+                {
+                    "label": "Medium",
+                    "width": 800,
+                    "height": 200
+                },
+                {
+                    "label": "Large",
+                    "width": 1024,
+                    "height": 100
+                }
+            ]
+        },
         {
             "label": "3_Components_NOTICE_BANNER",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--notice-banner",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--notice-banner",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -329,9 +309,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -340,8 +318,8 @@
         {
             "label": "3_Components_PAGE_REVIEW",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--page-review",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--page-review",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -353,9 +331,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -364,8 +340,8 @@
         {
             "label": "3_Components_RADIO_GROUP",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--radio-group",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--radio-group",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -377,9 +353,7 @@
             "hoverSelector": "",
             "clickSelector": ".cads-radio-button-checkmark",
             "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -388,8 +362,8 @@
         {
             "label": "3_Components_RADIO_GROUP_small",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--radio-group-small",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--radio-group-small",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -401,9 +375,7 @@
             "hoverSelector": "",
             "clickSelector": ".cads-radio-button-checkmark",
             "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -412,8 +384,8 @@
         {
             "label": "3_Components_SEARCH",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--search",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--search",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -425,9 +397,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -436,8 +406,8 @@
         {
             "label": "3_Components_SUCCESS_MESSAGE",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--success-message",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--success-message",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -449,9 +419,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -460,8 +428,8 @@
         {
             "label": "3_Components_TARGED_CONTENT",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--targeted-content",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--targeted-content",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -473,9 +441,7 @@
             "hoverSelector": "",
             "clickSelector": ".cads-targeted-content",
             "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -484,8 +450,8 @@
         {
             "label": "3_Components_TEXTAREA",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--textarea",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--textarea",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -506,8 +472,8 @@
         {
             "label": "3_Components_WEBSITE-FEEDBACK",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
+            "url": "http://host.docker.internal:6006/iframe.html?id=3-components--website-feedback",
+            "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--website-feedback",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -519,9 +485,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -536,16 +500,11 @@
         "html_report": "backstop_data/html_report",
         "ci_report": "backstop_data/ci_report"
     },
-    "report": [
-        "browser",
-        "CI"
-    ],
+    "report": ["browser"],
     "openReport": false,
     "engine": "puppeteer",
     "engineOptions": {
-        "args": [
-            "--no-sandbox"
-        ]
+        "args": ["--no-sandbox"]
     },
     "asyncCaptureLimit": 5,
     "asyncCompareLimit": 50,
