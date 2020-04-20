@@ -8,7 +8,9 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                sh 'apk add ruby'
+                docker.image('node:12-alpline').inside(' -u 0') {
+                    sh 'apk add ruby'
+                }
             }
         }
         stage('Build') {
