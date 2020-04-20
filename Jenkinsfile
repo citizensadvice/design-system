@@ -2,11 +2,8 @@ pipeline {
     agent {
         dockerfile {
             filename 'Dockerfile'
-            dir '.'
-            label 'design-system-agent'
             args '--privilaged'
         }
-
     }
 
     stages {
