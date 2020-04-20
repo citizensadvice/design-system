@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile {
             filename 'Dockerfile'
-            args '--privileged'
+            args '-u 500:500 --privileged'
         }
     }
 
