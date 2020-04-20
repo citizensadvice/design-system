@@ -1,16 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:12-alpine'
-        }
-    }
+    agent { dockerfile true }
 
     stages {
         stage('Prepare') {
             steps {
-                docker.image('node:12-alpline').inside(' -u 0') {
-                    sh 'apk add ruby'
-                }
+                sh 'gem install bundler'
             }
         }
         stage('Build') {
