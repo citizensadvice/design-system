@@ -2,14 +2,13 @@ pipeline {
     agent {
         dockerfile {
             filename 'Dockerfile'
-            args '-u 500:500 --privileged'
+            args '-u root:root --privileged'
         }
     }
 
     stages {
         stage('Prepare') {
             steps {
-                sh 'ls -l'
                 sh 'bundle config path .'
             }
         }
