@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile {
             filename 'Dockerfile'
-            args '--privileged'
+            args '-u root:root --privileged'
         }
     }
 
@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'bundle install'
-                sh 'npm i --silent'
+                sh 'npm i'
                 sh 'npm run vr-test:install'
             }
         }
