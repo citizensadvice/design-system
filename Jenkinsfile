@@ -22,6 +22,7 @@ pipeline {
             steps {
                 sh 'bundle install'
                 sh 'npm i'
+                sh 'npm run vr-test:install'
             }
         }
         stage('Test') {
