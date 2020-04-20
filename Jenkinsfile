@@ -2,13 +2,14 @@ pipeline {
     agent {
         docker {
             image 'node:12-alpine'
-            args '-u root:root'
+            args '-u root:root --privileged'
         }
     }
 
     stages {
         stage('Prepare') {
             steps {
+                sh 'apk add docker'
                 sh 'apk add ruby'
                 sh 'gem install bundler'
             }
