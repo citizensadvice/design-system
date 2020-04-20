@@ -77,7 +77,7 @@ const isDockerStorybookRunning = () => {
     });
 };
 
-const runBackstopTests = () => {
+const runBackstopTests = storyBook => {
     log(chalk.green('Running BackstopJS visual regression tests'));
 
     const backstop = childProcess.exec(`cd testing; ${command}`);
@@ -90,7 +90,7 @@ const runBackstopTests = () => {
 
     backstop.on('exit', code => {
         log(chalk.green(`BackstopJS completed with exit code ${code}`));
-        if (!ci) storyBook.kill('SIGINT');
+        if (!ci && storyBook) storyBook.kill('SIGINT');
         process.exit(code);
     });
 };
@@ -131,7 +131,7 @@ if (ci) {
         if (!started && /^webpack built/.test(data)) {
             started = true;
             log(chalk.green('Storybook started'));
-            runBackstopTests();
+            runBackstopTests(storyBook);
         }
     });
 }
