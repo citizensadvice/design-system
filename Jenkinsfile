@@ -1,3 +1,5 @@
+node("docker && awsaccess") {
+
 pipeline {
     agent {
         dockerfile {
@@ -21,4 +23,6 @@ pipeline {
             }
         }
     }
+}
+
 }
