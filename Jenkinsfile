@@ -10,7 +10,7 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh 'apk add docker'
-                sh 'run service docker start'
+                sh 'service docker start'
                 sh 'apk add ruby'
                 sh 'gem install bundler'
             }
