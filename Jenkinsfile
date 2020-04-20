@@ -2,16 +2,12 @@ pipeline {
     agent {
         dockerfile {
             filename 'Dockerfile'
-            args '-u root:root --privileged'
+            args '-u root:root --privileged -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):$(which docker)'
         }
     }
 
     stages {
-        stage('Prepare') {
-            steps {
-                sh 'bundle config path .'
-            }
-        }
+
         stage('Build') {
             steps {
                 sh 'bundle install'
@@ -21,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'npm run vr-test:ci'
+                sh 'dockerd --log-level error && npm run vr-test:ci'
             }
         }
     }
