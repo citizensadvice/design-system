@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM docker:dind
 
 ENV LANG en_US.UTF-8
 
@@ -6,5 +6,4 @@ USER root
 
 RUN adduser jenkins -u 500 -D && addgroup jenkins users
 
-RUN apk add openrc && apk add docker && apk add ruby && gem install bundler
-
+RUN apk add nodejs npm ruby && gem install bundler
