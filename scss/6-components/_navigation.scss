@@ -6,7 +6,7 @@ nav,
     justify-content: space-between;
     background-color: $cads-palette__heritage-blue;
     width: 100%;
-    height: 3em;
+    height: 3rem;
 
     .cads-navigation-toggle-label {
         @include cads-visually-hidden;
@@ -46,7 +46,7 @@ nav,
             background-color: $cads-palette__white;
             color: $cads-palette__heritage-blue;
             border: 2px solid $cads-palette__heritage-yellow;
-            padding: calc(1em - 2px);
+            padding: calc(1rem - 2px);
         }
 
         &::after {
@@ -66,7 +66,7 @@ nav,
             content: '\e900';
             display: inline-block;
             transform: rotate(270deg);
-            font-size: 0.75em;
+            font-size: 0.75rem;
             margin-left: $cads-spacing-1;
             top: 1px;
             position: relative;
@@ -81,7 +81,7 @@ nav,
 
     .cads-nav-link {
         color: $cads-palette__white;
-        padding: calc(1em - 1px);
+        padding: calc(1rem - 1px);
         display: inline-block;
         text-decoration: none;
 
@@ -104,7 +104,7 @@ nav,
             background-color: $cads-palette__white;
             color: $cads-palette__heritage-blue;
             border: 2px solid $cads-palette__heritage-yellow;
-            padding: calc(1em - 2px);
+            padding: calc(1rem - 2px);
         }
     }
 

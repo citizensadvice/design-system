@@ -1,6 +1,7 @@
 * NP-290 Success message
 * NP-214 Link benefits to the fully qualified URL of the public website.
 * NP-301 Textarea control
+* NP-312 Replace em with rem
 
 ## <sub>v0.9.0</sub>
 
