@@ -1,9 +1,9 @@
 pipeline {
     agent {
         dockerfile {
-            filename 'Dockerfile',
-            args '--privilaged',
-            label 'design-system-agent'
+            filename 'Dockerfile'
+            args '--privilaged'
+            label    'design-system-agent'
         }
 
     }
