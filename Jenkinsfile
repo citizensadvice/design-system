@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile {
             filename 'Dockerfile'
-            args '-u root:root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
+            args '-u root:root --privileged --name design-system -v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
