@@ -1,4 +1,6 @@
 .cads-advice-feedback {
+    position: relative;
+
     @include cads-border(
         v,
         $cads-border-width-small,
@@ -7,6 +9,14 @@
     );
 
     padding: $cads-spacing-5 0 0 0;
+
+    .cads-icon-arrow-right {
+        font-size: 0.8em;
+    }
+
+    .cads-advice-feedback__close {
+        float: right;
+    }
 
     .cads-form {
         margin: 0;
