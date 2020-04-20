@@ -51,6 +51,9 @@ const printWhitelistedLogLines = chunk => {
             return;
         }
     }
+
+    // add some additional debugging
+    process.stdout.write(chalk.grey(chunk));
     /* eslint-enable no-restricted-syntax  */
 };
 
