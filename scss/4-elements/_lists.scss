@@ -1,12 +1,13 @@
 li,
 .cads-list-item {
-    line-height: 1.5em;
+    padding: 0;
+    line-height: 1.5rem;
     margin: 0 0 $cads-spacing-2 0;
 }
 
 ol,
 .cads-list-ordered {
-    padding: 0 0 0 1.25em;
+    padding: 0;
     margin: 0 0 $cads-spacing-4 0;
 }
 
@@ -20,7 +21,7 @@ ul,
         li,
         .cads-list-item {
             display: inline-block;
-            margin-right: 1em;
+            margin-right: 1rem;
         }
 
         // Reverse margins if this is right aligned
@@ -28,7 +29,7 @@ ul,
             li,
             .cads-list-item {
                 margin-right: 0;
-                margin-left: 1em;
+                margin-left: 1rem;
             }
         }
     }
