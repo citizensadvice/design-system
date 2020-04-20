@@ -13,11 +13,6 @@ pipeline {
                 sh 'bundle config path .'
             }
         }
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
         stage('Build') {
             steps {
                 sh 'bundle install'
