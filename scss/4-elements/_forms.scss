@@ -5,6 +5,7 @@
 .cads-form__error-message {
     display: none;
     color: $cads-language__warning-colour;
+    margin-bottom: $cads-spacing-3;
 }
 
 .cads-form {
@@ -13,6 +14,16 @@
     flex-direction: row;
     align-items: stretch;
     margin: 0 0 $cads-spacing-5 0;
+    font-size: 1.125rem;
+    line-height: 1.5rem; // Line-height remains the same
+
+    @include cads-media-breakpoint-down(sm) {
+        font-size: 1rem;
+    }
+
+    .cads-form-content {
+        width: 100%;
+    }
 
     &.cads-form-error {
         .cads-form__error-message {
@@ -37,7 +48,7 @@
                 background-color: $cads-palette__white;
                 display: block;
                 position: absolute;
-                top: -2px;
+                top: -5px;
                 left: -11px;
             }
 
@@ -64,21 +75,22 @@ textarea,
 .cads-textarea {
     @include cads-interactive-element();
 
+    width: 50%;
     min-width: 1px;
-    font-size: 1.125em;
-    padding: round(em-to-px(1em) - 9px) 1em;
+    padding: round(rem-to-px(1rem) - 9px) 1rem;
     margin: 0 0 $cads-spacing-4 0;
     display: inline-block;
-    line-height: 1em;
+    font-size: 1.125rem;
+    line-height: 1.5rem; // Line-height remains the same
+
+    @include cads-media-breakpoint-down(sm) {
+        font-size: 1rem;
+        width: 100%;
+    }
 
     &::placeholder {
         display: none;
     }
-}
-
-textarea,
-.cads-textarea {
-    width: 100%;
 }
 
 .cads-radio-button {
@@ -157,7 +169,6 @@ textarea,
     border: none;
     padding: 0;
     margin: 0;
-    font-size: 1.125em;
 
     &.cads-radio-group__small {
         .cads-radio-button {
@@ -212,4 +223,5 @@ textarea,
 .cads-form__hint {
     color: $cads-language__secondary-text-colour;
     display: block;
+    margin-bottom: $cads-spacing-3;
 }

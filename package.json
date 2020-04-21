@@ -1,6 +1,6 @@
 {
     "name": "@citizensadvice/design-system",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "Citizens Advice Design System",
     "files": [
         "scss",
