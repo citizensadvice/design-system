@@ -1,3 +1,5 @@
+ * NP-334 Bug Stroke on active links is too heavy
+
 ## <sub>v0.10.0</sub>
 
 #### _Apr. 21, 2020_
