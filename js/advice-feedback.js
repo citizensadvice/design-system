@@ -2,26 +2,31 @@ const initAdviceFeedback = () => {
     try {
         const d = document;
         const form = d.getElementById('cads-advice-feedback');
-        const rg = d.getElementsByName('radiogroup-advice-feedback');
         const form2 = d
             .getElementById('cads-advice-feedback-form')
             .getElementsByClassName('cads-form')[0];
 
-        rg[0].addEventListener('change', () => {
-            // Yes
-            form.classList.remove('step1');
-            form.classList.add('step3');
+        d.getElementById('cads-advice-feedback__yes').addEventListener(
+            'click',
+            () => {
+                // Yes
+                form.classList.remove('step1');
+                form.classList.add('step3');
 
-            // TODO Send respong to API
-            console.log('Send "page was useful" reply');
-        });
+                // TODO Send respong to API
+                console.log('Send "page was useful" reply');
+            }
+        );
 
-        rg[1].addEventListener('change', () => {
-            // No
-            form.classList.remove('step1');
-            form2.classList.remove('cads-form-error');
-            form.classList.add('step2');
-        });
+        d.getElementById('cads-advice-feedback__no').addEventListener(
+            'click',
+            () => {
+                // No
+                form.classList.remove('step1');
+                form2.classList.remove('cads-form-error');
+                form.classList.add('step2');
+            }
+        );
 
         form.addEventListener('submit', e => {
             e.preventDefault();
@@ -54,8 +59,6 @@ const initAdviceFeedback = () => {
         )[0];
         closeButton.addEventListener('click', e => {
             e.preventDefault();
-            rg[0].checked = false;
-            rg[1].checked = false;
             form.classList.add('step1');
             form.classList.remove('step2');
             form.classList.remove('step3');
