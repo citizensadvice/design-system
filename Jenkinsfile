@@ -1,23 +1,10 @@
 pipeline {
-    agent {
-        dockerfile {
-            filename 'Dockerfile'
-            args '-u root:root --privileged --name design-system -v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
 
     stages {
-
-        stage('Build') {
-            steps {
-                sh 'bundle install'
-                sh 'npm i'
-                sh 'npm run vr-test:install'
-            }
-        }
         stage('Test') {
             steps {
-                sh 'npm run vr-test:ci'
+                sh './bin/jenkins/test'
             }
         }
     }
