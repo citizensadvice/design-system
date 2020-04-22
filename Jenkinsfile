@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label "docker && awsaccess"
+    }
 
     stages {
         stage('Test') {
