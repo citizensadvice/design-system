@@ -1,8 +1,10 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 # copy reports to a new folder
+ls -l
+ls -l testing/backstop_data
 mkdir -m775 -p reports
 cp -R testing/backstop_data/ reports/
 
