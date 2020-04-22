@@ -30,6 +30,16 @@ pipeline {
         }
     }
     post {
+        failure {
+            publishHTML([
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports/html_report',
+                reportFiles: 'index.html',
+                reportName: 'BackstopJS Report'
+            ])
+        }
         cleanup {
             sh "docker-compose down --remove-orphans || true"
             sh "rm -rf reports"
