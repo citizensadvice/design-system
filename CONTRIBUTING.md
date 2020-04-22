@@ -42,7 +42,7 @@ npm run vr-test:test
 
 If you are running the tests in ci, or prefer not to have a browser showing the results opened at the end of the test-run then you can use `npm run vt-test:ci`.
 
-You can also choose to run the tests without starting up the design-system server with `npm run vt-test:standalone`.
+You can also choose to run the tests without starting up the design-system server with `npm run vr-test:standalone`.
 
 #### Low-level Usage
 
