@@ -2,7 +2,11 @@
 
 set -e
 
-source bin/docker/compose_files
 source bin/docker/network
 
-docker-compose ${COMPOSE_FILES[@]} run --rm -u 500 visual-tests
+# start styleguide in background
+docker-compose up -d ca-styleguide
+# run tests - will check that
+docker-compose run visual-tests
+# clean up
+docker-compose down

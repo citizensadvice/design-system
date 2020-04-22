@@ -1,9 +1,19 @@
 FROM node:12-alpine
 
-ENV LANG en_US.UTF-8
+RUN apk add ruby
 
-USER root
+RUN gem install bundler
 
-RUN adduser jenkins -u 500 -D && addgroup jenkins users
+WORKDIR /app
 
-RUN apk add docker lxc ruby && gem install bundler
+COPY Gemfile Gemfile.lock /app/
+
+RUN bundle config --global silence_root_warning 1 && bundle install
+
+COPY package.json /app/
+
+COPY testing/package.json /app/testing/
+
+RUN npm i --quiet
+
+COPY . /app
