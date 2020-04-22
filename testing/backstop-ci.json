@@ -264,7 +264,7 @@
             ],
             "hoverSelector": "",
             "clickSelector": ".nav__dropdown-toggle",
-            "postInteractionWait": 350,
+            "postInteractionWait": 1000,
             "selectors": [],
             "selectorExpansion": true,
             "expect": 0,
