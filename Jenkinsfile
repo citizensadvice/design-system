@@ -22,7 +22,7 @@ pipeline {
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    reportDir: 'testing/backstop_data/html_report',
+                    reportDir: 'reports/html_report',
                     reportFiles: 'index.html',
                     reportName: 'BackstopJS Report'
                 ])
@@ -32,6 +32,7 @@ pipeline {
     post {
         cleanup {
             sh "docker-compose down --remove-orphans || true"
+            sh "rm -rf reports"
         }
     }
 }
