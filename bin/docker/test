@@ -8,5 +8,3 @@ source bin/docker/network
 docker-compose up -d ca-styleguide
 # run tests - will check that
 docker-compose run visual-tests
-# clean up
-docker-compose down

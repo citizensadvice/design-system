@@ -29,4 +29,9 @@ pipeline {
             }
         }
     }
+    post {
+        cleanup {
+            sh "docker-compose down --remove-orphans || true"
+        }
+    }
 }
