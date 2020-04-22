@@ -107,8 +107,8 @@
                 ".cads-styleguide__language-label"
             ],
             "hoverSelector": "",
-            "clickSelector": "",
-            "postInteractionWait": 0,
+            "clickSelector": ".cads-button",
+            "postInteractionWait": 300,
             "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
@@ -254,7 +254,7 @@
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 500,
+            "delay": 350,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -264,7 +264,7 @@
             ],
             "hoverSelector": "",
             "clickSelector": ".nav__dropdown-toggle",
-            "postInteractionWait": 500,
+            "postInteractionWait": 350,
             "selectors": [],
             "selectorExpansion": true,
             "expect": 0,
@@ -492,7 +492,7 @@
             "requireSameDimensions": true
         }
     ],
-    "dockerCommandTemplate": "docker run --rm -i --mount type=bind,source=\"{cwd}\",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}",
+    "dockerCommandTemplate": "docker run --rm -i --add-host ca-styleguide.test:127.0.0.1 --mount type=bind,source=\"{cwd}\",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}",
     "paths": {
         "bitmaps_reference": "backstop_data/bitmaps_reference",
         "bitmaps_test": "backstop_data/bitmaps_test",
