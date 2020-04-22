@@ -3,10 +3,9 @@
 set -ex
 
 # copy reports to a new folder
-ls -l
-ls -l testing/backstop_data
 mkdir -m775 -p reports
 cp -R testing/backstop_data/ reports/
+ls -l reports
 
 # copy images into html_report folder so that jenkins can archive them
 cp -R reports/bitmaps_reference reports/bitmaps_test reports/html_report/
