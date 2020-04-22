@@ -10,10 +10,10 @@ COPY Gemfile Gemfile.lock /app/
 
 RUN bundle config --global silence_root_warning 1 && bundle install
 
-COPY package.json /app/
+COPY package*.json /tmp/
 
-COPY testing/package.json /app/testing/
+RUN cd /tmp && npm install --quiet
 
-RUN npm i --quiet
+RUN mkdir -p /app && cp -a /tmp/node_modules /app
 
 COPY . /app
