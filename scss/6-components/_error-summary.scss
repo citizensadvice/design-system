@@ -1,0 +1,24 @@
+.cads-error-summary {
+    @include cads-border(a, $cads-border-width-medium);
+
+    width: 100%;
+    padding: $cads-spacing-4;
+    color: $cads-language__warning-colour;
+
+    .cads-heading-small {
+        color: $cads-language__warning-colour;
+        margin-bottom: $cads-spacing-4;
+    }
+
+    .cads-error-summary__list {
+        margin-bottom: 0;
+
+        li {
+            text-decoration: underline;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
