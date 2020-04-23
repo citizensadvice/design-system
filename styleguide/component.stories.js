@@ -9,6 +9,7 @@ import './styles.scss';
 import priorityNav from '@baseonmars/priority-nav';
 import initHeader from '../js/header';
 import initTargetedContent from '../js/targeted-content';
+import initCallouts from '../js/callout';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -126,7 +127,17 @@ export const navigation = () =>
 
 export const noticeBanner = () =>
     renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
-export const callout = () => renderHamlTemplate('Callout', tCallout, 'callout');
+export const callout = () =>
+    renderHamlTemplate(
+        'Callout',
+        tCallout,
+        'callout',
+        `The callout component uses javascript to rearrange the heading level of the first callout on the screen (H2 vs H3 heading).
+        \n\n
+        <code>import { initCallouts } from @citizensadvice/design-system/js/callout</code> and execute that function after the the page has finished loading.`,
+        null,
+        initCallouts
+    );
 export const contactDetails = () =>
     renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 export const websiteFeedback = () =>
