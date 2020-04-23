@@ -1,3 +1,6 @@
+ * NP-334 Bug Stroke on active links is too heavy
+ * NP-238 Callout headings restructure
+
 ## <sub>v0.10.0</sub>
 
 #### _Apr. 21, 2020_
