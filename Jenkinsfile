@@ -1,22 +1,31 @@
 pipeline {
     agent {
-        label "docker && awsaccess"
+        label 'docker && awsaccess'
+    }
+    environment {
+        DOCKERTAG = "${env.BRANCH_NAME == 'master' ? '' : 'dev_'}"
+        CA_STYLEGUIDE_VERSION_TA = "${DOCKERTAG}"
     }
 
     stages {
-        stage('Lint') {
+        stage('Setup') {
             steps {
-                sh "./bin/jenkins/lint"
+                script {
+                    currentBuild.displayName = "$BUILD_NUMBER: $DOCKERTAG"
+                }
             }
         }
-        stage('Test') {
+        stage('Lint & Test') {
             steps {
-                sh './bin/jenkins/test'
+                withDockerSandbox {
+                    sh './bin/jenkins/lint'
+                    sh './bin/jenkins/test'
+                }
             }
         }
         stage('Report') {
             steps {
-                sh "./bin/jenkins/fix_visual_test_report"
+                sh './bin/jenkins/fix_visual_test_report'
                 step([$class: 'JUnitResultArchiver', testResults: 'testing/backstop_data/ci_report/*.xml'])
                 publishHTML([
                     allowMissing: false,
@@ -24,7 +33,7 @@ pipeline {
                     keepAll: true,
                     reportDir: 'reports/html_report',
                     reportFiles: 'index.html',
-                    reportName: 'BackstopJS Report'
+                    reportName: 'BackstopJS Report',
                 ])
             }
         }
@@ -37,12 +46,11 @@ pipeline {
                 keepAll: true,
                 reportDir: 'reports/html_report',
                 reportFiles: 'index.html',
-                reportName: 'BackstopJS Report'
+                reportName: 'BackstopJS Report',
             ])
         }
         cleanup {
-            sh "docker-compose down --remove-orphans || true"
-            sh "rm -rf reports"
+            sh 'rm -rf reports'
         }
     }
 }
