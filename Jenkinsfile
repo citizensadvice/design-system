@@ -3,15 +3,15 @@ pipeline {
         label 'docker && awsaccess'
     }
     environment {
-        DOCKERTAG = "${env.BRANCH_NAME == 'master' ? '' : 'dev'}_${getSha()}"
-        CA_STYLEGUIDE_VERSION_TA = "${DOCKERTAG}"
+        DOCKER_TAG = "${JOB_NAME}_${getSha()}"
+        CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
     }
 
     stages {
         stage('Setup') {
             steps {
                 script {
-                    currentBuild.displayName = "$BUILD_NUMBER: $DOCKERTAG"
+                    currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
                 }
             }
         }
