@@ -3,7 +3,7 @@ pipeline {
         label 'docker && awsaccess'
     }
     environment {
-        DOCKERTAG = "${env.BRANCH_NAME == 'master' ? '' : 'dev_'}_${getSha}"
+        DOCKERTAG = "${env.BRANCH_NAME == 'master' ? '' : 'dev'}_${getSha()}"
         CA_STYLEGUIDE_VERSION_TA = "${DOCKERTAG}"
     }
 
