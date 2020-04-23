@@ -1,5 +1,6 @@
  * NP-334 Bug Stroke on active links is too heavy
  * NP-238 Callout headings restructure
+* NP-239 Advice Feedback
 
 ## <sub>v0.10.0</sub>
 
@@ -7,7 +8,6 @@
 
 * NP-290 Success message
 * NP-214 Link benefits to the fully qualified URL of the public website.
-* NP-239 Advice Feedback
 * NP-301 Textarea control
 * NP-312 Replace em with rem
 
