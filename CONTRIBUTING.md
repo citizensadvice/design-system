@@ -40,9 +40,14 @@ To start the server, run the tests and then stop the server you can run:
 npm run vr-test:test
 ```
 
-If you are running the tests in ci, or prefer not to have a browser showing the results opened at the end of the test-run then you can use `npm run vt-test:ci`.
+If you are running the tests in ci, or prefer not to have a browser showing the results opened at the end of the test-run then you can use `npm run vt-test:ci`. This will run both the design-system and backstop within docker using docker-compose. You may need to install `docker-compose` for this functionality to be available.
 
 You can also choose to run the tests without starting up the design-system server with `npm run vr-test:standalone`.
+
+After a test run is complete you can `npm run vr-test vr-test:open-report` to view the report in a browser.
+
+If you are working in a QA role you can npm run vr-test:approve' the changes.
+
 
 #### Low-level Usage
 
