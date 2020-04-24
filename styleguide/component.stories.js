@@ -37,6 +37,7 @@ import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tSuccessMessage from '../haml/_success_message.html.haml';
 import tTextarea from '../haml/_textarea.html.haml';
 import tAdviceFeedback from '../haml/_advice_feedback.html.haml';
+import tErrorSummary from '../haml/_error_summary.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -103,6 +104,19 @@ export const radioGroupSmall = () =>
     renderHamlTemplate('Radio Group (small)', tRadioSmall, 'radio_group_small');
 export const breadcrumb = () =>
     renderHamlTemplate('Breadcrumbs', tBreadcrumb, 'breadcrumb');
+export const errorSummary = () =>
+    renderHamlTemplate(
+        'Error summary',
+        tErrorSummary,
+        'error_summary',
+        `The error summary is used to provide a summary of form errors.
+You will need to provide the validation content and set the content.
+To set the number of fields use the <code>cads-error-summery__field_count</code>
+span and set the content to <code>1 field</code>, <code>5 fields</code>, etc.
+
+Then use the <code>cads-error-summary__list</code> to add the relevant <code>li</code>
+items.`
+    );
 export const logo = () =>
     renderHamlTemplate(
         'Logo',
