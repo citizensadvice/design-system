@@ -1,48 +1,54 @@
 pipeline {
     agent {
-        label "docker && awsaccess"
+        label 'docker && awsaccess'
+    }
+    environment {
+        DOCKER_TAG = "${JOB_NAME}_${getSha()}"
+        CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
     }
 
     stages {
-        stage('Lint') {
+        stage('Setup') {
             steps {
-                sh "./bin/jenkins/lint"
+                script {
+                    currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
+                }
+            }
+        }
+        stage ('Lint') {
+            steps {
+                withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                    sh './bin/jenkins/lint'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh './bin/jenkins/test'
-            }
-        }
-        stage('Report') {
-            steps {
-                sh "./bin/jenkins/fix_visual_test_report"
-                step([$class: 'JUnitResultArchiver', testResults: 'testing/backstop_data/ci_report/*.xml'])
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'reports/html_report',
-                    reportFiles: 'index.html',
-                    reportName: 'BackstopJS Report'
-                ])
+                withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}",
+                    "ca-backstop_${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                    sh './bin/jenkins/test'
+                }
             }
         }
     }
     post {
-        failure {
+        always {
+            step([$class: 'JUnitResultArchiver',
+                testResults: 'testing/backstop_data/ci_report/*.xml',
+                allowEmptyResults: true,
+            ])
+            sh './bin/jenkins/fix_visual_test_report'
             publishHTML([
                 allowMissing: true,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
                 reportDir: 'reports/html_report',
                 reportFiles: 'index.html',
-                reportName: 'BackstopJS Report'
+                reportName: 'BackstopJS Report',
             ])
         }
         cleanup {
-            sh "docker-compose down --remove-orphans || true"
-            sh "rm -rf reports"
+            sh 'rm -rf reports'
         }
     }
 }
