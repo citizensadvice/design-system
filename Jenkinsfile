@@ -19,33 +19,25 @@ pipeline {
             steps {
                 withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/lint'
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}", "ca-backstop_${CA_STYLEGUIDE_VERSION_TAG}"]) {
-                    sh './bin/jenkins/test'
-                }
-            }
-        }
-        stage('Report') {
-            steps {
-                sh './bin/jenkins/fix_visual_test_report'
-                step([$class: 'JUnitResultArchiver', testResults: 'testing/backstop_data/ci_report/*.xml'])
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'reports/html_report',
-                    reportFiles: 'index.html',
-                    reportName: 'BackstopJS Report',
-                ])
             }
         }
     }
+        stage('Test') {
+            steps {
+                withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}",
+                    "ca-backstop_${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                    sh './bin/jenkins/test'
+            }
+        }
+}
+    }
     post {
-        failure {
+        always {
+            step([$class: 'JUnitResultArchiver',
+                testResults: 'testing/backstop_data/ci_report/*.xml',
+                allowEmptyResults: true,
+            ])
+            sh './bin/jenkins/fix_visual_test_report'
             publishHTML([
                 allowMissing: true,
                 alwaysLinkToLastBuild: true,
@@ -56,7 +48,7 @@ pipeline {
             ])
         }
         cleanup {
-            sh 'rm -rf reports'
+            cleanWorkspace()
         }
     }
 }
