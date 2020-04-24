@@ -48,6 +48,11 @@ After a test run is complete you can `npm run vr-test vr-test:open-report` to vi
 
 If you are working in a QA role you can npm run vr-test:approve' the changes.
 
+#### Writing test scenarios
+
+It's important that both backstop files are kept in sync. Write you test scenarios in `./testing/backstop.json` and run `npm run vr-test:sync` to bring the files up to date. Any differences will be printed to the console.
+
+If you want to check the files are in sync you can run `npm run vr-test:check` - this is also run as part of the CI process. If the scenarios are not in sync then the build will fail.
 
 #### Low-level Usage
 

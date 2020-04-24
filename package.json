@@ -29,7 +29,9 @@
         "vr-test:ci": "./bin/jenkins/test && docker-compose down",
         "vr-test:standalone": "cd testing && npx backstop test --docker",
         "vr-test:approve": "cd testing && npx backstop approve",
-        "vr-test:open-report": "cd testing && npx backstop openReport"
+        "vr-test:open-report": "cd testing && npx backstop openReport",
+        "vr-test:sync": "node scripts/vr-test-sync.js",
+        "vr-test:check": "node scripts/vr-test-sync.js -- --check"
     },
     "repository": {
         "type": "git",
