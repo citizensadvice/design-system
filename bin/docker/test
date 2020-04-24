@@ -2,8 +2,6 @@
 
 set -e
 
-source bin/docker/network
-
 # start styleguide in background
 docker-compose up -d ca-styleguide
 # run tests - will check that
