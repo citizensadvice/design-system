@@ -9,6 +9,10 @@ footer,
         margin: 0 0 $cads-spacing-4 0;
     }
 
+    li {
+        font-size: 1rem;
+    }
+
     .cads-footer__company-info {
         @include cads-restrict-content-width();
 
