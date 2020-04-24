@@ -25,6 +25,10 @@ header,
         /* stylelint-enable */
     }
 
+    .cads-header-account-panel li {
+        font-size: 1rem;
+    }
+
     @include cads-media-breakpoint-only(sm) {
         padding: $cads-spacing-0;
 
