@@ -15,10 +15,16 @@ pipeline {
                 }
             }
         }
-        stage('Lint & Test') {
+        stage ('Lint') {
             steps {
-                withDockerSandbox {
+                withDockerSandbox(['ca-styleguide.test']) {
                     sh './bin/jenkins/lint'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                withDockerSandbox(['ca-styleguide.test', 'visual-tests.test']) {
                     sh './bin/jenkins/test'
                 }
             }
