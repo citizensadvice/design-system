@@ -17,15 +17,15 @@ pipeline {
         }
         stage ('Lint') {
             steps {
-                withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/lint'
                 }
             }
         }
         stage('Test') {
             steps {
-                withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}",
-                    "ca-backstop_${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
+                    "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/check'
                     sh './bin/jenkins/test'
                 }
