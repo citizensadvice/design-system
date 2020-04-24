@@ -26,6 +26,7 @@ pipeline {
             steps {
                 withDockerSandbox(["ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}",
                     "ca-backstop_${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                    sh './bin/jenkins/check'
                     sh './bin/jenkins/test'
                 }
             }
