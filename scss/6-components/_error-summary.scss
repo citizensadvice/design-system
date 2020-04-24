@@ -1,5 +1,5 @@
 .cads-error-summary {
-    @include cads-border(a, $cads-border-width-medium);
+    @include cads-border(a, $cads-border-width-medium, $cads-border-radius);
 
     width: 100%;
     padding: $cads-spacing-4;
