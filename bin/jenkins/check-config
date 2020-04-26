@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+PRODUCTION="true"
+NODE_ENV="test"
+
+source bin/docker/check-config
