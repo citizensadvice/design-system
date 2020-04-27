@@ -1,8 +1,8 @@
 .cads-callout {
-    @include cads-border(l);
+    @include cads-border(a, 0, $cads-border-radius);
 
     position: relative;
-    border-left-width: $cads-border-width-large;
+    border-width: 0 0 0 $cads-border-width-large;
     padding: $cads-spacing-4;
     margin: 0 0 $cads-spacing-5 0;
 
@@ -36,7 +36,7 @@
             @include cads-border(
                 a,
                 $cads-border-width-small,
-                0,
+                $cads-border-radius,
                 $cads-language__border-colour
             );
 
