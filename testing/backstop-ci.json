@@ -27,9 +27,9 @@
     "scenarios": [
         {
             "label": "2_Design_Foundations_COLOUR_LANGUAGE",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": ".cads-styleguide__wrapper",
             "delay": 0,
@@ -50,9 +50,9 @@
         },
         {
             "label": "2_Design_Foundations_COLOUR_PALETTE",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": ".cads-styleguide__wrapper",
             "delay": 0,
@@ -73,9 +73,9 @@
         },
         {
             "label": "3_Components_BREADCRUMBS",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -95,9 +95,9 @@
         },
         {
             "label": "3_Components_BUTTONS",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -117,9 +117,9 @@
         },
         {
             "label": "3_Components_CALLOUTS",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -139,9 +139,9 @@
         },
         {
             "label": "3_Components_CONTACT_DETAILS",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -161,9 +161,9 @@
         },
         {
             "label": "3_Components_FOOTER",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -183,9 +183,9 @@
         },
         {
             "label": "3_Components_HEADER",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -205,9 +205,9 @@
         },
         {
             "label": "3_Components_INPUT",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -227,9 +227,9 @@
         },
         {
             "label": "3_Components_LOGO",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -249,9 +249,9 @@
         },
         {
             "label": "3_Components_NAVIGATION",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 350,
@@ -278,7 +278,7 @@
                 },
                 {
                     "label": "Small",
-                    "width": 640,
+                    "width": 641,
                     "height": 300
                 },
                 {
@@ -295,9 +295,9 @@
         },
         {
             "label": "3_Components_NOTICE_BANNER",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -317,9 +317,9 @@
         },
         {
             "label": "3_Components_PAGE_REVIEW",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -339,9 +339,9 @@
         },
         {
             "label": "3_Components_RADIO_GROUP",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -361,9 +361,9 @@
         },
         {
             "label": "3_Components_RADIO_GROUP_small",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -383,9 +383,9 @@
         },
         {
             "label": "3_Components_SEARCH",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -405,9 +405,9 @@
         },
         {
             "label": "3_Components_SUCCESS_MESSAGE",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -427,9 +427,9 @@
         },
         {
             "label": "3_Components_TARGED_CONTENT",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -449,9 +449,9 @@
         },
         {
             "label": "3_Components_TEXTAREA",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
@@ -471,9 +471,9 @@
         },
         {
             "label": "3_Components_WEBSITE-FEEDBACK",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
