@@ -8,7 +8,7 @@ const fs = require('fs');
 const localScenarios = require('../testing/backstop.json').scenarios;
 const ciConfig = require('../testing/backstop-ci.json');
 
-const onlyCheck = process.argv.some(arg => arg === '--check');
+const onlyValidate = process.argv.some(arg => arg === '--validate');
 
 const localHost = 'http://host.docker.internal:6006';
 const ciHost = 'http://ca-styleguide.test:6006';
@@ -26,7 +26,7 @@ const stripUrls = scenarios => {
 
 const fixUrl = url => url.replace(localHost, ciHost);
 
-const checkSync = () => {
+const validate = () => {
     try {
         assert.deepStrictEqual(
             stripUrls(localScenarios),
@@ -75,12 +75,12 @@ const syncScenarios = () => {
     process.exit(0);
 };
 
-if (!onlyCheck) {
-    if (checkSync()) {
+if (onlyValidate) {
+    if (validate()) {
         process.exit(0);
     } else {
         process.exit(1);
     }
-} else if (!checkSync()) {
+} else if (!validate()) {
     syncScenarios();
 }

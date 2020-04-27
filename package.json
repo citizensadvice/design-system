@@ -31,7 +31,7 @@
         "vr-test:approve": "cd testing && npx backstop approve",
         "vr-test:open-report": "cd testing && npx backstop openReport",
         "vr-test:sync": "node scripts/vr-test-sync.js",
-        "vr-test:check": "node scripts/vr-test-sync.js -- --check"
+        "vr-test:validate": "node scripts/vr-test-sync.js -- --validate"
     },
     "repository": {
         "type": "git",
