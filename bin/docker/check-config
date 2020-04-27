@@ -6,4 +6,4 @@ set -ex
 docker-compose run \
     -v $(pwd)/testing/backstop.json:/app/testing/backstop.json \
     -v $(pwd)/testing/backstop-ci.json:/app/testing/backstop-ci.json \
-    ca-styleguide npm run vr-test:check
+    ca-styleguide npm run vr-test:validate

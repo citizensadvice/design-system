@@ -52,7 +52,7 @@ If you are working in a QA role you can npm run vr-test:approve' the changes.
 
 It's important that both backstop config files are kept in sync. Write your test scenarios in `./testing/backstop.json` and run `npm run vr-test:sync` to bring `./testing/backstop-ci.json` up to date. Any differences will be printed to the console.
 
-If you want to check that the files are in sync you can run `npm run vr-test:check` - this is also run as part of the CI process. If the scenarios do not match or any are missing then the build will fail.
+If you want to check that the files are in sync you can run `npm run vr-test:validate` - this is also run as part of the CI process. If the scenarios do not match or any are missing then the build will fail.
 
 #### Low-level Usage
 
