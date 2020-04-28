@@ -5,7 +5,7 @@ import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 // The styles
 import './styles.scss';
 
-import priorityNav from '@baseonmars/priority-nav';
+import priorityNav from '@citizensadvice/priority-nav';
 import initHeader from '../js/header';
 import initTargetedContent from '../js/targeted-content';
 import initAdviceFeedback from '../js/advice-feedback';
