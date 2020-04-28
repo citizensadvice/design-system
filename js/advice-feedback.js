@@ -55,12 +55,16 @@ const initAdviceFeedback = () => {
                 )[0];
                 errorList.innerHTML =
                     '<li><a href="#cads-advice-feedback-form">Select a feedback option</a></li>';
-                errorSummary.style.display = 'block';
+                form.getElementsByClassName(
+                    'cads-advice-feedback__step2'
+                )[0].classList.add('has-error');
             } else {
-                errorSummary.style.display = 'none';
                 form.setAttribute('aria-invalid', false);
                 form.classList.remove('step2');
                 form.classList.add('step3');
+                form.getElementsByClassName(
+                    'cads-advice-feedback__step2'
+                )[0].classList.remove('has-error');
 
                 // TODO Send response to API
                 console.log(reason, moreInfo);
@@ -72,7 +76,6 @@ const initAdviceFeedback = () => {
         )[0];
         closeButton.addEventListener('click', e => {
             e.preventDefault();
-            errorSummary.style.display = 'none';
             form.classList.add('step1');
             form.classList.remove('step2');
             form.classList.remove('step3');

@@ -1,10 +1,6 @@
 .cads-advice-feedback {
     position: relative;
 
-    .cads-error-summary {
-        display: none;
-    }
-
     @include cads-border(
         v,
         $cads-border-width-small,
@@ -45,6 +41,23 @@
     &.step2 {
         .cads-advice-feedback__step2 {
             display: block;
+
+            .cads-error-summary {
+                display: none;
+            }
+
+            &.has-error {
+                .cads-advice-feedback__close {
+                    float: none;
+                    width: 100%;
+                    text-align: right;
+                    margin-bottom: $cads-spacing-4;
+                }
+
+                .cads-error-summary {
+                    display: block;
+                }
+            }
         }
     }
 
