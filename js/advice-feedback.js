@@ -44,6 +44,11 @@ const initAdviceFeedback = () => {
                 }
             }
 
+            form.setAttribute('aria-invalid', false);
+            form.getElementsByClassName(
+                'cads-advice-feedback__step2'
+            )[0].classList.remove('has-error');
+
             if (!reason) {
                 form.setAttribute('aria-invalid', true);
                 form2.classList.add('cads-form-error');
@@ -53,18 +58,17 @@ const initAdviceFeedback = () => {
                 const errorList = errorSummary.getElementsByClassName(
                     'cads-error-summary__list'
                 )[0];
-                errorList.innerHTML =
-                    '<li><a href="#cads-advice-feedback-form">Select a feedback option</a></li>';
                 form.getElementsByClassName(
                     'cads-advice-feedback__step2'
                 )[0].classList.add('has-error');
+                errorList.innerHTML =
+                    '<li><a href="#cads-advice-feedback-form">Select a feedback option</a></li>';
+                form2
+                    .getElementsByClassName('.cads-radio-group')[0]
+                    .setAttribute('aria-invalid', true);
             } else {
-                form.setAttribute('aria-invalid', false);
                 form.classList.remove('step2');
                 form.classList.add('step3');
-                form.getElementsByClassName(
-                    'cads-advice-feedback__step2'
-                )[0].classList.remove('has-error');
 
                 // TODO Send response to API
                 console.log(reason, moreInfo);
