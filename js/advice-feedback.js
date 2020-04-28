@@ -5,6 +5,9 @@ const initAdviceFeedback = () => {
         const form2 = d
             .getElementById('cads-advice-feedback-form')
             .getElementsByClassName('cads-form')[0];
+        const errorSummary = form.getElementsByClassName(
+            'cads-error-summary'
+        )[0];
 
         d.getElementById('cads-advice-feedback__yes').addEventListener(
             'click',
@@ -44,7 +47,16 @@ const initAdviceFeedback = () => {
             if (!reason) {
                 form.setAttribute('aria-invalid', true);
                 form2.classList.add('cads-form-error');
+                errorSummary.getElementsByClassName(
+                    'cads-error-summery__field_count'
+                )[0].innerHTML = '1 field';
+                const errorList = errorSummary.getElementsByClassName(
+                    'cads-error-summary__list'
+                )[0];
+                errorList.innerHTML = '<li>Select a feedback option</li>';
+                errorSummary.style.display = 'block';
             } else {
+                errorSummary.style.display = 'none';
                 form.setAttribute('aria-invalid', false);
                 form.classList.remove('step2');
                 form.classList.add('step3');
@@ -59,6 +71,7 @@ const initAdviceFeedback = () => {
         )[0];
         closeButton.addEventListener('click', e => {
             e.preventDefault();
+            errorSummary.style.display = 'none';
             form.classList.add('step1');
             form.classList.remove('step2');
             form.classList.remove('step3');

@@ -1,6 +1,10 @@
 .cads-advice-feedback {
     position: relative;
 
+    .cads-error-summary {
+        display: none;
+    }
+
     @include cads-border(
         v,
         $cads-border-width-small,
