@@ -20,6 +20,10 @@
             &:last-of-type {
                 margin-bottom: 0;
             }
+
+            a {
+                color: $cads-language__warning-colour;
+            }
         }
     }
 }

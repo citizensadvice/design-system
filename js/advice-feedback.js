@@ -53,7 +53,8 @@ const initAdviceFeedback = () => {
                 const errorList = errorSummary.getElementsByClassName(
                     'cads-error-summary__list'
                 )[0];
-                errorList.innerHTML = '<li>Select a feedback option</li>';
+                errorList.innerHTML =
+                    '<li><a href="#cads-advice-feedback-form">Select a feedback option</a></li>';
                 errorSummary.style.display = 'block';
             } else {
                 errorSummary.style.display = 'none';
