@@ -6,7 +6,6 @@ pipeline {
         DOCKER_TAG = "${JOB_NAME}_${getSha()}"
         CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
         BUILD_STAGE = ''
-        BUILD_SUCCESS = 'true'
     }
     parameters {
         string(name: 'slackChannel', defaultValue: '#new_platform_builds',
@@ -27,7 +26,7 @@ pipeline {
         stage ('Lint') {
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
-                script { throw new Exception("fail on purpose") }
+                script { throw new Exception('fail on purpose') }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/lint'
             }
@@ -46,9 +45,6 @@ pipeline {
     }
 
     post {
-        failure {
-            script { env.BUILD_SUCCESS = 'false' }
-        }
         always {
             step([$class: 'JUnitResultArchiver',
                 testResults: 'testing/backstop_data/ci_report/*.xml',
@@ -71,12 +67,12 @@ pipeline {
                         credentialsId: params.slackCredentialsId,
                         message: "${sh(returnStdout: true, script: 'git log -1')}\nBackstop: ${buildLink()}BackstopJS_20Report/"
                     ]) {
-                        if (env.BUILD_SUCCESS == 'false') {
-                            throw new Exception('Build Failed')
+                        if (currentBuild.currentResult != 'SUCCESS') {
+                            throw new Exception("Build Failed: ${currentBuild.currentResult}")
                         }
                     }
                 } catch (Exception e) {
-                    // do nothing, exception just used to trigger failure message.
+                // do nothing, exception just used to trigger failure message.
                 }
             }
         }
