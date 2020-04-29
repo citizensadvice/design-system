@@ -26,7 +26,6 @@ pipeline {
         stage ('Lint') {
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
-                script { throw new Exception('fail on purpose') }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/lint'
             }
