@@ -68,7 +68,7 @@ pipeline {
                         message: "${sh(returnStdout: true, script: 'git log -1')}\nBackstop: ${buildLink()}BackstopJS_20Report/"
                     ]) {
                         if (currentBuild.currentResult != 'SUCCESS') {
-                            throw new Exception("Build Failed: ${currentBuild.currentResult}")
+                            throw new Exception("Build Failed")
                         }
                     }
                 } catch (Exception e) {
