@@ -9,7 +9,7 @@ pipeline {
         BUILD_SUCCESS = 'true'
     }
     parameters {
-        string(name: 'slackChannel', defaultValue: '#new_platform_github',
+        string(name: 'slackChannel', defaultValue: '#new_platform_builds',
             description: 'channel to print messages')
         string(name: 'slackCredentialsId', defaultValue: 'slack-plugin',
             description: 'id of slack credentials used when posting a message')
