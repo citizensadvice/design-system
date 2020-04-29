@@ -6,9 +6,12 @@ set -ex
 mkdir -m775 -p reports
 cp -R testing/backstop_data/* reports/
 
-# copy images into html_report folder so that jenkins can archive them
-cp -R reports/bitmaps_reference reports/bitmaps_test reports/html_report/
+if [ -d "reports/html_report" ]; then
+    # copy images into html_report folder so that jenkins can archive them
+    cp -R reports/bitmaps_reference reports/bitmaps_test reports/html_report/
 
-# update references to images
-sed -i -e 's/\.\.\/bitmaps_reference\//bitmaps_reference\//g' reports/html_report/config.js
-sed -i -e 's/\.\.\/bitmaps_test\//bitmaps_test\//g' reports/html_report/config.js
+    # update references to images
+    sed -i -e 's/\.\.\/bitmaps_reference\//bitmaps_reference\//g' reports/html_report/config.js
+    sed -i -e 's/\.\.\/bitmaps_test\//bitmaps_test\//g' reports/html_report/config.js
+fi
+
