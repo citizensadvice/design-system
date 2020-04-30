@@ -1,4 +1,5 @@
  * NP-350 switch priority-nav to @citizensadvice owned package
+ * NP-325 Remove H4 from Contact Details
  * NP-334 Bug Stroke on active links is too heavy
  * NP-333 Error summary component
  * NP-248 Bug: bulleted list default styles
