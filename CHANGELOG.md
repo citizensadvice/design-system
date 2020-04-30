@@ -1,6 +1,7 @@
  * NP-350 switch priority-nav to @citizensadvice owned package
  * NP-334 Bug Stroke on active links is too heavy
  * NP-333 Error summary component
+ * NP-248 Bug: bulleted list default styles
  * NP-238 Callout headings restructure
 
 ## <sub>v0.10.0</sub>

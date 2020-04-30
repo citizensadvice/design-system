@@ -52,7 +52,7 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 <h3>Lists</h3>
 
 <div class="cads-styleguide__highlight-box">
-<ul>
+<ul class="cads-list__no-bullet">
 	<li><a href="javascript:;">Item 1</a></li>
 	<li><a href="javascript:;">Item 2</a></li>
 	<li><a href="javascript:;">Item 3</a></li>
@@ -65,7 +65,7 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 <h3>Bullet lists</h3>
 
 <div class="cads-styleguide__highlight-box">
-<ul class="cads-list__bullet">
+<ul>
 	<li>Item 1</li>
 	<li>Item 2</li>
 	<li>Item 3</li>
