@@ -28,6 +28,10 @@ const initAdviceFeedback = () => {
                 form.classList.remove('step1');
                 form2.classList.remove('cads-form-error');
                 form.classList.add('step2');
+                // Make the legend focusable and move focus to it
+                const legend = form2.getElementsByTagName('legend')[0];
+                legend.setAttribute('tabIndex', '-1');
+                legend.focus();
             }
         );
 
