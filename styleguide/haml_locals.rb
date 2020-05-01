@@ -65,7 +65,7 @@
     id: 'target-content-123',
     title: 'If you are a citizen of a country outside the EU, EEA or Switzerland',
     body: '<p>You should apply to the EU Settlement Scheme if both:</p>
-<ul class="cads-list__bullet">
+<ul>
 <li>you’re in the UK by 31 December 2020</li>
 <li>you have family in the UK from the EU, EEA or Switzerland</li>
 </ul>
