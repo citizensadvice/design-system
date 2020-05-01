@@ -9,6 +9,10 @@ footer,
         margin: 0 0 $cads-spacing-4 0;
     }
 
+    ul {
+        @extend .cads-list__no-bullet;
+    }
+
     li {
         font-size: 1rem;
     }
