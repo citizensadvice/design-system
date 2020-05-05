@@ -26,7 +26,7 @@ const initTargetedContent = () => {
             });
         });
     } catch (e) {
-        console.log(`Could not initialise targeted content ${e}`);
+        console.warn(`Could not initialise targeted content ${e}`);
     }
 };
 

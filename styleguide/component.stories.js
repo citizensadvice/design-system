@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import { withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line
 import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
-import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 
 // The styles
 import './styles.scss';
@@ -9,6 +8,7 @@ import './styles.scss';
 import priorityNav from '@citizensadvice/priority-nav';
 import initHeader from '../js/header';
 import initTargetedContent from '../js/targeted-content';
+import initAdviceFeedback from '../js/advice-feedback';
 import initCallouts from '../js/callout';
 
 // eslint-disable-next-line
@@ -36,6 +36,7 @@ import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tSuccessMessage from '../haml/_success_message.html.haml';
 import tTextarea from '../haml/_textarea.html.haml';
+import tAdviceFeedback from '../haml/_advice_feedback.html.haml';
 import tErrorSummary from '../haml/_error_summary.html.haml';
 
 // Haml rendering wrapper for convenience
@@ -168,6 +169,15 @@ export const targetedContent = () =>
         null,
         null,
         () => initTargetedContent()
+    );
+export const adviceFeedback = () =>
+    renderHamlTemplate(
+        'Advice feedback',
+        tAdviceFeedback,
+        'advice_feedback',
+        null,
+        null,
+        () => initAdviceFeedback()
     );
 
 export const successMessage = () =>

@@ -32,10 +32,15 @@
     body: 'If you’re a Thomas Cook customer and you’re stuck abroad or want to get your money back, get help from the Civil Aviation Authority.'
   },
 
-  radio_group_name: 'radiogroup-1',
-  radio_group_label: 'Select an option',
-  radio_group_hint: 'There are two options',
-  radio_group_options: ['Option 1', 'Option 2'],
+  radio: {
+    name: 'radiogroup-1',
+    label: 'Select an option',
+    hint: 'There are two options',
+    options: [{value: 'opt1', label: 'Option 1'}, {value: 'opt2', label: 'Option 2'}],
+    error_message: 'This is an error message',
+    has_error: true,
+    optional: true
+  },
 
   input: {
     name: 'inputABC',

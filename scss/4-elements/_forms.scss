@@ -93,6 +93,16 @@ textarea,
     }
 }
 
+textarea,
+.cads-textarea {
+    width: 100%;
+    max-width: 50%;
+
+    @include cads-media-breakpoint-down(sm) {
+        max-width: 100%;
+    }
+}
+
 .cads-radio-button {
     display: block;
     position: relative;
