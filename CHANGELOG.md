@@ -1,3 +1,5 @@
+* NP-239 Advice Feedback
+
 ## <sub>v0.11.0</sub>
 
 #### _May. 5, 2020_
@@ -8,7 +10,6 @@
  * NP-333 Error summary component
  * NP-248 Bug: bulleted list default styles
  * NP-238 Callout headings restructure
-* NP-239 Advice Feedback
 
 ## <sub>v0.10.0</sub>
 
