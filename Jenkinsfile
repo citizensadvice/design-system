@@ -15,9 +15,9 @@ pipeline {
     }
 
     stages {
-        stage('Setup') {
+        stage('Prepare') {
             steps {
-                script { env.BUILD_STAGE = 'Setup' }
+                script { env.BUILD_STAGE = 'Prepare' }
                 script {
                     currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
                 }
