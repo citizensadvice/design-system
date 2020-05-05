@@ -1,3 +1,5 @@
+deployBranches = ['master']
+
 pipeline {
     agent {
         label 'docker && awsaccess'
@@ -59,19 +61,21 @@ pipeline {
                 reportName: 'BackstopJS Report',
             ])
             script {
-                try {
-                    withSlackNotifier([
-                        stage: env.BUILD_STAGE,
-                        channel: params.slackChannel,
-                        credentialsId: params.slackCredentialsId,
-                        message: "${sh(returnStdout: true, script: 'git log -1')}\nBackstop: ${BUILD_URL}BackstopJS_20Report/"
-                    ]) {
-                        if (currentBuild.currentResult != 'SUCCESS') {
-                            throw new Exception("Build Failed: ${currentBuild.currentResult}")
+                if (deployBranches.contains(BRANCH_NAME)) {
+                    try {
+                        withSlackNotifier([
+                            stage: env.BUILD_STAGE,
+                            channel: params.slackChannel,
+                            credentialsId: params.slackCredentialsId,
+                            message: """${sh(returnStdout: true, script: 'git log -1')}
+                                   |Backstop: ${BUILD_URL}BackstopJS_20Report/""".stripMargin,]) {
+                            if (currentBuild.currentResult != 'SUCCESS') {
+                                throw new Exception("Build Failed: ${currentBuild.currentResult}")
+                            }
                         }
+                    } catch (Exception e) {
+                    // do nothing, exception just used to trigger failure message.
                     }
-                } catch (Exception e) {
-                // do nothing, exception just used to trigger failure message.
                 }
             }
         }
