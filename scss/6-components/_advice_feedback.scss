@@ -39,6 +39,10 @@
     }
 
     &.step2 {
+        legend {
+            outline: none;
+        }
+
         .cads-advice-feedback__step2 {
             display: block;
 
