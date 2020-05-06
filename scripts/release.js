@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const simpleGit = require('simple-git');
-const gitState = require('git-state');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const path = require('path');
@@ -9,76 +8,14 @@ const { spawnSync } = require('child_process');
 const semver = require('semver');
 const moment = require('moment');
 const { checkBuildOutput } = require('./check-size');
+const { checkRepoStatus, ok, error, showError } = require('./releaseHelpers');
 
 const log = console.log; // eslint-disable-line
-const ok = '\u2713'; // The tick
-const error = '\u2716'; // The cross
 const DO_NOT_RELEASE = 'Do not release';
 const PATH = path.join(__dirname, '..');
 const ORG_NAME = '@citizensadvice';
 const PACKAGE_NAME = 'design-system';
 const FULL_PACKAGE_NAME = `${ORG_NAME}/${PACKAGE_NAME}`;
-
-const showError = (err, exit) => {
-    log(chalk.red.bold(err));
-
-    if (exit) {
-        process.exit(1);
-    }
-};
-
-function checkRepoStatus(repo, testRun) {
-    if (!gitState.isGitSync(repo)) {
-        showError(`${error} Could not find git repo info for ${repo}.`, true);
-    }
-
-    try {
-        const { branch, ahead, dirty, untracked } = gitState.checkSync(repo);
-
-        let err = false;
-
-        if (branch !== 'master') {
-            showError(
-                `${error} You must be in the master branch to prepare a release. Currently you are in ${branch}.`
-            );
-            err = true;
-        }
-
-        if (ahead !== 0) {
-            showError(`${error} Your repo has changes not pushed to remote.`);
-            err = true;
-        }
-
-        if (dirty !== 0) {
-            showError(`${error} Your have uncommited changes in you repo.`);
-            err = true;
-        }
-
-        if (untracked !== 0) {
-            showError(
-                `${error} There ${
-                    untracked === 1 ? 'is' : 'are'
-                } ${untracked} untracked file${untracked === 1 ? '' : 's'}.`
-            );
-            err = true;
-        }
-
-        // if (err) {
-        //     showError(
-        //         'Please ensure you are in the master branch and the the repo is in a clean state.',
-        //         !testRun
-        //     );
-        // }
-
-        log(chalk.green.dim(`${ok} Git repo clean.`));
-
-        return branch;
-    } catch (err) {
-        showError(err, true);
-    }
-
-    return null;
-}
 
 function updateVersionNumber(newVersion) {
     log(
@@ -107,7 +44,7 @@ function updateVersionNumber(newVersion) {
 /* ///////////////////////////////////////////////////////////////////////// */
 
 // Check the repo status and get the current branch name
-const branchName = checkRepoStatus(PATH);
+checkRepoStatus(PATH);
 chalk.bold(`You are preparing a new release.
 This script will create a branch based on your chosen version number and you must then create a
 pull request to master.`);
@@ -253,9 +190,9 @@ prompt([
 
                             git.add('.')
                                 .commit(releaseMessage)
-                                .push('origin', newVersionBranch, gitErr => {
-                                    if (gitErr) {
-                                        showError(gitErr, true);
+                                .push('origin', newVersionBranch, gitErr2 => {
+                                    if (gitErr2) {
+                                        showError(gitErr2, true);
                                     }
 
                                     log(
