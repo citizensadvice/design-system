@@ -42,7 +42,7 @@ Run `npm run release`. This prepares the release and puts it in a branch with th
 
 After the new version branch is merged, switch to `master`, pull the latest and run `npm publish`. The `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm. 
 
-***Note*** To run this step you need to be part of the npm org and have 2FA enabled.
+***Note:*** To run this step you need to be part of the npm org and have 2FA enabled.
 
 #### Usage
 
