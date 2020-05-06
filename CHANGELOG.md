@@ -1,4 +1,9 @@
+## <sub>v0.11.1-alpha.0</sub>
+
+#### _May. 6, 2020_
+
 * NP-239 Advice Feedback
+* NP-380 Release script update
 
 ## <sub>v0.11.0</sub>
 
