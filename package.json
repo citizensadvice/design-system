@@ -13,7 +13,8 @@
         "README.md"
     ],
     "scripts": {
-        "prepublishOnly": "npm run lint && npm run build && node ./scripts/release",
+        "release": "npm run lint && npm run build && node ./scripts/release",
+        "prepublishOnly": "npm run lint && npm run build && node ./scripts/publish",
         "pre-commit": "lint-staged",
         "check-size": "node ./scripts/check-size -r",
         "check-size:write": "node ./scripts/check-size -r -w",

@@ -38,10 +38,10 @@ function checkRepoStatus(repo, testRun) {
         let err = false;
 
         if (branch !== 'master') {
-            showError(
-                `${error} You must be in the master branch to prepare a release. Currently you are in ${branch}.`
-            );
-            err = true;
+            // showError(
+            //     `${error} You must be in the master branch to release. Currently you are in ${branch}.`
+            // );
+            // err = true;
         }
 
         if (ahead !== 0) {
@@ -108,9 +108,7 @@ function updateVersionNumber(newVersion) {
 
 // Check the repo status and get the current branch name
 const branchName = checkRepoStatus(PATH);
-chalk.bold(`You are preparing a new release.
-This script will create a branch based on your chosen version number and you must then create a
-pull request to master.`);
+
 prompt([
     {
         message: 'Have you updated the Changelog?',
@@ -199,84 +197,78 @@ prompt([
                 process.exit(1);
             }
 
-            const newVersionBranch = `v${newVersion}`;
-            const git = simpleGit(PATH);
+            updateVersionNumber(newVersion);
+            checkBuildOutput(true);
 
-            git.checkoutBranch(newVersionBranch, gitErr => {
-                if (gitErr) {
-                    showError(gitErr, true);
-                }
+            const changelogPath = path.join(PATH, 'CHANGELOG.md');
+            const changelog = fs.readFileSync(changelogPath, 'utf8');
 
-                updateVersionNumber(newVersion);
-                checkBuildOutput(true);
+            // Add the new entry
+            const changelogEntry = `## <sub>v${newVersion}</sub>\n\n#### ${moment().format(
+                '_MMM. D, YYYY_'
+            )}`;
+            const newChangelog = `${changelogEntry}\n\n${changelog}`;
+            fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 
-                const changelogPath = path.join(PATH, 'CHANGELOG.md');
-                const changelog = fs.readFileSync(changelogPath, 'utf8');
+            // Rebuild the docs
+            const docsBuildStatus = spawnSync('npm run docs:build', {
+                cwd: __dirname,
+                shell: true
+            }).status;
 
-                // Add the new entry
-                const changelogEntry = `## <sub>v${newVersion}</sub>\n\n#### ${moment().format(
-                    '_MMM. D, YYYY_'
-                )}`;
-                const newChangelog = `${changelogEntry}\n\n${changelog}`;
-                fs.writeFileSync(changelogPath, newChangelog, 'utf8');
+            if (docsBuildStatus === 0) {
+                log(chalk.green.dim(`${ok} Documentation build complete.`));
+            } else {
+                showError(
+                    `${error} Documentation build failed, check the repo status.`,
+                    true
+                );
+            }
 
-                // Rebuild the docs
-                const docsBuildStatus = spawnSync('npm run docs:build', {
-                    cwd: __dirname,
-                    shell: true
-                }).status;
+            try {
+                const git = simpleGit(PATH);
+                log(chalk.green.bold('Release prepared.'));
 
-                if (docsBuildStatus === 0) {
-                    log(chalk.green.dim(`${ok} Documentation build complete.`));
-                } else {
-                    showError(
-                        `${error} Documentation build failed, check the repo status.`,
-                        true
-                    );
-                }
+                prompt([
+                    {
+                        message:
+                            'Do you want to commit the changes, push and release?',
+                        type: 'confirm',
+                        name: 'confirmation',
+                        default: false
+                    }
+                ]).then(commitChanges => {
+                    if (commitChanges.confirmation) {
+                        let releaseMessage = '';
+                        releaseMessage += `v${newVersion}`;
 
-                try {
-                    log(chalk.green.bold('Release prepared.'));
+                        git.add('.')
+                            .commit(releaseMessage)
+                            .push('origin', branchName, gitErr => {
+                                if (gitErr) {
+                                    showError(gitErr, true);
+                                }
 
-                    prompt([
-                        {
-                            message:
-                                'Do you want to commit the changes and prepare the branch?',
-                            type: 'confirm',
-                            name: 'confirmation',
-                            default: false
-                        }
-                    ]).then(commitChanges => {
-                        if (commitChanges.confirmation) {
-                            let releaseMessage = '';
-                            releaseMessage += `v${newVersion}`;
+                                log(
+                                    chalk.green(
+                                        `${ok} Changes commited and pushed`
+                                    )
+                                );
 
-                            git.add('.')
-                                .commit(releaseMessage)
-                                .push('origin', newVersionBranch, gitErr => {
-                                    if (gitErr) {
-                                        showError(gitErr, true);
-                                    }
-
-                                    log(
-                                        chalk.green(
-                                            `${ok} Changes commited and pushed. You must now create a pull request for branch v${newVersion}.`
-                                        )
-                                    );
-                                });
-                        } else {
-                            log(
-                                chalk.bold(
-                                    'Changes not commited. Check the repo status.'
-                                )
-                            );
-                            process.exit(1);
-                        }
-                    });
-                } catch (e) {
-                    showError(e, true);
-                }
-            });
+                                // publishToNPM(newVersion);
+                            });
+                    } else {
+                        log(
+                            chalk.bold(
+                                'Changes not commited. Check the repo status.'
+                            )
+                        );
+                        process.exit(1);
+                    }
+                });
+            } catch (e) {
+                showError(e, true);
+            }
         });
     });
 });

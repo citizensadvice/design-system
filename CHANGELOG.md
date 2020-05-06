@@ -1,4 +1,5 @@
 * NP-239 Advice Feedback
+* NP-380 Release script update
 
 ## <sub>v0.11.0</sub>
 
