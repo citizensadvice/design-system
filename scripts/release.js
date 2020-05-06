@@ -197,14 +197,14 @@ prompt([
 
                                     log(
                                         chalk.green(
-                                            `${ok} Changes commited and pushed. You must now create a pull request for branch v${newVersion}.`
+                                            `${ok} Changes committed and pushed. You must now create a pull request for branch v${newVersion}.`
                                         )
                                     );
                                 });
                         } else {
                             log(
                                 chalk.bold(
-                                    'Changes not commited. Check the repo status.'
+                                    'Changes not committed. Check the repo status.'
                                 )
                             );
                             process.exit(1);

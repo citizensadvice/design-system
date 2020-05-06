@@ -37,7 +37,7 @@ function checkRepoStatus(repo, testRun) {
         }
 
         if (dirty !== 0) {
-            showError(`${error} Your have uncommited changes in you repo.`);
+            showError(`${error} Your have uncommitted changes in you repo.`);
             err = true;
         }
 
@@ -52,7 +52,7 @@ function checkRepoStatus(repo, testRun) {
 
         if (err) {
             showError(
-                'Please ensure you are in the master branch and the the repo is in a clean state.',
+                'Please ensure you are in the master branch and that the repo is in a clean state.',
                 !testRun
             );
         }
