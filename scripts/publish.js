@@ -38,10 +38,10 @@ function checkRepoStatus(repo, testRun) {
         let err = false;
 
         if (branch !== 'master') {
-            // showError(
-            //     `${error} You must be in the master branch to release. Currently you are in ${branch}.`
-            // );
-            // err = true;
+            showError(
+                `${error} You must be in the master branch to release. Currently you are in ${branch}.`
+            );
+            err = true;
         }
 
         if (ahead !== 0) {

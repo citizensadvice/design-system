@@ -63,12 +63,12 @@ function checkRepoStatus(repo, testRun) {
             err = true;
         }
 
-        if (err) {
-            showError(
-                'Please ensure you are in the master branch and the the repo is in a clean state.',
-                !testRun
-            );
-        }
+        // if (err) {
+        //     showError(
+        //         'Please ensure you are in the master branch and the the repo is in a clean state.',
+        //         !testRun
+        //     );
+        // }
 
         log(chalk.green.dim(`${ok} Git repo clean.`));
 
@@ -202,7 +202,7 @@ prompt([
             const newVersionBranch = `v${newVersion}`;
             const git = simpleGit(PATH);
 
-            git.checkoutBranch(newVersionBranch, gitErr => {
+            git.checkoutBranch(newVersionBranch, 'HEAD', gitErr => {
                 if (gitErr) {
                     showError(gitErr, true);
                 }
