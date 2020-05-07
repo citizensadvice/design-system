@@ -1,3 +1,7 @@
+## <sub>v0.12.0</sub>
+
+#### _May. 7, 2020_
+
 * NP-352 Targeted content integration
 * NP-239 Advice Feedback
 * NP-380 Release script update

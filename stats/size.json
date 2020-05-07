@@ -206,6 +206,15 @@
           "size": 53551
         }
       ]
+    },
+    {
+      "version": "0.12.0",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 53551
+        }
+      ]
     }
   ]
 }
