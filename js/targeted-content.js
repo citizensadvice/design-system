@@ -3,7 +3,8 @@ const initTargetedContent = () => {
         const content = document.getElementsByClassName(
             'cads-targeted-content'
         );
-        content.forEach(item => {
+        for (let i = 0; i < content.length; i++) {
+            const item = content[i];
             const summary = item.getElementsByClassName(
                 'cads-targeted-content__summary'
             )[0];
@@ -24,7 +25,7 @@ const initTargetedContent = () => {
                 summary.ariaExpanded = false;
                 item.open = false;
             });
-        });
+        }
     } catch (e) {
         console.warn(`Could not initialise targeted content ${e}`);
     }

@@ -132,7 +132,7 @@ export const navigation = () =>
         'navigation',
         `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
         \n\n
-        <code>import { initNavigation } from @citizensadvice/design-system/js/navigation</code> and execute that function after the navigation components html has loaded into the DOM.`,
+        <pre><code>import { initNavigation } from '@citizensadvice/design-system/js/navigation'</code></pre> and execute that function after the navigation components html has loaded into the DOM.`,
         null,
         () =>
             priorityNav.init({
@@ -149,7 +149,7 @@ export const callout = () =>
         'callout',
         `The callout component uses javascript to rearrange the heading level of the first callout on the screen (H2 vs H3 heading).
         \n\n
-        <code>import { initCallouts } from @citizensadvice/design-system/js/callout</code> and execute that function after the the page has finished loading.`,
+        <pre><code>import initCallouts from '@citizensadvice/design-system/js/callout'</code></pre> and execute that function after the the page has finished loading.`,
         null,
         initCallouts
     );
@@ -166,7 +166,9 @@ export const targetedContent = () =>
         'Targeted Content',
         tTargetedContent,
         'targeted-content',
-        null,
+        `The targeted component uses javascript to initialise the click handlers for the collapse/expand behaviour.
+        \n\n
+        <pre><code>import initTargetedContent from '@citizensadvice/design-system/js/targeted-content'</code></pre> and execute that function after the the page has finished loading.`,
         null,
         () => initTargetedContent()
     );
