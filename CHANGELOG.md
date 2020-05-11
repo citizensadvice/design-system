@@ -1,3 +1,5 @@
+* Bug fix priority-nav import package
+
 ## <sub>v0.12.0</sub>
 
 #### _May. 7, 2020_

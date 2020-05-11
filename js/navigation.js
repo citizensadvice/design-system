@@ -1,4 +1,4 @@
-import priorityNav from '@baseonmars/priority-nav';
+import priorityNav from '@citizensadvice/priority-nav';
 
 export default priorityNav;
 
