@@ -1,3 +1,5 @@
+* NP-274 Print styles
+
 ## <sub>v0.12.1</sub>
 
 #### _May. 11, 2020_

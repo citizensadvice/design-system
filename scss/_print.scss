@@ -1,0 +1,33 @@
+@media print {
+    .cads-advice-feedback,
+    .cads-breadcrumbs,
+    .cads-error-summary,
+    .cads-feedback,
+    .cads-header-account-panel,
+    .cads-navigation,
+    .cads-search,
+    .cads-success-message,
+    .cads-website-feedback {
+        display: none !important;
+    }
+
+    .cads-callout,
+    .cads-contact-details,
+    .cads-footer,
+    .cads-header,
+    .cads-logo,
+    .cads-navigation,
+    .cads-notice-banner,
+    .cads-page-review {
+        // No change
+    }
+
+    .cads-targeted-content {
+        .cads-icon-minus,
+        .cads-icon-plus,
+        &__close-button,
+        .separator {
+            display: none !important;
+        }
+    }
+}
