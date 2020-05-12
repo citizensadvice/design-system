@@ -1,0 +1,55 @@
+@media print {
+    // Components that are not shown when printing
+    .cads-advice-feedback,
+    .cads-breadcrumbs,
+    .cads-error-summary,
+    .cads-feedback,
+    .cads-header-account-panel,
+    footer,
+    .cads-footer,
+    .cads-navigation,
+    .cads-search,
+    .cads-success-message,
+    .cads-website-feedback {
+        display: none !important;
+    }
+
+    // Components that print as they are
+    .cads-contact-details,
+    .cads-header,
+    .cads-logo,
+    .cads-navigation,
+    .cads-notice-banner,
+    .cads-page-review {
+        // No change
+    }
+
+    // Components that adapt for printing
+    .cads-callout {
+        background: transparent !important;
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+    }
+
+    .cads-targeted-content {
+        .cads-icon-minus,
+        .cads-icon-plus,
+        &__close-button,
+        .separator {
+            display: none !important;
+        }
+    }
+
+    @page {
+        size: A4; /* DIN A4 standard, Europe */
+        margin: 13mm 12mm;
+    }
+
+    html,
+    body {
+        margin: 0;
+        background: #fff;
+        overflow: visible;
+    }
+}
