@@ -3,6 +3,7 @@ const initTargetedContent = () => {
         const content = document.getElementsByClassName(
             'cads-targeted-content'
         );
+
         for (let i = 0; i < content.length; i++) {
             const item = content[i];
             const summary = item.getElementsByClassName(
@@ -34,8 +35,9 @@ const initTargetedContent = () => {
                 const summary = item.getElementsByClassName(
                     'cads-targeted-content__summary'
                 )[0];
-                item.classList.add('is-open');
-                summary.setAttribute('aria-expanded', true);
+                if (!item.classList.contains('is-open')) {
+                    summary.click();
+                }
             }
         });
     } catch (e) {

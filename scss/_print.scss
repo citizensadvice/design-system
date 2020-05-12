@@ -1,9 +1,11 @@
 @media print {
+    // Components that are not shown when printing
     .cads-advice-feedback,
     .cads-breadcrumbs,
     .cads-error-summary,
     .cads-feedback,
     .cads-header-account-panel,
+    .cads-footer,
     .cads-navigation,
     .cads-search,
     .cads-success-message,
@@ -11,15 +13,19 @@
         display: none !important;
     }
 
-    .cads-callout,
+    // Components that print as they are
     .cads-contact-details,
-    .cads-footer,
     .cads-header,
     .cads-logo,
     .cads-navigation,
     .cads-notice-banner,
     .cads-page-review {
         // No change
+    }
+
+    // Components that adapt for printing
+    .cads-callout {
+        background: transparent !important;
     }
 
     .cads-targeted-content {
@@ -29,5 +35,17 @@
         .separator {
             display: none !important;
         }
+    }
+
+    @page {
+        size: A4; /* DIN A4 standard, Europe */
+        margin: 25mm 20mm;
+    }
+
+    html,
+    body {
+        margin: 0;
+        background: #fff;
+        overflow: visible;
     }
 }
