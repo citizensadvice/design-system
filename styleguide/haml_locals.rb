@@ -17,8 +17,8 @@
   ],
 
   notice: {
-    type: 'important',
-    title: 'Callout title: Important',
+    type: 'urgent',
+    title: 'Callout title: Urgent',
     body: '<p>The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.</p>'
   },
 
@@ -36,7 +36,7 @@
     name: 'radiogroup-1',
     label: 'Select an option',
     hint: 'There are two options',
-    options: [{value: 'opt1', label: 'Option 1'}, {value: 'opt2', label: 'Option 2'}],
+    options: [{ value: 'opt1', label: 'Option 1' }, { value: 'opt2', label: 'Option 2' }],
     error_message: 'This is an error message',
     has_error: true,
     optional: true

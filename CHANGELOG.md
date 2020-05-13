@@ -1,3 +1,5 @@
+* NP-388 Callout type naming
+
 ## <sub>v0.13.0</sub>
 
 #### _May. 13, 2020_
