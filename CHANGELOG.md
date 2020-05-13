@@ -1,5 +1,6 @@
 * NP-391 Targetted content layout
 * NP-388 Callout type naming
+* NP-394 Breadcrumb title field rename
 
 ## <sub>v0.13.0</sub>
 
