@@ -1,4 +1,5 @@
 * NP-391 Targetted content layout
+* NP-388 Callout type naming
 
 ## <sub>v0.13.0</sub>
 
