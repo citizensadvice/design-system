@@ -1,3 +1,7 @@
+## <sub>v0.13.1</sub>
+
+#### _May. 13, 2020_
+
 * NP-391 Targetted content layout
 * NP-388 Callout type naming
 * NP-394 Breadcrumb title field rename
