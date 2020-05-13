@@ -1,6 +1,7 @@
 .cads-targeted-content {
     display: block;
     box-sizing: border-box;
+    margin-bottom: $cads-spacing-4;
 
     &__summary {
         @include cads-interactive-element();

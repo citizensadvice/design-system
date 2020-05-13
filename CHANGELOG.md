@@ -1,3 +1,5 @@
+* NP-391 Targetted content layout
+
 ## <sub>v0.13.0</sub>
 
 #### _May. 13, 2020_
