@@ -4,15 +4,15 @@
   breadcrumb_links: [
     {
       url: 'https://www.citizensadvice.org.uk/benefits/',
-      label: 'Benefits'
+      title: 'Benefits'
     },
     {
       url: 'https://www.citizensadvice.org.uk/benefits/benefits-introduction/',
-      label: 'Benefits - introduction'
+      title: 'Benefits - introduction'
     },
     {
       url: 'https://www.citizensadvice.org.uk/benefits/benefits-introduction/what-benefits-can-i-get/',
-      label: 'Benefit calculators: what benefits can you get'
+      title: 'Benefit calculators: what benefits can you get'
     }
   ],
 
