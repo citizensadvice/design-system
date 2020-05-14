@@ -1,3 +1,6 @@
+* NP-401 Replace symbol hash access syntax for string
+* NP-381 Changelog
+
 ## <sub>v0.13.1</sub>
 
 #### _May. 13, 2020_
