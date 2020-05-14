@@ -1,10 +1,10 @@
-%details.cads-targeted-content{:id => targetContent[:id]}
-  %summary.cads-targeted-content__summary{:role => "button", :"aria-controls" => "#{targetContent[:id]}-content", :"aria-expanded" => "false"}
+%details.cads-targeted-content{:id => targetContent['id']}
+  %summary.cads-targeted-content__summary{:role => "button", :"aria-controls" => "#{targetContent['id']}-content", :"aria-expanded" => "false"}
     %span.cads-target-content__button.cads-icon-minus
     %span.cads-target-content__button.cads-icon-plus
     %span.cads-targeted-content__title
-      = targetContent[:title]
-  .cads-targeted-content__content{:id => "#{targetContent[:id]}-content"}
-    = targetContent[:body]
+      = targetContent['title']
+  .cads-targeted-content__content{:id => "#{targetContent['id']}-content"}
+    = targetContent['body']
     %hr.separator
-    %button.cads-linkbutton.cads-targeted-content__close-button{:"aria-label" => "Collapse #{targetContent[:title]}"}
+    %button.cads-linkbutton.cads-targeted-content__close-button{:"aria-label" => "Collapse #{targetContent['title']}"}
