@@ -14,7 +14,7 @@
     },
     {
       'url' => 'https =>//www.citizensadvice.org.uk/benefits/benefits-introduction/what-benefits-can-i-get/',
-      'title' => 'Benefit calculators => what benefits can you get'
+      'title' => 'Benefit calculators: what benefits can you get'
     }
   ],
 
