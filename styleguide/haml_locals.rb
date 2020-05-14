@@ -42,8 +42,8 @@
       { 'value' => 'opt2', 'label' => 'Option 2' }
     ],
     'error_message' => 'This is an error message',
-    'has_error' => 'true',
-    'optional' => 'true'
+    'has_error' => true,
+    'optional' => true
   },
 
   'input' => {
@@ -51,8 +51,8 @@
     'label' => 'This is the label for the input',
     'hint' => 'This is the hint for the input',
     'error_message' => 'This is an error messsage',
-    'has_error' => 'true',
-    'optional' => 'true'
+    'has_error' => true,
+    'optional' => true
   },
 
   'contact_details' => {
