@@ -67,8 +67,8 @@ pipeline {
                             stage: env.BUILD_STAGE,
                             channel: params.slackChannel,
                             credentialsId: params.slackCredentialsId,
-                            message: """${sh(returnStdout: true, script: 'git log -1')}
-                                   |Backstop: ${BUILD_URL}BackstopJS_20Report/""".stripMargin,]) {
+                            message: "${sh(returnStdout: true, script: 'git log -1')}" +
+                                     "\nBackstop: ${BUILD_URL}BackstopJS_20Report/",]) {
                             if (currentBuild.currentResult != 'SUCCESS') {
                                 throw new Exception("Build Failed: ${currentBuild.currentResult}")
                             }
