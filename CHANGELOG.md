@@ -1,3 +1,5 @@
+* NP-415 Remove footer feedback component
+
 ## <sub>v0.14.0</sub>
 
 #### _May. 14, 2020_
