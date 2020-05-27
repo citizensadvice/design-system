@@ -1,3 +1,5 @@
+* NP-411 Search pagination component
+
 ## <sub>v0.15.0</sub>
 
 #### _May. 19, 2020_

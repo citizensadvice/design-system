@@ -16,6 +16,7 @@ import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
 import Buttons from './components/buttons';
+import { Pagination, PagingInfo } from './components/pagination';
 
 // Haml setup
 // Import all the templates...
@@ -78,6 +79,8 @@ export default {
 };
 
 export const buttons = () => Buttons();
+export const pagination = () => Pagination();
+export const pagingInfo = () => PagingInfo();
 
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
 export const search = () => renderHamlTemplate('Search', tSearch, 'search');
