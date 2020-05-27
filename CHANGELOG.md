@@ -1,3 +1,7 @@
+## <sub>v0.16.0</sub>
+
+#### _May. 27, 2020_
+
 * NP-411 Search pagination component
 
 ## <sub>v0.15.0</sub>
