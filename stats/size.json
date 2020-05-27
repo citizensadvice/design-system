@@ -260,6 +260,15 @@
           "size": 63634
         }
       ]
+    },
+    {
+      "version": "0.16.0",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 64154
+        }
+      ]
     }
   ]
 }
