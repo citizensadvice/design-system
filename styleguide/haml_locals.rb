@@ -20,8 +20,7 @@
 
   'notice' => {
     'type' => 'urgent',
-    'title' => 'Callout title: Urgent',
-    'body' => '<p>The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.</p>'
+    'body' => '<h3>This is the callout title</h3><p>The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.</p>'
   },
 
   'root_path' => 'root_path',
