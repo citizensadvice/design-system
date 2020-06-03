@@ -9,7 +9,9 @@
     },
     "devDependencies": {},
     "scripts": {
-        "test": "npx backstop test"
+        "test": "npx backstop test",
+        "test:docker": "npx backstop test --docker",
+        "approve": "npx backstop approve"
     },
     "author": "Marcelo Nicolosi <marcelo.nicolosi@citizensadvice.org.uk>",
     "license": "ISC"
