@@ -1,3 +1,4 @@
+* NP-446 Search button in header shouldn't have box-shadow on mobile
 * NP-444 Website Feedback component: ensure link and icon wrap to new line together
 
 ## <sub>v0.16.0</sub>
