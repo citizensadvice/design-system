@@ -8,9 +8,6 @@
         "backstopjs": "^4.5.1"
     },
     "devDependencies": {},
-    "scripts": {
-        "test": "npx backstop test"
-    },
     "author": "Marcelo Nicolosi <marcelo.nicolosi@citizensadvice.org.uk>",
     "license": "ISC"
 }
