@@ -30,18 +30,26 @@
             border-left-color: $cads-palette__mid-grey;
             border-left-width: $cads-border-width-large;
 
-            .cads-callout-label {
-                display: block;
+            h2:first-child,
+            h3:first-child {
+                &::before {
+                    margin-bottom: $cads-spacing-3;
+                    font-size: 0.875rem;
+                    line-height: 1em;
+                    display: block;
 
-                &::after {
+                    @include cads-media-breakpoint-up(md) {
+                        font-size: 1rem;
+                    }
+
                     content: 'Example';
                 }
 
-                .cads-lang-gd &::after {
+                .cads-lang-gd &::before {
                     content: 'Eisimpleir';
                 }
 
-                .cads-lang-cy &::after {
+                .cads-lang-cy &::before {
                     content: 'Enghraifft';
                 }
             }
@@ -58,19 +66,27 @@
             border-color: $cads-language__error-colour;
             background-color: cads-colour-to-bg($cads-language__error-colour);
 
-            .cads-callout-label {
-                display: block;
-
+            h2:first-child,
+            h3:first-child {
                 /* stylelint-disable-next-line */
-                &::after {
+                &::before {
+                    margin-bottom: $cads-spacing-3;
+                    font-size: 0.875rem;
+                    line-height: 1em;
+                    display: block;
+
+                    @include cads-media-breakpoint-up(md) {
+                        font-size: 1rem;
+                    }
+
                     content: 'Important';
                 }
 
-                .cads-lang-gd &::after {
+                .cads-lang-gd &::before {
                     content: 'Cudromach';
                 }
 
-                .cads-lang-cy &::after {
+                .cads-lang-cy &::before {
                     content: 'Bwysig';
                 }
             }
