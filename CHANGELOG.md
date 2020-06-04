@@ -1,3 +1,7 @@
+## <sub>v0.17.1</sub>
+
+#### _Jun. 4, 2020_
+
 * NP-439 Grid gutter size
 * NP-452 Last breadcrumb not a link
 
