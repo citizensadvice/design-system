@@ -244,7 +244,7 @@
             "requireSameDimensions": true
         },
         {
-            "label": "3_Components_ERROR_SUIMARY",
+            "label": "3_Components_ERROR_SUMMARY",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
@@ -488,7 +488,7 @@
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 100,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
