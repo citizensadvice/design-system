@@ -1,3 +1,5 @@
+* NP-439 Grid gutter size
+
 ## <sub>v0.17.0</sub>
 
 #### _Jun. 3, 2020_
