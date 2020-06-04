@@ -2,7 +2,11 @@
   %ul.cads-list-unordered.cads-list-unordered__inline
     %li
       %a.cads-breadcrumb{:href => "/"} Home
-    - breadcrumb_links.each do |link|
+    - breadcrumb_links.each_with_index do |link, index|
       %li
-        %a.cads-breadcrumb{:href => link['url'], :title => link['title']}
-          = link['title']
+        - if index == breadcrumb_links.size - 1
+          %span.cads-breadcrumb
+            = link['title']
+        - else
+          %a.cads-breadcrumb{:href => link['url'], :title => link['title']}
+            = link['title']
