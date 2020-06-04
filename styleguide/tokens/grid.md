@@ -12,7 +12,7 @@ Grid columns without a specified <span class="html inline">width</span> will aut
 
 Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use <span class="html inline">.cads-grid-col-4</span>. Column `width`s are set in percentages, so they’re always fluid and sized relative to their parent element.
 
-Columns have horizontal <span class="html inline">padding</span> to create the gutters between individual columns, however, you can remove the <span class="html inline">margin</span> from rows and <span class="html inline">padding</span> from columns with <span class="html inline">.no-gutters</span> on the <span class="html inline">.row</span>.
+Columns have horizontal <span class="html inline">padding</span> to create the gutters between individual columns.
 
 To make the grid responsive, there are three grid breakpoints, one for each responsive breakpoint: all breakpoints (small), medium and large.
 
@@ -62,7 +62,7 @@ Grid breakpoints are based on minimum width media queries, meaning <strong>they 
   </tbody>
 </table>
 
-For grids that are the same from the smallest of devices to the largest, use the <span class="html inline">.cads-grid-col</span> and <span class="html inline">.cads-grid-col-*</span> classes. 
+For grids that are the same from the smallest of devices to the largest, use the <span class="html inline">.cads-grid-col</span> and <span class="html inline">.cads-grid-col-*</span> classes.
 
 Using a single set of <span class="html inline">.cads-grid-col-{breakpoint}-*</span> classes, you can create a basic grid system that starts out stacked before becoming horizontal with at the specified breakpoint.
 
@@ -123,44 +123,6 @@ For grids that are the same from the smallest of devices to the largest, use the
     <div class="cads-grid-row">
         <div class="cads-grid-col-8"><span>1</span></div>
         <div class="cads-grid-col-4"><span>2</span></div>
-    </div>
-</div>
-```
-
-### Remove gutters
-
-Gutters can be removed by adding the <span class="html inline">.cads-grid-row--no-gutter</span> modifier class to the <span class="html inline">.cads-grid-row</span> element.
-
-<div class="cads-styleguide-grid cads-grid-container">
-    <div class="cads-grid-row cads-grid-row--no-gutters">
-        <div class="cads-grid-col"><span>1</span></div>
-        <div class="cads-grid-col"><span>2</span></div>
-        <div class="cads-grid-col"><span>3</span></div>
-        <div class="cads-grid-col"><span>4</span></div>
-        <div class="cads-grid-col"><span>5</span></div>
-        <div class="cads-grid-col"><span>6</span></div>
-    </div>
-    <div class="cads-grid-row cads-grid-row--no-gutters">
-        <div class="cads-grid-col"><span>1</span></div>
-        <div class="cads-grid-col"><span>2</span></div>
-        <div class="cads-grid-col"><span>3</span></div>
-    </div>
-</div>
-
-```html
-<div class="cads-grid-container">
-    <div class="cads-grid-row cads-grid-row--no-gutters">
-        <div class="cads-grid-col"><span>1</span></div>
-        <div class="cads-grid-col"><span>2</span></div>
-        <div class="cads-grid-col"><span>3</span></div>
-        <div class="cads-grid-col"><span>4</span></div>
-        <div class="cads-grid-col"><span>5</span></div>
-        <div class="cads-grid-col"><span>6</span></div>
-    </div>
-    <div class="cads-grid-row cads-grid-row--no-gutters">
-        <div class="cads-grid-col"><span>1</span></div>
-        <div class="cads-grid-col"><span>2</span></div>
-        <div class="cads-grid-col"><span>3</span></div>
     </div>
 </div>
 ```
@@ -296,7 +258,7 @@ Using a single set of  <span class="html inline">.cads-grid-col-lg-*</span> clas
 
 ### Responsive varying columns
 
-Use a combination of breakpoint width classes to create different layouts for each breakpoint.  
+Use a combination of breakpoint width classes to create different layouts for each breakpoint.
 - Small breakpoint - 1 column (as each cell is 6 columns wide)
 - Medium breakpoint - 4 columns (as each cell is 3 columns wide and there are 12 to be wrapped in 4 rows)
 - Large breakpoint - 2, 4, 6 columns with wrapping
