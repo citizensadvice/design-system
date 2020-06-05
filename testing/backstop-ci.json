@@ -244,6 +244,30 @@
             "requireSameDimensions": true
         },
         {
+            "label": "3_Components_ERROR_SUMMARY",
+            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
+            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
+            "readyEvent": "",
+            "readySelector": "#a11yComponentToTest",
+            "delay": 0,
+            "hideSelectors": [],
+            "removeSelectors": [
+                ".cads-styleguide__breakpoint-label",
+                ".cads-styleguide__language-label"
+            ],
+            "hoverSelector": "",
+            "clickSelector": "",
+            "postInteractionWait": 0,
+            "selectors": [
+                "#a11yComponentToTest"
+            ],
+            "selectorExpansion": true,
+            "expect": 0,
+            "misMatchThreshold": 0.1,
+            "requireSameDimensions": true
+        },
+        {
             "label": "3_Components_FOOTER",
             "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
             "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
@@ -417,6 +441,54 @@
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
             "delay": 0,
+            "hideSelectors": [],
+            "removeSelectors": [
+                ".cads-styleguide__breakpoint-label",
+                ".cads-styleguide__language-label"
+            ],
+            "hoverSelector": "",
+            "clickSelector": "",
+            "postInteractionWait": 0,
+            "selectors": [
+                "#a11yComponentToTest"
+            ],
+            "selectorExpansion": true,
+            "expect": 0,
+            "misMatchThreshold": 0.1,
+            "requireSameDimensions": true
+        },
+        {
+            "label": "3_Components_PAGINATION",
+            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--pagination",
+            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--pagination",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
+            "readyEvent": "",
+            "readySelector": "#a11yComponentToTest",
+            "delay": 0,
+            "hideSelectors": [],
+            "removeSelectors": [
+                ".cads-styleguide__breakpoint-label",
+                ".cads-styleguide__language-label"
+            ],
+            "hoverSelector": "",
+            "clickSelector": "",
+            "postInteractionWait": 0,
+            "selectors": [
+                "#a11yComponentToTest"
+            ],
+            "selectorExpansion": true,
+            "expect": 0,
+            "misMatchThreshold": 0.1,
+            "requireSameDimensions": true
+        },
+        {
+            "label": "3_Components_PAGING_INFO",
+            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--paging-info",
+            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--paging-info",
+            "cookiePath": "backstop_data/engine_scripts/cookies.json",
+            "readyEvent": "",
+            "readySelector": "#a11yComponentToTest",
+            "delay": 100,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
