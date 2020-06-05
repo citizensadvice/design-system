@@ -19,7 +19,6 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                script { sh 'docker rmi ${dockerImage} -f' }
                 script { env.BUILD_STAGE = 'Setup' }
                 script {
                     currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
