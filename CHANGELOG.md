@@ -1,4 +1,5 @@
 * NP-441 Related Content component
+* NP-453 Numbered lists positioning
 
 ## <sub>v0.17.1</sub>
 
