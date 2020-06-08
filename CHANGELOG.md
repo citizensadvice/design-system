@@ -1,3 +1,5 @@
+* NP-441 Related Content component
+
 ## <sub>v0.17.1</sub>
 
 #### _Jun. 4, 2020_
