@@ -1,3 +1,5 @@
+* NP-447 Logo cuttoff fix
+
 ## <sub>v0.18.0</sub>
 
 #### _Jun. 8, 2020_
