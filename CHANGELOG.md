@@ -1,3 +1,7 @@
+## <sub>v0.18.0</sub>
+
+#### _Jun. 8, 2020_
+
 * NP-441 Related Content component
 * NP-453 Numbered lists positioning
 
