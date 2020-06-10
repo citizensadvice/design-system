@@ -3,7 +3,7 @@ import beautify from 'js-beautify'; // eslint-disable-line
 const a11yid = 'a11yComponentToTest';
 const wrapper = (title, component, usage, js, strip) => {
     if (js) {
-        setTimeout(js);
+        setTimeout(js, 2000);
     }
 
     if (strip) {

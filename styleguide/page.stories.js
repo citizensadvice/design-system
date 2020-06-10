@@ -2,7 +2,7 @@
 // The styles
 import './styles.scss';
 
-import priorityNav from '@citizensadvice/priority-nav';
+import { initNavigation } from '../js/navigation';
 import initHeader from '../js/header';
 import initTargetedContent from '../js/targeted-content';
 import initAdviceFeedback from '../js/advice-feedback';
@@ -17,11 +17,11 @@ import tSamplePage from './_sample_page.html.haml';
 
 function init() {
     console.log('boo');
-    priorityNav();
     initHeader();
     initTargetedContent();
     initAdviceFeedback();
     initCallouts();
+    initNavigation();
 }
 
 // Haml rendering wrapper for convenience
