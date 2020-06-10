@@ -1,4 +1,5 @@
 * NP-447 Logo cuttoff fix
+* NP-445 Header spacing
 
 ## <sub>v0.18.0</sub>
 
