@@ -12,3 +12,12 @@ hr,
         $cads-language__border-colour
     );
 }
+
+.cads-main-content {
+    padding-top: $cads-spacing-5;
+    padding-bottom: 2 * $cads-spacing-7;
+
+    h1 {
+        margin-top: $cads-spacing-5;
+    }
+}

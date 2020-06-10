@@ -1,7 +1,7 @@
 header,
 .cads-header {
     background-color: $cads-palette__white;
-    padding: $cads-spacing-4;
+    padding: $cads-spacing-4 0;
 
     .cads-search {
         margin-top: 1rem;
@@ -31,8 +31,6 @@ header,
     }
 
     @include cads-media-breakpoint-only(sm) {
-        padding: $cads-spacing-0;
-
         .cads-header-logo-row {
             display: flex;
             justify-content: space-between;
