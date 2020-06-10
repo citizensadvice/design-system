@@ -1,7 +1,12 @@
 .cads-breadcrumbs {
     @include cads-restrict-content-width();
 
-    margin-bottom: $cads-spacing-7;
+    padding-top: $cads-spacing-3;
+    padding-bottom: $cads-spacing-3;
+
+    ul {
+        margin: 0 !important;
+    }
 
     li {
         margin: 0 !important;

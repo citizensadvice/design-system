@@ -1,7 +1,15 @@
 import beautify from 'js-beautify'; // eslint-disable-line
 
 const a11yid = 'a11yComponentToTest';
-const wrapper = (title, component, usage, js) => {
+const wrapper = (title, component, usage, js, strip) => {
+    if (js) {
+        setTimeout(js);
+    }
+
+    if (strip) {
+        return component;
+    }
+
     const source = beautify
         .html_beautify(component, {
             indent_size: 2,
@@ -11,10 +19,6 @@ const wrapper = (title, component, usage, js) => {
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
-
-    if (js) {
-        setTimeout(js);
-    }
 
     return `
 <h1 aria-hidden="true">${title}</h1>
