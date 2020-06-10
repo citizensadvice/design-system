@@ -1,3 +1,7 @@
+## <sub>v0.18.1</sub>
+
+#### _Jun. 10, 2020_
+
 * NP-447 Logo cuttoff fix
 * NP-445 Header spacing
 
