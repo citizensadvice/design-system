@@ -1,3 +1,5 @@
+* NP-478 Sign in/out header props
+
 ## <sub>v0.18.1</sub>
 
 #### _Jun. 10, 2020_
