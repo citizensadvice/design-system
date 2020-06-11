@@ -7,7 +7,7 @@ const wrapper = (title, component, usage, js, strip) => {
     }
 
     if (strip) {
-        return component;
+        return `<div id=${a11yid}>${component}</div>`;
     }
 
     const source = beautify
@@ -20,8 +20,11 @@ const wrapper = (title, component, usage, js, strip) => {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
 
+    const newTabLink = window.location.href;
+
     return `
 <h1 aria-hidden="true">${title}</h1>
+<a class="cads-styleguide-new-tab" href="${newTabLink}" target="_blank">Open this example in a new tab</a>
 <div id="${a11yid}">
 ${component}
 </div>

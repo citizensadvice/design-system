@@ -1,4 +1,3 @@
-import { text } from '@storybook/addon-knobs'; // eslint-disable-line
 import wrapper from '../component-wrapper';
 
 const relatedContent = () => {
