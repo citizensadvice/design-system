@@ -24,7 +24,10 @@
   },
 
   'root_path' => 'root_path',
-  'sign_in_url' => '/sign-in/url',
+  'sign_in' => {
+    'url' => '/sign-in/url',
+    'text' => 'Sign in'
+  },
   'search_action_url' => '/the/search-action-url',
 
   'banner' => {

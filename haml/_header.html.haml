@@ -9,5 +9,6 @@
           %li
             %a{href: "/?lang"} Language
           %li
-            %a{href: sign_in_url} Sign in
+            %a{href: sign_in['url']}
+              = sign_in['text']
         = render partial: "@citizensadvice/design-system/haml/search", locals: { search_action_url: search_action_url }
