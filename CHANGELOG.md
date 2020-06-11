@@ -1,3 +1,7 @@
+## <sub>v1.0.0</sub>
+
+#### _Jun. 11, 2020_
+
 * NP-478 Sign in/out header props
 * Storybook layout improvements: no toolbar, text link to new tab
 * Fix Callout label colour
