@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import { withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line
 import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 
 // The styles
@@ -63,7 +62,7 @@ ${usage || ''}`,
 // Storybook section setup
 export default {
     title: '3: Components',
-    decorators: [withKnobs, withA11y],
+    decorators: [withA11y],
     parameters: {
         options: {
             showPanel: true

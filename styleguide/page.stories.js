@@ -55,9 +55,9 @@ export default {
     }
 };
 
-export const samplePage = () =>
+export const adviceCollection = () =>
     renderHamlTemplate(
-        'Sample Page',
+        'Advice Collection',
         tSamplePage,
         'sample_page',
         '',

@@ -1,4 +1,6 @@
 * NP-478 Sign in/out header props
+* Storybook layout improvements: no toolbar, text link to new tab
+* Fix Callout label colour
 
 ## <sub>v0.18.1</sub>
 

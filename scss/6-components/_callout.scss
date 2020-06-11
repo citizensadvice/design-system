@@ -34,6 +34,7 @@
             h3:first-child {
                 &::before {
                     margin-bottom: $cads-spacing-3;
+                    color: $cads-language__secondary-text-colour;
                     font-size: 0.875rem;
                     line-height: 1em;
                     display: block;
@@ -71,6 +72,7 @@
                 /* stylelint-disable-next-line */
                 &::before {
                     margin-bottom: $cads-spacing-3;
+                    color: $cads-language__secondary-text-colour;
                     font-size: 0.875rem;
                     line-height: 1em;
                     display: block;
