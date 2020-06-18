@@ -14,7 +14,7 @@ addParameters({
     options: {
         isToolshown: false,
         showPanel: false,
-        panelPosition: 'right',
+        panelPosition: 'bottom',
         storySort: (a, b) => a[1].id.localeCompare(b[1].id),
         theme
     }
