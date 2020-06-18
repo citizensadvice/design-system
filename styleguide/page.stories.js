@@ -13,10 +13,10 @@ import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
 // Haml setup
-import tSamplePage from './_sample_page.html.haml';
+import tAdviceCollection from './samples/_advice_collection.html.haml';
+import tAdviceCollectionAdviser from './samples/_advice_collection_adviser.html.haml';
 
 function init() {
-    console.log('boo');
     initHeader();
     initTargetedContent();
     initAdviceFeedback();
@@ -58,8 +58,19 @@ export default {
 export const adviceCollection = () =>
     renderHamlTemplate(
         'Advice Collection',
-        tSamplePage,
-        'sample_page',
+        tAdviceCollection,
+        'advice_collection',
+        '',
+        null,
+        init,
+        true
+    );
+
+export const adviceCollectionAdviser = () =>
+    renderHamlTemplate(
+        'Advice Collection (Adviser)',
+        tAdviceCollectionAdviser,
+        'advice_collection_adviser',
         '',
         null,
         init,

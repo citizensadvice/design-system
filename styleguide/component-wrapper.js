@@ -1,13 +1,18 @@
 import beautify from 'js-beautify'; // eslint-disable-line
 
 const a11yid = 'a11yComponentToTest';
-const wrapper = (title, component, usage, js, strip) => {
+const wrapper = (title, component, usage, js, pageTemplate) => {
     if (js) {
         setTimeout(js);
     }
 
-    if (strip) {
-        return `<div id=${a11yid}>${component}</div>`;
+    const newTabLink = window.location.href;
+
+    if (pageTemplate) {
+        return `
+<style>.cads-styleguide__wrapper{padding:0}</style>
+<a class="cads-styleguide-new-tab" href="${newTabLink}" target="_blank" style="position:absolute;opacity:0.5">Open this example in a new tab</a>
+<div id=${a11yid}>${component}</div>`;
     }
 
     const source = beautify
@@ -19,8 +24,6 @@ const wrapper = (title, component, usage, js, strip) => {
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
-
-    const newTabLink = window.location.href;
 
     return `
 <h1 aria-hidden="true">${title}</h1>
