@@ -1,3 +1,5 @@
+* NP-501 Storybook tweaks and adviser template
+
 ## <sub>v1.0.0</sub>
 
 #### _Jun. 11, 2020_
