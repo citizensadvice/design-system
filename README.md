@@ -25,7 +25,7 @@ environment.loaders.get("sass").use.splice(-1, 0, {
 
 ### CSS
 
-The distributed package includes both the compiled CSS in `dist/lib.css` and the SCSS under `scss`. If you only need the CSS and do not intend to build custom components and layouts using the SCSS variables and mixins then just add `lib.css` to the `<HEAD>` of your page.
+The distributed package includes both the compiled CSS in `lib/lib.css` and the SCSS under `scss`. If you only need the CSS and do not intend to build custom components and layouts using the SCSS variables and mixins then just add `lib.css` to the `<HEAD>` of your page.
 
 If you need the variables and mixins then import the top level SCSS file `scss/lib.scss`. Do **not** import individual files as you will very quickly run into dependency problems. The [styleguide](https://citizensadvice.github.io/design-system/) documents that available classes, vars, mixins and functions available.
 

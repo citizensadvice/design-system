@@ -5,7 +5,6 @@
     "files": [
         "scss",
         "lib",
-        "dist",
         "fonts",
         "haml",
         "CHANGELOG.md",
@@ -21,7 +20,7 @@
         "build:ts": "echo tsc",
         "build:scss": "node ./scripts/build -r && npm run check-size -r",
         "build": "npm run clean && npm run build:scss && npm run build:js && npm run build:ts",
-        "clean": "rm -fr ./dist ./lib",
+        "clean": "rm -fr ./lib",
         "styleguide": "start-storybook -p 6006",
         "styleguide:ci": "start-storybook -p 6006 --ci",
         "docs:build": "build-storybook -o docs",

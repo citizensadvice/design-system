@@ -18,7 +18,7 @@ Finally run `npm install`.
 
 ### Building
 
-Run `npm run build` and this will compile all the SCSS into the `dist` folder.
+Run `npm run build` and this will compile all the SCSS into the `lib` folder.
 
 #### Output checks
 

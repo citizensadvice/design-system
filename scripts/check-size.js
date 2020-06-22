@@ -6,7 +6,7 @@ const SIZE_CHANGE_THRESHOLD = 0.1; // 10%
 const FILE_LIST = [];
 const STATS_DIR = path.resolve(__dirname, '../stats');
 const STATS_FILE = path.resolve(STATS_DIR, 'size.json');
-const DIST_DIR = path.resolve(__dirname, '../dist');
+const DIST_DIR = path.resolve(__dirname, '../lib');
 
 let writeSizeResults = false;
 let silent = false;
