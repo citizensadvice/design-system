@@ -18,3 +18,4 @@ testing/backstop_data/html_report
 testing/backstop_data/ci_report
 vendor
 reports
+/lib
