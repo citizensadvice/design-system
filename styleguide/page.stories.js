@@ -2,11 +2,11 @@
 // The styles
 import './styles.scss';
 
-import { initNavigation } from '../js/navigation';
-import initHeader from '../js/header';
-import initTargetedContent from '../js/targeted-content';
-import initAdviceFeedback from '../js/advice-feedback';
-import initCallouts from '../js/callout';
+import { initNavigation } from '../src/js/navigation';
+import initHeader from '../src/js/header';
+import initTargetedContent from '../src/js/targeted-content';
+import initAdviceFeedback from '../src/js/advice-feedback';
+import initCallouts from '../src/js/callout';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch

@@ -12,9 +12,9 @@ npm-debug.log
 yarn-error.log
 .npmrc
 *.gem
-/dist
 testing/backstop_data/bitmaps_test
 testing/backstop_data/html_report
 testing/backstop_data/ci_report
 vendor
 reports
+/lib

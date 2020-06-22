@@ -10,7 +10,7 @@ const chalk = require('chalk');
 
 const { log } = console;
 const PATH = path.join(__dirname, '..'); // Where's stuff?
-const OUTPUT_DIR = path.join(PATH, 'dist');
+const OUTPUT_DIR = path.join(PATH, 'lib');
 
 const file = 'lib';
 const source = `${PATH}/scss/${file}.scss`;
