@@ -1,40 +1,42 @@
 /* stylelint-disable */
-$cads-palette__heritage-blue: #004b88;
-$cads-palette__heritage-blue-dark: #012760;
-$cads-palette__blue-light: #f2f8ff;
-$cads-palette__heritage-yellow: #fcbb69;
-$cads-palette__heritage-blue-40: #97a8cc;
-$cads-palette__heritage-yellow-40: #fde5c4;
-$cads-palette__purple: #a33e89;
-$cads-palette__red: #df3034;
-$cads-palette__red-light: #fae1e1;
-$cads-palette__yellow: #ffd250;
 $cads-palette__black: #161616;
+$cads-palette__blue-adviser: #006278;
+$cads-palette__blue-light: #f2f8ff;
 $cads-palette__dark-grey: #4a4e4f;
-$cads-palette__mid-grey: #8d9093;
-$cads-palette__light-grey: #e5e5e5;
-$cads-palette__white: #ffffff;
-$cads-palette__teal: #018176;
-$cads-palette__teal-dark: #006159;
 $cads-palette__green: #0a8600;
+$cads-palette__heritage-blue-40: #97a8cc;
+$cads-palette__heritage-blue-dark: #012760;
+$cads-palette__heritage-blue: #004b88;
+$cads-palette__heritage-yellow-40: #fde5c4;
+$cads-palette__heritage-yellow: #fcbb69;
+$cads-palette__light-grey: #e5e5e5;
+$cads-palette__mid-grey: #8d9093;
+$cads-palette__purple: #a33e89;
+$cads-palette__red-light: #fae1e1;
+$cads-palette__red: #df3034;
+$cads-palette__teal-dark: #006159;
+$cads-palette__teal: #018176;
+$cads-palette__white: #ffffff;
+$cads-palette__yellow: #ffd250;
 
 :export {
     /* prettier-ignore */
     palette: {
-        heritageBlue: $cads-palette__heritage-blue;
+        black: $cads-palette__black;
+        blueAdviser: $cads-palette__blue-adviser;
         blueDark: $cads-palette__heritage-blue-dark;
         blueLight: $cads-palette__blue-light;
-        teal: $cads-palette__teal;
-        tealDark: $cads-palette__teal-dark;
+        darkGrey: $cads-palette__dark-grey;
+        green: $cads-palette__green;
+        heritageBlue: $cads-palette__heritage-blue;
         heritageYellow: $cads-palette__heritage-yellow;
+        lightGrey: $cads-palette__light-grey;
+        midGrey: $cads-palette__mid-grey;
+        purple: $cads-palette__purple;
         red: $cads-palette__red;
         redLight: $cads-palette__red-light;
-        purple: $cads-palette__purple;
-        black: $cads-palette__black;
-        darkGrey: $cads-palette__dark-grey;
-        midGrey: $cads-palette__mid-grey;
-        lightGrey: $cads-palette__light-grey;
+        teal: $cads-palette__teal;
+        tealDark: $cads-palette__teal-dark;
         white: $cads-palette__white;
-        green: $cads-palette__green;
     }
 }
