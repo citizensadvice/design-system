@@ -68,8 +68,4 @@ button,
         background-color: $cads-language__focus-colour;
         box-shadow: 0 2px 0 0 $cads-language__focus-border-colour;
     }
-
-    &__tertiary:focus {
-        box-shadow: none;
-    }
 }
