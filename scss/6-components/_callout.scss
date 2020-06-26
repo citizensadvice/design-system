@@ -40,7 +40,7 @@
                     margin-bottom: $cads-spacing-3;
                     color: $cads-language__secondary-text-colour;
                     font-size: 0.875rem;
-                    line-height: 1em;
+                    line-height: 0.875rem;
                     display: block;
 
                     @include cads-media-breakpoint-up(md) {
@@ -78,7 +78,7 @@
                     margin-bottom: $cads-spacing-3;
                     color: $cads-language__secondary-text-colour;
                     font-size: 0.875rem;
-                    line-height: 1em;
+                    line-height: 0.875rem;
                     display: block;
 
                     @include cads-media-breakpoint-up(md) {
@@ -112,7 +112,7 @@
                     padding: $cads-spacing-3;
                     font-size: 0.875rem;
                     font-weight: $cads-font-weight__bold;
-                    line-height: 1em;
+                    line-height: 0.875rem;
                     display: inline-block;
 
                     @include cads-media-breakpoint-up(md) {

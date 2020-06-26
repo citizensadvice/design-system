@@ -3,8 +3,7 @@ const initTargetedContent = () => {
         const pageContents = document.getElementsByClassName(
             'cads-main-content'
         );
-        const pageContent =
-            pageContents && pageContents.length ? pageContents[0] : document;
+        const pageContent = pageContents?.[0] ?? document;
         const content = pageContent.getElementsByClassName(
             'cads-targeted-content'
         );
