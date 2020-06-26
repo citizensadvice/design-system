@@ -48,24 +48,26 @@ const initTargetedContent = () => {
             }
         });
 
-        // Expand all for adviser
-        const h1 = pageContent.getElementsByTagName('h1')[0];
-        const b = document.createElement('buton');
-        b.innerHTML = 'Expand all<span class="cads-icon-plus"></span>';
-        b.setAttribute('type', 'button');
-        b.classList.add('cads-targeted-content__expand-all');
-        b.addEventListener('click', () => {
-            for (let i = 0; i < content.length; i++) {
-                const item = content[i];
-                const summary = item.getElementsByClassName(
-                    'cads-targeted-content__summary'
-                )[0];
-                if (!item.classList.contains('is-open')) {
-                    summary.click();
+        // Expand all button for adviser if content present
+        if (content.length > 0) {
+            const h1 = pageContent.getElementsByTagName('h1')[0];
+            const b = document.createElement('buton');
+            b.innerHTML = 'Expand all<span class="cads-icon-plus"></span>';
+            b.setAttribute('type', 'button');
+            b.classList.add('cads-targeted-content__expand-all');
+            b.addEventListener('click', () => {
+                for (let i = 0; i < content.length; i++) {
+                    const item = content[i];
+                    const summary = item.getElementsByClassName(
+                        'cads-targeted-content__summary'
+                    )[0];
+                    if (!item.classList.contains('is-open')) {
+                        summary.click();
+                    }
                 }
-            }
-        });
-        h1.parentNode.insertBefore(b, h1.nextSibling);
+            });
+            h1.parentNode.insertBefore(b, h1.nextSibling);
+        }
     } catch (e) {
         console.warn(`Could not initialise targeted content ${e}`);
     }
