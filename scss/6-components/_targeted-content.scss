@@ -91,11 +91,19 @@
 }
 
 .cads-targeted-content__expand-all {
-    @extend .cads-button;
-    @extend .cads-button__tertiary;
+    display: none;
+}
 
-    span {
-        font-size: 0.875em;
-        margin-left: $cads-spacing-2;
+.cads-adviser {
+    .cads-targeted-content__expand-all {
+        display: inline-block;
+
+        @extend .cads-button;
+        @extend .cads-button__tertiary;
+
+        span {
+            font-size: 0.875em;
+            margin-left: $cads-spacing-2;
+        }
     }
 }
