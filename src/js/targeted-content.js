@@ -55,13 +55,27 @@ const initTargetedContent = () => {
             b.innerHTML = 'Expand all<span class="cads-icon-plus"></span>';
             b.setAttribute('type', 'button');
             b.classList.add('cads-targeted-content__expand-all');
-            b.addEventListener('click', () => {
+            b.addEventListener('click', e => {
+                let expandAll = false;
+                const { target } = e;
+                if (target.innerText === 'Expand all') {
+                    target.innerHTML =
+                        'Collapse all<span class="cads-icon-minus"></span>';
+                    expandAll = true;
+                } else {
+                    target.innerHTML =
+                        'Expand all<span class="cads-icon-plus"></span>';
+                }
+
                 for (let i = 0; i < content.length; i++) {
                     const item = content[i];
                     const summary = item.getElementsByClassName(
                         'cads-targeted-content__summary'
                     )[0];
-                    if (!item.classList.contains('is-open')) {
+                    if (
+                        (expandAll && !item.classList.contains('is-open')) ||
+                        (!expandAll && item.classList.contains('is-open'))
+                    ) {
                         summary.click();
                     }
                 }
