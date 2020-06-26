@@ -12,12 +12,15 @@
           = render partial: "@citizensadvice/design-system/haml/notice_banner", locals: { 'banner' => { 'label' => 'Page Template Warning', 'body' => 'This is a sample page. Note that the layout may not reflect the actual page layout of the website.' } }
           %h1 Adviser Sample Page
           = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'adviser', 'body' => '<h3>This is an adviser callout</h3><p>This is the body text of an adviser callout.</p>' } }
-          %p Here is a standard callout.
-          = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'standard', 'body' => '<h3>Standard callout</h3><p>This is a sample page. Note that the layout may not reflect the actual page layout of the website.</p>' } }
-          %p Here is an urgent callout.
-          = render partial: "@citizensadvice/design-system/haml/callout"
-          %p Here is an example callout.
-          = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'example', 'body' => '<h3>Example title</h3><p>This is the body text of the example callout</p>' } }
+          %p Here is an urgent callout with adviser content
+          .cads-callout.cads-callout-urgent
+            .cads-callout__adviser-label
+            %h3 This is the callout title
+            %p The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.
+            .cads-callout.cads-callout-adviser
+              .cads-callout__adviser-label
+              %h3 This is the callout title
+              %p The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.
           %p
             Every page should have some lorem ipsum. So here it is.
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a urna nisl. Aenean euismod purus a magna vulputate, eget volutpat neque volutpat. Donec dapibus scelerisque diam eu scelerisque. Vestibulum laoreet magna sagittis felis pellentesque semper. Nullam porta, arcu rhoncus euismod porttitor, risus augue bibendum ipsum, eget tincidunt mi lectus eget eros. Donec nisl ipsum, facilisis vitae tortor maximus, venenatis mattis purus. Quisque fringilla gravida arcu, ut bibendum nibh malesuada at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur aliquam lorem et lorem ullamcorper aliquet. Aliquam vitae interdum metus. Nulla ut laoreet ante. Quisque commodo nisl a fringilla elementum. Ut accumsan nunc id ex ullamcorper, sed tempor augue condimentum. Morbi volutpat et ante ut rutrum.

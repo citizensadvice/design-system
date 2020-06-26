@@ -1,4 +1,6 @@
 * NP-501 Storybook tweaks and adviser template
+* NP-477 Expand all targeted content for adviser
+* NP-470 Adviser callout styling
 
 ## <sub>v1.0.0</sub>
 
