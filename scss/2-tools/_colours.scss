@@ -1,5 +1,3 @@
-$cads-colour-to-bg-opacity: 0.1;
-
 @function cads-colour-to-bg($colour) {
-    @return rgba($colour, $cads-colour-to-bg-opacity);
+    @return mix(rgb(red($colour), green($colour), blue($colour)), #fff, 10%);
 }
