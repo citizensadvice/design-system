@@ -11,5 +11,6 @@
         "implicit-arrow-linebreak": "off",
         "object-curly-newline": "off"
     },
-    "ignorePatterns": ["lib"]
+    "ignorePatterns": ["lib"],
+    "parser": "babel-eslint"
 }

@@ -6,6 +6,10 @@
     padding: $cads-spacing-4;
     margin: 0 0 $cads-spacing-5 0;
 
+    .cads-callout__adviser-label {
+        display: none;
+    }
+
     h2 {
         @extend .cads-heading-medium;
     }
@@ -30,13 +34,13 @@
             border-left-color: $cads-palette__mid-grey;
             border-left-width: $cads-border-width-large;
 
-            h2:first-child,
-            h3:first-child {
+            h2:first-of-type,
+            h3:first-of-type {
                 &::before {
                     margin-bottom: $cads-spacing-3;
                     color: $cads-language__secondary-text-colour;
                     font-size: 0.875rem;
-                    line-height: 1em;
+                    line-height: 0.875rem;
                     display: block;
 
                     @include cads-media-breakpoint-up(md) {
@@ -47,11 +51,11 @@
                 }
 
                 .cads-lang-gd &::before {
-                    content: 'Eisimpleir';
+                    content: 'Example';
                 }
 
                 .cads-lang-cy &::before {
-                    content: 'Enghraifft';
+                    content: 'Example';
                 }
             }
         }
@@ -67,14 +71,14 @@
             border-color: $cads-language__error-colour;
             background-color: cads-colour-to-bg($cads-language__error-colour);
 
-            h2:first-child,
-            h3:first-child {
+            h2:first-of-type,
+            h3:first-of-type {
                 /* stylelint-disable-next-line */
                 &::before {
                     margin-bottom: $cads-spacing-3;
                     color: $cads-language__secondary-text-colour;
                     font-size: 0.875rem;
-                    line-height: 1em;
+                    line-height: 0.875rem;
                     display: block;
 
                     @include cads-media-breakpoint-up(md) {
@@ -85,13 +89,52 @@
                 }
 
                 .cads-lang-gd &::before {
-                    content: 'Cudromach';
+                    content: 'Important';
                 }
 
                 .cads-lang-cy &::before {
-                    content: 'Bwysig';
+                    content: 'Important';
                 }
             }
         }
+
+        &adviser {
+            border-color: $cads-language__brand-adviser;
+            background-color: cads-colour-to-bg($cads-language__brand-adviser);
+
+            .cads-callout__adviser-label {
+                display: block;
+                /* stylelint-disable-next-line */
+                &::before {
+                    margin-bottom: $cads-spacing-3;
+                    background: $cads-language__brand-adviser;
+                    color: $cads-palette__white;
+                    padding: $cads-spacing-3;
+                    font-size: 0.875rem;
+                    font-weight: $cads-font-weight__bold;
+                    line-height: 0.875rem;
+                    display: inline-block;
+
+                    @include cads-media-breakpoint-up(md) {
+                        font-size: 1rem;
+                    }
+
+                    content: 'Adviser';
+                }
+
+                .cads-lang-gd &::before {
+                    content: 'Adviser';
+                }
+
+                .cads-lang-cy &::before {
+                    content: 'Adviser';
+                }
+            }
+        }
+    }
+
+    & & {
+        // For when adviser callouts are inside callouts
+        margin-top: $cads-spacing-4;
     }
 }

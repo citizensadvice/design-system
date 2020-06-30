@@ -45,9 +45,24 @@ button,
         }
     }
 
+    &__tertiary {
+        background-color: $cads-palette__white;
+        color: $cads-language__primary-button-colour;
+        font-weight: $cads-font-weight__regular;
+        box-shadow: none;
+        border-width: $cads-border-width-small;
+
+        &:hover {
+            background-color: $cads-language__secondary-button-hover-colour;
+            color: $cads-language__primary-button-hover-colour;
+            box-shadow: none;
+        }
+    }
+
     &:focus,
     &__primary:focus,
-    &__secondary:focus {
+    &__secondary:focus,
+    &__tertiary:focus {
         color: $cads-language__focus-text-colour;
         border-color: $cads-language__focus-border-colour;
         background-color: $cads-language__focus-colour;

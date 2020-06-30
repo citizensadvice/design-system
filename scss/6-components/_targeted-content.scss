@@ -89,3 +89,21 @@
         }
     }
 }
+
+.cads-targeted-content__expand-all {
+    display: none;
+}
+
+.cads-adviser {
+    .cads-targeted-content__expand-all {
+        display: inline-block;
+
+        @extend .cads-button;
+        @extend .cads-button__tertiary;
+
+        span {
+            font-size: 0.875em;
+            margin-left: $cads-spacing-2;
+        }
+    }
+}
