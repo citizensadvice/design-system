@@ -57,12 +57,27 @@ const initTargetedContent = () => {
             b.addEventListener('click', e => {
                 let expandAll = false;
                 const { target } = e;
-                if (target.innerText === 'Expand all') {
-                    target.innerHTML =
-                        'Collapse all<span class="cads-icon-minus"></span>';
+                let t = target;
+
+                if (
+                    target.innerText &&
+                    target.innerText.indexOf('Expand all') !== -1
+                ) {
                     expandAll = true;
+                }
+                if (target.className.indexOf('cads-icon-plus') !== -1) {
+                    expandAll = true;
+                    t = target.parentNode;
+                }
+                if (target.className.indexOf('cads-icon-minus') !== -1) {
+                    t = target.parentNode;
+                }
+
+                if (expandAll) {
+                    t.innerHTML =
+                        'Collapse all<span class="cads-icon-minus"></span>';
                 } else {
-                    target.innerHTML =
+                    t.innerHTML =
                         'Expand all<span class="cads-icon-plus"></span>';
                 }
 
