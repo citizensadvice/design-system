@@ -32,7 +32,7 @@
 
   'banner' => {
     'label' => 'Notice banner title',
-    'body' => 'If you’re a Thomas Cook customer and you’re stuck abroad or want to get your money back, get help from the Civil Aviation Authority.'
+    'body' => '<p>If you’re a Thomas Cook customer and you’re stuck abroad or want to get your money back, get help from the Civil Aviation Authority.</p>'
   },
 
   'radio' => {
