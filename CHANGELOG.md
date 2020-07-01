@@ -1,3 +1,7 @@
+## <sub>v1.1.0</sub>
+
+#### _Jul. 1, 2020_
+
 * NP-501 Storybook tweaks and adviser template
 * NP-477 Expand all targeted content for adviser
 * NP-470 Adviser callout styling
