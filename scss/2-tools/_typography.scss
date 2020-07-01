@@ -8,7 +8,9 @@
     h3 + &,
     h4 + &,
     p + &,
-    ul + & {
+    ul + &,
+    details + &,
+    .cads-callout + & {
         margin-top: $m;
     }
 }

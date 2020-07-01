@@ -20,6 +20,10 @@
         }
     }
 
+    p {
+        @extend .paragraph-s;
+    }
+
     .paragraph-s {
         margin: 0;
     }
