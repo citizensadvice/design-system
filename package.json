@@ -19,7 +19,7 @@
         "build:js": "babel src/js -d lib",
         "build:ts": "tsc -b",
         "build:scss": "node ./scripts/build -r && npm run check-size -r",
-        "build": "npm run clean && npm run build:scss && npm run build:js && npm run build:ts",
+        "build": "npm run clean && npm-run-all build:scss build:js build:ts",
         "clean": "rm -fr ./lib",
         "styleguide": "start-storybook -p 6006",
         "styleguide:ci": "start-storybook -p 6006 --ci",
