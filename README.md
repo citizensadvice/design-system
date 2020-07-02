@@ -47,7 +47,7 @@ to your `ApplicationController`. You can then reference the partials in your ham
 
 Most simple Design System Javascript components can be used by simply including them as part of your main bundle.
 
-For the more complex components we are providing them as a systemjs bundle - this allows us to package each component as a single file. If your projecy has requirements for a different module format please get in contact via slack so that we can discuss your needs and work on a solution.
+For the more complex components we are providing them as a systemjs bundle - this allows us to package each component as a single file. If your project has requirements for a different module format please get in contact via slack so that we can discuss your needs and work on a solution.
 
 Instructions for using System-JS can be found here: https://github.com/systemjs/systemjs
 
