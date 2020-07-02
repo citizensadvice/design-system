@@ -1,0 +1,7 @@
+{
+    "extends": "../../../tsconfig-base.json",
+    "compilerOptions": {
+        "outFile": "../../../lib/greedy-nav.js",
+        "rootDir": "."
+    }
+}
