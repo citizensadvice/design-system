@@ -11,7 +11,7 @@ import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
 
 /* NOTE: greedy-nav is a placeholder for typescript POC, use priority-nav instead */
-import greedyNav from '../src/ts/greedy-nav';
+import GreedyNav from '../src/ts/greedy-nav';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -146,7 +146,7 @@ export const navigation = () =>
                 breakPoint: 0
             });
             /* Note: greedyNav is a POC placeholder, use priorityNav instead */
-            new greedyNav();
+            const g = new GreedyNav();
         }
     );
 
