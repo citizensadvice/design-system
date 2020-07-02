@@ -1,6 +1,16 @@
 {
-    "extends": "airbnb-base",
-    "plugins": ["prettier", "typescript"],
+    "extends": ["airbnb-base", "plugin:@typescript-eslint/recommended"],
+    "env": {
+        "browser": true
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
+    "plugins": ["prettier", "@typescript-eslint"],
     "rules": {
         "prettier/prettier": "error",
         "indent": ["error", 4],
@@ -9,8 +19,10 @@
         "no-plusplus": "off",
         "operator-linebreak": "off",
         "implicit-arrow-linebreak": "off",
-        "object-curly-newline": "off"
+        "object-curly-newline": "off",
+        "import/extensions": "off",
+        "@typescript-eslint/no-unused-vars": "off"
     },
-    "ignorePatterns": ["lib"],
-    "parser": "babel-eslint"
+    "ignorePatterns": ["lib", "tsconfig*"],
+    "parser": "@typescript-eslint/parser"
 }
