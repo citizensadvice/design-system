@@ -10,6 +10,9 @@ import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
 
+/* NOTE: greedy-nav is a placeholder for typescript POC, use priority-nav instead */
+import greedyNav from '../src/ts/greedy-nav';
+
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
@@ -138,10 +141,13 @@ export const navigation = () =>
         \n\n
         <pre><code>import { initNavigation } from '@citizensadvice/design-system/lib/navigation'</code></pre> and execute that function after the navigation components html has loaded into the DOM.`,
         null,
-        () =>
+        () => {
             priorityNav.init({
                 breakPoint: 0
-            })
+            });
+            /* Note: greedyNav is a POC placeholder, use priorityNav instead */
+            new greedyNav();
+        }
     );
 
 export const noticeBanner = () =>

@@ -42,3 +42,16 @@ You will need to add a lookup path for `node_modules`, for example add
 to your `ApplicationController`. You can then reference the partials in your haml like this
 
 <pre class="html"><code>= render partial: "@citizensadvice/design-system/haml/breadcrumb"</code></pre>
+
+### Javascript components
+
+Most simple Design System Javascript components can be used by simply including them as part of your main bundle.
+
+For the more complex components we are providing them as a systemjs bundle - this allows us to package each component as a single file. If your projecy has requirements for a different module format please get in contact via slack so that we can discuss your needs and work on a solution.
+
+Instructions for using System-JS can be found here: https://github.com/systemjs/systemjs
+
+You will require a promise polyfill along with the system-js executable.
+
+Currently no modules use system-js but some are in the works and this document will be updated as they become available.
+
