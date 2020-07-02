@@ -1,3 +1,4 @@
+// this is just a placeholder file
 import { Config, defaultConfig } from './Config';
 
 class GreedyNav {
@@ -5,3 +6,5 @@ class GreedyNav {
         Object.assign(defaultConfig, config);
     }
 }
+
+export default GreedyNav;
