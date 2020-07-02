@@ -1,0 +1,124 @@
+table,
+.cads-table {
+    text-align: left;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: $cads-spacing-4;
+    margin-bottom: $cads-spacing-4;
+
+    @include cads-border(
+        a,
+        $cads-border-width-small,
+        $cads-border-radius-large,
+        $cads-language__input-border-colour
+    );
+
+    border-bottom: none;
+
+    caption,
+    .cads-table-caption {
+        @extend .cads-heading-small;
+
+        margin-bottom: $cads-spacing-2;
+        text-align: left;
+    }
+
+    th,
+    td {
+        padding: $cads-spacing-2;
+        font-weight: $cads-font-weight__regular;
+
+        @include cads-border(
+            b,
+            $cads-border-width-small,
+            0,
+            $cads-language__input-border-colour
+        );
+    }
+
+    tr:first-child th {
+        @extend .cads-heading-small;
+
+        padding: $cads-spacing-2;
+
+        @include cads-border(
+            b,
+            $cads-border-width-large,
+            0,
+            $cads-language__brand-primary
+        );
+    }
+
+    td::before {
+        display: none;
+    }
+
+    .cads-table__th-heading {
+        @extend .cads-heading-small;
+
+        display: none;
+    }
+
+    @include cads-media-breakpoint-only(sm) {
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        caption {
+            @include cads-border(
+                a,
+                $cads-border-width-small,
+                $cads-border-radius-large,
+                $cads-language__input-border-colour
+            );
+
+            border-bottom: $cads-border-width-large solid
+                $cads-language__brand-primary;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            padding: $cads-spacing-2;
+            margin: 0;
+        }
+
+        th,
+        td {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: stretch;
+            border: none;
+        }
+
+        .cads-table__th-heading {
+            display: block;
+            flex: 1 1 auto;
+            margin-right: $cads-spacing-4;
+        }
+
+        .cads-table__content {
+            line-height: 1.5rem;
+            display: block;
+            flex: 1 1 auto;
+            text-align: right;
+        }
+
+        tr:first-child {
+            display: none;
+        }
+
+        tr td:last-child {
+            @include cads-border(
+                b,
+                $cads-border-width-small,
+                0,
+                $cads-language__input-border-colour
+            );
+        }
+
+        td::before {
+            display: inline;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+}

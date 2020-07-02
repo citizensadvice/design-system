@@ -7,6 +7,7 @@ import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
+import initTables from '../src/js/tables';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -15,6 +16,7 @@ import wrapper from './component-wrapper';
 // Haml setup
 import tAdviceCollection from './samples/_advice_collection.html.haml';
 import tAdviceCollectionAdviser from './samples/_advice_collection_adviser.html.haml';
+import tTables from './samples/_tables.html.haml';
 
 function init() {
     initHeader();
@@ -22,6 +24,7 @@ function init() {
     initAdviceFeedback();
     initCallouts();
     initNavigation();
+    initTables();
 }
 
 // Haml rendering wrapper for convenience
@@ -76,3 +79,6 @@ export const adviceCollectionAdviser = () =>
         init,
         true
     );
+
+export const tables = () =>
+    renderHamlTemplate('Tables)', tTables, 'tables', '', null, init, true);

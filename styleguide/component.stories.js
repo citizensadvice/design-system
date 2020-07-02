@@ -9,6 +9,7 @@ import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
+import initTables from '../src/js/tables';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -39,6 +40,7 @@ import tSuccessMessage from '../haml/_success_message.html.haml';
 import tTextarea from '../haml/_textarea.html.haml';
 import tAdviceFeedback from '../haml/_advice_feedback.html.haml';
 import tErrorSummary from '../haml/_error_summary.html.haml';
+import tTables from '../haml/_table.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -188,3 +190,6 @@ export const adviceFeedback = () =>
 
 export const successMessage = () =>
     renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');
+
+export const tables = () =>
+    renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);
