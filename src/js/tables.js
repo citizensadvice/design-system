@@ -17,14 +17,10 @@ const initTables = () => {
 
                     for (let r = 1; r < rows.length; r++) {
                         const row = rows[r];
-                        const hCell = row.getElementsByTagName('th')[0];
                         const cells = row.getElementsByTagName('td');
-                        hCell.innerHTML = `<span class="cads-table__th-heading">${headings[0]}</span>${hCell.innerHTML}`;
                         for (let c = 0; c < cells.length; ++c) {
                             const cell = cells[c];
-                            cell.innerHTML = `<span class="cads-table__th-heading">${
-                                headings[c + 1]
-                            }</span>${cell.innerHTML}`;
+                            cell.innerHTML = `<span class="cads-table__th-heading">${headings[c]}</span>${cell.innerHTML}`;
                         }
                     }
                 } catch (e) {
