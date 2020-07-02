@@ -3,6 +3,42 @@
 # frozen_string_literal => true
 
 @locals = {
+  'table' => {
+    'header' => [
+      'Rate',
+      'From April 2016',
+      'From April 2017',
+      'From April 2018',
+      'From April 2019',
+      'From April 2020'
+    ],
+    'rows' => [
+      [
+        'Basic rate',
+        '£79.45',
+        '£80.25',
+        '£82.65',
+        '£84.65',
+        '£86.10'
+      ],
+      [
+        'Adult dependency increase',
+        '£47.65',
+        '£49.67',
+        '£51.69',
+        '£53.71',
+        '£55.73'
+      ],
+      [
+        'Earnings limit for adult dependant',
+        '£48.15',
+        '£50.27',
+        '£52.39',
+        '£54.41',
+        '£56.53'
+      ]
+    ]
+  },
   'breadcrumb_links' => [
     {
       'url' => 'https =>//www.citizensadvice.org.uk/benefits/',
