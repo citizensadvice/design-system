@@ -42,7 +42,9 @@
     }
 
     @page {
+        /* stylelint-disable */
         size: A4; /* DIN A4 standard, Europe */
+        /* stylelint-enable */
         margin: 13mm 12mm;
     }
 
