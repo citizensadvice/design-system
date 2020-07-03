@@ -28,6 +28,22 @@
       ]
     ]
   },
+  'table_data_no_caption' => {
+    'header' => [
+      'Your location',
+      'Post box collection times'
+    ],
+    'rows' => [
+      [
+        'City or town',
+        '9am to 6.30pm'
+      ],
+      [
+        'Rest of the UK',
+        '9am to 5.30pm'
+      ]
+    ]
+  },
   'table_data_long' => {
     'caption' => 'Client under pension age',
     'header' => [
