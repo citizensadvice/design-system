@@ -4,5 +4,6 @@
         {
             "path": "./src/ts/greedy-nav"
         }
-    ]
+    ],
+    "exclude": ["src/**/*.spec.ts"]
 }
