@@ -1,13 +1,15 @@
 
 %table.cads-table
-  %caption Client under pension age
+  -if table_data['caption'] and not table_data['caption'].empty?
+    %caption= table_data['caption']
+
   %tbody
     %tr
-      - table['header'].each do |head|
+      - table_data['header'].each do |head|
         %th{ "scope": "col" }
           %span.cads-table__content= head
 
-    - table['rows'].each do |object|
+    - table_data['rows'].each do |object|
       %tr
       - object.each do |row|
         %td

@@ -3,7 +3,8 @@
 # frozen_string_literal => true
 
 @locals = {
-  'table' => {
+  'table_data' => {
+    'caption' => 'Client under pension age',
     'header' => [
       'Rate',
       'From April 2016',

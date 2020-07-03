@@ -60,9 +60,11 @@ table,
     }
 
     @include cads-media-breakpoint-only(sm) {
-        border-top: none;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+        &.cads-table__has-caption {
+            border-top: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
 
         caption {
             @include cads-border(
