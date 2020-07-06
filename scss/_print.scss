@@ -9,19 +9,11 @@
     .cads-footer,
     .cads-navigation,
     .cads-search,
+    .cads-search-reveal,
     .cads-success-message,
+    .cads-related-content,
     .cads-website-feedback {
         display: none !important;
-    }
-
-    // Components that print as they are
-    .cads-contact-details,
-    .cads-header,
-    .cads-logo,
-    .cads-navigation,
-    .cads-notice-banner,
-    .cads-page-review {
-        // No change
     }
 
     // Components that adapt for printing
