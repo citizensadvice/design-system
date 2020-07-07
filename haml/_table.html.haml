@@ -1,15 +1,16 @@
-%table.cads-table{ class: [table_data['caption'] && !table_data['caption'].empty? && 'cads-table__has-caption'] }
-  -if table_data['caption'] and not table_data['caption'].empty?
-    %caption= table_data['caption']
+.cads-table-container
+  %table.cads-table{ class: [table_data['caption'] && !table_data['caption'].empty? && 'cads-table__has-caption'] }
+    -if table_data['caption'] and not table_data['caption'].empty?
+      %caption= table_data['caption']
 
-  %tbody
-    %tr
-      - table_data['header'].each do |head|
-        %th{ "scope": "col" }
-          %span.cads-table__content= head
-
-    - table_data['rows'].each do |object|
+    %tbody
       %tr
-      - object.each do |row|
-        %td
-          %span.cads-table__content= row
+        - table_data['header'].each do |head|
+          %th{ "scope": "col" }
+            %span.cads-table__content= head
+
+      - table_data['rows'].each do |object|
+        %tr
+        - object.each do |row|
+          %td
+            %span.cads-table__content= row
