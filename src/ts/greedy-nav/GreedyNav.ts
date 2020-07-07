@@ -12,7 +12,7 @@ const priorityNav = {}; // Object for public APIs
  */
 const breaks: number[] = [];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
-let settings = {};
+let settings: Config = defaultConfig;
 let instance = 0;
 let count = 0;
 let mainNavWrapper: HTMLElement;
@@ -54,18 +54,6 @@ const getClosest = function(elem, selector) {
     }
     return false;
 };
-
-/**
- * Merge defaults with user options
- * @private
- * @param {Object} defaults Default settings
- * @param {Object} options User options
- * @returns {Object} Merged values of defaults and options
- */
-const extend = (defaults: Config, options: Config): Config => ({
-    ...defaults,
-    ...options
-});
 
 /**
  * Debounced resize to throttle execution
