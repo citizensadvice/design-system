@@ -2,21 +2,20 @@ const initTables = () => {
     try {
         const tables = document.getElementsByClassName('cads-table'); // eslint-disable-line
 
+        /* eslint-disable no-restricted-syntax */
         if (tables) {
-            for (let i = 0; i < tables.length; i++) {
-                const table = tables[i];
+            for (const table of tables) {
                 try {
                     const tbody = table.getElementsByTagName('tbody')[0];
                     const rows = tbody.getElementsByTagName('tr');
                     const headingCells = rows[0].getElementsByTagName('th');
                     const headings = [];
 
-                    for (let h = 0; h < headingCells.length; h++) {
-                        headings.push(headingCells[h].innerText);
+                    for (const heading of headingCells) {
+                        headings.push(heading.innerText);
                     }
 
-                    for (let r = 1; r < rows.length; r++) {
-                        const row = rows[r];
+                    for (const row of rows) {
                         const cells = row.getElementsByTagName('td');
                         for (let c = 0; c < cells.length; ++c) {
                             const cell = cells[c];
