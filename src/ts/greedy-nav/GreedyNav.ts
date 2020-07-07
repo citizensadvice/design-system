@@ -10,7 +10,7 @@ const priorityNav = {}; // Object for public APIs
 /**
  * Object to store instances with breakpoints where the instances menu item"s didin"t fit.
  */
-const breaks: number[] = [];
+const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let settings: Config = defaultConfig;
 let instance = 0;
@@ -35,7 +35,7 @@ type Callback = () => void;
  * @param {String} selector Selector to match against (class, ID, or data attribute)
  * @return {Boolean|Element} Returns false if not match found
  */
-const getClosest = function(elem, selector) {
+const getClosest = (elem: HTMLElement | HTMLDocument, selector: string) => {
     const firstChar = selector.charAt(0);
     for (; elem && elem !== document; elem = elem.parentNode) {
         if (firstChar === '.') {
@@ -90,7 +90,7 @@ function debounce(func: () => void, wait: number, immediate?: boolean) {
  * @param el
  * @param parent
  */
-const parent = function(el, parent) {
+const parent = (el: Node, parent: Node) => {
     while (el !== null) {
         if (el.parentNode === parent) {
             return true;
@@ -105,7 +105,7 @@ const parent = function(el, parent) {
  * @param el
  * @param className
  */
-const toggleClass = function(el, className) {
+const toggleClass = (el: HTMLElement, className: string) => {
     if (el.classList) {
         el.classList.toggle(className);
     } else {
@@ -119,7 +119,7 @@ const toggleClass = function(el, className) {
     }
 };
 
-const removeClass = function(el, className) {
+const removeClass = (el: HTMLElement, className: string) => {
     if (el.classList) {
         el.classList.remove(className);
     } else {
@@ -127,7 +127,7 @@ const removeClass = function(el, className) {
     }
 };
 
-const addClass = function(el, className) {
+const addClass = (el: HTMLElement, className: string) {
     if (el.classList) {
         el.classList.add(className);
     } else {
@@ -205,7 +205,7 @@ const prepareHtml = function(_this, settings) {
  * @param element
  * @returns {number}
  */
-const getElementContentWidth = function(element) {
+const getElementContentWidth = (element: HTMLElement) =>{
     const styles = window.getComputedStyle(element);
     const padding =
         parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
@@ -217,7 +217,7 @@ const getElementContentWidth = function(element) {
  * Get viewport size
  * @returns {{width: number, height: number}}
  */
-const viewportSize = function() {
+const viewportSize = () => {
     const doc = document;
     const w = window;
     const docEl =
@@ -242,7 +242,7 @@ const viewportSize = function() {
  * @param elem
  * @returns {number}
  */
-const calculateWidths = function(_this) {
+const calculateWidths = (_this: HTMLElement) => {
     totalWidth = getElementContentWidth(_this);
     // Check if parent is the navwrapper before calculating its width
     if (_this.querySelector(navDropdown).parentNode === _this) {
@@ -349,7 +349,7 @@ priorityNav.doesItFit = function(_this) {
 /**
  * Show/hide toggle button
  */
-const showToggle = function(_this, identifier) {
+const showToggle = (_this: HTMLElement, identifier: string) => {
     if (breaks[identifier].length < 1) {
         _this
             .querySelector(navDropdownToggle)
@@ -386,13 +386,13 @@ const showToggle = function(_this, identifier) {
 /**
  * Update count on dropdown toggle button
  */
-const updateCount = function(_this, identifier) {
+const updateCount = (_this: HTMLElement, identifier: string) {
     _this
         .querySelector(navDropdownToggle)
         .setAttribute('priorityNav-count', breaks[identifier].length);
 };
 
-const updateLabel = function(_this, label) {
+const updateLabel = (_this: HTMLElement, label: string) {
     _this.querySelector(navDropdownToggle).innerHTML = label;
     if (label === settings.navDropdownLabelActive) {
         _this
@@ -408,7 +408,7 @@ const updateLabel = function(_this, label) {
 /**
  * Move item to dropdown
  */
-priorityNav.toDropdown = function(_this, identifier) {
+priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
     /**
      * move last child of navigation menu to dropdown
      */
@@ -454,7 +454,7 @@ priorityNav.toDropdown = function(_this, identifier) {
 /**
  * Move item to menu
  */
-priorityNav.toMenu = function(_this, identifier) {
+priorityNav.toMenu = (_this:HTMLElement, identifier: string) => {
     /**
      * move last child of navigation menu to dropdown
      */
@@ -507,7 +507,7 @@ const getChildrenWidth = function(e) {
 /**
  * Bind eventlisteners
  */
-const listeners = function(_this, settings) {
+function listeners(_this:HTMLElement, settings: Config) {
     // Check if an item needs to move
     if (window.attachEvent) {
         window.attachEvent('onresize', () => {
@@ -533,7 +533,7 @@ const listeners = function(_this, settings) {
         .addEventListener('mousedown', function(event) {
             event.stopPropagation();
             toggleClass(_this.querySelector(navDropdown), 'show');
-            toggleClass(this, 'is-open');
+            toggleClass(this, 'is-open'); // TODO find out what this is meant to be
             toggleClass(_this, 'is-open');
 
             /**
@@ -556,7 +556,7 @@ const listeners = function(_this, settings) {
             }
         });
 
-    const lastItemCloseHandler = function(event) {
+    const lastItemCloseHandler = (event: FocusEvent) =>{
         if (!parent(event.relatedTarget, toggleWrapper)) {
             removeClass(_this.querySelector(navDropdown), 'show');
             removeClass(_this.querySelector(navDropdownToggle), 'is-open');
