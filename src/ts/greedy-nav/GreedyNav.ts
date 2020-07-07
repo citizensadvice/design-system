@@ -1,4 +1,5 @@
 import { blurEventName } from './helpers';
+import { Config, defaultConfig } from './Config';
 
 const root = window;
 
@@ -25,50 +26,8 @@ let dropDownWidth: number;
 let toggleWrapper: HTMLSpanElement;
 let viewportWidth = 0;
 
-/**
- * Default settings
- * @type {{initClass: string, navDropdown: string, navDropdownToggle: string, mainNavWrapper: string, moved: Function, movedBack: Function}}
- */
-const defaults = {
-    initClass: 'js-priorityNav', // Class that will be printed on html element to allow conditional css styling.
-    mainNavWrapper: 'nav', // mainnav wrapper selector (must be direct parent from mainNav)
-    mainNav: 'ul', // mainnav selector. (must be inline-block)
-    navDropdownClassName: 'nav__dropdown', // class used for the dropdown.
-    navDropdownToggleClassName: 'nav__dropdown-toggle', // class used for the dropdown toggle.
-    navDropdownToggleAriaLabel: 'More navigation options',
-    navDropdownLabel: 'More', // Text that is used for the dropdown toggle.
-    navDropdownLabelActive: 'Close', // Text that is used for the dropdown toggle when menu is open
-    navDropdownBreakpointLabel: 'menu', // button label for navDropdownToggle when the breakPoint is reached.
-    breakPoint: 500, // amount of pixels when all menu items should be moved to dropdown to simulate a mobile menu
-    throttleDelay: 50, // this will throttle the calculating logic on resize because i'm a responsible dev.
-    offsetPixels: 0, // increase to decrease the time it takes to move an item.
-    count: true, // prints the amount of items are moved to the attribute data-count to style with css counter.
-
-    // Callbacks
-    moved: () => {},
-    movedBack: () => {}
-};
-
-/**
- * A simple forEach() implementation for Arrays, Objects and NodeLists
- * @private
- * @param {Array|Object|NodeList} collection Collection of items to iterate
- * @param {Function} callback Callback function for each iteration
- * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
- */
-const forEach = function(collection, callback, scope) {
-    if (Object.prototype.toString.call(collection) === '[object Object]') {
-        for (const prop in collection) {
-            if (Object.prototype.hasOwnProperty.call(collection, prop)) {
-                callback.call(scope, collection[prop], prop, collection);
-            }
-        }
-    } else {
-        for (let i = 0, len = collection.length; i < len; i++) {
-            callback.call(scope, collection[i], i, collection);
-        }
-    }
-};
+type InterableInternal = Array<any> | Record<string, unknown> | NodeList;
+type Callback = () => void;
 
 /**
  * Get the closest matching element up the DOM tree
@@ -103,16 +62,10 @@ const getClosest = function(elem, selector) {
  * @param {Object} options User options
  * @returns {Object} Merged values of defaults and options
  */
-const extend = function(defaults, options) {
-    const extended = {};
-    forEach(defaults, (value, prop) => {
-        extended[prop] = defaults[prop];
-    });
-    forEach(options, (value, prop) => {
-        extended[prop] = options[prop];
-    });
-    return extended;
-};
+const extend = (defaults: Config, options: Config): Config => ({
+    ...defaults,
+    ...options
+});
 
 /**
  * Debounced resize to throttle execution
@@ -765,12 +718,12 @@ const checkForSymbols = function(string) {
  * @public
  * @param {Object} options User settings
  */
-priorityNav.init = function(options) {
+priorityNav.init = (options?: Config) => {
     /**
      * Merge user options with defaults
      * @type {Object}
      */
-    settings = extend(defaults, options || {});
+    settings = { ...defaultConfig, ...(options || {}) };
 
     // Feature test.
     if (!supports && typeof Node === 'undefined') {
@@ -798,7 +751,7 @@ priorityNav.init = function(options) {
     /**
      * Loop over every instance and reference _this
      */
-    forEach(elements, _this => {
+    elements.forEach(_this => {
         /**
          * Create breaks array
          * @type {number}
