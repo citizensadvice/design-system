@@ -9,14 +9,8 @@ table,
     border-spacing: 0;
     width: 100%;
     margin-bottom: $cads-spacing-4;
-
-    @include cads-border(
-        a,
-        $cads-border-width-small,
-        $cads-border-radius-large,
-        $cads-language__input-border-colour
-    );
-
+    border: solid $cads-border-width-small $cads-language__input-border-colour;
+    border-radius: $cads-border-radius-large;
     border-bottom: none;
 
     caption,
@@ -31,26 +25,16 @@ table,
     td {
         padding: $cads-spacing-2;
         font-weight: $cads-font-weight__regular;
-
-        @include cads-border(
-            b,
-            $cads-border-width-small,
-            0,
-            $cads-language__input-border-colour
-        );
+        border-bottom: solid $cads-border-width-small
+            $cads-language__input-border-colour;
     }
 
     tr:first-child th {
         @extend .cads-heading-small;
 
         padding: $cads-spacing-2;
-
-        @include cads-border(
-            b,
-            $cads-border-width-large,
-            0,
-            $cads-language__brand-primary
-        );
+        border-bottom: solid $cads-border-width-large
+            $cads-language__brand-primary;
     }
 
     td::before {
@@ -71,17 +55,12 @@ table,
         }
 
         caption {
-            @include cads-border(
-                a,
-                $cads-border-width-small,
-                $cads-border-radius-large,
-                $cads-language__input-border-colour
-            );
-
+            border: solid $cads-border-width-small
+                $cads-language__input-border-colour;
+            border-top-left-radius: $cads-border-radius-large;
+            border-top-right-radius: $cads-border-radius-large;
             border-bottom: $cads-border-width-large solid
                 $cads-language__brand-primary;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
             padding: $cads-spacing-2;
             margin: 0;
         }
@@ -112,12 +91,8 @@ table,
         }
 
         tr td:last-child {
-            @include cads-border(
-                b,
-                $cads-border-width-small,
-                0,
-                $cads-language__input-border-colour
-            );
+            border-bottom: solid $cads-border-width-small
+                $cads-language__input-border-colour;
         }
 
         td::before {

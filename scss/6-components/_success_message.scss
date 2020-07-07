@@ -1,11 +1,5 @@
 .cads-success-message {
-    @include cads-border(
-        l,
-        $cads-border-width-large,
-        0,
-        $cads-language__success-colour
-    );
-
+    border-left: solid $cads-border-width-large $cads-language__success-colour;
     display: inline-block;
     min-width: 300px;
     margin: 0 0 $cads-spacing-5 0;

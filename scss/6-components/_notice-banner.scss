@@ -1,11 +1,5 @@
 .cads-notice-banner {
-    @include cads-border(
-        l,
-        $cads-border-width-large,
-        0,
-        $cads-language__brand-secondary
-    );
-
+    border-left: solid $cads-border-width-large $cads-language__brand-secondary;
     margin: 0 0 $cads-spacing-5 0;
 
     .cads-notice-banner__title {
