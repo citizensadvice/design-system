@@ -1,0 +1,104 @@
+.cads-table-container {
+    width: 100%;
+    overflow: auto;
+}
+
+table,
+.cads-table {
+    text-align: left;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: $cads-spacing-4;
+    border: solid $cads-border-width-small $cads-language__input-border-colour;
+    border-radius: $cads-border-radius-large;
+    border-bottom: none;
+
+    caption,
+    .cads-table-caption {
+        @extend .cads-heading-small;
+
+        margin-bottom: $cads-spacing-2;
+        text-align: left;
+    }
+
+    th,
+    td {
+        padding: $cads-spacing-2;
+        font-weight: $cads-font-weight__regular;
+        border-bottom: solid $cads-border-width-small
+            $cads-language__input-border-colour;
+    }
+
+    tr:first-child th {
+        @extend .cads-heading-small;
+
+        padding: $cads-spacing-2;
+        border-bottom: solid $cads-border-width-large
+            $cads-language__brand-primary;
+    }
+
+    td::before {
+        display: none;
+    }
+
+    .cads-table__th-heading {
+        @extend .cads-heading-small;
+
+        display: none;
+    }
+
+    @include cads-media-breakpoint-only(sm) {
+        &.cads-table__has-caption {
+            border-top: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        caption {
+            border: solid $cads-border-width-small
+                $cads-language__input-border-colour;
+            border-top-left-radius: $cads-border-radius-large;
+            border-top-right-radius: $cads-border-radius-large;
+            border-bottom: $cads-border-width-large solid
+                $cads-language__brand-primary;
+            padding: $cads-spacing-2;
+            margin: 0;
+        }
+
+        td {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: stretch;
+            border: none;
+        }
+
+        .cads-table__th-heading {
+            display: block;
+            flex: 0 0 calc(50% - #{$cads-spacing-2});
+            margin-right: $cads-spacing-2;
+        }
+
+        .cads-table__content {
+            line-height: 1.5rem;
+            display: block;
+            flex: 0 0 calc(50% - #{$cads-spacing-2});
+            margin-left: $cads-spacing-2;
+        }
+
+        tr:first-child {
+            display: none;
+        }
+
+        tr td:last-child {
+            border-bottom: solid $cads-border-width-small
+                $cads-language__input-border-colour;
+        }
+
+        td::before {
+            display: inline;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+}

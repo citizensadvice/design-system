@@ -1,13 +1,8 @@
 .cads-advice-feedback {
     position: relative;
-
-    @include cads-border(
-        v,
-        $cads-border-width-small,
-        0,
-        $cads-language__border-colour
-    );
-
+    border: solid $cads-border-width-small $cads-language__border-colour;
+    border-left: none;
+    border-right: none;
     padding: $cads-spacing-4 0 0 0;
 
     .cads-icon-arrow-right {

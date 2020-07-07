@@ -1,6 +1,6 @@
 .cads-callout {
-    @include cads-border(a, 0, $cads-border-radius);
-
+    border: solid 0 $cads-language__border-colour;
+    border-radius: $cads-border-radius;
     position: relative;
     border-width: 0 0 0 $cads-border-width-large;
     padding: $cads-spacing-4;
@@ -24,13 +24,8 @@
 
     &.cads-callout- {
         &example {
-            @include cads-border(
-                a,
-                $cads-border-width-small,
-                $cads-border-radius,
-                $cads-language__border-colour
-            );
-
+            border: solid $cads-border-width-small $cads-language__border-colour;
+            border-radius: $cads-border-radius;
             border-left-color: $cads-palette__mid-grey;
             border-left-width: $cads-border-width-large;
 

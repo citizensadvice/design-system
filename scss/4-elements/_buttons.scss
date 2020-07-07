@@ -1,13 +1,10 @@
 button,
 .cads-button {
     @include cads-interactive-element();
-    @include cads-border(
-        a,
-        $cads-border-width-medium,
-        $cads-border-radius,
-        $cads-language__primary-button-colour
-    );
 
+    border: solid $cads-border-width-medium
+        $cads-language__primary-button-colour;
+    border-radius: $cads-border-radius;
     font-size: 1.125rem;
     font-weight: $cads-font-weight__bold;
     padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;

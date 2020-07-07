@@ -5,12 +5,8 @@
 
     &__summary {
         @include cads-interactive-element();
-        @include cads-border(
-            a,
-            $cads-border-width-small,
-            0,
-            $cads-language__brand-primary
-        );
+
+        border: solid $cads-border-width-small $cads-language__brand-primary;
 
         &::-webkit-details-marker {
             display: none;
@@ -52,16 +48,10 @@
 
     &__content {
         display: none;
-
-        @include cads-border(
-            h,
-            $cads-border-width-small,
-            0,
-            $cads-language__brand-primary
-        );
-
-        padding: $cads-spacing-3 $cads-spacing-4;
+        border: solid $cads-border-width-small $cads-language__brand-primary;
         border-bottom-width: $cads-border-width-small;
+        border-top: none;
+        padding: $cads-spacing-3 $cads-spacing-4;
     }
 
     &.is-open {

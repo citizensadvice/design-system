@@ -1,0 +1,48 @@
+= render partial: "@citizensadvice/design-system/haml/header"
+= render partial: "@citizensadvice/design-system/haml/navigation"
+.cads-grid-container
+  .cads-grid-row
+    .cads-grid-col-12
+      = render partial: "@citizensadvice/design-system/haml/breadcrumb"
+%main.cads-main-content
+  .cads-grid-container
+    .cads-grid-row
+      .cads-grid-col-md-9
+        = render partial: "@citizensadvice/design-system/haml/notice_banner"
+    .cads-grid-row
+      .cads-grid-col-md-9
+        %h1 Tables examples
+        = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'standard', 'body' => '<h3>Standard callout</h3><p>This is a sample page. Note that the layout may not reflect the actual page layout of the website.</p>' } }
+        %h3 This is a long table
+        = render partial: "@citizensadvice/design-system/haml/table", locals: { 'table_data' => table_data_long }
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a urna nisl. Aenean euismod purus a magna vulputate, eget volutpat neque volutpat. Donec dapibus scelerisque diam eu scelerisque. Vestibulum laoreet magna sagittis felis pellentesque semper. Nullam porta, arcu rhoncus euismod porttitor, risus augue bibendum ipsum, eget tincidunt mi lectus eget eros.
+        = render partial: "@citizensadvice/design-system/haml/table"
+        %p Etiam laoreet erat sit amet porttitor luctus. Sed vitae enim aliquet, aliquam velit sit amet, placerat diam. Aenean malesuada euismod arcu, vel imperdiet dolor facilisis vitae. Fusce ac lacinia metus, ut interdum nibh. Nunc a lorem dolor. In sodales urna eget libero commodo luctus. Suspendisse commodo est sit amet diam tempus, sit amet vehicula ex sodales.
+        %h3 Table without a caption
+        = render partial: "@citizensadvice/design-system/haml/table", locals: { 'table_data' => table_data_no_caption }
+        %p Etiam laoreet erat sit amet porttitor luctus. Sed vitae enim aliquet, aliquam velit sit amet, placerat diam. Aenean malesuada euismod arcu, vel imperdiet dolor facilisis vitae. Fusce ac lacinia metus, ut interdum nibh. Nunc a lorem dolor. In sodales urna eget libero commodo luctus. Suspendisse commodo est sit amet diam tempus, sit amet vehicula ex sodales.
+        = render partial: "@citizensadvice/design-system/haml/page_review"
+      .cads-grid-col-md-3
+        %aside.cads-related-content
+          %p.paragraph-s.section-title Related Content
+          %h3 Some content goes here
+          %ul
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 1
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 2
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 3
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 4
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 5
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 6
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 7
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 8
+            %li
+              %a{:href=> 'https://www.citizensadvice.org.uk'} Link 9
+= render partial: "@citizensadvice/design-system/haml/footer"

@@ -4,13 +4,8 @@ hr,
     width: 100%;
     display: block;
     margin: $cads-spacing-3 0;
-
-    @include cads-border(
-        t,
-        $cads-border-width-small,
-        0,
-        $cads-language__border-colour
-    );
+    border: none;
+    border-top: solid $cads-border-width-small $cads-language__border-colour;
 }
 
 .cads-main-content {

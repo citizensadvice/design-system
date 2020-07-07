@@ -2,6 +2,11 @@ const initAdviceFeedback = () => {
     try {
         const d = document;
         const form = d.getElementById('cads-advice-feedback');
+
+        if (!form) {
+            return;
+        }
+
         const form2 = d
             .getElementById('cads-advice-feedback-form')
             .getElementsByClassName('cads-form')[0];
