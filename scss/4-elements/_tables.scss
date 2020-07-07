@@ -75,15 +75,15 @@ table,
 
         .cads-table__th-heading {
             display: block;
-            flex: 1 1 auto;
-            margin-right: $cads-spacing-4;
+            flex: 0 0 calc(50% - #{$cads-spacing-2});
+            margin-right: $cads-spacing-2;
         }
 
         .cads-table__content {
             line-height: 1.5rem;
             display: block;
-            flex: 1 1 auto;
-            text-align: right;
+            flex: 0 0 calc(50% - #{$cads-spacing-2});
+            margin-left: $cads-spacing-2;
         }
 
         tr:first-child {
