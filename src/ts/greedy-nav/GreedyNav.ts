@@ -18,10 +18,13 @@ let count = 0;
 let mainNavWrapper: HTMLElement;
 let totalWidth: number;
 let restWidth: number;
-let mainNav: HTMLElement;
+let mainNav: string;
 let navDropdown: HTMLUListElement;
+let navDropdownSelector: string;
 let navDropdownToggle: HTMLButtonElement;
+let navDropdownToggleSelector: string;
 let navDropdownToggleLabel: HTMLSpanElement;
+let navDropdownToggleLabelSelector: string;
 let dropDownWidth: number;
 let toggleWrapper: HTMLSpanElement;
 let viewportWidth = 0;
@@ -63,23 +66,27 @@ const getClosest = (elem: HTMLElement | HTMLDocument, selector: string) => {
  * @returns {Function}
  */
 function debounce(func: () => void, wait: number, immediate?: boolean) {
-    let timeout;
-    let finishedTimeout;
+    let timeout: number | null;
+    let finishedTimeout: number;
     return function() {
-        const context = this;
+        const context = this; // TODO: figure out what this should be
         const args = arguments;
         const later = function() {
             timeout = null;
             if (!immediate) func.apply(context, args);
         };
         const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
+
+        if (timeout) {
+            window.clearTimeout(timeout);
+        }
+
+        timeout = window.setTimeout(later, wait);
         if (callNow) func.apply(context, args);
 
         // Safari requires this to correctly fire resize when leaving fullscreen mode.
-        clearTimeout(finishedTimeout);
-        finishedTimeout = setTimeout(() => {
+        window.clearTimeout(finishedTimeout);
+        finishedTimeout = window.setTimeout(() => {
             func.apply(context, args);
         }, 800);
     };
@@ -90,7 +97,8 @@ function debounce(func: () => void, wait: number, immediate?: boolean) {
  * @param el
  * @param parent
  */
-const parent = (el: Node, parent: Node) => {
+const parent = (element: HTMLElement, parent: Node) => {
+    let el: (Node & ParentNode) | null = element;
     while (el !== null) {
         if (el.parentNode === parent) {
             return true;
@@ -139,7 +147,11 @@ const addClass = (el: HTMLElement, className: string) {
  * Check if dropdown menu is already on page before creating it
  * @param mainNavWrapper
  */
-const prepareHtml = function(_this, settings) {
+ const prepareHtml = (_this: HTMLElement, settings: Config) => {
+
+    // TODO this function re-uses variables - navDropdown is set
+    // to an HTMLElement and then changed to a string later on.
+
     /**
      * Create dropdow menu
      * @type {HTMLElement}
@@ -169,7 +181,7 @@ const prepareHtml = function(_this, settings) {
     /**
      * Move elements to the right spot
      */
-    if (_this.querySelector(mainNav).parentNode !== _this) {
+    if (_this.querySelector(mainNav)!.parentNode !== _this) {
         console.warn(
             'mainNav is not a direct child of mainNavWrapper, double check please'
         );
@@ -245,8 +257,9 @@ const viewportSize = () => {
 const calculateWidths = (_this: HTMLElement) => {
     totalWidth = getElementContentWidth(_this);
     // Check if parent is the navwrapper before calculating its width
-    if (_this.querySelector(navDropdown).parentNode === _this) {
-        dropDownWidth = _this.querySelector(navDropdown).offsetWidth;
+
+    if (_this.querySelector(navDropdownSelector)?.parentNode === _this) {
+        dropDownWidth = _this.querySelector(navDropdownSelector).offsetWidth;
     } else {
         dropDownWidth = 0;
     }
@@ -258,7 +271,7 @@ const calculateWidths = (_this: HTMLElement) => {
  * Move item to array
  * @param item
  */
-priorityNav.doesItFit = function(_this) {
+priorityNav.doesItFit = (_this: HTMLElement) => {
     /**
      * Check if it is the first run
      */
@@ -323,7 +336,7 @@ priorityNav.doesItFit = function(_this) {
          * If there are no items in dropdown hide dropdown
          */
         if (breaks[identifier].length < 1) {
-            _this.querySelector(navDropdown).classList.remove('show');
+            _this.querySelector(navDropdownSelector).classList.remove('show');
             // show navDropdownLabel
             updateLabel(_this, settings.navDropdownLabel);
         }
@@ -352,10 +365,10 @@ priorityNav.doesItFit = function(_this) {
 const showToggle = (_this: HTMLElement, identifier: string) => {
     if (breaks[identifier].length < 1) {
         _this
-            .querySelector(navDropdownToggle)
+            .querySelector(navDropdownToggleSelector)
             .classList.add('priority-nav-is-hidden');
         _this
-            .querySelector(navDropdownToggle)
+            .querySelector(navDropdownToggleSelector)
             .classList.remove('priority-nav-is-visible');
         _this.classList.remove('priority-nav-has-dropdown');
 
@@ -367,10 +380,10 @@ const showToggle = (_this: HTMLElement, identifier: string) => {
             .setAttribute('aria-haspopup', 'false');
     } else {
         _this
-            .querySelector(navDropdownToggle)
+            .querySelector(navDropdownToggleSelector)
             .classList.add('priority-nav-is-visible');
         _this
-            .querySelector(navDropdownToggle)
+            .querySelector(navDropdownToggleSelector)
             .classList.remove('priority-nav-is-hidden');
         _this.classList.add('priority-nav-has-dropdown');
 
@@ -388,19 +401,19 @@ const showToggle = (_this: HTMLElement, identifier: string) => {
  */
 const updateCount = (_this: HTMLElement, identifier: string) {
     _this
-        .querySelector(navDropdownToggle)
+        .querySelector(navDropdownToggleSelector)
         .setAttribute('priorityNav-count', breaks[identifier].length);
 };
 
 const updateLabel = (_this: HTMLElement, label: string) {
-    _this.querySelector(navDropdownToggle).innerHTML = label;
+    _this.querySelector(navDropdownToggleSelector).innerHTML = label;
     if (label === settings.navDropdownLabelActive) {
         _this
-            .querySelector(navDropdownToggle)
+            .querySelector(navDropdownToggleSelecotr)
             .setAttribute('aria-expanded', 'true');
     } else {
         _this
-            .querySelector(navDropdownToggle)
+            .querySelector(navDropdownToggleSlector)
             .setAttribute('aria-expanded', 'false');
     }
 };
@@ -413,14 +426,14 @@ priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
      * move last child of navigation menu to dropdown
      */
     if (
-        _this.querySelector(navDropdown).firstChild &&
+        _this.querySelector(navDropdownSelector).firstChild &&
         _this.querySelector(mainNav).children.length > 0
     ) {
         _this
-            .querySelector(navDropdown)
+            .querySelector(navDropdownSelector)
             .insertBefore(
                 _this.querySelector(mainNav).lastElementChild,
-                _this.querySelector(navDropdown).firstChild
+                _this.querySelector(navDropdownSelector).firstChild
             );
     } else if (_this.querySelector(mainNav).children.length > 0) {
         _this
@@ -458,10 +471,10 @@ priorityNav.toMenu = (_this:HTMLElement, identifier: string) => {
     /**
      * move last child of navigation menu to dropdown
      */
-    if (_this.querySelector(navDropdown).children.length > 0) {
+    if (_this.querySelector(navDropdownSelector).children.length > 0) {
         _this
             .querySelector(mainNav)
-            .appendChild(_this.querySelector(navDropdown).firstElementChild);
+            .appendChild(_this.querySelector(navDropdownSelector).firstElementChild);
     }
 
     /**
@@ -509,30 +522,30 @@ const getChildrenWidth = function(e) {
  */
 function listeners(_this:HTMLElement, settings: Config) {
     // Check if an item needs to move
-    if (window.attachEvent) {
-        window.attachEvent('onresize', () => {
-            if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
-        });
-    } else if (window.addEventListener) {
-        window.addEventListener('resize', () => {
-            if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
-        });
+    // if (window.attachEvent) {
+    //     window.attachEvent('onresize', () => {
+    //         if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
+    //     });
+    // } else if (window.addEventListener) {
+    window.addEventListener('resize', () => {
+        if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
+    });
 
-        window.addEventListener(
-            'orientationchange',
-            () => {
-                if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
-            },
-            true
-        );
-    }
+    window.addEventListener(
+        'orientationchange',
+        () => {
+            if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
+        },
+        true
+    );
+    // }
 
     // Toggle dropdown
     _this
-        .querySelector(navDropdownToggle)
+        .querySelector(navDropdownToggleSelector)!
         .addEventListener('mousedown', function(event) {
             event.stopPropagation();
-            toggleClass(_this.querySelector(navDropdown), 'show');
+            toggleClass(_this.querySelector(navDropdownSelector)!, 'show');
             toggleClass(this, 'is-open'); // TODO find out what this is meant to be
             toggleClass(_this, 'is-open');
 
@@ -541,15 +554,15 @@ function listeners(_this:HTMLElement, settings: Config) {
              */
             if (_this.classList.contains('is-open')) {
                 _this
-                    .querySelector(navDropdown)
+                    .querySelector(navDropdownSelector)!
                     .setAttribute('aria-hidden', 'true');
 
                 updateLabel(_this, settings.navDropdownLabelActive);
 
-                _this.querySelector(navDropdown).blur();
+                _this.querySelector(navDropdownSelector)?.blur();
             } else {
                 _this
-                    .querySelector(navDropdown)
+                    .querySelector(navDropdownSelector)!
                     .setAttribute('aria-hidden', 'false');
 
                 updateLabel(_this, settings.navDropdownLabel);
@@ -558,21 +571,21 @@ function listeners(_this:HTMLElement, settings: Config) {
 
     const lastItemCloseHandler = (event: FocusEvent) =>{
         if (!parent(event.relatedTarget, toggleWrapper)) {
-            removeClass(_this.querySelector(navDropdown), 'show');
-            removeClass(_this.querySelector(navDropdownToggle), 'is-open');
+            removeClass(_this.querySelector(navDropdownSelector)!, 'show');
+            removeClass(_this.querySelector(navDropdownToggleSelector)!, 'is-open');
             removeClass(_this, 'is-open');
             updateLabel(_this, settings.navDropdownLabel);
             _this
-                .querySelector(`${navDropdown} li:last-child a`)
+                .querySelector(`${navDropdownSelector} li:last-child a`)!
                 .removeEventListener(blurEventName, lastItemCloseHandler);
         }
     };
 
     _this
-        .querySelector(navDropdownToggle)
+        .querySelector(navDropdownToggleSelector)
         .addEventListener('focus', function(event) {
             if (_this.className.indexOf('is-open') === -1) {
-                addClass(_this.querySelector(navDropdown), 'show');
+                addClass(_this.querySelector(navDropdownSelector), 'show');
                 addClass(this, 'is-open');
                 addClass(_this, 'is-open');
                 updateLabel(_this, settings.navDropdownLabelActive);
@@ -581,14 +594,14 @@ function listeners(_this:HTMLElement, settings: Config) {
                  * Toggle aria hidden for accessibility
                  */
                 _this
-                    .querySelector(navDropdown)
+                    .querySelector(navDropdownSelector)
                     .setAttribute('aria-hidden', 'false');
-                _this.querySelector(navDropdown).blur();
+                _this.querySelector(navDropdownSelector).blur();
             }
         });
 
     _this
-        .querySelector(navDropdownToggle)
+        .querySelector(navDropdownToggleSelector)
         .addEventListener(blurEventName, function(e) {
             if (!parent(e.relatedTarget, toggleWrapper)) {
                 // clean up
@@ -596,7 +609,7 @@ function listeners(_this:HTMLElement, settings: Config) {
                     .querySelector(`${navDropdown} li:last-child a`)
                     .removeEventListener(blurEventName, lastItemCloseHandler);
 
-                removeClass(_this.querySelector(navDropdown), 'show');
+                removeClass(_this.querySelector(navDropdownSelctor), 'show');
                 removeClass(this, 'is-open');
                 removeClass(_this, 'is-open');
 
@@ -606,11 +619,11 @@ function listeners(_this:HTMLElement, settings: Config) {
                  * Toggle aria hidden for accessibility
                  */
                 _this
-                    .querySelector(navDropdown)
+                    .querySelector(navDropdownSelector)
                     .setAttribute('aria-hidden', 'false');
             } else {
                 document
-                    .querySelector(`${navDropdown} li:last-child a`)
+                    .querySelector(`${navDropdownSelector} li:last-child a`)
                     .addEventListener(blurEventName, lastItemCloseHandler);
             }
         });
@@ -625,10 +638,10 @@ function listeners(_this:HTMLElement, settings: Config) {
     document.addEventListener('click', event => {
         if (
             !getClosest(event.target, `.${settings.navDropdownClassName}`) &&
-            event.target !== _this.querySelector(navDropdownToggle)
+            event.target !== _this.querySelector(navDropdownToggleSelector)
         ) {
-            _this.querySelector(navDropdown).classList.remove('show');
-            _this.querySelector(navDropdownToggle).classList.remove('is-open');
+            _this.querySelector(navDropdownSelector).classList.remove('show');
+            _this.querySelector(navDropdownToggleSelector).classList.remove('is-open');
             _this.classList.remove('is-open');
             updateLabel(_this, settings.navDropdownLabel);
         }
@@ -640,9 +653,9 @@ function listeners(_this:HTMLElement, settings: Config) {
     document.onkeydown = function(evt) {
         evt = evt || window.event;
         if (evt.keyCode === 27) {
-            document.querySelector(navDropdown).classList.remove('show');
+            document.querySelector(navDropdownSelector).classList.remove('show');
             document
-                .querySelector(navDropdownToggle)
+                .querySelector(navDropdownToggleSelector)
                 .classList.remove('is-open');
             mainNavWrapper.classList.remove('is-open');
         }
@@ -777,8 +790,8 @@ priorityNav.init = (options?: Config) => {
         /**
          * Store the dropdown element
          */
-        navDropdown = `.${settings.navDropdownClassName}`;
-        if (!_this.querySelector(navDropdown)) {
+        navDropdownSelector = `.${settings.navDropdownClassName}`;
+        if (!_this.querySelector(navDropdownSelector)) {
             console.warn("couldn't find the specified navDropdown element");
             return;
         }
@@ -786,8 +799,8 @@ priorityNav.init = (options?: Config) => {
         /**
          * Store the dropdown toggle element
          */
-        navDropdownToggle = `.${settings.navDropdownToggleClassName}`;
-        if (!_this.querySelector(navDropdownToggle)) {
+        navDropdownToggleSelector = `.${settings.navDropdownToggleClassName}`;
+        if (!_this.querySelector(navDropdownToggleSelector)) {
             console.warn(
                 "couldn't find the specified navDropdownToggle element"
             );
