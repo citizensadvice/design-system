@@ -6,7 +6,7 @@ const root = window;
 /**
  * Variables
  */
-const priorityNav = {}; // Object for public APIs
+const priorityNav:any = {}; // Object for public APIs
 /**
  * Object to store instances with breakpoints where the instances menu item"s didin"t fit.
  */
@@ -259,7 +259,7 @@ const calculateWidths = (_this: HTMLElement) => {
     // Check if parent is the navwrapper before calculating its width
 
     if (_this.querySelector(navDropdownSelector)?.parentNode === _this) {
-        dropDownWidth = _this.querySelector(navDropdownSelector).offsetWidth;
+        dropDownWidth = _this.querySelector<HTMLElement>(navDropdownSelector)!.offsetWidth;
     } else {
         dropDownWidth = 0;
     }
@@ -303,9 +303,9 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
          */
         while (
             (totalWidth <= restWidth &&
-                _this.querySelector(mainNav).children.length > 0) ||
+                _this.querySelector<HTMLElement>(mainNav)!.children.length > 0) ||
             (viewportWidth < settings.breakPoint &&
-                _this.querySelector(mainNav).children.length > 0)
+                _this.querySelector<HTMLElement>(mainNav)!.children.length > 0)
         ) {
             // move item to dropdown
             priorityNav.toDropdown(_this, identifier);
@@ -336,7 +336,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
          * If there are no items in dropdown hide dropdown
          */
         if (breaks[identifier].length < 1) {
-            _this.querySelector(navDropdownSelector).classList.remove('show');
+            _this.querySelector<HTMLElement>(navDropdownSelector)!.classList.remove('show');
             // show navDropdownLabel
             updateLabel(_this, settings.navDropdownLabel);
         }
@@ -344,7 +344,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
         /**
          * If there are no items in menu
          */
-        if (_this.querySelector(mainNav).children.length < 1) {
+        if (_this.querySelector<HTMLElement>(mainNav)!.children.length < 1) {
             // show navDropdownBreakpointLabel
             _this.classList.add('is-empty');
             updateLabel(_this, settings.navDropdownBreakpointLabel);
@@ -365,10 +365,10 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
 const showToggle = (_this: HTMLElement, identifier: string) => {
     if (breaks[identifier].length < 1) {
         _this
-            .querySelector(navDropdownToggleSelector)
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.add('priority-nav-is-hidden');
         _this
-            .querySelector(navDropdownToggleSelector)
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.remove('priority-nav-is-visible');
         _this.classList.remove('priority-nav-has-dropdown');
 
@@ -376,14 +376,14 @@ const showToggle = (_this: HTMLElement, identifier: string) => {
          * Set aria attributes for accessibility
          */
         _this
-            .querySelector('.priority-nav__wrapper')
+            .querySelector<HTMLElement>('.priority-nav__wrapper')!
             .setAttribute('aria-haspopup', 'false');
     } else {
         _this
-            .querySelector(navDropdownToggleSelector)
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.add('priority-nav-is-visible');
         _this
-            .querySelector(navDropdownToggleSelector)
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.remove('priority-nav-is-hidden');
         _this.classList.add('priority-nav-has-dropdown');
 
@@ -391,7 +391,7 @@ const showToggle = (_this: HTMLElement, identifier: string) => {
          * Set aria attributes for accessibility
          */
         _this
-            .querySelector('.priority-nav__wrapper')
+            .querySelector<HTMLElement>('.priority-nav__wrapper')!
             .setAttribute('aria-haspopup', 'true');
     }
 };
@@ -401,19 +401,19 @@ const showToggle = (_this: HTMLElement, identifier: string) => {
  */
 const updateCount = (_this: HTMLElement, identifier: string) {
     _this
-        .querySelector(navDropdownToggleSelector)
+        .querySelector<HTMLElement>(navDropdownToggleSelector)!
         .setAttribute('priorityNav-count', breaks[identifier].length);
 };
 
 const updateLabel = (_this: HTMLElement, label: string) {
-    _this.querySelector(navDropdownToggleSelector).innerHTML = label;
+    _this.querySelector<HTMLElement>(navDropdownToggleSelector)!.innerHTML = label;
     if (label === settings.navDropdownLabelActive) {
         _this
-            .querySelector(navDropdownToggleSelecotr)
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .setAttribute('aria-expanded', 'true');
     } else {
         _this
-            .querySelector(navDropdownToggleSlector)
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .setAttribute('aria-expanded', 'false');
     }
 };
@@ -426,19 +426,19 @@ priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
      * move last child of navigation menu to dropdown
      */
     if (
-        _this.querySelector(navDropdownSelector).firstChild &&
-        _this.querySelector(mainNav).children.length > 0
+        _this.querySelector<HTMLElement>(navDropdownSelector)!.firstChild &&
+        _this.querySelector<HTMLElement>(mainNav)!.children.length > 0
     ) {
         _this
-            .querySelector(navDropdownSelector)
+            .querySelector<HTMLElement>(navDropdownSelector)!
             .insertBefore(
-                _this.querySelector(mainNav).lastElementChild,
-                _this.querySelector(navDropdownSelector).firstChild
+                _this.querySelector<HTMLElement>(mainNav)!.lastElementChild!,
+                _this.querySelector<HTMLElement>(navDropdownSelector)!.firstChild
             );
-    } else if (_this.querySelector(mainNav).children.length > 0) {
+    } else if (_this.querySelector<HTMLElement>(mainNav)!.children.length > 0) {
         _this
-            .querySelector(navDropdown)
-            .appendChild(_this.querySelector(mainNav).lastElementChild);
+            .querySelector<HTMLElement>(navDropdownSelector)!
+            .appendChild(_this.querySelector<HTMLElement>(mainNav)!.lastElementChild!);
     }
 
     /**
@@ -454,7 +454,7 @@ priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
     /**
      * update count on dropdown toggle button
      */
-    if (_this.querySelector(mainNav).children.length > 0 && settings.count) {
+    if (_this.querySelector<HTMLElement>(mainNav)!.children.length > 0 && settings.count) {
         updateCount(_this, identifier);
     }
 
@@ -471,10 +471,10 @@ priorityNav.toMenu = (_this:HTMLElement, identifier: string) => {
     /**
      * move last child of navigation menu to dropdown
      */
-    if (_this.querySelector(navDropdownSelector).children.length > 0) {
+    if (_this.querySelector<HTMLElement>(navDropdownSelector)!.children.length > 0) {
         _this
-            .querySelector(mainNav)
-            .appendChild(_this.querySelector(navDropdownSelector).firstElementChild);
+            .querySelector<HTMLElement>(mainNav)!
+            .appendChild(_this.querySelector<HTMLElement>(navDropdownSelector)!.firstElementChild!);
     }
 
     /**
@@ -490,7 +490,7 @@ priorityNav.toMenu = (_this:HTMLElement, identifier: string) => {
     /**
      * update count on dropdown toggle button
      */
-    if (_this.querySelector(mainNav).children.length > 0 && settings.count) {
+    if (_this.querySelector<HTMLElement>(mainNav)!.children.length > 0 && settings.count) {
         updateCount(_this, identifier);
     }
 
@@ -545,7 +545,7 @@ function listeners(_this:HTMLElement, settings: Config) {
         .querySelector(navDropdownToggleSelector)!
         .addEventListener('mousedown', function(event) {
             event.stopPropagation();
-            toggleClass(_this.querySelector(navDropdownSelector)!, 'show');
+            toggleClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
             toggleClass(this, 'is-open'); // TODO find out what this is meant to be
             toggleClass(_this, 'is-open');
 
@@ -559,7 +559,7 @@ function listeners(_this:HTMLElement, settings: Config) {
 
                 updateLabel(_this, settings.navDropdownLabelActive);
 
-                _this.querySelector(navDropdownSelector)?.blur();
+                _this.querySelector<HTMLElement>(navDropdownSelector)!.blur();
             } else {
                 _this
                     .querySelector(navDropdownSelector)!
@@ -571,21 +571,21 @@ function listeners(_this:HTMLElement, settings: Config) {
 
     const lastItemCloseHandler = (event: FocusEvent) =>{
         if (!parent(event.relatedTarget, toggleWrapper)) {
-            removeClass(_this.querySelector(navDropdownSelector)!, 'show');
-            removeClass(_this.querySelector(navDropdownToggleSelector)!, 'is-open');
+            removeClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
+            removeClass(_this.querySelector<HTMLElement>(navDropdownToggleSelector)!, 'is-open');
             removeClass(_this, 'is-open');
             updateLabel(_this, settings.navDropdownLabel);
             _this
-                .querySelector(`${navDropdownSelector} li:last-child a`)!
+                .querySelector<HTMLElement>(`${navDropdownSelector} li:last-child a`)!
                 .removeEventListener(blurEventName, lastItemCloseHandler);
         }
     };
 
     _this
-        .querySelector(navDropdownToggleSelector)
+        .querySelector<HTMLElement>(navDropdownToggleSelector)!
         .addEventListener('focus', function(event) {
             if (_this.className.indexOf('is-open') === -1) {
-                addClass(_this.querySelector(navDropdownSelector), 'show');
+                addClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
                 addClass(this, 'is-open');
                 addClass(_this, 'is-open');
                 updateLabel(_this, settings.navDropdownLabelActive);
@@ -594,22 +594,22 @@ function listeners(_this:HTMLElement, settings: Config) {
                  * Toggle aria hidden for accessibility
                  */
                 _this
-                    .querySelector(navDropdownSelector)
+                    .querySelector<HTMLElement>(navDropdownSelector)!
                     .setAttribute('aria-hidden', 'false');
-                _this.querySelector(navDropdownSelector).blur();
+                _this.querySelector<HTMLElement>(navDropdownSelector)!.blur();
             }
         });
 
     _this
-        .querySelector(navDropdownToggleSelector)
+        .querySelector<HTMLElement>(navDropdownToggleSelector)!
         .addEventListener(blurEventName, function(e) {
             if (!parent(e.relatedTarget, toggleWrapper)) {
                 // clean up
                 document
-                    .querySelector(`${navDropdown} li:last-child a`)
+                    .querySelector<HTMLElement>(`${navDropdown} li:last-child a`)!
                     .removeEventListener(blurEventName, lastItemCloseHandler);
 
-                removeClass(_this.querySelector(navDropdownSelctor), 'show');
+                removeClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
                 removeClass(this, 'is-open');
                 removeClass(_this, 'is-open');
 
@@ -619,11 +619,11 @@ function listeners(_this:HTMLElement, settings: Config) {
                  * Toggle aria hidden for accessibility
                  */
                 _this
-                    .querySelector(navDropdownSelector)
+                    .querySelector<HTMLElement>(navDropdownSelector)!
                     .setAttribute('aria-hidden', 'false');
             } else {
                 document
-                    .querySelector(`${navDropdownSelector} li:last-child a`)
+                    .querySelector<HTMLElement>(`${navDropdownSelector} li:last-child a`)!
                     .addEventListener(blurEventName, lastItemCloseHandler);
             }
         });
@@ -640,8 +640,8 @@ function listeners(_this:HTMLElement, settings: Config) {
             !getClosest(event.target, `.${settings.navDropdownClassName}`) &&
             event.target !== _this.querySelector(navDropdownToggleSelector)
         ) {
-            _this.querySelector(navDropdownSelector).classList.remove('show');
-            _this.querySelector(navDropdownToggleSelector).classList.remove('is-open');
+            _this.querySelector<HTMLElement>(navDropdownSelector)!.classList.remove('show');
+            _this.querySelector<HTMLElement>(navDropdownToggleSelector)!.classList.remove('is-open');
             _this.classList.remove('is-open');
             updateLabel(_this, settings.navDropdownLabel);
         }
@@ -653,9 +653,9 @@ function listeners(_this:HTMLElement, settings: Config) {
     document.onkeydown = function(evt) {
         evt = evt || window.event;
         if (evt.keyCode === 27) {
-            document.querySelector(navDropdownSelector).classList.remove('show');
+            document.querySelector<HTMLElement>(navDropdownSelector)!.classList.remove('show');
             document
-                .querySelector(navDropdownToggleSelector)
+                .querySelector<HTMLElement>(navDropdownToggleSelector)!
                 .classList.remove('is-open');
             mainNavWrapper.classList.remove('is-open');
         }
@@ -666,14 +666,14 @@ function listeners(_this:HTMLElement, settings: Config) {
  * Remove function
  */
 Element.prototype.remove = function() {
-    this.parentElement.removeChild(this);
+    this.parentElement!.removeChild(this);
 };
 
 /* global HTMLCollection */
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     for (let i = 0, len = this.length; i < len; i++) {
         if (this[i] && this[i].parentElement) {
-            this[i].parentElement.removeChild(this[i]);
+            this[i].parentElement!.removeChild(this[i]);
         }
     }
 };
@@ -706,8 +706,8 @@ if (supports && typeof Node !== 'undefined') {
     };
 }
 
-const checkForSymbols = function(string) {
-    const firstChar = string.charAt(0);
+const checkForSymbols = function(str:string) {
+    const firstChar = str.charAt(0);
     if (firstChar === '.' || firstChar === '#') {
         return false;
     }
