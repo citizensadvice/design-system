@@ -165,6 +165,158 @@ const addClass = (el: HTMLElement, className: string) => {
 };
 
 /**
+ * Show/hide toggle button
+ */
+const showToggle = (_this: HTMLElement, identifier: number) => {
+    if (breaks[identifier].length < 1) {
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .classList.add('priority-nav-is-hidden');
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .classList.remove('priority-nav-is-visible');
+        _this.classList.remove('priority-nav-has-dropdown');
+
+        /**
+         * Set aria attributes for accessibility
+         */
+        _this
+            .querySelector<HTMLElement>('.priority-nav__wrapper')!
+            .setAttribute('aria-haspopup', 'false');
+    } else {
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .classList.add('priority-nav-is-visible');
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .classList.remove('priority-nav-is-hidden');
+        _this.classList.add('priority-nav-has-dropdown');
+
+        /**
+         * Set aria attributes for accessibility
+         */
+        _this
+            .querySelector<HTMLElement>('.priority-nav__wrapper')!
+            .setAttribute('aria-haspopup', 'true');
+    }
+};
+
+/**
+ * Update count on dropdown toggle button
+ */
+const updateCount = (_this: HTMLElement, identifier: number) => {
+    _this
+        .querySelector<HTMLElement>(navDropdownToggleSelector)!
+        .setAttribute('priorityNav-count', `${breaks[identifier].length}`);
+};
+
+const updateLabel = (_this: HTMLElement, label: string) => {
+    // eslint-disable-next-line no-param-reassign
+    _this.querySelector<HTMLElement>(
+        navDropdownToggleSelector
+    )!.innerHTML = label;
+    if (label === defaultSettings.navDropdownLabelActive) {
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .setAttribute('aria-expanded', 'true');
+    } else {
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .setAttribute('aria-expanded', 'false');
+    }
+};
+
+const insertAfter = (newNode: Node, referenceNode: Node) => {
+    if (referenceNode.parentNode !== null) {
+        referenceNode.parentNode.insertBefore(
+            newNode,
+            referenceNode.nextSibling
+        );
+    }
+};
+
+const checkForSymbols = (str: string) => {
+    const firstChar = str.charAt(0);
+    if (firstChar === '.' || firstChar === '#') {
+        return false;
+    }
+    return true;
+};
+
+/**
+ * Get innerwidth without padding
+ * @param element
+ * @returns {number}
+ */
+const getElementContentWidth = (element: HTMLElement) => {
+    const styles = window.getComputedStyle(element);
+    const padding =
+        parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+
+    return element.clientWidth - padding;
+};
+
+/**
+ * Get viewport size
+ * @returns {{width: number, height: number}}
+ */
+const viewportSize = () => {
+    const doc = document;
+    const w = window;
+    const docEl =
+        doc.compatMode && doc.compatMode === 'CSS1Compat'
+            ? doc.documentElement
+            : doc.body;
+
+    let width = docEl.clientWidth;
+    let height = docEl.clientHeight;
+
+    // mobile zoomed in?
+    if (w.innerWidth && width > w.innerWidth) {
+        width = w.innerWidth;
+        height = w.innerHeight;
+    }
+
+    return { width, height };
+};
+
+/**
+ * Count width of children and return the value
+ * @param e
+ */
+const getChildrenWidth = (e: HTMLElement) => {
+    const children = e.childNodes;
+    let sum = 0;
+    for (let i = 0; i < children.length; i++) {
+        if (children[i].nodeType !== 3) {
+            if (!Number.isNaN((<HTMLElement>children[i]).offsetWidth)) {
+                sum += (<HTMLElement>children[i]).offsetWidth;
+            }
+        }
+    }
+    return sum;
+};
+
+/**
+ * Get width
+ * @param elem
+ * @returns {number}
+ */
+const calculateWidths = (_this: HTMLElement) => {
+    totalWidth = getElementContentWidth(_this);
+    // Check if parent is the navwrapper before calculating its width
+
+    if (_this.querySelector(navDropdownSelector)?.parentNode === _this) {
+        dropDownWidth = _this.querySelector<HTMLElement>(navDropdownSelector)!
+            .offsetWidth;
+    } else {
+        dropDownWidth = 0;
+    }
+    restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
+    viewportWidth = viewportSize().width;
+};
+
+/**
  * Check if dropdown menu is already on page before creating it
  * @param mainNavWrapper
  */
@@ -230,62 +382,6 @@ const prepareHtml = (_this: HTMLElement, config: Config) => {
     toggleWrapper.classList.add('priority-nav__wrapper');
 
     _this.classList.add('priority-nav');
-};
-
-/**
- * Get innerwidth without padding
- * @param element
- * @returns {number}
- */
-const getElementContentWidth = (element: HTMLElement) => {
-    const styles = window.getComputedStyle(element);
-    const padding =
-        parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
-
-    return element.clientWidth - padding;
-};
-
-/**
- * Get viewport size
- * @returns {{width: number, height: number}}
- */
-const viewportSize = () => {
-    const doc = document;
-    const w = window;
-    const docEl =
-        doc.compatMode && doc.compatMode === 'CSS1Compat'
-            ? doc.documentElement
-            : doc.body;
-
-    let width = docEl.clientWidth;
-    let height = docEl.clientHeight;
-
-    // mobile zoomed in?
-    if (w.innerWidth && width > w.innerWidth) {
-        width = w.innerWidth;
-        height = w.innerHeight;
-    }
-
-    return { width, height };
-};
-
-/**
- * Get width
- * @param elem
- * @returns {number}
- */
-const calculateWidths = (_this: HTMLElement) => {
-    totalWidth = getElementContentWidth(_this);
-    // Check if parent is the navwrapper before calculating its width
-
-    if (_this.querySelector(navDropdownSelector)?.parentNode === _this) {
-        dropDownWidth = _this.querySelector<HTMLElement>(navDropdownSelector)!
-            .offsetWidth;
-    } else {
-        dropDownWidth = 0;
-    }
-    restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
-    viewportWidth = viewportSize().width;
 };
 
 /**
@@ -389,68 +485,6 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
 };
 
 /**
- * Show/hide toggle button
- */
-const showToggle = (_this: HTMLElement, identifier: number) => {
-    if (breaks[identifier].length < 1) {
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.add('priority-nav-is-hidden');
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.remove('priority-nav-is-visible');
-        _this.classList.remove('priority-nav-has-dropdown');
-
-        /**
-         * Set aria attributes for accessibility
-         */
-        _this
-            .querySelector<HTMLElement>('.priority-nav__wrapper')!
-            .setAttribute('aria-haspopup', 'false');
-    } else {
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.add('priority-nav-is-visible');
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.remove('priority-nav-is-hidden');
-        _this.classList.add('priority-nav-has-dropdown');
-
-        /**
-         * Set aria attributes for accessibility
-         */
-        _this
-            .querySelector<HTMLElement>('.priority-nav__wrapper')!
-            .setAttribute('aria-haspopup', 'true');
-    }
-};
-
-/**
- * Update count on dropdown toggle button
- */
-const updateCount = (_this: HTMLElement, identifier: number) => {
-    _this
-        .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .setAttribute('priorityNav-count', `${breaks[identifier].length}`);
-};
-
-const updateLabel = (_this: HTMLElement, label: string) => {
-    // eslint-disable-next-line no-param-reassign
-    _this.querySelector<HTMLElement>(
-        navDropdownToggleSelector
-    )!.innerHTML = label;
-    if (label === defaultSettings.navDropdownLabelActive) {
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .setAttribute('aria-expanded', 'true');
-    } else {
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .setAttribute('aria-expanded', 'false');
-    }
-};
-
-/**
  * Move item to dropdown
  */
 priorityNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
@@ -545,23 +579,6 @@ priorityNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
      * If item has been moved back to the main menu trigger the callback
      */
     defaultSettings.movedBack();
-};
-
-/**
- * Count width of children and return the value
- * @param e
- */
-const getChildrenWidth = (e: HTMLElement) => {
-    const children = e.childNodes;
-    let sum = 0;
-    for (let i = 0; i < children.length; i++) {
-        if (children[i].nodeType !== 3) {
-            if (!Number.isNaN((<HTMLElement>children[i]).offsetWidth)) {
-                sum += (<HTMLElement>children[i]).offsetWidth;
-            }
-        }
-    }
-    return sum;
 };
 
 /**
@@ -759,7 +776,7 @@ function listeners(_this: HTMLElement, settings: Config) {
  * Destroy the current initialization.
  * @public
  */
-priorityNav.destroy = function() {
+priorityNav.destroy = () => {
     // If plugin isn"t already initialized, stop
     if (!defaultSettings) return;
     // Remove feedback class
@@ -770,23 +787,6 @@ priorityNav.destroy = function() {
     // settings = null; // TODO: Cleanup settings another way
     delete priorityNav.init;
     delete priorityNav.doesItFit;
-};
-
-const insertAfter = (newNode: Node, referenceNode: Node) => {
-    if (referenceNode.parentNode !== null) {
-        referenceNode.parentNode.insertBefore(
-            newNode,
-            referenceNode.nextSibling
-        );
-    }
-};
-
-const checkForSymbols = (str: string) => {
-    const firstChar = str.charAt(0);
-    if (firstChar === '.' || firstChar === '#') {
-        return false;
-    }
-    return true;
 };
 
 /**
