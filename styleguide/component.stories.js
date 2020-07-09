@@ -12,7 +12,7 @@ import initCallouts from '../src/js/callout';
 import initTables from '../src/js/tables';
 
 /* NOTE: greedy-nav is a placeholder for typescript POC, use priority-nav instead */
-import GreedyNav from '../src/ts/greedy-nav';
+import GreedyNav from '../src/ts/greedy-nav/GreedyNav';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -144,11 +144,11 @@ export const navigation = () =>
         <pre><code>import { initNavigation } from '@citizensadvice/design-system/lib/navigation'</code></pre> and execute that function after the navigation components html has loaded into the DOM.`,
         null,
         () => {
-            priorityNav.init({
-                breakPoint: 0
-            });
-            /* Note: greedyNav is a POC placeholder, use priorityNav instead */
-            const g = new GreedyNav();
+            // priorityNav.init({
+            //     breakPoint: 0
+            // });
+            // /* Note: greedyNav is a POC placeholder, use priorityNav instead */
+            GreedyNav.init();
         }
     );
 

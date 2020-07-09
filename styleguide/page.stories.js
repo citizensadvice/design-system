@@ -3,6 +3,7 @@
 import './styles.scss';
 
 import { initNavigation } from '../src/js/navigation';
+import GreedyNav from '../src/ts/greedy-nav/GreedyNav';
 import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
@@ -23,8 +24,9 @@ function init() {
     initTargetedContent();
     initAdviceFeedback();
     initCallouts();
-    initNavigation();
     initTables();
+    GreedyNav.init();
+    // initNavigation();
 }
 
 // Haml rendering wrapper for convenience
