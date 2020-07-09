@@ -120,54 +120,54 @@
 
   'navigation_links' => [
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits/',
+      'url' => '/benefits/',
       'title' => 'Benefits'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/work/',
+      'url' => '/work/',
       'title' => 'Work'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/debt-and-money/',
+      'url' => '/debt-and-money/',
       'title' => 'Debt and money'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/consumer/',
+      'url' => '/consumer/',
       'title' => 'Consumer'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/housing/',
+      'url' => '/housing/',
       'title' => 'Housing'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/family/',
+      'url' => '/family/',
       'title' => 'Family'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/law-and-courts/',
+      'url' => '/law-and-courts/',
       'title' => 'Law and courts'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/immigration/',
+      'url' => '/immigration/',
       'title' => 'Immigration'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/health/',
+      'url' => '/health/',
       'title' => 'Health'
     }
   ],
 
   'breadcrumb_links' => [
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits/',
+      'url' => '/benefits/',
       'title' => 'Benefits'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits/benefits-introduction/',
+      'url' => '/benefits/benefits-introduction/',
       'title' => 'Benefits - introduction'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits/benefits-introduction/what-benefits-can-i-get/',
+      'url' => '/benefits/benefits-introduction/what-benefits-can-i-get/',
       'title' => 'Benefit calculators: what benefits can you get'
     }
   ],
