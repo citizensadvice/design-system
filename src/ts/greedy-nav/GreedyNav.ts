@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { blurEventName } from './helpers';
 import { Config, defaultConfig } from './Config';
 
@@ -6,13 +7,13 @@ const root = window;
 /**
  * Variables
  */
-const priorityNav:any = {}; // Object for public APIs
+const priorityNav: any = {}; // Object for public APIs
 /**
  * Object to store instances with breakpoints where the instances menu item"s didin"t fit.
  */
 const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
-let settings: Config = defaultConfig;
+// let settings: Config = defaultConfig;
 let instance = 0;
 let count = 0;
 let mainNavWrapper: HTMLElement;
@@ -32,15 +33,22 @@ let viewportWidth = 0;
 type InterableInternal = Array<any> | Record<string, unknown> | NodeList;
 type Callback = () => void;
 
+type Instance = number;
+type Identifier = number;
+
 /**
  * Get the closest matching element up the DOM tree
  * @param {Element} elem Starting element
  * @param {String} selector Selector to match against (class, ID, or data attribute)
  * @return {Boolean|Element} Returns false if not match found
  */
-const getClosest = (elem: HTMLElement | HTMLDocument, selector: string) => {
+const getClosest = (
+    elem: (HTMLElement | HTMLDocument) | null,
+    selector: string
+) => {
     const firstChar = selector.charAt(0);
-    for (; elem && elem !== document; elem = elem.parentNode) {
+    // eslint-disable-next-line no-param-reassign
+    for (; elem && elem instanceof HTMLElement; elem = elem.parentNode) {
         if (firstChar === '.') {
             if (elem.classList.contains(selector.substr(1))) {
                 return elem;
@@ -97,10 +105,10 @@ function debounce(func: () => void, wait: number, immediate?: boolean) {
  * @param el
  * @param parent
  */
-const parent = (element: HTMLElement, parent: Node) => {
+const parent = (element: HTMLElement, parentNode: Node) => {
     let el: (Node & ParentNode) | null = element;
     while (el !== null) {
-        if (el.parentNode === parent) {
+        if (el.parentNode === parentNode) {
             return true;
         }
         el = el.parentNode;
@@ -123,6 +131,7 @@ const toggleClass = (el: HTMLElement, className: string) => {
         if (existingIndex >= 0) classes.splice(existingIndex, 1);
         else classes.push(className);
 
+        // eslint-disable-next-line no-param-reassign
         el.className = classes.join(' ');
     }
 };
@@ -131,14 +140,16 @@ const removeClass = (el: HTMLElement, className: string) => {
     if (el.classList) {
         el.classList.remove(className);
     } else {
+        // eslint-disable-next-line no-param-reassign
         el.className = el.className.replace(new RegExp(`s?${className}s?`), '');
     }
 };
 
-const addClass = (el: HTMLElement, className: string) {
+const addClass = (el: HTMLElement, className: string) => {
     if (el.classList) {
         el.classList.add(className);
     } else {
+        // eslint-disable-next-line no-param-reassign
         el.className = `${el.className} ${className}`;
     }
 };
@@ -147,8 +158,7 @@ const addClass = (el: HTMLElement, className: string) {
  * Check if dropdown menu is already on page before creating it
  * @param mainNavWrapper
  */
- const prepareHtml = (_this: HTMLElement, settings: Config) => {
-
+const prepareHtml = (_this: HTMLElement, settings: Config) => {
     // TODO this function re-uses variables - navDropdown is set
     // to an HTMLElement and then changed to a string later on.
 
@@ -188,7 +198,7 @@ const addClass = (el: HTMLElement, className: string) {
         return;
     }
 
-    _this.insertAfter(toggleWrapper, _this.querySelector(mainNav));
+    insertAfter(toggleWrapper, _this.querySelector(mainNav)!);
 
     toggleWrapper.appendChild(navDropdownToggleLabel);
     toggleWrapper.appendChild(navDropdownToggle);
@@ -217,7 +227,7 @@ const addClass = (el: HTMLElement, className: string) {
  * @param element
  * @returns {number}
  */
-const getElementContentWidth = (element: HTMLElement) =>{
+const getElementContentWidth = (element: HTMLElement) => {
     const styles = window.getComputedStyle(element);
     const padding =
         parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
@@ -259,7 +269,8 @@ const calculateWidths = (_this: HTMLElement) => {
     // Check if parent is the navwrapper before calculating its width
 
     if (_this.querySelector(navDropdownSelector)?.parentNode === _this) {
-        dropDownWidth = _this.querySelector<HTMLElement>(navDropdownSelector)!.offsetWidth;
+        dropDownWidth = _this.querySelector<HTMLElement>(navDropdownSelector)!
+            .offsetWidth;
     } else {
         dropDownWidth = 0;
     }
@@ -275,8 +286,10 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
     /**
      * Check if it is the first run
      */
-    var delay =
-        _this.getAttribute('instance') === 0 ? delay : settings.throttleDelay;
+    const currentInstance = _this.getAttribute('instance');
+    const firstRun = currentInstance === '0';
+
+    const delay = firstRun ? 0 : settings.throttleDelay;
 
     /**
      * Increase instance
@@ -291,7 +304,10 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
          * Get the current element"s instance
          * @type {string}
          */
-        const identifier = _this.getAttribute('instance');
+        const identifier: Identifier = parseInt(
+            _this.getAttribute('instance')!,
+            10
+        );
 
         /**
          * Update width
@@ -303,14 +319,15 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
          */
         while (
             (totalWidth <= restWidth &&
-                _this.querySelector<HTMLElement>(mainNav)!.children.length > 0) ||
+                _this.querySelector<HTMLElement>(mainNav)!.children.length >
+                    0) ||
             (viewportWidth < settings.breakPoint &&
                 _this.querySelector<HTMLElement>(mainNav)!.children.length > 0)
         ) {
             // move item to dropdown
             priorityNav.toDropdown(_this, identifier);
             // recalculate widths
-            calculateWidths(_this, identifier);
+            calculateWidths(_this);
             // update dropdownToggle label
             if (viewportWidth < settings.breakPoint) {
                 updateLabel(_this, settings.navDropdownBreakpointLabel);
@@ -336,7 +353,9 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
          * If there are no items in dropdown hide dropdown
          */
         if (breaks[identifier].length < 1) {
-            _this.querySelector<HTMLElement>(navDropdownSelector)!.classList.remove('show');
+            _this
+                .querySelector<HTMLElement>(navDropdownSelector)!
+                .classList.remove('show');
             // show navDropdownLabel
             updateLabel(_this, settings.navDropdownLabel);
         }
@@ -362,7 +381,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
 /**
  * Show/hide toggle button
  */
-const showToggle = (_this: HTMLElement, identifier: string) => {
+const showToggle = (_this: HTMLElement, identifier: number) => {
     if (breaks[identifier].length < 1) {
         _this
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
@@ -399,14 +418,17 @@ const showToggle = (_this: HTMLElement, identifier: string) => {
 /**
  * Update count on dropdown toggle button
  */
-const updateCount = (_this: HTMLElement, identifier: string) {
+const updateCount = (_this: HTMLElement, identifier: number) => {
     _this
         .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .setAttribute('priorityNav-count', breaks[identifier].length);
+        .setAttribute('priorityNav-count', `${breaks[identifier].length}`);
 };
 
-const updateLabel = (_this: HTMLElement, label: string) {
-    _this.querySelector<HTMLElement>(navDropdownToggleSelector)!.innerHTML = label;
+const updateLabel = (_this: HTMLElement, label: string) => {
+    // eslint-disable-next-line no-param-reassign
+    _this.querySelector<HTMLElement>(
+        navDropdownToggleSelector
+    )!.innerHTML = label;
     if (label === settings.navDropdownLabelActive) {
         _this
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
@@ -421,7 +443,7 @@ const updateLabel = (_this: HTMLElement, label: string) {
 /**
  * Move item to dropdown
  */
-priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
+priorityNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
     /**
      * move last child of navigation menu to dropdown
      */
@@ -433,12 +455,15 @@ priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
             .querySelector<HTMLElement>(navDropdownSelector)!
             .insertBefore(
                 _this.querySelector<HTMLElement>(mainNav)!.lastElementChild!,
-                _this.querySelector<HTMLElement>(navDropdownSelector)!.firstChild
+                _this.querySelector<HTMLElement>(navDropdownSelector)!
+                    .firstChild
             );
     } else if (_this.querySelector<HTMLElement>(mainNav)!.children.length > 0) {
         _this
             .querySelector<HTMLElement>(navDropdownSelector)!
-            .appendChild(_this.querySelector<HTMLElement>(mainNav)!.lastElementChild!);
+            .appendChild(
+                _this.querySelector<HTMLElement>(mainNav)!.lastElementChild!
+            );
     }
 
     /**
@@ -454,7 +479,10 @@ priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
     /**
      * update count on dropdown toggle button
      */
-    if (_this.querySelector<HTMLElement>(mainNav)!.children.length > 0 && settings.count) {
+    if (
+        _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
+        settings.count
+    ) {
         updateCount(_this, identifier);
     }
 
@@ -467,14 +495,20 @@ priorityNav.toDropdown = (_this:HTMLElement, identifier: string) =>{
 /**
  * Move item to menu
  */
-priorityNav.toMenu = (_this:HTMLElement, identifier: string) => {
+priorityNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
     /**
      * move last child of navigation menu to dropdown
      */
-    if (_this.querySelector<HTMLElement>(navDropdownSelector)!.children.length > 0) {
+    if (
+        _this.querySelector<HTMLElement>(navDropdownSelector)!.children.length >
+        0
+    ) {
         _this
             .querySelector<HTMLElement>(mainNav)!
-            .appendChild(_this.querySelector<HTMLElement>(navDropdownSelector)!.firstElementChild!);
+            .appendChild(
+                _this.querySelector<HTMLElement>(navDropdownSelector)!
+                    .firstElementChild!
+            );
     }
 
     /**
@@ -490,7 +524,10 @@ priorityNav.toMenu = (_this:HTMLElement, identifier: string) => {
     /**
      * update count on dropdown toggle button
      */
-    if (_this.querySelector<HTMLElement>(mainNav)!.children.length > 0 && settings.count) {
+    if (
+        _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
+        settings.count
+    ) {
         updateCount(_this, identifier);
     }
 
@@ -504,13 +541,13 @@ priorityNav.toMenu = (_this:HTMLElement, identifier: string) => {
  * Count width of children and return the value
  * @param e
  */
-const getChildrenWidth = function(e) {
+const getChildrenWidth = (e: HTMLElement) => {
     const children = e.childNodes;
     let sum = 0;
     for (let i = 0; i < children.length; i++) {
         if (children[i].nodeType !== 3) {
-            if (!isNaN(children[i].offsetWidth)) {
-                sum += children[i].offsetWidth;
+            if (!Number.isNaN((<HTMLElement>children[i]).offsetWidth)) {
+                sum += (<HTMLElement>children[i]).offsetWidth;
             }
         }
     }
@@ -520,7 +557,7 @@ const getChildrenWidth = function(e) {
 /**
  * Bind eventlisteners
  */
-function listeners(_this:HTMLElement, settings: Config) {
+function listeners(_this: HTMLElement, settings: Config) {
     // Check if an item needs to move
     // if (window.attachEvent) {
     //     window.attachEvent('onresize', () => {
@@ -543,10 +580,13 @@ function listeners(_this:HTMLElement, settings: Config) {
     // Toggle dropdown
     _this
         .querySelector(navDropdownToggleSelector)!
-        .addEventListener('mousedown', function(event) {
+        .addEventListener('mousedown', event => {
             event.stopPropagation();
-            toggleClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
-            toggleClass(this, 'is-open'); // TODO find out what this is meant to be
+            toggleClass(
+                _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                'show'
+            );
+            toggleClass(<HTMLElement>event.currentTarget!, 'is-open'); // TODO find out what this is meant to be
             toggleClass(_this, 'is-open');
 
             /**
@@ -569,14 +609,22 @@ function listeners(_this:HTMLElement, settings: Config) {
             }
         });
 
-    const lastItemCloseHandler = (event: FocusEvent) =>{
-        if (!parent(event.relatedTarget, toggleWrapper)) {
-            removeClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
-            removeClass(_this.querySelector<HTMLElement>(navDropdownToggleSelector)!, 'is-open');
+    const lastItemCloseHandler = (event: FocusEvent) => {
+        if (!parent(<HTMLElement>event.relatedTarget, toggleWrapper)) {
+            removeClass(
+                _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                'show'
+            );
+            removeClass(
+                _this.querySelector<HTMLElement>(navDropdownToggleSelector)!,
+                'is-open'
+            );
             removeClass(_this, 'is-open');
             updateLabel(_this, settings.navDropdownLabel);
             _this
-                .querySelector<HTMLElement>(`${navDropdownSelector} li:last-child a`)!
+                .querySelector<HTMLElement>(
+                    `${navDropdownSelector} li:last-child a`
+                )!
                 .removeEventListener(blurEventName, lastItemCloseHandler);
         }
     };
@@ -585,7 +633,10 @@ function listeners(_this:HTMLElement, settings: Config) {
         .querySelector<HTMLElement>(navDropdownToggleSelector)!
         .addEventListener('focus', function(event) {
             if (_this.className.indexOf('is-open') === -1) {
-                addClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
+                addClass(
+                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                    'show'
+                );
                 addClass(this, 'is-open');
                 addClass(_this, 'is-open');
                 updateLabel(_this, settings.navDropdownLabelActive);
@@ -603,13 +654,18 @@ function listeners(_this:HTMLElement, settings: Config) {
     _this
         .querySelector<HTMLElement>(navDropdownToggleSelector)!
         .addEventListener(blurEventName, function(e) {
-            if (!parent(e.relatedTarget, toggleWrapper)) {
+            if (!parent(<HTMLElement>e.relatedTarget, toggleWrapper)) {
                 // clean up
                 document
-                    .querySelector<HTMLElement>(`${navDropdown} li:last-child a`)!
+                    .querySelector<HTMLElement>(
+                        `${navDropdown} li:last-child a`
+                    )!
                     .removeEventListener(blurEventName, lastItemCloseHandler);
 
-                removeClass(_this.querySelector<HTMLElement>(navDropdownSelector)!, 'show');
+                removeClass(
+                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                    'show'
+                );
                 removeClass(this, 'is-open');
                 removeClass(_this, 'is-open');
 
@@ -623,7 +679,9 @@ function listeners(_this:HTMLElement, settings: Config) {
                     .setAttribute('aria-hidden', 'false');
             } else {
                 document
-                    .querySelector<HTMLElement>(`${navDropdownSelector} li:last-child a`)!
+                    .querySelector<HTMLElement>(
+                        `${navDropdownSelector} li:last-child a`
+                    )!
                     .addEventListener(blurEventName, lastItemCloseHandler);
             }
         });
@@ -635,13 +693,20 @@ function listeners(_this:HTMLElement, settings: Config) {
     /*
      * Remove when clicked outside dropdown
      */
-    document.addEventListener('click', event => {
+    document.addEventListener('click', (event: MouseEvent) => {
         if (
-            !getClosest(event.target, `.${settings.navDropdownClassName}`) &&
+            !getClosest(
+                <HTMLElement>event.target!,
+                `.${settings.navDropdownClassName}`
+            ) &&
             event.target !== _this.querySelector(navDropdownToggleSelector)
         ) {
-            _this.querySelector<HTMLElement>(navDropdownSelector)!.classList.remove('show');
-            _this.querySelector<HTMLElement>(navDropdownToggleSelector)!.classList.remove('is-open');
+            _this
+                .querySelector<HTMLElement>(navDropdownSelector)!
+                .classList.remove('show');
+            _this
+                .querySelector<HTMLElement>(navDropdownToggleSelector)!
+                .classList.remove('is-open');
             _this.classList.remove('is-open');
             updateLabel(_this, settings.navDropdownLabel);
         }
@@ -653,14 +718,16 @@ function listeners(_this:HTMLElement, settings: Config) {
     document.onkeydown = function(evt) {
         evt = evt || window.event;
         if (evt.keyCode === 27) {
-            document.querySelector<HTMLElement>(navDropdownSelector)!.classList.remove('show');
+            document
+                .querySelector<HTMLElement>(navDropdownSelector)!
+                .classList.remove('show');
             document
                 .querySelector<HTMLElement>(navDropdownToggleSelector)!
                 .classList.remove('is-open');
             mainNavWrapper.classList.remove('is-open');
         }
     };
-};
+}
 
 /**
  * Remove function
@@ -669,14 +736,14 @@ Element.prototype.remove = function() {
     this.parentElement!.removeChild(this);
 };
 
-/* global HTMLCollection */
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-    for (let i = 0, len = this.length; i < len; i++) {
-        if (this[i] && this[i].parentElement) {
-            this[i].parentElement!.removeChild(this[i]);
-        }
-    }
-};
+// /* global HTMLCollection */
+// NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+//     for (let i = 0, len = this.length; i < len; i++) {
+//         if (this[i] && this[i].parentElement) {
+//             this[i].parentElement!.removeChild(this[i]);
+//         }
+//     }
+// };
 
 /**
  * Destroy the current initialization.
@@ -690,23 +757,21 @@ priorityNav.destroy = function() {
     // Remove toggle
     toggleWrapper.remove();
     // Remove settings
-    settings = null;
+    // settings = null; // TODO: Cleanup settings another way
     delete priorityNav.init;
     delete priorityNav.doesItFit;
 };
 
-/**
- * insertAfter function
- * @param n
- * @param r
- */
-if (supports && typeof Node !== 'undefined') {
-    Node.prototype.insertAfter = function(n, r) {
-        this.insertBefore(n, r.nextSibling);
-    };
-}
+const insertAfter = (newNode: Node, referenceNode: Node) => {
+    if (referenceNode.parentNode !== null) {
+        referenceNode.parentNode.insertBefore(
+            newNode,
+            referenceNode.nextSibling
+        );
+    }
+};
 
-const checkForSymbols = function(str:string) {
+const checkForSymbols = function(str: string) {
     const firstChar = str.charAt(0);
     if (firstChar === '.' || firstChar === '#') {
         return false;
@@ -747,7 +812,9 @@ priorityNav.init = (options?: Config) => {
      * Store nodes
      * @type {NodeList}
      */
-    const elements = document.querySelectorAll(settings.mainNavWrapper);
+    const elements = document.querySelectorAll<HTMLElement>(
+        settings.mainNavWrapper
+    );
 
     /**
      * Loop over every instance and reference _this
@@ -762,7 +829,7 @@ priorityNav.init = (options?: Config) => {
         /**
          * Set the instance number as data attribute
          */
-        _this.setAttribute('instance', count++);
+        _this.setAttribute('instance', `${count++}`);
 
         /**
          * Store the wrapper element
