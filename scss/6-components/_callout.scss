@@ -62,7 +62,7 @@
             );
         }
 
-        &urgent {
+        &important {
             border-color: $cads-language__error-colour;
             background-color: cads-colour-to-bg($cads-language__error-colour);
 
