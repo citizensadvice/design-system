@@ -120,39 +120,39 @@
 
   'navigation_links' => [
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits',
+      'url' => 'https =>//www.citizensadvice.org.uk/benefits/',
       'title' => 'Benefits'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/work',
+      'url' => 'https =>//www.citizensadvice.org.uk/work/',
       'title' => 'Work'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/debt-and-money',
+      'url' => 'https =>//www.citizensadvice.org.uk/debt-and-money/',
       'title' => 'Debt and money'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/consumer',
+      'url' => 'https =>//www.citizensadvice.org.uk/consumer/',
       'title' => 'Consumer'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/housing',
+      'url' => 'https =>//www.citizensadvice.org.uk/housing/',
       'title' => 'Housing'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/family',
+      'url' => 'https =>//www.citizensadvice.org.uk/family/',
       'title' => 'Family'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/law-and-courts',
+      'url' => 'https =>//www.citizensadvice.org.uk/law-and-courts/',
       'title' => 'Law and courts'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/immigration',
+      'url' => 'https =>//www.citizensadvice.org.uk/immigration/',
       'title' => 'Immigration'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/health',
+      'url' => 'https =>//www.citizensadvice.org.uk/health/',
       'title' => 'Health'
     }
   ],
