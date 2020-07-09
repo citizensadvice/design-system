@@ -7,7 +7,7 @@ const root = window;
 /**
  * Variables
  */
-const priorityNav: any = {}; // Object for public APIs
+const GreedyNav: any = {}; // Object for public APIs
 /**
  * Object to store instances with breakpoints where the instances menu item"s didin"t fit.
  */
@@ -388,7 +388,7 @@ const prepareHtml = (_this: HTMLElement, config: Config) => {
  * Move item to array
  * @param item
  */
-priorityNav.doesItFit = (_this: HTMLElement) => {
+GreedyNav.doesItFit = (_this: HTMLElement) => {
     /**
      * Check if it is the first run
      */
@@ -431,7 +431,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
                 _this.querySelector<HTMLElement>(mainNav)!.children.length > 0)
         ) {
             // move item to dropdown
-            priorityNav.toDropdown(_this, identifier);
+            GreedyNav.toDropdown(_this, identifier);
             // recalculate widths
             calculateWidths(_this);
             // update dropdownToggle label
@@ -448,7 +448,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
             viewportWidth > defaultSettings.breakPoint
         ) {
             // move item to menu
-            priorityNav.toMenu(_this, identifier);
+            GreedyNav.toMenu(_this, identifier);
             // update dropdownToggle label
             if (viewportWidth > defaultSettings.breakPoint) {
                 updateLabel(_this, defaultSettings.navDropdownLabel);
@@ -487,7 +487,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
 /**
  * Move item to dropdown
  */
-priorityNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
+GreedyNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
     /**
      * move last child of navigation menu to dropdown
      */
@@ -539,7 +539,7 @@ priorityNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
 /**
  * Move item to menu
  */
-priorityNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
+GreedyNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
     /**
      * move last child of navigation menu to dropdown
      */
@@ -592,13 +592,13 @@ function listeners(_this: HTMLElement, settings: Config) {
     //     });
     // } else if (window.addEventListener) {
     window.addEventListener('resize', () => {
-        if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
+        if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
     });
 
     window.addEventListener(
         'orientationchange',
         () => {
-            if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
+            if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
         },
         true
     );
@@ -776,7 +776,7 @@ function listeners(_this: HTMLElement, settings: Config) {
  * Destroy the current initialization.
  * @public
  */
-priorityNav.destroy = () => {
+GreedyNav.destroy = () => {
     // If plugin isn"t already initialized, stop
     if (!defaultSettings) return;
     // Remove feedback class
@@ -785,8 +785,8 @@ priorityNav.destroy = () => {
     toggleWrapper.remove();
     // Remove settings
     // settings = null; // TODO: Cleanup settings another way
-    delete priorityNav.init;
-    delete priorityNav.doesItFit;
+    delete GreedyNav.init;
+    delete GreedyNav.doesItFit;
 };
 
 /**
@@ -794,7 +794,7 @@ priorityNav.destroy = () => {
  * @public
  * @param {Object} options User settings
  */
-priorityNav.init = (options?: Config) => {
+GreedyNav.init = (options?: Config) => {
     /**
      * Merge user options with defaults
      * @type {Object}
@@ -892,7 +892,7 @@ priorityNav.init = (options?: Config) => {
         /**
          * Start first check
          */
-        priorityNav.doesItFit(_this);
+        GreedyNav.doesItFit(_this);
     });
 
     /**
@@ -905,3 +905,5 @@ priorityNav.init = (options?: Config) => {
      */
     document.documentElement.classList.add(defaultSettings.initClass);
 };
+
+export default GreedyNav;
