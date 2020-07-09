@@ -1,0 +1,64 @@
+/*
+ * Core styles for PriorityNav.js
+ * These styles are not optional and should always be included
+ *
+ * Free to use under the MIT License.
+ * http://twitter.com/GijsRoge
+ */
+
+.priority-nav {
+    white-space: nowrap; // prevent flash of unstyled content
+
+    /*
+      * Makes sure the menu's are inline-block so they don't take up
+      * the entire width of its parent. This will break the plugin.
+      */
+    > ul {
+        display: inline-block;
+
+        > li {
+            display: inline-block;
+        }
+    }
+
+    #priorityNavLabel {
+        display: none;
+    }
+
+    &__dropdown {
+        z-index: 1000;
+        position: absolute;
+        visibility: hidden;
+
+        &.show {
+            visibility: visible;
+        }
+
+        &-toggle {
+            visibility: hidden;
+            position: absolute;
+        }
+    }
+
+    &-has-dropdown {
+        .priority-nav {
+            &__dropdown {
+                &-toggle {
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &-is-visible {
+        visibility: visible;
+    }
+
+    &-is-hidden {
+        visibility: hidden;
+    }
+}

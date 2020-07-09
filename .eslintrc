@@ -32,6 +32,6 @@
             }
         }
     ],
-    "ignorePatterns": ["lib", "tsconfig*"],
+    "ignorePatterns": ["lib", "tsconfig*", "**/src/**/*.scss"],
     "parser": "@typescript-eslint/parser"
 }
