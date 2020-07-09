@@ -1,3 +1,7 @@
+## <sub>v1.3.0</sub>
+
+#### _Jul. 9, 2020_
+
 * NP-523 Callout type changed
 
 ## <sub>v1.2.0</sub>
