@@ -1,3 +1,5 @@
+* NP-557 Dynamic nav links
+
 ## <sub>v1.3.0</sub>
 
 #### _Jul. 9, 2020_

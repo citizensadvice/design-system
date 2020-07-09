@@ -1,22 +1,7 @@
 %div.cads-navigation-full-width-wrapper
   %nav.cads-navigation
     %ul.cads-list-unordered
-      -# should be fed by a loop and local in production version.
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/benefits/" } Benefits
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/work/"} Work
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/debt-and-money/"} Debt and money
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/consumer/"} Consumer
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/housing/"} Housing
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/family/"} Family
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/law-and-courts/"} Law and courts
-      %li
-        %a.cads-nav-link{href: "/immigration"} Immigration
-      %li
-        %a.cads-nav-link{href: "https://www.citizensadvice.org.uk/health/"} Health
+      - navigation_links.each_with_index do |link, index|
+        %li
+          %a.cads-nav-link{:href => link['url'], :title => link['title']}
+            = link['title']
