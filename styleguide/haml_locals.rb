@@ -117,17 +117,57 @@
       ]
     ]
   },
-  'breadcrumb_links' => [
+
+  'navigation_links' => [
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits/',
+      'url' => '/benefits/',
       'title' => 'Benefits'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits/benefits-introduction/',
+      'url' => '/work/',
+      'title' => 'Work'
+    },
+    {
+      'url' => '/debt-and-money/',
+      'title' => 'Debt and money'
+    },
+    {
+      'url' => '/consumer/',
+      'title' => 'Consumer'
+    },
+    {
+      'url' => '/housing/',
+      'title' => 'Housing'
+    },
+    {
+      'url' => '/family/',
+      'title' => 'Family'
+    },
+    {
+      'url' => '/law-and-courts/',
+      'title' => 'Law and courts'
+    },
+    {
+      'url' => '/immigration/',
+      'title' => 'Immigration'
+    },
+    {
+      'url' => '/health/',
+      'title' => 'Health'
+    }
+  ],
+
+  'breadcrumb_links' => [
+    {
+      'url' => '/benefits/',
+      'title' => 'Benefits'
+    },
+    {
+      'url' => '/benefits/benefits-introduction/',
       'title' => 'Benefits - introduction'
     },
     {
-      'url' => 'https =>//www.citizensadvice.org.uk/benefits/benefits-introduction/what-benefits-can-i-get/',
+      'url' => '/benefits/benefits-introduction/what-benefits-can-i-get/',
       'title' => 'Benefit calculators: what benefits can you get'
     }
   ],
