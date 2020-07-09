@@ -13,7 +13,7 @@ const priorityNav: any = {}; // Object for public APIs
  */
 const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
-// let settings: Config = defaultConfig;
+let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
 let count = 0;
 let mainNavWrapper: HTMLElement;
@@ -48,7 +48,12 @@ const getClosest = (
 ) => {
     const firstChar = selector.charAt(0);
     // eslint-disable-next-line no-param-reassign
-    for (; elem && elem instanceof HTMLElement; elem = elem.parentNode) {
+    for (
+        ;
+        elem && elem instanceof HTMLElement;
+        // eslint-disable-next-line no-param-reassign
+        elem = <HTMLElement>elem.parentNode!
+    ) {
         if (firstChar === '.') {
             if (elem.classList.contains(selector.substr(1))) {
                 return elem;
@@ -73,13 +78,18 @@ const getClosest = (
  * @param immediate
  * @returns {Function}
  */
-function debounce(func: () => void, wait: number, immediate?: boolean) {
+function debounce<Return>(
+    func: () => Return,
+    wait: number,
+    immediate?: boolean
+) {
     let timeout: number | null;
     let finishedTimeout: number;
-    return function() {
+    return function debounced(this: Return, ...args: []) {
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         const context = this; // TODO: figure out what this should be
-        const args = arguments;
-        const later = function() {
+
+        const later = () => {
             timeout = null;
             if (!immediate) func.apply(context, args);
         };
@@ -158,7 +168,7 @@ const addClass = (el: HTMLElement, className: string) => {
  * Check if dropdown menu is already on page before creating it
  * @param mainNavWrapper
  */
-const prepareHtml = (_this: HTMLElement, settings: Config) => {
+const prepareHtml = (_this: HTMLElement, config: Config) => {
     // TODO this function re-uses variables - navDropdown is set
     // to an HTMLElement and then changed to a string later on.
 
@@ -175,9 +185,9 @@ const prepareHtml = (_this: HTMLElement, settings: Config) => {
      * Set label for dropdown toggle
      * @type {string}
      */
-    navDropdownToggle.innerHTML = settings.navDropdownLabel;
+    navDropdownToggle.innerHTML = config.navDropdownLabel;
 
-    navDropdownToggleLabel.innerHTML = settings.navDropdownToggleAriaLabel;
+    navDropdownToggleLabel.innerHTML = config.navDropdownToggleAriaLabel;
 
     /**
      * Set aria attributes for accessibility
@@ -207,16 +217,16 @@ const prepareHtml = (_this: HTMLElement, settings: Config) => {
     /**
      * Add classes so we can target elements
      */
-    navDropdown.classList.add(settings.navDropdownClassName);
+    navDropdown.classList.add(config.navDropdownClassName);
     navDropdown.classList.add('priority-nav__dropdown');
 
-    navDropdownToggle.classList.add(settings.navDropdownToggleClassName);
+    navDropdownToggle.classList.add(config.navDropdownToggleClassName);
     navDropdownToggle.classList.add('priority-nav__dropdown-toggle');
 
     // fix so button is type="button" and do not submit forms
     navDropdownToggle.setAttribute('type', 'button');
 
-    toggleWrapper.classList.add(`${settings.navDropdownClassName}-wrapper`);
+    toggleWrapper.classList.add(`${config.navDropdownClassName}-wrapper`);
     toggleWrapper.classList.add('priority-nav__wrapper');
 
     _this.classList.add('priority-nav');
@@ -274,7 +284,7 @@ const calculateWidths = (_this: HTMLElement) => {
     } else {
         dropDownWidth = 0;
     }
-    restWidth = getChildrenWidth(_this) + settings.offsetPixels;
+    restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
     viewportWidth = viewportSize().width;
 };
 
@@ -289,7 +299,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
     const currentInstance = _this.getAttribute('instance');
     const firstRun = currentInstance === '0';
 
-    const delay = firstRun ? 0 : settings.throttleDelay;
+    const delay = firstRun ? 0 : defaultSettings.throttleDelay;
 
     /**
      * Increase instance
@@ -321,7 +331,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
             (totalWidth <= restWidth &&
                 _this.querySelector<HTMLElement>(mainNav)!.children.length >
                     0) ||
-            (viewportWidth < settings.breakPoint &&
+            (viewportWidth < defaultSettings.breakPoint &&
                 _this.querySelector<HTMLElement>(mainNav)!.children.length > 0)
         ) {
             // move item to dropdown
@@ -329,8 +339,8 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
             // recalculate widths
             calculateWidths(_this);
             // update dropdownToggle label
-            if (viewportWidth < settings.breakPoint) {
-                updateLabel(_this, settings.navDropdownBreakpointLabel);
+            if (viewportWidth < defaultSettings.breakPoint) {
+                updateLabel(_this, defaultSettings.navDropdownBreakpointLabel);
             }
         }
 
@@ -339,13 +349,13 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
          */
         while (
             totalWidth >= breaks[identifier][breaks[identifier].length - 1] &&
-            viewportWidth > settings.breakPoint
+            viewportWidth > defaultSettings.breakPoint
         ) {
             // move item to menu
             priorityNav.toMenu(_this, identifier);
             // update dropdownToggle label
-            if (viewportWidth > settings.breakPoint) {
-                updateLabel(_this, settings.navDropdownLabel);
+            if (viewportWidth > defaultSettings.breakPoint) {
+                updateLabel(_this, defaultSettings.navDropdownLabel);
             }
         }
 
@@ -357,7 +367,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
                 .querySelector<HTMLElement>(navDropdownSelector)!
                 .classList.remove('show');
             // show navDropdownLabel
-            updateLabel(_this, settings.navDropdownLabel);
+            updateLabel(_this, defaultSettings.navDropdownLabel);
         }
 
         /**
@@ -366,7 +376,7 @@ priorityNav.doesItFit = (_this: HTMLElement) => {
         if (_this.querySelector<HTMLElement>(mainNav)!.children.length < 1) {
             // show navDropdownBreakpointLabel
             _this.classList.add('is-empty');
-            updateLabel(_this, settings.navDropdownBreakpointLabel);
+            updateLabel(_this, defaultSettings.navDropdownBreakpointLabel);
         } else {
             _this.classList.remove('is-empty');
         }
@@ -429,7 +439,7 @@ const updateLabel = (_this: HTMLElement, label: string) => {
     _this.querySelector<HTMLElement>(
         navDropdownToggleSelector
     )!.innerHTML = label;
-    if (label === settings.navDropdownLabelActive) {
+    if (label === defaultSettings.navDropdownLabelActive) {
         _this
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .setAttribute('aria-expanded', 'true');
@@ -481,7 +491,7 @@ priorityNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
      */
     if (
         _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
-        settings.count
+        defaultSettings.count
     ) {
         updateCount(_this, identifier);
     }
@@ -489,7 +499,7 @@ priorityNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
     /**
      * If item has been moved to dropdown trigger the callback
      */
-    settings.moved();
+    defaultSettings.moved();
 };
 
 /**
@@ -526,7 +536,7 @@ priorityNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
      */
     if (
         _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
-        settings.count
+        defaultSettings.count
     ) {
         updateCount(_this, identifier);
     }
@@ -534,7 +544,7 @@ priorityNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
     /**
      * If item has been moved back to the main menu trigger the callback
      */
-    settings.movedBack();
+    defaultSettings.movedBack();
 };
 
 /**
@@ -631,7 +641,7 @@ function listeners(_this: HTMLElement, settings: Config) {
 
     _this
         .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .addEventListener('focus', function(event) {
+        .addEventListener('focus', function handler(event: FocusEvent) {
             if (_this.className.indexOf('is-open') === -1) {
                 addClass(
                     _this.querySelector<HTMLElement>(navDropdownSelector)!,
@@ -653,7 +663,7 @@ function listeners(_this: HTMLElement, settings: Config) {
 
     _this
         .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .addEventListener(blurEventName, function(e) {
+        .addEventListener(blurEventName, function handler(e: FocusEvent) {
             if (!parent(<HTMLElement>e.relatedTarget, toggleWrapper)) {
                 // clean up
                 document
@@ -715,9 +725,9 @@ function listeners(_this: HTMLElement, settings: Config) {
     /**
      * Remove when escape key is pressed
      */
-    document.onkeydown = function(evt) {
-        evt = evt || window.event;
-        if (evt.keyCode === 27) {
+    document.onkeydown = (evt: KeyboardEvent) => {
+        const event = evt || window.event;
+        if (event.keyCode === 27) {
             document
                 .querySelector<HTMLElement>(navDropdownSelector)!
                 .classList.remove('show');
@@ -732,9 +742,9 @@ function listeners(_this: HTMLElement, settings: Config) {
 /**
  * Remove function
  */
-Element.prototype.remove = function() {
-    this.parentElement!.removeChild(this);
-};
+// Element.prototype.remove = function() {
+//     this.parentElement!.removeChild(this);
+// };
 
 // /* global HTMLCollection */
 // NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
@@ -751,9 +761,9 @@ Element.prototype.remove = function() {
  */
 priorityNav.destroy = function() {
     // If plugin isn"t already initialized, stop
-    if (!settings) return;
+    if (!defaultSettings) return;
     // Remove feedback class
-    document.documentElement.classList.remove(settings.initClass);
+    document.documentElement.classList.remove(defaultSettings.initClass);
     // Remove toggle
     toggleWrapper.remove();
     // Remove settings
@@ -771,7 +781,7 @@ const insertAfter = (newNode: Node, referenceNode: Node) => {
     }
 };
 
-const checkForSymbols = function(str: string) {
+const checkForSymbols = (str: string) => {
     const firstChar = str.charAt(0);
     if (firstChar === '.' || firstChar === '#') {
         return false;
@@ -789,7 +799,7 @@ priorityNav.init = (options?: Config) => {
      * Merge user options with defaults
      * @type {Object}
      */
-    settings = { ...defaultConfig, ...(options || {}) };
+    defaultSettings = { ...defaultConfig, ...(options || {}) };
 
     // Feature test.
     if (!supports && typeof Node === 'undefined') {
@@ -799,8 +809,8 @@ priorityNav.init = (options?: Config) => {
 
     // Options check
     if (
-        !checkForSymbols(settings.navDropdownClassName) ||
-        !checkForSymbols(settings.navDropdownToggleClassName)
+        !checkForSymbols(defaultSettings.navDropdownClassName) ||
+        !checkForSymbols(defaultSettings.navDropdownToggleClassName)
     ) {
         console.warn(
             'No symbols allowed in navDropdownClassName & navDropdownToggleClassName. These are not selectors.'
@@ -813,7 +823,7 @@ priorityNav.init = (options?: Config) => {
      * @type {NodeList}
      */
     const elements = document.querySelectorAll<HTMLElement>(
-        settings.mainNavWrapper
+        defaultSettings.mainNavWrapper
     );
 
     /**
@@ -843,7 +853,7 @@ priorityNav.init = (options?: Config) => {
         /**
          * Store the menu elementStore the menu element
          */
-        mainNav = settings.mainNav;
+        mainNav = defaultSettings.mainNav;
         if (!_this.querySelector(mainNav)) {
             console.warn("couldn't find the specified mainNav element");
             return;
@@ -852,12 +862,12 @@ priorityNav.init = (options?: Config) => {
         /**
          * Check if we need to create the dropdown elements
          */
-        prepareHtml(_this, settings);
+        prepareHtml(_this, defaultSettings);
 
         /**
          * Store the dropdown element
          */
-        navDropdownSelector = `.${settings.navDropdownClassName}`;
+        navDropdownSelector = `.${defaultSettings.navDropdownClassName}`;
         if (!_this.querySelector(navDropdownSelector)) {
             console.warn("couldn't find the specified navDropdown element");
             return;
@@ -866,7 +876,7 @@ priorityNav.init = (options?: Config) => {
         /**
          * Store the dropdown toggle element
          */
-        navDropdownToggleSelector = `.${settings.navDropdownToggleClassName}`;
+        navDropdownToggleSelector = `.${defaultSettings.navDropdownToggleClassName}`;
         if (!_this.querySelector(navDropdownToggleSelector)) {
             console.warn(
                 "couldn't find the specified navDropdownToggle element"
@@ -877,7 +887,7 @@ priorityNav.init = (options?: Config) => {
         /**
          * Event listeners
          */
-        listeners(_this, settings);
+        listeners(_this, defaultSettings);
 
         /**
          * Start first check
@@ -893,5 +903,5 @@ priorityNav.init = (options?: Config) => {
     /**
      * Add class to HTML element to activate conditional CSS
      */
-    document.documentElement.classList.add(settings.initClass);
+    document.documentElement.classList.add(defaultSettings.initClass);
 };
