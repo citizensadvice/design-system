@@ -1,4 +1,5 @@
 * NP-557 Dynamic nav links
+* NP-525 Contact details
 
 ## <sub>v1.3.0</sub>
 
