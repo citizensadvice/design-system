@@ -211,10 +211,7 @@
     'optional' => true
   },
 
-  'contact_details' => {
-    'title' => 'Bail for Immigration Detainees',
-    'body' => "<p>Telephone: 01234 567890</p><p>Monday to Thursday 8am to 1pm</p><p>Calls cost a lot of money</p><p><a href='http =>//link.to.the.website'>Link to the website</a></p>"
-  },
+  'contact_details' => "<p>Bail for Immigration Detainees</p><p>Telephone: 01234 567890</p><p>Monday to Thursday 8am to 1pm</p><p>Calls cost a lot of money</p><p><a href='http =>//link.to.the.website'>Link to the website</a></p>",
 
   'page_review_date' => '21 September 2019',
 
