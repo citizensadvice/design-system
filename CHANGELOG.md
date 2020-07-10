@@ -1,3 +1,7 @@
+## <sub>v1.4.0</sub>
+
+#### _Jul. 10, 2020_
+
 * NP-557 Dynamic nav links
 * NP-525 Contact details
 
