@@ -141,13 +141,9 @@ export const navigation = () =>
         'navigation',
         `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
         \n\n
-        <pre><code>import { initNavigation } from '@citizensadvice/design-system/lib/navigation'</code></pre> and execute that function after the navigation components html has loaded into the DOM.`,
+        this bit needs updating with instructions`,
         null,
         () => {
-            // priorityNav.init({
-            //     breakPoint: 0
-            // });
-            // /* Note: greedyNav is a POC placeholder, use priorityNav instead */
             GreedyNav.init();
         }
     );
