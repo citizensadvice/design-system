@@ -4,10 +4,13 @@ import { JSDOM } from 'jsdom';
 
 import { getClosest } from './GreedyNav';
 
+const jsdomConfig = { url: 'http://public-website.test:3000' };
+
 describe('Greedy Nav', () => {
     describe('getClosest', () => {
         const dom = new JSDOM(
-            '<div id="top" class="parent top" title="top"><div id="middle" class="parent middle" title="middle"><div id="bottom" class="bottom" title="top"></div></div></div>'
+            '<div id="top" class="parent top" data-top="top"><div id="middle" class="parent middle" data-middle="middle"><div id="bottom" class="bottom" data-bottom="bottom"></div></div></div>',
+            jsdomConfig
         );
 
         const { document } = dom.window;
@@ -32,12 +35,12 @@ describe('Greedy Nav', () => {
             expect(getClosest(bottom, '.top')).toBe(top);
         });
 
-        xit('finds parent by attribute', () => {
-            expect(getClosest(bottom, '[title]')).toBe(middle);
+        it('finds parent by attribute', () => {
+            expect(getClosest(bottom, '[data-middle]')).toEqual(middle);
         });
 
-        xit('finds grandparent by attribute', () => {
-            expect(getClosest(bottom, '[title]')).toBe(top);
+        it('finds grandparent by attribute', () => {
+            expect(getClosest(bottom, '[data-top]')).toEqual(top);
         });
 
         it("doesn't find absent id", () => {
