@@ -2,22 +2,34 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { JSDOM } from 'jsdom';
 
-import { getClosest } from './GreedyNav';
+import { getClosest, insertAfter } from './GreedyNav';
 
 const jsdomConfig = { url: 'http://public-website.test:3000' };
 
 describe('Greedy Nav', () => {
     describe('getClosest', () => {
-        const dom = new JSDOM(
-            '<div id="top" class="parent top" data-top="top"><div id="middle" class="parent middle" data-middle="middle"><div id="bottom" class="bottom" data-bottom="bottom"></div></div></div>',
-            jsdomConfig
-        );
+        let dom: JSDOM;
+        let document: Document;
+        let top: HTMLElement;
+        let middle: HTMLElement;
+        let bottom: HTMLElement;
 
-        const { document } = dom.window;
+        beforeEach(() => {
+            dom = new JSDOM(
+                '<div id="top" class="parent top" data-top="top"><div id="middle" class="parent middle" data-middle="middle"><div id="bottom" class="bottom" data-bottom="bottom"></div></div></div>',
+                jsdomConfig
+            );
 
-        const top = document.querySelector<HTMLElement>('#top')!;
-        const middle = document.querySelector<HTMLElement>('#middle')!;
-        const bottom = document.querySelector<HTMLElement>('#bottom')!;
+            document = dom.window.document;
+
+            top = document.querySelector<HTMLElement>('#top')!;
+            middle = document.querySelector<HTMLElement>('#middle')!;
+            bottom = document.querySelector<HTMLElement>('#bottom')!;
+        });
+
+        afterEach(() => {
+            document.body.innerHTML = '';
+        });
 
         it('finds direct ancestor node by id', () => {
             expect(getClosest(bottom, '#middle')).toBe(middle);
