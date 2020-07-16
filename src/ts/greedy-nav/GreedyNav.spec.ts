@@ -67,4 +67,52 @@ describe('Greedy Nav', () => {
             expect(getClosest(bottom, '[not-there]')).toBeFalsy();
         });
     });
+
+    describe('insertAfter', () => {
+        let dom: JSDOM;
+        let document: Document;
+        let parent: HTMLElement;
+        let child: HTMLElement;
+        let newNode: HTMLElement;
+
+        beforeEach(() => {
+            dom = new JSDOM(
+                '<div id="parent"><div id="child"></div></div>',
+                jsdomConfig
+            );
+
+            document = dom.window.document;
+
+            parent = document.querySelector<HTMLElement>('#parent')!;
+            child = document.querySelector<HTMLElement>('#child')!;
+            newNode = document.createElement('div');
+            newNode.setAttribute('id', 'newNode');
+        });
+
+        afterEach(() => {
+            document.body.innerHTML = '';
+        });
+
+        it('inserts a node after another', () => {
+            insertAfter(newNode, child);
+
+            expect(parent.querySelector<HTMLElement>('#newNode')).toBe(newNode);
+        });
+
+        it('makes no change if reference node is the document', () => {
+            insertAfter(newNode, document);
+
+            expect(
+                document.querySelectorAll<HTMLElement>('#newNode')
+            ).toHaveLength(0);
+            expect(document.querySelectorAll('div')).toHaveLength(2);
+        });
+
+        it('makes no change if the reference node is a fragment', () => {
+            const fragment = document.createElement('div');
+
+            expect(() => insertAfter(newNode, fragment)).not.toThrow();
+            expect(document.querySelectorAll('div')).toHaveLength(2);
+        });
+    });
 });

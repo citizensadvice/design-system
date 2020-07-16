@@ -227,7 +227,7 @@ const updateLabel = (_this: HTMLElement, label: string) => {
     }
 };
 
-export const insertAfter = (newNode: Node, referenceNode: Node) => {
+export const insertAfter = (newNode: Node, referenceNode: Node): void => {
     if (referenceNode.parentNode !== null) {
         referenceNode.parentNode.insertBefore(
             newNode,
