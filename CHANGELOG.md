@@ -1,3 +1,5 @@
+* NP-580 Fonts not loading
+
 ## <sub>v1.4.0</sub>
 
 #### _Jul. 10, 2020_
