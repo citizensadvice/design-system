@@ -350,6 +350,15 @@
           "size": 69916
         }
       ]
+    },
+    {
+      "version": "1.4.1",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 70892
+        }
+      ]
     }
   ]
 }
