@@ -1,3 +1,7 @@
+## <sub>v1.4.2</sub>
+
+#### _Jul. 20, 2020_
+
 * NP-581 Font loading
 
 ## <sub>v1.4.1</sub>
