@@ -530,23 +530,6 @@ GreedyNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
 //     }
 // };
 
-/**
- * Destroy the current initialization.
- * @public
- */
-GreedyNav.destroy = () => {
-    // If plugin isn"t already initialized, stop
-    if (!defaultSettings) return;
-    // Remove feedback class
-    document.documentElement.classList.remove(defaultSettings.initClass);
-    // Remove toggle
-    toggleWrapper.remove();
-    // Remove settings
-    // settings = null; // TODO: Cleanup settings another way
-    delete GreedyNav.init;
-    delete GreedyNav.doesItFit;
-};
-
 class GreedyNavMenu {
     settings: Config;
 
@@ -927,6 +910,23 @@ class GreedyNavMenu {
             }
         };
     }
+
+    /**
+     * Destroy the current initialization.
+     * @public
+     */
+    destroy = () => {
+        // If plugin isn"t already initialized, stop
+        if (!defaultSettings) return;
+        // Remove feedback class
+        document.documentElement.classList.remove(defaultSettings.initClass);
+        // Remove toggle
+        toggleWrapper.remove();
+        // Remove settings
+        // settings = null; // TODO: Cleanup settings another way
+        delete GreedyNav.init;
+        delete GreedyNav.doesItFit;
+    };
 }
 
 /**
