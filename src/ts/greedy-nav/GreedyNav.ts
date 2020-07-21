@@ -317,219 +317,6 @@ const calculateWidths = (_this: HTMLElement) => {
     viewportWidth = viewportSize().width;
 };
 
-/**
- * Move item to array
- * @param item
- */
-GreedyNav.doesItFit = (_this: HTMLElement) => {
-    /**
-     * Check if it is the first run
-     */
-    const currentInstance = _this.getAttribute('instance');
-    const firstRun = currentInstance === '0';
-
-    const delay = firstRun ? 0 : defaultSettings.throttleDelay;
-
-    /**
-     * Increase instance
-     */
-    instance++;
-
-    /**
-     * Debounced execution of the main logic
-     */
-    debounce(() => {
-        /**
-         * Get the current element"s instance
-         * @type {string}
-         */
-        const identifier: Identifier = parseInt(
-            _this.getAttribute('instance')!,
-            10
-        );
-
-        /**
-         * Update width
-         */
-        calculateWidths(_this);
-
-        /**
-         * Keep executing until all menu items that are overflowing are moved
-         */
-        while (
-            (totalWidth <= restWidth &&
-                _this.querySelector<HTMLElement>(mainNav)!.children.length >
-                    0) ||
-            (viewportWidth < defaultSettings.breakPoint &&
-                _this.querySelector<HTMLElement>(mainNav)!.children.length > 0)
-        ) {
-            // move item to dropdown
-            GreedyNav.toDropdown(_this, identifier);
-            // recalculate widths
-            calculateWidths(_this);
-            // update dropdownToggle label
-            if (viewportWidth < defaultSettings.breakPoint) {
-                updateLabel(_this, defaultSettings.navDropdownBreakpointLabel);
-            }
-        }
-
-        /**
-         * Keep executing until all menu items that are able to move back are moved
-         */
-        while (
-            totalWidth >= breaks[identifier][breaks[identifier].length - 1] &&
-            viewportWidth > defaultSettings.breakPoint
-        ) {
-            // move item to menu
-            GreedyNav.toMenu(_this, identifier);
-            // update dropdownToggle label
-            if (viewportWidth > defaultSettings.breakPoint) {
-                updateLabel(_this, defaultSettings.navDropdownLabel);
-            }
-        }
-
-        /**
-         * If there are no items in dropdown hide dropdown
-         */
-        if (breaks[identifier].length < 1) {
-            _this
-                .querySelector<HTMLElement>(navDropdownSelector)!
-                .classList.remove('show');
-            // show navDropdownLabel
-            updateLabel(_this, defaultSettings.navDropdownLabel);
-        }
-
-        /**
-         * If there are no items in menu
-         */
-        if (_this.querySelector<HTMLElement>(mainNav)!.children.length < 1) {
-            // show navDropdownBreakpointLabel
-            _this.classList.add('is-empty');
-            updateLabel(_this, defaultSettings.navDropdownBreakpointLabel);
-        } else {
-            _this.classList.remove('is-empty');
-        }
-
-        /**
-         * Check if we need to show toggle menu button
-         */
-        showToggle(_this, identifier);
-    }, delay)();
-};
-
-/**
- * Move item to dropdown
- */
-GreedyNav.toDropdown = (_this: HTMLElement, identifier: Identifier) => {
-    /**
-     * move last child of navigation menu to dropdown
-     */
-    if (
-        _this.querySelector<HTMLElement>(navDropdownSelector)!.firstChild &&
-        _this.querySelector<HTMLElement>(mainNav)!.children.length > 0
-    ) {
-        _this
-            .querySelector<HTMLElement>(navDropdownSelector)!
-            .insertBefore(
-                _this.querySelector<HTMLElement>(mainNav)!.lastElementChild!,
-                _this.querySelector<HTMLElement>(navDropdownSelector)!
-                    .firstChild
-            );
-    } else if (_this.querySelector<HTMLElement>(mainNav)!.children.length > 0) {
-        _this
-            .querySelector<HTMLElement>(navDropdownSelector)!
-            .appendChild(
-                _this.querySelector<HTMLElement>(mainNav)!.lastElementChild!
-            );
-    }
-
-    /**
-     * store breakpoints
-     */
-    breaks[identifier].push(restWidth);
-
-    /**
-     * check if we need to show toggle menu button
-     */
-    showToggle(_this, identifier);
-
-    /**
-     * update count on dropdown toggle button
-     */
-    if (
-        _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
-        defaultSettings.count
-    ) {
-        updateCount(_this, identifier);
-    }
-
-    /**
-     * If item has been moved to dropdown trigger the callback
-     */
-    defaultSettings.moved();
-};
-
-/**
- * Move item to menu
- */
-GreedyNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
-    /**
-     * move last child of navigation menu to dropdown
-     */
-    if (
-        _this.querySelector<HTMLElement>(navDropdownSelector)!.children.length >
-        0
-    ) {
-        _this
-            .querySelector<HTMLElement>(mainNav)!
-            .appendChild(
-                _this.querySelector<HTMLElement>(navDropdownSelector)!
-                    .firstElementChild!
-            );
-    }
-
-    /**
-     * remove last breakpoint
-     */
-    breaks[identifier].pop();
-
-    /**
-     * Check if we need to show toggle menu button
-     */
-    showToggle(_this, identifier);
-
-    /**
-     * update count on dropdown toggle button
-     */
-    if (
-        _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
-        defaultSettings.count
-    ) {
-        updateCount(_this, identifier);
-    }
-
-    /**
-     * If item has been moved back to the main menu trigger the callback
-     */
-    defaultSettings.movedBack();
-};
-
-/**
- * Remove function
- */
-// Element.prototype.remove = function() {
-//     this.parentElement!.removeChild(this);
-// };
-
-// /* global HTMLCollection */
-// NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-//     for (let i = 0, len = this.length; i < len; i++) {
-//         if (this[i] && this[i].parentElement) {
-//             this[i].parentElement!.removeChild(this[i]);
-//         }
-//     }
-// };
-
 class GreedyNavMenu {
     settings: Config;
 
@@ -632,12 +419,12 @@ class GreedyNavMenu {
             /**
              * Event listeners
              */
-            this.listeners(navWrapperElement, defaultSettings);
+            this.listeners(navWrapperElement);
 
             /**
              * Start first check
              */
-            GreedyNav.doesItFit(navWrapperElement);
+            this.doesItFit(navWrapperElement);
         });
 
         /**
@@ -734,13 +521,13 @@ class GreedyNavMenu {
         //     });
         // } else if (window.addEventListener) {
         window.addEventListener('resize', () => {
-            if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
+            this.doesItFit(_this);
         });
 
         window.addEventListener(
             'orientationchange',
             () => {
-                if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
+                this.doesItFit(_this);
             },
             true
         );
@@ -912,20 +699,225 @@ class GreedyNavMenu {
     }
 
     /**
+     * Move item to menu
+     */
+    toMenu(_this: HTMLElement, identifier: Identifier) {
+        /**
+         * move last child of navigation menu to dropdown
+         */
+        if (
+            _this.querySelector<HTMLElement>(navDropdownSelector)!.children
+                .length > 0
+        ) {
+            _this
+                .querySelector<HTMLElement>(mainNav)!
+                .appendChild(
+                    _this.querySelector<HTMLElement>(navDropdownSelector)!
+                        .firstElementChild!
+                );
+        }
+
+        /**
+         * remove last breakpoint
+         */
+        breaks[identifier].pop();
+
+        /**
+         * Check if we need to show toggle menu button
+         */
+        showToggle(_this, identifier);
+
+        /**
+         * update count on dropdown toggle button
+         */
+        if (
+            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
+            this.settings.count
+        ) {
+            updateCount(_this, identifier);
+        }
+
+        /**
+         * If item has been moved back to the main menu trigger the callback
+         */
+        this.settings.movedBack();
+    }
+
+    /**
+     * Move item to array
+     * @param item
+     */
+    doesItFit(_this: HTMLElement) {
+        /**
+         * Check if it is the first run
+         */
+        const currentInstance = _this.getAttribute('instance');
+        const firstRun = currentInstance === '0';
+
+        const delay = firstRun ? 0 : defaultSettings.throttleDelay;
+
+        /**
+         * Increase instance
+         */
+        instance++;
+
+        /**
+         * Debounced execution of the main logic
+         */
+        debounce(() => {
+            /**
+             * Get the current element"s instance
+             * @type {string}
+             */
+            const identifier: Identifier = parseInt(
+                _this.getAttribute('instance')!,
+                10
+            );
+
+            /**
+             * Update width
+             */
+            calculateWidths(_this);
+
+            /**
+             * Keep executing until all menu items that are overflowing are moved
+             */
+            while (
+                (totalWidth <= restWidth &&
+                    _this.querySelector<HTMLElement>(mainNav)!.children.length >
+                        0) ||
+                (viewportWidth < defaultSettings.breakPoint &&
+                    _this.querySelector<HTMLElement>(mainNav)!.children.length >
+                        0)
+            ) {
+                // move item to dropdown
+                this.toDropdown(_this, identifier);
+                // recalculate widths
+                calculateWidths(_this);
+                // update dropdownToggle label
+                if (viewportWidth < defaultSettings.breakPoint) {
+                    updateLabel(
+                        _this,
+                        defaultSettings.navDropdownBreakpointLabel
+                    );
+                }
+            }
+
+            /**
+             * Keep executing until all menu items that are able to move back are moved
+             */
+            while (
+                totalWidth >=
+                    breaks[identifier][breaks[identifier].length - 1] &&
+                viewportWidth > defaultSettings.breakPoint
+            ) {
+                // move item to menu
+                this.toMenu(_this, identifier);
+                // update dropdownToggle label
+                if (viewportWidth > defaultSettings.breakPoint) {
+                    updateLabel(_this, defaultSettings.navDropdownLabel);
+                }
+            }
+
+            /**
+             * If there are no items in dropdown hide dropdown
+             */
+            if (breaks[identifier].length < 1) {
+                _this
+                    .querySelector<HTMLElement>(navDropdownSelector)!
+                    .classList.remove('show');
+                // show navDropdownLabel
+                updateLabel(_this, defaultSettings.navDropdownLabel);
+            }
+
+            /**
+             * If there are no items in menu
+             */
+            if (
+                _this.querySelector<HTMLElement>(mainNav)!.children.length < 1
+            ) {
+                // show navDropdownBreakpointLabel
+                _this.classList.add('is-empty');
+                updateLabel(_this, defaultSettings.navDropdownBreakpointLabel);
+            } else {
+                _this.classList.remove('is-empty');
+            }
+
+            /**
+             * Check if we need to show toggle menu button
+             */
+            showToggle(_this, identifier);
+        }, delay)();
+    }
+
+    /**
+     * Move item to dropdown
+     */
+    toDropdown(_this: HTMLElement, identifier: Identifier) {
+        /**
+         * move last child of navigation menu to dropdown
+         */
+        if (
+            _this.querySelector<HTMLElement>(navDropdownSelector)!.firstChild &&
+            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0
+        ) {
+            _this
+                .querySelector<HTMLElement>(navDropdownSelector)!
+                .insertBefore(
+                    _this.querySelector<HTMLElement>(mainNav)!
+                        .lastElementChild!,
+                    _this.querySelector<HTMLElement>(navDropdownSelector)!
+                        .firstChild
+                );
+        } else if (
+            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0
+        ) {
+            _this
+                .querySelector<HTMLElement>(navDropdownSelector)!
+                .appendChild(
+                    _this.querySelector<HTMLElement>(mainNav)!.lastElementChild!
+                );
+        }
+
+        /**
+         * store breakpoints
+         */
+        breaks[identifier].push(restWidth);
+
+        /**
+         * check if we need to show toggle menu button
+         */
+        showToggle(_this, identifier);
+
+        /**
+         * update count on dropdown toggle button
+         */
+        if (
+            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
+            this.settings.count
+        ) {
+            updateCount(_this, identifier);
+        }
+
+        /**
+         * If item has been moved to dropdown trigger the callback
+         */
+        this.settings.moved();
+    }
+
+    /**
      * Destroy the current initialization.
      * @public
      */
     destroy = () => {
         // If plugin isn"t already initialized, stop
-        if (!defaultSettings) return;
+        if (!defaultSettings) return; // TODO: replace with initialised var?
         // Remove feedback class
-        document.documentElement.classList.remove(defaultSettings.initClass);
+        document.documentElement.classList.remove(this.settings.initClass);
         // Remove toggle
         toggleWrapper.remove();
         // Remove settings
         // settings = null; // TODO: Cleanup settings another way
-        delete GreedyNav.init;
-        delete GreedyNav.doesItFit;
     };
 }
 
