@@ -515,181 +515,6 @@ GreedyNav.toMenu = (_this: HTMLElement, identifier: Identifier) => {
 };
 
 /**
- * Bind eventlisteners
- */
-function listeners(_this: HTMLElement, settings: Config) {
-    // Check if an item needs to move
-    // if (window.attachEvent) {
-    //     window.attachEvent('onresize', () => {
-    //         if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
-    //     });
-    // } else if (window.addEventListener) {
-    window.addEventListener('resize', () => {
-        if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
-    });
-
-    window.addEventListener(
-        'orientationchange',
-        () => {
-            if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
-        },
-        true
-    );
-    // }
-
-    // Toggle dropdown
-    _this
-        .querySelector(navDropdownToggleSelector)!
-        .addEventListener('mousedown', event => {
-            event.stopPropagation();
-            toggleClass(
-                _this.querySelector<HTMLElement>(navDropdownSelector)!,
-                'show'
-            );
-            toggleClass(<HTMLElement>event.currentTarget!, 'is-open'); // TODO find out what this is meant to be
-            toggleClass(_this, 'is-open');
-
-            /**
-             * Toggle aria hidden for accessibility
-             */
-            if (_this.classList.contains('is-open')) {
-                _this
-                    .querySelector(navDropdownSelector)!
-                    .setAttribute('aria-hidden', 'true');
-
-                updateLabel(_this, settings.navDropdownLabelActive);
-
-                _this.querySelector<HTMLElement>(navDropdownSelector)!.blur();
-            } else {
-                _this
-                    .querySelector(navDropdownSelector)!
-                    .setAttribute('aria-hidden', 'false');
-
-                updateLabel(_this, settings.navDropdownLabel);
-            }
-        });
-
-    const lastItemCloseHandler = (event: FocusEvent) => {
-        if (!parent(<HTMLElement>event.relatedTarget, toggleWrapper)) {
-            removeClass(
-                _this.querySelector<HTMLElement>(navDropdownSelector)!,
-                'show'
-            );
-            removeClass(
-                _this.querySelector<HTMLElement>(navDropdownToggleSelector)!,
-                'is-open'
-            );
-            removeClass(_this, 'is-open');
-            updateLabel(_this, settings.navDropdownLabel);
-            _this
-                .querySelector<HTMLElement>(
-                    `${navDropdownSelector} li:last-child a`
-                )!
-                .removeEventListener(blurEventName, lastItemCloseHandler);
-        }
-    };
-
-    _this
-        .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .addEventListener('focus', function handler(event: FocusEvent) {
-            if (_this.className.indexOf('is-open') === -1) {
-                addClass(
-                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
-                    'show'
-                );
-                addClass(this, 'is-open');
-                addClass(_this, 'is-open');
-                updateLabel(_this, settings.navDropdownLabelActive);
-
-                /**
-                 * Toggle aria hidden for accessibility
-                 */
-                _this
-                    .querySelector<HTMLElement>(navDropdownSelector)!
-                    .setAttribute('aria-hidden', 'false');
-                _this.querySelector<HTMLElement>(navDropdownSelector)!.blur();
-            }
-        });
-
-    _this
-        .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .addEventListener(blurEventName, function handler(e: FocusEvent) {
-            if (!parent(<HTMLElement>e.relatedTarget, toggleWrapper)) {
-                // clean up
-                document
-                    .querySelector<HTMLElement>(
-                        `${navDropdown} li:last-child a`
-                    )!
-                    .removeEventListener(blurEventName, lastItemCloseHandler);
-
-                removeClass(
-                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
-                    'show'
-                );
-                removeClass(this, 'is-open');
-                removeClass(_this, 'is-open');
-
-                updateLabel(_this, settings.navDropdownLabel);
-
-                /**
-                 * Toggle aria hidden for accessibility
-                 */
-                _this
-                    .querySelector<HTMLElement>(navDropdownSelector)!
-                    .setAttribute('aria-hidden', 'false');
-            } else {
-                document
-                    .querySelector<HTMLElement>(
-                        `${navDropdownSelector} li:last-child a`
-                    )!
-                    .addEventListener(blurEventName, lastItemCloseHandler);
-            }
-        });
-
-    /*
-     * Close menu when last item is selected
-     */
-
-    /*
-     * Remove when clicked outside dropdown
-     */
-    document.addEventListener('click', (event: MouseEvent) => {
-        if (
-            !getClosest(
-                <HTMLElement>event.target!,
-                `.${settings.navDropdownClassName}`
-            ) &&
-            event.target !== _this.querySelector(navDropdownToggleSelector)
-        ) {
-            _this
-                .querySelector<HTMLElement>(navDropdownSelector)!
-                .classList.remove('show');
-            _this
-                .querySelector<HTMLElement>(navDropdownToggleSelector)!
-                .classList.remove('is-open');
-            _this.classList.remove('is-open');
-            updateLabel(_this, settings.navDropdownLabel);
-        }
-    });
-
-    /**
-     * Remove when escape key is pressed
-     */
-    document.onkeydown = (evt: KeyboardEvent) => {
-        const event = evt || window.event;
-        if (event.keyCode === 27) {
-            document
-                .querySelector<HTMLElement>(navDropdownSelector)!
-                .classList.remove('show');
-            document
-                .querySelector<HTMLElement>(navDropdownToggleSelector)!
-                .classList.remove('is-open');
-            mainNavWrapper.classList.remove('is-open');
-        }
-    };
-}
-
-/**
  * Remove function
  */
 // Element.prototype.remove = function() {
@@ -824,7 +649,7 @@ class GreedyNavMenu {
             /**
              * Event listeners
              */
-            listeners(navWrapperElement, defaultSettings);
+            this.listeners(navWrapperElement, defaultSettings);
 
             /**
              * Start first check
@@ -913,6 +738,194 @@ class GreedyNavMenu {
         toggleWrapper.classList.add('priority-nav__wrapper');
 
         _this.classList.add('priority-nav');
+    }
+
+    /**
+     * Bind eventlisteners
+     */
+    listeners(_this: HTMLElement) {
+        // Check if an item needs to move
+        // if (window.attachEvent) {
+        //     window.attachEvent('onresize', () => {
+        //         if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
+        //     });
+        // } else if (window.addEventListener) {
+        window.addEventListener('resize', () => {
+            if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
+        });
+
+        window.addEventListener(
+            'orientationchange',
+            () => {
+                if (GreedyNav.doesItFit) GreedyNav.doesItFit(_this);
+            },
+            true
+        );
+        // }
+        const {
+            navDropdownClassName,
+            navDropdownLabelActive,
+            navDropdownLabel
+        } = this.settings;
+        // Toggle dropdown
+        _this
+            .querySelector(navDropdownToggleSelector)!
+            .addEventListener('mousedown', event => {
+                event.stopPropagation();
+                toggleClass(
+                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                    'show'
+                );
+                toggleClass(<HTMLElement>event.currentTarget!, 'is-open'); // TODO find out what this is meant to be
+                toggleClass(_this, 'is-open');
+
+                /**
+                 * Toggle aria hidden for accessibility
+                 */
+                if (_this.classList.contains('is-open')) {
+                    _this
+                        .querySelector(navDropdownSelector)!
+                        .setAttribute('aria-hidden', 'true');
+
+                    updateLabel(_this, navDropdownLabelActive);
+
+                    _this
+                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .blur();
+                } else {
+                    _this
+                        .querySelector(navDropdownSelector)!
+                        .setAttribute('aria-hidden', 'false');
+
+                    updateLabel(_this, navDropdownLabel);
+                }
+            });
+
+        const lastItemCloseHandler = (event: FocusEvent) => {
+            if (!parent(<HTMLElement>event.relatedTarget, toggleWrapper)) {
+                removeClass(
+                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                    'show'
+                );
+                removeClass(
+                    _this.querySelector<HTMLElement>(
+                        navDropdownToggleSelector
+                    )!,
+                    'is-open'
+                );
+                removeClass(_this, 'is-open');
+                updateLabel(_this, navDropdownLabel);
+                _this
+                    .querySelector<HTMLElement>(
+                        `${navDropdownSelector} li:last-child a`
+                    )!
+                    .removeEventListener(blurEventName, lastItemCloseHandler);
+            }
+        };
+
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .addEventListener('focus', function handler(event: FocusEvent) {
+                if (_this.className.indexOf('is-open') === -1) {
+                    addClass(
+                        _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                        'show'
+                    );
+                    addClass(this, 'is-open');
+                    addClass(_this, 'is-open');
+                    updateLabel(_this, navDropdownLabelActive);
+
+                    /**
+                     * Toggle aria hidden for accessibility
+                     */
+                    _this
+                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .setAttribute('aria-hidden', 'false');
+                    _this
+                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .blur();
+                }
+            });
+
+        _this
+            .querySelector<HTMLElement>(navDropdownToggleSelector)!
+            .addEventListener(blurEventName, function handler(e: FocusEvent) {
+                if (!parent(<HTMLElement>e.relatedTarget, toggleWrapper)) {
+                    // clean up
+                    document
+                        .querySelector<HTMLElement>(
+                            `${navDropdown} li:last-child a`
+                        )!
+                        .removeEventListener(
+                            blurEventName,
+                            lastItemCloseHandler
+                        );
+
+                    removeClass(
+                        _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                        'show'
+                    );
+                    removeClass(this, 'is-open');
+                    removeClass(_this, 'is-open');
+
+                    updateLabel(_this, navDropdownLabel);
+
+                    /**
+                     * Toggle aria hidden for accessibility
+                     */
+                    _this
+                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .setAttribute('aria-hidden', 'false');
+                } else {
+                    document
+                        .querySelector<HTMLElement>(
+                            `${navDropdownSelector} li:last-child a`
+                        )!
+                        .addEventListener(blurEventName, lastItemCloseHandler);
+                }
+            });
+
+        /*
+         * Close menu when last item is selected
+         */
+
+        /*
+         * Remove when clicked outside dropdown
+         */
+        document.addEventListener('click', (event: MouseEvent) => {
+            if (
+                !getClosest(
+                    <HTMLElement>event.target!,
+                    `.${navDropdownClassName}`
+                ) &&
+                event.target !== _this.querySelector(navDropdownToggleSelector)
+            ) {
+                _this
+                    .querySelector<HTMLElement>(navDropdownSelector)!
+                    .classList.remove('show');
+                _this
+                    .querySelector<HTMLElement>(navDropdownToggleSelector)!
+                    .classList.remove('is-open');
+                _this.classList.remove('is-open');
+                updateLabel(_this, navDropdownLabel);
+            }
+        });
+
+        /**
+         * Remove when escape key is pressed
+         */
+        document.onkeydown = (evt: KeyboardEvent) => {
+            const event = evt || window.event;
+            if (event.keyCode === 27) {
+                document
+                    .querySelector<HTMLElement>(navDropdownSelector)!
+                    .classList.remove('show');
+                document
+                    .querySelector<HTMLElement>(navDropdownToggleSelector)!
+                    .classList.remove('is-open');
+                mainNavWrapper.classList.remove('is-open');
+            }
+        };
     }
 }
 
