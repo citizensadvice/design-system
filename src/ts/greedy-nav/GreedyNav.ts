@@ -318,74 +318,6 @@ const calculateWidths = (_this: HTMLElement) => {
 };
 
 /**
- * Check if dropdown menu is already on page before creating it
- * @param mainNavWrapper
- */
-const prepareHtml = (_this: HTMLElement, config: Config) => {
-    // TODO this function re-uses variables - navDropdown is set
-    // to an HTMLElement and then changed to a string later on.
-
-    /**
-     * Create dropdow menu
-     * @type {HTMLElement}
-     */
-    toggleWrapper = document.createElement('span');
-    navDropdown = document.createElement('ul');
-    navDropdownToggle = document.createElement('button');
-    navDropdownToggleLabel = document.createElement('span');
-
-    /**
-     * Set label for dropdown toggle
-     * @type {string}
-     */
-    navDropdownToggle.innerHTML = config.navDropdownLabel;
-
-    navDropdownToggleLabel.innerHTML = config.navDropdownToggleAriaLabel;
-
-    /**
-     * Set aria attributes for accessibility
-     */
-    navDropdownToggle.setAttribute('aria-expanded', 'false');
-    navDropdownToggle.setAttribute('type', 'button');
-    navDropdownToggle.setAttribute('aria-labelledby', 'priorityNavLabel');
-    navDropdownToggleLabel.setAttribute('id', 'priorityNavLabel');
-    navDropdown.setAttribute('aria-hidden', 'true');
-
-    /**
-     * Move elements to the right spot
-     */
-    if (_this.querySelector(mainNav)!.parentNode !== _this) {
-        console.warn(
-            'mainNav is not a direct child of mainNavWrapper, double check please'
-        );
-        return;
-    }
-
-    insertAfter(toggleWrapper, _this.querySelector(mainNav)!);
-
-    toggleWrapper.appendChild(navDropdownToggleLabel);
-    toggleWrapper.appendChild(navDropdownToggle);
-    toggleWrapper.appendChild(navDropdown);
-
-    /**
-     * Add classes so we can target elements
-     */
-    navDropdown.classList.add(config.navDropdownClassName);
-    navDropdown.classList.add('priority-nav__dropdown');
-
-    navDropdownToggle.classList.add(config.navDropdownToggleClassName);
-    navDropdownToggle.classList.add('priority-nav__dropdown-toggle');
-
-    // fix so button is type="button" and do not submit forms
-    navDropdownToggle.setAttribute('type', 'button');
-
-    toggleWrapper.classList.add(`${config.navDropdownClassName}-wrapper`);
-    toggleWrapper.classList.add('priority-nav__wrapper');
-
-    _this.classList.add('priority-nav');
-};
-
-/**
  * Move item to array
  * @param item
  */
@@ -790,121 +722,208 @@ GreedyNav.destroy = () => {
     delete GreedyNav.doesItFit;
 };
 
-/**
- * Initialize Plugin
- * @public
- * @param {Object} options User settings
- */
-GreedyNav.init = (options?: Config) => {
-    /**
-     * Merge user options with defaults
-     * @type {Object}
-     */
-    defaultSettings = { ...defaultConfig, ...(options || {}) };
+class GreedyNavMenu {
+    settings: Config;
 
-    // Feature test.
-    if (!supports && typeof Node === 'undefined') {
-        console.warn("This browser doesn't support priorityNav");
-        return;
+    constructor(config: Config) {
+        this.settings = { ...defaultConfig, ...config };
     }
 
-    // Options check
-    if (
-        !checkForSymbols(defaultSettings.navDropdownClassName) ||
-        !checkForSymbols(defaultSettings.navDropdownToggleClassName)
-    ) {
-        console.warn(
-            'No symbols allowed in navDropdownClassName & navDropdownToggleClassName. These are not selectors.'
-        );
-        return;
-    }
-
-    /**
-     * Store nodes
-     * @type {NodeList}
-     */
-    const elements = document.querySelectorAll<HTMLElement>(
-        defaultSettings.mainNavWrapper
-    );
-
-    /**
-     * Loop over every instance and reference _this
-     */
-    elements.forEach(_this => {
+    init() {
         /**
-         * Create breaks array
-         * @type {number}
+         * Merge user options with defaults
+         * @type {Object}
          */
-        breaks[count] = [];
+        defaultSettings = this.settings;
 
-        /**
-         * Set the instance number as data attribute
-         */
-        _this.setAttribute('instance', `${count++}`);
-
-        /**
-         * Store the wrapper element
-         */
-        mainNavWrapper = _this;
-        if (!mainNavWrapper) {
-            console.warn("couldn't find the specified mainNavWrapper element");
+        // Feature test.
+        if (!supports && typeof Node === 'undefined') {
+            console.warn("This browser doesn't support priorityNav");
             return;
         }
 
-        /**
-         * Store the menu elementStore the menu element
-         */
-        mainNav = defaultSettings.mainNav;
-        if (!_this.querySelector(mainNav)) {
-            console.warn("couldn't find the specified mainNav element");
-            return;
-        }
-
-        /**
-         * Check if we need to create the dropdown elements
-         */
-        prepareHtml(_this, defaultSettings);
-
-        /**
-         * Store the dropdown element
-         */
-        navDropdownSelector = `.${defaultSettings.navDropdownClassName}`;
-        if (!_this.querySelector(navDropdownSelector)) {
-            console.warn("couldn't find the specified navDropdown element");
-            return;
-        }
-
-        /**
-         * Store the dropdown toggle element
-         */
-        navDropdownToggleSelector = `.${defaultSettings.navDropdownToggleClassName}`;
-        if (!_this.querySelector(navDropdownToggleSelector)) {
+        // Options check
+        if (
+            !checkForSymbols(defaultSettings.navDropdownClassName) ||
+            !checkForSymbols(defaultSettings.navDropdownToggleClassName)
+        ) {
             console.warn(
-                "couldn't find the specified navDropdownToggle element"
+                'No symbols allowed in navDropdownClassName & navDropdownToggleClassName. These are not selectors.'
             );
             return;
         }
 
         /**
-         * Event listeners
+         * Store nodes
+         * @type {NodeList}
          */
-        listeners(_this, defaultSettings);
+        const navWrapperList = document.querySelectorAll<HTMLElement>(
+            defaultSettings.mainNavWrapper
+        );
 
         /**
-         * Start first check
+         * Loop over every instance and reference _this
          */
-        GreedyNav.doesItFit(_this);
-    });
+        navWrapperList.forEach(navWrapperElement => {
+            /**
+             * Create breaks array
+             * @type {number}
+             */
+            breaks[count] = [];
+
+            /**
+             * Set the instance number as data attribute
+             */
+            navWrapperElement.setAttribute('instance', `${count++}`);
+
+            /**
+             * Store the wrapper element
+             */
+            mainNavWrapper = navWrapperElement;
+            if (!mainNavWrapper) {
+                console.warn(
+                    "couldn't find the specified mainNavWrapper element"
+                );
+                return;
+            }
+
+            /**
+             * Store the menu elementStore the menu element
+             */
+            mainNav = defaultSettings.mainNav;
+            if (!navWrapperElement.querySelector(mainNav)) {
+                console.warn("couldn't find the specified mainNav element");
+                return;
+            }
+
+            /**
+             * Check if we need to create the dropdown elements
+             */
+            this.prepareHtml(navWrapperElement);
+
+            /**
+             * Store the dropdown element
+             */
+            navDropdownSelector = `.${defaultSettings.navDropdownClassName}`;
+            if (!navWrapperElement.querySelector(navDropdownSelector)) {
+                console.warn("couldn't find the specified navDropdown element");
+                return;
+            }
+
+            /**
+             * Store the dropdown toggle element
+             */
+            navDropdownToggleSelector = `.${defaultSettings.navDropdownToggleClassName}`;
+            if (!navWrapperElement.querySelector(navDropdownToggleSelector)) {
+                console.warn(
+                    "couldn't find the specified navDropdownToggle element"
+                );
+                return;
+            }
+
+            /**
+             * Event listeners
+             */
+            listeners(navWrapperElement, defaultSettings);
+
+            /**
+             * Start first check
+             */
+            GreedyNav.doesItFit(navWrapperElement);
+        });
+
+        /**
+         * Count amount of instances
+         */
+        instance++;
+
+        /**
+         * Add class to HTML element to activate conditional CSS
+         */
+        document.documentElement.classList.add(defaultSettings.initClass);
+    }
 
     /**
-     * Count amount of instances
+     * Check if dropdown menu is already on page before creating it
+     * @param mainNavWrapper
      */
-    instance++;
+    prepareHtml(_this: HTMLElement) {
+        // TODO this function re-uses variables - navDropdown is set
+        // to an HTMLElement and then changed to a string later on.
 
-    /**
-     * Add class to HTML element to activate conditional CSS
-     */
-    document.documentElement.classList.add(defaultSettings.initClass);
+        /**
+         * Create dropdow menu
+         * @type {HTMLElement}
+         */
+        toggleWrapper = document.createElement('span');
+        navDropdown = document.createElement('ul');
+        navDropdownToggle = document.createElement('button');
+        navDropdownToggleLabel = document.createElement('span');
+
+        /**
+         * Set label for dropdown toggle
+         * @type {string}
+         */
+        navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
+
+        navDropdownToggleLabel.innerHTML = this.settings.navDropdownToggleAriaLabel;
+
+        /**
+         * Set aria attributes for accessibility
+         */
+        navDropdownToggle.setAttribute('aria-expanded', 'false');
+        navDropdownToggle.setAttribute('type', 'button');
+        navDropdownToggle.setAttribute('aria-labelledby', 'priorityNavLabel');
+        navDropdownToggleLabel.setAttribute('id', 'priorityNavLabel');
+        navDropdown.setAttribute('aria-hidden', 'true');
+
+        /**
+         * Move elements to the right spot
+         */
+        if (_this.querySelector(mainNav)!.parentNode !== _this) {
+            console.warn(
+                'mainNav is not a direct child of mainNavWrapper, double check please'
+            );
+            return;
+        }
+
+        insertAfter(toggleWrapper, _this.querySelector(mainNav)!);
+
+        toggleWrapper.appendChild(navDropdownToggleLabel);
+        toggleWrapper.appendChild(navDropdownToggle);
+        toggleWrapper.appendChild(navDropdown);
+
+        /**
+         * Add classes so we can target elements
+         */
+        navDropdown.classList.add(this.settings.navDropdownClassName);
+        navDropdown.classList.add('priority-nav__dropdown');
+
+        navDropdownToggle.classList.add(
+            this.settings.navDropdownToggleClassName
+        );
+        navDropdownToggle.classList.add('priority-nav__dropdown-toggle');
+
+        // fix so button is type="button" and do not submit forms
+        navDropdownToggle.setAttribute('type', 'button');
+
+        toggleWrapper.classList.add(
+            `${this.settings.navDropdownClassName}-wrapper`
+        );
+        toggleWrapper.classList.add('priority-nav__wrapper');
+
+        _this.classList.add('priority-nav');
+    }
+}
+
+/**
+ * Initialize Plugin
+ * @public
+ * @param {Object} options User settings
+ */
+GreedyNav.init = (options: Config = defaultConfig) => {
+    const menu = new GreedyNavMenu(options);
+    menu.init();
 };
 
 export default GreedyNav;
