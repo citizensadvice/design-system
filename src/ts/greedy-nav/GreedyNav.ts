@@ -84,7 +84,7 @@ function debounce<Return>(
     wait: number,
     immediate?: boolean
 ) {
-    let timeout: number | null;
+    let timeout: Nullable<number>;
     let finishedTimeout: number;
     return function debounced(this: Return, ...args: []) {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -117,7 +117,7 @@ function debounce<Return>(
  * @param parent
  */
 const parent = (element: HTMLElement, parentNode: Node) => {
-    let el: (Node & ParentNode) | null = element;
+    let el: Nullable<Node & ParentNode> = element;
     while (el !== null) {
         if (el.parentNode === parentNode) {
             return true;
