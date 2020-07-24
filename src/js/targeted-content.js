@@ -50,7 +50,7 @@ const initTargetedContent = () => {
         // Expand all button for adviser if content present
         if (content.length > 0) {
             const h1 = pageContent.getElementsByTagName('h1')[0];
-            const b = document.createElement('buton');
+            const b = document.createElement('button');
             b.innerHTML = 'Expand all<span class="cads-icon-plus"></span>';
             b.setAttribute('type', 'button');
             b.classList.add('cads-targeted-content__expand-all');
