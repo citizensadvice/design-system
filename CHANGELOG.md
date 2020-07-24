@@ -1,3 +1,7 @@
+## <sub>v1.4.4</sub>
+
+#### _Jul. 24, 2020_
+
 * NP-590 Bug fix Targeted Content button element
 
 ## <sub>v1.4.3</sub>
