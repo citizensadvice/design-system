@@ -15,7 +15,7 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let toggleWrapper: HTMLSpanElement;
+// let toggleWrapper: HTMLSpanElement;
 let viewportWidth = 0;
 
 type InterableInternal = Array<any> | Record<string, unknown> | NodeList;
@@ -329,6 +329,8 @@ class GreedyNavMenu {
 
     navDropdownToggleLabel: Nullable<HTMLSpanElement>;
 
+    toggleWrapper: Nullable<HTMLSpanElement>;
+
     navDropdownSelector: string;
 
     navDropdownToggleSelector: string;
@@ -347,6 +349,7 @@ class GreedyNavMenu {
         this.navDropdown = null;
         this.navDropdownToggle = null;
         this.navDropdownToggleLabel = null;
+        this.toggleWrapper = null;
 
         this.navDropdownSelector = '';
         this.navDropdownToggleSelector = '';
@@ -485,7 +488,7 @@ class GreedyNavMenu {
          * Create dropdow menu
          * @type {HTMLElement}
          */
-        toggleWrapper = document.createElement('span');
+        this.toggleWrapper = document.createElement('span');
         this.navDropdown = document.createElement('ul');
         this.navDropdownToggle = document.createElement('button');
         this.navDropdownToggleLabel = document.createElement('span');
@@ -520,11 +523,14 @@ class GreedyNavMenu {
             return;
         }
 
-        insertAfter(toggleWrapper, _this.querySelector(this.mainNavSelector)!);
+        insertAfter(
+            this.toggleWrapper,
+            _this.querySelector(this.mainNavSelector)!
+        );
 
-        toggleWrapper.appendChild(this.navDropdownToggleLabel);
-        toggleWrapper.appendChild(this.navDropdownToggle);
-        toggleWrapper.appendChild(this.navDropdown);
+        this.toggleWrapper.appendChild(this.navDropdownToggleLabel);
+        this.toggleWrapper.appendChild(this.navDropdownToggle);
+        this.toggleWrapper.appendChild(this.navDropdown);
 
         /**
          * Add classes so we can target elements
@@ -540,10 +546,10 @@ class GreedyNavMenu {
         // fix so button is type="button" and do not submit forms
         this.navDropdownToggle.setAttribute('type', 'button');
 
-        toggleWrapper.classList.add(
+        this.toggleWrapper.classList.add(
             `${this.settings.navDropdownClassName}-wrapper`
         );
-        toggleWrapper.classList.add('priority-nav__wrapper');
+        this.toggleWrapper.classList.add('priority-nav__wrapper');
 
         _this.classList.add('priority-nav');
     }
@@ -618,7 +624,11 @@ class GreedyNavMenu {
             });
 
         const lastItemCloseHandler = (event: FocusEvent) => {
-            if (!parent(<HTMLElement>event.relatedTarget, toggleWrapper)) {
+            if (this.toggleWrapper === null) {
+                return;
+            }
+
+            if (!parent(<HTMLElement>event.relatedTarget, this.toggleWrapper)) {
                 removeClass(
                     _this.querySelector<HTMLElement>(this.navDropdownSelector)!,
                     'show'
@@ -681,7 +691,11 @@ class GreedyNavMenu {
         _this
             .querySelector<HTMLElement>(this.navDropdownToggleSelector)!
             .addEventListener(blurEventName, (e: FocusEvent) => {
-                if (!parent(<HTMLElement>e.relatedTarget, toggleWrapper)) {
+                if (this.toggleWrapper === null) {
+                    return;
+                }
+
+                if (!parent(<HTMLElement>e.relatedTarget, this.toggleWrapper)) {
                     // clean up
                     document
                         .querySelector<HTMLElement>(
@@ -1029,7 +1043,9 @@ class GreedyNavMenu {
         // Remove feedback class
         document.documentElement.classList.remove(this.settings.initClass);
         // Remove toggle
-        toggleWrapper.remove();
+        if (this.toggleWrapper) {
+            this.toggleWrapper.remove();
+        }
         // Remove settings
         // settings = null; // TODO: Cleanup settings another way
     }
