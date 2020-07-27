@@ -16,7 +16,6 @@ const supports = !!document.querySelector && !!root.addEventListener; // Feature
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
 let navDropdownToggleLabelSelector: string;
-let dropDownWidth: number;
 let toggleWrapper: HTMLSpanElement;
 let viewportWidth = 0;
 
@@ -309,12 +308,6 @@ const calculateWidths = (_this: HTMLElement, navDropdownSelector: string) => {
     const totalWidth = getElementContentWidth(_this);
     // Check if parent is the navwrapper before calculating its width
 
-    if (_this.querySelector(navDropdownSelector)?.parentNode === _this) {
-        dropDownWidth = _this.querySelector<HTMLElement>(navDropdownSelector)!
-            .offsetWidth;
-    } else {
-        dropDownWidth = 0;
-    }
     const restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
     viewportWidth = viewportSize().width;
 
