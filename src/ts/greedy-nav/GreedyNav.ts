@@ -15,8 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let restWidth: number;
-let mainNav: string;
 let navDropdown: HTMLUListElement;
 let navDropdownSelector: string;
 let navDropdownToggle: HTMLButtonElement;
@@ -310,10 +308,10 @@ const calculateWidths = (_this: HTMLElement) => {
     } else {
         dropDownWidth = 0;
     }
-    restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
+    const restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
     viewportWidth = viewportSize().width;
 
-    return { totalWidth };
+    return { totalWidth, restWidth };
 };
 
 class GreedyNavMenu {
@@ -326,7 +324,11 @@ class GreedyNavMenu {
 
     mainNavWrapper: Nullable<HTMLElement> = null;
 
+    mainNavSelector = '';
+
     totalWidth = 0;
+
+    restWidth = 0;
 
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
@@ -393,8 +395,8 @@ class GreedyNavMenu {
             /**
              * Store the menu elementStore the menu element
              */
-            mainNav = defaultSettings.mainNav;
-            if (!navWrapperElement.querySelector(mainNav)) {
+            this.mainNavSelector = defaultSettings.mainNav;
+            if (!navWrapperElement.querySelector(this.mainNavSelector)) {
                 console.warn("couldn't find the specified mainNav element");
                 return;
             }
@@ -483,14 +485,14 @@ class GreedyNavMenu {
         /**
          * Move elements to the right spot
          */
-        if (_this.querySelector(mainNav)!.parentNode !== _this) {
+        if (_this.querySelector(this.mainNavSelector)!.parentNode !== _this) {
             console.warn(
                 'mainNav is not a direct child of mainNavWrapper, double check please'
             );
             return;
         }
 
-        insertAfter(toggleWrapper, _this.querySelector(mainNav)!);
+        insertAfter(toggleWrapper, _this.querySelector(this.mainNavSelector)!);
 
         toggleWrapper.appendChild(navDropdownToggleLabel);
         toggleWrapper.appendChild(navDropdownToggle);
@@ -721,7 +723,7 @@ class GreedyNavMenu {
                 .length > 0
         ) {
             _this
-                .querySelector<HTMLElement>(mainNav)!
+                .querySelector<HTMLElement>(this.mainNavSelector)!
                 .appendChild(
                     _this.querySelector<HTMLElement>(navDropdownSelector)!
                         .firstElementChild!
@@ -742,7 +744,8 @@ class GreedyNavMenu {
          * update count on dropdown toggle button
          */
         if (
-            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
+            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
+                .length > 0 &&
             this.settings.count
         ) {
             updateCount(_this, identifier);
@@ -789,22 +792,24 @@ class GreedyNavMenu {
              * Update width
              */
             this.totalWidth = calculateWidths(_this).totalWidth;
+            this.restWidth = calculateWidths(_this).restWidth;
 
             /**
              * Keep executing until all menu items that are overflowing are moved
              */
             while (
-                (this.totalWidth <= restWidth &&
-                    _this.querySelector<HTMLElement>(mainNav)!.children.length >
-                        0) ||
+                (this.totalWidth <= this.restWidth &&
+                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
+                        .children.length > 0) ||
                 (viewportWidth < defaultSettings.breakPoint &&
-                    _this.querySelector<HTMLElement>(mainNav)!.children.length >
-                        0)
+                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
+                        .children.length > 0)
             ) {
                 // move item to dropdown
                 this.toDropdown(_this, identifier);
                 // recalculate widths
                 this.totalWidth = calculateWidths(_this).totalWidth;
+                this.restWidth = calculateWidths(_this).restWidth;
                 // update dropdownToggle label
                 if (viewportWidth < defaultSettings.breakPoint) {
                     updateLabel(
@@ -845,7 +850,8 @@ class GreedyNavMenu {
              * If there are no items in menu
              */
             if (
-                _this.querySelector<HTMLElement>(mainNav)!.children.length < 1
+                _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
+                    .length < 1
             ) {
                 // show navDropdownBreakpointLabel
                 _this.classList.add('is-empty');
@@ -870,30 +876,33 @@ class GreedyNavMenu {
          */
         if (
             _this.querySelector<HTMLElement>(navDropdownSelector)!.firstChild &&
-            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0
+            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
+                .length > 0
         ) {
             _this
                 .querySelector<HTMLElement>(navDropdownSelector)!
                 .insertBefore(
-                    _this.querySelector<HTMLElement>(mainNav)!
+                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
                         .lastElementChild!,
                     _this.querySelector<HTMLElement>(navDropdownSelector)!
                         .firstChild
                 );
         } else if (
-            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0
+            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
+                .length > 0
         ) {
             _this
                 .querySelector<HTMLElement>(navDropdownSelector)!
                 .appendChild(
-                    _this.querySelector<HTMLElement>(mainNav)!.lastElementChild!
+                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
+                        .lastElementChild!
                 );
         }
 
         /**
          * store breakpoints
          */
-        breaks[identifier].push(restWidth);
+        breaks[identifier].push(this.restWidth);
 
         /**
          * check if we need to show toggle menu button
@@ -904,7 +913,8 @@ class GreedyNavMenu {
          * update count on dropdown toggle button
          */
         if (
-            _this.querySelector<HTMLElement>(mainNav)!.children.length > 0 &&
+            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
+                .length > 0 &&
             this.settings.count
         ) {
             updateCount(_this, identifier);
