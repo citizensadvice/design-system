@@ -15,7 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let navDropdown: HTMLUListElement;
 let navDropdownSelector: string;
 let navDropdownToggle: HTMLButtonElement;
 let navDropdownToggleSelector: string;
@@ -320,18 +319,30 @@ class GreedyNavMenu {
     /**
      * Number of instances
      */
-    count = 0;
+    count: number;
 
-    mainNavWrapper: Nullable<HTMLElement> = null;
+    mainNavWrapper: Nullable<HTMLElement>;
 
-    mainNavSelector = '';
+    navDropdown: Nullable<HTMLUListElement>;
 
-    totalWidth = 0;
+    mainNavSelector: string;
 
-    restWidth = 0;
+    totalWidth: number;
+
+    restWidth: number;
 
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
+        this.count = 0;
+        this.mainNavWrapper = null;
+
+        this.navDropdown = null;
+
+        this.mainNavSelector = '';
+
+        this.totalWidth = 0;
+
+        this.restWidth = 0;
     }
 
     init() {
@@ -461,7 +472,7 @@ class GreedyNavMenu {
          * @type {HTMLElement}
          */
         toggleWrapper = document.createElement('span');
-        navDropdown = document.createElement('ul');
+        this.navDropdown = document.createElement('ul');
         navDropdownToggle = document.createElement('button');
         navDropdownToggleLabel = document.createElement('span');
 
@@ -480,7 +491,7 @@ class GreedyNavMenu {
         navDropdownToggle.setAttribute('type', 'button');
         navDropdownToggle.setAttribute('aria-labelledby', 'priorityNavLabel');
         navDropdownToggleLabel.setAttribute('id', 'priorityNavLabel');
-        navDropdown.setAttribute('aria-hidden', 'true');
+        this.navDropdown.setAttribute('aria-hidden', 'true');
 
         /**
          * Move elements to the right spot
@@ -496,13 +507,13 @@ class GreedyNavMenu {
 
         toggleWrapper.appendChild(navDropdownToggleLabel);
         toggleWrapper.appendChild(navDropdownToggle);
-        toggleWrapper.appendChild(navDropdown);
+        toggleWrapper.appendChild(this.navDropdown);
 
         /**
          * Add classes so we can target elements
          */
-        navDropdown.classList.add(this.settings.navDropdownClassName);
-        navDropdown.classList.add('priority-nav__dropdown');
+        this.navDropdown.classList.add(this.settings.navDropdownClassName);
+        this.navDropdown.classList.add('priority-nav__dropdown');
 
         navDropdownToggle.classList.add(
             this.settings.navDropdownToggleClassName
@@ -629,12 +640,12 @@ class GreedyNavMenu {
 
         _this
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .addEventListener(blurEventName, function handler(e: FocusEvent) {
+            .addEventListener(blurEventName, (e: FocusEvent) => {
                 if (!parent(<HTMLElement>e.relatedTarget, toggleWrapper)) {
                     // clean up
                     document
                         .querySelector<HTMLElement>(
-                            `${navDropdown} li:last-child a`
+                            `${this.navDropdown} li:last-child a`
                         )!
                         .removeEventListener(
                             blurEventName,
@@ -645,7 +656,12 @@ class GreedyNavMenu {
                         _this.querySelector<HTMLElement>(navDropdownSelector)!,
                         'show'
                     );
-                    removeClass(this, 'is-open');
+                    if (
+                        e.currentTarget !== null &&
+                        e.currentTarget instanceof HTMLElement
+                    ) {
+                        removeClass(e.currentTarget, 'is-open');
+                    }
                     removeClass(_this, 'is-open');
 
                     updateLabel(_this, navDropdownLabel);
