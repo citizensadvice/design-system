@@ -15,7 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let navDropdownSelector: string;
 let navDropdownToggle: HTMLButtonElement;
 let navDropdownToggleSelector: string;
 let navDropdownToggleLabel: HTMLSpanElement;
@@ -297,7 +296,7 @@ const getChildrenWidth = (e: HTMLElement) => {
  * @param elem
  * @returns {number}
  */
-const calculateWidths = (_this: HTMLElement) => {
+const calculateWidths = (_this: HTMLElement, navDropdownSelector: string) => {
     const totalWidth = getElementContentWidth(_this);
     // Check if parent is the navwrapper before calculating its width
 
@@ -325,6 +324,8 @@ class GreedyNavMenu {
 
     navDropdown: Nullable<HTMLUListElement>;
 
+    navDropdownSelector: string;
+
     mainNavSelector: string;
 
     totalWidth: number;
@@ -337,7 +338,7 @@ class GreedyNavMenu {
         this.mainNavWrapper = null;
 
         this.navDropdown = null;
-
+        this.navDropdownSelector = '';
         this.mainNavSelector = '';
 
         this.totalWidth = 0;
@@ -420,8 +421,8 @@ class GreedyNavMenu {
             /**
              * Store the dropdown element
              */
-            navDropdownSelector = `.${defaultSettings.navDropdownClassName}`;
-            if (!navWrapperElement.querySelector(navDropdownSelector)) {
+            this.navDropdownSelector = `.${defaultSettings.navDropdownClassName}`;
+            if (!navWrapperElement.querySelector(this.navDropdownSelector)) {
                 console.warn("couldn't find the specified navDropdown element");
                 return;
             }
@@ -564,7 +565,7 @@ class GreedyNavMenu {
             .addEventListener('mousedown', event => {
                 event.stopPropagation();
                 toggleClass(
-                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                    _this.querySelector<HTMLElement>(this.navDropdownSelector)!,
                     'show'
                 );
                 toggleClass(<HTMLElement>event.currentTarget!, 'is-open'); // TODO find out what this is meant to be
@@ -575,17 +576,17 @@ class GreedyNavMenu {
                  */
                 if (_this.classList.contains('is-open')) {
                     _this
-                        .querySelector(navDropdownSelector)!
+                        .querySelector(this.navDropdownSelector)!
                         .setAttribute('aria-hidden', 'true');
 
                     updateLabel(_this, navDropdownLabelActive);
 
                     _this
-                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .querySelector<HTMLElement>(this.navDropdownSelector)!
                         .blur();
                 } else {
                     _this
-                        .querySelector(navDropdownSelector)!
+                        .querySelector(this.navDropdownSelector)!
                         .setAttribute('aria-hidden', 'false');
 
                     updateLabel(_this, navDropdownLabel);
@@ -595,7 +596,7 @@ class GreedyNavMenu {
         const lastItemCloseHandler = (event: FocusEvent) => {
             if (!parent(<HTMLElement>event.relatedTarget, toggleWrapper)) {
                 removeClass(
-                    _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                    _this.querySelector<HTMLElement>(this.navDropdownSelector)!,
                     'show'
                 );
                 removeClass(
@@ -608,7 +609,7 @@ class GreedyNavMenu {
                 updateLabel(_this, navDropdownLabel);
                 _this
                     .querySelector<HTMLElement>(
-                        `${navDropdownSelector} li:last-child a`
+                        `${this.navDropdownSelector} li:last-child a`
                     )!
                     .removeEventListener(blurEventName, lastItemCloseHandler);
             }
@@ -616,13 +617,20 @@ class GreedyNavMenu {
 
         _this
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .addEventListener('focus', function handler(event: FocusEvent) {
+            .addEventListener('focus', (event: FocusEvent) => {
                 if (_this.className.indexOf('is-open') === -1) {
                     addClass(
-                        _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                        _this.querySelector<HTMLElement>(
+                            this.navDropdownSelector
+                        )!,
                         'show'
                     );
-                    addClass(this, 'is-open');
+                    if (
+                        event.currentTarget &&
+                        event.currentTarget instanceof HTMLElement
+                    ) {
+                        addClass(event.currentTarget, 'is-open');
+                    }
                     addClass(_this, 'is-open');
                     updateLabel(_this, navDropdownLabelActive);
 
@@ -630,10 +638,10 @@ class GreedyNavMenu {
                      * Toggle aria hidden for accessibility
                      */
                     _this
-                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .querySelector<HTMLElement>(this.navDropdownSelector)!
                         .setAttribute('aria-hidden', 'false');
                     _this
-                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .querySelector<HTMLElement>(this.navDropdownSelector)!
                         .blur();
                 }
             });
@@ -653,7 +661,9 @@ class GreedyNavMenu {
                         );
 
                     removeClass(
-                        _this.querySelector<HTMLElement>(navDropdownSelector)!,
+                        _this.querySelector<HTMLElement>(
+                            this.navDropdownSelector
+                        )!,
                         'show'
                     );
                     if (
@@ -670,12 +680,12 @@ class GreedyNavMenu {
                      * Toggle aria hidden for accessibility
                      */
                     _this
-                        .querySelector<HTMLElement>(navDropdownSelector)!
+                        .querySelector<HTMLElement>(this.navDropdownSelector)!
                         .setAttribute('aria-hidden', 'false');
                 } else {
                     document
                         .querySelector<HTMLElement>(
-                            `${navDropdownSelector} li:last-child a`
+                            `${this.navDropdownSelector} li:last-child a`
                         )!
                         .addEventListener(blurEventName, lastItemCloseHandler);
                 }
@@ -697,7 +707,7 @@ class GreedyNavMenu {
                 event.target !== _this.querySelector(navDropdownToggleSelector)
             ) {
                 _this
-                    .querySelector<HTMLElement>(navDropdownSelector)!
+                    .querySelector<HTMLElement>(this.navDropdownSelector)!
                     .classList.remove('show');
                 _this
                     .querySelector<HTMLElement>(navDropdownToggleSelector)!
@@ -714,7 +724,7 @@ class GreedyNavMenu {
             const event = evt || window.event;
             if (event.keyCode === 27) {
                 document
-                    .querySelector<HTMLElement>(navDropdownSelector)!
+                    .querySelector<HTMLElement>(this.navDropdownSelector)!
                     .classList.remove('show');
                 document
                     .querySelector<HTMLElement>(navDropdownToggleSelector)!
@@ -735,13 +745,13 @@ class GreedyNavMenu {
          * move last child of navigation menu to dropdown
          */
         if (
-            _this.querySelector<HTMLElement>(navDropdownSelector)!.children
+            _this.querySelector<HTMLElement>(this.navDropdownSelector)!.children
                 .length > 0
         ) {
             _this
                 .querySelector<HTMLElement>(this.mainNavSelector)!
                 .appendChild(
-                    _this.querySelector<HTMLElement>(navDropdownSelector)!
+                    _this.querySelector<HTMLElement>(this.navDropdownSelector)!
                         .firstElementChild!
                 );
         }
@@ -807,8 +817,14 @@ class GreedyNavMenu {
             /**
              * Update width
              */
-            this.totalWidth = calculateWidths(_this).totalWidth;
-            this.restWidth = calculateWidths(_this).restWidth;
+            this.totalWidth = calculateWidths(
+                _this,
+                this.navDropdownSelector
+            ).totalWidth;
+            this.restWidth = calculateWidths(
+                _this,
+                this.navDropdownSelector
+            ).restWidth;
 
             /**
              * Keep executing until all menu items that are overflowing are moved
@@ -824,8 +840,14 @@ class GreedyNavMenu {
                 // move item to dropdown
                 this.toDropdown(_this, identifier);
                 // recalculate widths
-                this.totalWidth = calculateWidths(_this).totalWidth;
-                this.restWidth = calculateWidths(_this).restWidth;
+                this.totalWidth = calculateWidths(
+                    _this,
+                    this.navDropdownSelector
+                ).totalWidth;
+                this.restWidth = calculateWidths(
+                    _this,
+                    this.navDropdownSelector
+                ).restWidth;
                 // update dropdownToggle label
                 if (viewportWidth < defaultSettings.breakPoint) {
                     updateLabel(
@@ -856,7 +878,7 @@ class GreedyNavMenu {
              */
             if (breaks[identifier].length < 1) {
                 _this
-                    .querySelector<HTMLElement>(navDropdownSelector)!
+                    .querySelector<HTMLElement>(this.navDropdownSelector)!
                     .classList.remove('show');
                 // show navDropdownLabel
                 updateLabel(_this, defaultSettings.navDropdownLabel);
@@ -891,16 +913,17 @@ class GreedyNavMenu {
          * move last child of navigation menu to dropdown
          */
         if (
-            _this.querySelector<HTMLElement>(navDropdownSelector)!.firstChild &&
+            _this.querySelector<HTMLElement>(this.navDropdownSelector)!
+                .firstChild &&
             _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
                 .length > 0
         ) {
             _this
-                .querySelector<HTMLElement>(navDropdownSelector)!
+                .querySelector<HTMLElement>(this.navDropdownSelector)!
                 .insertBefore(
                     _this.querySelector<HTMLElement>(this.mainNavSelector)!
                         .lastElementChild!,
-                    _this.querySelector<HTMLElement>(navDropdownSelector)!
+                    _this.querySelector<HTMLElement>(this.navDropdownSelector)!
                         .firstChild
                 );
         } else if (
@@ -908,7 +931,7 @@ class GreedyNavMenu {
                 .length > 0
         ) {
             _this
-                .querySelector<HTMLElement>(navDropdownSelector)!
+                .querySelector<HTMLElement>(this.navDropdownSelector)!
                 .appendChild(
                     _this.querySelector<HTMLElement>(this.mainNavSelector)!
                         .lastElementChild!
