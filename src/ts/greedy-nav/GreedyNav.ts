@@ -15,7 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let navDropdownToggleLabelSelector: string;
 let toggleWrapper: HTMLSpanElement;
 let viewportWidth = 0;
 
