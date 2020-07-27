@@ -15,7 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let count = 0;
 let mainNavWrapper: HTMLElement;
 let totalWidth: number;
 let restWidth: number;
@@ -320,6 +319,11 @@ const calculateWidths = (_this: HTMLElement) => {
 class GreedyNavMenu {
     settings: Config;
 
+    /**
+     * Number of instances
+     */
+    count = 0;
+
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
     }
@@ -364,12 +368,12 @@ class GreedyNavMenu {
              * Create breaks array
              * @type {number}
              */
-            breaks[count] = [];
+            breaks[this.count] = [];
 
             /**
              * Set the instance number as data attribute
              */
-            navWrapperElement.setAttribute('instance', `${count++}`);
+            navWrapperElement.setAttribute('instance', `${this.count++}`);
 
             /**
              * Store the wrapper element
