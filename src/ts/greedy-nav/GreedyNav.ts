@@ -14,9 +14,6 @@ const GreedyNav: any = {}; // Object for public APIs
 const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
-// let instance = 0;
-// let toggleWrapper: HTMLSpanElement;
-let viewportWidth = 0;
 
 type InterableInternal = Array<any> | Record<string, unknown> | NodeList;
 type Callback = () => void;
@@ -308,9 +305,9 @@ const calculateWidths = (_this: HTMLElement, navDropdownSelector: string) => {
     // Check if parent is the navwrapper before calculating its width
 
     const restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
-    viewportWidth = viewportSize().width;
+    const viewportWidth = viewportSize().width;
 
-    return { totalWidth, restWidth };
+    return { totalWidth, restWidth, viewportWidth };
 };
 
 class GreedyNavMenu {
@@ -340,6 +337,8 @@ class GreedyNavMenu {
 
     restWidth: number;
 
+    viewportWidth: number;
+
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
         this.count = 0;
@@ -356,8 +355,8 @@ class GreedyNavMenu {
         this.mainNavSelector = '';
 
         this.totalWidth = 0;
-
         this.restWidth = 0;
+        this.viewportWidth = 0;
     }
 
     init() {
@@ -872,14 +871,10 @@ class GreedyNavMenu {
             /**
              * Update width
              */
-            this.totalWidth = calculateWidths(
-                _this,
-                this.navDropdownSelector
-            ).totalWidth;
-            this.restWidth = calculateWidths(
-                _this,
-                this.navDropdownSelector
-            ).restWidth;
+            Object.assign(
+                this,
+                calculateWidths(_this, this.navDropdownSelector)
+            );
 
             /**
              * Keep executing until all menu items that are overflowing are moved
@@ -888,23 +883,19 @@ class GreedyNavMenu {
                 (this.totalWidth <= this.restWidth &&
                     _this.querySelector<HTMLElement>(this.mainNavSelector)!
                         .children.length > 0) ||
-                (viewportWidth < defaultSettings.breakPoint &&
+                (this.viewportWidth < defaultSettings.breakPoint &&
                     _this.querySelector<HTMLElement>(this.mainNavSelector)!
                         .children.length > 0)
             ) {
                 // move item to dropdown
                 this.toDropdown(_this, identifier);
                 // recalculate widths
-                this.totalWidth = calculateWidths(
-                    _this,
-                    this.navDropdownSelector
-                ).totalWidth;
-                this.restWidth = calculateWidths(
-                    _this,
-                    this.navDropdownSelector
-                ).restWidth;
+                Object.assign(
+                    this,
+                    calculateWidths(_this, this.navDropdownSelector)
+                );
                 // update dropdownToggle label
-                if (viewportWidth < defaultSettings.breakPoint) {
+                if (this.viewportWidth < defaultSettings.breakPoint) {
                     updateLabel(
                         _this,
                         this.settings.navDropdownBreakpointLabel,
@@ -919,12 +910,12 @@ class GreedyNavMenu {
             while (
                 this.totalWidth >=
                     breaks[identifier][breaks[identifier].length - 1] &&
-                viewportWidth > defaultSettings.breakPoint
+                this.viewportWidth > defaultSettings.breakPoint
             ) {
                 // move item to menu
                 this.toMenu(_this, identifier);
                 // update dropdownToggle label
-                if (viewportWidth > defaultSettings.breakPoint) {
+                if (this.viewportWidth > defaultSettings.breakPoint) {
                     updateLabel(
                         _this,
                         this.settings.navDropdownLabel,
