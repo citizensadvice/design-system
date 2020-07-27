@@ -909,7 +909,7 @@ class GreedyNavMenu {
      * Destroy the current initialization.
      * @public
      */
-    destroy = () => {
+    destroy() {
         // If plugin isn"t already initialized, stop
         if (!defaultSettings) return; // TODO: replace with initialised var?
         // Remove feedback class
@@ -918,7 +918,7 @@ class GreedyNavMenu {
         toggleWrapper.remove();
         // Remove settings
         // settings = null; // TODO: Cleanup settings another way
-    };
+    }
 }
 
 /**
