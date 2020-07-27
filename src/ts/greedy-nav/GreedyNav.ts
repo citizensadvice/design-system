@@ -15,7 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let navDropdownToggle: HTMLButtonElement;
 let navDropdownToggleSelector: string;
 let navDropdownToggleLabel: HTMLSpanElement;
 let navDropdownToggleLabelSelector: string;
@@ -324,6 +323,8 @@ class GreedyNavMenu {
 
     navDropdown: Nullable<HTMLUListElement>;
 
+    navDropdownToggle: Nullable<HTMLElement>;
+
     navDropdownSelector: string;
 
     mainNavSelector: string;
@@ -338,6 +339,7 @@ class GreedyNavMenu {
         this.mainNavWrapper = null;
 
         this.navDropdown = null;
+        this.navDropdownToggle = null;
         this.navDropdownSelector = '';
         this.mainNavSelector = '';
 
@@ -474,23 +476,26 @@ class GreedyNavMenu {
          */
         toggleWrapper = document.createElement('span');
         this.navDropdown = document.createElement('ul');
-        navDropdownToggle = document.createElement('button');
+        this.navDropdownToggle = document.createElement('button');
         navDropdownToggleLabel = document.createElement('span');
 
         /**
          * Set label for dropdown toggle
          * @type {string}
          */
-        navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
+        this.navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
 
         navDropdownToggleLabel.innerHTML = this.settings.navDropdownToggleAriaLabel;
 
         /**
          * Set aria attributes for accessibility
          */
-        navDropdownToggle.setAttribute('aria-expanded', 'false');
-        navDropdownToggle.setAttribute('type', 'button');
-        navDropdownToggle.setAttribute('aria-labelledby', 'priorityNavLabel');
+        this.navDropdownToggle.setAttribute('aria-expanded', 'false');
+        this.navDropdownToggle.setAttribute('type', 'button');
+        this.navDropdownToggle.setAttribute(
+            'aria-labelledby',
+            'priorityNavLabel'
+        );
         navDropdownToggleLabel.setAttribute('id', 'priorityNavLabel');
         this.navDropdown.setAttribute('aria-hidden', 'true');
 
@@ -507,7 +512,7 @@ class GreedyNavMenu {
         insertAfter(toggleWrapper, _this.querySelector(this.mainNavSelector)!);
 
         toggleWrapper.appendChild(navDropdownToggleLabel);
-        toggleWrapper.appendChild(navDropdownToggle);
+        toggleWrapper.appendChild(this.navDropdownToggle);
         toggleWrapper.appendChild(this.navDropdown);
 
         /**
@@ -516,13 +521,13 @@ class GreedyNavMenu {
         this.navDropdown.classList.add(this.settings.navDropdownClassName);
         this.navDropdown.classList.add('priority-nav__dropdown');
 
-        navDropdownToggle.classList.add(
+        this.navDropdownToggle.classList.add(
             this.settings.navDropdownToggleClassName
         );
-        navDropdownToggle.classList.add('priority-nav__dropdown-toggle');
+        this.navDropdownToggle.classList.add('priority-nav__dropdown-toggle');
 
         // fix so button is type="button" and do not submit forms
-        navDropdownToggle.setAttribute('type', 'button');
+        this.navDropdownToggle.setAttribute('type', 'button');
 
         toggleWrapper.classList.add(
             `${this.settings.navDropdownClassName}-wrapper`
