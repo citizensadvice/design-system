@@ -15,7 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let navDropdownToggleLabel: HTMLSpanElement;
 let navDropdownToggleLabelSelector: string;
 let dropDownWidth: number;
 let toggleWrapper: HTMLSpanElement;
@@ -336,6 +335,8 @@ class GreedyNavMenu {
 
     navDropdownToggle: Nullable<HTMLElement>;
 
+    navDropdownToggleLabel: Nullable<HTMLSpanElement>;
+
     navDropdownSelector: string;
 
     navDropdownToggleSelector: string;
@@ -353,6 +354,8 @@ class GreedyNavMenu {
 
         this.navDropdown = null;
         this.navDropdownToggle = null;
+        this.navDropdownToggleLabel = null;
+
         this.navDropdownSelector = '';
         this.navDropdownToggleSelector = '';
         this.mainNavSelector = '';
@@ -493,7 +496,7 @@ class GreedyNavMenu {
         toggleWrapper = document.createElement('span');
         this.navDropdown = document.createElement('ul');
         this.navDropdownToggle = document.createElement('button');
-        navDropdownToggleLabel = document.createElement('span');
+        this.navDropdownToggleLabel = document.createElement('span');
 
         /**
          * Set label for dropdown toggle
@@ -501,7 +504,7 @@ class GreedyNavMenu {
          */
         this.navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
 
-        navDropdownToggleLabel.innerHTML = this.settings.navDropdownToggleAriaLabel;
+        this.navDropdownToggleLabel.innerHTML = this.settings.navDropdownToggleAriaLabel;
 
         /**
          * Set aria attributes for accessibility
@@ -512,7 +515,7 @@ class GreedyNavMenu {
             'aria-labelledby',
             'priorityNavLabel'
         );
-        navDropdownToggleLabel.setAttribute('id', 'priorityNavLabel');
+        this.navDropdownToggleLabel.setAttribute('id', 'priorityNavLabel');
         this.navDropdown.setAttribute('aria-hidden', 'true');
 
         /**
@@ -527,7 +530,7 @@ class GreedyNavMenu {
 
         insertAfter(toggleWrapper, _this.querySelector(this.mainNavSelector)!);
 
-        toggleWrapper.appendChild(navDropdownToggleLabel);
+        toggleWrapper.appendChild(this.navDropdownToggleLabel);
         toggleWrapper.appendChild(this.navDropdownToggle);
         toggleWrapper.appendChild(this.navDropdown);
 
