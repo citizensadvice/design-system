@@ -13,7 +13,6 @@ const GreedyNav: any = {}; // Object for public APIs
  */
 const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
-let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 
 type InterableInternal = Array<any> | Record<string, unknown> | NodeList;
 type Callback = () => void;
@@ -207,13 +206,14 @@ const updateCount = (
 const updateLabel = (
     _this: HTMLElement,
     label: string,
-    navDropdownToggleSelector: string
+    navDropdownToggleSelector: string,
+    navDropdownLabelActive: string
 ) => {
     // eslint-disable-next-line no-param-reassign
     _this.querySelector<HTMLElement>(
         navDropdownToggleSelector
     )!.innerHTML = label;
-    if (label === defaultSettings.navDropdownLabelActive) {
+    if (label === navDropdownLabelActive) {
         _this
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .setAttribute('aria-expanded', 'true');
@@ -300,11 +300,11 @@ const getChildrenWidth = (e: HTMLElement) => {
  * @param elem
  * @returns {number}
  */
-const calculateWidths = (_this: HTMLElement, navDropdownSelector: string) => {
+const calculateWidths = (_this: HTMLElement, offsetPixels: number) => {
     const totalWidth = getElementContentWidth(_this);
     // Check if parent is the navwrapper before calculating its width
 
-    const restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
+    const restWidth = getChildrenWidth(_this) + offsetPixels;
     const viewportWidth = viewportSize().width;
 
     return { totalWidth, restWidth, viewportWidth };
@@ -360,12 +360,6 @@ class GreedyNavMenu {
     }
 
     init() {
-        /**
-         * Merge user options with defaults
-         * @type {Object}
-         */
-        defaultSettings = this.settings;
-
         // Feature test.
         if (!supports && typeof Node === 'undefined') {
             console.warn("This browser doesn't support priorityNav");
@@ -374,8 +368,8 @@ class GreedyNavMenu {
 
         // Options check
         if (
-            !checkForSymbols(defaultSettings.navDropdownClassName) ||
-            !checkForSymbols(defaultSettings.navDropdownToggleClassName)
+            !checkForSymbols(this.settings.navDropdownClassName) ||
+            !checkForSymbols(this.settings.navDropdownToggleClassName)
         ) {
             console.warn(
                 'No symbols allowed in navDropdownClassName & navDropdownToggleClassName. These are not selectors.'
@@ -388,7 +382,7 @@ class GreedyNavMenu {
          * @type {NodeList}
          */
         const navWrapperList = document.querySelectorAll<HTMLElement>(
-            defaultSettings.mainNavWrapper
+            this.settings.mainNavWrapper
         );
 
         /**
@@ -420,7 +414,7 @@ class GreedyNavMenu {
             /**
              * Store the menu elementStore the menu element
              */
-            this.mainNavSelector = defaultSettings.mainNav;
+            this.mainNavSelector = this.settings.mainNav;
             if (!navWrapperElement.querySelector(this.mainNavSelector)) {
                 console.warn("couldn't find the specified mainNav element");
                 return;
@@ -434,7 +428,7 @@ class GreedyNavMenu {
             /**
              * Store the dropdown element
              */
-            this.navDropdownSelector = `.${defaultSettings.navDropdownClassName}`;
+            this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
             if (!navWrapperElement.querySelector(this.navDropdownSelector)) {
                 console.warn("couldn't find the specified navDropdown element");
                 return;
@@ -443,7 +437,7 @@ class GreedyNavMenu {
             /**
              * Store the dropdown toggle element
              */
-            this.navDropdownToggleSelector = `.${defaultSettings.navDropdownToggleClassName}`;
+            this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
             if (
                 !navWrapperElement.querySelector(this.navDropdownToggleSelector)
             ) {
@@ -461,7 +455,7 @@ class GreedyNavMenu {
             /**
              * Start first check
              */
-            this.doesItFit(navWrapperElement);
+            this.doesItFit(navWrapperElement, this.settings.throttleDelay);
         });
 
         /**
@@ -472,7 +466,7 @@ class GreedyNavMenu {
         /**
          * Add class to HTML element to activate conditional CSS
          */
-        document.documentElement.classList.add(defaultSettings.initClass);
+        document.documentElement.classList.add(this.settings.initClass);
     }
 
     /**
@@ -564,13 +558,13 @@ class GreedyNavMenu {
         //     });
         // } else if (window.addEventListener) {
         window.addEventListener('resize', () => {
-            this.doesItFit(_this);
+            this.doesItFit(_this, this.settings.throttleDelay);
         });
 
         window.addEventListener(
             'orientationchange',
             () => {
-                this.doesItFit(_this);
+                this.doesItFit(_this, this.settings.throttleDelay);
             },
             true
         );
@@ -603,7 +597,8 @@ class GreedyNavMenu {
                     updateLabel(
                         _this,
                         navDropdownLabelActive,
-                        this.navDropdownToggleSelector
+                        this.navDropdownToggleSelector,
+                        this.settings.navDropdownLabelActive
                     );
 
                     _this
@@ -617,7 +612,8 @@ class GreedyNavMenu {
                     updateLabel(
                         _this,
                         navDropdownLabel,
-                        this.navDropdownToggleSelector
+                        this.navDropdownToggleSelector,
+                        this.settings.navDropdownLabelActive
                     );
                 }
             });
@@ -642,7 +638,8 @@ class GreedyNavMenu {
                 updateLabel(
                     _this,
                     navDropdownLabel,
-                    this.navDropdownToggleSelector
+                    this.navDropdownToggleSelector,
+                    this.settings.navDropdownLabelActive
                 );
                 _this
                     .querySelector<HTMLElement>(
@@ -672,7 +669,8 @@ class GreedyNavMenu {
                     updateLabel(
                         _this,
                         navDropdownLabelActive,
-                        this.navDropdownToggleSelector
+                        this.navDropdownToggleSelector,
+                        this.settings.navDropdownLabelActive
                     );
 
                     /**
@@ -722,7 +720,8 @@ class GreedyNavMenu {
                     updateLabel(
                         _this,
                         navDropdownLabel,
-                        this.navDropdownToggleSelector
+                        this.navDropdownToggleSelector,
+                        this.settings.navDropdownLabelActive
                     );
 
                     /**
@@ -766,7 +765,8 @@ class GreedyNavMenu {
                 updateLabel(
                     _this,
                     navDropdownLabel,
-                    this.navDropdownToggleSelector
+                    this.navDropdownToggleSelector,
+                    this.settings.navDropdownLabelActive
                 );
             }
         });
@@ -841,14 +841,14 @@ class GreedyNavMenu {
      * Move item to array
      * @param item
      */
-    doesItFit(_this: HTMLElement) {
+    doesItFit(_this: HTMLElement, throttleDelay: number) {
         /**
          * Check if it is the first run
          */
         const currentInstance = _this.getAttribute('instance');
         const firstRun = currentInstance === '0';
 
-        const delay = firstRun ? 0 : defaultSettings.throttleDelay;
+        const delay = firstRun ? 0 : throttleDelay;
 
         /**
          * Increase instance
@@ -873,7 +873,7 @@ class GreedyNavMenu {
              */
             Object.assign(
                 this,
-                calculateWidths(_this, this.navDropdownSelector)
+                calculateWidths(_this, this.settings.offsetPixels)
             );
 
             /**
@@ -883,7 +883,7 @@ class GreedyNavMenu {
                 (this.totalWidth <= this.restWidth &&
                     _this.querySelector<HTMLElement>(this.mainNavSelector)!
                         .children.length > 0) ||
-                (this.viewportWidth < defaultSettings.breakPoint &&
+                (this.viewportWidth < this.settings.breakPoint &&
                     _this.querySelector<HTMLElement>(this.mainNavSelector)!
                         .children.length > 0)
             ) {
@@ -892,14 +892,15 @@ class GreedyNavMenu {
                 // recalculate widths
                 Object.assign(
                     this,
-                    calculateWidths(_this, this.navDropdownSelector)
+                    calculateWidths(_this, this.settings.offsetPixels)
                 );
                 // update dropdownToggle label
-                if (this.viewportWidth < defaultSettings.breakPoint) {
+                if (this.viewportWidth < this.settings.breakPoint) {
                     updateLabel(
                         _this,
                         this.settings.navDropdownBreakpointLabel,
-                        this.navDropdownToggleSelector
+                        this.navDropdownToggleSelector,
+                        this.settings.navDropdownLabelActive
                     );
                 }
             }
@@ -910,16 +911,17 @@ class GreedyNavMenu {
             while (
                 this.totalWidth >=
                     breaks[identifier][breaks[identifier].length - 1] &&
-                this.viewportWidth > defaultSettings.breakPoint
+                this.viewportWidth > this.settings.breakPoint
             ) {
                 // move item to menu
                 this.toMenu(_this, identifier);
                 // update dropdownToggle label
-                if (this.viewportWidth > defaultSettings.breakPoint) {
+                if (this.viewportWidth > this.settings.breakPoint) {
                     updateLabel(
                         _this,
                         this.settings.navDropdownLabel,
-                        this.navDropdownToggleSelector
+                        this.navDropdownToggleSelector,
+                        this.settings.navDropdownLabelActive
                     );
                 }
             }
@@ -935,7 +937,8 @@ class GreedyNavMenu {
                 updateLabel(
                     _this,
                     this.settings.navDropdownLabel,
-                    this.navDropdownToggleSelector
+                    this.navDropdownToggleSelector,
+                    this.settings.navDropdownLabelActive
                 );
             }
 
@@ -951,7 +954,8 @@ class GreedyNavMenu {
                 updateLabel(
                     _this,
                     this.settings.navDropdownBreakpointLabel,
-                    this.navDropdownToggleSelector
+                    this.navDropdownToggleSelector,
+                    this.settings.navDropdownLabelActive
                 );
             } else {
                 _this.classList.remove('is-empty');
@@ -1029,8 +1033,6 @@ class GreedyNavMenu {
      * @public
      */
     destroy() {
-        // If plugin isn"t already initialized, stop
-        if (!defaultSettings) return; // TODO: replace with initialised var?
         // Remove feedback class
         document.documentElement.classList.remove(this.settings.initClass);
         // Remove toggle
