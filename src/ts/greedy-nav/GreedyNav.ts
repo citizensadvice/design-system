@@ -15,8 +15,6 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-// let mainNavWrapper: HTMLElement;
-let totalWidth: number;
 let restWidth: number;
 let mainNav: string;
 let navDropdown: HTMLUListElement;
@@ -303,7 +301,7 @@ const getChildrenWidth = (e: HTMLElement) => {
  * @returns {number}
  */
 const calculateWidths = (_this: HTMLElement) => {
-    totalWidth = getElementContentWidth(_this);
+    const totalWidth = getElementContentWidth(_this);
     // Check if parent is the navwrapper before calculating its width
 
     if (_this.querySelector(navDropdownSelector)?.parentNode === _this) {
@@ -314,6 +312,8 @@ const calculateWidths = (_this: HTMLElement) => {
     }
     restWidth = getChildrenWidth(_this) + defaultSettings.offsetPixels;
     viewportWidth = viewportSize().width;
+
+    return { totalWidth };
 };
 
 class GreedyNavMenu {
@@ -325,6 +325,8 @@ class GreedyNavMenu {
     count = 0;
 
     mainNavWrapper: Nullable<HTMLElement> = null;
+
+    totalWidth = 0;
 
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
@@ -786,13 +788,13 @@ class GreedyNavMenu {
             /**
              * Update width
              */
-            calculateWidths(_this);
+            this.totalWidth = calculateWidths(_this).totalWidth;
 
             /**
              * Keep executing until all menu items that are overflowing are moved
              */
             while (
-                (totalWidth <= restWidth &&
+                (this.totalWidth <= restWidth &&
                     _this.querySelector<HTMLElement>(mainNav)!.children.length >
                         0) ||
                 (viewportWidth < defaultSettings.breakPoint &&
@@ -802,7 +804,7 @@ class GreedyNavMenu {
                 // move item to dropdown
                 this.toDropdown(_this, identifier);
                 // recalculate widths
-                calculateWidths(_this);
+                this.totalWidth = calculateWidths(_this).totalWidth;
                 // update dropdownToggle label
                 if (viewportWidth < defaultSettings.breakPoint) {
                     updateLabel(
@@ -816,7 +818,7 @@ class GreedyNavMenu {
              * Keep executing until all menu items that are able to move back are moved
              */
             while (
-                totalWidth >=
+                this.totalWidth >=
                     breaks[identifier][breaks[identifier].length - 1] &&
                 viewportWidth > defaultSettings.breakPoint
             ) {
