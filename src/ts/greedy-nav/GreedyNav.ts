@@ -14,7 +14,7 @@ const GreedyNav: any = {}; // Object for public APIs
 const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
-let instance = 0;
+// let instance = 0;
 // let toggleWrapper: HTMLSpanElement;
 let viewportWidth = 0;
 
@@ -316,10 +316,9 @@ const calculateWidths = (_this: HTMLElement, navDropdownSelector: string) => {
 class GreedyNavMenu {
     settings: Config;
 
-    /**
-     * Number of instances
-     */
     count: number;
+
+    instance: number;
 
     mainNavWrapper: Nullable<HTMLElement>;
 
@@ -344,6 +343,7 @@ class GreedyNavMenu {
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
         this.count = 0;
+        this.instance = 0;
         this.mainNavWrapper = null;
 
         this.navDropdown = null;
@@ -468,7 +468,7 @@ class GreedyNavMenu {
         /**
          * Count amount of instances
          */
-        instance++;
+        this.instance++;
 
         /**
          * Add class to HTML element to activate conditional CSS
@@ -854,7 +854,7 @@ class GreedyNavMenu {
         /**
          * Increase instance
          */
-        instance++;
+        this.instance++;
 
         /**
          * Debounced execution of the main logic
