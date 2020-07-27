@@ -15,7 +15,7 @@ const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 let defaultSettings: Config = defaultConfig; // TODO: fix this global mess
 let instance = 0;
-let mainNavWrapper: HTMLElement;
+// let mainNavWrapper: HTMLElement;
 let totalWidth: number;
 let restWidth: number;
 let mainNav: string;
@@ -324,6 +324,8 @@ class GreedyNavMenu {
      */
     count = 0;
 
+    mainNavWrapper: Nullable<HTMLElement> = null;
+
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
     }
@@ -378,8 +380,8 @@ class GreedyNavMenu {
             /**
              * Store the wrapper element
              */
-            mainNavWrapper = navWrapperElement;
-            if (!mainNavWrapper) {
+            this.mainNavWrapper = navWrapperElement;
+            if (!this.mainNavWrapper) {
                 console.warn(
                     "couldn't find the specified mainNavWrapper element"
                 );
@@ -697,7 +699,10 @@ class GreedyNavMenu {
                 document
                     .querySelector<HTMLElement>(navDropdownToggleSelector)!
                     .classList.remove('is-open');
-                mainNavWrapper.classList.remove('is-open');
+
+                if (this.mainNavWrapper) {
+                    this.mainNavWrapper.classList.remove('is-open');
+                }
             }
         };
     }
