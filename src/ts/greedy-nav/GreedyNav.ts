@@ -62,11 +62,7 @@ export const getClosest = (
  * @param immediate
  * @returns {Function}
  */
-function debounce<Return>(
-    func: () => Return,
-    wait: number,
-    immediate?: boolean
-) {
+function debounce<Return>(func: () => Return, wait: number, immediate = false) {
     let timeout: Nullable<number>;
     let finishedTimeout: number;
     return function debounced(this: Return, ...args: []) {
@@ -75,9 +71,9 @@ function debounce<Return>(
 
         const later = () => {
             timeout = null;
-            if (!immediate) func.apply(context, args);
+            if (immediate) func.apply(context, args);
         };
-        const callNow = immediate && !timeout;
+        const callNow = immediate && timeout;
 
         if (timeout) {
             window.clearTimeout(timeout);
