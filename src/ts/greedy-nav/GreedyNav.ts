@@ -22,37 +22,36 @@ type Identifier = number;
 
 /**
  * Get the closest matching element up the DOM tree
- * @param {Element} elem Starting element
+ * @param {Element} element Starting element
  * @param {String} selector Selector to match against (class, ID, or data attribute)
  * @return {Boolean|Element} Returns false if not match found
  */
 export const getClosest = (
-    elem: HTMLElement,
+    element: HTMLElement,
     selector: string
 ): HTMLElement | false => {
     const firstChar = selector.charAt(0);
-    // eslint-disable-next-line no-param-reassign
-    for (
-        ;
-        elem;
-        // eslint-disable-next-line no-param-reassign
-        elem = <HTMLElement>elem.parentElement!
-    ) {
+
+    let e: Nullable<HTMLElement> = element;
+
+    while (e) {
         if (firstChar === '.') {
-            if (elem.classList.contains(selector.substr(1))) {
-                return elem;
+            if (e.classList.contains(selector.substr(1))) {
+                return e;
             }
         } else if (firstChar === '#') {
-            if (elem.id === selector.substr(1)) {
-                return elem;
+            if (e.id === selector.substr(1)) {
+                return e;
             }
         } else if (firstChar === '[') {
             const attr = selector.substr(1, selector.length - 2);
-            if (elem.hasAttribute(attr)) {
-                return elem;
+            if (e.hasAttribute(attr)) {
+                return e;
             }
         }
+        e = e.parentElement;
     }
+
     return false;
 };
 
