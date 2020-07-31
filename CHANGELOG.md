@@ -1,3 +1,5 @@
+* NP-617 Image tag formatting
+
 ## <sub>v1.4.4</sub>
 
 #### _Jul. 24, 2020_

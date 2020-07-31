@@ -17,4 +17,12 @@ hr,
     h1 {
         margin-top: $cads-spacing-5;
     }
+
+    img {
+        padding: $cads-spacing-3;
+        border: solid $cads-border-width-small
+            $cads-language__input-border-colour;
+        margin-top: $cads-spacing-5;
+        margin-bottom: $cads-spacing-5;
+    }
 }
