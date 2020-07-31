@@ -518,17 +518,19 @@ class GreedyNavMenu {
         /**
          * Move elements to the right spot
          */
-        if (_this.querySelector(this.mainNavSelector)!.parentNode !== _this) {
-            console.warn(
-                'mainNav is not a direct child of mainNavWrapper, double check please'
-            );
-            return;
-        }
 
-        insertAfter(
-            this.toggleWrapper,
-            _this.querySelector(this.mainNavSelector)!
-        );
+        const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
+
+        if (mainNav) {
+            if (mainNav.parentNode !== _this) {
+                console.warn(
+                    'mainNav is not a direct child of mainNavWrapper, double check please'
+                );
+                return;
+            }
+
+            insertAfter(this.toggleWrapper, mainNav);
+        }
 
         this.toggleWrapper.appendChild(this.navDropdownToggleLabel);
         this.toggleWrapper.appendChild(this.navDropdownToggle);
