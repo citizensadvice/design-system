@@ -13,12 +13,6 @@ const GreedyNav: any = {}; // Object for public APIs
  */
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 
-type InterableInternal = Array<any> | Record<string, unknown> | NodeList;
-type Callback = () => void;
-
-type Instance = number;
-type Identifier = number;
-
 /**
  * Get the closest matching element up the DOM tree
  * @param {Element} element Starting element
@@ -205,7 +199,6 @@ export const showToggle = (
  */
 const updateCount = (
     _this: HTMLElement,
-    identifier: number,
     navDropdownToggleSelector: string,
     breaks: number[]
 ) => {
@@ -809,7 +802,7 @@ class GreedyNavMenu {
     /**
      * Move item to menu
      */
-    toMenu(_this: HTMLElement, identifier: Identifier) {
+    toMenu(_this: HTMLElement) {
         /**
          * move last child of navigation menu to dropdown
          */
@@ -843,12 +836,7 @@ class GreedyNavMenu {
                 .length > 0 &&
             this.settings.count
         ) {
-            updateCount(
-                _this,
-                identifier,
-                this.navDropdownToggleSelector,
-                this.breaks
-            );
+            updateCount(_this, this.navDropdownToggleSelector, this.breaks);
         }
 
         /**
@@ -880,15 +868,6 @@ class GreedyNavMenu {
          */
         debounce(() => {
             /**
-             * Get the current element"s instance
-             * @type {string}
-             */
-            const identifier: Identifier = parseInt(
-                _this.getAttribute('instance')!,
-                10
-            );
-
-            /**
              * Update width
              */
             Object.assign(
@@ -908,7 +887,7 @@ class GreedyNavMenu {
                         .children.length > 0)
             ) {
                 // move item to dropdown
-                this.toDropdown(_this, identifier);
+                this.toDropdown(_this);
                 // recalculate widths
                 Object.assign(
                     this,
@@ -933,7 +912,7 @@ class GreedyNavMenu {
                 this.viewportWidth > this.settings.breakPoint
             ) {
                 // move item to menu
-                this.toMenu(_this, identifier);
+                this.toMenu(_this);
                 // update dropdownToggle label
                 if (this.viewportWidth > this.settings.breakPoint) {
                     updateLabel(
@@ -990,7 +969,7 @@ class GreedyNavMenu {
     /**
      * Move item to dropdown
      */
-    toDropdown(_this: HTMLElement, identifier: Identifier) {
+    toDropdown(_this: HTMLElement) {
         /**
          * move last child of navigation menu to dropdown
          */
@@ -1038,12 +1017,7 @@ class GreedyNavMenu {
                 .length > 0 &&
             this.settings.count
         ) {
-            updateCount(
-                _this,
-                identifier,
-                this.navDropdownToggleSelector,
-                this.breaks
-            );
+            updateCount(_this, this.navDropdownToggleSelector, this.breaks);
         }
 
         /**
