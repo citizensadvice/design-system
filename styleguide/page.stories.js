@@ -24,7 +24,7 @@ function init() {
     initAdviceFeedback();
     initCallouts();
     initTables();
-    GreedyNav.init();
+    GreedyNav.init({ breakpoint: 0 });
 }
 
 // Haml rendering wrapper for convenience

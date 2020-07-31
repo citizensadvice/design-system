@@ -67,7 +67,7 @@ const defaultConfig: Config = {
     navDropdownLabel: 'More',
     navDropdownLabelActive: 'Close',
     navDropdownBreakpointLabel: 'menu',
-    breakPoint: 500,
+    breakPoint: 0,
     throttleDelay: 50,
     offsetPixels: 0,
     count: true,
