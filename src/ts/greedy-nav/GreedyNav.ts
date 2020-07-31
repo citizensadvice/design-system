@@ -11,7 +11,6 @@ const GreedyNav: any = {}; // Object for public APIs
 /**
  * Object to store instances with breakpoints where the instances menu item"s didin"t fit.
  */
-const breaks: number[][] = [[]];
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 
 type InterableInternal = Array<any> | Record<string, unknown> | NodeList;
@@ -148,38 +147,39 @@ const addClass = (el: HTMLElement, className: string) => {
  * Show/hide toggle button
  */
 const showToggle = (
-    _this: HTMLElement,
+    navWrapperElement: HTMLElement,
     identifier: number,
-    navDropdownToggleSelector: string
+    navDropdownToggleSelector: string,
+    breaks: number[]
 ) => {
     if (breaks[identifier].length < 1) {
         _this
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.add('priority-nav-is-hidden');
-        _this
+        navWrapperElement
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.remove('priority-nav-is-visible');
-        _this.classList.remove('priority-nav-has-dropdown');
+        navWrapperElement.classList.remove('priority-nav-has-dropdown');
 
         /**
          * Set aria attributes for accessibility
          */
-        _this
+        navWrapperElement
             .querySelector<HTMLElement>('.priority-nav__wrapper')!
             .setAttribute('aria-haspopup', 'false');
     } else {
-        _this
+        navWrapperElement
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.add('priority-nav-is-visible');
-        _this
+        navWrapperElement
             .querySelector<HTMLElement>(navDropdownToggleSelector)!
             .classList.remove('priority-nav-is-hidden');
-        _this.classList.add('priority-nav-has-dropdown');
+        navWrapperElement.classList.add('priority-nav-has-dropdown');
 
         /**
          * Set aria attributes for accessibility
          */
-        _this
+        navWrapperElement
             .querySelector<HTMLElement>('.priority-nav__wrapper')!
             .setAttribute('aria-haspopup', 'true');
     }
@@ -191,11 +191,12 @@ const showToggle = (
 const updateCount = (
     _this: HTMLElement,
     identifier: number,
-    navDropdownToggleSelector: string
+    navDropdownToggleSelector: string,
+    breaks: number[]
 ) => {
     _this
         .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .setAttribute('priorityNav-count', `${breaks[identifier].length}`);
+        .setAttribute('priorityNav-count', `${breaks.length}`);
 };
 
 const updateLabel = (
@@ -310,6 +311,9 @@ class GreedyNavMenu {
 
     count: number;
 
+    // TODO: better name, less nesting
+    breaks: number[] = [];
+
     instance: number;
 
     mainNavWrapper: Nullable<HTMLElement>;
@@ -388,7 +392,7 @@ class GreedyNavMenu {
              * Create breaks array
              * @type {number}
              */
-            breaks[this.count] = [];
+            this.breaks = [];
 
             /**
              * Set the instance number as data attribute
@@ -808,12 +812,17 @@ class GreedyNavMenu {
         /**
          * remove last breakpoint
          */
-        breaks[identifier].pop();
+        this.breaks.pop();
 
         /**
          * Check if we need to show toggle menu button
          */
-        showToggle(_this, identifier, this.navDropdownToggleSelector);
+        showToggle(
+            _this,
+            identifier,
+            this.navDropdownToggleSelector,
+            this.breaks
+        );
 
         /**
          * update count on dropdown toggle button
@@ -823,7 +832,12 @@ class GreedyNavMenu {
                 .length > 0 &&
             this.settings.count
         ) {
-            updateCount(_this, identifier, this.navDropdownToggleSelector);
+            updateCount(
+                _this,
+                identifier,
+                this.navDropdownToggleSelector,
+                this.breaks
+            );
         }
 
         /**
@@ -904,8 +918,7 @@ class GreedyNavMenu {
              * Keep executing until all menu items that are able to move back are moved
              */
             while (
-                this.totalWidth >=
-                    breaks[identifier][breaks[identifier].length - 1] &&
+                this.totalWidth >= this.breaks[this.breaks.length - 1] &&
                 this.viewportWidth > this.settings.breakPoint
             ) {
                 // move item to menu
@@ -924,7 +937,7 @@ class GreedyNavMenu {
             /**
              * If there are no items in dropdown hide dropdown
              */
-            if (breaks[identifier].length < 1) {
+            if (this.breaks.length < 1) {
                 _this
                     .querySelector<HTMLElement>(this.navDropdownSelector)!
                     .classList.remove('show');
@@ -959,7 +972,12 @@ class GreedyNavMenu {
             /**
              * Check if we need to show toggle menu button
              */
-            showToggle(_this, identifier, this.navDropdownToggleSelector);
+            showToggle(
+                _this,
+                identifier,
+                this.navDropdownToggleSelector,
+                this.breaks
+            );
         }, delay)();
     }
 
@@ -999,12 +1017,17 @@ class GreedyNavMenu {
         /**
          * store breakpoints
          */
-        breaks[identifier].push(this.restWidth);
+        this.breaks.push(this.restWidth);
 
         /**
          * check if we need to show toggle menu button
          */
-        showToggle(_this, identifier, this.navDropdownToggleSelector);
+        showToggle(
+            _this,
+            identifier,
+            this.navDropdownToggleSelector,
+            this.breaks
+        );
 
         /**
          * update count on dropdown toggle button
@@ -1014,7 +1037,12 @@ class GreedyNavMenu {
                 .length > 0 &&
             this.settings.count
         ) {
-            updateCount(_this, identifier, this.navDropdownToggleSelector);
+            updateCount(
+                _this,
+                identifier,
+                this.navDropdownToggleSelector,
+                this.breaks
+            );
         }
 
         /**
