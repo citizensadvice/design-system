@@ -315,7 +315,7 @@ const calculateWidths = (_this: HTMLElement, offsetPixels: number) => {
     return { totalWidth, restWidth, viewportWidth };
 };
 
-class GreedyNavMenu {
+export class GreedyNavMenu {
     settings: Config;
 
     count: number;
@@ -347,7 +347,7 @@ class GreedyNavMenu {
 
     viewportWidth: number;
 
-    constructor(config: Config) {
+    constructor(config: Config = defaultConfig) {
         this.settings = { ...defaultConfig, ...config };
         this.count = 0;
         this.breaks = [];
@@ -359,9 +359,9 @@ class GreedyNavMenu {
         this.navDropdownToggleLabel = null;
         this.toggleWrapper = null;
 
-        this.navDropdownSelector = '';
-        this.navDropdownToggleSelector = '';
-        this.mainNavSelector = '';
+        this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
+        this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
+        this.mainNavSelector = this.settings.mainNav;
 
         this.totalWidth = 0;
         this.restWidth = 0;
@@ -822,22 +822,79 @@ class GreedyNavMenu {
     }
 
     /**
+     * Move item to dropdown
+     */
+    toDropdown(navigation: HTMLElement) {
+        const navDropdown = navigation.querySelector<HTMLElement>(
+            this.navDropdownSelector
+        );
+        const mainNav = navigation.querySelector<HTMLElement>(
+            this.mainNavSelector
+        );
+
+        if (navDropdown && mainNav) {
+            /**
+             * move last child of navigation menu to dropdown
+             */
+            if (navDropdown.firstChild && mainNav.children.length > 0) {
+                navigation
+                    .querySelector<HTMLElement>(this.navDropdownSelector)!
+                    .insertBefore(
+                        navigation.querySelector<HTMLElement>(
+                            this.mainNavSelector
+                        )!.lastElementChild!,
+                        navigation.querySelector<HTMLElement>(
+                            this.navDropdownSelector
+                        )!.firstChild
+                    );
+            } else if (mainNav.children.length > 0) {
+                navDropdown.appendChild(mainNav.lastElementChild!);
+            }
+        }
+        /**
+         * store breakpoints
+         */
+        this.breaks.push(this.restWidth);
+
+        /**
+         * check if we need to show toggle menu button
+         */
+        showToggle(navigation, this.navDropdownToggleSelector, this.breaks);
+
+        /**
+         * update count on dropdown toggle button
+         */
+        if (
+            navigation.querySelector<HTMLElement>(this.mainNavSelector)!
+                .children.length > 0 &&
+            this.settings.count
+        ) {
+            updateCount(
+                navigation,
+                this.navDropdownToggleSelector,
+                this.breaks
+            );
+        }
+
+        /**
+         * If item has been moved to dropdown trigger the callback
+         */
+        this.settings.moved();
+    }
+
+    /**
      * Move item to menu
      */
     toMenu(_this: HTMLElement) {
+        const navDropdown = _this.querySelector<HTMLElement>(
+            this.navDropdownSelector
+        );
+        const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
         /**
-         * move last child of navigation menu to dropdown
+         * Move items from dropdown to menu
          */
-        if (
-            _this.querySelector<HTMLElement>(this.navDropdownSelector)!.children
-                .length > 0
-        ) {
-            _this
-                .querySelector<HTMLElement>(this.mainNavSelector)!
-                .appendChild(
-                    _this.querySelector<HTMLElement>(this.navDropdownSelector)!
-                        .firstElementChild!
-                );
+        if (mainNav && navDropdown && navDropdown.children.length > 0) {
+            mainNav.appendChild(navDropdown.firstElementChild!);
         }
 
         /**
@@ -853,11 +910,7 @@ class GreedyNavMenu {
         /**
          * update count on dropdown toggle button
          */
-        if (
-            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
-                .length > 0 &&
-            this.settings.count
-        ) {
+        if (mainNav && mainNav.children.length > 0 && this.settings.count) {
             updateCount(_this, this.navDropdownToggleSelector, this.breaks);
         }
 
@@ -986,66 +1039,6 @@ class GreedyNavMenu {
              */
             showToggle(_this, this.navDropdownToggleSelector, this.breaks);
         }, delay)();
-    }
-
-    /**
-     * Move item to dropdown
-     */
-    toDropdown(_this: HTMLElement) {
-        /**
-         * move last child of navigation menu to dropdown
-         */
-        if (
-            _this.querySelector<HTMLElement>(this.navDropdownSelector)!
-                .firstChild &&
-            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
-                .length > 0
-        ) {
-            _this
-                .querySelector<HTMLElement>(this.navDropdownSelector)!
-                .insertBefore(
-                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
-                        .lastElementChild!,
-                    _this.querySelector<HTMLElement>(this.navDropdownSelector)!
-                        .firstChild
-                );
-        } else if (
-            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
-                .length > 0
-        ) {
-            _this
-                .querySelector<HTMLElement>(this.navDropdownSelector)!
-                .appendChild(
-                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
-                        .lastElementChild!
-                );
-        }
-
-        /**
-         * store breakpoints
-         */
-        this.breaks.push(this.restWidth);
-
-        /**
-         * check if we need to show toggle menu button
-         */
-        showToggle(_this, this.navDropdownToggleSelector, this.breaks);
-
-        /**
-         * update count on dropdown toggle button
-         */
-        if (
-            _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
-                .length > 0 &&
-            this.settings.count
-        ) {
-            updateCount(_this, this.navDropdownToggleSelector, this.breaks);
-        }
-
-        /**
-         * If item has been moved to dropdown trigger the callback
-         */
-        this.settings.moved();
     }
 
     /**

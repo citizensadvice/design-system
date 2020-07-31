@@ -2,7 +2,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { JSDOM } from 'jsdom';
 
-import { getClosest, insertAfter, showToggle, updateLabel } from './GreedyNav';
+import GreedyNav, {
+    getClosest,
+    insertAfter,
+    showToggle,
+    updateLabel,
+    GreedyNavMenu
+} from './GreedyNav';
 
 const jsdomConfig = { url: 'http://public-website.test:3000' };
 
@@ -217,6 +223,89 @@ describe('Greedy Nav', () => {
 
             expect(toggle.innerHTML).toEqual('Close');
             expect(toggle.getAttribute('aria-expanded')).toBe('true');
+        });
+    });
+
+    describe('toDropdown', () => {
+        afterEach(() => {
+            document.body.innerHTML = '';
+        });
+        it('moves last menu child to dropdown', () => {
+            const dom = new JSDOM(
+                `<nav>
+                <ul class="menu">
+                <li>one</li><li>two></li><li>three</li>
+                </ul>
+                <ul class="nav__dropdown"></ul></nav>`
+            );
+
+            const { document } = dom.window;
+
+            const nav = document.querySelector<HTMLElement>('nav')!;
+            const menu = document.querySelector<HTMLElement>('.menu')!;
+            const dropdown = document.querySelector<HTMLElement>(
+                '.nav__dropdown'
+            )!;
+
+            const greedyNavMenu = new GreedyNavMenu();
+
+            greedyNavMenu.toDropdown(nav);
+
+            expect(menu.querySelectorAll('li')).toHaveLength(2);
+            expect(dropdown.querySelectorAll('li')).toHaveLength(1);
+        });
+
+        it('moves menu items to the dop of dropdown', () => {
+            const dom = new JSDOM(
+                `<nav>
+                <ul class="menu">
+                <li>one</li><li>two</li>
+                </ul>
+                <ul class="nav__dropdown"><li>three</li></ul></nav>`
+            );
+
+            const { document } = dom.window;
+
+            const nav = document.querySelector<HTMLElement>('nav')!;
+            const dropdown = document.querySelector<HTMLElement>(
+                '.nav__dropdown'
+            )!;
+
+            const greedyNavMenu = new GreedyNavMenu();
+
+            greedyNavMenu.toDropdown(nav);
+
+            expect(dropdown.innerHTML).toBe('<li>two</li><li>three</li>');
+        });
+    });
+
+    describe('toMenu', () => {
+        afterEach(() => {
+            document.body.innerHTML = '';
+        });
+        it('moves items from dropdown to menu', () => {
+            const dom = new JSDOM(
+                `<nav>
+                <ul class="menu">
+                <li>one</li>
+                </ul>
+                <ul class="nav__dropdown"><li>two></li><li>three</li></ul></nav>`
+            );
+
+            const { document } = dom.window;
+
+            const nav = document.querySelector<HTMLElement>('nav')!;
+            const menu = document.querySelector<HTMLElement>('.menu')!;
+            const dropdown = document.querySelector<HTMLElement>(
+                '.nav__dropdown'
+            )!;
+
+            const greedyNavMenu = new GreedyNavMenu();
+
+            greedyNavMenu.toMenu(nav);
+
+            expect(menu.querySelectorAll('li')).toHaveLength(2);
+            expect(dropdown.querySelectorAll('li')).toHaveLength(1);
         });
     });
 });
