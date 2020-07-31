@@ -368,7 +368,7 @@ export class GreedyNavMenu {
         this.viewportWidth = 0;
     }
 
-    init() {
+    init(): void {
         // Feature test.
         if (!supports && typeof Node === 'undefined') {
             console.warn("This browser doesn't support priorityNav");
@@ -482,7 +482,7 @@ export class GreedyNavMenu {
      * Check if dropdown menu is already on page before creating it
      * @param mainNavWrapper
      */
-    prepareHtml(_this: HTMLElement) {
+    prepareHtml(_this: HTMLElement): void {
         // TODO this function re-uses variables - navDropdown is set
         // to an HTMLElement and then changed to a string later on.
 
@@ -561,7 +561,7 @@ export class GreedyNavMenu {
     /**
      * Bind eventlisteners
      */
-    listeners(_this: HTMLElement) {
+    listeners(_this: HTMLElement): void {
         // Check if an item needs to move
         // if (window.attachEvent) {
         //     window.attachEvent('onresize', () => {
@@ -824,7 +824,7 @@ export class GreedyNavMenu {
     /**
      * Move item to dropdown
      */
-    toDropdown(navigation: HTMLElement) {
+    toDropdown(navigation: HTMLElement): void {
         const navDropdown = navigation.querySelector<HTMLElement>(
             this.navDropdownSelector
         );
@@ -885,7 +885,7 @@ export class GreedyNavMenu {
     /**
      * Move item to menu
      */
-    toMenu(_this: HTMLElement) {
+    toMenu(_this: HTMLElement): void {
         const navDropdown = _this.querySelector<HTMLElement>(
             this.navDropdownSelector
         );
@@ -924,7 +924,7 @@ export class GreedyNavMenu {
      * Move item to array
      * @param item
      */
-    doesItFit(_this: HTMLElement, throttleDelay: number) {
+    doesItFit(_this: HTMLElement, throttleDelay: number): void {
         /**
          * Check if it is the first run
          */
@@ -1045,7 +1045,7 @@ export class GreedyNavMenu {
      * Destroy the current initialization.
      * @public
      */
-    destroy() {
+    destroy(): void {
         // Remove feedback class
         document.documentElement.classList.remove(this.settings.initClass);
         // Remove toggle
