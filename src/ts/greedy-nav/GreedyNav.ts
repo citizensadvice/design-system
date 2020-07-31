@@ -950,16 +950,22 @@ export class GreedyNavMenu {
                 calculateWidths(_this, this.settings.offsetPixels)
             );
 
+            const mainNav = _this.querySelector<HTMLElement>(
+                this.mainNavSelector
+            );
+
+            if (!mainNav) {
+                throw new Error('main nav not found');
+            }
+
             /**
              * Keep executing until all menu items that are overflowing are moved
              */
             while (
                 (this.totalWidth <= this.restWidth &&
-                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
-                        .children.length > 0) ||
+                    mainNav.children.length > 0) ||
                 (this.viewportWidth < this.settings.breakPoint &&
-                    _this.querySelector<HTMLElement>(this.mainNavSelector)!
-                        .children.length > 0)
+                    mainNav.children.length > 0)
             ) {
                 // move item to dropdown
                 this.toDropdown(_this);
@@ -1002,10 +1008,12 @@ export class GreedyNavMenu {
             /**
              * If there are no items in dropdown hide dropdown
              */
-            if (this.breaks.length < 1) {
-                _this
-                    .querySelector<HTMLElement>(this.navDropdownSelector)!
-                    .classList.remove('show');
+
+            const navDropdown = _this.querySelector<HTMLElement>(
+                this.navDropdownSelector
+            );
+            if (navDropdown && this.breaks.length < 1) {
+                navDropdown.classList.remove('show');
                 // show navDropdownLabel
                 updateLabel(
                     _this,
@@ -1018,10 +1026,7 @@ export class GreedyNavMenu {
             /**
              * If there are no items in menu
              */
-            if (
-                _this.querySelector<HTMLElement>(this.mainNavSelector)!.children
-                    .length < 1
-            ) {
+            if (mainNav && mainNav.children.length < 1) {
                 // show navDropdownBreakpointLabel
                 _this.classList.add('is-empty');
                 updateLabel(
