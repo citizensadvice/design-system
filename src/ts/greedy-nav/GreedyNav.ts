@@ -146,42 +146,57 @@ const addClass = (el: HTMLElement, className: string) => {
 /**
  * Show/hide toggle button
  */
-const showToggle = (
+export const showToggle = (
     navWrapperElement: HTMLElement,
-    identifier: number,
     navDropdownToggleSelector: string,
     breaks: number[]
-) => {
-    if (breaks[identifier].length < 1) {
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.add('priority-nav-is-hidden');
-        navWrapperElement
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.remove('priority-nav-is-visible');
+): void => {
+    if (breaks.length < 1) {
+        const navDropdownToggle = navWrapperElement.querySelector<HTMLElement>(
+            navDropdownToggleSelector
+        );
+
+        if (navDropdownToggle == null) {
+            return;
+        }
+
+        navDropdownToggle.classList.add('priority-nav-is-hidden');
+        navDropdownToggle.classList.remove('priority-nav-is-visible');
         navWrapperElement.classList.remove('priority-nav-has-dropdown');
 
         /**
          * Set aria attributes for accessibility
          */
-        navWrapperElement
-            .querySelector<HTMLElement>('.priority-nav__wrapper')!
-            .setAttribute('aria-haspopup', 'false');
+
+        const navWrapper = navWrapperElement.querySelector<HTMLElement>(
+            '.priority-nav__wrapper'
+        );
+
+        if (navWrapper) {
+            navWrapper.setAttribute('aria-haspopup', 'false');
+        }
     } else {
-        navWrapperElement
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.add('priority-nav-is-visible');
-        navWrapperElement
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .classList.remove('priority-nav-is-hidden');
+        const navDropdownToggle = navWrapperElement.querySelector<HTMLElement>(
+            navDropdownToggleSelector
+        );
+
+        if (navDropdownToggle == null) {
+            return;
+        }
+        navDropdownToggle.classList.add('priority-nav-is-visible');
+        navDropdownToggle.classList.remove('priority-nav-is-hidden');
         navWrapperElement.classList.add('priority-nav-has-dropdown');
 
         /**
          * Set aria attributes for accessibility
          */
-        navWrapperElement
-            .querySelector<HTMLElement>('.priority-nav__wrapper')!
-            .setAttribute('aria-haspopup', 'true');
+        const navWrapper = navWrapperElement.querySelector<HTMLElement>(
+            '.priority-nav__wrapper'
+        );
+
+        if (navWrapper) {
+            navWrapper.setAttribute('aria-haspopup', 'true');
+        }
     }
 };
 
@@ -312,7 +327,7 @@ class GreedyNavMenu {
     count: number;
 
     // TODO: better name, less nesting
-    breaks: number[] = [];
+    breaks: number[];
 
     instance: number;
 
@@ -341,6 +356,7 @@ class GreedyNavMenu {
     constructor(config: Config) {
         this.settings = { ...defaultConfig, ...config };
         this.count = 0;
+        this.breaks = [];
         this.instance = 0;
         this.mainNavWrapper = null;
 
@@ -817,12 +833,7 @@ class GreedyNavMenu {
         /**
          * Check if we need to show toggle menu button
          */
-        showToggle(
-            _this,
-            identifier,
-            this.navDropdownToggleSelector,
-            this.breaks
-        );
+        showToggle(_this, this.navDropdownToggleSelector, this.breaks);
 
         /**
          * update count on dropdown toggle button
@@ -972,12 +983,7 @@ class GreedyNavMenu {
             /**
              * Check if we need to show toggle menu button
              */
-            showToggle(
-                _this,
-                identifier,
-                this.navDropdownToggleSelector,
-                this.breaks
-            );
+            showToggle(_this, this.navDropdownToggleSelector, this.breaks);
         }, delay)();
     }
 
@@ -1022,12 +1028,7 @@ class GreedyNavMenu {
         /**
          * check if we need to show toggle menu button
          */
-        showToggle(
-            _this,
-            identifier,
-            this.navDropdownToggleSelector,
-            this.breaks
-        );
+        showToggle(_this, this.navDropdownToggleSelector, this.breaks);
 
         /**
          * update count on dropdown toggle button

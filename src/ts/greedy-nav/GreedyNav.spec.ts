@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { JSDOM } from 'jsdom';
 
-import { getClosest, insertAfter } from './GreedyNav';
+import { getClosest, insertAfter, showToggle } from './GreedyNav';
 
 const jsdomConfig = { url: 'http://public-website.test:3000' };
 
@@ -113,6 +113,68 @@ describe('Greedy Nav', () => {
 
             expect(() => insertAfter(newNode, fragment)).not.toThrow();
             expect(document.querySelectorAll('div')).toHaveLength(2);
+        });
+    });
+
+    describe('showToggle', () => {
+        afterEach(() => {
+            document.body.innerHTML = '';
+        });
+
+        it('displays toggle if breaks is empty', () => {
+            const selector = '.nav-dropdown-toggle';
+            const dom = new JSDOM(
+                `<div class="nav-dropdown priority-nav-has-dropdown">
+                <div class="priority-nav__wrapper" aria-haspopup="false">
+                <button class="nav-dropdown-toggle priority-nav-is-visible"></button>
+                </div></div>`
+            );
+
+            const { document } = dom.window;
+
+            const wrapper = document.querySelector<HTMLElement>(
+                '.nav-dropdown'
+            )!;
+            const navWrapper = wrapper.querySelector<HTMLElement>(
+                '.priority-nav__wrapper'
+            );
+            const toggle = document.querySelector<HTMLElement>(selector)!;
+
+            showToggle(wrapper, selector, []);
+
+            expect(toggle.classList).toContain('priority-nav-is-hidden');
+            expect(toggle.classList).not.toContain('priority-nav-is-visible');
+            expect(wrapper.classList).not.toContain(
+                'priority-nav-has-dropdown'
+            );
+            expect(navWrapper?.getAttribute('aria-haspopup')).toBe('false');
+        });
+
+        it('hides toggle if breaks is populated', () => {
+            const selector = '.nav-dropdown-toggle';
+            const dom = new JSDOM(
+                `<div class="nav-dropdown ">
+                <div class="priority-nav__wrapper" aria-haspopup="false">
+                <button class="nav-dropdown-toggle priority-nav-is-hidden"></button>
+                </div></div>`
+            );
+
+            const { document } = dom.window;
+
+            const wrapper = document.querySelector<HTMLElement>(
+                '.nav-dropdown'
+            )!;
+            const navWrapper = wrapper.querySelector<HTMLElement>(
+                '.priority-nav__wrapper'
+            );
+            const toggle = document.querySelector<HTMLElement>(selector)!;
+
+            showToggle(wrapper, selector, [1]);
+
+            expect(toggle.classList).not.toContain('priority-nav-is-hidden');
+            expect(toggle.classList).toContain('priority-nav-is-visible');
+            expect(wrapper.classList).toContain('priority-nav-has-dropdown');
+            expect(navWrapper?.getAttribute('aria-haspopup')).toBe('true');
         });
     });
 });
