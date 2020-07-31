@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { JSDOM } from 'jsdom';
 
-import { getClosest, insertAfter, showToggle } from './GreedyNav';
+import { getClosest, insertAfter, showToggle, updateLabel } from './GreedyNav';
 
 const jsdomConfig = { url: 'http://public-website.test:3000' };
 
@@ -175,6 +175,48 @@ describe('Greedy Nav', () => {
             expect(toggle.classList).toContain('priority-nav-is-visible');
             expect(wrapper.classList).toContain('priority-nav-has-dropdown');
             expect(navWrapper?.getAttribute('aria-haspopup')).toBe('true');
+        });
+    });
+
+    describe('updateLabel', () => {
+        let label: string;
+        let activeLabel: string;
+        let selector: string;
+        let dom: JSDOM;
+
+        let wrapper: HTMLElement;
+        let toggle: HTMLElement;
+
+        beforeEach(() => {
+            label = 'Menu';
+            activeLabel = 'Close';
+            selector = '.toggle';
+            dom = new JSDOM(
+                '<div class="wrapper"><div class="toggle"></div></div>'
+            );
+
+            const { document } = dom.window;
+
+            wrapper = document.querySelector<HTMLElement>('.wrapper')!;
+            toggle = document.querySelector<HTMLElement>(selector)!;
+        });
+
+        afterEach(() => {
+            document.body.innerHTML = '';
+        });
+
+        it('updates dropdownToggle to closed state', () => {
+            updateLabel(wrapper, label, selector, activeLabel);
+
+            expect(toggle.innerHTML).toEqual('Menu');
+            expect(toggle.getAttribute('aria-expanded')).toBe('false');
+        });
+
+        it('updates dropdownToggle to open state', () => {
+            updateLabel(wrapper, activeLabel, selector, activeLabel);
+
+            expect(toggle.innerHTML).toEqual('Close');
+            expect(toggle.getAttribute('aria-expanded')).toBe('true');
         });
     });
 });

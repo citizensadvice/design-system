@@ -201,30 +201,31 @@ const updateCount = (
     _this: HTMLElement,
     navDropdownToggleSelector: string,
     breaks: number[]
-) => {
+): void => {
+    // eslint-disable-next-line no-unused-expressions
     _this
-        .querySelector<HTMLElement>(navDropdownToggleSelector)!
-        .setAttribute('priorityNav-count', `${breaks.length}`);
+        .querySelector<HTMLElement>(navDropdownToggleSelector)
+        ?.setAttribute('priorityNav-count', `${breaks.length}`);
 };
 
-const updateLabel = (
-    _this: HTMLElement,
+export const updateLabel = (
+    menu: HTMLElement,
     label: string,
     navDropdownToggleSelector: string,
     navDropdownLabelActive: string
-) => {
-    // eslint-disable-next-line no-param-reassign
-    _this.querySelector<HTMLElement>(
-        navDropdownToggleSelector
-    )!.innerHTML = label;
+): void => {
+    const toggle = menu.querySelector<HTMLElement>(navDropdownToggleSelector);
+
+    if (toggle == null) {
+        return;
+    }
+
+    toggle.innerHTML = label;
+
     if (label === navDropdownLabelActive) {
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-expanded', 'true');
     } else {
-        _this
-            .querySelector<HTMLElement>(navDropdownToggleSelector)!
-            .setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-expanded', 'false');
     }
 };
 
