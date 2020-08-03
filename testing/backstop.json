@@ -122,7 +122,7 @@
             "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 1000,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -130,7 +130,7 @@
             ],
             "hoverSelector": "",
             "clickSelector": "#cads-advice-feedback__no",
-            "postInteractionWait": 100,
+            "postInteractionWait": 1000,
             "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,

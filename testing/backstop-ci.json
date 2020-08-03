@@ -130,7 +130,7 @@
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 1000,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -138,7 +138,7 @@
             ],
             "hoverSelector": "",
             "clickSelector": "#cads-advice-feedback__no",
-            "postInteractionWait": 100,
+            "postInteractionWait": 1000,
             "selectors": [
                 "#a11yComponentToTest"
             ],
