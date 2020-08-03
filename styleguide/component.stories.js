@@ -14,7 +14,6 @@ import initTables from '../src/js/tables';
 /* NOTE: greedy-nav is a placeholder for typescript POC, use priority-nav instead */
 import GreedyNav from '../src/ts/greedy-nav/GreedyNav';
 
-// eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
@@ -141,7 +140,14 @@ export const navigation = () =>
         'navigation',
         `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
         \n\n
-        this bit needs updating with instructions`,
+        <pre><code>
+        &lt;script src="system.js">&lt;/script>
+        &lt;script src="@citizensadvice/design-system/lib/greedy-nav'>&lt;/script>
+        &lt;script>
+            System.import("GreedyNav");
+            GreedyNav.init(/* { config if required } */);
+        &lt;/script>
+        </pre></code>`,
         null,
         () => {
             GreedyNav.init();
