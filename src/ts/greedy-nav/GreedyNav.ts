@@ -755,10 +755,6 @@ export class GreedyNavMenu {
         }
 
         /*
-         * Close menu when last item is selected
-         */
-
-        /*
          * Remove when clicked outside dropdown
          */
         document.addEventListener('click', (event: MouseEvent) => {
@@ -824,19 +820,20 @@ export class GreedyNavMenu {
             /**
              * move last child of navigation menu to dropdown
              */
-            if (navDropdown.firstChild && mainNav.children.length > 0) {
-                navigation
-                    .querySelector<HTMLElement>(this.navDropdownSelector)!
-                    .insertBefore(
-                        navigation.querySelector<HTMLElement>(
-                            this.mainNavSelector
-                        )!.lastElementChild!,
-                        navigation.querySelector<HTMLElement>(
-                            this.navDropdownSelector
-                        )!.firstChild
-                    );
-            } else if (mainNav.children.length > 0) {
-                navDropdown.appendChild(mainNav.lastElementChild!);
+            if (
+                navDropdown.firstChild &&
+                mainNav.children.length > 0 &&
+                mainNav.lastElementChild
+            ) {
+                navDropdown.insertBefore(
+                    mainNav.lastElementChild,
+                    navDropdown.firstChild
+                );
+            } else if (
+                mainNav.children.length > 0 &&
+                mainNav.lastElementChild
+            ) {
+                navDropdown.appendChild(mainNav.lastElementChild);
             }
         }
         /**
@@ -852,11 +849,7 @@ export class GreedyNavMenu {
         /**
          * update count on dropdown toggle button
          */
-        if (
-            navigation.querySelector<HTMLElement>(this.mainNavSelector)!
-                .children.length > 0 &&
-            this.settings.count
-        ) {
+        if (mainNav && mainNav.children.length > 0 && this.settings.count) {
             updateCount(
                 navigation,
                 this.navDropdownToggleSelector,
