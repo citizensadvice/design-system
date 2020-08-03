@@ -3,9 +3,6 @@ import { Config, defaultConfig } from './Config';
 
 const root = window;
 
-/**
- * Object to store instances with breakpoints where the instances menu item"s didin"t fit.
- */
 const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 
 /**
@@ -55,7 +52,7 @@ function debounce<Return>(func: () => Return, wait: number, immediate = false) {
     let finishedTimeout: number;
     return function debounced(this: Return, ...args: []) {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const context = this; // TODO: figure out what this should be
+        const context = this;
 
         const later = () => {
             timeout = null;
@@ -315,7 +312,6 @@ export class GreedyNavMenu {
 
     count: number;
 
-    // TODO: better name, less nesting
     breaks: number[];
 
     instance: number;
@@ -478,9 +474,6 @@ export class GreedyNavMenu {
      * @param mainNavWrapper
      */
     prepareHtml(_this: HTMLElement): void {
-        // TODO this function re-uses variables - navDropdown is set
-        // to an HTMLElement and then changed to a string later on.
-
         /**
          * Create dropdow menu
          * @type {HTMLElement}
@@ -600,7 +593,7 @@ export class GreedyNavMenu {
                         toggleClass(
                             <HTMLElement>event.currentTarget,
                             'is-open'
-                        ); // TODO find out what this is meant to be
+                        );
                     }
                     toggleClass(_this, 'is-open');
 
@@ -1052,8 +1045,6 @@ export class GreedyNavMenu {
         if (this.toggleWrapper) {
             this.toggleWrapper.remove();
         }
-        // Remove settings
-        // settings = null; // TODO: Cleanup settings another way
     }
 }
 const GreedyNav = {
