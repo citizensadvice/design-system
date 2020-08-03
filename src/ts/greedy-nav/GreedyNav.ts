@@ -533,7 +533,9 @@ export class GreedyNavMenu {
         this.navDropdownToggle.classList.add(
             this.settings.navDropdownToggleClassName
         );
-        this.navDropdownToggle.classList.add('cads-greedy-nav__dropdown-toggle');
+        this.navDropdownToggle.classList.add(
+            'cads-greedy-nav__dropdown-toggle'
+        );
 
         // fix so button is type="button" and do not submit forms
         this.navDropdownToggle.setAttribute('type', 'button');

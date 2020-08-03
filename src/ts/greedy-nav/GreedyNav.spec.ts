@@ -149,7 +149,9 @@ describe('Greedy Nav', () => {
             showToggle(wrapper, selector, []);
 
             expect(toggle.classList).toContain('cads-greedy-nav-is-hidden');
-            expect(toggle.classList).not.toContain('cads-greedy-nav-is-visible');
+            expect(toggle.classList).not.toContain(
+                'cads-greedy-nav-is-visible'
+            );
             expect(wrapper.classList).not.toContain(
                 'cads-greedy-nav-has-dropdown'
             );
