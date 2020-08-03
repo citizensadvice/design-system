@@ -1,13 +1,8 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { blurEventName } from './helpers';
 import { Config, defaultConfig } from './Config';
 
 const root = window;
 
-/**
- * Variables
- */
-const GreedyNav: any = {}; // Object for public APIs
 /**
  * Object to store instances with breakpoints where the instances menu item"s didin"t fit.
  */
@@ -1061,15 +1056,16 @@ export class GreedyNavMenu {
         // settings = null; // TODO: Cleanup settings another way
     }
 }
-
+const GreedyNav = {
+    init: (options: Config = defaultConfig): GreedyNavMenu => {
+        const menu = new GreedyNavMenu(options);
+        menu.init();
+        return menu;
+    }
+};
 /**
  * Initialize Plugin
  * @public
  * @param {Object} options User settings
  */
-GreedyNav.init = (options: Config = defaultConfig) => {
-    const menu = new GreedyNavMenu(options);
-    menu.init();
-};
-
 export default GreedyNav;
