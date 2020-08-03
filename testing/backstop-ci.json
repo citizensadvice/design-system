@@ -136,7 +136,7 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "#cads-advice-feedback__no",
+            "hoverSelector": "",
             "clickSelectors": "#cads-advice-feedback__no",
             "postInteractionWait": 100,
             "selectors": [
