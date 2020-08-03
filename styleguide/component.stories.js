@@ -4,14 +4,12 @@ import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 // The styles
 import './styles.scss';
 
-import priorityNav from '@citizensadvice/priority-nav';
 import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
 import initTables from '../src/js/tables';
 
-/* NOTE: greedy-nav is a placeholder for typescript POC, use priority-nav instead */
 import GreedyNav from '../src/ts/greedy-nav/GreedyNav';
 
 import locals from './haml_locals.rb'; // just used to watch

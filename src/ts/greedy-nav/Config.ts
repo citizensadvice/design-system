@@ -58,7 +58,7 @@ interface Config {
 }
 
 const defaultConfig: Config = {
-    initClass: 'js-priorityNav',
+    initClass: 'js-CadsGreedyNav',
     mainNavWrapper: 'nav',
     mainNav: 'ul',
     navDropdownClassName: 'nav__dropdown',

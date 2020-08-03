@@ -146,16 +146,16 @@ export const showToggle = (
             return;
         }
 
-        navDropdownToggle.classList.add('priority-nav-is-hidden');
-        navDropdownToggle.classList.remove('priority-nav-is-visible');
-        navWrapperElement.classList.remove('priority-nav-has-dropdown');
+        navDropdownToggle.classList.add('cads-greedy-nav-is-hidden');
+        navDropdownToggle.classList.remove('cads-greedy-nav-is-visible');
+        navWrapperElement.classList.remove('cads-greedy-nav-has-dropdown');
 
         /**
          * Set aria attributes for accessibility
          */
 
         const navWrapper = navWrapperElement.querySelector<HTMLElement>(
-            '.priority-nav__wrapper'
+            '.cads-greedy-nav__wrapper'
         );
 
         if (navWrapper) {
@@ -169,15 +169,15 @@ export const showToggle = (
         if (navDropdownToggle === null) {
             return;
         }
-        navDropdownToggle.classList.add('priority-nav-is-visible');
-        navDropdownToggle.classList.remove('priority-nav-is-hidden');
-        navWrapperElement.classList.add('priority-nav-has-dropdown');
+        navDropdownToggle.classList.add('cads-greedy-nav-is-visible');
+        navDropdownToggle.classList.remove('cads-greedy-nav-is-hidden');
+        navWrapperElement.classList.add('cads-greedy-nav-has-dropdown');
 
         /**
          * Set aria attributes for accessibility
          */
         const navWrapper = navWrapperElement.querySelector<HTMLElement>(
-            '.priority-nav__wrapper'
+            '.cads-greedy-nav__wrapper'
         );
 
         if (navWrapper) {
@@ -197,7 +197,7 @@ const updateCount = (
     // eslint-disable-next-line no-unused-expressions
     _this
         .querySelector<HTMLElement>(navDropdownToggleSelector)
-        ?.setAttribute('priorityNav-count', `${breaks.length}`);
+        ?.setAttribute('cadsGreedyNav-count', `${breaks.length}`);
 };
 
 export const updateLabel = (
@@ -362,7 +362,7 @@ export class GreedyNavMenu {
     init(): void {
         // Feature test.
         if (!supports && typeof Node === 'undefined') {
-            console.warn("This browser doesn't support priorityNav");
+            console.warn("This browser doesn't support GreedyNav");
             return;
         }
 
@@ -498,9 +498,9 @@ export class GreedyNavMenu {
         this.navDropdownToggle.setAttribute('type', 'button');
         this.navDropdownToggle.setAttribute(
             'aria-labelledby',
-            'priorityNavLabel'
+            'cadsGreedyNavLabel'
         );
-        this.navDropdownToggleLabel.setAttribute('id', 'priorityNavLabel');
+        this.navDropdownToggleLabel.setAttribute('id', 'cadsGreedyNavLabel');
         this.navDropdown.setAttribute('aria-hidden', 'true');
 
         /**
@@ -528,12 +528,12 @@ export class GreedyNavMenu {
          * Add classes so we can target elements
          */
         this.navDropdown.classList.add(this.settings.navDropdownClassName);
-        this.navDropdown.classList.add('priority-nav__dropdown');
+        this.navDropdown.classList.add('cads-greedy-nav__dropdown');
 
         this.navDropdownToggle.classList.add(
             this.settings.navDropdownToggleClassName
         );
-        this.navDropdownToggle.classList.add('priority-nav__dropdown-toggle');
+        this.navDropdownToggle.classList.add('cads-greedy-nav__dropdown-toggle');
 
         // fix so button is type="button" and do not submit forms
         this.navDropdownToggle.setAttribute('type', 'button');
@@ -541,21 +541,15 @@ export class GreedyNavMenu {
         this.toggleWrapper.classList.add(
             `${this.settings.navDropdownClassName}-wrapper`
         );
-        this.toggleWrapper.classList.add('priority-nav__wrapper');
+        this.toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
-        _this.classList.add('priority-nav');
+        _this.classList.add('cads-greedy-nav');
     }
 
     /**
      * Bind eventlisteners
      */
     listeners(_this: HTMLElement): void {
-        // Check if an item needs to move
-        // if (window.attachEvent) {
-        //     window.attachEvent('onresize', () => {
-        //         if (priorityNav.doesItFit) priorityNav.doesItFit(_this);
-        //     });
-        // } else if (window.addEventListener) {
         window.addEventListener('resize', () => {
             this.doesItFit(_this, this.settings.throttleDelay);
         });

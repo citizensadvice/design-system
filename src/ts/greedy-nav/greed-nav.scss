@@ -1,12 +1,14 @@
 /*
- * Core styles for PriorityNav.js
+ * Core styles for Cads GreedyNav
  * These styles are not optional and should always be included
+ *
+ * Modified from PriorityNav.js
  *
  * Free to use under the MIT License.
  * http://twitter.com/GijsRoge
  */
 
-.priority-nav {
+.cads-greedy-nav {
     white-space: nowrap; // prevent flash of unstyled content
 
     /*
@@ -21,7 +23,7 @@
         }
     }
 
-    #priorityNavLabel {
+    #cadsGreedyNavLabel {
         display: none;
     }
 
@@ -41,7 +43,7 @@
     }
 
     &-has-dropdown {
-        .priority-nav {
+        .cads-greedy-nav {
             &__dropdown {
                 &-toggle {
                     position: relative;
