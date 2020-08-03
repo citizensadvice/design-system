@@ -142,7 +142,7 @@ export const showToggle = (
             navDropdownToggleSelector
         );
 
-        if (navDropdownToggle == null) {
+        if (navDropdownToggle === null) {
             return;
         }
 
@@ -166,7 +166,7 @@ export const showToggle = (
             navDropdownToggleSelector
         );
 
-        if (navDropdownToggle == null) {
+        if (navDropdownToggle === null) {
             return;
         }
         navDropdownToggle.classList.add('priority-nav-is-visible');
@@ -208,7 +208,7 @@ export const updateLabel = (
 ): void => {
     const toggle = menu.querySelector<HTMLElement>(navDropdownToggleSelector);
 
-    if (toggle == null) {
+    if (toggle === null) {
         return;
     }
 
