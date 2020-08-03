@@ -2,8 +2,7 @@
     "files": [],
     "references": [
         {
-            "path": "./src/ts/greedy-nav"
+            "path": "./src/ts/greedy-nav/tsconfig.json"
         }
-    ],
-    "exclude": ["src/**/*.spec.ts"]
+    ]
 }

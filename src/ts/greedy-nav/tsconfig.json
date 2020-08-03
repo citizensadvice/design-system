@@ -3,5 +3,7 @@
     "compilerOptions": {
         "outFile": "../../../lib/greedy-nav.js",
         "rootDir": "."
-    }
+    },
+    "include": ["./**/*.ts"],
+    "exclude": ["./**/*.spec.ts"]
 }
