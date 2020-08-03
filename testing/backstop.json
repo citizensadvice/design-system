@@ -341,8 +341,8 @@
             "url": "http://host.docker.internal:6006/iframe.html?id=3-components--navigation",
             "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--navigation",
             "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 350,
+            "readySelector": ".js-CadsGreedyNav",
+            "delay": 750,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
