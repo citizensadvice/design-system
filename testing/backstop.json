@@ -78,7 +78,7 @@
             "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -100,7 +100,7 @@
             "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -122,7 +122,7 @@
             "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",

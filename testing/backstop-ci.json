@@ -82,7 +82,7 @@
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -106,7 +106,7 @@
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
@@ -130,7 +130,7 @@
             "cookiePath": "backstop_data/engine_scripts/cookies.json",
             "readyEvent": "",
             "readySelector": "#a11yComponentToTest",
-            "delay": 0,
+            "delay": 500,
             "hideSelectors": [],
             "removeSelectors": [
                 ".cads-styleguide__breakpoint-label",
