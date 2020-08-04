@@ -1,4 +1,4 @@
-@import '~@citizensadvice/priority-nav/dist/priority-nav-core.css';
+@import '../../src/ts/greedy-nav/greed-nav';
 
 nav,
 .cads-navigation {
@@ -25,15 +25,11 @@ nav,
         font-weight: $cads-font-weight__bold;
     }
 
-    .nav__dropdown-toggle.priority-nav__dropdown-toggle,
-    .nav__dropdown-toggle.priority-nav__dropdown-toggle:hover {
+    .cads-greedy-nav__dropdown-toggle {
         height: 100%;
         font-weight: bold;
         font-size: 1rem;
         border-left: 1px solid $cads-palette__white;
-    }
-
-    .priority-nav__dropdown-toggle {
         background-color: $cads-palette__heritage-blue;
         border: $cads-palette__heritage-blue;
         box-shadow: none;
@@ -112,7 +108,7 @@ nav,
         }
     }
 
-    .priority-nav__dropdown {
+    .cads-greedy-nav__dropdown {
         background-color: $cads-palette__heritage-blue;
         border-top: 1px solid $cads-palette__white;
         right: 0;

@@ -21,7 +21,8 @@
         "implicit-arrow-linebreak": "off",
         "object-curly-newline": "off",
         "import/extensions": "off",
-        "@typescript-eslint/no-unused-vars": "off"
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-empty-function": "warn"
     },
     "overrides": [
         {
@@ -31,6 +32,6 @@
             }
         }
     ],
-    "ignorePatterns": ["lib", "tsconfig*"],
+    "ignorePatterns": ["lib", "tsconfig*", "**/src/**/*.scss"],
     "parser": "@typescript-eslint/parser"
 }

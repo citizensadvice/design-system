@@ -1,4 +1,5 @@
 * NP-618 PDF Icons and links
+* NP-464 Greedy Nav rewrite using Typescript and Tests
 
 ## <sub>v1.4.4</sub>
 

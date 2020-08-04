@@ -4,17 +4,14 @@ import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 // The styles
 import './styles.scss';
 
-import priorityNav from '@citizensadvice/priority-nav';
 import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
 import initTables from '../src/js/tables';
 
-/* NOTE: greedy-nav is a placeholder for typescript POC, use priority-nav instead */
 import GreedyNav from '../src/ts/greedy-nav';
 
-// eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
@@ -142,14 +139,24 @@ export const navigation = () =>
         'navigation',
         `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
         \n\n
-        <pre><code>import { initNavigation } from '@citizensadvice/design-system/lib/navigation'</code></pre> and execute that function after the navigation components html has loaded into the DOM.`,
+        <p>SystemJS</p>
+        <pre><code>
+        &lt;script src="system.js">&lt;/script>
+        &lt;script src="@citizensadvice/design-system/lib/greedy-nav'>&lt;/script>
+        &lt;script>
+            System.import("GreedyNav");
+            GreedyNav.init(/* { config if required } */);
+        &lt;/script>
+        </pre></code>
+
+        <p>Common JS</p>
+        <pre><code>
+        import GreedyNav from '@citizensadvice/design-system/lib/greedy-nav/';
+        GreedyNav.init(/* { config if required } */);
+        </code></pre>`,
         null,
         () => {
-            priorityNav.init({
-                breakPoint: 0
-            });
-            /* Note: greedyNav is a POC placeholder, use priorityNav instead */
-            const g = new GreedyNav();
+            GreedyNav.init();
         }
     );
 
