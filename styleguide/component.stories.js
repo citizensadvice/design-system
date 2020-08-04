@@ -10,7 +10,7 @@ import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
 import initTables from '../src/js/tables';
 
-import GreedyNav from '../src/ts/greedy-nav/GreedyNav';
+import GreedyNav from '../src/ts/greedy-nav';
 
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
@@ -138,6 +138,7 @@ export const navigation = () =>
         'navigation',
         `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
         \n\n
+        <p>SystemJS</p>
         <pre><code>
         &lt;script src="system.js">&lt;/script>
         &lt;script src="@citizensadvice/design-system/lib/greedy-nav'>&lt;/script>
@@ -145,7 +146,13 @@ export const navigation = () =>
             System.import("GreedyNav");
             GreedyNav.init(/* { config if required } */);
         &lt;/script>
-        </pre></code>`,
+        </pre></code>
+
+        <p>Common JS</p>
+        <pre><code>
+        import GreedyNav '@citizensadvice/design-system/lib/greedy-nav/';
+        GreedyNav.init(/* { config if required } */);
+        </code></pre>`,
         null,
         () => {
             GreedyNav.init();
