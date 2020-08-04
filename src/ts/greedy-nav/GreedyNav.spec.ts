@@ -128,18 +128,18 @@ describe('Greedy Nav', () => {
         });
 
         it('displays toggle if breaks is empty', () => {
-            const selector = '.nav-dropdown-toggle';
+            const selector = '.cads-greedy-nav-dropdown-toggle';
             const dom = new JSDOM(
-                `<div class="nav-dropdown cads-greedy-nav-has-dropdown">
+                `<div class="cads-greedy-nav-dropdown cads-greedy-nav-has-dropdown">
                 <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
-                <button class="nav-dropdown-toggle cads-greedy-nav-is-visible"></button>
+                <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-visible"></button>
                 </div></div>`
             );
 
             const { document } = dom.window;
 
             const wrapper = document.querySelector<HTMLElement>(
-                '.nav-dropdown'
+                '.cads-greedy-nav-dropdown'
             )!;
             const navWrapper = wrapper.querySelector<HTMLElement>(
                 '.cads-greedy-nav__wrapper'
@@ -159,18 +159,18 @@ describe('Greedy Nav', () => {
         });
 
         it('hides toggle if breaks is populated', () => {
-            const selector = '.nav-dropdown-toggle';
+            const selector = '.cads-greedy-nav-dropdown-toggle';
             const dom = new JSDOM(
-                `<div class="nav-dropdown ">
+                `<div class="cads-greedy-nav-dropdown ">
                 <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
-                <button class="nav-dropdown-toggle cads-greedy-nav-is-hidden"></button>
+                <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-hidden"></button>
                 </div></div>`
             );
 
             const { document } = dom.window;
 
             const wrapper = document.querySelector<HTMLElement>(
-                '.nav-dropdown'
+                '.cads-greedy-nav-dropdown'
             )!;
             const navWrapper = wrapper.querySelector<HTMLElement>(
                 '.cads-greedy-nav__wrapper'
@@ -238,7 +238,7 @@ describe('Greedy Nav', () => {
                 <ul class="menu">
                 <li>one</li><li>two></li><li>three</li>
                 </ul>
-                <ul class="nav__dropdown"></ul></nav>`
+                <ul class="cads-greedy-nav__dropdown"></ul></nav>`
             );
 
             const { document } = dom.window;
@@ -246,7 +246,7 @@ describe('Greedy Nav', () => {
             const nav = document.querySelector<HTMLElement>('nav')!;
             const menu = document.querySelector<HTMLElement>('.menu')!;
             const dropdown = document.querySelector<HTMLElement>(
-                '.nav__dropdown'
+                '.cads-greedy-nav__dropdown'
             )!;
 
             const greedyNavMenu = new GreedyNavMenu();
@@ -263,14 +263,14 @@ describe('Greedy Nav', () => {
                 <ul class="menu">
                 <li>one</li><li>two</li>
                 </ul>
-                <ul class="nav__dropdown"><li>three</li></ul></nav>`
+                <ul class="cads-greedy-nav__dropdown"><li>three</li></ul></nav>`
             );
 
             const { document } = dom.window;
 
             const nav = document.querySelector<HTMLElement>('nav')!;
             const dropdown = document.querySelector<HTMLElement>(
-                '.nav__dropdown'
+                '.cads-greedy-nav__dropdown'
             )!;
 
             const greedyNavMenu = new GreedyNavMenu();
@@ -291,7 +291,7 @@ describe('Greedy Nav', () => {
                 <ul class="menu">
                 <li>one</li>
                 </ul>
-                <ul class="nav__dropdown"><li>two></li><li>three</li></ul></nav>`
+                <ul class="cads-greedy-nav__dropdown"><li>two></li><li>three</li></ul></nav>`
             );
 
             const { document } = dom.window;
@@ -299,7 +299,7 @@ describe('Greedy Nav', () => {
             const nav = document.querySelector<HTMLElement>('nav')!;
             const menu = document.querySelector<HTMLElement>('.menu')!;
             const dropdown = document.querySelector<HTMLElement>(
-                '.nav__dropdown'
+                '.cads-greedy-nav__dropdown'
             )!;
 
             const greedyNavMenu = new GreedyNavMenu();
