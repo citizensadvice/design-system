@@ -1,3 +1,9 @@
+## <sub>v1.5.1</sub>
+
+#### _Aug. 4, 2020_
+
+* NP-464 Greedy Nav - co-locate scss to fix webpack compilation error
+
 ## <sub>v1.5.0</sub>
 
 #### _Aug. 4, 2020_
