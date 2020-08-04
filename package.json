@@ -103,9 +103,7 @@
         "typescript-eslint": "0.0.1-alpha.0",
         "webdriverio": "^6.1.24"
     },
-    "dependencies": {
-        "@citizensadvice/priority-nav": "^1.4.0"
-    },
+    "dependencies": {},
     "browserslist": [
         "IE 11",
         "last 2 Edge versions",
