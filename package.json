@@ -28,6 +28,7 @@
         "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
         "lint:es": "eslint \"src/**\"",
         "lint": "npm-run-all lint:css lint:es",
+        "test": "jest",
         "vr-test:install": "cd testing && npm install",
         "vr-test:test": "node scripts/vr-test.js",
         "vr-test:ci": "./bin/jenkins/test && docker-compose down",
@@ -56,6 +57,8 @@
         "@storybook/addon-actions": "^5.3.19",
         "@storybook/html": "^5.3.19",
         "@storybook/preset-typescript": "^3.0.0",
+        "@types/jest": "^26.0.3",
+        "@types/jsdom": "^16.2.3",
         "@typescript-eslint/eslint-plugin": "^3.6.0",
         "@typescript-eslint/parser": "^3.6.0",
         "autoprefixer": "^9.8.2",
@@ -74,7 +77,9 @@
         "http-server": "^0.12.3",
         "husky": "^4.2.5",
         "inquirer": "^7.3.3",
+        "jest": "^26.1.0",
         "js-beautify": "^1.11.0",
+        "jsdom": "^16.3.0",
         "lint-staged": "^10.2.11",
         "markdown-loader": "^5.1.0",
         "moment": "^2.27.0",
@@ -98,9 +103,7 @@
         "typescript-eslint": "0.0.1-alpha.0",
         "webdriverio": "^6.1.24"
     },
-    "dependencies": {
-        "@citizensadvice/priority-nav": "^1.4.0"
-    },
+    "dependencies": {},
     "browserslist": [
         "IE 11",
         "last 2 Edge versions",
