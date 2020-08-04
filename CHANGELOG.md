@@ -1,3 +1,5 @@
+* NP-618 PDF Icons and links
+
 ## <sub>v1.4.4</sub>
 
 #### _Jul. 24, 2020_

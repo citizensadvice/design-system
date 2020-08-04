@@ -44,6 +44,7 @@ import tTextarea from '../haml/_textarea.html.haml';
 import tAdviceFeedback from '../haml/_advice_feedback.html.haml';
 import tErrorSummary from '../haml/_error_summary.html.haml';
 import tTables from '../haml/_table.html.haml';
+import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -199,3 +200,6 @@ export const successMessage = () =>
 
 export const tables = () =>
     renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);
+
+export const assetHyperlink = () =>
+    renderHamlTemplate('Asset hyperlink', tAssetHyperlink, 'asset_hyperlink');

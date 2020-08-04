@@ -18,3 +18,13 @@ hr,
         margin-top: $cads-spacing-5;
     }
 }
+
+.cads-asset-type {
+    &::before {
+        content: '[';
+    }
+
+    &::after {
+        content: ']';
+    }
+}
