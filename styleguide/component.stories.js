@@ -150,7 +150,7 @@ export const navigation = () =>
 
         <p>Common JS</p>
         <pre><code>
-        import GreedyNav '@citizensadvice/design-system/lib/greedy-nav/';
+        import GreedyNav from '@citizensadvice/design-system/lib/greedy-nav/';
         GreedyNav.init(/* { config if required } */);
         </code></pre>`,
         null,
