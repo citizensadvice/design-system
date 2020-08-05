@@ -1,4 +1,29 @@
 * NP-575 Grid spacing
+* NP-464 Greedy Nav rewrite using Typescript and Tests
+
+## <sub>v1.4.4</sub>
+
+#### _Jul. 24, 2020_
+
+* NP-590 Bug fix Targeted Content button element
+
+## <sub>v1.4.3</sub>
+
+#### _Jul. 20, 2020_
+
+* NP-581 Font loading
+
+## <sub>v1.4.2</sub>
+
+#### _Jul. 20, 2020_
+
+* NP-581 Font loading
+
+## <sub>v1.4.1</sub>
+
+#### _Jul. 17, 2020_
+
+* NP-580 Fonts not loading
 
 ## <sub>v1.4.0</sub>
 

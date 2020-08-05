@@ -350,6 +350,42 @@
           "size": 69916
         }
       ]
+    },
+    {
+      "version": "1.4.1",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 70892
+        }
+      ]
+    },
+    {
+      "version": "1.4.2",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 70926
+        }
+      ]
+    },
+    {
+      "version": "1.4.3",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 70928
+        }
+      ]
+    },
+    {
+      "version": "1.4.4",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 70928
+        }
+      ]
     }
   ]
 }
