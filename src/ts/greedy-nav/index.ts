@@ -1,10 +1,6 @@
-// this is just a placeholder file
-import { Config, defaultConfig } from './Config';
+import GreedyNav, { GreedyNavMenu } from './GreedyNav';
 
-class GreedyNav {
-    constructor(config: Config) {
-        Object.assign(defaultConfig, config);
-    }
-}
+export { defaultConfig } from './Config';
 
 export default GreedyNav;
+export { GreedyNavMenu };

@@ -1,5 +1,17 @@
 * NP-617 Image tag formatting
 
+## <sub>v1.5.1</sub>
+
+#### _Aug. 4, 2020_
+
+* NP-464 Greedy Nav - co-locate scss to fix webpack compilation error
+
+## <sub>v1.5.0</sub>
+
+#### _Aug. 4, 2020_
+
+* NP-464 Greedy Nav rewrite using Typescript and Tests
+
 ## <sub>v1.4.4</sub>
 
 #### _Jul. 24, 2020_
