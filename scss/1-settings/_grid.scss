@@ -9,6 +9,15 @@ $cads-grid-breakpoint-gutters: (
         lg: $cads-spacing-6
 ) !default;
 
+$cads-nav-breakpoint-gutters: (
+    // 0px
+        sm: 0,
+    // 16px
+        md: $cads-spacing-4,
+    // 16px
+        lg: $cads-spacing-4
+) !default;
+
 $cads-container-max-widths: (
     lg: $cads-max-content-size
 ) !default;
