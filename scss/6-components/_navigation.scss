@@ -131,5 +131,14 @@ nav,
 
     nav {
         @extend .cads-max-content-width;
+
+        @each $breakpoint in map-keys($cads-breakpoints) {
+            $gutter: map-get($cads-nav-breakpoint-gutters, $breakpoint);
+
+            @include cads-media-breakpoint-up($breakpoint) {
+                padding-right: $gutter;
+                padding-left: $gutter;
+            }
+        }
     }
 }
