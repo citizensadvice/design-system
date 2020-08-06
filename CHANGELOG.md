@@ -1,4 +1,5 @@
 * NP-575 Grid spacing
+* NP-617 Image tag formatting
 
 ## <sub>v1.5.1</sub>
 
