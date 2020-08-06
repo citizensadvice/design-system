@@ -19,10 +19,7 @@ hr,
     }
 
     img {
-        padding: $cads-spacing-3;
-        border: solid $cads-border-width-small
-            $cads-language__input-border-colour;
-        margin-top: $cads-spacing-5;
-        margin-bottom: $cads-spacing-5;
+        padding: 0;
+        margin: 0 0 $cads-spacing-4 0;
     }
 }
