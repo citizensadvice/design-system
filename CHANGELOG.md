@@ -1,3 +1,5 @@
+* NP-575 Grid spacing
+
 ## <sub>v1.5.1</sub>
 
 #### _Aug. 4, 2020_
