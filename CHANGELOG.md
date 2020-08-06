@@ -1,3 +1,7 @@
+## <sub>v1.6.0</sub>
+
+#### _Aug. 6, 2020_
+
 * NP-640 Site navigation visually aligned with main site content
 * NP-575 Grid spacing
 * NP-617 Image tag formatting
