@@ -33,33 +33,33 @@ pipeline {
             }
         }
     }
-        // stage('Test') {
-        //     steps {
-        //         script { env.BUILD_STAGE = 'Test' }
-        //         withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
-        //             "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
-        //             sh './bin/jenkins/validate_vr_tests'
-        //             sh './bin/jenkins/test'
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                script { env.BUILD_STAGE = 'Test' }
+                withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
+                    "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                    sh './bin/jenkins/validate_vr_tests'
+                    sh './bin/jenkins/test'
+            }
+        }
 }
     }
 
     post {
         always {
-            // step([$class: 'JUnitResultArchiver',
-            //     testResults: 'testing/backstop_data/ci_report/*.xml',
-            //     allowEmptyResults: true,
-            // ])
-            // sh './bin/jenkins/fix_visual_test_report'
-            // publishHTML([
-            //     allowMissing: true,
-            //     alwaysLinkToLastBuild: true,
-            //     keepAll: true,
-            //     reportDir: 'reports/html_report',
-            //     reportFiles: 'index.html',
-            //     reportName: 'BackstopJS Report',
-            // ])
+            step([$class: 'JUnitResultArchiver',
+                testResults: 'testing/backstop_data/ci_report/*.xml',
+                allowEmptyResults: true,
+            ])
+            sh './bin/jenkins/fix_visual_test_report'
+            publishHTML([
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports/html_report',
+                reportFiles: 'index.html',
+                reportName: 'BackstopJS Report',
+            ])
             script {
                 if (deployBranches.contains(BRANCH_NAME)) {
                     try {

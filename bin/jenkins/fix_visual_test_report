@@ -4,7 +4,7 @@ set -ex
 
 # copy reports to a new folder
 mkdir -m775 -p reports
-cp -R testing/backstop_data/* reports/
+# cp -R testing/backstop_data/* reports/
 
 if [ -d "reports/html_report" ]; then
     # copy images into html_report folder so that jenkins can archive them
