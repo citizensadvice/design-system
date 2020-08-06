@@ -1,5 +1,6 @@
 * NP-640 Site navigation visually aligned with main site content
 * NP-575 Grid spacing
+* NP-617 Image tag formatting
 
 ## <sub>v1.5.1</sub>
 
