@@ -81,7 +81,7 @@ nav,
 
     .cads-nav-link {
         color: $cads-palette__white;
-        padding: calc(1rem - 1px);
+        padding: calc(1rem - 1px) calc(1rem - 8px);
         display: inline-block;
         text-decoration: none;
 
