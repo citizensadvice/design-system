@@ -1,3 +1,4 @@
+<div class="cads-main-content">
 <h1>Typography</h1>
 
 <h2>Font</h2>
@@ -142,41 +143,11 @@ placerat ac ligula. Ut luctus vitae ante eu euismod.
 </ul>
 </div>
 
-<h3>Complete page example</h3>
+<h3>Images</h3>
 
-<div class="cads-styleguide__highlight-box">
-<h1>Claim compensation if your flight is delayed or cancelled</h1>
+<p>Images within the main content appear with a border and padding as shown below:</p>
 
-<p>You might be able to get compensation under EU law if your flight either:</p>
+![alt text](biometric-symbol.png)
 
-<ul>
-	<li>left from the UK, the European Union (EU), Iceland, Norway or Switzerland</li>
-	<li>was with a European airline and landed in the UK, the EU, Norway or Switzerland, no matter where you were flying from</li>
-</ul>
-
-<h2>Check what the airline should give you if your flight's delayed</h2>
-
-<p>How long the delay has to be depends on the distance of the flight and the countries it's flying between. You can check the <a href="">flight distance</a> on the WebFlyer website.</p>
-
-<h2>If your flight’s delayed for 5 hours or more</h2>
-
-<p>You don’t have to take the flight if it’s delayed for 5 hours or more. It doesn’t matter whose fault the delay is or the distance of the flight.</p>
-
-<h3>If you don’t take the flight</h3>
-
-<p>Talk to someone from the airline as soon as you decide you don’t want to take the flight.</p>
-
-<h3>If you do take the flight</h3>
-
-<p>You can claim up to €600 in compensation if the delay is the airline’s fault - depending on the distance and destination of your flight, and how late it arrived. It might have been your airline's fault if there was a technical problem, or they overbooked.</p>
-
-<p>
-You’re unlikely to get compensation if the delay was because of something outside the airline’s control, like bad weather or a security risk.</p>
-
-
-<h2>Further help</h2>
-
-<h4>Citizens Advice consumer helpline</h4>
-<p>03454 04 05 06</p>
-<p class="paragraph-s">This is small text for metadata and some components</p>
+<p>Images have a margin above/below them to space content as displayed here.</p>
 </div>

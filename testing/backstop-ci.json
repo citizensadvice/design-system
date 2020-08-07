@@ -42,9 +42,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                ".cads-styleguide__wrapper"
-            ],
+            "selectors": [".cads-styleguide__wrapper"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -67,9 +65,7 @@
             "hoverSelector": "",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                ".cads-styleguide__wrapper"
-            ],
+            "selectors": [".cads-styleguide__wrapper"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -88,12 +84,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -112,12 +106,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "#cads-advice-feedback__yes",
             "postInteractionWait": 100,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -136,12 +128,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelectors": "#cads-advice-feedback__no",
             "postInteractionWait": 100,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -182,12 +172,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -206,12 +194,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": ".cads-button",
-            "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -230,12 +216,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -254,12 +238,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -278,12 +260,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -302,12 +282,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -326,12 +304,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -350,12 +326,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -374,12 +348,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -400,7 +372,7 @@
                 ".cads-styleguide-max-content-width",
                 "h1"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": ".nav__dropdown-toggle",
             "postInteractionWait": 1000,
             "selectors": [],
@@ -444,12 +416,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -468,12 +438,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -492,12 +460,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -516,12 +482,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -540,12 +504,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": ".cads-radio-button-checkmark",
-            "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -564,12 +526,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": ".cads-radio-button-checkmark",
-            "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -588,12 +548,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -612,12 +570,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -636,12 +592,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": ".cads-targeted-content",
-            "postInteractionWait": 300,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "postInteractionWait": 0,
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -660,12 +614,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -684,12 +636,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -708,12 +658,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -732,12 +680,10 @@
                 ".cads-styleguide__breakpoint-label",
                 ".cads-styleguide__language-label"
             ],
-            "hoverSelector": "",
+            "hoverSelector": "#a11yComponentToTest",
             "clickSelector": "",
             "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
+            "selectors": ["#a11yComponentToTest"],
             "selectorExpansion": true,
             "expect": 0,
             "misMatchThreshold": 0.1,
@@ -752,16 +698,11 @@
         "html_report": "backstop_data/html_report",
         "ci_report": "backstop_data/ci_report"
     },
-    "report": [
-        "CI",
-        "browser"
-    ],
+    "report": ["CI", "browser"],
     "openReport": false,
     "engine": "puppeteer",
     "engineOptions": {
-        "args": [
-            "--no-sandbox"
-        ]
+        "args": ["--no-sandbox"]
     },
     "asyncCaptureLimit": 5,
     "asyncCompareLimit": 50,

@@ -8,10 +8,10 @@
   %main.cads-main-content
     .cads-grid-container
       .cads-grid-row
-        .cads-grid-col-md-9
-        = render partial: "@citizensadvice/design-system/haml/notice_banner", locals: { 'banner' => { 'label' => 'Page Template Warning', 'body' => 'This is a sample page. Note that the layout may not reflect the actual page layout of the website.' } }
+        .cads-grid-col-md-8
+          = render partial: "@citizensadvice/design-system/haml/notice_banner", locals: { 'banner' => { 'label' => 'Page Template Warning', 'body' => 'This is a sample page. Note that the layout may not reflect the actual page layout of the website.' } }
       .cads-grid-row
-        .cads-grid-col-md-9
+        .cads-grid-col-md-8
           %h1 Adviser Sample Page
           = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'adviser', 'body' => '<h3>This is an adviser callout</h3><p>This is the body text of an adviser callout.</p>' } }
           %p Here is an important callout with adviser content
@@ -33,7 +33,7 @@
           = render partial: "@citizensadvice/design-system/haml/targeted-content"
           %p Etiam laoreet erat sit amet porttitor luctus. Sed vitae enim aliquet, aliquam velit sit amet, placerat diam. Aenean malesuada euismod arcu, vel imperdiet dolor facilisis vitae. Fusce ac lacinia metus, ut interdum nibh. Nunc a lorem dolor. In sodales urna eget libero commodo luctus. Suspendisse commodo est sit amet diam tempus, sit amet vehicula ex sodales. Duis feugiat scelerisque imperdiet. Sed vel lorem id risus porta porta id in libero. In sagittis at magna a semper. Donec aliquet porta vehicula. Integer sit amet quam aliquet, bibendum libero non, aliquet nisi. Mauris ante erat, dictum a urna ut, elementum varius ex. Praesent blandit quis ante id fermentum.
           = render partial: "@citizensadvice/design-system/haml/page_review"
-        .cads-grid-col-md-3
+        .cads-grid-col-md-4
           %aside.cads-related-content
             %p.paragraph-s.section-title Related Content
             %h3 Search and navigation tools
