@@ -68,16 +68,14 @@
   } catch (e) {
     // eslint-disable-next-line no-console
     console.warn('unable to connect to top frame for connecting dev tools');
-  }</script><script>function styleguideChangeLangugage() {
+  }</script><script>
+    function styleguideChangeLangugage() {
         try {
             const el = document.getElementsByClassName(
                 'cads-styleguide__wrapper'
             )[0];
             if (el.classList.contains('cads-lang-cy')) {
                 el.classList.remove('cads-lang-cy');
-                el.classList.add('cads-lang-gd');
-            } else if (el.classList.contains('cads-lang-gd')) {
-                el.classList.remove('cads-lang-gd');
             } else {
                 el.classList.add('cads-lang-cy');
             }
