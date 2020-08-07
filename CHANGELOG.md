@@ -1,4 +1,5 @@
 * NP-618 PDF Icons and links
+* NP-643 Remove support for Scottish Gaelic
 
 ## <sub>v1.6.0</sub>
 
