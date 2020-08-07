@@ -35,66 +35,11 @@
         url('../../fonts/open-sans-v17-latin-700.svg#OpenSans') format('svg');
 }
 
-@font-face {
-    font-family: 'cads-icons';
-    src: url('../../fonts/cads.eot?sl5jlw');
-    src: url('../../fonts/cads.eot?sl5jlw#iefix') format('embedded-opentype'),
-        url('../../fonts/cads.ttf?sl5jlw') format('truetype'),
-        url('../../fonts/cads.woff?sl5jlw') format('woff'),
-        url('../../fonts/cads.svg?sl5jlw#cads') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
+@import 'cads-iconfont';
 
-[class^='cads-icon-'],
-[class*=' cads-icon-'] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'cads-icons' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+.cads-icon_close:before {
+    @extend .cads-icon_plus;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.cads-icon-arrow-left:before {
-    content: '\e900';
-}
-.cads-icon-arrow-right:before {
-    content: '\e901';
-}
-.cads-icon-checkmark:before {
-    content: '\e902';
-}
-.cads-icon-exclamation-circle:before {
-    content: '\e903';
-}
-.cads-icon-external-link:before {
-    content: '\e904';
-}
-.cads-icon-minus:before {
-    content: '\e905';
-}
-.cads-icon-plus:before {
-    content: '\e906';
-}
-.cads-icon-close:before {
-    content: '\e906';
     display: inline-block;
     transform: rotate(45deg);
-}
-.cads-icon-print:before {
-    content: '\e907';
-}
-.cads-icon-redo:before {
-    content: '\e908';
-}
-.cads-icon-search:before {
-    content: '\e909';
 }

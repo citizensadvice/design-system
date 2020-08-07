@@ -10,7 +10,7 @@ For any dev related information, including contributing and building locally see
 
 ### Fonts
 
-The design system uses a custom font to distribute it's icons - these are distributed with the npm packages and can be found under the `fonts` directory.
+The design system uses a custom font to distribute it's icons (for reference, it was created using [Glyphter](https://glyphter.com/)) - these are distributed with the npm packages and can be found under the `fonts` directory.
 
 If you are using the plain CSS package as described below these files should be made available on your public server in `yourdoamin.com/fonts`. If you wish to change this then consider using a post process like postcss and the postcss-url plugin.
 
