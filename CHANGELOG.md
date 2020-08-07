@@ -1,3 +1,5 @@
+* NP-643 Remove support for Scottish Gaelic
+
 ## <sub>v1.6.0</sub>
 
 #### _Aug. 6, 2020_
