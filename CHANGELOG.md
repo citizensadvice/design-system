@@ -1,3 +1,7 @@
+## <sub>v1.7.0</sub>
+
+#### _Aug. 10, 2020_
+
 * NP-618 PDF Icons and links
 * NP-643 Remove support for Scottish Gaelic
 
