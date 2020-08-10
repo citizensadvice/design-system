@@ -3,6 +3,12 @@
 # frozen_string_literal => true
 
 @locals = {
+  'asset_hyperlink' => {
+    'uri' => '//assets.ctfassets.net/vms0u05139aw/7ayjV8wUEBCqQOxaylJjxs/4b8214a762bf4e5b7b68a70bf0d1599d/test_pdf.pdf',
+    'description' => 'Test pdf',
+    'size' => 6444516,
+    'type' => 'pdf'
+  },
   'table_data' => {
     'caption' => 'Post box collection times (Monday to Friday)',
     'header' => [

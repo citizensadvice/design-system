@@ -1,7 +1,7 @@
 {
     "extends": "stylelint-config-standard",
     "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern"],
-    "ignoreFiles": ["**/_normalize.scss"],
+    "ignoreFiles": ["**/_normalize.scss", "**/_cads-iconfont.scss"],
     "rules": {
         "at-rule-blacklist": ["debug"],
         "at-rule-empty-line-before": [

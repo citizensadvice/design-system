@@ -23,3 +23,13 @@ hr,
         margin: 0 0 $cads-spacing-4 0;
     }
 }
+
+.cads-asset-type {
+    &::before {
+        content: '[';
+    }
+
+    &::after {
+        content: ']';
+    }
+}
