@@ -1,4 +1,5 @@
 * NP-708 Bug fix missing nav icon
+* NP-575 Grid update to accommodate navigation
 
 ## <sub>v1.7.0</sub>
 
