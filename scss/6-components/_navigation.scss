@@ -52,7 +52,7 @@ nav,
         &::after {
             /* Copied from the icon font setup */
             /* stylelint-disable-next-line */
-            font-family: 'cads-icons' !important;
+            font-family: 'cads' !important;
             speak: none;
             font-style: normal;
             font-weight: normal;
@@ -63,7 +63,7 @@ nav,
             /* Better Font Rendering =========== */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            content: '\e900';
+            content: '\0044';
             display: inline-block;
             transform: rotate(270deg);
             font-size: 0.75rem;

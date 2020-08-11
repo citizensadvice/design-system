@@ -1,3 +1,5 @@
+* NP-708 Bug fix missing nav icon
+
 ## <sub>v1.7.0</sub>
 
 #### _Aug. 10, 2020_
