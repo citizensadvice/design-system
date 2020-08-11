@@ -373,7 +373,7 @@
                 "h1"
             ],
             "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": ".nav__dropdown-toggle",
+            "clickSelector": ".cads-greedy-nav__dropdown-toggle",
             "postInteractionWait": 1000,
             "selectors": [],
             "selectorExpansion": true,
