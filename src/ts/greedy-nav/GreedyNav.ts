@@ -13,13 +13,14 @@ const supports = !!document.querySelector && !!root.addEventListener; // Feature
  * This constant should be used in place of focusout/blur when assigning
  * event handlers.
  */
-const blurEventName = Object.prototype.hasOwnProperty.call(
+const blurEventName =
+    'blur'; /* Object.prototype.hasOwnProperty.call(
     MouseEvent,
     'relatedTarget'
 )
     ? 'focusout'
     : 'blur';
-
+*/
 /**
  * Get the closest matching element up the DOM tree
  * @param {Element} element Starting element
@@ -95,7 +96,7 @@ function debounce<Return>(func: () => Return, wait: number, immediate = false) {
  * @param el
  * @param parent
  */
-const parent = (element: HTMLElement, parentNode: Node) => {
+const parent = (element: Nullable<HTMLElement>, parentNode: Nullable<Node>) => {
     let el: Nullable<Node & ParentNode> = element;
     while (el !== null) {
         if (el.parentNode === parentNode) {
@@ -321,6 +322,12 @@ const calculateWidths = (_this: HTMLElement, offsetPixels: number) => {
 
     return { totalWidth, restWidth, viewportWidth };
 };
+
+const relatedTarget = (
+    e: Nullable<FocusEvent>,
+    document: HTMLDocument
+): Nullable<HTMLElement> =>
+    <HTMLElement>e?.relatedTarget || document.activeElement;
 
 export class GreedyNavMenu {
     settings: Config;
@@ -707,62 +714,48 @@ export class GreedyNavMenu {
         }
 
         if (navDropdownToggle) {
-            navDropdownToggle.addEventListener(
-                blurEventName,
-                (e: FocusEvent) => {
-                    if (this.toggleWrapper === null) {
-                        return;
-                    }
-
-                    const navDropdownLink = document.querySelector<HTMLElement>(
-                        `${this.navDropdownSelector} li:last-child a`
-                    );
-
-                    const navDropdown = document.querySelector<HTMLElement>(
-                        this.navDropdownSelector
-                    );
-
-                    if (
-                        !parent(
-                            <HTMLElement>e.relatedTarget,
-                            this.toggleWrapper
-                        ) &&
-                        navDropdownLink &&
-                        navDropdown
-                    ) {
-                        navDropdownLink.removeEventListener(
+            navDropdownToggle.addEventListener(blurEventName, e => {
+                // tabbing backwards
+                if (!parent(relatedTarget(e, document), this.toggleWrapper)) {
+                    document
+                        .querySelector<HTMLElement>(
+                            `${this.navDropdownSelector} li:last-child a`
+                        )
+                        ?.removeEventListener(
                             blurEventName,
                             lastItemCloseHandler
                         );
+                    _this
+                        .querySelector<HTMLElement>(this.navDropdownSelector)
+                        ?.classList.remove('show');
 
-                        removeClass(navDropdown, 'show');
-                        if (
-                            e.currentTarget !== null &&
-                            e.currentTarget instanceof HTMLElement
-                        ) {
-                            removeClass(e.currentTarget, 'is-open');
-                        }
-                        removeClass(_this, 'is-open');
+                    (<HTMLElement>e.currentTarget)?.classList.remove('is-open');
 
-                        updateLabel(
-                            _this,
-                            navDropdownLabel,
-                            this.navDropdownToggleSelector,
-                            this.settings.navDropdownLabelActive
-                        );
+                    (<HTMLElement>e.currentTarget)?.classList.remove('is-open');
+                    _this.classList.remove('is-open');
 
-                        /**
-                         * Toggle aria hidden for accessibility
-                         */
-                        navDropdown.setAttribute('aria-hidden', 'false');
-                    } else if (navDropdownLink) {
-                        navDropdownLink.addEventListener(
-                            blurEventName,
-                            lastItemCloseHandler
-                        );
-                    }
+                    updateLabel(
+                        _this,
+                        navDropdownLabel,
+                        this.navDropdownToggleSelector,
+                        this.settings.navDropdownLabelActive
+                    );
+
+                    /**
+                     * Toggle aria hidden for accessibility
+                     */
+                    _this
+                        .querySelector<HTMLElement>(this.navDropdownSelector)
+                        ?.setAttribute('aria-hidden', 'false');
+                } else {
+                    // tabbing forwards
+                    document
+                        .querySelector<HTMLElement>(
+                            `${this.navDropdownSelector} li:last-child a`
+                        )
+                        ?.addEventListener(blurEventName, lastItemCloseHandler);
                 }
-            );
+            });
         }
 
         /*
