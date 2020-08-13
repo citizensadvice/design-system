@@ -14,12 +14,12 @@
         }
     }
 
-    p {
-        @extend .paragraph-s;
-    }
-
     .paragraph-s {
         margin: 0;
+    }
+
+    p {
+        @extend .paragraph-s;
     }
 
     @include cads-media-breakpoint-only(sm) {
@@ -34,6 +34,10 @@
 
         .paragraph-s {
             flex: 1 1 auto;
+        }
+
+        p {
+            margin-top: $cads-spacing-1;
         }
 
         .cads-notice-banner__title {

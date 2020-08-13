@@ -1,6 +1,7 @@
 * NP-708 Bug fix missing nav icon
 * NP-721 Bug fix error summary component
 * NP-575 Grid update to accommodate navigation
+* NP-646 Notice banner margins
 
 ## <sub>v1.7.0</sub>
 
