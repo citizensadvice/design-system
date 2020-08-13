@@ -62,7 +62,7 @@ const initAdviceFeedback = () => {
                 form.setAttribute('aria-invalid', true);
                 form2.classList.add('cads-form-error');
                 errorSummary.getElementsByClassName(
-                    'cads-error-summery__field_count'
+                    'cads-error-summary__field_count'
                 )[0].innerHTML = '1 field';
                 const errorList = errorSummary.getElementsByClassName(
                     'cads-error-summary__list'
