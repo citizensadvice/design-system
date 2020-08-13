@@ -1,3 +1,7 @@
+## <sub>v1.7.1</sub>
+
+#### _Aug. 13, 2020_
+
 * NP-708 Bug fix missing nav icon
 * NP-721 Bug fix error summary component
 * NP-575 Grid update to accommodate navigation
