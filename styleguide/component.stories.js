@@ -118,7 +118,7 @@ export const errorSummary = () =>
         'error_summary',
         `The error summary is used to provide a summary of form errors.
 You will need to provide the validation content and set the content.
-To set the number of fields use the <code>cads-error-summery__field_count</code>
+To set the number of fields use the <code>cads-error-summary__field_count</code>
 span and set the content to <code>1 field</code>, <code>5 fields</code>, etc.
 
 Then use the <code>cads-error-summary__list</code> to add the relevant <code>li</code>
