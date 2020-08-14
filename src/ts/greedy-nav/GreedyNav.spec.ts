@@ -1,14 +1,16 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
-import { JSDOM } from 'jsdom';
+import { JSDOM, DOMWindow } from 'jsdom';
+import path from 'path';
 
+import { doc } from 'prettier';
 import GreedyNav, {
     getClosest,
-    insertAfter,
     showToggle,
     updateLabel,
     GreedyNavMenu
 } from './GreedyNav';
+import { defaultConfig } from './Config';
 
 const jsdomConfig = { url: 'http://public-website.test:3000' };
 
@@ -71,54 +73,6 @@ describe('Greedy Nav', () => {
 
         it('returns false for absent attribute', () => {
             expect(getClosest(bottom, '[not-there]')).toBeFalsy();
-        });
-    });
-
-    describe('insertAfter', () => {
-        let dom: JSDOM;
-        let document: Document;
-        let parent: HTMLElement;
-        let child: HTMLElement;
-        let newNode: HTMLElement;
-
-        beforeEach(() => {
-            dom = new JSDOM(
-                '<div id="parent"><div id="child"></div></div>',
-                jsdomConfig
-            );
-
-            document = dom.window.document;
-
-            parent = document.querySelector<HTMLElement>('#parent')!;
-            child = document.querySelector<HTMLElement>('#child')!;
-            newNode = document.createElement('div');
-            newNode.setAttribute('id', 'newNode');
-        });
-
-        afterEach(() => {
-            document.body.innerHTML = '';
-        });
-
-        it('inserts a node after another', () => {
-            insertAfter(newNode, child);
-
-            expect(parent.querySelector<HTMLElement>('#newNode')).toBe(newNode);
-        });
-
-        it('makes no change if reference node is the document', () => {
-            insertAfter(newNode, document);
-
-            expect(
-                document.querySelectorAll<HTMLElement>('#newNode')
-            ).toHaveLength(0);
-            expect(document.querySelectorAll('div')).toHaveLength(2);
-        });
-
-        it('makes no change if the reference node is a fragment', () => {
-            const fragment = document.createElement('div');
-
-            expect(() => insertAfter(newNode, fragment)).not.toThrow();
-            expect(document.querySelectorAll('div')).toHaveLength(2);
         });
     });
 
@@ -308,6 +262,63 @@ describe('Greedy Nav', () => {
 
             expect(menu.querySelectorAll('li')).toHaveLength(2);
             expect(dropdown.querySelectorAll('li')).toHaveLength(1);
+        });
+    });
+
+    describe('listeners', () => {
+        let dom: JSDOM;
+        let document: HTMLDocument;
+        let nav: GreedyNavMenu;
+
+        beforeEach(async () => {
+            dom = await JSDOM.fromFile(
+                path.join(__dirname, './__fixtures__/menu.html'),
+                { url: 'http://www.example.com/menu.html' }
+            );
+
+            document = dom.window.document;
+
+            nav = new GreedyNavMenu(defaultConfig, document);
+            nav.init();
+
+            // Change the viewport to 500px.
+            global.innerWidth = 300;
+
+            // Trigger the window resize event.
+            global.dispatchEvent(new Event('resize'));
+        });
+
+        afterEach(() => {
+            document.body.innerHTML = '';
+        });
+
+        it('toggles the menu open', () => {
+            const event = new dom.window.FocusEvent('focus');
+            nav.navDropdownToggle.dispatchEvent(event);
+
+            expect(nav.navDropdown.className).toContain('show');
+            expect(nav.mainNavWrapper.className).toContain('is-open');
+            expect(nav.navDropdownToggle.innerHTML).toContain('Close');
+        });
+
+        it('when tabbing backwards through the dropdown menu', () => {
+            const siteMenuItem = document.querySelector<HTMLElement>(
+                'nav ul li'
+            )!;
+
+            const openEvent = new dom.window.MouseEvent('focus');
+
+            nav.navDropdownToggle.dispatchEvent(openEvent);
+
+            const event = new dom.window.FocusEvent('blur', {
+                relatedTarget: siteMenuItem
+            });
+
+            nav.navDropdownToggle.dispatchEvent(event);
+
+            expect(nav.navDropdown.className).not.toContain('show');
+            expect(nav.mainNavWrapper.className).not.toContain('is-open');
+            expect(nav.navDropdownToggle.innerHTML).toContain('More');
         });
     });
 });
