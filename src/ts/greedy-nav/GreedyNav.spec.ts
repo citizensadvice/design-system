@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
-import { JSDOM, DOMWindow } from 'jsdom';
+import { JSDOM } from 'jsdom';
 import path from 'path';
 
-import { doc } from 'prettier';
-import GreedyNav, {
+import {
     getClosest,
     showToggle,
     updateLabel,
