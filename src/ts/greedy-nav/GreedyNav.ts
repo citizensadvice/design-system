@@ -13,14 +13,12 @@ const supports = !!document.querySelector && !!root.addEventListener; // Feature
  * This constant should be used in place of focusout/blur when assigning
  * event handlers.
  */
-const blurEventName =
-    'blur'; /* Object.prototype.hasOwnProperty.call(
+const blurEventName = Object.prototype.hasOwnProperty.call(
     MouseEvent,
     'relatedTarget'
 )
     ? 'focusout'
     : 'blur';
-*/
 /**
  * Get the closest matching element up the DOM tree
  * @param {Element} element Starting element
