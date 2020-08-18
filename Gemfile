@@ -2,8 +2,5 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-# gem "rails"
-
 gem "haml", "~> 5.1"
+gem "cucumber", "~> 3.2"
