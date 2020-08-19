@@ -18,3 +18,10 @@ testing/backstop_data/ci_report
 vendor/**/*
 reports
 /lib
+
+# Keep nothing in these directories except the 'keep' files
+testing/tmp/*
+!testing/tmp/html_pages/.keep
+!testing/tmp/reports/.keep
+!testing/tmp/screenshots/.keep
+!testing/tmp/logs/.keep
