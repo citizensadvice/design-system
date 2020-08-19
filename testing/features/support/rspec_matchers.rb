@@ -28,13 +28,3 @@ RSpec::Matchers.define :have_all_correct_footer_titles do
       ]
   end
 end
-
-RSpec::Matchers.define :have_all_correct_breadcrumbs do
-  match do |actual|
-    actual ==
-      %w[
-        Home
-        Immigration
-      ]
-  end
-end

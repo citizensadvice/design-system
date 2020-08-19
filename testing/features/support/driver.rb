@@ -11,7 +11,7 @@ class Driver
     if grid?
       Drivers::Remote.new.register
     elsif browserstack?
-      register_browserstack_driver
+      Drivers::Browserstack.new.register
     else
       Drivers::Local.new.register
     end
@@ -27,9 +27,5 @@ class Driver
       config.app_host = base_url
       config.default_normalize_ws = true if safari?
     end
-  end
-
-  def register_browserstack_driver
-    Drivers::Browserstack.new.register
   end
 end
