@@ -17,37 +17,29 @@ require "site_prism"
 require "webdrivers"
 
 # To prevent natural cucumber load order
-require_relative "support/helpers/ables"
-require_relative "support/helpers/design_system"
-require_relative "support/helpers/faraday"
-require_relative "support/helpers/drivers"
-require_relative "support/helpers/methods"
-require_relative "support/helpers/page"
+require_relative "helpers/env_variables"
+require_relative "helpers/drivers"
+require_relative "helpers/faraday"
+require_relative "helpers/methods"
+require_relative "helpers/page"
 
 require_relative "automation_logger"
 
-require_relative "support/core_ext/string"
+require_relative "core_ext/string"
 
 require_relative "driver"
-require_relative "support/drivers/local"
-require_relative "support/drivers/remote"
-require_relative "support/drivers/browserstack"
-require_relative "support/drivers/browserstack/base"
-require_relative "support/drivers/browserstack/android"
-require_relative "support/drivers/browserstack/chrome"
-require_relative "support/drivers/browserstack/internet_explorer"
-require_relative "support/drivers/browserstack/ios"
-
-# To prevent SitePrism class load conflicts
-require_relative "support/sections/footer"
-require_relative "support/sections/header"
-require_relative "support/sections/navigation"
+require_relative "drivers/local"
+require_relative "drivers/remote"
+require_relative "drivers/browserstack"
+require_relative "drivers/browserstack/base"
+require_relative "drivers/browserstack/android"
+require_relative "drivers/browserstack/chrome"
+require_relative "drivers/browserstack/internet_explorer"
+require_relative "drivers/browserstack/ios"
 
 World(
-  Helpers::EnvVariables,
   Helpers::Page,
   Helpers::Methods,
-  Helpers::DesignSystem,
   Capybara::RSpecMatcherProxies
 )
 
