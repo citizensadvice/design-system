@@ -1,6 +1,15 @@
+GIT
+  remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
+  revision: bbc54178ddfd6fc94a57fd9f6d6ff0520bfdcd99
+  tag: v0.3.0
+  specs:
+    citizens-advice-style (0.3.0)
+      rubocop (~> 0.85.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.1)
     backports (3.18.1)
     builder (3.2.4)
     cucumber (3.2.0)
@@ -26,13 +35,33 @@ GEM
       tilt
     multi_json (1.15.0)
     multi_test (0.1.2)
+    parallel (1.19.2)
+    parser (2.7.1.4)
+      ast (~> 2.4.1)
+    rainbow (3.0.0)
+    regexp_parser (1.7.1)
+    rexml (3.2.4)
+    rubocop (0.85.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.7)
+      rexml
+      rubocop-ast (>= 0.0.3)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (0.3.0)
+      parser (>= 2.7.1.4)
+    ruby-progressbar (1.10.1)
     temple (0.8.2)
     tilt (2.0.10)
+    unicode-display_width (1.7.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  citizens-advice-style!
   cucumber (~> 3.2)
   haml (~> 5.1)
 
