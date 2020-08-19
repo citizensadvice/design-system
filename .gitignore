@@ -6,6 +6,7 @@ node_modules
 local.log
 *.iml
 .env
+testing/.env
 npm-debug.log
 .vscode
 *.tgz

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given("a/an Callout component is on the page") do
+Given("a Callout component is on the page") do
   @component = DesignSystem::Callout.new
   @component.load
 end
@@ -11,6 +11,6 @@ Then("a callout title and message are present") do
   expect(@component.initial_form).to have_message
 end
 
-Then("an {string} label is present above the callout title") do |label|
+Then("a/an {string} label is present above the callout title") do |label|
   expect(@component.initial_form.warning).to eq(label)
 end

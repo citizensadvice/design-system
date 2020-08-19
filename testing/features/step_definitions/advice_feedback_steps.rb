@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given("a/an Advice Feedback component is on the page") do
+Given("an Advice Feedback component is on the page") do
   @component = DesignSystem::AdviceFeedback.new
   @component.load
 end
