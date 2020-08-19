@@ -81,13 +81,13 @@ nav,
 
     .cads-nav-link {
         color: $cads-palette__white;
-        padding: calc(1rem - 1px) calc(1rem - 8px);
+        padding: calc(1rem - 2px) calc(1rem - 12px);
         display: inline-block;
         text-decoration: none;
 
         @include cads-transition-animation();
 
-        border: 1px solid;
+        border: 2px solid;
         border-color: $cads-palette__heritage-blue;
         line-height: 1em;
 

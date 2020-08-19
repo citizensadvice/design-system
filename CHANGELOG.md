@@ -1,3 +1,4 @@
+* NP-465 GreedyNav works with IE11
 ## <sub>v1.7.1</sub>
 
 #### _Aug. 13, 2020_

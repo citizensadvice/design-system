@@ -32,6 +32,11 @@
             }
         }
     ],
-    "ignorePatterns": ["lib", "tsconfig*", "**/src/**/*.scss"],
+    "ignorePatterns": [
+        "lib",
+        "tsconfig*",
+        "**/src/**/*.scss",
+        "**/src/**/__fixtures__/*.html"
+    ],
     "parser": "@typescript-eslint/parser"
 }
