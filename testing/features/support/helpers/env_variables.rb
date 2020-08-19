@@ -51,11 +51,7 @@ module Helpers
     end
 
     def base_url
-      ENV.fetch("APP_URL", "https://public-website.qa.citizensadvice.org.uk")
-    end
-
-    def project_location
-      ENV.fetch("CALLING_PROJECT", "locally")
+      ENV.fetch("APP_URL", "https://citizensadvice.github.io/design-system")
     end
   end
 end
