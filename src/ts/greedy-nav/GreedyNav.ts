@@ -652,7 +652,7 @@ export class GreedyNavMenu {
             );
 
             if (
-                !parent(<HTMLElement>event.relatedTarget, this.toggleWrapper) &&
+                !parent(relatedTarget(event, document), this.toggleWrapper) &&
                 navDropdown &&
                 navDropdownToggle
             ) {
