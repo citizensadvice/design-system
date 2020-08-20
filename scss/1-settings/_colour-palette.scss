@@ -1,6 +1,7 @@
 /* stylelint-disable */
 $cads-palette__black: #161616;
 $cads-palette__blue-adviser: #006278;
+$cads-palette__blue-adviser-dark: #03495f;
 $cads-palette__blue-light: #f2f8ff;
 $cads-palette__dark-grey: #4a4e4f;
 $cads-palette__green: #0a8600;
@@ -24,6 +25,7 @@ $cads-palette__yellow: #ffd250;
     palette: {
         black: $cads-palette__black;
         blueAdviser: $cads-palette__blue-adviser;
+        blueAdviserDark: $cads-palette__blue-adviser-dark;
         blueDark: $cads-palette__heritage-blue-dark;
         blueLight: $cads-palette__blue-light;
         darkGrey: $cads-palette__dark-grey;
