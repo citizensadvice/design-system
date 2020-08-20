@@ -1,3 +1,7 @@
+## <sub>v1.8.0</sub>
+
+#### _Aug. 20, 2020_
+
 * NP-465 GreedyNav works with IE11
 * NP-530 Add advisernet hover colour
 
