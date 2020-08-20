@@ -1,6 +1,8 @@
 FROM node:12-alpine
 
-RUN apk add ruby
+RUN apk update \
+    && apk upgrade \
+    && apk add --upgrade ruby git make
 
 RUN gem install bundler
 
