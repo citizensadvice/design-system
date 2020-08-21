@@ -12,17 +12,17 @@ services:
     environment:
       - NODE_ENV=development
 
-    visual-tests:
-      build:
-        dockerfile: ./testing/Dockerfile
-        context: ./
-      image: 'ca-backstop${CA_STYLEGUIDE_VERSION_TAG}'
-      container_name: visual-tests.test
-      command: wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-ci.json
-      volumes:
-        - ./testing:/src
-      depends_on:
-        - ca-styleguide
+  visual-tests:
+    build:
+      dockerfile: ./testing/Dockerfile
+      context: ./
+    image: 'ca-backstop${CA_STYLEGUIDE_VERSION_TAG}'
+    container_name: visual-tests.test
+    command: wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-ci.json
+    volumes:
+      - ./testing:/src
+    depends_on:
+      - ca-styleguide
 
   cucumber: &cucumber_default
     build:
@@ -32,10 +32,10 @@ services:
     env_file:
       - testing/grid_ci.env
     volumes:
-      - testing/artifacts/reports:/tests/tmp/reports
-      - testing/artifacts/html_pages:/tests/tmp/html_pages
-      - testing/artifacts/screenshots:/tests/tmp/screenshots
-      - testing/artifacts/logs:/tests/tmp/logs
+      - ./testing/artifacts/reports:/app/tmp/reports
+      - ./testing/artifacts/html_pages:/app/tmp/html_pages
+      - ./testing/artifacts/screenshots:/app/tmp/screenshots
+      - ./testing/artifacts/logs:/app/tmp/logs
     depends_on:
       - hub
       - node-chrome
@@ -59,7 +59,7 @@ services:
     env_file:
       - testing/grid_ci.env
     volumes:
-      - ./:/tests
+      - ./:/app
 
   node-chrome: &node_default
     image: selenium/node-chrome:3.141.59-20200525
@@ -68,7 +68,7 @@ services:
       - testing/grid_ci.env
     shm_size: 1g
     volumes:
-      - ./testing:/tests
+      - ./testing:/app
     environment:
       HUB_HOST: hub
 
