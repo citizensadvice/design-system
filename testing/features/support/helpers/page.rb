@@ -52,11 +52,11 @@ module Helpers
     end
 
     def image_file_path(scenario)
-      "tmp/screenshots/#{timestamp}_#{scenario.feature.name}_#{scenario.name}.png"
+      "artifacts/screenshots/#{timestamp}_#{scenario.feature.name}_#{scenario.name}.png"
     end
 
     def html_file_path(scenario)
-      "tmp/html_pages/#{timestamp}_#{scenario.feature.name}_#{scenario.name}.html"
+      "artifacts/html_pages/#{timestamp}_#{scenario.feature.name}_#{scenario.name}.html"
     end
 
     def width(fallback: 1600)

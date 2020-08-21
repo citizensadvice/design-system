@@ -23,7 +23,7 @@ class AutomationLogger
     end
 
     def log_name
-      "tmp/logs/automation_logs.log"
+      "artifacts/logs/automation_logs.log"
     end
 
     def logs_to_keep

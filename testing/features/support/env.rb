@@ -44,7 +44,7 @@ World(
 )
 
 SitePrism.configure do |config|
-  config.log_path = "tmp/logs/site_prism.log"
+  config.log_path = "artifacts/logs/site_prism.log"
   config.log_level = :INFO
 
   # This will be required until v4 of SitePrism is released
@@ -53,6 +53,6 @@ SitePrism.configure do |config|
 end
 
 Selenium::WebDriver.logger.level = :INFO
-Selenium::WebDriver.logger.output = "tmp/logs/webdriver.log"
+Selenium::WebDriver.logger.output = "artifacts/logs/webdriver.log"
 
 Driver.new.register

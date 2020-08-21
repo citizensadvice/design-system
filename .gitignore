@@ -21,8 +21,8 @@ reports
 /lib
 
 # Keep nothing in these directories except the 'keep' files
-testing/tmp/*
-!testing/tmp/html_pages/.keep
-!testing/tmp/reports/.keep
-!testing/tmp/screenshots/.keep
-!testing/tmp/logs/.keep
+testing/artifacts/*
+!testing/artifacts/html_pages/.keep
+!testing/artifacts/reports/.keep
+!testing/artifacts/screenshots/.keep
+!testing/artifacts/logs/.keep
