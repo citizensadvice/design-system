@@ -1,0 +1,7 @@
+passing: --tags 'not @failing'
+
+html: --format html --out artifacts/reports/report.html
+junit: --format junit --out artifacts/reports
+json: --format json --out artifacts/reports/report.json
+
+reports: --format progress -p passing -p html -p junit -p json

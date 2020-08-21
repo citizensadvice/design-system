@@ -6,6 +6,7 @@ node_modules
 local.log
 *.iml
 .env
+testing/.env
 npm-debug.log
 .vscode
 *.tgz
@@ -18,3 +19,10 @@ testing/backstop_data/ci_report
 vendor/**/*
 reports
 /lib
+
+# Keep nothing in these directories except the 'keep' files
+testing/artifacts/*
+!testing/artifacts/html_pages/.keep
+!testing/artifacts/reports/.keep
+!testing/artifacts/screenshots/.keep
+!testing/artifacts/logs/.keep
