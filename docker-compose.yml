@@ -1,25 +1,78 @@
 version: '3'
 
 services:
-    ca-styleguide:
-        build: .
-        image: 'ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}'
-        container_name: ca-styleguide.test
-        command: npm run styleguide:ci -- --quiet
-        hostname: ca-styleguide.test
-        ports:
-            - 6006
-        environment:
-            - NODE_ENV=development
+  ca-styleguide:
+    build: .
+    image: 'ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}'
+    container_name: ca-styleguide.test
+    command: npm run styleguide:ci -- --quiet
+    hostname: ca-styleguide.test
+    ports:
+      - 6006
+    environment:
+      - NODE_ENV=development
 
     visual-tests:
-        build:
-            dockerfile: ./testing/Dockerfile
-            context: ./
-        image: 'ca-backstop${CA_STYLEGUIDE_VERSION_TAG}'
-        container_name: visual-tests.test
-        command: wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-ci.json
-        volumes:
-            - ./testing:/src
-        depends_on:
-            - ca-styleguide
+      build:
+        dockerfile: ./testing/Dockerfile
+        context: ./
+      image: 'ca-backstop${CA_STYLEGUIDE_VERSION_TAG}'
+      container_name: visual-tests.test
+      command: wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-ci.json
+      volumes:
+        - ./testing:/src
+      depends_on:
+        - ca-styleguide
+
+  cucumber: &cucumber_default
+    build:
+      context: ./
+    image: "design_system_cucumber${PROJECT_VERSION_TAG}"
+    container_name: design-system-cucumber.test
+    env_file:
+      - testing/grid_ci.env
+    volumes:
+      - testing/artifacts/reports:/tests/tmp/reports
+      - testing/artifacts/html_pages:/tests/tmp/html_pages
+      - testing/artifacts/screenshots:/tests/tmp/screenshots
+      - testing/artifacts/logs:/tests/tmp/logs
+    depends_on:
+      - hub
+      - node-chrome
+      - node-firefox
+
+  browserstack-cucumber:
+    <<: *cucumber_default
+    container_name: design-system-browserstack-cucumber.test
+    environment:
+      - BRANCH_NAME
+      - BROWSERSTACK_USERNAME
+      - BROWSERSTACK_ACCESS_KEY
+      - CALLING_PROJECT
+    env_file:
+      - testing/browserstack_ci.env
+    depends_on: []
+
+  hub:
+    image: selenium/hub:3.141.59-20200525
+    container_name: design-system-hub.test
+    env_file:
+      - testing/grid_ci.env
+    volumes:
+      - ./:/tests
+
+  node-chrome: &node_default
+    image: selenium/node-chrome:3.141.59-20200525
+    container_name: design-system-node-chrome.test
+    env_file:
+      - testing/grid_ci.env
+    shm_size: 1g
+    volumes:
+      - ./testing:/tests
+    environment:
+      HUB_HOST: hub
+
+  node-firefox:
+    <<: *node_default
+    image: selenium/node-firefox:3.141.59-20200525
+    container_name: design-system-node-firefox.test
