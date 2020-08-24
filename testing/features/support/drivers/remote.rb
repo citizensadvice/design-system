@@ -22,7 +22,6 @@ module Drivers
       case browser
       when :chrome;            then Selenium::WebDriver::Remote::Capabilities.chrome
       when :firefox;           then Selenium::WebDriver::Remote::Capabilities.firefox
-      when :internet_explorer; then Selenium::WebDriver::Remote::Capabilities.internet_explorer
       else                     raise StandardError, "Not implemented"
       end
     end

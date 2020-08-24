@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -ex
+
+docker-compose run cucumber dockerize -wait http://design-system-hub.test:4444 \
+  -wait http://design-system-node-chrome.test:5555/wd/hub/static/resource/hub.html \
+  -wait http://design-system-node-firefox.test:5555/wd/hub/static/resource/hub.html \
+  -timeout 60s && cd testing/ && $@ && cd ../

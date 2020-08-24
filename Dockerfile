@@ -1,13 +1,22 @@
 FROM node:12-alpine
 
-# For Standard Ruby Packages
-RUN apk update \
-    && apk upgrade \
-    && apk add --upgrade ruby git make
+# Install dockerize so that we can wait for hubs to be up
+RUN apk update && apk add wget
 
-# Specifically for nokogiri compilation (C-gem)
-RUN apk add gcc libc-dev libxslt libxslt-dev libxml2-dev patch ruby-dev
-RUN apk add zlib-dev xz-dev build-base
+ENV DOCKERIZE_VERSION v0.6.1
+
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+# Standard Ruby Packages
+RUN apk upgrade && apk add --upgrade ruby git make
+
+# nokogiri compilation (C-gem)
+RUN apk add gcc libc-dev libxslt-dev libxml2-dev ruby-dev zlib-dev build-base
+
+# Cross-compatibility fix for Alpine Images and JSON files
+RUN apk add ruby-json
 
 RUN gem install bundler -v '2.1.4'
 
