@@ -7,12 +7,7 @@ module Helpers
 
     def resize_window(desired_width = width, desired_height = height)
       if browserstack? && internet_explorer?
-        # We use an override where we don't fallback to Browserstack's own driver logic.
-        # This is due to an issue at Browserstacks end (That they cannot explain). For now
-        # we avoid this by manually overriding the driver request to use a specific version.
-        # See https://github.com/SeleniumHQ/selenium/issues/8472 for more info
-        # LH - July 2020
-        AutomationLogger.warn("Resizing Windows on Browserstack IE is flaky. Override in place!")
+        AutomationLogger.warn("Resizing Windows on Browserstack IE can be flaky!")
       end
       Capybara.current_window.resize_to(desired_width, desired_height)
     end
