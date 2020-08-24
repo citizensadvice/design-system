@@ -10,13 +10,10 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Standard Ruby Packages
-RUN apk update \
-    && apk upgrade \
-    && apk add --upgrade ruby git make
+RUN apk upgrade && apk add --upgrade ruby git make
 
 # nokogiri compilation (C-gem)
-RUN apk add gcc libc-dev libxslt libxslt-dev libxml2-dev patch ruby-dev
-RUN apk add zlib-dev xz-dev build-base
+RUN apk add gcc libc-dev libxslt-dev libxml2-dev ruby-dev zlib-dev build-base
 
 # Cross-compatibility fix for Alpine Images and JSON files
 RUN apk add ruby-json
