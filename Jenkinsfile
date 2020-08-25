@@ -30,9 +30,9 @@ pipeline {
                 script { env.BUILD_STAGE = 'Lint' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/lint'
+                }
             }
         }
-    }
         stage('Test') {
             steps {
                 script { env.BUILD_STAGE = 'Test' }
@@ -40,9 +40,9 @@ pipeline {
                     "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/validate_vr_tests'
                     sh './bin/jenkins/test'
+                }
             }
         }
-}
     }
 
     post {
