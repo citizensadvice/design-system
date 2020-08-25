@@ -46,8 +46,8 @@ module Drivers
         {
           "bstack:options" => {
             "buildName" => build_name,
-            "projectName" => "Public-Website-Cucumber tests",
-            "sessionName" => "CI tests called from #{project_location}",
+            "projectName" => "Design System tests",
+            "sessionName" => "CI tests called from within Design System",
             "os" => os,
             "osVersion" => os_version,
             "local" => "false",

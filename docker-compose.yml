@@ -48,7 +48,6 @@ services:
       - BRANCH_NAME
       - BROWSERSTACK_USERNAME
       - BROWSERSTACK_ACCESS_KEY
-      - CALLING_PROJECT
     env_file:
       - testing/browserstack_ci.env
     depends_on: []
