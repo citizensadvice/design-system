@@ -1,3 +1,7 @@
+## <sub>v1.8.1</sub>
+
+#### _Aug. 26, 2020_
+
 * NP-530 Add icons for references
 
 ## <sub>v1.8.0</sub>
