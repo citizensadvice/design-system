@@ -13,11 +13,15 @@ Do not forget to prefix the given class name with <span class="html inline">cads
 <li><span class="cads-icon_arrow-right"></span><span>arrow-right</span></li>
 <li><span class="cads-icon_checkmark"></span><span>checkmark</span></li>
 <li><span class="cads-icon_close"></span><span>close</span></li>
+<li><span class="cads-icon_delete"></span><span>delete</span></li>
+<li><span class="cads-icon_email"></span><span>email</span></li>
 <li><span class="cads-icon_exclamation-circle"></span><span>exclamation-circle</span></li>
 <li><span class="cads-icon_external-link"></span><span>external-link</span></li>
 <li><span class="cads-icon_file"></span><span>file</span></li>
 <li><span class="cads-icon_minus"></span><span>minus</span></li>
 <li><span class="cads-icon_plus"></span><span>plus</span></li>
 <li><span class="cads-icon_print"></span><span>print</span></li>
+<li><span class="cads-icon_references"></span><span>references</span></li>
 <li><span class="cads-icon_search"></span><span>search</span></li>
+<li><span class="cads-icon_undo"></span><span>undo</span></li>
 </ul>
