@@ -124,6 +124,11 @@
     ]
   },
 
+  'alt_language'  => {
+    'url' => '#?lang=cy',
+    'title' => 'Cymraeg'
+  },
+
   'navigation_links' => [
     {
       'url' => '/benefits/',
