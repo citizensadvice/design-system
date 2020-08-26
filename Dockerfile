@@ -32,7 +32,7 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock /app/
 
-RUN bundle config --global silence_root_warning 1 && bundle install
+RUN bundle install
 
 COPY package*.json /tmp/
 
