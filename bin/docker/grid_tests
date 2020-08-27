@@ -5,4 +5,5 @@ set -ex
 docker-compose run cucumber dockerize -wait http://design-system-hub.test:4444 \
   -wait http://design-system-node-chrome.test:5555/wd/hub/static/resource/hub.html \
   -wait http://design-system-node-firefox.test:5555/wd/hub/static/resource/hub.html \
+  -wait http://ca-styleguide:6006 \
   -timeout 60s bundle exec rake design_system:all $@
