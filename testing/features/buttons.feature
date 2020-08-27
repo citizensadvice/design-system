@@ -6,6 +6,10 @@ Feature: Buttons components
   Background:
     Given the Buttons component is on the page
 
+  Scenario: Validate initial state
+    Then the header says "Buttons"
+    And all the buttons are present
+
   Scenario: Primary Button changes color when hovered over
     When I hover over the Primary Button
     Then the background color of the Primary Button changes
@@ -36,4 +40,3 @@ Feature: Buttons components
   Scenario: Tertiary button has different text than the other two
     Then the Tertiary button text is less prominent than the Primary Button
     And the Tertiary button text is less prominent than the Secondary Button
-
