@@ -1,3 +1,5 @@
+* NP-642 Header takes language switcher paramaters
+
 ## <sub>v1.8.1</sub>
 
 #### _Aug. 26, 2020_
