@@ -8,32 +8,32 @@ Feature: Buttons components
 
   Scenario: Primary Button changes color when hovered over
     When I hover over the Primary Button
-    Then the background color changes
+    Then the background color of the Primary Button changes
 
   Scenario: Primary Button changes color when clicked on
     When I click on the Primary Button
-    Then the background color changes
-    And the text color changes
+    Then the background color of the Primary Button changes
+    And the text color of the Primary Button changes
 
   Scenario: Secondary Button changes color when hovered over
     When I hover over the Secondary Button
-    Then the background color changes
+    Then the background color of the Secondary Button changes
 
   Scenario: Secondary Button changes color when clicked on
     When I click on the Secondary Button
-    Then the background color changes
-    And the text color changes
+    Then the background color of the Secondary Button changes
+    And the text color of the Secondary Button changes
 
   Scenario: Tertiary Button changes color when hovered over
     When I hover over the Tertiary Button
-    Then the background color changes
+    Then the background color of the Tertiary Button changes
 
   Scenario: Tertiary Button changes color when clicked on
     When I click on the Tertiary Button
-    Then the background color changes
-    And the text color changes
+    Then the background color of the Tertiary Button changes
+    And the text color of the Tertiary Button changes
 
   Scenario: Tertiary button has different text than the other two
     Then the Tertiary button text is less prominent than the Primary Button
     And the Tertiary button text is less prominent than the Secondary Button
-    
+
