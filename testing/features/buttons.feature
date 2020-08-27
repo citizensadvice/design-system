@@ -37,6 +37,6 @@ Feature: Buttons components
     Then the background color of the Tertiary Button changes
     And the text color of the Tertiary Button changes
 
-  Scenario: Tertiary button has different text than the other two
+  Scenario: Tertiary button has less prominent text
     Then the Tertiary button text is less prominent than the Primary Button
     And the Tertiary button text is less prominent than the Secondary Button
