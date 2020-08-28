@@ -4,6 +4,6 @@ set -ex
 
 #check files are in sync
 docker-compose run \
-    -v $(pwd)/testing/backstop.json:/app/testing/backstop.json \
-    -v $(pwd)/testing/backstop-ci.json:/app/testing/backstop-ci.json \
+    -v $(pwd)/testing/visual-regression/backstop.json:/app/testing/visual-regression/backstop.json \
+    -v $(pwd)/testing/visual-regression/backstop-ci.json:/app/testing/visual-regression/backstop-ci.json \
     ca-styleguide npm run vr-test:validate
