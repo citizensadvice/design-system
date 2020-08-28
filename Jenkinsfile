@@ -40,6 +40,7 @@ pipeline {
                     "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/validate_vr_tests'
                     sh './bin/jenkins/test'
+                    sh './bin/docker/grid_tests'
                 }
             }
         }
@@ -78,6 +79,8 @@ pipeline {
                     }
                 }
             }
+
+            cleanWs()
         }
         cleanup {
             sh 'rm -rf reports'
