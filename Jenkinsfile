@@ -61,6 +61,16 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'BackstopJS Report',
             ])
+            archiveArtifacts([
+                artifacts: 'tmp/screenshots/*.png, ' +
+                'tmp/reports/report.html, ' +
+                'tmp/reports/*.xml, ' +
+                'tmp/reports/report.json, ' +
+                'tmp/html_pages/*.html, ' +
+                'tmp/logs/*.log',
+                allowEmptyArchive: true,
+                caseSensitive: false
+            ])
             script {
                 if (deployBranches.contains(BRANCH_NAME)) {
                     try {
