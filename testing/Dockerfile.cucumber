@@ -9,7 +9,6 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-
 RUN apt-get install -y build-essential patch ruby-dev zlib1g-dev liblzma-dev
 
 RUN gem install bundler -v '2.1.4'
