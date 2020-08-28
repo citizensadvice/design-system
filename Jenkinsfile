@@ -63,11 +63,11 @@ pipeline {
             ])
             archiveArtifacts([
                 artifacts: 'tmp/screenshots/*.png, ' +
-                'tmp/reports/report.html, ' +
-                'tmp/reports/*.xml, ' +
-                'tmp/reports/report.json, ' +
-                'tmp/html_pages/*.html, ' +
-                'tmp/logs/*.log',
+                'artifacts/reports/report.html, ' +
+                'artifacts/reports/*.xml, ' +
+                'artifacts/reports/report.json, ' +
+                'artifacts/html_pages/*.html, ' +
+                'artifacts/logs/*.log',
                 allowEmptyArchive: true,
                 caseSensitive: false
             ])
