@@ -15,4 +15,3 @@ Feature: Asset Hyperlink component
     And the label includes an icon
     And the label includes the file size
     And the label is a downloadable link
-    
