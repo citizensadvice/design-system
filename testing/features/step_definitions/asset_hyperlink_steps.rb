@@ -10,7 +10,7 @@ Then("a link to download a PDF is present") do
 end
 
 Then("the label includes a name at the beginning") do
-  expect(@component.download_link.text).to start_with("Test pdf")
+  expect(@component.initial_form.download_link.text).to start_with("Test pdf")
 end
 
 Then("the label includes an icon") do
@@ -18,9 +18,11 @@ Then("the label includes an icon") do
 end
 
 Then("the label includes the file size") do
-  expect(@component.download_size).to match(file_size)
+  expect(@component.initial_form.download_size.text).to match(file_size)
 end
 
 Then("the label is a downloadable link") do
-  expect(@component.download_link["href"]).not_to be_empty
+  expect(@component.initial_form.download_link["href"]).not_to be_nil
+
+  expect(@component.initial_form.download_link["href"]).not_to be_empty
 end

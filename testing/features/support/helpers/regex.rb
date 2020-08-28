@@ -10,7 +10,7 @@ module Helpers
     # (41.99).match?(file_size) #=> true
     #
     def file_size
-      /\d+.?\d*[k|m]b/
+      /^\d+.?\d*[k|m]b$/
     end
   end
 end
