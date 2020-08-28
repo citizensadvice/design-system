@@ -48,7 +48,7 @@ pipeline {
     post {
         always {
             step([$class: 'JUnitResultArchiver',
-                testResults: 'testing/backstop_data/ci_report/*.xml',
+                testResults: 'testing/visual-regression/backstop_data/ci_report/*.xml',
                 allowEmptyResults: true,
             ])
             sh './bin/jenkins/fix_visual_test_report'
