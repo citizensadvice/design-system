@@ -5,8 +5,8 @@ Given("an Asset Hyperlink component is on the page") do
   @component.load
 end
 
-Then("a link to download a PDF is present") do
-  expect(@component).to have_download_link
+Then("a link to the PDF is present") do
+  expect(@component.initial_form).to have_download_link
 end
 
 Then("the label includes a name at the beginning") do

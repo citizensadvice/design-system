@@ -8,9 +8,9 @@ Feature: Asset Hyperlink component
 
   Scenario: Validate initial state
     Then the header says "Asset hyperlink"
-    And a link to download a PDF is present
+    And a link to the PDF is present
 
-  Scenario: Label is easy to read and informative for users with Accessibility needs
+  Scenario: Label is informative and easy to understand for all types of user
     Then the label includes a name at the beginning
     And the label includes an icon
     And the label includes the file size
