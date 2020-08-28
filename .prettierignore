@@ -1,2 +1,8 @@
 *.md
 lib
+docs
+vendor/bundle
+testing/backstop_data/**/*
+testing/package-lock.json
+stats/*
+assets/cads.css
