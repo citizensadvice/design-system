@@ -1,68 +1,67 @@
 button,
 .cads-button {
-    @include cads-interactive-element();
+  @include cads-interactive-element();
 
-    border: solid $cads-border-width-medium
-        $cads-language__primary-button-colour;
-    border-radius: $cads-border-radius;
-    font-size: 1.125rem;
-    font-weight: $cads-font-weight__bold;
-    padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
-    display: inline-block;
-    cursor: pointer;
-    box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
-    outline: none !important;
-    margin: 0 0 $cads-spacing-5 0;
+  border: solid $cads-border-width-medium $cads-language__primary-button-colour;
+  border-radius: $cads-border-radius;
+  font-size: 1.125rem;
+  font-weight: $cads-font-weight__bold;
+  padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
+  outline: none !important;
+  margin: 0 0 $cads-spacing-5 0;
 
-    @include cads-media-breakpoint-down(sm) {
-        font-size: 1rem;
+  @include cads-media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+
+  &,
+  &__primary {
+    background-color: $cads-language__primary-button-colour;
+    color: $cads-palette__white;
+
+    &:hover {
+      color: $cads-palette__white;
+      background-color: $cads-language__primary-button-hover-colour;
+      border-color: $cads-language__primary-button-hover-colour;
     }
+  }
 
-    &,
-    &__primary {
-        background-color: $cads-language__primary-button-colour;
-        color: $cads-palette__white;
+  &__secondary {
+    background-color: $cads-palette__white;
+    color: $cads-language__primary-button-colour;
+    box-shadow: 0 2px 0 0 $cads-language__primary-button-colour;
 
-        &:hover {
-            color: $cads-palette__white;
-            background-color: $cads-language__primary-button-hover-colour;
-            border-color: $cads-language__primary-button-hover-colour;
-        }
+    &:hover {
+      background-color: $cads-language__secondary-button-hover-colour;
+      color: $cads-language__primary-button-hover-colour;
+      box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
     }
+  }
 
-    &__secondary {
-        background-color: $cads-palette__white;
-        color: $cads-language__primary-button-colour;
-        box-shadow: 0 2px 0 0 $cads-language__primary-button-colour;
+  &__tertiary {
+    background-color: $cads-palette__white;
+    color: $cads-language__primary-button-colour;
+    font-weight: $cads-font-weight__regular;
+    box-shadow: none;
+    border-width: $cads-border-width-small;
 
-        &:hover {
-            background-color: $cads-language__secondary-button-hover-colour;
-            color: $cads-language__primary-button-hover-colour;
-            box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
-        }
+    &:hover {
+      background-color: $cads-language__secondary-button-hover-colour;
+      color: $cads-language__primary-button-hover-colour;
+      box-shadow: none;
     }
+  }
 
-    &__tertiary {
-        background-color: $cads-palette__white;
-        color: $cads-language__primary-button-colour;
-        font-weight: $cads-font-weight__regular;
-        box-shadow: none;
-        border-width: $cads-border-width-small;
-
-        &:hover {
-            background-color: $cads-language__secondary-button-hover-colour;
-            color: $cads-language__primary-button-hover-colour;
-            box-shadow: none;
-        }
-    }
-
-    &:focus,
-    &__primary:focus,
-    &__secondary:focus,
-    &__tertiary:focus {
-        color: $cads-language__focus-text-colour;
-        border-color: $cads-language__focus-border-colour;
-        background-color: $cads-language__focus-colour;
-        box-shadow: 0 2px 0 0 $cads-language__focus-border-colour;
-    }
+  &:focus,
+  &__primary:focus,
+  &__secondary:focus,
+  &__tertiary:focus {
+    color: $cads-language__focus-text-colour;
+    border-color: $cads-language__focus-border-colour;
+    background-color: $cads-language__focus-colour;
+    box-shadow: 0 2px 0 0 $cads-language__focus-border-colour;
+  }
 }

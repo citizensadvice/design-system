@@ -1,51 +1,51 @@
 .cads-notice-banner {
-    border-left: solid $cads-border-width-large $cads-language__brand-secondary;
-    margin: 0 0 $cads-spacing-5 0;
+  border-left: solid $cads-border-width-large $cads-language__brand-secondary;
+  margin: 0 0 $cads-spacing-5 0;
 
-    .cads-notice-banner__title {
-        @extend .cads-heading-small;
+  .cads-notice-banner__title {
+    @extend .cads-heading-small;
 
-        font-size: 0.875rem;
-        line-height: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
 
-        @include cads-media-breakpoint-up(md) {
-            font-size: 1rem;
-            line-height: 1rem;
-        }
+    @include cads-media-breakpoint-up(md) {
+      font-size: 1rem;
+      line-height: 1rem;
     }
+  }
+
+  .paragraph-s {
+    margin: 0;
+  }
+
+  p {
+    @extend .paragraph-s;
+  }
+
+  @include cads-media-breakpoint-only(sm) {
+    padding: $cads-spacing-1 $cads-spacing-2;
+  }
+
+  @include cads-media-breakpoint-up(md) {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 
     .paragraph-s {
-        margin: 0;
+      flex: 1 1 auto;
     }
 
     p {
-        @extend .paragraph-s;
+      margin-top: $cads-spacing-1;
     }
 
-    @include cads-media-breakpoint-only(sm) {
-        padding: $cads-spacing-1 $cads-spacing-2;
+    .cads-notice-banner__title {
+      flex-grow: 0;
+      flex-shrink: 0;
+      background-color: $cads-language__brand-secondary;
+      padding: $cads-spacing-2;
+      margin: 0 $cads-spacing-4 0 0;
     }
-
-    @include cads-media-breakpoint-up(md) {
-        border: none;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-
-        .paragraph-s {
-            flex: 1 1 auto;
-        }
-
-        p {
-            margin-top: $cads-spacing-1;
-        }
-
-        .cads-notice-banner__title {
-            flex-grow: 0;
-            flex-shrink: 0;
-            background-color: $cads-language__brand-secondary;
-            padding: $cads-spacing-2;
-            margin: 0 $cads-spacing-4 0 0;
-        }
-    }
+  }
 }

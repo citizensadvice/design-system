@@ -2,226 +2,226 @@
 @import '../scss/lib';
 
 .cads-styleguide-icon-list {
-    li {
-        display: inline-block;
-        border: 1px solid $cads-language__border-colour;
-        border-radius: $cads-border-radius;
-        padding: 1em;
-        margin-right: 0.25em;
-        margin-bottom: 0.25em;
-        text-align: center;
-        width: 200px;
+  li {
+    display: inline-block;
+    border: 1px solid $cads-language__border-colour;
+    border-radius: $cads-border-radius;
+    padding: 1em;
+    margin-right: 0.25em;
+    margin-bottom: 0.25em;
+    text-align: center;
+    width: 200px;
 
-        @include cads-transition-animation();
+    @include cads-transition-animation();
 
-        &:hover {
-            background-color: $cads-language__border-colour;
-        }
-
-        span {
-            display: block;
-        }
-
-        span:first-child {
-            font-size: 2em;
-            margin-bottom: 0.5em;
-        }
+    &:hover {
+      background-color: $cads-language__border-colour;
     }
+
+    span {
+      display: block;
+    }
+
+    span:first-child {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+  }
 }
 
 .cads-styleguide-max-content-width {
-    max-width: $cads-max-content-size * 0.6;
+  max-width: $cads-max-content-size * 0.6;
 }
 
 .html {
-    font-family: monospace;
-    font-size: 1rem;
-    background: $cads-palette__light-grey;
-    padding: 0.5rem;
+  font-family: monospace;
+  font-size: 1rem;
+  background: $cads-palette__light-grey;
+  padding: 0.5rem;
 
-    code {
-        margin: 0;
-        padding: 0;
-    }
+  code {
+    margin: 0;
+    padding: 0;
+  }
 
-    &.inline {
-        display: inline-block;
-        padding: 0;
-    }
+  &.inline {
+    display: inline-block;
+    padding: 0;
+  }
 }
 
 .cads-styleguide__wrapper {
-    padding: 16px;
+  padding: 16px;
 
-    @include cads-media-breakpoint-only(sm) {
-        padding: 0;
-    }
+  @include cads-media-breakpoint-only(sm) {
+    padding: 0;
+  }
 }
 
 .cads-styleguide__colour-tile {
-    display: inline-grid;
-    margin: 1em;
-    width: 150px;
+  display: inline-grid;
+  margin: 1em;
+  width: 150px;
 
-    .cads-styleguide__colour-tile-bg {
-        height: 48px;
-        width: 48px;
-        border-radius: 100%;
-        border: solid 1px #000;
-    }
+  .cads-styleguide__colour-tile-bg {
+    height: 48px;
+    width: 48px;
+    border-radius: 100%;
+    border: solid 1px #000;
+  }
 
-    p {
-        font-size: 0.75em;
-        line-height: 1.25em;
-        padding: 8px 0 0 0;
-    }
+  p {
+    font-size: 0.75em;
+    line-height: 1.25em;
+    padding: 8px 0 0 0;
+  }
 }
 
 .cads-styleguide__language-label {
-    position: fixed;
-    background: rgba($cads-palette__heritage-blue, 0.5);
-    color: $cads-palette__white;
-    top: 0;
-    right: calc(4em + 1px);
-    width: 4em;
-    text-align: center;
-    font-size: 0.75em;
-    padding: 0.75em;
-    z-index: 1000;
-    cursor: pointer;
+  position: fixed;
+  background: rgba($cads-palette__heritage-blue, 0.5);
+  color: $cads-palette__white;
+  top: 0;
+  right: calc(4em + 1px);
+  width: 4em;
+  text-align: center;
+  font-size: 0.75em;
+  padding: 0.75em;
+  z-index: 1000;
+  cursor: pointer;
 
-    &:hover {
-        background: rgba($cads-palette__heritage-blue, 1);
-    }
+  &:hover {
+    background: rgba($cads-palette__heritage-blue, 1);
+  }
 
-    &::after {
-        content: 'en';
-    }
+  &::after {
+    content: 'en';
+  }
 
-    .cads-lang-cy &::after {
-        content: 'cy';
-    }
+  .cads-lang-cy &::after {
+    content: 'cy';
+  }
 }
 
 .cads-styleguide__breakpoint-label {
-    position: fixed;
-    background: rgba($cads-palette__heritage-blue, 0.5);
-    color: $cads-palette__white;
-    top: 0;
-    right: 0;
-    width: 4em;
-    text-align: center;
-    font-size: 0.75em;
-    padding: 0.75em;
-    z-index: 1000;
+  position: fixed;
+  background: rgba($cads-palette__heritage-blue, 0.5);
+  color: $cads-palette__white;
+  top: 0;
+  right: 0;
+  width: 4em;
+  text-align: center;
+  font-size: 0.75em;
+  padding: 0.75em;
+  z-index: 1000;
 
-    &::after {
-        // @extend .ds-ui-xsmall;
-        display: block;
+  &::after {
+    // @extend .ds-ui-xsmall;
+    display: block;
 
-        @each $breakpoint in map-keys($cads-breakpoints) {
-            @include cads-media-breakpoint-up($breakpoint) {
-                content: '#{$breakpoint}';
-            }
-        }
+    @each $breakpoint in map-keys($cads-breakpoints) {
+      @include cads-media-breakpoint-up($breakpoint) {
+        content: '#{$breakpoint}';
+      }
     }
+  }
 
-    .cads-styleguide__breakpoint-label-in-context & {
-        background: $cads-palette__heritage-blue;
-        position: relative;
-        display: inline-block;
-    }
+  .cads-styleguide__breakpoint-label-in-context & {
+    background: $cads-palette__heritage-blue;
+    position: relative;
+    display: inline-block;
+  }
 }
 
 .cads-styleguide__table {
-    box-shadow: none;
+  box-shadow: none;
 
-    td {
-        border: none;
-        vertical-align: middle;
-        padding-right: 1em;
-        padding-bottom: 1em;
-    }
+  td {
+    border: none;
+    vertical-align: middle;
+    padding-right: 1em;
+    padding-bottom: 1em;
+  }
 }
 
 .cads-styleguide__spacing-block {
-    display: inline-block;
-    width: $cads-spacing-0;
-    height: $cads-spacing-0;
-    vertical-align: middle;
-    background: rgba($cads-language__border-colour, 0.4);
-    border: dotted 1px $cads-language__border-colour;
+  display: inline-block;
+  width: $cads-spacing-0;
+  height: $cads-spacing-0;
+  vertical-align: middle;
+  background: rgba($cads-language__border-colour, 0.4);
+  border: dotted 1px $cads-language__border-colour;
 
-    @each $size, $length in $cads-spacers {
-        &--spacing-#{$size} {
-            width: $length;
-            height: $length;
-        }
+  @each $size, $length in $cads-spacers {
+    &--spacing-#{$size} {
+      width: $length;
+      height: $length;
     }
+  }
 }
 
 .cads-styleguide__sizing-border-medium {
-    display: inline-block;
-    width: 100px;
-    height: 40px;
-    vertical-align: middle;
-    border: solid $cads-border-width-small $cads-language__border-colour;
-    margin-left: 11px;
-    margin-right: 11px;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  vertical-align: middle;
+  border: solid $cads-border-width-small $cads-language__border-colour;
+  margin-left: 11px;
+  margin-right: 11px;
 }
 
 .cads-styleguide__sizing-border-large {
-    @extend .cads-styleguide__sizing-border-medium;
+  @extend .cads-styleguide__sizing-border-medium;
 
-    border: solid $cads-border-width-large $cads-language__border-colour;
-    margin-left: 10px;
+  border: solid $cads-border-width-large $cads-language__border-colour;
+  margin-left: 10px;
 }
 
 .cads-styleguide__sizing-radius {
-    @extend .cads-styleguide__sizing-border-medium;
+  @extend .cads-styleguide__sizing-border-medium;
 
-    border: solid $cads-border-width-small $cads-language__border-colour;
-    border-radius: $cads-border-radius;
+  border: solid $cads-border-width-small $cads-language__border-colour;
+  border-radius: $cads-border-radius;
 }
 
 .cads-styleguide-grid {
-    border: solid $cads-border-width-small $cads-language__border-colour;
+  border: solid $cads-border-width-small $cads-language__border-colour;
 
-    .cads-grid-row {
-        > div {
-            border: solid $cads-border-width-small $cads-language__border-colour;
-            background: rgba($cads-language__border-colour, 0.2);
-            text-align: center;
+  .cads-grid-row {
+    > div {
+      border: solid $cads-border-width-small $cads-language__border-colour;
+      background: rgba($cads-language__border-colour, 0.2);
+      text-align: center;
 
-            span {
-                padding-top: $cads-spacing-2;
-                padding-bottom: $cads-spacing-2;
-                display: block;
-                background: rgba($cads-language__border-colour, 0.4);
-            }
-        }
+      span {
+        padding-top: $cads-spacing-2;
+        padding-bottom: $cads-spacing-2;
+        display: block;
+        background: rgba($cads-language__border-colour, 0.4);
+      }
     }
+  }
 }
 
 .cads-styleguide-table {
-    text-align: center;
+  text-align: center;
 
-    thead tr th {
-        font-weight: bold;
-    }
+  thead tr th {
+    font-weight: bold;
+  }
 
-    tr:nth-child(even) {
-        background-color: $cads-language__border-colour;
-    }
+  tr:nth-child(even) {
+    background-color: $cads-language__border-colour;
+  }
 }
 
 .cads-styleguide__highlight-box {
-    padding: 1rem;
-    border: 1px solid $cads-language__border-colour;
-    margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid $cads-language__border-colour;
+  margin-bottom: 1rem;
 }
 
 .cads-styleguide-new-tab {
-    display: inline-block;
-    margin-bottom: 2rem;
+  display: inline-block;
+  margin-bottom: 2rem;
 }

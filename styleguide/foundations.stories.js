@@ -13,41 +13,41 @@ import Languages from './tokens/languages.md';
 import IconFont from './tokens/icon_font.md';
 
 export default {
-    title: '2: Design Foundations',
-    decorators: [
-        storyFn =>
-            `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`
-    ]
+  title: '2: Design Foundations',
+  decorators: [
+    (storyFn) =>
+      `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`,
+  ],
 };
 
 function getColours(type, sass) {
-    // Since we get all the vars exported we need to filter them out
-    const colours = Object.keys(sass).filter(
-        item => item.indexOf(`${type}-`) !== -1
-    );
+  // Since we get all the vars exported we need to filter them out
+  const colours = Object.keys(sass).filter(
+    (item) => item.indexOf(`${type}-`) !== -1
+  );
 
-    let result = `<h1>Colour ${type}</h1>`;
-    let lastSection = '';
-    colours.forEach(item => {
-        // We need to split by section as well
-        const matches = item.split('-');
-        const section = matches.length > 2 ? matches[1].replace('_', ' ') : '';
-        const name = matches[matches.length > 2 ? 2 : 1];
-        const colour = sass[item];
+  let result = `<h1>Colour ${type}</h1>`;
+  let lastSection = '';
+  colours.forEach((item) => {
+    // We need to split by section as well
+    const matches = item.split('-');
+    const section = matches.length > 2 ? matches[1].replace('_', ' ') : '';
+    const name = matches[matches.length > 2 ? 2 : 1];
+    const colour = sass[item];
 
-        if (section !== lastSection) {
-            lastSection = section;
-            result += `<h2>${section}</h2>`;
-        }
+    if (section !== lastSection) {
+      lastSection = section;
+      result += `<h2>${section}</h2>`;
+    }
 
-        result += `<div class="cads-styleguide__colour-tile">
+    result += `<div class="cads-styleguide__colour-tile">
 <div class="cads-styleguide__colour-tile-bg" style="background: ${colour}"></div>
-<p>${name.replace(/([A-Z])/g, g => `-${g[0].toLowerCase()}`)}
+<p>${name.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)}
 <br/>${colour.toUpperCase()}</p>
 </div>`;
-    });
+  });
 
-    return result;
+  return result;
 }
 
 export const colourPalette = () => getColours('palette', sassPalette);

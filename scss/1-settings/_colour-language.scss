@@ -27,8 +27,8 @@ $cads-language__success-colour: $cads-palette__green;
 // The following map is only used to provide a loop for displaying the colours in Storybook.
 /* stylelint-disable */
 :export {
-    /* prettier-ignore */
-    language: {
+  /* prettier-ignore */
+  language: {
         Brand_Colours-brandPrimary: $cads-language__brand-primary;
         Brand_Colours-brandSecondary: $cads-language__brand-secondary;
         Brand_Colours-brandAdviser: $cads-language__brand-adviser;

@@ -1,15 +1,15 @@
 @mixin cads-interactive-element() {
-    @include cads-transition-animation();
+  @include cads-transition-animation();
 
-    border: solid $cads-border-width-medium $cads-language__input-border-colour;
-    border-radius: $cads-border-radius;
-    box-shadow: none;
+  border: solid $cads-border-width-medium $cads-language__input-border-colour;
+  border-radius: $cads-border-radius;
+  box-shadow: none;
+  outline: none;
+
+  &:focus {
     outline: none;
-
-    &:focus {
-        outline: none;
-        border-color: $cads-language__focus-border-colour;
-        // We need to use box-shadow instead of outline as outline does not have a radius
-        box-shadow: 0 0 0 2px $cads-language__focus-colour;
-    }
+    border-color: $cads-language__focus-border-colour;
+    // We need to use box-shadow instead of outline as outline does not have a radius
+    box-shadow: 0 0 0 2px $cads-language__focus-colour;
+  }
 }

@@ -2,143 +2,143 @@
 
 nav,
 .cads-navigation {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  background-color: $cads-palette__heritage-blue;
+  width: 100%;
+  height: 3rem;
+
+  .cads-navigation-toggle-label {
+    @include cads-visually-hidden;
+  }
+
+  ul {
+    display: inline-block;
+
+    @extend .cads-list__no-bullet;
+  }
+
+  li,
+  .cads-list-item {
+    font-size: 1rem;
+    display: inline-block;
+    font-weight: $cads-font-weight__bold;
+  }
+
+  .cads-greedy-nav__dropdown-toggle {
+    height: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    border-left: 1px solid $cads-palette__white;
     background-color: $cads-palette__heritage-blue;
-    width: 100%;
-    height: 3rem;
+    border: $cads-palette__heritage-blue;
+    box-shadow: none;
 
-    .cads-navigation-toggle-label {
-        @include cads-visually-hidden;
+    &:hover {
+      background-color: $cads-language__link-hover-colour;
+      border-color: $cads-language__link-hover-colour;
     }
 
-    ul {
-        display: inline-block;
-
-        @extend .cads-list__no-bullet;
+    /* stylelint-disable */
+    &:focus,
+    &:active {
+      /* stylelint-enable */
+      background-color: $cads-palette__white;
+      color: $cads-palette__heritage-blue;
+      border: 2px solid $cads-palette__heritage-yellow;
+      padding: calc(1rem - 2px);
     }
 
-    li,
-    .cads-list-item {
-        font-size: 1rem;
-        display: inline-block;
-        font-weight: $cads-font-weight__bold;
+    &::after {
+      /* Copied from the icon font setup */
+      /* stylelint-disable-next-line */
+      font-family: 'cads' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: '\0044';
+      display: inline-block;
+      transform: rotate(270deg);
+      font-size: 0.75rem;
+      margin-left: $cads-spacing-1;
+      top: 1px;
+      position: relative;
     }
 
-    .cads-greedy-nav__dropdown-toggle {
-        height: 100%;
-        font-weight: bold;
-        font-size: 1rem;
-        border-left: 1px solid $cads-palette__white;
-        background-color: $cads-palette__heritage-blue;
-        border: $cads-palette__heritage-blue;
-        box-shadow: none;
+    &.is-open {
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+  }
 
-        &:hover {
-            background-color: $cads-language__link-hover-colour;
-            border-color: $cads-language__link-hover-colour;
-        }
+  .cads-nav-link {
+    color: $cads-palette__white;
+    padding: calc(1rem - 2px) calc(1rem - 12px);
+    display: inline-block;
+    text-decoration: none;
 
-        /* stylelint-disable */
-        &:focus,
-        &:active {
-            /* stylelint-enable */
-            background-color: $cads-palette__white;
-            color: $cads-palette__heritage-blue;
-            border: 2px solid $cads-palette__heritage-yellow;
-            padding: calc(1rem - 2px);
-        }
+    @include cads-transition-animation();
 
-        &::after {
-            /* Copied from the icon font setup */
-            /* stylelint-disable-next-line */
-            font-family: 'cads' !important;
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
+    border: 2px solid;
+    border-color: $cads-palette__heritage-blue;
+    line-height: 1em;
 
-            /* Better Font Rendering =========== */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            content: '\0044';
-            display: inline-block;
-            transform: rotate(270deg);
-            font-size: 0.75rem;
-            margin-left: $cads-spacing-1;
-            top: 1px;
-            position: relative;
-        }
-
-        &.is-open {
-            &::after {
-                transform: rotate(90deg);
-            }
-        }
+    &:hover {
+      background-color: $cads-language__link-hover-colour;
+      border-color: $cads-language__link-hover-colour;
+      color: $cads-palette__white;
     }
 
-    .cads-nav-link {
-        color: $cads-palette__white;
-        padding: calc(1rem - 2px) calc(1rem - 12px);
-        display: inline-block;
-        text-decoration: none;
+    /* stylelint-disable */
+    &:active,
+    &:focus {
+      /* stylelint-enable */
+      background-color: $cads-palette__white;
+      color: $cads-palette__heritage-blue;
+      border: 2px solid $cads-palette__heritage-yellow;
+      padding: calc(1rem - 2px);
+    }
+  }
 
-        @include cads-transition-animation();
+  .cads-greedy-nav__dropdown {
+    background-color: $cads-palette__heritage-blue;
+    border-top: 1px solid $cads-palette__white;
+    right: 0;
+    top: 100%;
 
-        border: 2px solid;
-        border-color: $cads-palette__heritage-blue;
-        line-height: 1em;
-
-        &:hover {
-            background-color: $cads-language__link-hover-colour;
-            border-color: $cads-language__link-hover-colour;
-            color: $cads-palette__white;
-        }
-
-        /* stylelint-disable */
-        &:active,
-        &:focus {
-            /* stylelint-enable */
-            background-color: $cads-palette__white;
-            color: $cads-palette__heritage-blue;
-            border: 2px solid $cads-palette__heritage-yellow;
-            padding: calc(1rem - 2px);
-        }
+    li {
+      margin-bottom: 0;
+      display: block;
     }
 
-    .cads-greedy-nav__dropdown {
-        background-color: $cads-palette__heritage-blue;
-        border-top: 1px solid $cads-palette__white;
-        right: 0;
-        top: 100%;
-
-        li {
-            margin-bottom: 0;
-            display: block;
-        }
-
-        a {
-            display: block;
-            transition-property: none;
-        }
+    a {
+      display: block;
+      transition-property: none;
     }
+  }
 }
 
 .cads-navigation-full-width-wrapper {
-    background-color: $cads-palette__heritage-blue;
+  background-color: $cads-palette__heritage-blue;
 
-    nav {
-        @extend .cads-max-content-width;
+  nav {
+    @extend .cads-max-content-width;
 
-        @each $breakpoint in map-keys($cads-breakpoints) {
-            $gutter: map-get($cads-nav-breakpoint-gutters, $breakpoint);
+    @each $breakpoint in map-keys($cads-breakpoints) {
+      $gutter: map-get($cads-nav-breakpoint-gutters, $breakpoint);
 
-            @include cads-media-breakpoint-up($breakpoint) {
-                padding-right: $gutter;
-                padding-left: $gutter;
-            }
-        }
+      @include cads-media-breakpoint-up($breakpoint) {
+        padding-right: $gutter;
+        padding-left: $gutter;
+      }
     }
+  }
 }

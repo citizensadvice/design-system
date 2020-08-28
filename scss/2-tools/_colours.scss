@@ -1,3 +1,3 @@
 @function cads-colour-to-bg($colour) {
-    @return mix(rgb(red($colour), green($colour), blue($colour)), #fff, 10%);
+  @return mix(rgb(red($colour), green($colour), blue($colour)), #fff, 10%);
 }

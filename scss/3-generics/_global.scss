@@ -1,18 +1,18 @@
 html {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    font-family: $cads-font-family;
-    font-size: $cads-font-size;
-    font-weight: $cads-font-weight__regular;
-    color: $cads-language__text-colour;
+  font-family: $cads-font-family;
+  font-size: $cads-font-size;
+  font-weight: $cads-font-weight__regular;
+  color: $cads-language__text-colour;
 }

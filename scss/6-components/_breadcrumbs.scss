@@ -1,52 +1,52 @@
 .cads-breadcrumbs {
-    @include cads-restrict-content-width();
+  @include cads-restrict-content-width();
 
-    padding-top: $cads-spacing-3;
-    padding-bottom: $cads-spacing-3;
-    border-bottom: $cads-border-width-small solid $cads-language__border_colour;
+  padding-top: $cads-spacing-3;
+  padding-bottom: $cads-spacing-3;
+  border-bottom: $cads-border-width-small solid $cads-language__border_colour;
 
-    ul {
-        margin: 0 !important;
+  ul {
+    margin: 0 !important;
+  }
+
+  li {
+    margin: 0 !important;
+    max-width: 55ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+
+    &::before {
+      color: $cads-language__link-colour;
+      content: '\203A';
+      margin-left: $cads-spacing-2;
+      margin-right: $cads-spacing-2;
+      font-size: 18px; // Fix size as this is a symbol
     }
 
+    &:first-of-type {
+      margin-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  @include cads-media-breakpoint-only(sm) {
     li {
-        margin: 0 !important;
-        max-width: 55ch;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 1rem;
-
-        &::before {
-            color: $cads-language__link-colour;
-            content: '\203A';
-            margin-left: $cads-spacing-2;
-            margin-right: $cads-spacing-2;
-            font-size: 18px; // Fix size as this is a symbol
-        }
-
-        &:first-of-type {
-            margin-left: 0;
-
-            &::before {
-                display: none;
-            }
-        }
+      display: none !important;
     }
 
-    @include cads-media-breakpoint-only(sm) {
-        li {
-            display: none !important;
-        }
+    li:nth-last-child(2) {
+      display: block !important;
 
-        li:nth-last-child(2) {
-            display: block !important;
-
-            &::before {
-                content: '\2039';
-                margin-left: 0;
-                margin-right: $cads-spacing-1;
-            }
-        }
+      &::before {
+        content: '\2039';
+        margin-left: 0;
+        margin-right: $cads-spacing-1;
+      }
     }
+  }
 }

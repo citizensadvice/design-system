@@ -1,78 +1,78 @@
 .cads-hide {
-    display: none !important;
+  display: none !important;
 }
 
 .cads-invisible {
-    visibility: hidden !important;
+  visibility: hidden !important;
 }
 
 .cads-sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .cads-sr-only-focusable {
-    &:active,
-    &:focus {
-        position: static;
-        width: auto;
-        height: auto;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-    }
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
 }
 
 @each $name, $breakpoint in $cads-breakpoints {
-    @if $name != 'sm' {
-        .cads-show-#{$name}-up {
-            display: none !important;
+  @if $name != 'sm' {
+    .cads-show-#{$name}-up {
+      display: none !important;
 
-            @include cads-media-breakpoint-up($name) {
-                display: inherit !important;
-            }
-        }
-
-        .cads-show-#{$name}-down {
-            display: inherit !important;
-
-            @include cads-media-breakpoint-up($name) {
-                display: none !important;
-            }
-        }
-
-        .cads-show-#{$name}-only {
-            display: none !important;
-
-            @include cads-media-breakpoint-only($name) {
-                display: inherit !important;
-            }
-        }
-
-        .cads-hide-#{$name}-up {
-            @include cads-media-breakpoint-up($name) {
-                display: none !important;
-            }
-        }
-
-        .cads-hide-#{$name}-down {
-            display: none !important;
-
-            @include cads-media-breakpoint-up($name) {
-                display: inherit !important;
-            }
-        }
-
-        .cads-hide-#{$name}-only {
-            @include cads-media-breakpoint-only($name) {
-                display: none !important;
-            }
-        }
+      @include cads-media-breakpoint-up($name) {
+        display: inherit !important;
+      }
     }
+
+    .cads-show-#{$name}-down {
+      display: inherit !important;
+
+      @include cads-media-breakpoint-up($name) {
+        display: none !important;
+      }
+    }
+
+    .cads-show-#{$name}-only {
+      display: none !important;
+
+      @include cads-media-breakpoint-only($name) {
+        display: inherit !important;
+      }
+    }
+
+    .cads-hide-#{$name}-up {
+      @include cads-media-breakpoint-up($name) {
+        display: none !important;
+      }
+    }
+
+    .cads-hide-#{$name}-down {
+      display: none !important;
+
+      @include cads-media-breakpoint-up($name) {
+        display: inherit !important;
+      }
+    }
+
+    .cads-hide-#{$name}-only {
+      @include cads-media-breakpoint-only($name) {
+        display: none !important;
+      }
+    }
+  }
 }

@@ -1,33 +1,33 @@
 .cads-error-summary {
-    border: solid $cads-border-width-medium $cads-language__border-colour;
-    border-radius: $cads-border-radius;
-    width: 50%;
-    padding: $cads-spacing-4;
+  border: solid $cads-border-width-medium $cads-language__border-colour;
+  border-radius: $cads-border-radius;
+  width: 50%;
+  padding: $cads-spacing-4;
+  color: $cads-language__warning-colour;
+  margin-bottom: $cads-spacing-4;
+
+  @include cads-media-breakpoint-down(sm) {
+    width: 100%;
+  }
+
+  .cads-heading-small {
     color: $cads-language__warning-colour;
     margin-bottom: $cads-spacing-4;
+  }
 
-    @include cads-media-breakpoint-down(sm) {
-        width: 100%;
-    }
+  .cads-error-summary__list {
+    margin-bottom: 0;
 
-    .cads-heading-small {
-        color: $cads-language__warning-colour;
-        margin-bottom: $cads-spacing-4;
-    }
+    li {
+      text-decoration: underline;
 
-    .cads-error-summary__list {
+      &:last-of-type {
         margin-bottom: 0;
+      }
 
-        li {
-            text-decoration: underline;
-
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-
-            a {
-                color: $cads-language__warning-colour;
-            }
-        }
+      a {
+        color: $cads-language__warning-colour;
+      }
     }
+  }
 }
