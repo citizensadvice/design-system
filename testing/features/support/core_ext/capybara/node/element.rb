@@ -15,6 +15,10 @@ module CoreExtension
         def background_color
           native.css_value("background-color")
         end
+
+        def font_weight
+          native.css_value("font-weight")
+        end
       end
     end
   end
