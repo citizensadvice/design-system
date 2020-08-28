@@ -62,7 +62,7 @@ pipeline {
                 reportName: 'BackstopJS Report',
             ])
             archiveArtifacts([
-                artifacts: 'tmp/screenshots/*.png, ' +
+                artifacts: 'artifacts/screenshots/*.png, ' +
                 'artifacts/reports/report.html, ' +
                 'artifacts/reports/*.xml, ' +
                 'artifacts/reports/report.json, ' +
