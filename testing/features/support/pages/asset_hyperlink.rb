@@ -8,6 +8,14 @@ module DesignSystem
     section :initial_form, "#a11yComponentToTest" do
       element :download_link, "a"
       element :download_size, ".cads-asset-type"
+
+      def download_icon_content
+        Capybara.current_session.evaluate_script(
+          "window.getComputedStyle(
+            document.querySelector('.cads-icon_file'), '::before'
+          ).getPropertyValue('content')"
+        ).delete('\\"')
+      end
     end
 
     load_validation do

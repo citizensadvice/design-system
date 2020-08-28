@@ -14,7 +14,7 @@ Then("the label includes a name at the beginning") do
 end
 
 Then("the label includes an icon") do
-  "Complex TBD"
+  expect(@component.initial_form.download_icon_content).not_to be_blank
 end
 
 Then("the label includes the file size") do
@@ -22,7 +22,5 @@ Then("the label includes the file size") do
 end
 
 Then("the label is a downloadable link") do
-  expect(@component.initial_form.download_link["href"]).not_to be_nil
-
-  expect(@component.initial_form.download_link["href"]).not_to be_empty
+  expect(@component.initial_form.download_link["href"]).not_to be_blank
 end
