@@ -14,7 +14,7 @@
 
     "overrides": [
         {
-            "files": "*.html.haml",
+            "files": ["*.html.haml", "*.rb", "*.feature", "*.yml"],
             "options": {
                 "tabWidth": 2
             }

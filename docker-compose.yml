@@ -27,7 +27,7 @@ services:
   cucumber: &cucumber_default
     build:
       context: ./
-    image: "design_system_cucumber${PROJECT_VERSION_TAG}"
+    image: 'design_system_cucumber${PROJECT_VERSION_TAG}'
     container_name: design-system-cucumber.test
     env_file:
       - testing/grid_ci.env
