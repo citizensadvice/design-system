@@ -5,8 +5,8 @@ const assert = require('assert').strict;
 const chalk = require('chalk');
 const fs = require('fs');
 
-const localScenarios = require('../testing/backstop.json').scenarios;
-const ciConfig = require('../testing/backstop-ci.json');
+const localScenarios = require('../testing/visual-regression/backstop.json').scenarios;
+const ciConfig = require('../testing/visual-regression/backstop-ci.json');
 
 const onlyValidate = process.argv.some(arg => arg === '--validate');
 
@@ -35,7 +35,7 @@ const validate = () => {
     } catch (e) {
         console.error(
             chalk.red(
-                './testing/backstop.json and ./testing/backstop-ci.json are out of sync'
+                './testing/visual-regression/backstop.json and ./testing/visual-regression/backstop-ci.json are out of sync'
             )
         );
         console.debug(e.message);
@@ -45,7 +45,7 @@ const validate = () => {
 
     console.info(
         chalk.green(
-            './testing/backstop.json and ./testing/backstop-ci.json are in sync'
+            './testing/visual-regression/backstop.json and ./testing/visual-regression/backstop-ci.json are in sync'
         )
     );
     return true;
@@ -67,7 +67,7 @@ const syncScenarios = () => {
     ciConfig.scenarios = scenarios;
     console.info('Writing backstop.json scenarios to backstop-ci.json');
     fs.writeFileSync(
-        './testing/backstop-ci.json',
+        './testing/visual-regression/backstop-ci.json',
         JSON.stringify(ciConfig, null, 4)
     );
     console.info(chalk.green('Scenarios updated successfully.'));
