@@ -1,20 +1,20 @@
 .cads-related-content {
-    padding-left: $cads-spacing-4;
+  padding-left: $cads-spacing-4;
 
-    @include cads-media-breakpoint-only(sm) {
-        padding-left: 0;
-    }
+  @include cads-media-breakpoint-only(sm) {
+    padding-left: 0;
+  }
 
-    .section-title {
-        color: $cads-language__secondary-text-colour;
-        margin-top: $cads-spacing-5;
-    }
+  .section-title {
+    color: $cads-language__secondary-text-colour;
+    margin-top: $cads-spacing-5;
+  }
 
-    h3 {
-        margin-top: 0;
-    }
+  h3 {
+    margin-top: 0;
+  }
 
-    ul {
-        @extend .cads-list__no-bullet;
-    }
+  ul {
+    @extend .cads-list__no-bullet;
+  }
 }

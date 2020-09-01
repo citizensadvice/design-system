@@ -45,40 +45,40 @@ import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
+  templateName,
+  template,
+  hamlLocation,
+  usage,
+  optionalProps,
+  optionalJS
+) {
+  return wrapper(
     templateName,
     template,
-    hamlLocation,
-    usage,
-    optionalProps,
-    optionalJS
-) {
-    return wrapper(
-        templateName,
-        template,
-        `The partial is available in:
+    `The partial is available in:
 <pre class="html"><code>haml/_${hamlLocation}.html.haml</code></pre>
 ${usage || ''}`,
-        optionalJS
-    );
+    optionalJS
+  );
 }
 
 // Storybook section setup
 export default {
-    title: '3: Components',
-    decorators: [withA11y],
-    parameters: {
-        options: {
-            showPanel: true
-        },
-        a11y: {
-            // optional selector which element to inspect
-            element: '#a11yComponentToTest',
-            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
-            config: {},
-            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
-            options: {}
-        }
-    }
+  title: '3: Components',
+  decorators: [withA11y],
+  parameters: {
+    options: {
+      showPanel: true,
+    },
+    a11y: {
+      // optional selector which element to inspect
+      element: '#a11yComponentToTest',
+      // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
+      config: {},
+      // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
+      options: {},
+    },
+  },
 };
 
 export const buttons = () => Buttons();
@@ -90,54 +90,54 @@ export const relatedContent = () => RelatedContent();
 export const search = () => renderHamlTemplate('Search', tSearch, 'search');
 export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
 export const header = () =>
-    renderHamlTemplate(
-        'Header',
-        tHeader,
-        'header',
-        `The header component uses javascript to show/hide the search bar in small screen sizes.
+  renderHamlTemplate(
+    'Header',
+    tHeader,
+    'header',
+    `The header component uses javascript to show/hide the search bar in small screen sizes.
 \n\n
 <code>import { initHeader } from @citizensadvice/design-system/lib/header</code> and execute that function after the header html has loaded into the DOM.`,
-        null,
-        () => initHeader()
-    );
+    null,
+    () => initHeader()
+  );
 export const input = () => renderHamlTemplate('Input', tInput, 'input');
 export const textarea = () =>
-    renderHamlTemplate('Textarea', tTextarea, 'textarea');
+  renderHamlTemplate('Textarea', tTextarea, 'textarea');
 export const pageReview = () =>
-    renderHamlTemplate('Page Review', tPageReview, 'page_review');
+  renderHamlTemplate('Page Review', tPageReview, 'page_review');
 export const radioGroup = () =>
-    renderHamlTemplate('Radio Group', tRadio, 'radio_group');
+  renderHamlTemplate('Radio Group', tRadio, 'radio_group');
 export const radioGroupSmall = () =>
-    renderHamlTemplate('Radio Group (small)', tRadioSmall, 'radio_group_small');
+  renderHamlTemplate('Radio Group (small)', tRadioSmall, 'radio_group_small');
 export const breadcrumb = () =>
-    renderHamlTemplate('Breadcrumbs', tBreadcrumb, 'breadcrumb');
+  renderHamlTemplate('Breadcrumbs', tBreadcrumb, 'breadcrumb');
 export const errorSummary = () =>
-    renderHamlTemplate(
-        'Error summary',
-        tErrorSummary,
-        'error_summary',
-        `The error summary is used to provide a summary of form errors.
+  renderHamlTemplate(
+    'Error summary',
+    tErrorSummary,
+    'error_summary',
+    `The error summary is used to provide a summary of form errors.
 You will need to provide the validation content and set the content.
 To set the number of fields use the <code>cads-error-summary__field_count</code>
 span and set the content to <code>1 field</code>, <code>5 fields</code>, etc.
 
 Then use the <code>cads-error-summary__list</code> to add the relevant <code>li</code>
 items.`
-    );
+  );
 export const logo = () =>
-    renderHamlTemplate(
-        'Logo',
-        tLogo,
-        'logo_clickable',
-        `You can use the <code>cads-logo</code> class on anything to display the logo.
+  renderHamlTemplate(
+    'Logo',
+    tLogo,
+    'logo_clickable',
+    `You can use the <code>cads-logo</code> class on anything to display the logo.
 Make sure that an accessible title/etc is available.`
-    );
+  );
 export const navigation = () =>
-    renderHamlTemplate(
-        'Navigation',
-        tNavigation,
-        'navigation',
-        `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
+  renderHamlTemplate(
+    'Navigation',
+    tNavigation,
+    'navigation',
+    `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
         \n\n
         <p>SystemJS</p>
         <pre><code>
@@ -154,59 +154,55 @@ export const navigation = () =>
         import GreedyNav from '@citizensadvice/design-system/lib/greedy-nav/';
         GreedyNav.init(/* { config if required } */);
         </code></pre>`,
-        null,
-        () => {
-            GreedyNav.init();
-        }
-    );
+    null,
+    () => {
+      GreedyNav.init();
+    }
+  );
 
 export const noticeBanner = () =>
-    renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
+  renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const callout = () =>
-    renderHamlTemplate(
-        'Callout',
-        tCallout,
-        'callout',
-        `The callout component uses javascript to rearrange the heading level of the first callout on the screen (H2 vs H3 heading).
+  renderHamlTemplate(
+    'Callout',
+    tCallout,
+    'callout',
+    `The callout component uses javascript to rearrange the heading level of the first callout on the screen (H2 vs H3 heading).
         \n\n
         <pre><code>import initCallouts from '@citizensadvice/design-system/lib/callout'</code></pre> and execute that function after the the page has finished loading.`,
-        null,
-        initCallouts
-    );
+    null,
+    initCallouts
+  );
 export const contactDetails = () =>
-    renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
+  renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 export const websiteFeedback = () =>
-    renderHamlTemplate(
-        'Website Feedback',
-        tWebsiteFeedback,
-        'website_feedback'
-    );
+  renderHamlTemplate('Website Feedback', tWebsiteFeedback, 'website_feedback');
 export const targetedContent = () =>
-    renderHamlTemplate(
-        'Targeted Content',
-        tTargetedContent,
-        'targeted-content',
-        `The targeted component uses javascript to initialise the click handlers for the collapse/expand behaviour.
+  renderHamlTemplate(
+    'Targeted Content',
+    tTargetedContent,
+    'targeted-content',
+    `The targeted component uses javascript to initialise the click handlers for the collapse/expand behaviour.
         \n\n
         <pre><code>import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content'</code></pre> and execute that function after the the page has finished loading.`,
-        null,
-        () => initTargetedContent()
-    );
+    null,
+    () => initTargetedContent()
+  );
 export const adviceFeedback = () =>
-    renderHamlTemplate(
-        'Advice feedback',
-        tAdviceFeedback,
-        'advice_feedback',
-        null,
-        null,
-        () => initAdviceFeedback()
-    );
+  renderHamlTemplate(
+    'Advice feedback',
+    tAdviceFeedback,
+    'advice_feedback',
+    null,
+    null,
+    () => initAdviceFeedback()
+  );
 
 export const successMessage = () =>
-    renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');
+  renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');
 
 export const tables = () =>
-    renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);
+  renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);
 
 export const assetHyperlink = () =>
-    renderHamlTemplate('Asset hyperlink', tAssetHyperlink, 'asset_hyperlink');
+  renderHamlTemplate('Asset hyperlink', tAssetHyperlink, 'asset_hyperlink');

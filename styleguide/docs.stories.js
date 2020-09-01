@@ -4,11 +4,11 @@ import Contributing from '../CONTRIBUTING.md';
 import Changelog from '../CHANGELOG.md';
 
 export default {
-    title: '1: How do I…',
-    decorators: [
-        storyFn =>
-            `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`
-    ]
+  title: '1: How do I…',
+  decorators: [
+    (storyFn) =>
+      `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`,
+  ],
 };
 
 export const useThis = () => Quickstart;

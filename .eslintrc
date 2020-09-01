@@ -1,42 +1,42 @@
 {
-    "extends": ["airbnb-base", "plugin:@typescript-eslint/recommended"],
-    "env": {
-        "browser": true
-    },
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
-            }
-        }
-    },
-    "plugins": ["prettier", "@typescript-eslint"],
-    "rules": {
-        "prettier/prettier": "error",
-        "indent": ["error", 4],
-        "comma-dangle": "off",
-        "arrow-parens": "off",
-        "no-plusplus": "off",
-        "operator-linebreak": "off",
-        "implicit-arrow-linebreak": "off",
-        "object-curly-newline": "off",
-        "import/extensions": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-empty-function": "warn"
-    },
-    "overrides": [
-        {
-            "files": ["*.js"],
-            "rules": {
-                "@typescript-eslint/explicit-module-boundary-types": "off"
-            }
-        }
-    ],
-    "ignorePatterns": [
-        "lib",
-        "tsconfig*",
-        "**/src/**/*.scss",
-        "**/src/**/__fixtures__/*.html"
-    ],
-    "parser": "@typescript-eslint/parser"
+  "extends": ["airbnb-base", "plugin:@typescript-eslint/recommended"],
+  "env": {
+    "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "plugins": ["prettier", "@typescript-eslint"],
+  "rules": {
+    "prettier/prettier": "error",
+    "indent": ["error", 2],
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "no-plusplus": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "object-curly-newline": "off",
+    "import/extensions": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-empty-function": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "lib",
+    "tsconfig*",
+    "**/src/**/*.scss",
+    "**/src/**/__fixtures__/*.html"
+  ],
+  "parser": "@typescript-eslint/parser"
 }

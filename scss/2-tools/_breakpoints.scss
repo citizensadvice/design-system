@@ -1,112 +1,108 @@
 // Name of the next breakpoint (null for the last one)
 @function cads-breakpoint-next(
-    $name,
-    $breakpoints: $cads-breakpoints,
-    $breakpoint-names: map-keys($cads-breakpoints)
+  $name,
+  $breakpoints: $cads-breakpoints,
+  $breakpoint-names: map-keys($cads-breakpoints)
 ) {
-    $n: index($breakpoint-names, $name);
+  $n: index($breakpoint-names, $name);
 
-    @return if(
-        $n < length($breakpoint-names),
-        nth($breakpoint-names, $n + 1),
-        null
-    );
+  @return if(
+    $n < length($breakpoint-names),
+    nth($breakpoint-names, $n + 1),
+    null
+  );
 }
 
 // Minimum breakpoint width (null for the first one)
 @function cads-breakpoint-min($name, $breakpoints: $cads-breakpoints) {
-    $min: map-get($breakpoints, $name);
+  $min: map-get($breakpoints, $name);
 
-    @return if($min != 0, $min, null);
+  @return if($min != 0, $min, null);
 }
 
 // Maximum breakpoint width (null for the last one)
 @function cads-breakpoint-max($name, $breakpoints: $cads-breakpoints) {
-    $next: cads-breakpoint-next($name, $breakpoints);
+  $next: cads-breakpoint-next($name, $breakpoints);
 
-    @return if($next, cads-breakpoint-min($next, $breakpoints) - 0.02px, null);
+  @return if($next, cads-breakpoint-min($next, $breakpoints) - 0.02px, null);
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
 @mixin cads-media-breakpoint-up($name, $breakpoints: $cads-breakpoints) {
-    $min: cads-breakpoint-min($name, $breakpoints);
+  $min: cads-breakpoint-min($name, $breakpoints);
 
-    @if $min {
-        @media (min-width: $min) {
-            @content;
-        }
-    } @else {
-        @content;
+  @if $min {
+    @media (min-width: $min) {
+      @content;
     }
+  } @else {
+    @content;
+  }
 }
 
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin cads-media-breakpoint-down($name, $breakpoints: $cads-breakpoints) {
-    $max: cads-breakpoint-max($name, $breakpoints);
+  $max: cads-breakpoint-max($name, $breakpoints);
 
-    @if $max {
-        @media (max-width: $max) {
-            @content;
-        }
-    } @else {
-        @content;
+  @if $max {
+    @media (max-width: $max) {
+      @content;
     }
+  } @else {
+    @content;
+  }
 }
 
 // Media that spans multiple breakpoint widths.
 // Makes the @content apply between the min and max breakpoints
 @mixin cads-media-breakpoint-between(
-    $lower,
-    $upper,
-    $breakpoints: $cads-breakpoints
+  $lower,
+  $upper,
+  $breakpoints: $cads-breakpoints
 ) {
-    $min: cads-breakpoint-min($lower, $breakpoints);
-    $max: cads-breakpoint-max($upper, $breakpoints);
+  $min: cads-breakpoint-min($lower, $breakpoints);
+  $max: cads-breakpoint-max($upper, $breakpoints);
 
-    @if $min != null and $max != null {
-        @media (min-width: $min) and (max-width: $max) {
-            @content;
-        }
-    } @else if $max == null {
-        @include cads-media-breakpoint-up($lower, $breakpoints) {
-            @content;
-        }
-    } @else if $min == null {
-        @include cads-media-breakpoint-down($upper, $breakpoints) {
-            @content;
-        }
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
     }
+  } @else if $max == null {
+    @include cads-media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include cads-media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
 }
 
 // Media between the breakpoint's minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply ONLY to the given breakpoint.
 @mixin cads-media-breakpoint-only($name, $breakpoints: $cads-breakpoints) {
-    $min: cads-breakpoint-min($name, $breakpoints);
-    $max: cads-breakpoint-max($name, $breakpoints);
+  $min: cads-breakpoint-min($name, $breakpoints);
+  $max: cads-breakpoint-max($name, $breakpoints);
 
-    @if $min != null and $max != null {
-        @media (min-width: $min) and (max-width: $max) {
-            @content;
-        }
-    } @else if $max == null {
-        @include cads-media-breakpoint-up($name, $breakpoints) {
-            @content;
-        }
-    } @else if $min == null {
-        @include cads-media-breakpoint-down($name, $breakpoints) {
-            @content;
-        }
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
     }
+  } @else if $max == null {
+    @include cads-media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include cads-media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
 }
 
 // Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
 @function cads-breakpoint-infix($name, $breakpoints: $cads-breakpoints) {
-    @return if(
-        cads-breakpoint-min($name, $breakpoints) == null,
-        '',
-        '-#{$name}'
-    );
+  @return if(cads-breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }

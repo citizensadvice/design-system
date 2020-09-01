@@ -9,58 +9,58 @@
  */
 
 .cads-greedy-nav {
-    white-space: nowrap; // prevent flash of unstyled content
+  white-space: nowrap; // prevent flash of unstyled content
 
-    /*
+  /*
       * Makes sure the menu's are inline-block so they don't take up
       * the entire width of its parent. This will break the plugin.
       */
-    > ul {
-        display: inline-block;
+  > ul {
+    display: inline-block;
 
-        > li {
-            display: inline-block;
-        }
+    > li {
+      display: inline-block;
+    }
+  }
+
+  #cadsGreedyNavLabel {
+    display: none;
+  }
+
+  &__dropdown {
+    z-index: 1000;
+    position: absolute;
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
     }
 
-    #cadsGreedyNavLabel {
-        display: none;
+    &-toggle {
+      visibility: hidden;
+      position: absolute;
     }
+  }
 
-    &__dropdown {
-        z-index: 1000;
-        position: absolute;
-        visibility: hidden;
-
-        &.show {
-            visibility: visible;
-        }
-
+  &-has-dropdown {
+    .cads-greedy-nav {
+      &__dropdown {
         &-toggle {
-            visibility: hidden;
-            position: absolute;
+          position: relative;
         }
+      }
     }
+  }
 
-    &-has-dropdown {
-        .cads-greedy-nav {
-            &__dropdown {
-                &-toggle {
-                    position: relative;
-                }
-            }
-        }
-    }
+  &__wrapper {
+    position: relative;
+  }
 
-    &__wrapper {
-        position: relative;
-    }
+  &-is-visible {
+    visibility: visible;
+  }
 
-    &-is-visible {
-        visibility: visible;
-    }
-
-    &-is-hidden {
-        visibility: hidden;
-    }
+  &-is-hidden {
+    visibility: hidden;
+  }
 }

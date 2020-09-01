@@ -1,1 +1,8 @@
 *.md
+lib
+docs
+vendor/bundle
+testing/visual-regression/backstop_data/**/*
+testing/package-lock.json
+stats/*
+assets/cads.css

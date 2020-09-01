@@ -1,23 +1,23 @@
 $cads-grid-columns: 12 !default;
 
 $cads-grid-breakpoint-gutters: (
-    // 16px
-        sm: $cads-spacing-4,
-    // 32px
-        md: $cads-spacing-6,
-    // 32px
-        lg: $cads-spacing-7
+  // 16px
+  sm: $cads-spacing-4,
+  // 32px
+  md: $cads-spacing-6,
+  // 32px
+  lg: $cads-spacing-7
 ) !default;
 
 $cads-nav-breakpoint-gutters: (
-    // 0px
-        sm: 0,
-    // 16px
-        md: $cads-spacing-5,
-    // 16px
-        lg: $cads-spacing-6
+  // 0px
+  sm: 0,
+  // 16px
+  md: $cads-spacing-5,
+  // 16px
+  lg: $cads-spacing-6
 ) !default;
 
 $cads-container-max-widths: (
-    lg: $cads-max-content-size
+  lg: $cads-max-content-size,
 ) !default;

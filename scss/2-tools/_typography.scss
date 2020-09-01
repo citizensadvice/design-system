@@ -4,15 +4,15 @@
     update the list of elements that we want to check against.
 */
 @mixin cads-adjacent-heading-margin($m) {
-    h2 + &,
-    h3 + &,
-    h4 + &,
-    p + &,
-    ul + &,
-    img + &,
-    details + &,
-    table + &,
-    .cads-callout + & {
-        margin-top: $m;
-    }
+  h2 + &,
+  h3 + &,
+  h4 + &,
+  p + &,
+  ul + &,
+  img + &,
+  details + &,
+  table + &,
+  .cads-callout + & {
+    margin-top: $m;
+  }
 }

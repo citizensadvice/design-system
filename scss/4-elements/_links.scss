@@ -1,33 +1,33 @@
 a,
 .cads-hyperlink {
-    color: $cads-language__link-colour;
-    text-decoration: underline;
+  color: $cads-language__link-colour;
+  text-decoration: underline;
 
-    // Visited links should be browser default
+  // Visited links should be browser default
 
-    &:hover {
-        color: $cads-language__link-hover-colour;
-        background-color: $cads-language__hover-background-colour;
-    }
+  &:hover {
+    color: $cads-language__link-hover-colour;
+    background-color: $cads-language__hover-background-colour;
+  }
 
-    &:active {
-        color: $cads-palette__black;
-    }
+  &:active {
+    color: $cads-palette__black;
+  }
 
-    &:focus {
-        color: $cads-palette__black;
-        background-color: $cads-language__focus-colour;
-        text-decoration: none;
-        border-bottom: 2px solid $cads-palette__black;
-    }
+  &:focus {
+    color: $cads-palette__black;
+    background-color: $cads-language__focus-colour;
+    text-decoration: none;
+    border-bottom: 2px solid $cads-palette__black;
+  }
 }
 
 .cads-linkbutton {
-    border: none;
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 
-    @extend .cads-heading-small;
-    @extend .cads-hyperlink;
+  @extend .cads-heading-small;
+  @extend .cads-hyperlink;
 }

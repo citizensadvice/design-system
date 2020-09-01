@@ -17,7 +17,7 @@
         "block-closing-brace-newline-after": null,
         "color-named": "never",
         "declaration-colon-newline-after": null,
-        "indentation": 4,
+        "indentation": 2,
         "property-blacklist": ["transition"],
         "rule-empty-line-before": [
             "always-multi-line",

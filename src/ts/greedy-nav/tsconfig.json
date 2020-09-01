@@ -1,9 +1,9 @@
 {
-    "extends": "../../../tsconfig-base.json",
-    "compilerOptions": {
-        "outFile": "../../../lib/greedy-nav.js",
-        "rootDir": "."
-    },
-    "include": ["./**/*.ts"],
-    "exclude": ["./**/*.spec.ts"]
+  "extends": "../../../tsconfig-base.json",
+  "compilerOptions": {
+    "outFile": "../../../lib/greedy-nav.js",
+    "rootDir": "."
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["./**/*.spec.ts"]
 }

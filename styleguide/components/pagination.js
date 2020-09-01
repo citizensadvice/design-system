@@ -1,7 +1,7 @@
 import wrapper from '../component-wrapper';
 
 const Pagination = () => {
-    const component = `<ul class="cads-list-unordered__inline cads-paging">
+  const component = `<ul class="cads-list-unordered__inline cads-paging">
     <li class="cads-paging">
         <button type="button">
             First
@@ -48,12 +48,12 @@ const Pagination = () => {
         </button>
     </li>
 </ul>`;
-    return wrapper('Pagination', component);
+  return wrapper('Pagination', component);
 };
 
 const PagingInfo = () => {
-    const component = '<h2 class="cads-paging-info">123456 results</h2>';
-    return wrapper('PagingInfo', component);
+  const component = '<h2 class="cads-paging-info">123456 results</h2>';
+  return wrapper('PagingInfo', component);
 };
 
 export { Pagination, PagingInfo };

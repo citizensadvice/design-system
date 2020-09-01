@@ -1,63 +1,63 @@
 header,
 .cads-header {
-    background-color: $cads-palette__white;
-    padding: $cads-spacing-4 0;
+  background-color: $cads-palette__white;
+  padding: $cads-spacing-4 0;
 
-    .cads-search {
-        margin-top: 1rem;
+  .cads-search {
+    margin-top: 1rem;
+  }
+
+  .cads-search-reveal {
+    display: none;
+    padding: 11px 12px 11px 12px;
+    color: $cads-language__primary-button-colour;
+    margin: 0;
+    box-shadow: none;
+
+    &:hover {
+      color: $cads-language__primary-button-hover-colour;
+    }
+
+    /* stylelint-disable */
+    &:focus,
+    &:active {
+      color: $cads-language__focus-text-colour;
+    }
+    /* stylelint-enable */
+  }
+
+  .cads-header-account-panel li {
+    font-size: 1rem;
+  }
+
+  @include cads-media-breakpoint-only(sm) {
+    .cads-header-logo-row {
+      display: flex;
+      justify-content: space-between;
     }
 
     .cads-search-reveal {
-        display: none;
-        padding: 11px 12px 11px 12px;
-        color: $cads-language__primary-button-colour;
-        margin: 0;
-        box-shadow: none;
-
-        &:hover {
-            color: $cads-language__primary-button-hover-colour;
-        }
-
-        /* stylelint-disable */
-        &:focus,
-        &:active {
-            color: $cads-language__focus-text-colour;
-        }
-        /* stylelint-enable */
+      display: inline-block;
+      width: $cads-interactive-target-size;
     }
 
-    .cads-header-account-panel li {
-        font-size: 1rem;
+    .cads-header-account-panel {
+      display: none;
     }
 
-    @include cads-media-breakpoint-only(sm) {
-        .cads-header-logo-row {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .cads-search-reveal {
-            display: inline-block;
-            width: $cads-interactive-target-size;
-        }
-
-        .cads-header-account-panel {
-            display: none;
-        }
-
-        .cads-search {
-            margin-top: 0;
-        }
-
-        .cads-header-search-row {
-            margin-top: 1rem;
-            display: none;
-        }
-
-        &.cads-header-show-search {
-            .cads-header-search-row {
-                display: block;
-            }
-        }
+    .cads-search {
+      margin-top: 0;
     }
+
+    .cads-header-search-row {
+      margin-top: 1rem;
+      display: none;
+    }
+
+    &.cads-header-show-search {
+      .cads-header-search-row {
+        display: block;
+      }
+    }
+  }
 }

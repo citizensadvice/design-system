@@ -1,49 +1,49 @@
 @media print {
-    // Components that are not shown when printing
-    .cads-advice-feedback,
-    .cads-breadcrumbs,
-    .cads-error-summary,
-    .cads-feedback,
-    .cads-header-account-panel,
-    footer,
-    .cads-footer,
-    .cads-navigation,
-    .cads-search,
-    .cads-search-reveal,
-    .cads-success-message,
-    .cads-related-content,
-    .cads-website-feedback {
-        display: none !important;
-    }
+  // Components that are not shown when printing
+  .cads-advice-feedback,
+  .cads-breadcrumbs,
+  .cads-error-summary,
+  .cads-feedback,
+  .cads-header-account-panel,
+  footer,
+  .cads-footer,
+  .cads-navigation,
+  .cads-search,
+  .cads-search-reveal,
+  .cads-success-message,
+  .cads-related-content,
+  .cads-website-feedback {
+    display: none !important;
+  }
 
-    // Components that adapt for printing
-    .cads-callout {
-        background: transparent !important;
-        border-top: none !important;
-        border-right: none !important;
-        border-bottom: none !important;
-    }
+  // Components that adapt for printing
+  .cads-callout {
+    background: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
 
-    .cads-targeted-content {
-        .cads-icon_minus,
-        .cads-icon_plus,
-        &__close-button,
-        .cads-separator {
-            display: none !important;
-        }
+  .cads-targeted-content {
+    .cads-icon_minus,
+    .cads-icon_plus,
+    &__close-button,
+    .cads-separator {
+      display: none !important;
     }
+  }
 
-    @page {
-        /* stylelint-disable */
-        size: A4; /* DIN A4 standard, Europe */
-        /* stylelint-enable */
-        margin: 13mm 12mm;
-    }
+  @page {
+    /* stylelint-disable */
+    size: A4; /* DIN A4 standard, Europe */
+    /* stylelint-enable */
+    margin: 13mm 12mm;
+  }
 
-    html,
-    body {
-        margin: 0;
-        background: #fff;
-        overflow: visible;
-    }
+  html,
+  body {
+    margin: 0;
+    background: #fff;
+    overflow: visible;
+  }
 }

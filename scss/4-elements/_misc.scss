@@ -1,35 +1,35 @@
 hr,
 .cads-separator {
-    padding: 0;
-    width: 100%;
-    display: block;
-    margin: $cads-spacing-3 0;
-    border: none;
-    border-top: solid $cads-border-width-small $cads-language__border-colour;
+  padding: 0;
+  width: 100%;
+  display: block;
+  margin: $cads-spacing-3 0;
+  border: none;
+  border-top: solid $cads-border-width-small $cads-language__border-colour;
 }
 
 .cads-main-content {
-    @extend .cads-max-content-width;
+  @extend .cads-max-content-width;
 
-    padding-top: $cads-spacing-5;
-    padding-bottom: 2 * $cads-spacing-7;
+  padding-top: $cads-spacing-5;
+  padding-bottom: 2 * $cads-spacing-7;
 
-    h1 {
-        margin-top: $cads-spacing-5;
-    }
+  h1 {
+    margin-top: $cads-spacing-5;
+  }
 
-    img {
-        padding: 0;
-        margin: 0 0 $cads-spacing-4 0;
-    }
+  img {
+    padding: 0;
+    margin: 0 0 $cads-spacing-4 0;
+  }
 }
 
 .cads-asset-type {
-    &::before {
-        content: '[';
-    }
+  &::before {
+    content: '[';
+  }
 
-    &::after {
-        content: ']';
-    }
+  &::after {
+    content: ']';
+  }
 }
