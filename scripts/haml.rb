@@ -9,6 +9,9 @@ HTML_EXTENSION = '.html.haml'
 STORY_DIR = File.join(Dir.pwd, 'styleguide', 'components', 'haml')
 LOCALS = @locals
 
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
 ##
 # Emulates the rails render helper so that nested partials can be rendered
 def render(partial, opts = {})
@@ -24,13 +27,13 @@ def render(partial, opts = {})
 
   File.open(File.join(HAML_DIR, haml_file), 'r') do |file|
     engine = Haml::Engine.new(file.read)
-    engine.render(Object.new, LOCALS.merge(locals)) 
+    engine.render(Object.new, LOCALS.merge(locals))
   end
 end
 
 ##
 # Renders a comment in place of a react component.
-def react_component(component_class_name, props={}, html_options={}) 
+def react_component(component_class_name, props={}, html_options={})
   "<!-- there should be a #{component_class_name} react_component here -->"
 end
 

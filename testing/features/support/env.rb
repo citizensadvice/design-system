@@ -22,6 +22,7 @@ require_relative "helpers/drivers"
 require_relative "helpers/faraday"
 require_relative "helpers/methods"
 require_relative "helpers/page"
+require_relative "helpers/regex"
 
 require_relative "automation_logger"
 
@@ -40,6 +41,7 @@ require_relative "drivers/browserstack/ios"
 World(
   Helpers::Page,
   Helpers::Methods,
+  Helpers::Regex,
   Capybara::RSpecMatcherProxies
 )
 
