@@ -30,9 +30,9 @@ pipeline {
                 script { env.BUILD_STAGE = 'Lint' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/lint'
+                }
             }
         }
-    }
         stage('Test') {
             steps {
                 script { env.BUILD_STAGE = 'Test' }
@@ -40,9 +40,10 @@ pipeline {
                     "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/validate_vr_tests'
                     sh './bin/jenkins/test'
+                    sh './bin/docker/grid_tests'
+                }
             }
         }
-}
     }
 
     post {
@@ -59,6 +60,16 @@ pipeline {
                 reportDir: 'reports/html_report',
                 reportFiles: 'index.html',
                 reportName: 'BackstopJS Report',
+            ])
+            archiveArtifacts([
+                artifacts: 'artifacts/screenshots/*.png, ' +
+                'artifacts/reports/report.html, ' +
+                'artifacts/reports/*.xml, ' +
+                'artifacts/reports/report.json, ' +
+                'artifacts/html_pages/*.html, ' +
+                'artifacts/logs/*.log',
+                allowEmptyArchive: true,
+                caseSensitive: false
             ])
             script {
                 if (deployBranches.contains(BRANCH_NAME)) {
@@ -78,6 +89,8 @@ pipeline {
                     }
                 }
             }
+
+            cleanWs()
         }
         cleanup {
             sh 'rm -rf reports'
