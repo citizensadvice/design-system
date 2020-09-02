@@ -48,29 +48,27 @@ pipeline {
                     sh './bin/jenkins/test'
                     sh './bin/docker/grid_tests'
                 }
-
-                // Debug code to be removed after testing
-                configurationTypes.each { config, browser ->
-                    sh 'echo $config'
-                    sh 'echo $browser'
-                }
             }
         }
         stage('Full Regression Test') {
             steps {
-                if (deployBranches.contains(BRANCH_NAME)) {
-                    script { env.BUILD_STAGE = 'Full Regression Test' }
-                    withVaultSecrets([
-                        BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-                        BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-                    ])
-                    {
-                        withDockerSandbox {
-                            configurationTypes.each { config, browser ->
-                                sh 'echo $config'
-                                sh 'echo $browser'
+                script {
+                    if (deployBranches.contains(BRANCH_NAME)) {
+                        env.BUILD_STAGE = 'Full Regression Test'
+                        withVaultSecrets([
+                            BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+                            BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+                        ])
+                        {
+                            withDockerSandbox {
+                                configurationTypes.each { opts ->
+                                    config = opts[0]
+                                    browser = opts[1]
+                                    sh "echo Browserstack configuration to be used is: $config"
+                                    sh "echo Browser Under Test is: $browser"
+                                    sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
+                                }
                             }
-                            sh './bin/docker/browserstack_tests'
                         }
                     }
                 }
