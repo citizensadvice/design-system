@@ -33,14 +33,31 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Sanity Test') {
             steps {
-                script { env.BUILD_STAGE = 'Test' }
+                script { env.BUILD_STAGE = 'Sanity Test' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
                     "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/validate_vr_tests'
                     sh './bin/jenkins/test'
                     sh './bin/docker/grid_tests'
+                }
+            }
+        }
+
+        stage('Full Regression Test') {
+            if (deployBranches.contains(BRANCH_NAME)) {
+                steps {
+                    script { env.BUILD_STAGE = 'Full Regression Test' }
+                    withVaultSecrets([
+                        BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+                        BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+                    ])
+                    {
+                        withDockerSandbox {
+                            sh './bin/docker/browserstack_tests'
+                        }
+                    }
                 }
             }
         }

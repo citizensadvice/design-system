@@ -14,6 +14,9 @@ quote_type = "single"
 [*.{rb, feature, haml, yml}]
 indent_size = 2
 
+[Jenkinsfile]
+indent_size = 4
+
 [*.md]
 max_line_length = 0
 trim_trailing_whitespace = false
