@@ -42,6 +42,18 @@ pipeline {
                     sh './bin/jenkins/test'
                     sh './bin/docker/grid_tests'
                 }
+
+                // Debug code to be removed after testing
+                configurationTypes = [
+                    ['Windows_10_83', 'chrome'],
+                    ['Windows_7_83', 'chrome'],
+                    ['OSX_Mojave_83', 'chrome'],
+                ]
+
+                configurationTypes.each { config, browser ->
+                    sh 'echo $config'
+                    sh 'echo $browser'
+                }
             }
         }
 
@@ -55,6 +67,16 @@ pipeline {
                     ])
                     {
                         withDockerSandbox {
+                            configurationTypes = [
+                                ['Windows_10_83', 'chrome'],
+                                ['Windows_7_83', 'chrome'],
+                                ['OSX_Mojave_83', 'chrome'],
+                            ]
+
+                            configurationTypes.each { config, browser ->
+                                sh 'echo $config'
+                                sh 'echo $browser'
+                            }
                             sh './bin/docker/browserstack_tests'
                         }
                     }
