@@ -37,7 +37,8 @@
     "vr-test:open-report": "cd testing/visual-regression && npx backstop openReport",
     "vr-test:sync": "node scripts/vr-test-sync.js",
     "vr-test:validate": "node scripts/vr-test-sync.js -- --validate",
-    "wcag-test": "node scripts/wcag-test.js"
+    "wcag-test": "npm-run-all --parallel styleguide wcag",
+    "wcag": "node testing/wcag/scripts/wcag-test.js"
   },
   "repository": {
     "type": "git",
