@@ -1,5 +1,11 @@
 deployBranches = ['master']
 
+configurationTypes = [
+    ['Windows_10_83', 'chrome'],
+    ['Windows_7_83', 'chrome'],
+    ['OSX_Mojave_83', 'chrome'],
+]
+
 pipeline {
     agent {
         label 'docker && awsaccess'
@@ -25,7 +31,7 @@ pipeline {
                 }
             }
         }
-        stage ('Lint') {
+        stage('Lint') {
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
@@ -33,14 +39,37 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Sanity Test') {
             steps {
-                script { env.BUILD_STAGE = 'Test' }
+                script { env.BUILD_STAGE = 'Sanity Test' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
                     "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     sh './bin/jenkins/validate_vr_tests'
                     sh './bin/jenkins/test'
                     sh './bin/docker/grid_tests'
+                }
+            }
+        }
+        stage('Full Regression Test') {
+            steps {
+                script {
+                    if (deployBranches.contains(BRANCH_NAME)) {
+                        env.BUILD_STAGE = 'Full Regression Test'
+                        withVaultSecrets([
+                            BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+                            BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+                        ])
+                        {
+                            withDockerSandbox {
+                                configurationTypes.each { opts ->
+                                    def (config, browser) = opts
+                                    sh "echo Browserstack configuration to be used is: $config"
+                                    sh "echo Browser Under Test is: $browser"
+                                    sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

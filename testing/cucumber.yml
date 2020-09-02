@@ -1,4 +1,4 @@
-passing: --tags 'not @failing'
+passing: --tags 'not @failing and not @future_release'
 
 html: --format html --out artifacts/reports/report.html
 junit: --format junit --out artifacts/reports
