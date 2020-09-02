@@ -1,5 +1,11 @@
 deployBranches = ['master']
 
+configurationTypes = [
+    ['Windows_10_83', 'chrome'],
+    ['Windows_7_83', 'chrome'],
+    ['OSX_Mojave_83', 'chrome'],
+]
+
 pipeline {
     agent {
         label 'docker && awsaccess'
@@ -25,7 +31,7 @@ pipeline {
                 }
             }
         }
-        stage ('Lint') {
+        stage('Lint') {
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
@@ -44,22 +50,15 @@ pipeline {
                 }
 
                 // Debug code to be removed after testing
-                configurationTypes = [
-                    ['Windows_10_83', 'chrome'],
-                    ['Windows_7_83', 'chrome'],
-                    ['OSX_Mojave_83', 'chrome'],
-                ]
-
                 configurationTypes.each { config, browser ->
                     sh 'echo $config'
                     sh 'echo $browser'
                 }
             }
         }
-
         stage('Full Regression Test') {
-            if (deployBranches.contains(BRANCH_NAME)) {
-                steps {
+            steps {
+                if (deployBranches.contains(BRANCH_NAME)) {
                     script { env.BUILD_STAGE = 'Full Regression Test' }
                     withVaultSecrets([
                         BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
@@ -67,12 +66,6 @@ pipeline {
                     ])
                     {
                         withDockerSandbox {
-                            configurationTypes = [
-                                ['Windows_10_83', 'chrome'],
-                                ['Windows_7_83', 'chrome'],
-                                ['OSX_Mojave_83', 'chrome'],
-                            ]
-
                             configurationTypes.each { config, browser ->
                                 sh 'echo $config'
                                 sh 'echo $browser'
