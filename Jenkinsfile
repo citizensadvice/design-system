@@ -62,8 +62,7 @@ pipeline {
                         {
                             withDockerSandbox {
                                 configurationTypes.each { opts ->
-                                    config = opts[0]
-                                    browser = opts[1]
+                                    def (config, browser) = opts
                                     sh "echo Browserstack configuration to be used is: $config"
                                     sh "echo Browser Under Test is: $browser"
                                     sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
