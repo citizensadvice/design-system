@@ -28,9 +28,19 @@ The `check-size` script will check the current output and compare it to the last
 
 ### Testing
 
+#### Visual regression
+
 As this is just a CSS library to test it we use storybook. The concept is that a test version of storybook is built which is then used to do screenshot comparison in BackstopJS. BackstopJS automates visual regression testing of your responsive web UI by comparing DOM screenshots over time.
 
 You can install backstop by running `npm run vr-test:install`, this will install the visual regression testing tools. These are installed under `/testing` and have a separate package to the main Design System, this is done to keep the install time of the Design System low.
+
+#### Accessibility
+
+`pa11y-ci` is used to perform automated accessibility tests.  The default configuration is to use htmlsniffer and the urls in the `.pa11yci.*.json` config files.  The files are generated dynamically from the backtopJS scenarios when running the `wcag` tasks in `package.json`.
+
+The following tasks can be used to perform WCAG tests:
+  - `npm run wcag-test` &rarr; runs WCAG tests using the local config files.  This runs storybook then runs `pa11y-ci` against the local storybook urls
+  - `npm run wcag-test:ci` &rarr; runs WCAG tests using the ci config files.
 
 ### Releasing
 
