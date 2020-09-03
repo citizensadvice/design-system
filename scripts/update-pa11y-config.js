@@ -1,3 +1,16 @@
+/*
+ * Builds pa11y config files by extracting URLs from the backstop VR test data located
+ * in /testing/visual-regression.
+ *
+ * One config file for local testing is generated with links to storybook running locally
+ * (.pa11yci.local.json)
+ *
+ * Another is created for CI testing that points to internal docker in the same way as
+ * the visual regression tests. (.pa11yci.ci.json)
+ *
+ * Options for both configs can be added into the baseConfig object.
+ */
+
 const chalk = require('chalk');
 const localScenarios = require('../testing/visual-regression/backstop.json');
 const fs = require('fs');
@@ -5,9 +18,9 @@ const fs = require('fs');
 const baseConfig = {};
 const basePath = './testing/wcag/';
 
-// build config file from localScenarios
 // TODO: Upgrade storybook to 6 and use JSON export
 
+// Extracts urls from backstop testing scenarios, replaces host as directed
 const getComponentUrls = (host) => {
   return localScenarios.scenarios.map((scenario) => {
     if (host) {

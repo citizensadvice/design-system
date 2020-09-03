@@ -1,3 +1,7 @@
+/*
+ * Uses pa11y-ci and pa11y configs to perform WCAG 2 AA accessibility tests
+ */
+
 const chalk = require('chalk');
 const { log, error } = console;
 const childProcess = require('child_process');
@@ -6,6 +10,7 @@ const {
   createLocalPa11yConfigs,
 } = require('./update-pa11y-config.js');
 
+// use correct pa11y config based on args provided
 const ci = process.argv.some((arg) => arg === '--ci');
 const baseCommand = 'cd wcag && npx pa11y-ci';
 const command = ci
@@ -15,6 +20,7 @@ const command = ci
 // update pa11y configs using data in vr backstop scenarios
 ci ? createCiPa11yConfigs() : createLocalPa11yConfigs();
 
+// run storybook
 const storyBook = childProcess.exec(
   'npm run styleguide -- --ci',
   { maxBuffer: 1024 * 5000 },
@@ -30,7 +36,6 @@ const storyBook = childProcess.exec(
 );
 
 let started = false;
-
 storyBook.stdout.on('data', (data) => {
   if (!started && /^webpack built/.test(data)) {
     started = true;
@@ -39,6 +44,7 @@ storyBook.stdout.on('data', (data) => {
   }
 });
 
+// perform WCAG tests
 const runWcagTests = (storybook) => {
   log(chalk.green('Running pa11y WCAG tests'));
 
