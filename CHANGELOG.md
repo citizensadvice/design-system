@@ -1,6 +1,6 @@
 ## <sub>v1.8.3</sub>
 
-### _Sep 3, 2020_ ##
+#### _Sep 3, 2020_
 * NP-745 Move VR tests into /testing/visual-regression
 * NP-737 Install pa11y
 * NP-739 Create wcag-test task
