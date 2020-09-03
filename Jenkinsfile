@@ -91,12 +91,12 @@ pipeline {
                 reportName: 'BackstopJS Report',
             ])
             archiveArtifacts([
-                artifacts: 'artifacts/screenshots/*.png, ' +
-                'artifacts/reports/report.html, ' +
-                'artifacts/reports/*.xml, ' +
-                'artifacts/reports/report.json, ' +
-                'artifacts/html_pages/*.html, ' +
-                'artifacts/logs/*.log',
+                artifacts: 'testing/artifacts/screenshots/*.png, ' +
+                'testing/artifacts/reports/report.html, ' +
+                'testing/artifacts/reports/*.xml, ' +
+                'testing/artifacts/reports/report.json, ' +
+                'testing/artifacts/html_pages/*.html, ' +
+                'testing/artifacts/logs/*.log',
                 allowEmptyArchive: true,
                 caseSensitive: false
             ])
