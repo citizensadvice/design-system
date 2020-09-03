@@ -5,11 +5,9 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "backstopjs": "^4.5.1"
-  },
-  "devDependencies": {
-    "pa11y": "^5.3.0",
-    "wait-on": "^5.2.0"
+    "backstopjs": "^4.5.1",
+    "pa11y-ci": "^2.4.0",
+    "pa11y": "^5.3.0"
   },
   "author": "Marcelo Nicolosi <marcelo.nicolosi@citizensadvice.org.uk>",
   "license": "ISC"
