@@ -125,7 +125,7 @@
   },
 
   'alt_language'  => {
-    'url' => '#?lang=cy',
+    'url' => '?lang=cy',
     'title' => 'Cymraeg'
   },
 
