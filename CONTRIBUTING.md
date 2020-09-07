@@ -39,8 +39,8 @@ You can install backstop by running `npm run vr-test:install`, this will install
 `pa11y-ci` is used to perform automated accessibility tests.  The default configuration is to use htmlsniffer and the urls in the `.pa11yci.*.json` config files.  The files are generated dynamically from the backtopJS scenarios when running the `wcag` tasks in `package.json`.
 
 The following tasks can be used to perform WCAG tests:
-  - `npm run wcag-test` &rarr; runs WCAG tests using the local config files.  This runs storybook then runs `pa11y-ci` against the local storybook urls
-  - `npm run wcag-test:ci` &rarr; runs WCAG tests using the ci config files.
+  - `npm run wcag-test` - runs WCAG tests using the local config files.  This runs storybook then runs `pa11y-ci` against the local storybook urls
+  - `npm run wcag-test:ci` - runs WCAG tests using the ci config files.
 
 ### Releasing
 
