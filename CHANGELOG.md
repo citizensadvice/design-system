@@ -5,12 +5,8 @@
 * NP-738 Create wcag-test:ci task
 
 ## <sub>v1.9.0</sub>
+
 #### _Sep. 7, 2020_
-* NP-744 Run Browser tests inside CI pipeline
-* NP-642 Header takes language switcher paramaters
-
-## <sub>v1.8.2</sub>
-
 * NP-744 Run Browser tests inside CI pipeline
 * NP-642 Header takes language switcher paramaters
 
