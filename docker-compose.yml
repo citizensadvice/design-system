@@ -24,6 +24,18 @@ services:
     depends_on:
       - ca-styleguide
 
+  wcag-tests:
+    build:
+      context: ./
+      dockerfile: ./testing/Dockerfile.wcag
+    image: 'ca-wcag-tests${CA_STYLEGUIDE_VERSION_TAG}'
+    container_name: wcag_tests.test
+    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- pa11y-ci --config /app/config.js
+    volumes:
+      - ./testing/wcag/.pa11yci.ci.json:/app/config.json
+    depends_on:
+      - ca-styleguide
+
   cucumber: &cucumber_default
     build:
       context: ./
