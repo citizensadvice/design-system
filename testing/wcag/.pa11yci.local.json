@@ -1,1 +1,40 @@
-{"urls":["http://localhost:6006/iframe.html?id=2-design-foundations--colour-language","http://localhost:6006/iframe.html?id=2-design-foundations--colour-palette","http://localhost:6006/iframe.html?id=3-components--advice-feedback","http://localhost:6006/iframe.html?id=3-components--advice-feedback","http://localhost:6006/iframe.html?id=3-components--advice-feedback","http://localhost:6006/iframe.html?id=3-components--asset-hyperlink","http://localhost:6006/iframe.html?id=3-components--breadcrumb","http://localhost:6006/iframe.html?id=3-components--buttons","http://localhost:6006/iframe.html?id=3-components--callout","http://localhost:6006/iframe.html?id=3-components--contact-details","http://localhost:6006/iframe.html?id=3-components--error-summary","http://localhost:6006/iframe.html?id=3-components--footer","http://localhost:6006/iframe.html?id=3-components--header","http://localhost:6006/iframe.html?id=3-components--input","http://localhost:6006/iframe.html?id=3-components--logo","http://localhost:6006/iframe.html?id=3-components--navigation","http://localhost:6006/iframe.html?id=3-components--notice-banner","http://localhost:6006/iframe.html?id=3-components--page-review","http://localhost:6006/iframe.html?id=3-components--pagination","http://localhost:6006/iframe.html?id=3-components--paging-info","http://localhost:6006/iframe.html?id=3-components--radio-group","http://localhost:6006/iframe.html?id=3-components--radio-group-small","http://localhost:6006/iframe.html?id=3-components--search","http://localhost:6006/iframe.html?id=3-components--success-message","http://localhost:6006/iframe.html?id=3-components--targeted-content","http://localhost:6006/iframe.html?id=3-components--textarea","http://localhost:6006/iframe.html?id=3-components--website-feedback","http://localhost:6006/iframe.html?id=3-components--related-content","http://localhost:6006/iframe.html?id=3-components--tables"]}
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox"
+      ]
+    }
+  },
+  "urls": [
+    "http://localhost:6006/iframe.html?id=2-design-foundations--colour-language",
+    "http://localhost:6006/iframe.html?id=2-design-foundations--colour-palette",
+    "http://localhost:6006/iframe.html?id=3-components--advice-feedback",
+    "http://localhost:6006/iframe.html?id=3-components--advice-feedback",
+    "http://localhost:6006/iframe.html?id=3-components--advice-feedback",
+    "http://localhost:6006/iframe.html?id=3-components--asset-hyperlink",
+    "http://localhost:6006/iframe.html?id=3-components--breadcrumb",
+    "http://localhost:6006/iframe.html?id=3-components--buttons",
+    "http://localhost:6006/iframe.html?id=3-components--callout",
+    "http://localhost:6006/iframe.html?id=3-components--contact-details",
+    "http://localhost:6006/iframe.html?id=3-components--error-summary",
+    "http://localhost:6006/iframe.html?id=3-components--footer",
+    "http://localhost:6006/iframe.html?id=3-components--header",
+    "http://localhost:6006/iframe.html?id=3-components--input",
+    "http://localhost:6006/iframe.html?id=3-components--logo",
+    "http://localhost:6006/iframe.html?id=3-components--navigation",
+    "http://localhost:6006/iframe.html?id=3-components--notice-banner",
+    "http://localhost:6006/iframe.html?id=3-components--page-review",
+    "http://localhost:6006/iframe.html?id=3-components--pagination",
+    "http://localhost:6006/iframe.html?id=3-components--paging-info",
+    "http://localhost:6006/iframe.html?id=3-components--radio-group",
+    "http://localhost:6006/iframe.html?id=3-components--radio-group-small",
+    "http://localhost:6006/iframe.html?id=3-components--search",
+    "http://localhost:6006/iframe.html?id=3-components--success-message",
+    "http://localhost:6006/iframe.html?id=3-components--targeted-content",
+    "http://localhost:6006/iframe.html?id=3-components--textarea",
+    "http://localhost:6006/iframe.html?id=3-components--website-feedback",
+    "http://localhost:6006/iframe.html?id=3-components--related-content",
+    "http://localhost:6006/iframe.html?id=3-components--tables"
+  ]
+}
