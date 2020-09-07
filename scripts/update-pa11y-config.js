@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /*
  * Builds pa11y config files by extracting URLs from the backstop VR test data located
  * in /testing/visual-regression.
@@ -12,24 +14,29 @@
  */
 
 const chalk = require('chalk');
-const localScenarios = require('../testing/visual-regression/backstop.json');
 const fs = require('fs');
+const localScenarios = require('../testing/visual-regression/backstop.json');
 
-const baseConfig = {};
+const dockerHost = 'ca-styleguide:6006';
+const baseConfig = {
+  defaults: {
+    chromeLaunchConfig: {
+      args: ['--no-sandbox'],
+    },
+  },
+};
 const basePath = './testing/wcag/';
 
 // TODO: Upgrade storybook to 6 and use JSON export
 
 // Extracts urls from backstop testing scenarios, replaces host as directed
-const getComponentUrls = (host) => {
-  return localScenarios.scenarios.map((scenario) => {
+const getComponentUrls = (host) =>
+  localScenarios.scenarios.map((scenario) => {
     if (host) {
       return scenario.url.replace('http://host.docker.internal:6006', host);
-    } else {
-      return scenario.url;
     }
+    return scenario.url;
   });
-};
 
 const createLocalPa11yConfigs = () => {
   const localUrls = getComponentUrls('http://localhost:6006');
@@ -41,17 +48,19 @@ const createLocalPa11yConfigs = () => {
 
   fs.writeFile(
     `${basePath}.pa11yci.local.json`,
-    JSON.stringify(localConfig),
+    JSON.stringify(localConfig, null, 2),
     (err) => {
-      err
-        ? console.log(chalk.red(err))
-        : console.log(chalk.green('Local pa11y config updated successfully.'));
+      if (err) {
+        console.log(chalk.red(err));
+      } else {
+        console.log(chalk.green('Local pa11y config updated successfully.'));
+      }
     }
   );
 };
 
 const createCiPa11yConfigs = () => {
-  const ciUrls = getComponentUrls();
+  const ciUrls = getComponentUrls(dockerHost);
 
   const ciConfig = {
     ...baseConfig,
@@ -60,11 +69,13 @@ const createCiPa11yConfigs = () => {
 
   fs.writeFile(
     `${basePath}.pa11yci.ci.json`,
-    JSON.stringify(ciConfig),
+    JSON.stringify(ciConfig, null, 2),
     (err) => {
-      err
-        ? console.log(chalk.red(console.log(err)))
-        : console.log(chalk.green('CI pa11y config updated successfully.'));
+      if (err) {
+        console.log(chalk.red(console.log(err)));
+      } else {
+        console.log(chalk.green('CI pa11y config updated successfully.'));
+      }
     }
   );
 };

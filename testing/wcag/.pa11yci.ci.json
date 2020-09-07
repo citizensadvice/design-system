@@ -1,1 +1,40 @@
-{"urls":["http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-language","http://host.docker.internal:6006/iframe.html?id=2-design-foundations--colour-palette","http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback","http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback","http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback","http://host.docker.internal:6006/iframe.html?id=3-components--asset-hyperlink","http://host.docker.internal:6006/iframe.html?id=3-components--breadcrumb","http://host.docker.internal:6006/iframe.html?id=3-components--buttons","http://host.docker.internal:6006/iframe.html?id=3-components--callout","http://host.docker.internal:6006/iframe.html?id=3-components--contact-details","http://host.docker.internal:6006/iframe.html?id=3-components--error-summary","http://host.docker.internal:6006/iframe.html?id=3-components--footer","http://host.docker.internal:6006/iframe.html?id=3-components--header","http://host.docker.internal:6006/iframe.html?id=3-components--input","http://host.docker.internal:6006/iframe.html?id=3-components--logo","http://host.docker.internal:6006/iframe.html?id=3-components--navigation","http://host.docker.internal:6006/iframe.html?id=3-components--notice-banner","http://host.docker.internal:6006/iframe.html?id=3-components--page-review","http://host.docker.internal:6006/iframe.html?id=3-components--pagination","http://host.docker.internal:6006/iframe.html?id=3-components--paging-info","http://host.docker.internal:6006/iframe.html?id=3-components--radio-group","http://host.docker.internal:6006/iframe.html?id=3-components--radio-group-small","http://host.docker.internal:6006/iframe.html?id=3-components--search","http://host.docker.internal:6006/iframe.html?id=3-components--success-message","http://host.docker.internal:6006/iframe.html?id=3-components--targeted-content","http://host.docker.internal:6006/iframe.html?id=3-components--textarea","http://host.docker.internal:6006/iframe.html?id=3-components--website-feedback","http://host.docker.internal:6006/iframe.html?id=3-components--related-content","http://host.docker.internal:6006/iframe.html?id=3-components--tables"]}
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox"
+      ]
+    }
+  },
+  "urls": [
+    "ca-styleguide:6006/iframe.html?id=2-design-foundations--colour-language",
+    "ca-styleguide:6006/iframe.html?id=2-design-foundations--colour-palette",
+    "ca-styleguide:6006/iframe.html?id=3-components--advice-feedback",
+    "ca-styleguide:6006/iframe.html?id=3-components--advice-feedback",
+    "ca-styleguide:6006/iframe.html?id=3-components--advice-feedback",
+    "ca-styleguide:6006/iframe.html?id=3-components--asset-hyperlink",
+    "ca-styleguide:6006/iframe.html?id=3-components--breadcrumb",
+    "ca-styleguide:6006/iframe.html?id=3-components--buttons",
+    "ca-styleguide:6006/iframe.html?id=3-components--callout",
+    "ca-styleguide:6006/iframe.html?id=3-components--contact-details",
+    "ca-styleguide:6006/iframe.html?id=3-components--error-summary",
+    "ca-styleguide:6006/iframe.html?id=3-components--footer",
+    "ca-styleguide:6006/iframe.html?id=3-components--header",
+    "ca-styleguide:6006/iframe.html?id=3-components--input",
+    "ca-styleguide:6006/iframe.html?id=3-components--logo",
+    "ca-styleguide:6006/iframe.html?id=3-components--navigation",
+    "ca-styleguide:6006/iframe.html?id=3-components--notice-banner",
+    "ca-styleguide:6006/iframe.html?id=3-components--page-review",
+    "ca-styleguide:6006/iframe.html?id=3-components--pagination",
+    "ca-styleguide:6006/iframe.html?id=3-components--paging-info",
+    "ca-styleguide:6006/iframe.html?id=3-components--radio-group",
+    "ca-styleguide:6006/iframe.html?id=3-components--radio-group-small",
+    "ca-styleguide:6006/iframe.html?id=3-components--search",
+    "ca-styleguide:6006/iframe.html?id=3-components--success-message",
+    "ca-styleguide:6006/iframe.html?id=3-components--targeted-content",
+    "ca-styleguide:6006/iframe.html?id=3-components--textarea",
+    "ca-styleguide:6006/iframe.html?id=3-components--website-feedback",
+    "ca-styleguide:6006/iframe.html?id=3-components--related-content",
+    "ca-styleguide:6006/iframe.html?id=3-components--tables"
+  ]
+}

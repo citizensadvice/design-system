@@ -1,8 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /*
  * Uses pa11y-ci and pa11y configs to perform WCAG 2 AA accessibility tests
  */
 
 const chalk = require('chalk');
+
 const { log, error } = console;
 const childProcess = require('child_process');
 const {
@@ -39,16 +42,7 @@ const storyBook = childProcess.exec(
   }
 );
 
-let started = false;
-storyBook.stdout.on('data', (data) => {
-  if (!started && /^webpack built/.test(data)) {
-    started = true;
-    log(chalk.green('Storybook started'));
-    runWcagTests(storyBook);
-  }
-});
-
-// perform WCAG tests
+// perform WC
 const runWcagTests = (storybook) => {
   log(chalk.green('Running pa11y WCAG tests'));
 
@@ -66,3 +60,12 @@ const runWcagTests = (storybook) => {
     process.exit(code);
   });
 };
+
+let started = false;
+storyBook.stdout.on('data', (data) => {
+  if (!started && /^webpack built/.test(data)) {
+    started = true;
+    log(chalk.green('Storybook started'));
+    runWcagTests(storyBook);
+  }
+});
