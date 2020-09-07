@@ -18,7 +18,11 @@ const command = ci
   : `${baseCommand} --config .pa11yci.local.json`;
 
 // update pa11y configs using data in vr backstop scenarios
-ci ? createCiPa11yConfigs() : createLocalPa11yConfigs();
+if (ci) {
+  createCiPa11yConfigs();
+} else {
+  createLocalPa11yConfigs();
+}
 
 // run storybook
 const storyBook = childProcess.exec(
