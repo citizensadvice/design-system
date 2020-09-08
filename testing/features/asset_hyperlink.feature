@@ -7,8 +7,7 @@ Feature: Asset Hyperlink component
     Given an Asset Hyperlink component is on the page
 
   Scenario: Validate initial state
-    Then the header says "Asset hyperlink"
-    And a link to the PDF is present
+    Then a link to the PDF is present
 
   Scenario: Label is informative and easy to understand for all types of user
     Then the label includes a name at the beginning

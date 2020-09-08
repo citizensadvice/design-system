@@ -5,9 +5,6 @@ Feature: Callout component
   Background:
     Given a Callout component is on the page
 
-  Scenario: Validate initial state
-    Then the header says "Callout"
-    And a callout title and message are present
-
-  Scenario: Ensure component has an "Important" label
-    Then an "Important" label is present above the callout title
+  Scenario: Validate state of component
+    Then a callout title and message are present
+    And an "Important" label is present above the callout title

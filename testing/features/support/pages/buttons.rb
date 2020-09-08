@@ -4,7 +4,6 @@ module DesignSystem
   class Buttons < SitePrism::Page
     set_url "/iframe.html?id=3-components--buttons&viewMode=story"
 
-    element :page_title, "h1"
     element :primary, "[type='button']:not(.cads-button)"
     element :secondary, "[type='button'].cads-button.cads-button__secondary"
     element :tertiary, "[type='button'].cads-button.cads-button__tertiary"

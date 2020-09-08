@@ -4,8 +4,6 @@ module DesignSystem
   class AdviceFeedback < SitePrism::Page
     set_url "/iframe.html?id=3-components--advice-feedback&viewMode=story"
 
-    element :page_title, "h1"
-
     section :initial_form, ".cads-advice-feedback__step1" do
       element :heading, ".cads-heading-small"
       element :yes, "#cads-advice-feedback__yes"

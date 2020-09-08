@@ -4,7 +4,6 @@ module DesignSystem
   class AssetHyperlink < SitePrism::Page
     set_url "/iframe.html?id=3-components--asset-hyperlink&viewMode=story"
 
-    element :page_title, "h1"
     section :initial_form, "#a11yComponentToTest" do
       element :download_link, "a"
       element :download_size, ".cads-asset-type"

@@ -7,8 +7,7 @@ Feature: Advice Feedback component
     Given an Advice Feedback component is on the page
 
   Scenario: Validate initial state
-    Then the header says "Advice feedback"
-    And I am able to provide feedback
+    Then I am able to provide feedback
 
   Scenario: User giving positive feedback
     When I inform Citizens Advice that the advice was useful
