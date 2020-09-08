@@ -37,10 +37,6 @@ Then("I am thanked for providing feedback") do
   expect(@component.positive_response_form.flash_message.text).to eq("Thank you for your feedback.")
 end
 
-Then("the header says {string}") do |string|
-  expect(@component.page_title.text).to eq(string)
-end
-
 Then("I must provide more information") do
   expect(@component).to have_negative_response_form
 

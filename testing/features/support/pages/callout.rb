@@ -4,8 +4,6 @@ module DesignSystem
   class Callout < SitePrism::Page
     set_url "/iframe.html?id=3-components--callout&viewMode=story"
 
-    element :page_title, "h1"
-
     section :initial_form, ".cads-callout-important" do
       element :heading, "h3"
       element :message, "p"

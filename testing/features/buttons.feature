@@ -7,8 +7,7 @@ Feature: Buttons components
     Given the Buttons component is on the page
 
   Scenario: Validate initial state
-    Then the header says "Buttons"
-    And all the buttons are present
+    Then all the buttons are present
 
   Scenario: Primary Button changes color when hovered over
     When I hover over the Primary Button

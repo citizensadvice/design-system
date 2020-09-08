@@ -6,9 +6,6 @@ Feature: Contact Details component
   Background:
     Given a Contact Details component is on the page
 
-  Scenario: Validate initial state
-    Then the header says "Contact details"
-
-  Scenario: Ensure component is of correct size/format
+  Scenario: Validate state of component
     Then there is at least 1 paragraph
     And the top paragraph is bold
