@@ -34,6 +34,10 @@ module Helpers
       ENV["BROWSER"] == "internet_explorer"
     end
 
+    def firefox?
+      ENV["BROWSER"] == "firefox"
+    end
+
     def chrome?
       ENV["BROWSER"] == "chrome"
     end

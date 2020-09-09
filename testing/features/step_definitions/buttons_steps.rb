@@ -6,7 +6,7 @@ Given("the Buttons component is on the page") do
 end
 
 When("I hover over the {button-type} Button") do |button|
-  @component.hover_over(button)
+  @component.send(button).hover
 end
 
 When("I click on the {button-type} Button") do |button|
