@@ -59,6 +59,8 @@ pipeline {
                     sh "printenv"
 
                     sh './bin/docker/grid_tests'
+                    sh "Running 1 browserstack test"
+                    sh "./bin/docker/browserstack_tests"
                 }
             }
         }
