@@ -65,8 +65,8 @@ module Drivers
       end
 
       def build_name
-        if ENV["BRANCH_NAME"]
-          "#{ENV['BRANCH_NAME']} running on #{base_url}"
+        if ENV["DOCKER_TAG"]
+          "#{ENV['DOCKER_TAG']} running on #{base_url}"
         else
           "Local Machine run - Ignore results!"
         end

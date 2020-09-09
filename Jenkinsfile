@@ -57,6 +57,7 @@ pipeline {
 //                     sh './bin/jenkins/test'
 //                     sh './bin/docker/a11y-test'
                     sh "printenv"
+
                     sh './bin/docker/grid_tests'
                 }
             }
