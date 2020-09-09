@@ -33,7 +33,7 @@ function compileSass() {
         ])
           .process(result.css, { from: source, to: dest })
           .then((compiledCSS) => {
-            fs.writeFile(dest, compiledCSS, (err) => {
+            fs.writeFile(dest, compiledCSS.css, (err) => {
               if (!err) {
                 // eslint-disable-next-line no-console
                 log(chalk.green(`${file}.css written`));

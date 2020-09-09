@@ -2,8 +2,14 @@ deployBranches = ['master']
 
 configurationTypes = [
     ['Windows_10_83', 'chrome'],
-    ['Windows_7_83', 'chrome'],
-    ['OSX_Mojave_83', 'chrome'],
+    ['Windows_10_81', 'chrome'],
+    ['Windows_10_77', 'firefox'],
+    ['Windows_10_76', 'firefox'],
+    ['Windows_7_80', 'chrome'],
+    ['Windows_7_75', 'firefox'],
+    ['OSX_Catalina_77', 'firefox'],
+    ['OSX_Mojave_83', 'firefox'],
+    ['OSX_Mojave_12', 'safari'],
 ]
 
 pipeline {
