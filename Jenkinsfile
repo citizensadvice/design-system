@@ -40,49 +40,50 @@ pipeline {
                 }
             }
         }
-        stage('Lint') {
-            steps {
-                script { env.BUILD_STAGE = 'Lint' }
-                withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
-                    sh './bin/jenkins/lint'
-                }
-            }
-        }
+//         stage('Lint') {
+//             steps {
+//                 script { env.BUILD_STAGE = 'Lint' }
+//                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
+//                     sh './bin/jenkins/lint'
+//                 }
+//             }
+//         }
         stage('Sanity Test') {
             steps {
                 script { env.BUILD_STAGE = 'Sanity Test' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
                     "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
-                    sh './bin/jenkins/validate_vr_tests'
-                    sh './bin/jenkins/test'
-                    sh './bin/docker/a11y-test'
+//                     sh './bin/jenkins/validate_vr_tests'
+//                     sh './bin/jenkins/test'
+//                     sh './bin/docker/a11y-test'
+                    sh "printenv"
                     sh './bin/docker/grid_tests'
                 }
             }
         }
-        stage('Full Regression Test') {
-            steps {
-                script {
-                    if (deployBranches.contains(BRANCH_NAME)) {
-                        env.BUILD_STAGE = 'Full Regression Test'
-                        withVaultSecrets([
-                            BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-                            BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-                        ])
-                        {
-                            withDockerSandbox {
-                                configurationTypes.each { opts ->
-                                    def (config, browser) = opts
-                                    sh "echo Browserstack configuration to be used is: $config"
-                                    sh "echo Browser Under Test is: $browser"
-                                    sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+//         stage('Full Regression Test') {
+//             steps {
+//                 script {
+//                     if (deployBranches.contains(BRANCH_NAME)) {
+//                         env.BUILD_STAGE = 'Full Regression Test'
+//                         withVaultSecrets([
+//                             BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+//                             BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+//                         ])
+//                         {
+//                             withDockerSandbox {
+//                                 configurationTypes.each { opts ->
+//                                     def (config, browser) = opts
+//                                     sh "echo Browserstack configuration to be used is: $config"
+//                                     sh "echo Browser Under Test is: $browser"
+//                                     sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
     }
 
     post {
