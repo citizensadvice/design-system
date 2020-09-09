@@ -55,6 +55,10 @@ button,
     }
   }
 
+  &:active,
+  &__primary:active,
+  &__secondary:active,
+  &__tertiary:active,
   &:focus,
   &__primary:focus,
   &__secondary:focus,

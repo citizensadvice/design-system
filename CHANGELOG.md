@@ -1,3 +1,4 @@
+* NP-852 Firefox button states
 * NP-839 Print styles bug fix
 * Set node v14 in .nvmrc
 * NP-745 Move VR tests into /testing/visual-regression
