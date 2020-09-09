@@ -45,6 +45,7 @@ services:
     environment:
       - BRANCH_NAME
       - BROWSER
+      - DOCKER_TAG
     env_file:
       - testing/grid_ci.env
     volumes:
@@ -67,6 +68,7 @@ services:
       - BROWSERSTACK_USERNAME
       - BROWSERSTACK_ACCESS_KEY
       - BROWSERSTACK_CONFIGURATION_OPTIONS
+      - DOCKER_TAG
     env_file:
       - testing/browserstack_ci.env
     depends_on: []
