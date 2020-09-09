@@ -10,7 +10,7 @@ When("I hover over the {button-type} Button") do |button|
 end
 
 When("I click on the {button-type} Button") do |button|
-  @component.click_on(button)
+  @component.send(button).click
 end
 
 Then("all the buttons are present") do
