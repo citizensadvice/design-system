@@ -1,3 +1,4 @@
+* NP-852 Firefox button states
 * Set node v14 in .nvmrc
 * NP-745 Move VR tests into /testing/visual-regression
 * NP-737 Install pa11y
