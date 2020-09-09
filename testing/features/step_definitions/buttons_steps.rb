@@ -6,11 +6,11 @@ Given("the Buttons component is on the page") do
 end
 
 When("I hover over the {button-type} Button") do |button|
-  @component.send(button).hover
+  @component.hover_over(button)
 end
 
 When("I click on the {button-type} Button") do |button|
-  @component.send(button).click
+  @component.click_on(button)
 end
 
 Then("all the buttons are present") do

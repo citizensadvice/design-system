@@ -2,6 +2,8 @@
 
 module DesignSystem
   class Buttons < SitePrism::Page
+    include Helpers::EnvVariables
+
     set_url "/iframe.html?id=3-components--buttons&viewMode=story"
 
     element :primary, "[type='button']:not(.cads-button)"
@@ -36,6 +38,30 @@ module DesignSystem
             text: tertiary.color
           }
         }
+    end
+
+    def hover_over(button_name)
+      if browserstack? && mac?
+        AutomationLogger.info("Will repeatedly hover over button to help Browserstack Macs")
+        2.times do
+          send(button_name).hover
+          sleep 0.25
+        end
+      end
+
+      send(button_name).hover
+    end
+
+    def click_on(button_name)
+      if browserstack? && mac?
+        AutomationLogger.info("Will repeatedly click on button to help Browserstack Macs")
+        2.times do
+          send(button_name).click
+          sleep 0.25
+        end
+      end
+
+      send(button_name).click
     end
 
     def background_color_of(button_name)

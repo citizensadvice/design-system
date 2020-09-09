@@ -42,6 +42,10 @@ module Helpers
       ENV["BROWSER"] == "safari"
     end
 
+    def mac?
+      ENV["BROWSERSTACK_CONFIGURATION_OPTIONS"].start_with?("OSX")
+    end
+
     def device?
       %w[android ios].include?(ENV["BROWSER"])
     end
