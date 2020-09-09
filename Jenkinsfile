@@ -78,7 +78,7 @@ pipeline {
 //                                     sh "echo Browserstack configuration to be used is: $config"
 //                                     sh "echo Browser Under Test is: $browser"
 //                                     sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
-                                    sh "./bin/docker/browserstack_tests"
+                                    sh "BROWSERSTACK_CONFIGURATION_OPTIONS=Windows_7_83 BROWSER=chrome ./bin/docker/browserstack_tests"
 //                                 }
                             }
                         }
