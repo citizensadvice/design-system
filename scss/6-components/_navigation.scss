@@ -1,5 +1,7 @@
 @import 'navigation_greedy-nav';
 
+$nav-padding-adjustment: 12px;
+
 nav,
 .cads-navigation {
   display: flex;
@@ -104,7 +106,8 @@ nav,
       background-color: $cads-palette__white;
       color: $cads-palette__heritage-blue;
       border: 2px solid $cads-palette__heritage-yellow;
-      padding: calc(1rem - 2px);
+      padding: calc(1rem - 2px) calc(1rem - 12px);
+      outline: none;
     }
   }
 
