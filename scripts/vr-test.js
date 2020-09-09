@@ -5,7 +5,8 @@ const chalk = require('chalk');
 const { log, error } = console;
 const ci = process.argv.some((arg) => arg === '--ci');
 
-const baseCommand = 'cd visual-regression && npx backstop test --docker';
+const baseCommand =
+  'cd testing/visual-regression && npx backstop test --docker';
 const command = ci ? `${baseCommand} --config=backstop-ci.json` : baseCommand;
 
 const boldLog = [/report \| \d+/];

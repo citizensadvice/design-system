@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 
 services:
   ca-styleguide:
     build: .
-    image: 'ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}'
+    image: "ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"
     container_name: ca-styleguide.test
     command: npm run styleguide:ci -- --quiet
     hostname: ca-styleguide.test
@@ -16,11 +16,11 @@ services:
     build:
       dockerfile: ./testing/Dockerfile
       context: ./
-    image: 'ca-backstop${CA_STYLEGUIDE_VERSION_TAG}'
+    image: "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"
     container_name: visual-tests.test
     command: wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-ci.json
     volumes:
-      - ./testing:/src
+      - ./testing/visual-regression:/src
     depends_on:
       - ca-styleguide
 
@@ -28,7 +28,7 @@ services:
     build:
       context: ./
       dockerfile: ./testing/Dockerfile.wcag
-    image: 'ca-wcag-tests${CA_STYLEGUIDE_VERSION_TAG}'
+    image: "ca-wcag-tests${CA_STYLEGUIDE_VERSION_TAG}"
     container_name: wcag_tests.test
     command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- pa11y-ci --config /app/config.js
     volumes:
@@ -40,7 +40,7 @@ services:
     build:
       context: ./
       dockerfile: ./testing/Dockerfile.cucumber
-    image: 'design_system_cucumber${PROJECT_VERSION_TAG}'
+    image: "design_system_cucumber${PROJECT_VERSION_TAG}"
     container_name: design-system-cucumber.test
     environment:
       - BRANCH_NAME
