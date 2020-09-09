@@ -59,34 +59,33 @@ pipeline {
                     sh "printenv"
 
                     sh './bin/docker/grid_tests'
-                    sh "Running 1 browserstack test"
-                    sh "./bin/docker/browserstack_tests"
                 }
             }
         }
-//         stage('Full Regression Test') {
-//             steps {
-//                 script {
+        stage('Full Regression Test') {
+            steps {
+                script {
 //                     if (deployBranches.contains(BRANCH_NAME)) {
-//                         env.BUILD_STAGE = 'Full Regression Test'
-//                         withVaultSecrets([
-//                             BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-//                             BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-//                         ])
-//                         {
-//                             withDockerSandbox {
+                        env.BUILD_STAGE = 'Full Regression Test'
+                        withVaultSecrets([
+                            BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+                            BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+                        ])
+                        {
+                            withDockerSandbox {
 //                                 configurationTypes.each { opts ->
 //                                     def (config, browser) = opts
 //                                     sh "echo Browserstack configuration to be used is: $config"
 //                                     sh "echo Browser Under Test is: $browser"
 //                                     sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
+                                    sh "./bin/docker/browserstack_tests"
 //                                 }
-//                             }
-//                         }
+                            }
+                        }
 //                     }
-//                 }
-//             }
-//         }
+                }
+            }
+        }
     }
 
     post {
