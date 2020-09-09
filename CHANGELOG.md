@@ -1,3 +1,4 @@
+* NP-816 Fix active/focus state of Greedy Nav
 * NP-852 Firefox button states
 * NP-839 Print styles bug fix
 * Set node v14 in .nvmrc
