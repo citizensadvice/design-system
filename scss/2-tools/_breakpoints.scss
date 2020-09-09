@@ -27,8 +27,8 @@
   @return if($next, cads-breakpoint-min($next, $breakpoints) - 0.02px, null);
 }
 
-// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
-// Makes the @content apply to the given breakpoint and wider.
+/* Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+   Makes the @content apply to the given breakpoint and wider. */
 @mixin cads-media-breakpoint-up($name, $breakpoints: $cads-breakpoints) {
   $min: cads-breakpoint-min($name, $breakpoints);
 
@@ -41,8 +41,8 @@
   }
 }
 
-// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
-// Makes the @content apply to the given breakpoint and narrower.
+/* Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+   Makes the @content apply to the given breakpoint and narrower. */
 @mixin cads-media-breakpoint-down($name, $breakpoints: $cads-breakpoints) {
   $max: cads-breakpoint-max($name, $breakpoints);
 
@@ -55,8 +55,8 @@
   }
 }
 
-// Media that spans multiple breakpoint widths.
-// Makes the @content apply between the min and max breakpoints
+/* Media that spans multiple breakpoint widths.
+  Makes the @content apply between the min and max breakpoints */
 @mixin cads-media-breakpoint-between(
   $lower,
   $upper,

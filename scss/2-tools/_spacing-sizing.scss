@@ -1,5 +1,5 @@
-// Stop the container from going over the given size, useful for header/footer
-// that may sit outside a grid (that is restricted in width)
+/* Stop the container from going over the given size, useful for header/footer
+   that may sit outside a grid (that is restricted in width) */
 @mixin cads-restrict-content-width($size: $cads-max-content-size) {
   margin-left: auto;
   margin-right: auto;
