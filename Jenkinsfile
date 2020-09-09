@@ -7,10 +7,7 @@ configurationTypes = [
     ['Windows_10_76', 'firefox'],
     ['Windows_7_80', 'chrome'],
     ['Windows_7_75', 'firefox'],
-    ['Windows_7_11', 'internet_explorer'],
-    ['OSX_Catalina_83', 'chrome'],
     ['OSX_Catalina_77', 'firefox'],
-    ['OSX_Mojave_83', 'chrome'],
     ['OSX_Mojave_83', 'firefox'],
     ['OSX_Mojave_12', 'safari'],
 ]
