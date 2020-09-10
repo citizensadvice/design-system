@@ -1,3 +1,7 @@
+## <sub>v1.9.1</sub>
+
+#### _Sep. 10, 2020_
+
 * NP-816 Fix active/focus state of Greedy Nav
 * NP-852 Firefox button states
 * NP-839 Print styles bug fix
