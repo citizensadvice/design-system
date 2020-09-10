@@ -8,7 +8,7 @@ configurationTypes = [
     ['Windows_7_80', 'chrome'],
     ['Windows_7_75', 'firefox'],
     ['OSX_Catalina_77', 'firefox'],
-    ['OSX_Mojave_83', 'firefox'],
+    ['OSX_Mojave_76', 'firefox'],
     ['OSX_Mojave_12', 'safari'],
 ]
 
