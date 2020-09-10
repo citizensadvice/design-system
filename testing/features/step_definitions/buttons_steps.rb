@@ -28,5 +28,10 @@ Then("the text color of the {button-type} Button changes") do |button|
 end
 
 Then("the Tertiary button text is less prominent than the {button-type} Button") do |button|
-  expect(@component.font_weight_of("tertiary")).to be < @component.font_weight_of(button)
+  if safari?
+    expect(@component.font_weight_of("tertiary")).to eq("normal")
+    expect(@component.font_weight_of(button)).to eq("bold")
+  else
+    expect(@component.font_weight_of("tertiary")).to be < @component.font_weight_of(button)
+  end
 end
