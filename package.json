@@ -11,6 +11,7 @@
         "README.md"
     ],
     "scripts": {
+        "start": "npm run styleguide",
         "release": "npm run lint && npm run build && node ./scripts/release",
         "prepublishOnly": "npm run lint && npm run build && node ./scripts/publish",
         "pre-commit": "lint-staged",
