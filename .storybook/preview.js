@@ -1,5 +1,4 @@
-import { configure, addDecorator, addParameters } from '@storybook/html';
-import theme from './theme';
+import { addDecorator, addParameters } from '@storybook/html';
 
 addDecorator(
     storyFn => `<div class="cads-styleguide__wrapper">
@@ -15,10 +14,6 @@ addParameters({
         isToolshown: false,
         showPanel: false,
         panelPosition: 'bottom',
-        storySort: (a, b) => a[1].id.localeCompare(b[1].id),
-        theme
+        storySort: (a, b) => a[1].id.localeCompare(b[1].id)
     }
 });
-
-// automatically import all files ending in *.stories.js
-configure(require.context('../styleguide', true, /\.stories\.js$/), module);
