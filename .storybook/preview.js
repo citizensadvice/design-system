@@ -11,7 +11,7 @@ ${storyFn()}
 // Option defaults:
 addParameters({
     options: {
-        isToolshown: false,
+        isToolshown: true,
         showPanel: false,
         panelPosition: 'bottom',
         storySort: (a, b) => a[1].id.localeCompare(b[1].id)
