@@ -1,3 +1,5 @@
+* NP-856 Fix focus styles in error summary
+
 ## <sub>v1.9.1</sub>
 
 #### _Sep. 10, 2020_
