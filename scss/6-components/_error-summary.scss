@@ -24,14 +24,19 @@
     margin-bottom: 0;
 
     li {
-      text-decoration: underline;
-
       &:last-of-type {
         margin-bottom: 0;
       }
 
       a {
         color: $cads-language__warning-colour;
+        text-decoration: underline;
+
+        &:focus {
+          color: $cads-language__text-colour;
+          text-decoration: none;
+          outline: none;
+        }
       }
     }
   }
