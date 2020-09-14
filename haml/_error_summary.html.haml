@@ -1,6 +1,11 @@
-.cads-error-summary{"aria-live": "assertive"}
-  %p.cads-heading-small
+.cads-error-summary{"aria-live" => "assertive", "aria-labelledby" => "error-summary-title", :role => "alert", :tabindex => 0}
+  %p.cads-heading-small{:id => "error-summary-title"}
     There is a problem with
     %span.cads-error-summary__field_count 2 fields
   %ul.cads-list__no-bullet.cads-error-summary__list
-    %li Item 1
+    %li 
+      %a{:href => "#"}
+        Enter an email address in the correct format, like name@example.com
+    %li
+      %a{:href => "#"}  
+        Enter your full name

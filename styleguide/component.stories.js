@@ -119,8 +119,13 @@ You will need to provide the validation content and set the content.
 To set the number of fields use the <code>cads-error-summary__field_count</code>
 span and set the content to <code>1 field</code>, <code>5 fields</code>, etc.
 
+The error summary should gain focus when it first appears, tabbing should then flow through
+the links in the error summary in the normal way.
+
 Then use the <code>cads-error-summary__list</code> to add the relevant <code>li</code>
-items.`
+items.  Each item should contain a link with text that is the same as the error message next
+to the field.  Each link should give focus to the related field when clicked.
+`
   );
 export const logo = () =>
   renderHamlTemplate(

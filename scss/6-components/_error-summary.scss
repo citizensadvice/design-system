@@ -10,6 +10,11 @@
     width: 100%;
   }
 
+  &:focus {
+    outline: 2px solid $cads_language__focus-colour;
+    border-color: $cads_language__error-colour;
+  }
+
   .cads-heading-small {
     color: $cads-language__warning-colour;
     margin-bottom: $cads-spacing-4;
@@ -19,14 +24,19 @@
     margin-bottom: 0;
 
     li {
-      text-decoration: underline;
-
       &:last-of-type {
         margin-bottom: 0;
       }
 
       a {
         color: $cads-language__warning-colour;
+        text-decoration: underline;
+
+        &:focus {
+          color: $cads-language__text-colour;
+          text-decoration: none;
+          outline: none;
+        }
       }
     }
   }
