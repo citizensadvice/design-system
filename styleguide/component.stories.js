@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import { withA11y } from '@storybook/addon-a11y'; // eslint-disable-line
 
 // The styles
 import './styles.scss';
@@ -65,7 +64,6 @@ ${usage || ''}`,
 // Storybook section setup
 export default {
   title: '3: Components',
-  decorators: [withA11y],
   parameters: {
     options: {
       showPanel: true,

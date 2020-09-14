@@ -1,3 +1,4 @@
+* NP-714 Upgrade Storybook to v6
 * NP-856 Fix focus styles in error summary
 
 ## <sub>v1.9.1</sub>

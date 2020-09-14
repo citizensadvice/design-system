@@ -11,6 +11,7 @@
         "README.md"
     ],
     "scripts": {
+        "start": "npm run styleguide",
         "release": "npm run lint && npm run build && node ./scripts/release",
         "prepublishOnly": "npm run lint && npm run build && node ./scripts/publish",
         "pre-commit": "lint-staged",
@@ -57,10 +58,9 @@
         "@babel/plugin-transform-runtime": "^7.11.5",
         "@babel/preset-env": "^7.11.5",
         "@babel/preset-typescript": "^7.10.4",
-        "@storybook/addon-a11y": "^5.3.21",
-        "@storybook/addon-actions": "^5.3.21",
-        "@storybook/html": "^5.3.21",
-        "@storybook/preset-typescript": "^3.0.0",
+        "@storybook/addon-a11y": "^6.0.21",
+        "@storybook/addon-actions": "^6.0.21",
+        "@storybook/html": "^6.0.21",
         "@types/jest": "^26.0.13",
         "@types/jsdom": "^16.2.4",
         "@typescript-eslint/eslint-plugin": "^3.10.1",

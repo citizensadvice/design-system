@@ -6,12 +6,9 @@ const wrapper = (title, component, usage, js, pageTemplate) => {
     setTimeout(js);
   }
 
-  const newTabLink = window.location.href;
-
   if (pageTemplate) {
     return `
 <style>.cads-styleguide__wrapper{padding:0}</style>
-<a class="cads-styleguide-new-tab" href="${newTabLink}" target="_blank" style="position:absolute;opacity:0.5">Open this example in a new tab</a>
 <div id=${a11yid}>${component}</div>`;
   }
 
@@ -27,7 +24,6 @@ const wrapper = (title, component, usage, js, pageTemplate) => {
 
   return `
 <h1 aria-hidden="true">${title}</h1>
-<a class="cads-styleguide-new-tab" href="${newTabLink}" target="_blank">Open this example in a new tab</a>
 <div id="${a11yid}">
 ${component}
 </div>
