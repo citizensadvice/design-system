@@ -1,3 +1,5 @@
+* NP-714 Upgrade Storybook to v6
+
 ## <sub>v1.9.1</sub>
 
 #### _Sep. 10, 2020_
