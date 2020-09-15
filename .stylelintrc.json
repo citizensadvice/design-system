@@ -3,7 +3,7 @@
     "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern"],
     "ignoreFiles": ["**/_normalize.scss", "**/_cads-iconfont.scss"],
     "rules": {
-        "at-rule-blacklist": ["debug"],
+        "at-rule-disallowed-list": ["debug"],
         "at-rule-empty-line-before": [
             "always",
             {
@@ -18,7 +18,7 @@
         "color-named": "never",
         "declaration-colon-newline-after": null,
         "indentation": 2,
-        "property-blacklist": ["transition"],
+        "property-disallowed-list": ["transition"],
         "rule-empty-line-before": [
             "always-multi-line",
             {

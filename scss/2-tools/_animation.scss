@@ -1,5 +1,5 @@
 @mixin cads-transition-animation($property: '') {
-  /* stylelint-disable property-blacklist */
+  /* stylelint-disable property-disallowed-list */
   @if $property != '' {
     transition: $property $cads-animation-speed;
   } @else {
