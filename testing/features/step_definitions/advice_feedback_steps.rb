@@ -51,5 +51,6 @@ Then("I am forced to provide feedback") do
   expect(@component.negative_response_form).to have_error_message
 
   expect(@component.negative_response_form.error_header.text)
-    .to eq("There is a problem with 1 field\nSelect a feedback option")
+    .to start_with("There is a problem with 1 field")
+    .and end_with("Select a feedback option")
 end

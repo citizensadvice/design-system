@@ -20,13 +20,13 @@ module Drivers
     def service
       return unless safari?
 
-      Selenium::WebDriver::Safari.technology_preview!
+      #Selenium::WebDriver::Safari.technology_preview!
       Selenium::WebDriver::Service.safari({ args: ["--diagnose"] })
     end
 
     def desired_capabilities
       Selenium::WebDriver::Remote::Capabilities.new.tap do |capabilities|
-        if safari?
+        if false
           capabilities["browserName"] = "Safari Technology Preview"
           AutomationLogger.debug("Altering Browser Name request to alleviate Capybara failure with STP.")
         end
