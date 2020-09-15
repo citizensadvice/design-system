@@ -77,6 +77,14 @@ nav,
         transform: rotate(90deg);
       }
     }
+
+    &.cads-greedy-nav-is-hidden {
+      padding: 0;
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   .cads-nav-link {
