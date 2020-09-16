@@ -19,6 +19,7 @@
     padding: calc(1em - 1px) 1rem;
     height: calc(4px + 3rem);
     box-shadow: none;
+    border-color: $cads-language__primary-button-colour;
 
     &::before {
       display: none;
@@ -32,6 +33,14 @@
 
     .cads-lang-cy &::after {
       content: 'Chwilio';
+    }
+
+    &:active {
+      transform: none;
+
+      &::before {
+        top: none;
+      }
     }
   }
 

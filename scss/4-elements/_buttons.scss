@@ -1,33 +1,65 @@
+/**
+ * Buttons
+ * Based on: https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components/button/_button.scss
+ */
+
+$button-shadow-size: 2px;
+
 button,
 .cads-button {
-  @include cads-interactive-element();
+  @include cads-transition-animation(box-shadow, transform);
 
-  border: solid $cads-border-width-medium $cads-language__primary-button-colour;
-  border-radius: $cads-border-radius;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: auto;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+
   font-size: 1.125rem;
   font-weight: $cads-font-weight__bold;
-  padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
-  display: inline-block;
-  cursor: pointer;
-  box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
-  outline: none !important;
-  margin: 0 0 $cads-spacing-5 0;
-  position: relative;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
   }
 
-  &,
-  &__primary {
-    background-color: $cads-language__primary-button-colour;
-    color: $cads-palette__white;
+  margin: 0 0 $cads-spacing-5 0;
+  padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
 
-    &:hover {
-      color: $cads-palette__white;
-      background-color: $cads-language__primary-button-hover-colour;
-      border-color: $cads-language__primary-button-hover-colour;
+  // Default (primary) button theming
+  color: $cads-palette__white;
+  background-color: $cads-language__primary-button-colour;
+  border-radius: $cads-border-radius;
+  border: solid $cads-border-width-medium $cads-language__primary-button-colour;
+  border-bottom-color: darken($cads-language__primary-button-colour, 10%);
+  box-shadow: 0 $button-shadow-size 0 0
+    darken($cads-language__primary-button-colour, 10%);
+
+  &:focus {
+    color: $cads-language__focus-text-colour;
+    border-color: $cads-language__focus-border-colour;
+    background-color: $cads-language__focus-colour;
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: translate(0, $button-shadow-size);
+
+    &::before {
+      top: -($cads-border-width-medium + $button-shadow-size);
     }
+  }
+
+  &:hover,
+  &:active,
+  &__primary:hover,
+  &__primary:active {
+    color: $cads-palette__white;
+    background-color: $cads-language__primary-button-hover-colour;
+    border-color: $cads-language__primary-button-hover-colour;
   }
 
   &__secondary {
@@ -35,10 +67,10 @@ button,
     color: $cads-language__primary-button-colour;
     box-shadow: 0 2px 0 0 $cads-language__primary-button-colour;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: $cads-language__secondary-button-hover-colour;
       color: $cads-language__primary-button-hover-colour;
-      box-shadow: 0 2px 0 0 $cads-language__button-shadow-colour;
     }
   }
 
@@ -49,37 +81,19 @@ button,
     box-shadow: none;
     border-width: $cads-border-width-small;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: $cads-language__secondary-button-hover-colour;
       color: $cads-language__primary-button-hover-colour;
       box-shadow: none;
     }
-  }
 
-  &:active,
-  &__primary:active,
-  &__secondary:active,
-  &__tertiary:active,
-  &:focus,
-  &__primary:focus,
-  &__secondary:focus,
-  &__tertiary:focus {
-    color: $cads-language__focus-text-colour;
-    border-color: $cads-language__focus-border-colour;
-    background-color: $cads-language__focus-colour;
-  }
+    &:active {
+      transform: none;
 
-  &:active,
-  &__primary:active,
-  &__secondary:active,
-  &__tertiary:active {
-    bottom: -2px;
-  }
-
-  &:focus,
-  &__primary:focus,
-  &__secondary:focus,
-  &__tertiary:focus {
-    box-shadow: 0 2px 0 0 $cads-language__focus-border-colour;
+      &::before {
+        top: 0;
+      }
+    }
   }
 }
