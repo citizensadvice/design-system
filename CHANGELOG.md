@@ -1,3 +1,5 @@
+* NP-806 Bug: Page scroll
+
 ## <sub>v1.9.2</sub>
 
 #### _Sep. 15, 2020_
