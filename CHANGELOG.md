@@ -1,3 +1,7 @@
+## <sub>v1.9.2</sub>
+
+#### _Sep. 15, 2020_
+
 * NP-714 Upgrade Storybook to v6
 * NP-856 Fix focus styles in error summary
 
