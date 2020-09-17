@@ -19,7 +19,8 @@
     padding: calc(1em - 1px) 1rem;
     height: calc(4px + 3rem);
     box-shadow: none;
-    border-color: $cads-language__primary-button-colour;
+    border: solid $cads-border-width-medium
+      $cads-language__primary-button-colour;
 
     &::before {
       display: none;
@@ -37,10 +38,6 @@
 
     &:active {
       transform: none;
-
-      &::before {
-        top: none;
-      }
     }
   }
 
