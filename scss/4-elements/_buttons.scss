@@ -1,26 +1,25 @@
 /**
  * Buttons
- * Based on: https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components/button/_button.scss
+ * Based on: https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components/button/_button.scss and
+ *   https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/button/_index.scss
  */
 
-$button-shadow-size: 2px;
+$button-shadow-size: 4px;
 
-button,
-.cads-button {
-  @include cads-transition-animation(box-shadow, transform);
-
+@mixin cads-button-defaults() {
   -webkit-appearance: none;
   box-sizing: border-box;
   vertical-align: top;
   width: auto;
   text-align: center;
+  text-decoration: none;
   position: relative;
   cursor: pointer;
   outline: none;
   display: inline-block;
 
-  font-size: 1.125rem;
   font-weight: $cads-font-weight__bold;
+  font-size: 1.125rem;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
@@ -28,72 +27,85 @@ button,
 
   margin: 0 0 $cads-spacing-5 0;
   padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
+}
 
-  // Default (primary) button theming
+.cads-button,
+.cads-button__primary {
+  @include cads-button-defaults();
+
   color: $cads-palette__white;
   background-color: $cads-language__primary-button-colour;
   border-radius: $cads-border-radius;
   border: solid $cads-border-width-medium $cads-language__primary-button-colour;
-  border-bottom-color: darken($cads-language__primary-button-colour, 10%);
+  border-bottom: none; // Remove bottom border as box-shadow replaces it
   box-shadow: 0 $button-shadow-size 0 0
-    darken($cads-language__primary-button-colour, 10%);
+    $cads-language__primary-button-hover-colour;
 
   &:focus {
+    outline: none;
     color: $cads-language__focus-text-colour;
     border-color: $cads-language__focus-border-colour;
     background-color: $cads-language__focus-colour;
   }
 
-  &:active {
-    box-shadow: none;
-    transform: translate(0, $button-shadow-size);
+  &:focus,
+  &:hover {
+    box-shadow: 0 $button-shadow-size 0 0
+      $cads-language__primary-button-hover-colour;
+  }
 
-    &::before {
-      top: -($cads-border-width-medium + $button-shadow-size);
-    }
+  &:active {
+    transform: translate(0, $button-shadow-size - $cads-border-width-medium);
+    box-shadow: 0 $cads-border-width-medium 0 0
+      $cads-language__primary-button-hover-colour;
   }
 
   &:hover,
-  &:active,
-  &__primary:hover,
-  &__primary:active {
+  &:active {
     color: $cads-palette__white;
     background-color: $cads-language__primary-button-hover-colour;
     border-color: $cads-language__primary-button-hover-colour;
   }
+}
 
-  &__secondary {
-    background-color: $cads-palette__white;
-    color: $cads-language__primary-button-colour;
-    box-shadow: 0 2px 0 0 $cads-language__primary-button-colour;
+/**
+ * Secondary buttons
+ */
+.cads-button__secondary {
+  background-color: $cads-palette__white;
+  color: $cads-language__primary-button-colour;
+  box-shadow: 0 $button-shadow-size 0 0 $cads-language__primary-button-colour;
 
-    &:hover,
-    &:active {
-      background-color: $cads-language__secondary-button-hover-colour;
-      color: $cads-language__primary-button-hover-colour;
-    }
+  &:hover,
+  &:active {
+    background-color: $cads-language__secondary-button-hover-colour;
+    color: $cads-language__primary-button-hover-colour;
+  }
+}
+
+/**
+ * Tertiary buttons
+ */
+.cads-button__tertiary {
+  background-color: $cads-palette__white;
+  color: $cads-language__primary-button-colour;
+  font-weight: $cads-font-weight__regular;
+  box-shadow: none;
+  border: solid $cads-border-width-small $cads-language__primary-button-colour;
+
+  &:focus {
+    box-shadow: 0 ($button-shadow-size - $cads-border-width-small) 0 0
+      $cads-language__primary-button-hover-colour;
   }
 
-  &__tertiary {
-    background-color: $cads-palette__white;
-    color: $cads-language__primary-button-colour;
-    font-weight: $cads-font-weight__regular;
+  &:hover,
+  &:active {
+    background-color: $cads-language__secondary-button-hover-colour;
+    color: $cads-language__primary-button-hover-colour;
     box-shadow: none;
-    border-width: $cads-border-width-small;
+  }
 
-    &:hover,
-    &:active {
-      background-color: $cads-language__secondary-button-hover-colour;
-      color: $cads-language__primary-button-hover-colour;
-      box-shadow: none;
-    }
-
-    &:active {
-      transform: none;
-
-      &::before {
-        top: 0;
-      }
-    }
+  &:active {
+    transform: none;
   }
 }
