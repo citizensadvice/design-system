@@ -3,7 +3,6 @@
  * Based on: https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components/button/_button.scss and
  *   https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/button/_index.scss
  */
-
 $button-shadow-size: 4px;
 
 @mixin cads-button-defaults() {
@@ -17,16 +16,14 @@ $button-shadow-size: 4px;
   cursor: pointer;
   outline: none;
   display: inline-block;
-
+  margin: 0 0 $cads-spacing-5 0;
+  padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
   font-weight: $cads-font-weight__bold;
   font-size: 1.125rem;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
   }
-
-  margin: 0 0 $cads-spacing-5 0;
-  padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
 }
 
 .cads-button,

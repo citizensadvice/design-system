@@ -1,7 +1,6 @@
 /**
  * Links and link-buttons
  */
-
 a,
 .cads-hyperlink,
 .cads-linkbutton {
@@ -27,13 +26,12 @@ a,
   }
 }
 
+// Reset button styles when styled like a link link
 button.cads-linkbutton {
-  // Reset button styles when styled like a link link
   -webkit-appearance: none;
   border: none;
   background: transparent;
   padding: 0;
   box-shadow: none;
-
   font-weight: $cads-font-weight__bold;
 }
