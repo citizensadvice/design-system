@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 /**
  * Buttons
  * Based on: https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components/button/_button.scss and
@@ -26,12 +28,15 @@ $button-shadow-size: 4px;
   }
 }
 
+/**
+ * Shared button styles
+ */
 .cads-button,
-.cads-button__primary {
+.cads-button__primary,
+.cads-button__secondary,
+.cads-button__tertiary {
   @include cads-button-defaults();
 
-  color: $cads-palette__white;
-  background-color: $cads-language__primary-button-colour;
   border-radius: $cads-border-radius;
   border: solid $cads-border-width-medium $cads-language__primary-button-colour;
   border-bottom: none; // Remove bottom border as box-shadow replaces it
@@ -59,9 +64,22 @@ $button-shadow-size: 4px;
 
   &:hover,
   &:active {
+    border-color: $cads-language__primary-button-hover-colour;
+  }
+}
+
+/**
+ * Primary buttons
+ */
+.cads-button,
+.cads-button__primary {
+  color: $cads-palette__white;
+  background-color: $cads-language__primary-button-colour;
+
+  &:hover,
+  &:active {
     color: $cads-palette__white;
     background-color: $cads-language__primary-button-hover-colour;
-    border-color: $cads-language__primary-button-hover-colour;
   }
 }
 
@@ -69,14 +87,14 @@ $button-shadow-size: 4px;
  * Secondary buttons
  */
 .cads-button__secondary {
-  background-color: $cads-palette__white;
   color: $cads-language__primary-button-colour;
+  background-color: $cads-palette__white;
   box-shadow: 0 $button-shadow-size 0 0 $cads-language__primary-button-colour;
 
   &:hover,
   &:active {
-    background-color: $cads-language__secondary-button-hover-colour;
     color: $cads-language__primary-button-hover-colour;
+    background-color: $cads-language__secondary-button-hover-colour;
   }
 }
 
@@ -84,11 +102,11 @@ $button-shadow-size: 4px;
  * Tertiary buttons
  */
 .cads-button__tertiary {
-  background-color: $cads-palette__white;
-  color: $cads-language__primary-button-colour;
   font-weight: $cads-font-weight__regular;
-  box-shadow: none;
+  color: $cads-language__primary-button-colour;
+  background-color: $cads-palette__white;
   border: solid $cads-border-width-small $cads-language__primary-button-colour;
+  box-shadow: none;
 
   &:focus {
     box-shadow: 0 ($button-shadow-size - $cads-border-width-small) 0 0
