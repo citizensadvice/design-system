@@ -8,18 +8,19 @@
 $button-shadow-size: 4px;
 
 @mixin cads-button-defaults() {
+  @include cads-transition-animation(background);
+
   -webkit-appearance: none;
   box-sizing: border-box;
-  vertical-align: top;
   width: auto;
   text-align: center;
   text-decoration: none;
-  position: relative;
   cursor: pointer;
   outline: none;
+  border: none;
   display: inline-block;
-  margin: 0 0 $cads-spacing-5 0;
   padding: (rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
+  margin: 0 0 $cads-spacing-5 0;
   font-weight: $cads-font-weight__bold;
   font-size: 1.125rem;
 

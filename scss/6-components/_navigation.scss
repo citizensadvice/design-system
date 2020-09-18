@@ -26,10 +26,12 @@ nav,
   }
 
   .cads-greedy-nav__dropdown-toggle {
+    @include cads-button-defaults();
+
     height: 100%;
     font-weight: bold;
     font-size: 1rem;
-    border-left: 1px solid $cads-palette__white;
+    color: $cads-palette__white;
     background-color: $cads-palette__heritage-blue;
     border: $cads-palette__heritage-blue;
     box-shadow: none;
