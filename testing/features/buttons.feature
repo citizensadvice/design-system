@@ -17,7 +17,6 @@ Feature: Buttons components
   Scenario: Primary Button changes color when clicked on
     When I click on the Primary Button
     Then the background color of the Primary Button changes
-    And the text color of the Primary Button changes
 
   Scenario: Secondary Button changes color when hovered over
     When I hover over the Secondary Button
