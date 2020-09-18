@@ -1,3 +1,5 @@
+* NP-289 New button styles with depressed state when clicked.
+
 ## <sub>v1.9.3</sub>
 
 #### _Sep. 16, 2020_
