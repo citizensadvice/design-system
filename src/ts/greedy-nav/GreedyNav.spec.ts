@@ -71,7 +71,7 @@ describe('Greedy Nav', () => {
     });
 
     it('returns false for absent attribute', () => {
-      expect(getClosest(bottom, '[not-there]')).toBeTruthy();
+      expect(getClosest(bottom, '[not-there]')).toBeFalsy();
     });
   });
 
