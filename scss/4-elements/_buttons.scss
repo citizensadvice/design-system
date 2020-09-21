@@ -49,9 +49,9 @@ $button-shadow-size: 4px;
     color: $cads-language__focus-text-colour;
     border-color: $cads-language__focus-border-colour;
     background-color: $cads-language__focus-colour;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-language__focus-border-colour;
   }
 
-  &:focus,
   &:hover {
     box-shadow: 0 $button-shadow-size 0 0
       $cads-language__primary-button-hover-colour;
@@ -111,7 +111,7 @@ $button-shadow-size: 4px;
 
   &:focus {
     box-shadow: 0 ($button-shadow-size - $cads-border-width-small) 0 0
-      $cads-language__primary-button-hover-colour;
+      $cads-language__focus-border-colour;
   }
 
   &:hover,
