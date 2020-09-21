@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -e
-
-docker-compose run ca-styleguide sh bin/lint
