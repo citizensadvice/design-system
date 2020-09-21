@@ -5,4 +5,4 @@ set -e
 PRODUCTION="true"
 NODE_ENV="test"
 
-# source bin/docker/test
+source bin/docker/test
