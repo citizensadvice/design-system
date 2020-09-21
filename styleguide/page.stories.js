@@ -16,6 +16,7 @@ import wrapper from './component-wrapper';
 // Haml setup
 import tAdviceCollection from './samples/_advice_collection.html.haml';
 import tAdviceCollectionAdviser from './samples/_advice_collection_adviser.html.haml';
+import tAdviceCollectionAdvisernet from './samples/_advice_collection_advisernet.html.haml';
 import tTables from './samples/_tables.html.haml';
 
 function init() {
@@ -74,6 +75,17 @@ export const adviceCollectionAdviser = () =>
     'Advice Collection (Adviser)',
     tAdviceCollectionAdviser,
     'advice_collection_adviser',
+    '',
+    null,
+    init,
+    true
+  );
+
+export const adviceCollectionAdvisernet = () =>
+  renderHamlTemplate(
+    'Advice Collection (Advisernet)',
+    tAdviceCollectionAdvisernet,
+    'advice_collection_advisernet',
     '',
     null,
     init,
