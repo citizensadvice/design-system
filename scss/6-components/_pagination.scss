@@ -5,35 +5,40 @@
   color: $cads-language__secondary-text-colour;
 }
 
-.cads-paging {
-  button {
-    color: $cads-language__link-colour;
-    border-color: $cads-language__border-colour;
-    box-shadow: none;
-    font-weight: $cads-font-weight__regular;
-    background-color: transparent;
-    min-width: $cads-interactive-target-size;
-    margin-bottom: 0;
+.cads-paging__button {
+  @include cads-button-defaults();
 
-    &:hover {
-      color: $cads-language__link-hover-colour;
-      border-color: $cads-language__link-hover-colour;
-      background-color: $cads-language__hover-background-colour;
-    }
+  color: $cads-language__link-colour;
+  border: solid $cads-border-width-medium $cads-language__border-colour;
+  font-weight: $cads-font-weight__regular;
+  background-color: transparent;
+  min-width: $cads-interactive-target-size;
+  margin-bottom: 0;
+
+  &:focus {
+    outline: none;
+    color: $cads-language__focus-text-colour;
+    border-color: $cads-language__focus-border-colour;
+    background-color: $cads-language__focus-colour;
   }
 
-  .cads-paging__current {
-    button {
-      font-weight: $cads-font-weight__bold;
+  &:hover,
+  &:active {
+    color: $cads-language__link-hover-colour;
+    border-color: $cads-language__link-hover-colour;
+    background-color: $cads-language__hover-background-colour;
+  }
+
+  .cads-paging__current & {
+    font-weight: $cads-font-weight__bold;
+    background-color: $cads-language__link-colour;
+    border-color: $cads-language__link-colour;
+    color: $cads-palette__white;
+
+    &:hover {
       background-color: $cads-language__link-colour;
       border-color: $cads-language__link-colour;
       color: $cads-palette__white;
-
-      &:hover {
-        background-color: $cads-language__link-colour;
-        border-color: $cads-language__link-colour;
-        color: $cads-palette__white;
-      }
     }
   }
 }

@@ -2,48 +2,48 @@ import wrapper from '../component-wrapper';
 
 const Pagination = () => {
   const component = `<ul class="cads-list-unordered__inline cads-paging">
-    <li class="cads-paging">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             First
         </button>
     </li>
-    <li class="">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             Previous
         </button>
     </li>
-    <li class="">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             3
         </button>
     </li>
-    <li class="">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             4
         </button>
     </li>
     <li class="cads-paging__current">
-        <button type="button">
+        <button class="cads-paging__button" type="button">
             5
         </button>
     </li>
-    <li class="">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             6
         </button>
     </li>
-    <li class="">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             7
         </button>
     </li>
-    <li class="">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             Next
         </button>
     </li>
-    <li class="">
-        <button type="button">
+    <li>
+        <button class="cads-paging__button" type="button">
             Last
         </button>
     </li>

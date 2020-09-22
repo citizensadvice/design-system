@@ -49,7 +49,12 @@ const initTargetedContent = () => {
       const b = document.createElement('button');
       b.innerHTML = 'Expand all<span class="cads-icon_plus"></span>';
       b.setAttribute('type', 'button');
-      b.classList.add('cads-targeted-content__expand-all');
+      b.classList.add(
+        'cads-targeted-content__expand-all',
+        'cads-button',
+        'cads-button__tertiary'
+      );
+
       b.addEventListener('click', (e) => {
         let expandAll = false;
         const { target } = e;
