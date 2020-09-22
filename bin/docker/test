@@ -2,7 +2,4 @@
 
 set -e
 
-# start styleguide in background
-docker-compose up -d ca-styleguide
-# run tests - will check that
-docker-compose run visual-tests
+docker-compose run ca-styleguide sh bin/test

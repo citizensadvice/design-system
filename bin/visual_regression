@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+echo 'Running BackstopJS'
+npm run vr-test:install && npm run vr-test:ci || (err=$?; echo "BackstopJS failed" && (exit "$err"))
+echo 'BackstopJS completed'
