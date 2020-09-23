@@ -1,0 +1,5 @@
+%aside.cads-related-content
+  = render partial: "@citizensadvice/design-system/haml/targeted-content", locals: { 'targetContent' => { 'id' => 'advisernet-related-content', 'title' => 'Related content', 'body' => related_content } }
+  .cads-related-content__content
+    %p.paragraph-s.section-title Related Content
+    = related_content

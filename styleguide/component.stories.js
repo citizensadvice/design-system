@@ -41,6 +41,7 @@ import tAdviceFeedback from '../haml/_advice_feedback.html.haml';
 import tErrorSummary from '../haml/_error_summary.html.haml';
 import tTables from '../haml/_table.html.haml';
 import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
+import tAdvisernetRelatedContent from '../haml/_related_content_advisernet.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -49,7 +50,8 @@ function renderHamlTemplate(
   hamlLocation,
   usage,
   optionalProps,
-  optionalJS
+  optionalJS,
+  optionalWrapperClass
 ) {
   return wrapper(
     templateName,
@@ -57,7 +59,9 @@ function renderHamlTemplate(
     `The partial is available in:
 <pre class="html"><code>haml/_${hamlLocation}.html.haml</code></pre>
 ${usage || ''}`,
-    optionalJS
+    optionalJS,
+    false,
+    optionalWrapperClass
   );
 }
 
@@ -209,3 +213,12 @@ export const tables = () =>
 
 export const assetHyperlink = () =>
   renderHamlTemplate('Asset hyperlink', tAssetHyperlink, 'asset_hyperlink');
+
+export const advisernetRelatedContent = () =>
+  `<div class="cads-advisernet">
+    ${renderHamlTemplate(
+      'Advisernet Related Content',
+      tAdvisernetRelatedContent,
+      'related_content_advisernet'
+    )}
+  </div>`;

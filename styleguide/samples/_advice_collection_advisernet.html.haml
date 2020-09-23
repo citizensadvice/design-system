@@ -12,22 +12,7 @@
           = render partial: "@citizensadvice/design-system/haml/notice_banner", locals: { 'banner' => { 'label' => 'Page Template Warning', 'body' => '<p>This is a sample page. Note that the layout may not reflect the actual page layout of the website.</p>' } }
       .cads-grid-row
         .cads-grid-col-md-4
-          %aside.cads-related-content
-            %p.paragraph-s.section-title Related Content
-            %h3 Search and navigation tools
-            %ul
-              %li
-                %a{:href=> 'https://www.citizensadvice.org.uk'} Search
-              %li
-                %a{:href=> 'https://www.citizensadvice.org.uk'} A to Z of advice
-              %li
-                %a{:href=> 'https://www.citizensadvice.org.uk'} Finding information
-              %li
-                %a{:href=> 'https://www.citizensadvice.org.uk'} Search for your local Citizens Advice
-              %li
-                %a{:href=> 'https://www.citizensadvice.org.uk'} Browse our campaign pages
-              %li
-                %a{:href=> 'https://www.citizensadvice.org.uk'} Browse our research pages
+          = render partial: "@citizensadvice/design-system/haml/related_content_advisernet"
         .cads-grid-col-md-8
           %h1 Advisernet Sample Page
           = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'adviser', 'body' => '<h3>This is an adviser callout</h3><p>This is the body text of an adviser callout.</p>' } }

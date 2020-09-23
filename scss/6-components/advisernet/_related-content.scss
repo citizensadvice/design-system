@@ -1,5 +1,17 @@
 .cads-advisernet {
   .cads-related-content {
-    background: #f00;
+    .cads-targeted-content {
+      display: none;
+    }
+
+    @include cads-media-breakpoint-only(sm) {
+      .cads-targeted-content {
+        display: block;
+      }
+
+      .cads-related-content__content {
+        display: none;
+      }
+    }
   }
 }
