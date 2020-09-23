@@ -1,4 +1,5 @@
 * NP-756 Advisernet related content component
+* NP-289 New button styles with depressed state when clicked.
 
 ## <sub>v1.9.3</sub>
 

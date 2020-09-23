@@ -1,9 +1,13 @@
+/**
+ * Links and link-buttons
+ */
 a,
-.cads-hyperlink {
+.cads-hyperlink,
+.cads-linkbutton {
   color: $cads-language__link-colour;
   text-decoration: underline;
 
-  // Visited links should be browser default
+  // Note :visited links should be browser default
 
   &:hover {
     color: $cads-language__link-hover-colour;
@@ -22,12 +26,12 @@ a,
   }
 }
 
-.cads-linkbutton {
+// Reset button styles when styled like a link link
+button.cads-linkbutton {
+  -webkit-appearance: none;
   border: none;
   background: transparent;
   padding: 0;
   box-shadow: none;
-
-  @extend .cads-heading-small;
-  @extend .cads-hyperlink;
+  font-weight: $cads-font-weight__bold;
 }

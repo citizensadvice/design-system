@@ -1,9 +1,16 @@
 #!/bin/bash
 
-set -ex
+set -e
 
-#check files are in sync
+# start styleguide in background
+docker-compose up -d ca-styleguide
+
+# check files are in sync
 docker-compose run \
     -v $(pwd)/testing/visual-regression/backstop.json:/app/testing/visual-regression/backstop.json \
     -v $(pwd)/testing/visual-regression/backstop-ci.json:/app/testing/visual-regression/backstop-ci.json \
     ca-styleguide npm run vr-test:validate
+
+
+# run visual regression tests
+docker-compose run visual-tests

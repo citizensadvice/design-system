@@ -8,14 +8,19 @@ header,
   }
 
   .cads-search-reveal {
+    @include cads-button-defaults();
+
     display: none;
+    margin: 0;
     padding: 11px 12px 11px 12px;
     color: $cads-language__primary-button-colour;
-    margin: 0;
-    box-shadow: none;
+    background: transparent;
+    border: solid $cads-border-width-medium
+      $cads-language__primary-button-colour;
 
     &:hover {
       color: $cads-language__primary-button-hover-colour;
+      background-color: $cads-language__secondary-button-hover-colour;
     }
 
     /* stylelint-disable */

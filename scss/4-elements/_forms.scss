@@ -123,8 +123,8 @@ textarea,
 
   .cads-radio-button-checkmark {
     @include cads-interactive-element();
-    @include cads-transition-animation(none);
 
+    transition: none; /* stylelint-disable property-disallowed-list */
     position: absolute;
     top: 0;
     left: 0;

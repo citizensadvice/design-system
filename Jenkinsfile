@@ -37,11 +37,11 @@ pipeline {
                 }
             }
         }
-        stage('Lint') {
+        stage('Lint and unit test') {
             steps {
-                script { env.BUILD_STAGE = 'Lint' }
+                script { env.BUILD_STAGE = 'Lint and unit test' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}"]) {
-                    sh './bin/jenkins/lint'
+                    sh './bin/jenkins/test'
                 }
             }
         }
@@ -50,8 +50,7 @@ pipeline {
                 script { env.BUILD_STAGE = 'Sanity Test' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
                     "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
-                    sh './bin/jenkins/validate_vr_tests'
-                    sh './bin/jenkins/test'
+                    sh './bin/jenkins/visual_regression'
                     sh './bin/docker/a11y-test'
                     sh './bin/docker/grid_tests'
                 }

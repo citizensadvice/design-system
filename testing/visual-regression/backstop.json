@@ -116,28 +116,6 @@
       "requireSameDimensions": true
     },
     {
-      "label": "3_Components_ADVICE_FEEDBACK_was_not_helpful",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback",
-      "referenceUrl": "http://host.docker.internal:6006/iframe.html?id=3-components--advice-feedback",
-      "readyEvent": "",
-      "readySelector": "#a11yComponentToTest",
-      "delay": 500,
-      "hideSelectors": [],
-      "removeSelectors": [
-        ".cads-styleguide__breakpoint-label",
-        ".cads-styleguide__language-label"
-      ],
-      "hoverSelector": "#a11yComponentToTest",
-      "clickSelectors": "#cads-advice-feedback__no",
-      "postInteractionWait": 100,
-      "selectors": ["#a11yComponentToTest"],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
       "label": "3_Components_ASSET_HYPERLINK",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://host.docker.internal:6006/iframe.html?id=3-components--asset-hyperlink",
