@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin-bottom: $cads-spacing-7;
 
   input {
     font-size: 1rem;
@@ -15,16 +16,13 @@
 
   .cads-search-button {
     font-size: 1rem;
-    flex: 0 0;
+    flex: 0 0 auto;
     padding: calc(1em - 1px) 1rem;
+    margin: 0;
     height: calc(4px + 3rem);
     box-shadow: none;
     border: solid $cads-border-width-medium
       $cads-language__primary-button-colour;
-
-    &::before {
-      display: none;
-    }
 
     &::after {
       font-family: $cads-font-family;
@@ -43,17 +41,8 @@
 
   @include cads-media-breakpoint-only(sm) {
     .cads-search-button {
-      width: $cads-interactive-target-size;
       height: $cads-interactive-target-size;
       padding: 11px 12px 11px 12px;
-
-      &::before {
-        display: inline;
-      }
-
-      &::after {
-        display: none;
-      }
     }
 
     input {
