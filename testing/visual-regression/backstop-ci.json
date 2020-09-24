@@ -1,799 +1,808 @@
 {
-    "id": "backstop_default",
-    "viewports": [
-        {
-            "label": "phone",
-            "width": 320,
-            "height": 480
-        },
-        {
-            "label": "Small",
-            "width": 640,
-            "height": 960
-        },
-        {
-            "label": "Medium",
-            "width": 800,
-            "height": 600
-        },
-        {
-            "label": "Large",
-            "width": 1024,
-            "height": 768
-        }
-    ],
-    "onBeforeScript": "puppet/onBefore.js",
-    "onReadyScript": "puppet/onReady.js",
-    "scenarios": [
-        {
-            "label": "2_Design_Foundations_COLOUR_LANGUAGE",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": ".cads-styleguide__wrapper",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                "h1",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                ".cads-styleguide__wrapper"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "2_Design_Foundations_COLOUR_PALETTE",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": ".cads-styleguide__wrapper",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                "h1",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                ".cads-styleguide__wrapper"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_ADVICE_FEEDBACK_question",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 500,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_ADVICE_FEEDBACK_thank_you",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 500,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "#cads-advice-feedback__yes",
-            "postInteractionWait": 100,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_ASSET_HYPERLINK",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--asset-hyperlink",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--asset-hyperlink",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_BREADCRUMBS",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_BUTTONS",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": ".cads-button",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_CALLOUTS",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_CONTACT_DETAILS",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_ERROR_SUMMARY",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_FOOTER",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_HEADER",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_INPUT",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_LOGO",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_NAVIGATION",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": ".js-CadsGreedyNav",
-            "delay": 750,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label",
-                ".cads-styleguide-max-content-width",
-                "h1"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": ".cads-greedy-nav__dropdown-toggle",
-            "postInteractionWait": 1000,
-            "selectors": [],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true,
-            "viewports": [
-                {
-                    "label": "phone",
-                    "width": 320,
-                    "height": 400
-                },
-                {
-                    "label": "Small",
-                    "width": 641,
-                    "height": 300
-                },
-                {
-                    "label": "Medium",
-                    "width": 800,
-                    "height": 200
-                },
-                {
-                    "label": "Large",
-                    "width": 1024,
-                    "height": 100
-                }
-            ]
-        },
-        {
-            "label": "3_Components_NAVIGATION_BUTTONS",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": ".js-CadsGreedyNav",
-            "delay": 750,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label",
-                ".cads-styleguide-max-content-width",
-                "h1"
-            ],
-            "keyPressSelectors": [
-                {
-                    "selector": ".cads-nav-link",
-                    "keyPress": "Tab"
-                }
-            ],
-            "clickSelector": "",
-            "postInteractionWait": 1000,
-            "selectors": [],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true,
-            "viewports": [
-                {
-                    "label": "phone",
-                    "width": 320,
-                    "height": 400
-                },
-                {
-                    "label": "Small",
-                    "width": 641,
-                    "height": 300
-                },
-                {
-                    "label": "Medium",
-                    "width": 800,
-                    "height": 200
-                },
-                {
-                    "label": "Large",
-                    "width": 1024,
-                    "height": 100
-                }
-            ]
-        },
-        {
-            "label": "3_Components_NOTICE_BANNER",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_PAGE_REVIEW",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_PAGINATION",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--pagination",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--pagination",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_PAGING_INFO",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--paging-info",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--paging-info",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 100,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_RADIO_GROUP",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": ".cads-radio-button-checkmark",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_RADIO_GROUP_small",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": ".cads-radio-button-checkmark",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_SEARCH",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_SUCCESS_MESSAGE",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_TARGED_CONTENT",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": ".cads-targeted-content",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_TEXTAREA",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_WEBSITE-FEEDBACK",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_RELATED-CONTENT",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--related-content",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--related-content",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        },
-        {
-            "label": "3_Components_TABLES",
-            "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--tables",
-            "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--tables",
-            "cookiePath": "backstop_data/engine_scripts/cookies.json",
-            "readyEvent": "",
-            "readySelector": "#a11yComponentToTest",
-            "delay": 0,
-            "hideSelectors": [],
-            "removeSelectors": [
-                ".cads-styleguide__breakpoint-label",
-                ".cads-styleguide__language-label"
-            ],
-            "hoverSelector": "#a11yComponentToTest",
-            "clickSelector": "",
-            "postInteractionWait": 0,
-            "selectors": [
-                "#a11yComponentToTest"
-            ],
-            "selectorExpansion": true,
-            "expect": 0,
-            "misMatchThreshold": 0.1,
-            "requireSameDimensions": true
-        }
-    ],
-    "dockerCommandTemplate": "docker run --rm -i --add-host ca-styleguide.test:127.0.0.1 --mount type=bind,source=\"{cwd}\",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}",
-    "paths": {
-        "bitmaps_reference": "backstop_data/bitmaps_reference",
-        "bitmaps_test": "backstop_data/bitmaps_test",
-        "engine_scripts": "backstop_data/engine_scripts",
-        "html_report": "backstop_data/html_report",
-        "ci_report": "backstop_data/ci_report"
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
     },
-    "report": [
-        "CI",
-        "browser"
-    ],
-    "openReport": false,
-    "engine": "puppeteer",
-    "engineOptions": {
-        "args": [
-            "--no-sandbox"
-        ]
+    {
+      "label": "Small",
+      "width": 640,
+      "height": 960
     },
-    "asyncCaptureLimit": 5,
-    "asyncCompareLimit": 50,
-    "debug": false,
-    "debugWindow": false
+    {
+      "label": "Medium",
+      "width": 800,
+      "height": 600
+    },
+    {
+      "label": "Large",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "2_Design_Foundations_COLOUR_LANGUAGE",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-language",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": ".cads-styleguide__wrapper",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        "h1",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [".cads-styleguide__wrapper"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "2_Design_Foundations_COLOUR_PALETTE",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=2-design-foundations--colour-palette",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": ".cads-styleguide__wrapper",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        "h1",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [".cads-styleguide__wrapper"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_ADVICE_FEEDBACK_question",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 500,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_ADVICE_FEEDBACK_thank_you",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advice-feedback",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 500,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "#cads-advice-feedback__yes",
+      "postInteractionWait": 100,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_ASSET_HYPERLINK",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--asset-hyperlink",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--asset-hyperlink",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_BREADCRUMBS",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--breadcrumb",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_BUTTONS",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--buttons",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": ".cads-button",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_CALLOUTS",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--callout",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_CONTACT_DETAILS",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--contact-details",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_ERROR_SUMMARY",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--error-summary",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_FOOTER",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--footer",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_HEADER",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--header",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_INPUT",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--input",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_LOGO",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--logo",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_NAVIGATION",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": ".js-CadsGreedyNav",
+      "delay": 750,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label",
+        ".cads-styleguide-max-content-width",
+        "h1"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": ".cads-greedy-nav__dropdown-toggle",
+      "postInteractionWait": 1000,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "phone",
+          "width": 320,
+          "height": 400
+        },
+        {
+          "label": "Small",
+          "width": 641,
+          "height": 300
+        },
+        {
+          "label": "Medium",
+          "width": 800,
+          "height": 200
+        },
+        {
+          "label": "Large",
+          "width": 1024,
+          "height": 100
+        }
+      ]
+    },
+    {
+      "label": "3_Components_NAVIGATION_BUTTONS",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--navigation",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": ".js-CadsGreedyNav",
+      "delay": 750,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label",
+        ".cads-styleguide-max-content-width",
+        "h1"
+      ],
+      "keyPressSelectors": [
+        {
+          "selector": ".cads-nav-link",
+          "keyPress": "Tab"
+        }
+      ],
+      "clickSelector": "",
+      "postInteractionWait": 1000,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "phone",
+          "width": 320,
+          "height": 400
+        },
+        {
+          "label": "Small",
+          "width": 641,
+          "height": 300
+        },
+        {
+          "label": "Medium",
+          "width": 800,
+          "height": 200
+        },
+        {
+          "label": "Large",
+          "width": 1024,
+          "height": 100
+        }
+      ]
+    },
+    {
+      "label": "3_Components_NOTICE_BANNER",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--notice-banner",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_PAGE_REVIEW",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--page-review",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_PAGINATION",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--pagination",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--pagination",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_PAGING_INFO",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--paging-info",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--paging-info",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 100,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_RADIO_GROUP",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": ".cads-radio-button-checkmark",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_RADIO_GROUP_small",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--radio-group-small",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": ".cads-radio-button-checkmark",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_SEARCH",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--search",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_SUCCESS_MESSAGE",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--success-message",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_TARGED_CONTENT",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--targeted-content",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": ".cads-targeted-content",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_TEXTAREA",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--textarea",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_WEBSITE-FEEDBACK",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--website-feedback",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_RELATED-CONTENT",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--related-content",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--related-content",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_TABLES",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--tables",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--tables",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "3_Components_ADVISERNET_RELATED_CONTENT_COLLAPSED",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advisernet-related-content",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advisernet-related-content",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": ".cads-targeted-content",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "phone",
+          "width": 320,
+          "height": 480
+        },
+        {
+          "label": "Small",
+          "width": 640,
+          "height": 960
+        }
+      ]
+    },
+    {
+      "label": "3_Components_ADVISERNET_RELATED_CONTENT",
+      "url": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advisernet-related-content",
+      "referenceUrl": "http://ca-styleguide.test:6006/iframe.html?id=3-components--advisernet-related-content",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "readyEvent": "",
+      "readySelector": "#a11yComponentToTest",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [
+        ".cads-styleguide__breakpoint-label",
+        ".cads-styleguide__language-label"
+      ],
+      "hoverSelector": "#a11yComponentToTest",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#a11yComponentToTest"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "Medium",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "label": "Large",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    }
+  ],
+  "dockerCommandTemplate": "docker run --rm -i --add-host ca-styleguide.test:127.0.0.1 --mount type=bind,source=\"{cwd}\",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}",
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["CI", "browser"],
+  "openReport": false,
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
 }

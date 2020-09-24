@@ -219,6 +219,9 @@ export const advisernetRelatedContent = () =>
     ${renderHamlTemplate(
       'Advisernet Related Content',
       tAdvisernetRelatedContent,
-      'related_content_advisernet'
+      'related_content_advisernet',
+      '',
+      null,
+      () => initTargetedContent()
     )}
   </div>`;
