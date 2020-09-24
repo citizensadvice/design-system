@@ -77,6 +77,16 @@ export default {
       options: {},
     },
   },
+  decorators: [
+    (storyFn) =>
+      `<div class="cads-styleguide__breakpoint-label" aria-hidden="true"></div>
+        <div
+          class="cads-styleguide__language-label"
+          onclick="javascript:styleguideChangeLangugage();"
+          aria-hidden="true"
+        ></div>
+        ${storyFn()}`,
+  ],
 };
 
 export const buttons = () => Buttons();
