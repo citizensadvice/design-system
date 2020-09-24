@@ -1,0 +1,57 @@
+- lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a urna nisl. Aenean euismod purus a magna vulputate, eget volutpat neque volutpat. Donec dapibus scelerisque diam eu scelerisque. Vestibulum laoreet magna sagittis felis pellentesque semper. Nullam porta, arcu rhoncus euismod porttitor, risus augue bibendum ipsum, eget tincidunt mi lectus eget eros. Donec nisl ipsum, facilisis vitae tortor maximus, venenatis mattis purus. Quisque fringilla gravida arcu, ut bibendum nibh malesuada at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+- exampleContent = "Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a>"
+
+.content-block
+  %h1 Heading level 1
+
+  %p= lorem
+
+  = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 1 topic" }
+
+  - 2.times do
+    %p= lorem
+
+.content-block
+  = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 2 topic", content: exampleContent, isSticky: true }
+
+  %h2 Heading level 2
+
+  %p=lorem
+
+  %h2 Heading level 3
+
+  - 2.times do
+    %p= lorem
+
+.content-block
+  = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 2 topic", content: exampleContent, isSticky: true }
+
+  - 3.times do
+    %p= lorem
+
+
+-# Demo sticky behaviour _without_ groupings.
+
+<hr style="margin: 100px 0"/>
+
+
+= render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 1 topic" }
+
+- 4.times do
+  %p= lorem
+
+= render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 2 topic", content: exampleContent, isSticky: true }
+
+%h2 Heading level 2
+
+%p= lorem
+
+%h2 Heading level 3
+
+- 2.times do
+  %p= lorem
+
+= render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 2 topic", content: exampleContent, isSticky: true }
+
+- 5.times do
+  %p= lorem

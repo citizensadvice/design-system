@@ -1,0 +1,11 @@
+-# OISC Warning
+
+-# Set defaults for parameters
+- title ||= ''
+- content ||= ''
+- isSticky ||= false
+
+.oisc-warning{:class => ("oisc-warning--sticky" if isSticky)}
+  %h2.oisc-warning__title.cads-heading-small= title
+  -if not content.empty?
+    %p.oisc-warning__content= content

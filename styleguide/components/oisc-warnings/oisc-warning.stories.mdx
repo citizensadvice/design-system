@@ -1,0 +1,74 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import templateDefault from './_default.html.haml';
+import templateDefaultCode from '!!raw-loader!./_default.html.haml';
+
+import templateTitleOnly from './_title-only.html.haml';
+import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
+
+import templateSticky from './_sticky.html.haml';
+import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
+
+<Meta
+  title="Components/OISC Warning"
+  component={() => templateDefault}
+  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
+/>
+
+# OISC warnings
+
+The Office of the Immigration Services Commissioner (OISC) warnings show advisers what OISC regulations apply to specific content.
+
+Rules for OISC warnings:
+
+- Content designers can input free text into the heading fields
+- Content designers can input free text and links into the paragraph fields
+- Adding content to the paragraph is optional
+  -A banner can be added to any page
+
+## With title and description
+
+<Preview>
+  <Story
+    name="With title and description"
+    parameters={{ docs: { source: { code: templateDefaultCode } } }}
+  >
+    {() => templateDefault}
+  </Story>
+</Preview>
+
+## Title only
+
+Descriptions are optional. An OISC warning can be shown with just a title.
+
+<Preview>
+  <Story
+    name="Title only"
+    parameters={{ docs: { source: { code: templateTitleOnlyCode } } }}
+  >
+    {() => templateTitleOnly}
+  </Story>
+</Preview>
+
+## Sticky
+
+This component accepts an optional `isSticky` parameter. If enabled the warning will be sticky when scrolling and can be dismissed.
+
+<Preview>
+  <Story
+    name="Sticky"
+    inline={false}
+    height={'500px'}
+    parameters={{ docs: { source: { code: templateStickyCode } } }}
+  >
+    {() => templateSticky}
+  </Story>
+</Preview>
+
+## Haml template options
+
+| Parameter     | Description                                               |
+| ------------- | --------------------------------------------------------- |
+| `title`       | Required                                                  |
+| `description` | Optional description                                      |
+| `isSticky`    | Flag if the warning should be sticky, defaults to `false` |

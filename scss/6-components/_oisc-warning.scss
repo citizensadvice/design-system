@@ -1,0 +1,24 @@
+/* =========================================================================
+   The Office of the Immigration Services Commissioner (OISC)  Warnings
+   ========================================================================= */
+
+.oisc-warning {
+  padding: $cads-spacing-3;
+  background-color: $cads-palette__light-grey;
+  border: 1px solid $cads-palette__dark-grey;
+  margin-bottom: $cads-spacing-3;
+
+  .oisc-warning__content {
+    margin-top: $cads-spacing-2;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &.oisc-warning--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
