@@ -44,7 +44,7 @@ const initOISCWarnings = () => {
   for (let index = 0; index < els.length; index++) {
     const el = els[index];
     const parentEl = el.closest('.js-oisc-warning');
-    el.addEventListener('click', function (e) {
+    el.addEventListener('click', (e) => {
       e.preventDefault();
       parentEl.classList.remove('is-sticky');
     });
