@@ -253,5 +253,15 @@
   <li><a href="https://www.citizensadvice.org.uk">Search for your local Citizens Advice</a></li>
   <li><a href="https://www.citizensadvice.org.uk">Browse our campaign pages</a></li>
   <li><a href="https://www.citizensadvice.org.uk">Browse our research pages</a></li>
-</ul>'
+</ul>
+<div class="cads-related-content__advisernet">
+  <ul>
+    <li><a href="https://www.citizensadvice.org.uk">Link 1</a></li>
+    <li><a href="https://www.citizensadvice.org.uk">Link 2</a></li>
+    <li><a href="https://www.citizensadvice.org.uk">Link 3</a></li>
+    <li><a href="https://www.citizensadvice.org.uk">Link 4</a></li>
+    <li><a href="https://www.citizensadvice.org.uk">Link 5</a></li>
+    <li><a href="https://www.citizensadvice.org.uk">Link 6</a></li>
+  </ul>
+</div>'
 }
