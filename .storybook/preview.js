@@ -10,6 +10,9 @@ addParameters({
     isToolshown: true,
     showPanel: true,
     panelPosition: 'bottom',
-    storySort: { method: 'alphabetical' },
+    storySort: {
+      method: 'alphabetical',
+      order: ['Welcome', ['Getting started'], 'Components'],
+    },
   },
 });
