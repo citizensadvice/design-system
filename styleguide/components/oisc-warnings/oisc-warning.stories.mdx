@@ -6,18 +6,18 @@ import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
   decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
 />
 
-# OISC warnings
+# The Office of the Immigration Services Commissioner (OISC) warnings
 
-The Office of the Immigration Services Commissioner (OISC) warnings show advisers what OISC regulations apply to specific content.
-
-Rules for OISC warnings:
+OISC warnings show advisers what regulations apply to specific content.
 
 - Content designers can input free text into the heading fields
 - Content designers can input free text and links into the paragraph fields
 - Adding content to the paragraph is optional
-  -A banner can be added to any page
 
-## With title and description
+## Variant: With title and description
+
+- Content designers can input free text into the heading fields
+- Content designers can input free text and links into the paragraph fields
 
 import templateDefault from './_default.html.haml';
 import templateDefaultCode from '!!raw-loader!./_default.html.haml';
@@ -31,7 +31,7 @@ import templateDefaultCode from '!!raw-loader!./_default.html.haml';
   </Story>
 </Preview>
 
-## Title only
+## Variant: Title only
 
 Descriptions are optional. An OISC warning can be shown with just a title.
 
@@ -47,9 +47,9 @@ import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
   </Story>
 </Preview>
 
-## Sticky
+## Variant: Sticky and dismissible
 
-This component accepts an optional `isSticky` parameter. If enabled the warning will be sticky when scrolling and can be dismissed.
+This component accepts an optional `isSticky` setting. If enabled the warning will be sticky when scrolling and can be dismissed.
 
 import templateSticky from './_sticky.html.haml';
 import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
