@@ -5,6 +5,8 @@
 - content ||= ''
 - isSticky ||= false
 
+-if isSticky
+  .js-oisc-warning-sticky-sentry
 .oisc-warning.js-oisc-warning{:class => ("is-sticky" if isSticky)}
   .oisc-warning__header
     %h2.oisc-warning__title.cads-heading-small= title

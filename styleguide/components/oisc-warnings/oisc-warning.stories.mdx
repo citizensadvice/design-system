@@ -1,9 +1,15 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import initOISCWarnings from '../../../src/js/oisc-warnings';
 
 <Meta
   title="Components/OISC Warning"
   component={() => templateDefault}
-  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
+  decorators={[
+    (Story) => {
+      setTimeout(() => initOISCWarnings());
+      return `<div style="max-width: 800px">${Story()}</div>`;
+    },
+  ]}
 />
 
 # The Office of the Immigration Services Commissioner (OISC) warnings

@@ -7,8 +7,14 @@
   border: 1px solid $cads-palette__dark-grey;
   margin-bottom: $cads-spacing-3;
 
+  .oisc-warning__header {
+    display: flex;
+    align-items: center;
+  }
+
   .oisc-warning__title {
     padding: $cads-spacing-3;
+    flex: 1;
   }
 
   .oisc-warning__content {
@@ -32,16 +38,10 @@
   &.is-sticky {
     position: sticky;
     top: 0;
-    z-index: 1;
+  }
 
-    .oisc-warning__header {
-      display: flex;
-      align-items: center;
-    }
-
-    .oisc-warning__title {
-      flex: 1;
-    }
+  &.is-sticky.is-stuck {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     .oisc-warning__close {
       display: inline-block;
