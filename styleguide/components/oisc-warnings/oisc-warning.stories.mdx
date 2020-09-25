@@ -1,13 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-
-import templateDefault from './_default.html.haml';
-import templateDefaultCode from '!!raw-loader!./_default.html.haml';
-
-import templateTitleOnly from './_title-only.html.haml';
-import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
-
-import templateSticky from './_sticky.html.haml';
-import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 
 <Meta
   title="Components/OISC Warning"
@@ -28,6 +19,9 @@ Rules for OISC warnings:
 
 ## With title and description
 
+import templateDefault from './_default.html.haml';
+import templateDefaultCode from '!!raw-loader!./_default.html.haml';
+
 <Preview>
   <Story
     name="With title and description"
@@ -40,6 +34,9 @@ Rules for OISC warnings:
 ## Title only
 
 Descriptions are optional. An OISC warning can be shown with just a title.
+
+import templateTitleOnly from './_title-only.html.haml';
+import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
 
 <Preview>
   <Story
@@ -54,6 +51,9 @@ Descriptions are optional. An OISC warning can be shown with just a title.
 
 This component accepts an optional `isSticky` parameter. If enabled the warning will be sticky when scrolling and can be dismissed.
 
+import templateSticky from './_sticky.html.haml';
+import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
+
 <Preview>
   <Story
     name="Sticky"
@@ -67,8 +67,14 @@ This component accepts an optional `isSticky` parameter. If enabled the warning 
 
 ## Haml template options
 
-| Parameter     | Description                                               |
+The Haml partial takes the following properties:
+
+| properties    | Description                                               |
 | ------------- | --------------------------------------------------------- |
 | `title`       | Required                                                  |
 | `description` | Optional description                                      |
 | `isSticky`    | Flag if the warning should be sticky, defaults to `false` |
+
+For example:
+
+<Source dark="true" lang="haml" code={templateDefaultCode} />
