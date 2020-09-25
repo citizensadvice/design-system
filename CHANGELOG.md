@@ -1,3 +1,5 @@
+* NP-895 Fix search appearance 
+
 ## <sub>v1.10.0</sub>
 
 #### _Sep. 23, 2020_
