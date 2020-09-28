@@ -41,8 +41,12 @@ function writeConfig(fileName, componentUrls) {
 }
 
 // Extracts urls from backstop testing scenarios, replaces host as directed
-const getComponentUrls = (_backstopConfig) =>
-  _backstopConfig.scenarios.map((scenario) => scenario.url);
+const getComponentUrls = (_backstopConfig) => {
+  const urls = _backstopConfig.scenarios.map((scenario) => scenario.url);
+  // Use a Set to ensure list of urls is unique
+  // Backstop may use the same URL twice for multiple tests
+  return Array.from(new Set(urls));
+};
 
 const createLocalPa11yConfigs = () => {
   writeConfig(
