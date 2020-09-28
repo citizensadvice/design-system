@@ -47,6 +47,28 @@ const initOISCWarnings = () => {
         observer.unobserve(sentryEl);
       });
   }
+
+  /**
+   * Account for anchor links
+   * Add an offset using scroll-margin based on the reference height
+   * of the first sticky warning on the page.
+   * https://caniuse.com/?search=scroll-margin
+   */
+  if (sentryEls.length > 0) {
+    // Take the height of the first sticky element as our reference;
+    const referenceHeight = sentryEls[0].nextElementSibling.offsetHeight;
+    const offset = referenceHeight + 10;
+
+    // Add a scroll-margin to each heading element
+    // @TODO: Is this the most appropriate selector to use?
+    const headings = document
+      .querySelector('main')
+      .querySelectorAll('h2, h3, h4, h5, h6');
+
+    for (let headingIndex = 0; headingIndex < headings.length; headingIndex++) {
+      headings[headingIndex].style = `scroll-margin-top: ${offset}px`;
+    }
+  }
 };
 
 export default initOISCWarnings;
