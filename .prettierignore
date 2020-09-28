@@ -2,7 +2,7 @@
 lib
 docs
 vendor/bundle
-testing/visual-regression/backstop_data/**/*
+testing/visual-regression/backstop_data/html_report/*
 testing/package-lock.json
 stats/*
 assets/cads.css

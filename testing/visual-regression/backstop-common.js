@@ -714,6 +714,20 @@ module.exports = function (baseUrl) {
         misMatchThreshold: 0.1,
         requireSameDimensions: true,
       },
+      {
+        label: 'Components/OISC Warning/With title and description',
+        url: `${baseUrl}/iframe.html?id=components-oisc-warning--with-title-and-description&viewMode=story`,
+      },
+      {
+        label: 'Components/OISC Warning/Title only',
+        url: `${baseUrl}/iframe.html?id=components-oisc-warning--title-only&viewMode=story`,
+      },
+      {
+        label: 'Components/OISC Warning/Sticky (scrolled)',
+        url: `${baseUrl}/iframe.html?id=components-oisc-warning--sticky&viewMode=story`,
+        selectors: ['viewport'],
+        scrollToSelector: '#heading-anchor',
+      },
     ],
     dockerCommandTemplate:
       'docker run --rm -i --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
