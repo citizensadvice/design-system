@@ -1,0 +1,16 @@
+- lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a urna nisl. Aenean euismod purus a magna vulputate, eget volutpat neque volutpat. Donec dapibus scelerisque diam eu scelerisque. Vestibulum laoreet magna sagittis felis pellentesque semper. Nullam porta, arcu rhoncus euismod porttitor, risus augue bibendum ipsum, eget tincidunt mi lectus eget eros. Donec nisl ipsum, facilisis vitae tortor maximus, venenatis mattis purus. Quisque fringilla gravida arcu, ut bibendum nibh malesuada at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+- exampleContent = "Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a>"
+
+%h1 3.5.6.4 Check how your client can get permission to work or study in the UK
+
+= render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 2 topic", content: exampleContent, isSticky: true }
+
+%h2 Heading level 2
+
+- 3.times do
+  %p= lorem
+
+%h3 Heading level 3
+
+- 4.times do
+  %p= lorem
