@@ -23,12 +23,10 @@ module.exports = function (baseUrl) {
         height: 768,
       },
     ],
-    onBeforeScript: 'puppet/onBefore.js',
     onReadyScript: 'puppet/onReady.js',
     scenarios: [
       {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
         referenceUrl: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
         readyEvent: '',
@@ -51,7 +49,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '2_Design_Foundations_COLOUR_PALETTE',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-palette`,
         referenceUrl: `${baseUrl}/iframe.html?id=2-design-foundations--colour-palette`,
         readyEvent: '',
@@ -74,7 +71,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_ADVICE_FEEDBACK_question',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--advice-feedback`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--advice-feedback`,
         readyEvent: '',
@@ -96,7 +92,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_ADVICE_FEEDBACK_thank_you',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--advice-feedback`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--advice-feedback`,
         readyEvent: '',
@@ -118,7 +113,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_ASSET_HYPERLINK',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--asset-hyperlink`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--asset-hyperlink`,
         readyEvent: '',
@@ -140,7 +134,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_BREADCRUMBS',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--breadcrumb`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--breadcrumb`,
         readyEvent: '',
@@ -162,7 +155,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_BUTTONS',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--buttons`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--buttons`,
         readyEvent: '',
@@ -184,7 +176,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_CALLOUTS',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--callout`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--callout`,
         readyEvent: '',
@@ -206,7 +197,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_CONTACT_DETAILS',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--contact-details`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--contact-details`,
         readyEvent: '',
@@ -228,7 +218,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_ERROR_SUMMARY',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--error-summary`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--error-summary`,
         readyEvent: '',
@@ -250,7 +239,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_FOOTER',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--footer`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--footer`,
         readyEvent: '',
@@ -272,7 +260,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_HEADER',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--header`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--header`,
         readyEvent: '',
@@ -322,7 +309,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_INPUT',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--input`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--input`,
         readyEvent: '',
@@ -344,7 +330,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_LOGO',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--logo`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--logo`,
         readyEvent: '',
@@ -366,7 +351,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_NAVIGATION',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--navigation`,
         readyEvent: '',
@@ -412,7 +396,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_NAVIGATION_BUTTONS',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--navigation`,
         readyEvent: '',
@@ -458,7 +441,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_NOTICE_BANNER',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--notice-banner`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--notice-banner`,
         readyEvent: '',
@@ -480,7 +462,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_PAGE_REVIEW',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--page-review`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--page-review`,
         readyEvent: '',
@@ -502,7 +483,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_PAGINATION',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--pagination`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--pagination`,
         readyEvent: '',
@@ -524,7 +504,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_PAGING_INFO',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--paging-info`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--paging-info`,
         readyEvent: '',
@@ -546,7 +525,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_RADIO_GROUP',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--radio-group`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--radio-group`,
         readyEvent: '',
@@ -568,7 +546,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_RADIO_GROUP_small',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--radio-group-small`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--radio-group-small`,
         readyEvent: '',
@@ -590,7 +567,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_SEARCH',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--search`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--search`,
         readyEvent: '',
@@ -612,7 +588,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_SUCCESS_MESSAGE',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--success-message`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--success-message`,
         readyEvent: '',
@@ -634,7 +609,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_TARGED_CONTENT',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--targeted-content`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--targeted-content`,
         readyEvent: '',
@@ -656,7 +630,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_TEXTAREA',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--textarea`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--textarea`,
         readyEvent: '',
@@ -678,7 +651,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_WEBSITE-FEEDBACK',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
         readyEvent: '',
@@ -700,7 +672,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_RELATED-CONTENT',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--related-content`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--related-content`,
         readyEvent: '',
@@ -722,7 +693,6 @@ module.exports = function (baseUrl) {
       },
       {
         label: '3_Components_TABLES',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--tables`,
         referenceUrl: `${baseUrl}/iframe.html?id=3-components--tables`,
         readyEvent: '',
