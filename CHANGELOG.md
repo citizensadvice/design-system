@@ -1,3 +1,4 @@
+* NP-895 Correct footer class and SCSS
 * NP-895 Fix search appearance 
 
 ## <sub>v1.10.0</sub>
