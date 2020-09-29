@@ -746,9 +746,9 @@ module.exports = function (baseUrl) {
     dockerCommandTemplate:
       'docker run --rm -i --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
     paths: {
+      engine_scripts: 'engine_scripts',
       bitmaps_reference: 'backstop_data/bitmaps_reference',
       bitmaps_test: 'backstop_data/bitmaps_test',
-      engine_scripts: 'backstop_data/engine_scripts',
       html_report: 'backstop_data/html_report',
       ci_report: 'backstop_data/ci_report',
     },
