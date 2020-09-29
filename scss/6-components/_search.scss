@@ -1,4 +1,6 @@
-.cads-search {
+$block: cads-search;
+
+.#{$block} {
   position: relative;
   white-space: nowrap;
   width: 100%;
@@ -47,6 +49,25 @@
 
     input {
       height: $cads-interactive-target-size;
+    }
+  }
+}
+
+// Search button in header has icon instead of text
+.cads-header .#{$block} {
+  @include cads-media-breakpoint-only(sm) {
+    .cads-search-button {
+      &::before {
+        display: inline;
+        content: '\004b';
+        font-family: 'cads' !important;
+        font-weight: normal;
+      }
+
+      &::after {
+        display: none;
+        content: '';
+      }
     }
   }
 }
