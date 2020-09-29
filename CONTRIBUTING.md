@@ -74,12 +74,6 @@ After a test run is complete you can `npm run vr-test vr-test:open-report` to vi
 
 If you are working in a QA role you can npm run vr-test:approve' the changes.
 
-#### Writing test scenarios
-
-It's important that both backstop config files are kept in sync. Write your test scenarios in `./testing/visual-regression/backstop.json` and run `npm run vr-test:sync` to bring `./testing/visual-regression/backstop-ci.json` up to date. Any differences will be printed to the console.
-
-If you want to check that the files are in sync you can run `npm run vr-test:validate` - this is also run as part of the CI process. If the scenarios do not match or any are missing then the build will fail.
-
 #### Low-level Usage
 
 To run Backstop commands as per the [BackstopJS Github's page](https://github.com/garris/BackstopJS) simply cd into `/testing` and run the commands with `npx ` appended to the front - for example `npx backstop test` or `npx backstop approve`.
