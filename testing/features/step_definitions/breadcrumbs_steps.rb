@@ -10,7 +10,7 @@ Then("a series of breadcrumbs are present") do
 end
 
 Then("the initial breadcrumbs are all links") do
-  expect(@component.initial_form.all_but_last_breadcrumb).to have_link
+  expect(@component.initial_form.all_but_last_breadcrumb).to all have_link
 end
 
 Then("the final breadcrumb isn't a link") do

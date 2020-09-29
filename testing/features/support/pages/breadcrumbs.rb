@@ -2,10 +2,10 @@
 
 module DesignSystem
   class Breadcrumbs < SitePrism::Page
-    set_url "/iframe.html?id=3-components--breadcrumbs&viewMode=story"
+    set_url "/iframe.html?id=3-components--breadcrumb&viewMode=story"
 
     section :initial_form, "#a11yComponentToTest" do
-      element :breadcrumbs, ".cads-breadcrumbs li"
+      elements :breadcrumbs, ".cads-breadcrumbs li"
 
       def all_but_last_breadcrumb
         breadcrumbs[0..-2]
