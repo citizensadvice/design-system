@@ -2,18 +2,18 @@
 
 -# Set defaults for parameters
 - title ||= ''
-- content ||= ''
-- isSticky ||= false
+- body ||= ''
+- is_sticky ||= false
 
--if isSticky
+-if is_sticky
   .js-oisc-warning-sticky-sentry
-.oisc-warning{:class => ("is-sticky" if isSticky)}
+.oisc-warning{:class => ("is-sticky" if is_sticky)}
   .oisc-warning__header
     %h2.oisc-warning__title.cads-heading-small= title
-    -if isSticky
+    -if is_sticky
       %button.oisc-warning__close.js-oisc-warning-close
         %span.cads-icon_close
         %span.cads-sr-only
           Close this warning
-  -if not content.empty?
-    %p.oisc-warning__content= content
+  -if not body.empty?
+    %p.oisc-warning__body= body

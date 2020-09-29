@@ -16,14 +16,9 @@ import initOISCWarnings from '../../../src/js/oisc-warnings';
 
 OISC warnings show advisers what regulations apply to specific content.
 
-- Content designers can input free text into the heading fields
-- Content designers can input free text and links into the paragraph fields
-- Adding content to the paragraph is optional
-
 ## Variant: With title and description
 
-- Content designers can input free text into the heading fields
-- Content designers can input free text and links into the paragraph fields
+The default variant is to show a static banner with a title and body text.
 
 import templateDefault from './_default.html.haml';
 import templateDefaultCode from '!!raw-loader!./_default.html.haml';
@@ -39,7 +34,7 @@ import templateDefaultCode from '!!raw-loader!./_default.html.haml';
 
 ## Variant: Title only
 
-Descriptions are optional. An OISC warning can be shown with just a title.
+The warning can be shown with just a title.
 
 import templateTitleOnly from './_title-only.html.haml';
 import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
@@ -55,7 +50,7 @@ import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
 
 ## Variant: Sticky and dismissible
 
-This component accepts an optional `isSticky` setting. If enabled the warning will be sticky when scrolling and can be dismissed.
+This component accepts an optional `is_sticky` setting. If enabled the warning will be sticky when scrolling and can be dismissed.
 
 import templateSticky from './_sticky.html.haml';
 import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
@@ -75,11 +70,11 @@ import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
 
 The Haml partial takes the following properties:
 
-| properties    | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| `title`       | Required                                                  |
-| `description` | Optional description                                      |
-| `isSticky`    | Flag if the warning should be sticky, defaults to `false` |
+| properties  | Description                                               |
+| ----------- | --------------------------------------------------------- |
+| `title`     | Required                                                  |
+| `body`      | Optional body content                                     |
+| `is_sticky` | Flag if the warning should be sticky, defaults to `false` |
 
 For example:
 
