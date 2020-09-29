@@ -1,7 +1,10 @@
-module.exports = async (page, scenario, vp) => {
+module.exports = async (page, scenario) => {
   console.log('SCENARIO > ' + scenario.label);
-  await require('./overrideCSS')(page, scenario);
-  await require('./clickAndHoverHelper')(page, scenario);
 
-  // add more ready handlers here...
+  // Enable prefers-reduced-motion to disable animations
+  await page.emulateMediaFeatures([
+    { name: 'prefers-reduced-motion', value: 'reduce' },
+  ]);
+
+  await require('./clickAndHoverHelper')(page, scenario);
 };
