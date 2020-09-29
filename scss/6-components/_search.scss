@@ -1,6 +1,4 @@
-$block: cads-search;
-
-.#{$block} {
+.cads-search {
   position: relative;
   white-space: nowrap;
   width: 100%;
@@ -16,7 +14,7 @@ $block: cads-search;
     margin-bottom: 0;
   }
 
-  .cads-search-button {
+  &__button {
     font-size: 1rem;
     flex: 0 0 auto;
     padding: calc(1em - 1px) 1rem;
@@ -36,13 +34,17 @@ $block: cads-search;
       content: 'Chwilio';
     }
 
+    &:hover {
+      box-shadow: none;
+    }
+
     &:active {
       transform: none;
     }
   }
 
   @include cads-media-breakpoint-only(sm) {
-    .cads-search-button {
+    &__button {
       height: $cads-interactive-target-size;
       padding: 11px 12px 11px 12px;
     }
@@ -54,9 +56,9 @@ $block: cads-search;
 }
 
 // Search button in header has icon instead of text
-.cads-header .#{$block} {
+.cads-header .cads-search {
   @include cads-media-breakpoint-only(sm) {
-    .cads-search-button {
+    &__button {
       &::before {
         display: inline;
         content: '\004b';
