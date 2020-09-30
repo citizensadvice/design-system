@@ -11,72 +11,54 @@
  * the visual regression tests. (.pa11yci.ci.json)
  *
  * Options for both configs can be added into the baseConfig object.
+ * @ TODO: Upgrade storybook to 6 and use JSON export
  */
-
 const chalk = require('chalk');
 const fs = require('fs');
-const localScenarios = require('../testing/visual-regression/backstop.json');
+const backstopConfigCommon = require('../testing/visual-regression/backstop-common');
 
-const dockerHost = 'ca-styleguide:6006';
-const baseConfig = {
-  defaults: {
-    chromeLaunchConfig: {
-      args: ['--no-sandbox'],
+function writeConfig(fileName, componentUrls) {
+  const configToWrite = {
+    defaults: {
+      chromeLaunchConfig: {
+        args: ['--no-sandbox'],
+      },
     },
-  },
-};
-const basePath = './testing/wcag/';
-
-// TODO: Upgrade storybook to 6 and use JSON export
-
-// Extracts urls from backstop testing scenarios, replaces host as directed
-const getComponentUrls = (host) =>
-  localScenarios.scenarios.map((scenario) => {
-    if (host) {
-      return scenario.url.replace('http://host.docker.internal:6006', host);
-    }
-    return scenario.url;
-  });
-
-const createLocalPa11yConfigs = () => {
-  const localUrls = getComponentUrls('http://localhost:6006');
-
-  const localConfig = {
-    ...baseConfig,
-    urls: localUrls,
+    urls: componentUrls,
   };
 
   fs.writeFile(
-    `${basePath}.pa11yci.local.json`,
-    JSON.stringify(localConfig, null, 2),
+    `./testing/wcag/${fileName}`,
+    JSON.stringify(configToWrite, null, 2),
     (err) => {
       if (err) {
         console.log(chalk.red(err));
       } else {
-        console.log(chalk.green('Local pa11y config updated successfully.'));
+        console.log(chalk.green(`${fileName} updated successfully.`));
       }
     }
+  );
+}
+
+// Extracts urls from backstop testing scenarios, replaces host as directed
+const getComponentUrls = (_backstopConfig) => {
+  const urls = _backstopConfig.scenarios.map((scenario) => scenario.url);
+  // Use a Set to ensure list of urls is unique
+  // Backstop may use the same URL twice for multiple tests
+  return Array.from(new Set(urls));
+};
+
+const createLocalPa11yConfigs = () => {
+  writeConfig(
+    '.pa11yci.local.json',
+    getComponentUrls(backstopConfigCommon('http://localhost:6006'))
   );
 };
 
 const createCiPa11yConfigs = () => {
-  const ciUrls = getComponentUrls(dockerHost);
-
-  const ciConfig = {
-    ...baseConfig,
-    urls: ciUrls,
-  };
-
-  fs.writeFile(
-    `${basePath}.pa11yci.ci.json`,
-    JSON.stringify(ciConfig, null, 2),
-    (err) => {
-      if (err) {
-        console.log(chalk.red(console.log(err)));
-      } else {
-        console.log(chalk.green('CI pa11y config updated successfully.'));
-      }
-    }
+  writeConfig(
+    '.pa11yci.ci.json',
+    getComponentUrls(backstopConfigCommon('ca-styleguide:6006'))
   );
 };
 

@@ -1,5 +1,13 @@
 * NP-756 Advisernet related content component
 
+## <sub>v1.10.1</sub>
+
+#### _Sep. 30, 2020_
+
+* NP-924 Callout headings bug
+* NP-895 Correct footer class and SCSS
+* NP-895 Fix search appearance 
+
 ## <sub>v1.10.0</sub>
 
 #### _Sep. 23, 2020_
