@@ -38,7 +38,6 @@
   &.is-sticky.is-stuck {
     /* stylelint-disable declaration-block-no-duplicate-properties */
     position: fixed; // Default to position: fixed for older browsers
-    width: inherit;
     max-width: inherit; // Makes fixed positioning inherit parent width
     position: sticky; // Switch to position sticky where supported
     top: 0;
