@@ -2,26 +2,10 @@ module.exports = function (baseUrl) {
   return {
     id: 'backstop_default',
     viewports: [
-      {
-        label: 'phone',
-        width: 320,
-        height: 480,
-      },
-      {
-        label: 'Small',
-        width: 640,
-        height: 960,
-      },
-      {
-        label: 'Medium',
-        width: 800,
-        height: 600,
-      },
-      {
-        label: 'Large',
-        width: 1024,
-        height: 768,
-      },
+      { label: 'phone', width: 320, height: 480 },
+      { label: 'Small', width: 640, height: 960 },
+      { label: 'Medium', width: 800, height: 600 },
+      { label: 'Large', width: 1024, height: 768 },
     ],
     onReadyScript: 'onReady.js',
     scenarios: [
