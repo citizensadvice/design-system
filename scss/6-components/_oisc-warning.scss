@@ -41,6 +41,7 @@
     max-width: inherit; // Makes fixed positioning inherit parent width
     position: sticky; // Switch to position sticky where supported
     top: 0;
+    z-index: 10;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     .oisc-warning__header {
