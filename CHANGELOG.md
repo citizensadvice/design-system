@@ -1,3 +1,4 @@
+* NP-924 Callout headings bug
 * NP-895 Correct footer class and SCSS
 * NP-895 Fix search appearance 
 
