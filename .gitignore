@@ -19,6 +19,7 @@ testing/visual-regression/backstop_data/ci_report
 vendor/**/*
 reports
 /lib
+*.code-workspace
 
 # Keep nothing in these directories except the 'keep' files
 testing/artifacts/*

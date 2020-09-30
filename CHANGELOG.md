@@ -1,3 +1,5 @@
+* NP-924 Callout headings bug
+
 ## <sub>v1.10.0</sub>
 
 #### _Sep. 23, 2020_
