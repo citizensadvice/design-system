@@ -17,11 +17,12 @@ const initOISCWarnings = () => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       const stickyEl = entry.target.nextElementSibling;
-
       if (entry.intersectionRatio === 0) {
         stickyEl.classList.add(STUCK_CLASS);
+        stickyEl.style.maxWidth = `${entry.target.offsetWidth}px`;
       } else if (entry.intersectionRatio === 1) {
         // fully intersects with screen
+        stickyEl.style.maxWidth = null;
         stickyEl.classList.remove(STUCK_CLASS);
       }
     },
