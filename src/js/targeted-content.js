@@ -42,56 +42,6 @@ const initTargetedContent = () => {
         }
       }
     });
-
-    // Expand all button for adviser if content present
-    if (content.length > 0) {
-      const h1 = pageContent.getElementsByTagName('h1')[0];
-      const b = document.createElement('button');
-      b.innerHTML = 'Expand all<span class="cads-icon_plus"></span>';
-      b.setAttribute('type', 'button');
-      b.classList.add(
-        'cads-targeted-content__expand-all',
-        'cads-button',
-        'cads-button__tertiary'
-      );
-
-      b.addEventListener('click', (e) => {
-        let expandAll = false;
-        const { target } = e;
-        let t = target;
-
-        if (target.innerText && target.innerText.indexOf('Expand all') !== -1) {
-          expandAll = true;
-        }
-        if (target.className.indexOf('cads-icon_plus') !== -1) {
-          expandAll = true;
-          t = target.parentNode;
-        }
-        if (target.className.indexOf('cads-icon_minus') !== -1) {
-          t = target.parentNode;
-        }
-
-        if (expandAll) {
-          t.innerHTML = 'Collapse all<span class="cads-icon_minus"></span>';
-        } else {
-          t.innerHTML = 'Expand all<span class="cads-icon_plus"></span>';
-        }
-
-        for (let i = 0; i < content.length; i++) {
-          const item = content[i];
-          const summary = item.getElementsByClassName(
-            'cads-targeted-content__summary'
-          )[0];
-          if (
-            (expandAll && !item.classList.contains('is-open')) ||
-            (!expandAll && item.classList.contains('is-open'))
-          ) {
-            summary.click();
-          }
-        }
-      });
-      h1.parentNode.insertBefore(b, h1.nextSibling);
-    }
   } catch (e) {
     console.warn(`Could not initialise targeted content ${e}`);
   }
