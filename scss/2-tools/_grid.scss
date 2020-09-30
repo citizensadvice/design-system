@@ -57,8 +57,6 @@
 
 @mixin cads-make-col($size, $columns: $cads-grid-columns) {
   flex: 0 0 percentage($size / $columns);
-  // Ensure content within each column does not blow out the width of the column
-  max-width: percentage($size / $columns);
 }
 
 @mixin cads-make-col-offset($size, $columns) {
