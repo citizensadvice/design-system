@@ -44,6 +44,7 @@ function renderHamlTemplate(
 export default {
   title: '4: Sample pages',
   parameters: {
+    viewMode: 'story',
     options: {
       showPanel: true,
     },

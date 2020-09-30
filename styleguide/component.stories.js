@@ -65,6 +65,7 @@ ${usage || ''}`,
 export default {
   title: '3: Components',
   parameters: {
+    viewMode: 'story',
     options: {
       showPanel: true,
     },

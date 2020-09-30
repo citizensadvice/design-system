@@ -18,6 +18,10 @@ export default {
     (storyFn) =>
       `<div class="cads-styleguide-max-content-width">${storyFn()}</div>`,
   ],
+  parameters: {
+    viewMode: 'story',
+    options: { showPanel: false },
+  },
 };
 
 function getColours(type, sass) {
