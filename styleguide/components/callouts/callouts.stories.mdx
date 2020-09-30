@@ -1,0 +1,94 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title="Components/Callouts"
+  component={() => templateDefault}
+  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
+/>
+
+# Callouts
+
+There are several different variants of the callout component:
+
+## Default
+
+import templateDefault from './_default.html.haml';
+import templateDefaultCode from '!!raw-loader!./_default.html.haml';
+
+<Preview>
+  <Story
+    name="Default callout"
+    parameters={{ docs: { source: { code: templateDefaultCode } } }}
+  >
+    {() => templateDefault}
+  </Story>
+</Preview>
+
+## Standard
+
+import templateStandard from './_standard.html.haml';
+import templateStandardCode from '!!raw-loader!./_standard.html.haml';
+
+<Preview>
+  <Story
+    name="Standard callout"
+    parameters={{ docs: { source: { code: templateStandardCode } } }}
+  >
+    {() => templateStandard}
+  </Story>
+</Preview>
+
+## Example
+
+import templateExample from './_example.html.haml';
+import templateExampleCode from '!!raw-loader!./_example.html.haml';
+
+<Preview>
+  <Story
+    name="Example callout"
+    parameters={{ docs: { source: { code: templateExampleCode } } }}
+  >
+    {() => templateExample}
+  </Story>
+</Preview>
+
+## Important
+
+import templateImportant from './_important.html.haml';
+import templateImportantCode from '!!raw-loader!./_important.html.haml';
+
+<Preview>
+  <Story
+    name="Important callout"
+    parameters={{ docs: { source: { code: templateImportantCode } } }}
+  >
+    {() => templateImportant}
+  </Story>
+</Preview>
+
+## Adviser
+
+import templateAdviser from './_adviser.html.haml';
+import templateAdviserCode from '!!raw-loader!./_adviser.html.haml';
+
+<Preview>
+  <Story
+    name="Adviser callout"
+    parameters={{ docs: { source: { code: templateAdviserCode } } }}
+  >
+    {() => templateAdviser}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial takes a `notice` hash with the following properties:
+
+| Property         | Description                                                       |
+| ---------------- | ----------------------------------------------------------------- |
+| `notice['type']` | Optional type, one of: `standard`, `example`, `import`, `adviser` |
+| `notice['body']` | HTML string                                                       |
+
+For example:
+
+<Source dark="true" lang="haml" code={templateImportantCode} />
