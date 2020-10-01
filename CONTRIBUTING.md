@@ -1,14 +1,6 @@
 # Contributing
 
-## Contribution process
-
-To do...
-
-## Design
-
-To do...
-
-## The Code
+## Getting started
 
 Use node v14 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 14.
 
@@ -26,41 +18,27 @@ Run `npm run build` and this will compile all the SCSS into the `lib` folder.
 
 The `check-size` script will check the current output and compare it to the last released build. It will flag up if the size has changed more than 10% either way. The script exports the functions so that you can run them individually in other node scripts. If you execute the script with the `-r` arg it will run and compare the build. If you supply a `-w` argument it will also store the results into `stats/size.json`. You should **only** do that if you are making a new release.
 
-### Testing
+## Testing
 
-#### Visual regression
+### Visual regression testing
 
-As this is just a CSS library to test it we use storybook. The concept is that a test version of storybook is built which is then used to do screenshot comparison in BackstopJS. BackstopJS automates visual regression testing of your responsive web UI by comparing DOM screenshots over time.
-
-You can install backstop by running `npm run vr-test:install`, this will install the visual regression testing tools. These are installed under `/testing` and have a separate package to the main Design System, this is done to keep the install time of the Design System low.
-
-#### Accessibility
-
-`pa11y-ci` is used to perform automated accessibility tests.  The default configuration is to use htmlsniffer and the urls in the `.pa11yci.*.json` config files.  The files are generated dynamically from the backtopJS scenarios when running the `wcag` tasks in `package.json`.
-
-The following tasks can be used to perform WCAG tests:
-  - `npm run wcag-test` - runs WCAG tests using the local config files.  This runs storybook then runs `pa11y-ci` against the local storybook urls
-  - `npm run wcag-test:ci` - runs WCAG tests using the ci config files.
-
-### Releasing
-
-Releasing a new npm package version is a two step process.
-
-#### 1. Prepare the release
-
-Run `npm run release`. This prepares the release and puts it in a branch with the appropriate version name, which needs a PR to be merged into master. Once that is merged you can then do the actual release.
-
-#### 2. Publish to npm 
-
-After the new version branch is merged, switch to `master`, pull the latest and run `npm publish`. The `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm. 
-
-***Note:*** To run this step you need to be part of the npm org and have 2FA enabled.
+We use BackstopJS to automate visual regression testing of components by comparing DOM screenshots over time.
 
 #### Usage
 
 The tests are run inside of Docker to ensure consistency accross different environments (mac, windows and linux). You can install Docker by following the instructions at [docker.com](https://www.docker.com/products/docker-desktop).
 
-To start the server, run the tests and then stop the server you can run:
+**Install backstop:**
+
+You can install backstop by running:
+
+```
+npm run vr-test:install
+```
+
+This will install the visual regression testing tools. These are installed under `/testing` and have a separate package to the main Design System, this is done to keep the install time of the Design System low.
+
+**Run tests:**
 
 ```
 npm run vr-test:test
@@ -68,37 +46,77 @@ npm run vr-test:test
 
 If you are running the tests in ci, or prefer not to have a browser showing the results opened at the end of the test-run then you can use `npm run vt-test:ci`. This will run both the design-system and backstop within docker using docker-compose. You may need to install `docker-compose` for this functionality to be available.
 
-You can also choose to run the tests without starting up the design-system server with `npm run vr-test:standalone`.
+You can also choose to run the tests without starting up the design-system server with:
 
-After a test run is complete you can `npm run vr-test vr-test:open-report` to view the report in a browser.
+```
+npm run vr-test:standalone
+```
 
-If you are working in a QA role you can npm run vr-test:approve' the changes.
+After a test run is complete you can run `vr-test:open-report` to view the report in a browser.
+
+**Approve changes:**
+
+If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+
+```
+npm run vr-test:approve
+```
 
 #### Low-level Usage
 
-To run Backstop commands as per the [BackstopJS Github's page](https://github.com/garris/BackstopJS) simply cd into `/testing` and run the commands with `npx ` appended to the front - for example `npx backstop test` or `npx backstop approve`.
+Low-level backstop commands must be run from within the visual-regression directory.
 
-- **`npx backstop init`:** Set up a new BackstopJS instance -- specify URLs, cookies, screen sizes, DOM selectors, interactions etc.
+```
+cd /testing/visual-regression
+```
 
-- **`npx backstop reference`:**: Set up the baseline that you’re testing against.
+From here you can run `backstop` commands directly.
 
-- **`npx backstop reference --filter=<scenario.label>`:**: Set up the baseline for a specific scenario that you’re testing against using the label name.
+**Set up the baseline that you’re testing against:**
 
-- **`npx backstop test`:** BackstopJS creates a set of test screenshots and compares them with your reference screenshots. Any changes show up in a visual report. (Run this after making CSS changes as many times as needed.)
+```
+npx backstop reference --docker --config=backstop-config.js
+```
 
-- **`npx backstop test --filter=<scenario.label>`:** Run the test for a specific scenario using the label name.
+**Set up the baseline for a specific scenario that you’re testing against:**
 
--  **`npx backstop approve`:** If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+```
+npx backstop reference --docker --config=backstop-config.js --filter=<scenario.label>
+```
 
--  **`npx backstop approve --filter=<scenario.label>`:** Approve a specific scenario using the label name.
+**Run the test for a specific scenario:**
+
+```
+npx backstop reference --docker --config=backstop-config.js --filter=<scenario.label>
+```
 
 For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
 
+### Accessibility testing
 
-### Assets
+`pa11y-ci` is used to perform automated accessibility tests.  The default configuration is to use htmlsniffer and the urls in the `.pa11yci.*.json` config files.  The files are generated dynamically from the backtopJS scenarios when running the `wcag` tasks in `package.json`.
+
+The following tasks can be used to perform WCAG tests:
+  - `npm run wcag-test` - runs WCAG tests using the local config files.  This runs storybook then runs `pa11y-ci` against the local storybook urls
+  - `npm run wcag-test:ci` - runs WCAG tests using the ci config files.
+
+## Release process
+
+Releasing a new npm package version is a two step process.
+
+### 1. Prepare the release
+
+Run `npm run release`. This prepares the release and puts it in a branch with the appropriate version name, which needs a PR to be merged into master. Once that is merged you can then do the actual release.
+
+### 2. Publish to npm 
+
+After the new version branch is merged, switch to `master`, pull the latest and run `npm publish`. The `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm. 
+
+***Note:*** To run this step you need to be part of the npm org and have 2FA enabled.
+
+## Assets
 
 Any icons/etc should be inlined into the class that needs to use them to avoid url issues on deployment. The original assets should  be stored in the `assets` folder for reference.
-
 
 ## Styleguide
 
