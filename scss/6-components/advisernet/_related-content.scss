@@ -40,6 +40,8 @@
     }
 
     @include cads-media-breakpoint-only(sm) {
+      padding-right: 0;
+
       .cads-targeted-content {
         display: block;
       }
