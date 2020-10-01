@@ -34,10 +34,8 @@
     "vr-test:test": "node scripts/vr-test.js",
     "vr-test:ci": "./bin/jenkins/visual_regression && docker-compose down",
     "vr-test:standalone": "cd testing/visual-regression && npx backstop test --docker",
-    "vr-test:approve": "cd testing/visual-regression && npx backstop approve",
-    "vr-test:open-report": "cd testing/visual-regression && npx backstop openReport",
-    "vr-test:sync": "node scripts/vr-test-sync.js",
-    "vr-test:validate": "node scripts/vr-test-sync.js -- --validate",
+    "vr-test:approve": "cd testing/visual-regression && npx backstop approve --config=backstop-config.js",
+    "vr-test:open-report": "cd testing/visual-regression && npx backstop openReport --config=backstop-config.js",
     "wcag-test": "node scripts/wcag-test.js",
     "wcag-test:ci": "node scripts/wcag-test.js -- --ci"
   },
