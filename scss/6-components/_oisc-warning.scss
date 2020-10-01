@@ -2,20 +2,20 @@
    The Office of the Immigration Services Commissioner (OISC)  Warnings
    ========================================================================= */
 
-.oisc-warning {
+.cads-oisc-warning {
   background-color: $cads-palette__light-grey;
   border: 1px solid $cads-palette__dark-grey;
   margin-bottom: $cads-spacing-3;
 
-  .oisc-warning__title {
+  .cads-oisc-warning__title {
     padding: $cads-spacing-3;
   }
 
-  .oisc-warning__body {
+  .cads-oisc-warning__body {
     padding: 0 $cads-spacing-3;
   }
 
-  .oisc-warning__close {
+  .cads-oisc-warning__close {
     display: none; // Hide by default
     border: none;
     background: transparent;
@@ -44,16 +44,16 @@
     z-index: 10;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-    .oisc-warning__header {
+    .cads-oisc-warning__header {
       display: flex;
       align-items: center;
     }
 
-    .oisc-warning__title {
+    .cads-oisc-warning__title {
       flex: 1;
     }
 
-    .oisc-warning__close {
+    .cads-oisc-warning__close {
       // Show close button when stuck to allow warning to be dismissed.
       display: inline-block;
     }
