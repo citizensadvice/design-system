@@ -104,9 +104,7 @@
     "typescript": "^3.9.6",
     "webdriverio": "^6.4.6"
   },
-  "dependencies": {
-    "intersection-observer": "^0.11.0"
-  },
+  "dependencies": {},
   "browserslist": [
     "IE 11",
     "last 2 Edge versions",

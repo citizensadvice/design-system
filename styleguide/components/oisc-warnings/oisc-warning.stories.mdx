@@ -79,3 +79,14 @@ The Haml partial takes the following properties:
 For example:
 
 <Source dark="true" lang="haml" code={templateDefaultCode} />
+
+## JavaScript behaviour
+
+If you plan to use the `is_sticky` behaviour you will need to initialise the following JavaScript:
+
+```js
+import initOISCWarnings from '@citizensadvice/design-system/lib/oisc-warnings';
+initOISCWarnings();
+```
+
+**Note**: If you are supporting IE 11 or earlier make sure you include an [IntersectionObserver polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill).
