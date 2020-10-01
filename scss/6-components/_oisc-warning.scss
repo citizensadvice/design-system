@@ -12,7 +12,11 @@
   }
 
   .cads-oisc-warning__body {
-    padding: 0 $cads-spacing-3;
+    padding: 0 $cads-spacing-3 $cads-spacing-3;
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   .cads-oisc-warning__close {
