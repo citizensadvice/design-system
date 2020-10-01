@@ -8,9 +8,9 @@ module Drivers
 
       def build_name
         if master?
-          "PWC - #{pr_with_build_iteration} - URL: #{base_url}"
+          "Design System - #{pr_with_build_iteration} - URL: #{base_url}"
         elsif branch?
-          "PWC - #{pr_without_build_iteration} - URL: #{base_url}"
+          "Design System - #{pr_without_build_iteration} - URL: #{base_url}"
         else
           "Local Machine run - Month #{Time.now.month} - Ignore results!"
         end
@@ -50,7 +50,7 @@ module Drivers
 
       # Example: PR-81-1_98eb207
       def pr_sha_reference
-        @pr_sha_reference ||= docker_tag.split("public-website-cucumber-").last
+        @pr_sha_reference ||= docker_tag.split("design-system-").last
       end
     end
   end

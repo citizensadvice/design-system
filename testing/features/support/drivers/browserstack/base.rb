@@ -47,7 +47,7 @@ module Drivers
           "bstack:options" => {
             "buildName" => build_name,
             "projectName" => "Design System tests",
-            "sessionName" => "CI tests called from within Design System",
+            "sessionName" => session_name,
             "os" => os,
             "osVersion" => os_version,
             "local" => "false",
@@ -65,11 +65,11 @@ module Drivers
       end
 
       def build_name
-        if ENV["BRANCH_NAME"]
-          "#{ENV['BRANCH_NAME']} running on #{base_url}"
-        else
-          "Local Machine run - Ignore results!"
-        end
+        PayloadValuesGenerator.new.build_name
+      end
+
+      def session_name
+        PayloadValuesGenerator.new.session_name
       end
 
       def os
