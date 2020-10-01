@@ -1,5 +1,3 @@
-import 'intersection-observer';
-
 const initOISCWarnings = () => {
   const SELECTORS = {
     sentry: '.js-oisc-warning-sticky-sentry',
