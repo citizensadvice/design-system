@@ -101,8 +101,7 @@
     "stylelint-scss": "^3.18.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "systemjs": "^6.5.1",
-    "typescript": "^3.9.6",
-    "webdriverio": "^6.4.6"
+    "typescript": "^3.9.6"
   },
   "dependencies": {},
   "browserslist": [
