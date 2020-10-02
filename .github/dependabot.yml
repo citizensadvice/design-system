@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: bundler
+    directory: '/'
+    schedule:
+      interval: weekly
+      timezone: Europe/London
+    labels:
+      - 'ruby dependencies'
+    open-pull-requests-limit: 10
+    target-branch: 'master'
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+      timezone: Europe/London
+    open-pull-requests-limit: 10
+    labels:
+      - 'npm dependencies'
+    target-branch: 'master'
