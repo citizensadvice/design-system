@@ -21,7 +21,7 @@ RUN bundle config --global silence_root_warning 1 && bundle init && bundle add h
 
 COPY package*.json /tmp/
 
-RUN cd /tmp && npm install --loglevel error
+RUN cd /tmp && npm ci --loglevel error
 
 RUN mkdir -p /app && cp -a /tmp/node_modules /app
 
