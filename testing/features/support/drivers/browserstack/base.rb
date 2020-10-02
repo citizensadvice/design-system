@@ -65,11 +65,11 @@ module Drivers
       end
 
       def build_name
-        PayloadValuesGenerator.new.build_name
+        PayloadValuesGenerator.build_name
       end
 
       def session_name
-        PayloadValuesGenerator.new.session_name
+        PayloadValuesGenerator.session_name
       end
 
       def os
