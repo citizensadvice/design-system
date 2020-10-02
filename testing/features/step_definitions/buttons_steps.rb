@@ -5,10 +5,6 @@ Given("the Buttons component is on the page") do
   @component.load
 end
 
-When("I hover over the {button-type} Button") do |button|
-  @component.send(button).hover
-end
-
 When("I click on the {button-type} Button") do |button|
   @component.send(button).click
 end
@@ -25,13 +21,4 @@ end
 Then("the text color of the {button-type} Button changes") do |button|
   expect(@component.text_color_of(button))
     .not_to eq(@component.initial_text_color_of(button))
-end
-
-Then("the Tertiary button text is less prominent than the {button-type} Button") do |button|
-  if safari?
-    expect(@component.font_weight_of("tertiary")).to eq("normal")
-    expect(@component.font_weight_of(button)).to eq("bold")
-  else
-    expect(@component.font_weight_of("tertiary")).to be < @component.font_weight_of(button)
-  end
 end
