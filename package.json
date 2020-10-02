@@ -92,7 +92,7 @@
     "prettier": "^2.1.1",
     "raw-loader": "^4.0.1",
     "resolve-url-loader": "^3.1.1",
-    "sass-loader": "^9.0.2",
+    "sass-loader": "^10.0.2",
     "semver": "^7.3.2",
     "shell-loader": "^1.2.1",
     "simple-git": "^2.20.1",
