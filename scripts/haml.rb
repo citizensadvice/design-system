@@ -3,7 +3,7 @@ require "rubygems"
 require "bundler/setup"
 require "haml"
 
-require("./styleguide/haml_locals.rb")
+require("./styleguide/haml_locals")
 
 HAML_DIR = File.join(Dir.pwd, "haml")
 HTML_EXTENSION = ".html.haml"
@@ -24,7 +24,7 @@ def render(partial, opts = {})
     locals = opts && opts[:locals] || {}
   end
 
-  haml_file = "_" + File.basename(partial) + ".html.haml"
+  haml_file = "_#{File.basename(partial)}.html.haml"
 
   File.open(File.join(HAML_DIR, haml_file), "r") do |file|
     engine = Haml::Engine.new(file.read)
@@ -42,4 +42,4 @@ end
 # to regenerate when this changes.
 
 engine = Haml::Engine.new(ARGF.read)
-STDOUT.write(engine.render(Object.new, LOCALS))
+$stdout.write(engine.render(Object.new, LOCALS))
