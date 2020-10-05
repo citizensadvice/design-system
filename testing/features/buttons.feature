@@ -3,23 +3,12 @@ Feature: Buttons components
   The Button components gives the current site a variety of means of
   providing means to submit data
 
+  NB: Due to these buttons being very visual and the behaviour changing
+  dependent on each browser, we will validate them with some rigorous VRT
+  tests later on, and not test any behaviour here
+
   Background:
     Given the Buttons component is on the page
 
   Scenario: Validate initial state
     Then all the buttons are present
-
-  Scenario: Primary Button changes color when clicked on
-    When I click on the Primary Button
-    Then the background color of the Primary Button changes
-
-  Scenario: Secondary Button changes color when clicked on
-    When I click on the Secondary Button
-    Then the background color of the Secondary Button changes
-    And the text color of the Secondary Button changes
-
-  Scenario: Tertiary Button changes color when clicked on
-    When I click on the Tertiary Button
-    Then the background color of the Tertiary Button changes
-    And the text color of the Tertiary Button changes
-    

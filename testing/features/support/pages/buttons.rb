@@ -38,18 +38,6 @@ module DesignSystem
         }
     end
 
-    def background_color_of(button_name)
-      send(button_name).background_color
-    end
-
-    def text_color_of(button_name)
-      send(button_name).color
-    end
-
-    def font_weight_of(button_name)
-      send(button_name).font_weight
-    end
-
     def initial_background_color_of(button_name)
       initial_properties.dig(button_name.to_sym, :background)
     end
