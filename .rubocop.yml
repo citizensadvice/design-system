@@ -2,10 +2,6 @@ inherit_gem:
   citizens-advice-style:
     - default.yml
 
-inherit_mode:
-  merge:
-    - Exclude
-
 AllCops:
   Exclude:
     - 'vendor/**/*'
