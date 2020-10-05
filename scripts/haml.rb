@@ -3,11 +3,7 @@ require "rubygems"
 require "bundler/setup"
 require "haml"
 
-<<<<<<< HEAD
 require("./styleguide/haml_locals")
-=======
-require("./styleguide/haml_locals.rb")
->>>>>>> e708a76... Enable rubocop
 
 HAML_DIR = File.join(Dir.pwd, "haml")
 HTML_EXTENSION = ".html.haml"
