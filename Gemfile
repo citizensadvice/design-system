@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "haml", "~> 5.1"
+gem "haml", "~> 5.2"
 
 gem "cucumber", "~> 3.2"
 gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v0.3.0"

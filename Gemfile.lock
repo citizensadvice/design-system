@@ -44,7 +44,7 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     gherkin (5.1.0)
-    haml (5.1.2)
+    haml (5.2.0)
       temple (>= 0.8.0)
       tilt
     mini_mime (1.0.2)
@@ -119,7 +119,7 @@ DEPENDENCIES
   cucumber (~> 3.2)
   dotenv
   faraday (~> 1.0)
-  haml (~> 5.1)
+  haml (~> 5.2)
   rake
   rspec
   selenium-webdriver (= 4.0.0.alpha6)
