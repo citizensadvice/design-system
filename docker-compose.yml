@@ -45,6 +45,7 @@ services:
     environment:
       - BRANCH_NAME
       - BROWSER
+      - DOCKER_TAG
     env_file:
       - testing/grid_ci.env
     volumes:
@@ -62,8 +63,6 @@ services:
     <<: *cucumber_default
     container_name: design-system-browserstack-cucumber.test
     environment:
-      - BRANCH_NAME
-      - BROWSER
       - BROWSERSTACK_USERNAME
       - BROWSERSTACK_ACCESS_KEY
       - BROWSERSTACK_CONFIGURATION_OPTIONS

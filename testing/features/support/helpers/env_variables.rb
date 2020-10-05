@@ -53,5 +53,10 @@ module Helpers
     def base_url
       ENV.fetch("APP_URL", "https://citizensadvice.github.io/design-system")
     end
+
+    # Example: dev_jenkins-public-website-cucumber-PR-81-1_98eb207
+    def docker_tag
+      ENV["DOCKER_TAG"]
+    end
   end
 end
