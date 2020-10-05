@@ -8,6 +8,9 @@ Before do |scenario|
   resize_window
   AutomationLogger.info("Running Scenario: #{scenario.name}")
   @app ||= App.new
+  AutomationLogger.debug("BROWSERSTACK_CONFIGURATION_OPTIONS = #{ENV["BROWSERSTACK_CONFIGURATION_OPTIONS"]}")
+  AutomationLogger.debug("DOCKER_TAG = #{ENV["DOCKER_TAG"]}")
+  AutomationLogger.debug("BROWSER = #{ENV["BROWSER"]}")
 end
 
 After do |scenario|

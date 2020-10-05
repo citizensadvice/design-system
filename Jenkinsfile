@@ -1,7 +1,7 @@
 deployBranches = ['master']
 
 configurationTypes = [
-    ['Windows_10_83', 'chrome'],
+//     ['Windows_10_83', 'chrome'], - These seem to be "too" popular!
     ['Windows_10_85', 'chrome'],
     ['Windows_10_80', 'firefox'],
     ['Windows_10_76', 'firefox'],
@@ -9,7 +9,7 @@ configurationTypes = [
     ['Windows_7_78', 'firefox'],
     ['OSX_Catalina_80', 'firefox'],
     ['OSX_Mojave_78', 'firefox'],
-    ['OSX_Mojave_12', 'safari'],
+//     ['OSX_Mojave_12', 'safari'], - These seem to be "too" popular!
 ]
 
 pipeline {
@@ -69,8 +69,6 @@ pipeline {
                             withDockerSandbox {
                                 configurationTypes.each { opts ->
                                     def (config, browser) = opts
-                                    sh "echo Browserstack configuration to be used is: $config"
-                                    sh "echo Browser Under Test is: $browser"
                                     sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
                                 }
                             }
