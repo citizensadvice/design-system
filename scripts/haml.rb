@@ -1,12 +1,13 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'haml'
+# frozen_string_literal: true
+require "rubygems"
+require "bundler/setup"
+require "haml"
 
-require('./styleguide/haml_locals.rb')
+require("./styleguide/haml_locals.rb")
 
-HAML_DIR = File.join(Dir.pwd, 'haml')
-HTML_EXTENSION = '.html.haml'
-STORY_DIR = File.join(Dir.pwd, 'styleguide', 'components', 'haml')
+HAML_DIR = File.join(Dir.pwd, "haml")
+HTML_EXTENSION = ".html.haml"
+STORY_DIR = File.join(Dir.pwd, "styleguide", "components", "haml")
 LOCALS = @locals
 
 Encoding.default_external = Encoding::UTF_8
@@ -25,7 +26,7 @@ def render(partial, opts = {})
 
   haml_file = "_" + File.basename(partial) + ".html.haml"
 
-  File.open(File.join(HAML_DIR, haml_file), 'r') do |file|
+  File.open(File.join(HAML_DIR, haml_file), "r") do |file|
     engine = Haml::Engine.new(file.read)
     engine.render(Object.new, LOCALS.merge(locals))
   end
@@ -33,7 +34,7 @@ end
 
 ##
 # Renders a comment in place of a react component.
-def react_component(component_class_name, props={}, html_options={})
+def react_component(component_class_name, _props = {}, _html_options = {})
   "<!-- there should be a #{component_class_name} react_component here -->"
 end
 

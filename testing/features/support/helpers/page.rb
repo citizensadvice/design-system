@@ -6,9 +6,7 @@ module Helpers
     include Helpers::EnvVariables
 
     def resize_window(desired_width = width, desired_height = height)
-      if browserstack? && internet_explorer?
-        AutomationLogger.warn("Resizing Windows on Browserstack IE can be flaky!")
-      end
+      AutomationLogger.warn("Resizing Windows on Browserstack IE can be flaky!") if browserstack? && internet_explorer?
       Capybara.current_window.resize_to(desired_width, desired_height)
     end
 
