@@ -28,11 +28,11 @@ module Drivers
         private
 
         def master?
-          docker_tag.include?("master")
+          docker_tag&.include?("master")
         end
 
         def branch?
-          docker_tag.include?("PR-")
+          docker_tag&.include?("PR-")
         end
 
         # Example: PR-81
