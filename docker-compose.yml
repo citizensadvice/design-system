@@ -45,6 +45,9 @@ services:
     environment:
       - BRANCH_NAME
       - BROWSER
+      - BROWSERSTACK_USERNAME
+      - BROWSERSTACK_ACCESS_KEY
+      - BROWSERSTACK_CONFIGURATION_OPTIONS
       - DOCKER_TAG
     env_file:
       - testing/grid_ci.env
@@ -62,10 +65,6 @@ services:
   browserstack-cucumber:
     <<: *cucumber_default
     container_name: design-system-browserstack-cucumber.test
-    environment:
-      - BROWSERSTACK_USERNAME
-      - BROWSERSTACK_ACCESS_KEY
-      - BROWSERSTACK_CONFIGURATION_OPTIONS
     env_file:
       - testing/browserstack_ci.env
     depends_on: []
