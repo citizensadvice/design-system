@@ -8,7 +8,7 @@
 # for more details/discussion including possible other fixes.
 #
 # LH - Sep 2020
-module Capybara::Selenium::Driver::FirefoxDriver
+module Capybara::Selenium::Driver::FirefoxDriver # rubocop:disable Style/ClassAndModuleChildren
   def self.extended(driver)
     driver.extend Capybara::Selenium::Driver::W3CFirefoxDriver if w3c?(driver)
     bridge = driver.send(:bridge)

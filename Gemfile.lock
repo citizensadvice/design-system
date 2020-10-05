@@ -122,6 +122,7 @@ DEPENDENCIES
   haml (~> 5.2)
   rake
   rspec
+  rubocop (~> 0.85.1)
   selenium-webdriver (= 4.0.0.alpha6)
   site_prism (~> 3.5)
   webdrivers
