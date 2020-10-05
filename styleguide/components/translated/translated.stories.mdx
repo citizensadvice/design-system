@@ -1,0 +1,19 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Translation example" />
+
+## en
+
+import exampleEn from './_example-en.html.haml';
+
+<Preview>
+  <Story name="en">{() => exampleEn}</Story>
+</Preview>
+
+## cy
+
+import exampleCy from './_example-cy.html.haml';
+
+<Preview>
+  <Story name="cy">{() => exampleCy}</Story>
+</Preview>

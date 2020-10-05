@@ -1,6 +1,15 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'haml'
+require 'rails_i18n'
+require 'action_view'
+
+# Allow shorthand t() helper to be used
+include ActionView::Helpers::TranslationHelper
+
+I18n.available_locales = [:en, :cy]
+I18n.load_path += Dir['locales/*.yml']
+I18n.default_locale = :en
 
 require('./styleguide/haml_locals.rb')
 
