@@ -59,7 +59,7 @@
     "@storybook/addon-a11y": "^6.0.22",
     "@storybook/addon-essentials": "^6.0.22",
     "@storybook/html": "^6.0.22",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.13",
     "@types/jsdom": "^16.2.4",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
