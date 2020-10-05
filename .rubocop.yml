@@ -2,6 +2,11 @@ inherit_gem:
   citizens-advice-style:
     - default.yml
 
+Style/ClassAndModuleChildren:
+  Exclude:
+    # Monkey patch for Firefox driver, should eventually be removed
+    - 'testing/features/support/core_ext/capybara/selenium/driver/firefox_driver.rb'
+
 AllCops:
   Exclude:
     - 'vendor/**/*'
