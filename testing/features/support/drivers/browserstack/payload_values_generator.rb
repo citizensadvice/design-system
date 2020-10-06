@@ -9,7 +9,7 @@ module Drivers
 
         def build_name
           if master?
-            "Design System - #{pr_with_build_iteration} - URL: #{base_url}"
+            "Design System - #{pr_sha_reference} - URL: #{base_url}"
           elsif branch?
             "Design System - #{pr_without_build_iteration} - URL: #{base_url}"
           else
@@ -41,17 +41,13 @@ module Drivers
         end
 
         def build_iteration
-          pr_with_build_iteration.split("-").last
+          pr_sha_reference.split("_").first.split("-").last
         end
 
-        # Example: PR-81-1
-        def pr_with_build_iteration
-          pr_sha_reference.split("_").first
-        end
-
-        # Example: PR-81-1_98eb207
+        # Example: master_ad4b223
+        # Example: PR-83_abcde123
         def pr_sha_reference
-          @pr_sha_reference ||= docker_tag.split("design-system-").last
+          @pr_sha_reference ||= docker_tag.split("design-system/").last
         end
       end
     end
