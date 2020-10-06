@@ -22,7 +22,6 @@ import tFooter from '../haml/_footer.html.haml';
 import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
-import tSearch from '../haml/_search.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tBreadcrumb from '../haml/_breadcrumb.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
@@ -93,7 +92,6 @@ export const pagingInfo = () => PagingInfo();
 export const relatedContent = () => RelatedContent();
 
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
-export const search = () => renderHamlTemplate('Search', tSearch, 'search');
 export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
 export const header = () =>
   renderHamlTemplate(
