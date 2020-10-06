@@ -35,17 +35,17 @@ module Drivers
           docker_tag&.include?("PR-")
         end
 
-        # Example: PR-81
+        # Example: PR-284
         def pr_without_build_iteration
-          pr_sha_reference.split(/-\d+_/).first
+          pr_sha_reference.split("_").first
         end
 
         def build_iteration
-          pr_sha_reference.split("_").first.split("-").last
+          pr_sha_reference.split("_").last
         end
 
         # Example: master_ad4b223
-        # Example: PR-83_abcde123
+        # Example: PR-284_dbbb8b6
         def pr_sha_reference
           @pr_sha_reference ||= docker_tag.split("design-system/").last
         end
