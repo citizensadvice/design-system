@@ -55,6 +55,7 @@ module Helpers
     end
 
     # Example: design-system/master_ad4b223
+    # Example: design-system/PR-284_dbbb8b6
     def docker_tag
       ENV["DOCKER_TAG"]
     end
