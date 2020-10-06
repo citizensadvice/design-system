@@ -1,0 +1,13 @@
+linters:
+  LineLength:
+    enabled: false
+
+  ClassesBeforeIds:
+    EnforcedStyle: 'id'
+
+  SpaceInsideHashAttributes:
+    enabled: false
+
+  RuboCop:
+    # @TODO: Probably turn this back on
+    enabled: false

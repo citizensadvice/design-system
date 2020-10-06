@@ -1,6 +1,6 @@
 .cads-table-container
   %table.cads-table{ class: [table_data['caption'] && !table_data['caption'].empty? && 'cads-table__has-caption'] }
-    -if table_data['caption'] and not table_data['caption'].empty?
+    - if table_data['caption'] and not table_data['caption'].empty?
       %caption= table_data['caption']
 
     %tbody

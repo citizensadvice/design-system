@@ -47,6 +47,14 @@ GEM
     haml (5.2.0)
       temple (>= 0.8.0)
       tilt
+    haml-lint (0.999.999)
+      haml_lint
+    haml_lint (0.36.0)
+      haml (>= 4.0, < 5.3)
+      parallel (~> 1.10)
+      rainbow
+      rubocop (>= 0.50.0)
+      sysexits (~> 1.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     multi_json (1.15.0)
@@ -100,6 +108,7 @@ GEM
       capybara (>= 3.8, <= 3.29)
       site_prism-all_there (>= 0.3.1, < 1.0)
     site_prism-all_there (0.3.2)
+    sysexits (1.2.0)
     temple (0.8.2)
     tilt (2.0.10)
     unicode-display_width (1.7.0)
@@ -120,6 +129,7 @@ DEPENDENCIES
   dotenv
   faraday (~> 1.0)
   haml (~> 5.2)
+  haml-lint
   rake
   rspec
   selenium-webdriver (= 4.0.0.alpha6)
