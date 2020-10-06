@@ -2,4 +2,6 @@
 
 set -e
 
+bundle exec rubocop
+
 npm test
