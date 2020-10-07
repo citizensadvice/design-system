@@ -1,3 +1,7 @@
+## <sub>v1.11.0</sub>
+
+#### _Oct. 7, 2020_
+
 - NP-472 New OISC Warning component
 
 ## <sub>v1.10.1</sub>

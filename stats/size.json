@@ -503,6 +503,15 @@
           "size": 72714
         }
       ]
+    },
+    {
+      "version": "1.11.0",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 73598
+        }
+      ]
     }
   ]
 }
