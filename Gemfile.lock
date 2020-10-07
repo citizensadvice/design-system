@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: bbc54178ddfd6fc94a57fd9f6d6ff0520bfdcd99
-  tag: v0.3.0
+  revision: d73af3ef9bf0b03f7d834a009308ce7296b68e81
+  tag: v0.4.0
   specs:
-    citizens-advice-style (0.3.0)
-      rubocop (~> 0.85.1)
+    citizens-advice-style (0.4.0)
+      rubocop (~> 0.91.0)
 
 GEM
   remote: https://rubygems.org/
@@ -44,9 +44,17 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     gherkin (5.1.0)
-    haml (5.1.2)
+    haml (5.2.0)
       temple (>= 0.8.0)
       tilt
+    haml-lint (0.999.999)
+      haml_lint
+    haml_lint (0.36.0)
+      haml (>= 4.0, < 5.3)
+      parallel (~> 1.10)
+      rainbow
+      rubocop (>= 0.50.0)
+      sysexits (~> 1.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     multi_json (1.15.0)
@@ -55,7 +63,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     parallel (1.19.2)
-    parser (2.7.1.4)
+    parser (2.7.1.5)
       ast (~> 2.4.1)
     public_suffix (4.0.5)
     rack (2.2.3)
@@ -63,7 +71,7 @@ GEM
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rake (13.0.1)
-    regexp_parser (1.7.1)
+    regexp_parser (1.8.1)
     rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -78,17 +86,17 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
-    rubocop (0.85.1)
+    rubocop (0.91.1)
       parallel (~> 1.10)
-      parser (>= 2.7.0.1)
+      parser (>= 2.7.1.1)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.7)
       rexml
-      rubocop-ast (>= 0.0.3)
+      rubocop-ast (>= 0.4.0, < 1.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.3.0)
-      parser (>= 2.7.1.4)
+    rubocop-ast (0.7.1)
+      parser (>= 2.7.1.5)
     ruby-progressbar (1.10.1)
     rubyzip (2.3.0)
     selenium-webdriver (4.0.0.alpha6)
@@ -100,6 +108,7 @@ GEM
       capybara (>= 3.8, <= 3.29)
       site_prism-all_there (>= 0.3.1, < 1.0)
     site_prism-all_there (0.3.2)
+    sysexits (1.2.0)
     temple (0.8.2)
     tilt (2.0.10)
     unicode-display_width (1.7.0)
@@ -119,7 +128,8 @@ DEPENDENCIES
   cucumber (~> 3.2)
   dotenv
   faraday (~> 1.0)
-  haml (~> 5.1)
+  haml (~> 5.2)
+  haml-lint
   rake
   rspec
   selenium-webdriver (= 4.0.0.alpha6)

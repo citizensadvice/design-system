@@ -3,5 +3,5 @@
 ParameterType(
   name: "button-type",
   regexp: /(Primary|Secondary|Tertiary)/,
-  transformer: ->(button) { button.downcase },
+  transformer: ->(button) { button.downcase }
 )
