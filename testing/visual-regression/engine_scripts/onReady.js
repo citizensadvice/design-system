@@ -40,14 +40,6 @@ module.exports = async (page, scenario) => {
     }
   }
 
-  const focusSelector = scenario.focusSelectors || scenario.focusSelector;
-  if (focusSelector) {
-    for (const focusSelectorIndex of [].concat(focusSelector)) {
-      await page.waitFor(focusSelectorIndex);
-      await page.focus(focusSelectorIndex);
-    }
-  }
-
   const clickSelector = scenario.clickSelectors || scenario.clickSelector;
   if (clickSelector) {
     for (const clickSelectorIndex of [].concat(clickSelector)) {
@@ -56,7 +48,15 @@ module.exports = async (page, scenario) => {
     }
   }
 
-  const { postInteractionWait } = scenario; // selector [str] | ms [int]
+  const focusSelector = scenario.focusSelectors || scenario.focusSelector;
+  if (focusSelector) {
+    for (const focusSelectorIndex of [].concat(focusSelector)) {
+      await page.waitFor(focusSelectorIndex);
+      await page.focus(focusSelectorIndex);
+    }
+  }
+
+  const postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
   if (postInteractionWait) {
     await page.waitFor(postInteractionWait);
   }

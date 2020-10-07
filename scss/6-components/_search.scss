@@ -41,6 +41,10 @@
     &:active {
       transform: none;
     }
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   @include cads-media-breakpoint-only(sm) {

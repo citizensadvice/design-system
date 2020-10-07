@@ -91,6 +91,23 @@ module.exports = function backstopCommon(baseUrl) {
 
       // Old format component tests below here
       {
+        label: 'Components/Search',
+        url: `${baseUrl}/iframe.html?id=components-search--search&viewMode=story`,
+        selectors: ['.cads-search'],
+      },
+      {
+        label: 'Components/Search (hover)',
+        url: `${baseUrl}/iframe.html?id=components-search--search&viewMode=story`,
+        hoverSelector: '.cads-search__button',
+        selectors: ['.cads-search'],
+      },
+      {
+        label: 'Components/Search (focus)',
+        url: `${baseUrl}/iframe.html?id=components-search--search&viewMode=story`,
+        focusSelector: '.cads-search__button',
+        selectors: ['.cads-search'],
+      },
+      {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
         readySelector: '.cads-styleguide__wrapper',
@@ -414,18 +431,6 @@ module.exports = function backstopCommon(baseUrl) {
         ],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-radio-button-checkmark',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_SEARCH',
-        url: `${baseUrl}/iframe.html?id=3-components--search`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
         selectorExpansion: true,
       },
