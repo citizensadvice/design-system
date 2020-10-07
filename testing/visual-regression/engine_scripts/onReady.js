@@ -6,6 +6,17 @@ module.exports = async (page, scenario) => {
     { name: 'prefers-reduced-motion', value: 'reduce' },
   ]);
 
+  /**
+   * Wait for fonts to be loaded.
+   * Ensure that icon fonts are ready to avoid display inconsitencies
+   */
+  await page.waitFor(() => {
+    return document.fonts.ready.then(() => {
+      console.log('Fonts loaded');
+      return true;
+    });
+  });
+
   const keyPressSelector =
     scenario.keyPressSelectors || scenario.keyPressSelector;
   if (keyPressSelector) {

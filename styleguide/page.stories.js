@@ -8,6 +8,7 @@ import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
 import initTables from '../src/js/tables';
+import initOISCWarnings from '../src/js/oisc-warnings';
 
 // eslint-disable-next-line
 import locals from './haml_locals.rb'; // just used to watch
@@ -24,6 +25,7 @@ function init() {
   initAdviceFeedback();
   initCallouts();
   initTables();
+  initOISCWarnings();
   GreedyNav.init({ breakpoint: 0 });
 }
 

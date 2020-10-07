@@ -1,0 +1,92 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import initOISCWarnings from '../../../src/js/oisc-warnings';
+
+<Meta
+  title="Components/OISC Warning"
+  component={() => templateDefault}
+  decorators={[
+    (Story) => {
+      setTimeout(() => initOISCWarnings());
+      return `<div style="max-width: 800px">${Story()}</div>`;
+    },
+  ]}
+/>
+
+# The Office of the Immigration Services Commissioner (OISC) warnings
+
+OISC warnings show advisers what regulations apply to specific content.
+
+## Variant: With title and description
+
+The default variant is to show a static banner with a title and body text.
+
+import templateDefault from './_default.html.haml';
+import templateDefaultCode from '!!raw-loader!./_default.html.haml';
+
+<Preview>
+  <Story
+    name="With title and description"
+    parameters={{ docs: { source: { code: templateDefaultCode } } }}
+  >
+    {() => templateDefault}
+  </Story>
+</Preview>
+
+## Variant: Title only
+
+The warning can be shown with just a title.
+
+import templateTitleOnly from './_title-only.html.haml';
+import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
+
+<Preview>
+  <Story
+    name="Title only"
+    parameters={{ docs: { source: { code: templateTitleOnlyCode } } }}
+  >
+    {() => templateTitleOnly}
+  </Story>
+</Preview>
+
+## Variant: Sticky and dismissible
+
+This component accepts an optional `is_sticky` setting. If enabled the warning will be sticky when scrolling and can be dismissed.
+
+import templateSticky from './_sticky.html.haml';
+import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
+
+<Preview>
+  <Story
+    name="Sticky"
+    inline={false}
+    height={'500px'}
+    parameters={{ docs: { source: { code: templateStickyCode } } }}
+  >
+    {() => templateSticky}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial takes the following properties:
+
+| properties  | Description                                               |
+| ----------- | --------------------------------------------------------- |
+| `title`     | Required                                                  |
+| `body`      | Optional body content                                     |
+| `is_sticky` | Flag if the warning should be sticky, defaults to `false` |
+
+For example:
+
+<Source dark="true" lang="haml" code={templateDefaultCode} />
+
+## JavaScript behaviour
+
+If you plan to use the `is_sticky` behaviour you will need to initialise the following JavaScript:
+
+```js
+import initOISCWarnings from '@citizensadvice/design-system/lib/oisc-warnings';
+initOISCWarnings();
+```
+
+**Note**: If you are supporting IE 11 or earlier make sure you include an [IntersectionObserver polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill).
