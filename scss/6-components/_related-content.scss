@@ -8,13 +8,23 @@
   .section-title {
     color: $cads-language__secondary-text-colour;
     margin-top: $cads-spacing-5;
+    margin-bottom: $cads-spacing-4;
   }
 
   h3 {
     margin-top: 0;
+    margin-bottom: $cads-spacing-4;
   }
 
   ul {
     @extend .cads-list__no-bullet;
+  }
+
+  li {
+    margin-bottom: $cads-spacing-4;
+  }
+
+  a:visited {
+    color: $cads-language__link-visited-colour;
   }
 }

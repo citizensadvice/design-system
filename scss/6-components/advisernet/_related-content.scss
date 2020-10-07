@@ -1,0 +1,68 @@
+.cads-advisernet {
+  .cads-related-content {
+    padding-left: 0;
+    padding-right: $cads-spacing-4;
+
+    .cads-targeted-content,
+    .cads-targeted-content__content .cads-separator,
+    .cads-targeted-content__close-button {
+      display: none;
+    }
+
+    .cads-targeted-content__content {
+      padding-bottom: 0;
+    }
+
+    .cads-related-content__advisernet {
+      background-color: cads-colour-to-bg($cads-language__brand-adviser);
+      padding: $cads-spacing-4;
+
+      ul {
+        margin-bottom: 0;
+
+        &::before {
+          margin-bottom: $cads-spacing-3;
+          background: $cads-language__brand-adviser;
+          color: $cads-palette__white;
+          padding: $cads-spacing-2;
+          font-size: 0.875rem;
+          font-weight: $cads-font-weight__bold;
+          line-height: 0.875rem;
+          display: inline-block;
+
+          @include cads-media-breakpoint-up(md) {
+            font-size: 1rem;
+          }
+
+          content: 'Adviser';
+        }
+      }
+    }
+
+    @include cads-media-breakpoint-only(sm) {
+      padding-right: 0;
+
+      .cads-targeted-content {
+        display: block;
+      }
+
+      .cads-related-content__content {
+        display: none;
+      }
+
+      h3 {
+        font-size: 1rem;
+        margin-bottom: $cads-spacing-2;
+      }
+
+      .cads-related-content__advisernet {
+        margin-left: -$cads-spacing-4;
+        margin-right: -$cads-spacing-4;
+      }
+
+      li {
+        margin-bottom: $cads-spacing-2;
+      }
+    }
+  }
+}
