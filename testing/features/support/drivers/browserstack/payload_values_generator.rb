@@ -9,9 +9,9 @@ module Drivers
 
         def build_name
           if master?
-            "Design System - #{pr_with_build_iteration} - URL: #{base_url}"
+            "Design System - #{pr_with_sha} - URL: #{base_url}"
           elsif branch?
-            "Design System - #{pr_without_build_iteration} - URL: #{base_url}"
+            "Design System - #{pr_without_sha} - URL: #{base_url}"
           else
             "Local Machine run - Month #{Time.now.month} - Ignore results!"
           end
@@ -19,7 +19,7 @@ module Drivers
 
         def session_name
           if branch? || master?
-            "Build: #{build_iteration} - CALLING_PROJECT: design-system"
+            "SHA: #{sha} - CALLING_PROJECT: design-system"
           else
             "Local run: Ran at #{timestamp}"
           end
@@ -35,23 +35,20 @@ module Drivers
           docker_tag&.include?("PR-")
         end
 
-        # Example: PR-81
-        def pr_without_build_iteration
-          pr_sha_reference.split(/-\d+_/).first
+        # Example: PR-284
+        def pr_without_sha
+          pr_with_sha.split("_").first
         end
 
-        def build_iteration
-          pr_with_build_iteration.split("-").last
+        # Example: ad4b223
+        def sha
+          pr_with_sha.split("_").last
         end
 
-        # Example: PR-81-1
-        def pr_with_build_iteration
-          pr_sha_reference.split("_").first
-        end
-
-        # Example: PR-81-1_98eb207
-        def pr_sha_reference
-          @pr_sha_reference ||= docker_tag.split("design-system-").last
+        # Example: master_ad4b223
+        # Example: PR-284_dbbb8b6
+        def pr_with_sha
+          @pr_with_sha ||= docker_tag.delete_prefix("design-system/")
         end
       end
     end
