@@ -270,7 +270,7 @@
 
   "success_message" => "Thank you for your feedback",
 
-  "related_content" => <<~HTML,
+  "related_content" => <<~HTML
     <h3><a href="https://www.citizensadvice.org.uk">Search and navigation tools</a></h3>
     <ul>
       <li><a href="https://www.citizensadvice.org.uk">Search</a></li>
@@ -291,5 +291,4 @@
       </ul>
     </div>
   HTML
-
 }
