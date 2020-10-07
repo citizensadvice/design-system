@@ -48,7 +48,7 @@ module Drivers
         # Example: master_ad4b223
         # Example: PR-284_dbbb8b6
         def pr_with_sha
-          @pr_with_sha ||= docker_tag.split("design-system/").last
+          @pr_with_sha ||= docker_tag.delete_prefix("design-system/")
         end
       end
     end
