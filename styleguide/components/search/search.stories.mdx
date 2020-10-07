@@ -1,0 +1,35 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title="Components/Search"
+  component={() => templateDefault}
+  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
+/>
+
+# Search
+
+import template from './_search.html.haml';
+import templateCode from '!!raw-loader!./_search.html.haml';
+
+<Preview>
+  <Story
+    name="Search"
+    parameters={{ docs: { source: { code: templateCode } } }}
+  >
+    {() => template}
+  </Story>
+</Preview>
+
+## Behaviour
+
+The search component is a small form that submits a `GET` request to the provided `search_action_url`. The search term is encoded into a querystring parameter, `q`.
+
+### Inside a header
+
+When placed inside a `.cads-header` element, the text inside the search button is replaced with a magnifying glass icon.
+
+## Haml template options
+
+| Property            | Description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| `search_action_url` | Required. The url that will form the base of the GET request |
