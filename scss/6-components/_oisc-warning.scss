@@ -7,11 +7,11 @@
   border: 1px solid $cads-palette__dark-grey;
   margin-bottom: $cads-spacing-3;
 
-  .cads-oisc-warning__title {
+  &__title {
     padding: $cads-spacing-3;
   }
 
-  .cads-oisc-warning__body {
+  &__body {
     padding: 0 $cads-spacing-3 $cads-spacing-3;
 
     p:last-of-type {
@@ -19,7 +19,7 @@
     }
   }
 
-  .cads-oisc-warning__close {
+  &__close {
     display: none; // Hide by default
     border: none;
     background: transparent;
