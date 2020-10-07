@@ -1,3 +1,5 @@
+* NP-756 Advisernet related content component
+
 ## <sub>v1.11.0</sub>
 
 #### _Oct. 7, 2020_

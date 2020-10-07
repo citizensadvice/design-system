@@ -268,5 +268,27 @@
     HTML
   },
 
-  "success_message" => "Thank you for your feedback"
+  "success_message" => "Thank you for your feedback",
+
+  "related_content" => <<~HTML
+    <h3><a href="https://www.citizensadvice.org.uk">Search and navigation tools</a></h3>
+    <ul>
+      <li><a href="https://www.citizensadvice.org.uk">Search</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">A to Z of advice</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Finding information</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Search for your local Citizens Advice</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Browse our campaign pages</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Browse our research pages</a></li>
+    </ul>
+    <div class="cads-related-content__advisernet">
+      <ul>
+        <li><a href="https://www.citizensadvice.org.uk">Link 1</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 2</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 3</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 4</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 5</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 6</a></li>
+      </ul>
+    </div>
+  HTML
 }
