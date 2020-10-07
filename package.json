@@ -1,6 +1,6 @@
 {
   "name": "@citizensadvice/design-system",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "description": "Citizens Advice Design System",
   "files": [
     "scss",
@@ -95,7 +95,7 @@
     "sass-loader": "^10.0.2",
     "semver": "^7.3.2",
     "shell-loader": "^1.2.1",
-    "simple-git": "^2.20.1",
+    "simple-git": "^2.21.0",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0",
