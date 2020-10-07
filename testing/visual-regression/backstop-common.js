@@ -108,6 +108,11 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-search'],
       },
       {
+        label: 'Components/Breadcrumbs',
+        url: `${baseUrl}/iframe.html?id=components-breadcrumb--breadcrumbs&viewMode=story`,
+        selectors: ['.cads-breadcrumbs'],
+      },
+      {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
         readySelector: '.cads-styleguide__wrapper',
@@ -171,8 +176,21 @@ module.exports = function backstopCommon(baseUrl) {
         selectorExpansion: true,
       },
       {
-        label: '3_Components_BREADCRUMBS',
-        url: `${baseUrl}/iframe.html?id=3-components--breadcrumb`,
+        label: '3_Components_BUTTONS',
+        url: `${baseUrl}/iframe.html?id=3-components--buttons`,
+        readySelector: '#a11yComponentToTest',
+        removeSelectors: [
+          '.cads-styleguide__breakpoint-label',
+          '.cads-styleguide__language-label',
+        ],
+        hoverSelector: '#a11yComponentToTest',
+        clickSelector: '.cads-button',
+        selectors: ['#a11yComponentToTest'],
+        selectorExpansion: true,
+      },
+      {
+        label: '3_Components_CALLOUTS',
+        url: `${baseUrl}/iframe.html?id=3-components--callout`,
         readySelector: '#a11yComponentToTest',
         removeSelectors: [
           '.cads-styleguide__breakpoint-label',
