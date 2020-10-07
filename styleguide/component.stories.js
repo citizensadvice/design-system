@@ -23,7 +23,6 @@ import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
-import tBreadcrumb from '../haml/_breadcrumb.html.haml';
 import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
 import tTargetedContent from '../haml/_targeted-content.html.haml';
@@ -113,8 +112,7 @@ export const radioGroup = () =>
   renderHamlTemplate('Radio Group', tRadio, 'radio_group');
 export const radioGroupSmall = () =>
   renderHamlTemplate('Radio Group (small)', tRadioSmall, 'radio_group_small');
-export const breadcrumb = () =>
-  renderHamlTemplate('Breadcrumbs', tBreadcrumb, 'breadcrumb');
+
 export const errorSummary = () =>
   renderHamlTemplate(
     'Error summary',

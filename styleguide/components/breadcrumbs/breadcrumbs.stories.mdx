@@ -1,0 +1,39 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import templateDefault from './_breadcrumbs.html.haml';
+import templateDefaultCode from '!!raw-loader!./_breadcrumbs.html.haml';
+
+<Meta
+  title="Components/Breadcrumbs"
+  component={() => templateDefault}
+  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
+/>
+
+# Breadcrumbs
+
+Breadcrumbs are used at the top of pages to provide navigation and location context.
+
+<Preview>
+  <Story
+    name="Breadcrumbs"
+    parameters={{ docs: { source: { code: templateDefaultCode } } }}
+  >
+    {() => templateDefault}
+  </Story>
+</Preview>
+
+## In a search result
+
+When shown in a search result, the breadcumbs do not show the home page and do not have a horizontal rule underneath.
+
+## Haml template options
+
+The Haml partial takes a `breadcrumb_links` hash, which is an array of hashes with the following properties:
+
+| Property | Description                             |
+| -------- | --------------------------------------- |
+| `url`    | Required, url for the breadcrumb link   |
+| `title ` | Required, title for the breadcrumb link |
+
+For example:
+
+<Source dark="true" lang="haml" code={templateDefaultCode} />
