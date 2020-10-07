@@ -1,0 +1,16 @@
+-# Set defaults for parameters
+- body ||= '' # Body is optional
+- is_sticky ||= false
+
+- if is_sticky
+  .js-oisc-warning-sticky-sentry
+.cads-oisc-warning{:class => ("is-sticky" if is_sticky)}
+  .cads-oisc-warning__header
+    %h2.cads-oisc-warning__title.cads-heading-small= title
+    - if is_sticky
+      %button.cads-oisc-warning__close.js-oisc-warning-close
+        %span.cads-icon_close
+        %span.cads-sr-only
+          Close this warning
+  - if not body.empty?
+    .cads-oisc-warning__body= body

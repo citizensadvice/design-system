@@ -33,6 +33,9 @@
     "http://localhost:6006/iframe.html?id=3-components--textarea",
     "http://localhost:6006/iframe.html?id=3-components--website-feedback",
     "http://localhost:6006/iframe.html?id=3-components--related-content",
-    "http://localhost:6006/iframe.html?id=3-components--tables"
+    "http://localhost:6006/iframe.html?id=3-components--tables",
+    "http://localhost:6006/iframe.html?id=components-oisc-warning--with-title-and-description&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-oisc-warning--title-only&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-oisc-warning--sticky&viewMode=story"
   ]
 }
