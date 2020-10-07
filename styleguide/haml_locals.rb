@@ -72,54 +72,54 @@
     "rows" => [
       [
         "Basic rate",
-        "\u00A379.45",
-        "\u00A380.25",
-        "\u00A382.65",
-        "\u00A384.65",
-        "\u00A386.10",
-        "\u00A387.10",
-        "\u00A388.10",
-        "\u00A389.10",
-        "\u00A390.10",
-        "\u00A391.10",
-        "\u00A392.10",
-        "\u00A390.10",
-        "\u00A391.10",
-        "\u00A392.10"
+        "£79.45",
+        "£80.25",
+        "£82.65",
+        "£84.65",
+        "£86.10",
+        "£87.10",
+        "£88.10",
+        "£89.10",
+        "£90.10",
+        "£91.10",
+        "£92.10",
+        "£90.10",
+        "£91.10",
+        "£92.10"
       ],
       [
         "Adult dependency increase",
-        "\u00A347.65",
-        "\u00A349.67",
-        "\u00A351.69",
-        "\u00A353.71",
-        "\u00A355.73",
-        "\u00A365.65",
-        "\u00A369.67",
-        "\u00A371.69",
-        "\u00A373.71",
-        "\u00A383.71",
-        "\u00A385.73",
-        "\u00A373.71",
-        "\u00A383.71",
-        "\u00A385.73"
+        "£47.65",
+        "£49.67",
+        "£51.69",
+        "£53.71",
+        "£55.73",
+        "£65.65",
+        "£69.67",
+        "£71.69",
+        "£73.71",
+        "£83.71",
+        "£85.73",
+        "£73.71",
+        "£83.71",
+        "£85.73"
       ],
       [
         "Earnings limit for adult dependant",
-        "\u00A348.15",
-        "\u00A350.27",
-        "\u00A352.39",
-        "\u00A354.41",
-        "\u00A356.53",
-        "\u00A358.15",
-        "\u00A360.27",
-        "\u00A362.39",
-        "\u00A364.41",
-        "\u00A364.51",
-        "\u00A366.53",
-        "\u00A364.41",
-        "\u00A364.51",
-        "\u00A366.53"
+        "£48.15",
+        "£50.27",
+        "£52.39",
+        "£54.41",
+        "£56.53",
+        "£58.15",
+        "£60.27",
+        "£62.39",
+        "£64.41",
+        "£64.51",
+        "£66.53",
+        "£64.41",
+        "£64.51",
+        "£66.53"
       ]
     ]
   },
@@ -189,7 +189,14 @@
 
   "notice" => {
     "type" => "important",
-    "body" => "<h3>This is the callout title</h3><p>The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.</p>"
+    "body" => <<~HTML
+      <h3>This is the callout title</h3>
+      <p>
+        The important callout should be used for any important
+        snippet of text that has serious and/or legal implications
+        if the client does not follow the advice.
+      </p>
+    HTML
   },
 
   "root_path" => "root_path",
@@ -201,7 +208,12 @@
 
   "banner" => {
     "label" => "Notice banner title",
-    "body" => "<p>If you\u2019re a Thomas Cook customer and you\u2019re stuck abroad or want to get your money back, get help from the Civil Aviation Authority.</p>"
+    "body" => <<~HTML
+      <p>
+        If you’re a Thomas Cook customer and you’re stuck abroad
+        or want to get your money back, get help from the Civil Aviation Authority.
+      </p>
+    HTML
   },
 
   "radio" => {
@@ -226,42 +238,35 @@
     "optional" => true
   },
 
-  "contact_details" => "<p><strong>Bail for Immigration Detainees</strong></p><p>Telephone: 01234 567890</p><p>Monday to Thursday 8am to 1pm</p><p>Calls cost a lot of money</p><p><a href='http =>//link.to.the.website'>Link to the website</a></p>",
+  "contact_details" => <<~HTML,
+    <p><strong>Bail for Immigration Detainees</strong></p>
+    <p>Telephone: 01234 567890</p>
+    <p>Monday to Thursday 8am to 1pm</p>
+    <p>Calls cost a lot of money</p>
+    <p><a href='http =>//link.to.the.website'>Link to the website</a></p>
+  HTML
 
   "page_review_date" => "21 September 2019",
 
   "targetContent" => {
     "id" => "target-content-123",
     "title" => "If you are a citizen of a country outside the EU, EEA or Switzerland",
-    "body" => '<p>You should apply to the EU Settlement Scheme if both:</p>
-  <ul>
-  <li>you’re in the UK by 31 December 2020</li>
-  <li>you have family in the UK from the EU, EEA or Switzerland</li>
-  </ul>
-  <p>You need to apply to the scheme even if you have a permanent residence card as
-  it will not be valid after 31 December 2020.</p>
-  <p><a href="https =>//www.citizensadvice.org.uk/immigration/staying-in-the-uk-after-brexit/keeping-your-family-in-the-uk-after-brexit/">Check if you can apply to the EU Settlement Scheme</a></p>'
+    "body" => <<~HTML
+      <p>You should apply to the EU Settlement Scheme if both:</p>
+      <ul>
+        <li>you’re in the UK by 31 December 2020</li>
+        <li>you have family in the UK from the EU, EEA or Switzerland</li>
+      </ul>
+      <p>
+        You need to apply to the scheme even if you have a permanent residence card as
+        it will not be valid after 31 December 2020.
+      </p>
+      <p>
+        <a href="https =>//www.citizensadvice.org.uk/immigration/staying-in-the-uk-after-brexit/keeping-your-family-in-the-uk-after-brexit/">
+        Check if you can apply to the EU Settlement Scheme</a>
+      </p>
+    HTML
   },
 
-  "success_message" => "Thank you for your feedback",
-
-  "related_content" => '<h3><a href="https://www.citizensadvice.org.uk">Search and navigation tools</a></h3>
-<ul>
-  <li><a href="https://www.citizensadvice.org.uk">Search</a></li>
-  <li><a href="https://www.citizensadvice.org.uk">A to Z of advice</a></li>
-  <li><a href="https://www.citizensadvice.org.uk">Finding information</a></li>
-  <li><a href="https://www.citizensadvice.org.uk">Search for your local Citizens Advice</a></li>
-  <li><a href="https://www.citizensadvice.org.uk">Browse our campaign pages</a></li>
-  <li><a href="https://www.citizensadvice.org.uk">Browse our research pages</a></li>
-</ul>
-<div class="cads-related-content__advisernet">
-  <ul>
-    <li><a href="https://www.citizensadvice.org.uk">Link 1</a></li>
-    <li><a href="https://www.citizensadvice.org.uk">Link 2</a></li>
-    <li><a href="https://www.citizensadvice.org.uk">Link 3</a></li>
-    <li><a href="https://www.citizensadvice.org.uk">Link 4</a></li>
-    <li><a href="https://www.citizensadvice.org.uk">Link 5</a></li>
-    <li><a href="https://www.citizensadvice.org.uk">Link 6</a></li>
-  </ul>
-</div>'
+  "success_message" => "Thank you for your feedback"
 }

@@ -10,6 +10,26 @@ module.exports = function (baseUrl) {
     onReadyScript: 'onReady.js',
     scenarios: [
       {
+        label: 'Components/OISC Warning/With title and description',
+        url: `${baseUrl}/iframe.html?id=components-oisc-warning--with-title-and-description&viewMode=story`,
+        selectors: ['.cads-oisc-warning'],
+      },
+      {
+        label: 'Components/OISC Warning/Title only',
+        url: `${baseUrl}/iframe.html?id=components-oisc-warning--title-only&viewMode=story`,
+        selectors: ['.cads-oisc-warning'],
+      },
+      {
+        label: 'Components/OISC Warning/Sticky (scrolled)',
+        url: `${baseUrl}/iframe.html?id=components-oisc-warning--sticky&viewMode=story`,
+        selectors: ['viewport'],
+        clickSelector: '#heading-anchor',
+        postInteractionWait: 500,
+        viewports: [{ label: 'sticky', width: 1000, height: 600 }],
+      },
+
+      // Old format component tests below here
+      {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
         readySelector: '.cads-styleguide__wrapper',

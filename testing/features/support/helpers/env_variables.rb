@@ -53,5 +53,11 @@ module Helpers
     def base_url
       ENV.fetch("APP_URL", "https://citizensadvice.github.io/design-system")
     end
+
+    # Example: design-system/master_ad4b223
+    # Example: design-system/PR-284_dbbb8b6
+    def docker_tag
+      ENV["DOCKER_TAG"]
+    end
   end
 end
