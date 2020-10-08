@@ -90,33 +90,29 @@ module.exports = function backstopCommon(baseUrl) {
       },
       {
         label: 'Components/Search',
-        url: storyUrlFor('components-search--search&viewMode=story'),
+        url: storyUrlFor('components-search--search'),
         selectors: ['.cads-search'],
       },
       {
         label: 'Components/Search (hover)',
-        url: storyUrlFor('components-search--search&viewMode=story'),
+        url: storyUrlFor('components-search--search'),
         hoverSelector: '.cads-search__button',
         selectors: ['.cads-search'],
       },
       {
         label: 'Components/Search (focus)',
-        url: storyUrlFor('components-search--search&viewMode=story'),
+        url: storyUrlFor('components-search--search'),
         focusSelector: '.cads-search__button',
         selectors: ['.cads-search'],
       },
       {
         label: 'Components/Breadcrumbs/Default',
-        url: storyUrlFor(
-          'components-breadcrumbs--breadcrumbs-default&viewMode=story'
-        ),
+        url: storyUrlFor('components-breadcrumbs--breadcrumbs-default'),
         selectors: ['.cads-breadcrumbs'],
       },
       {
         label: 'Components/Breadcrumbs/No Collapse',
-        url: storyUrlFor(
-          'components-breadcrumbs--breadcrumbs-no-collapse&viewMode=story'
-        ),
+        url: storyUrlFor('components-breadcrumbs--breadcrumbs-no-collapse'),
         selectors: ['.cads-breadcrumbs'],
       },
 
