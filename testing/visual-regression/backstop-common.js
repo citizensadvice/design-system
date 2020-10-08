@@ -88,30 +88,35 @@ module.exports = function backstopCommon(baseUrl) {
         postInteractionWait: 500,
         viewports: [{ label: 'sticky', width: 1000, height: 600 }],
       },
-
-      // Old format component tests below here
       {
         label: 'Components/Search',
-        url: `${baseUrl}/iframe.html?id=components-search--search&viewMode=story`,
+        url: storyUrlFor('components-search--search&viewMode=story'),
         selectors: ['.cads-search'],
       },
       {
         label: 'Components/Search (hover)',
-        url: `${baseUrl}/iframe.html?id=components-search--search&viewMode=story`,
+        url: storyUrlFor('components-search--search&viewMode=story'),
         hoverSelector: '.cads-search__button',
         selectors: ['.cads-search'],
       },
       {
         label: 'Components/Search (focus)',
-        url: `${baseUrl}/iframe.html?id=components-search--search&viewMode=story`,
+        url: storyUrlFor('components-search--search&viewMode=story'),
         focusSelector: '.cads-search__button',
         selectors: ['.cads-search'],
       },
       {
-        label: 'Components/Breadcrumbs',
-        url: `${baseUrl}/iframe.html?id=components-breadcrumb--breadcrumbs&viewMode=story`,
+        label: 'Components/Breadcrumbs/Default',
+        url: `${baseUrl}/iframe.html?id=components-breadcrumb--default&viewMode=story`,
         selectors: ['.cads-breadcrumbs'],
       },
+      {
+        label: 'Components/Breadcrumbs/No Collapse',
+        url: `${baseUrl}/iframe.html?id=components-breadcrumb--no-collapse&viewMode=story`,
+        selectors: ['.cads-breadcrumbs'],
+      },
+
+      // Old format component tests below here
       {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
