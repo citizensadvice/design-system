@@ -17,18 +17,18 @@
     text-overflow: ellipsis;
     font-size: 1rem;
 
-    &::before {
-      color: $cads-language__link-colour;
+    &::after {
+      color: $cads-language__input-border-colour;
       content: '\203A';
       margin-left: $cads-spacing-2;
       margin-right: $cads-spacing-2;
       font-size: 18px; // Fix size as this is a symbol
     }
 
-    &:first-of-type {
+    &:last-of-type {
       margin-left: 0;
 
-      &::before {
+      &::after {
         display: none;
       }
     }
@@ -46,6 +46,11 @@
         content: '\2039';
         margin-left: 0;
         margin-right: $cads-spacing-1;
+        color: $cads-language__input-border-colour;
+      }
+
+      &::after {
+        display: none;
       }
     }
   }
