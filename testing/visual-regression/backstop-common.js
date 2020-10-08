@@ -26,7 +26,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: `${labelPrefix} (active)`,
         url: storyUrlFor(componentId),
-        clickSelector: 'button',
+        onReadyScript: 'onReadyButtonActive.js',
         viewports: [viewport],
       },
     ];
