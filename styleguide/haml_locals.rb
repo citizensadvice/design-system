@@ -172,20 +172,6 @@
     }
   ],
 
-  "breadcrumbs" => {"breadcrumb_links" => [
-    {
-      "url" => "/benefits/",
-      "title" => "Benefits"
-    },
-    {
-      "url" => "/benefits/benefits-introduction/",
-      "title" => "Benefits - introduction"
-    },
-    {
-      "url" => "/benefits/benefits-introduction/what-benefits-can-i-get/",
-      "title" => "Benefit calculators: what benefits can you get"
-    }
-  ]},
 
   "notice" => {
     "type" => "important",
