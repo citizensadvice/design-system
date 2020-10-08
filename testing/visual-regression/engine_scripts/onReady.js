@@ -1,5 +1,8 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-console */
 module.exports = async (page, scenario) => {
-  console.log('SCENARIO > ' + scenario.label);
+  console.log(`SCENARIO > ${scenario.label}`);
 
   // Enable prefers-reduced-motion to disable animations
   await page.emulateMediaFeatures([
@@ -10,12 +13,12 @@ module.exports = async (page, scenario) => {
    * Wait for fonts to be loaded.
    * Ensure that icon fonts are ready to avoid display inconsitencies
    */
-  await page.waitFor(() => {
-    return document.fonts.ready.then(() => {
+  await page.waitFor(() =>
+    document.fonts.ready.then(() => {
       console.log('Fonts loaded');
       return true;
-    });
-  });
+    })
+  );
 
   const keyPressSelector =
     scenario.keyPressSelectors || scenario.keyPressSelector;
@@ -37,6 +40,14 @@ module.exports = async (page, scenario) => {
     }
   }
 
+  const focusSelector = scenario.focusSelectors || scenario.focusSelector;
+  if (focusSelector) {
+    for (const focusSelectorIndex of [].concat(focusSelector)) {
+      await page.waitFor(focusSelectorIndex);
+      await page.focus(focusSelectorIndex);
+    }
+  }
+
   const clickSelector = scenario.clickSelectors || scenario.clickSelector;
   if (clickSelector) {
     for (const clickSelectorIndex of [].concat(clickSelector)) {
@@ -45,16 +56,16 @@ module.exports = async (page, scenario) => {
     }
   }
 
-  const postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
+  const { postInteractionWait } = scenario; // selector [str] | ms [int]
   if (postInteractionWait) {
     await page.waitFor(postInteractionWait);
   }
 
-  const scrollToSelector = scenario.scrollToSelector;
+  const { scrollToSelector } = scenario;
   if (scrollToSelector) {
     await page.waitFor(scrollToSelector);
-    await page.evaluate((scrollToSelector) => {
-      document.querySelector(scrollToSelector).scrollIntoView();
+    await page.evaluate((_scrollToSelector) => {
+      document.querySelector(_scrollToSelector).scrollIntoView();
     }, scrollToSelector);
   }
 };
