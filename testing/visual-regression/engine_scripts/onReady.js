@@ -56,7 +56,7 @@ module.exports = async (page, scenario) => {
     }
   }
 
-  const postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
+  const { postInteractionWait } = scenario; // selector [str] | ms [int]
   if (postInteractionWait) {
     await page.waitFor(postInteractionWait);
   }
