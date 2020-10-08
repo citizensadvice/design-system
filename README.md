@@ -47,11 +47,8 @@ to your `ApplicationController`. You can then reference the partials in your ham
 
 Most simple Design System Javascript components can be used by simply including them as part of your main bundle.
 
-For the more complex components we are providing them as a systemjs bundle - this allows us to package each component as a single file. We *also* provide a commonjs compilation for use with bundlers such as webpack.
+For the more complex components we are providing them as a systemjs bundle - this allows us to package each component as a single file. We _also_ provide a commonjs compilation for use with bundlers such as webpack.
 
 Instructions for using System-JS can be found here: https://github.com/systemjs/systemjs
 
 You will require a promise polyfill along with the system-js executable.
-
-
-

@@ -112,11 +112,11 @@ Run `npm run release`. This prepares the release and puts it in a branch with th
 
 After the new version branch is merged, switch to `master`, pull the latest and run `npm publish`. The `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm.
 
-***Note:*** To run this step you need to be part of the npm org and have 2FA enabled.
+**_Note:_** To run this step you need to be part of the npm org and have 2FA enabled.
 
 ## Assets
 
-Any icons/etc should be inlined into the class that needs to use them to avoid url issues on deployment. The original assets should  be stored in the `assets` folder for reference.
+Any icons/etc should be inlined into the class that needs to use them to avoid url issues on deployment. The original assets should be stored in the `assets` folder for reference.
 
 ## Styleguide
 
@@ -140,15 +140,15 @@ Currently there is no automated process to rebuild the contents of the `docs` fo
 
 If you are using VSCode here is a list of useful plugins that can help with this repo:
 
-* Auto Close Tag
-* Bracket Pair Colorizer
-* EditorConfig for VS Code
-* ESLint
-* GitLens
-* Node Debug
-* npm Intellisense
-* Prettier
-* stylelint
+- Auto Close Tag
+- Bracket Pair Colorizer
+- EditorConfig for VS Code
+- ESLint
+- GitLens
+- Node Debug
+- npm Intellisense
+- Prettier
+- stylelint
 
 ### ITCSS
 
@@ -177,5 +177,5 @@ To lint:
 
 ## Useful links
 
--   [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
--   [Figma API](https://blog.prototypr.io/design-tokens-with-figma-aef25c42430f)
+- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
+- [Figma API](https://blog.prototypr.io/design-tokens-with-figma-aef25c42430f)

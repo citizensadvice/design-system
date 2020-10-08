@@ -2,9 +2,9 @@
 
 There are 3 breakpoints defined.
 
--   `sm`: up to 767px
--   `md`: between 768 and 1023px
--   `lg`: up from 1024px
+- `sm`: up to 767px
+- `md`: between 768 and 1023px
+- `lg`: up from 1024px
 
 To see how any tokens or components respond to different screen sizes just resize this window and look out for the breakpoint indicator.
 

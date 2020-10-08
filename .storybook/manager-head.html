@@ -1,12 +1,12 @@
 <script>
-    document.title = 'CA Design System';
-    var observer = new MutationObserver(function(mutations) {
-        if (document.title.match(/Storybook$/)) {
-            document.title = 'CA Design System';
-        }
-    }).observe(document.querySelector('title'), {
-        childList: true,
-        subtree: true,
-        characterData: true
-    });
+  document.title = 'CA Design System';
+  var observer = new MutationObserver(function (mutations) {
+    if (document.title.match(/Storybook$/)) {
+      document.title = 'CA Design System';
+    }
+  }).observe(document.querySelector('title'), {
+    childList: true,
+    subtree: true,
+    characterData: true,
+  });
 </script>

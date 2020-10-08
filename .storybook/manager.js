@@ -4,7 +4,7 @@ import { version } from '../package.json';
 
 const theme = create({
   base: 'light',
-  brandTitle: `Citizens Advice Design System v${version}`
+  brandTitle: `Citizens Advice Design System v${version}`,
 });
 
 addons.setConfig({

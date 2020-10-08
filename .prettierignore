@@ -1,5 +1,6 @@
 .storybook/vendor/
 assets/
+CHANGELOG.md
 docs/
 lib/
 stats/

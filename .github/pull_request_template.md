@@ -11,7 +11,7 @@ These steps are designed to show what to do. After doing each step, delete all t
   - Now you can call this code all over the suite
 - Opted to refactor constant `otherThing`
   - This should now allow users to write less code in css files
-  
+
 4a) If the PR is ready for review, assign the reviewers to it once the build has passed
 4b) If the PR is not ready for review, do not assign any reviewers and attach a "do not merge" label
 -->

@@ -62,16 +62,17 @@ Grid breakpoints are based on minimum width media queries, meaning <strong>they 
   </tbody>
 </table>
 
-For grids that are the same from the smallest of devices to the largest, use the <span class="html inline">.cads-grid-col</span> and <span class="html inline">.cads-grid-col-*</span> classes.
+For grids that are the same from the smallest of devices to the largest, use the <span class="html inline">.cads-grid-col</span> and <span class="html inline">.cads-grid-col-\*</span> classes.
 
-Using a single set of <span class="html inline">.cads-grid-col-{breakpoint}-*</span> classes, you can create a basic grid system that starts out stacked before becoming horizontal with at the specified breakpoint.
+Using a single set of <span class="html inline">.cads-grid-col-{breakpoint}-\*</span> classes, you can create a basic grid system that starts out stacked before becoming horizontal with at the specified breakpoint.
 
 ## Design/UX guidelines
 
 Max columns for breakpoints as follows
-* Small - 6
-* Medium - 6
-* Large - 12
+
+- Small - 6
+- Medium - 6
+- Large - 12
 
 Developers should adhere to these guidelines when setting up layout for content.
 
@@ -81,7 +82,7 @@ The grid includes three tiers of predefined classes for building complex respons
 
 ### All breakpoints
 
-For grids that are the same from the smallest of devices to the largest, use the <span class="html inline">.cads-grid-col</span> and <span class="html inline">.cads-grid-col-*</span> classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to <span class="html inline">.cads-grid-col</span>.
+For grids that are the same from the smallest of devices to the largest, use the <span class="html inline">.cads-grid-col</span> and <span class="html inline">.cads-grid-col-\*</span> classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to <span class="html inline">.cads-grid-col</span>.
 
 <div class="cads-styleguide-grid cads-grid-container">
     <div class="cads-grid-row">
@@ -106,30 +107,30 @@ For grids that are the same from the smallest of devices to the largest, use the
 
 ```html
 <div class="cads-grid-container">
-	<div class="cads-grid-row">
-	    <div class="cads-grid-col"><span>1</span></div>
-	    <div class="cads-grid-col"><span>2</span></div>
-	    <div class="cads-grid-col"><span>3</span></div>
-	    <div class="cads-grid-col"><span>4</span></div>
-	    <div class="cads-grid-col"><span>5</span></div>
-	    <div class="cads-grid-col"><span>6</span></div>
-	    <div class="cads-grid-col"><span>7</span></div>
-	    <div class="cads-grid-col"><span>8</span></div>
-	    <div class="cads-grid-col"><span>9</span></div>
-	    <div class="cads-grid-col"><span>10</span></div>
-	    <div class="cads-grid-col"><span>11</span></div>
-	    <div class="cads-grid-col"><span>12</span></div>
-	</div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-8"><span>1</span></div>
-        <div class="cads-grid-col-4"><span>2</span></div>
-    </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col"><span>1</span></div>
+    <div class="cads-grid-col"><span>2</span></div>
+    <div class="cads-grid-col"><span>3</span></div>
+    <div class="cads-grid-col"><span>4</span></div>
+    <div class="cads-grid-col"><span>5</span></div>
+    <div class="cads-grid-col"><span>6</span></div>
+    <div class="cads-grid-col"><span>7</span></div>
+    <div class="cads-grid-col"><span>8</span></div>
+    <div class="cads-grid-col"><span>9</span></div>
+    <div class="cads-grid-col"><span>10</span></div>
+    <div class="cads-grid-col"><span>11</span></div>
+    <div class="cads-grid-col"><span>12</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-8"><span>1</span></div>
+    <div class="cads-grid-col-4"><span>2</span></div>
+  </div>
 </div>
 ```
 
 ### Stacked to horizontal
 
-Using a single set of  <span class="html inline">.cads-grid-col-lg-*</span> classes, you can create a basic grid system that starts out stacked before becoming horizontal at the large breakpoint (lg).
+Using a single set of <span class="html inline">.cads-grid-col-lg-\*</span> classes, you can create a basic grid system that starts out stacked before becoming horizontal at the large breakpoint (lg).
 
 <div class="cads-styleguide-grid cads-grid-container">
     <div class="cads-grid-row">
@@ -145,18 +146,17 @@ Using a single set of  <span class="html inline">.cads-grid-col-lg-*</span> clas
 
 ```html
 <div class="cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-lg-6"><span>1</span></div>
-        <div class="cads-grid-col-lg-6"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-lg-4"><span>1</span></div>
-        <div class="cads-grid-col-lg-4"><span>2</span></div>
-        <div class="cads-grid-col-lg-4"><span>3</span></div>
-    </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-lg-6"><span>1</span></div>
+    <div class="cads-grid-col-lg-6"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-lg-4"><span>1</span></div>
+    <div class="cads-grid-col-lg-4"><span>2</span></div>
+    <div class="cads-grid-col-lg-4"><span>3</span></div>
+  </div>
 </div>
 ```
-
 
 ### Mixing column widths
 
@@ -209,56 +209,57 @@ Using a single set of  <span class="html inline">.cads-grid-col-lg-*</span> clas
 
 ```html
 <div class="cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-1"><span>1</span></div>
-        <div class="cads-grid-col-11"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-2"><span>1</span></div>
-        <div class="cads-grid-col-10"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-3"><span>1</span></div>
-        <div class="cads-grid-col-9"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-4"><span>1</span></div>
-        <div class="cads-grid-col-8"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-5"><span>1</span></div>
-        <div class="cads-grid-col-7"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-6"><span>1</span></div>
-        <div class="cads-grid-col-6"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-7"><span>1</span></div>
-        <div class="cads-grid-col-5"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-8"><span>1</span></div>
-        <div class="cads-grid-col-4"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-9"><span>1</span></div>
-        <div class="cads-grid-col-3"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-10"><span>1</span></div>
-        <div class="cads-grid-col-2"><span>2</span></div>
-    </div>
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-11"><span>1</span></div>
-        <div class="cads-grid-col-1"><span>2</span></div>
-    </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-1"><span>1</span></div>
+    <div class="cads-grid-col-11"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-2"><span>1</span></div>
+    <div class="cads-grid-col-10"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-3"><span>1</span></div>
+    <div class="cads-grid-col-9"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-4"><span>1</span></div>
+    <div class="cads-grid-col-8"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-5"><span>1</span></div>
+    <div class="cads-grid-col-7"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-6"><span>1</span></div>
+    <div class="cads-grid-col-6"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-7"><span>1</span></div>
+    <div class="cads-grid-col-5"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-8"><span>1</span></div>
+    <div class="cads-grid-col-4"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-9"><span>1</span></div>
+    <div class="cads-grid-col-3"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-10"><span>1</span></div>
+    <div class="cads-grid-col-2"><span>2</span></div>
+  </div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-11"><span>1</span></div>
+    <div class="cads-grid-col-1"><span>2</span></div>
+  </div>
 </div>
 ```
 
 ### Responsive varying columns
 
 Use a combination of breakpoint width classes to create different layouts for each breakpoint.
+
 - Small breakpoint - 1 column (as each cell is 6 columns wide)
 - Medium breakpoint - 4 columns (as each cell is 3 columns wide and there are 12 to be wrapped in 4 rows)
 - Large breakpoint - 2, 4, 6 columns with wrapping
@@ -282,19 +283,43 @@ Use a combination of breakpoint width classes to create different layouts for ea
 
 ```html
 <div class="cads-grid-container">
-    <div class="cads-grid-row">
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-6"><span>1</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-6"><span>2</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3"><span>3</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3"><span>4</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3"><span>5</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3"><span>6</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2"><span>7</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2"><span>8</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2"><span>9</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2"><span>10</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2"><span>11</span></div>
-        <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2"><span>12</span></div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-6">
+      <span>1</span>
     </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-6">
+      <span>2</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3">
+      <span>3</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3">
+      <span>4</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3">
+      <span>5</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-3">
+      <span>6</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2">
+      <span>7</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2">
+      <span>8</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2">
+      <span>9</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2">
+      <span>10</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2">
+      <span>11</span>
+    </div>
+    <div class="cads-grid-col-sm-6 cads-grid-col-md-3 cads-grid-col-lg-2">
+      <span>12</span>
+    </div>
+  </div>
 </div>
 ```

@@ -2,7 +2,7 @@
 
 ## Sizing
 
-All page content should be limited to 1200px wide. Use the <span class="html inline">$cads-max-content-size</span> variable for setting the <span class="html inline">width</span> or apply the <span class="html inline">.cads-max-content-width</span> class to restrict the content of your components on large screen sizes. See the <span class="html inline">footer</span> component as an example of how to restrict content but let things like background colours expand.
+All page content should be limited to 1200px wide. Use the <span class="html inline">\$cads-max-content-size</span> variable for setting the <span class="html inline">width</span> or apply the <span class="html inline">.cads-max-content-width</span> class to restrict the content of your components on large screen sizes. See the <span class="html inline">footer</span> component as an example of how to restrict content but let things like background colours expand.
 
 ## Spacing
 
