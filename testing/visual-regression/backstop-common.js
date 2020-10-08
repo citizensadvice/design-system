@@ -185,31 +185,6 @@ module.exports = function backstopCommon(baseUrl) {
         selectorExpansion: true,
       },
       {
-        label: '3_Components_BUTTONS',
-        url: `${baseUrl}/iframe.html?id=3-components--buttons`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-button',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_CALLOUTS',
-        url: `${baseUrl}/iframe.html?id=3-components--callout`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
         label: '3_Components_CONTACT_DETAILS',
         url: `${baseUrl}/iframe.html?id=3-components--contact-details`,
         readySelector: '#a11yComponentToTest',
