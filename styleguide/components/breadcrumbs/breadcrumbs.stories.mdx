@@ -1,6 +1,8 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
-import templateDefault from './_breadcrumbs.html.haml';
-import templateDefaultCode from '!!raw-loader!./_breadcrumbs.html.haml';
+import templateDefault from './_default.html.haml';
+import templateDefaultCode from '!!raw-loader!./_default.html.haml';
+import templateNoCollapse from './_no-collapse.html.haml';
+import templateNoCollapseCode from '!!raw-loader!./_no-collapse.html.haml';
 
 <Meta
   title="Components/Breadcrumbs"
@@ -10,12 +12,30 @@ import templateDefaultCode from '!!raw-loader!./_breadcrumbs.html.haml';
 
 # Breadcrumbs
 
-Breadcrumbs are used at the top of pages to provide navigation and location context.
+Breadcrumbs are used at the top of pages to provide navigation and location context. There are two variants.
+
+## Default (collapse)
+
+By default they will collapse to the parent page on mobile. You can explicity set this behaviour by passing in
+`collaspe` as the type.
 
 <Preview>
   <Story
-    name="Breadcrumbs"
+    name="Breadcrumbs (default)"
     parameters={{ docs: { source: { code: templateDefaultCode } } }}
+  >
+    {() => templateDefault}
+  </Story>
+</Preview>
+
+## No collapse
+
+You can prevent the default collapse behaviour on mobile when you don't want this to happen, eg in search results.
+
+<Preview>
+  <Story
+    name="Breadcrumbs (No collapse)"
+    parameters={{ docs: { source: { code: templateNoCollapseCode } } }}
   >
     {() => templateDefault}
   </Story>
