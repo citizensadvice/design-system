@@ -23,7 +23,7 @@ module.exports = function (baseUrl) {
       },
       {
         label: 'Components/Callout (important)',
-        url: storyUrlFor('components-callouts--example-callout'),
+        url: storyUrlFor('components-callouts--important-callout'),
       },
       {
         label: 'Components/Callout (adviser)',
