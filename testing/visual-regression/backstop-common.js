@@ -3,6 +3,35 @@ module.exports = function (baseUrl) {
     return `${baseUrl}/iframe.html?id=${componentId}&viewMode=story`;
   }
 
+  function buildButtonScenarios(labelPrefix, componentId) {
+    const viewport = { label: 'button', width: 200, height: 100 };
+    return [
+      {
+        label: `${labelPrefix}`,
+        url: storyUrlFor(componentId),
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (hover)`,
+        url: storyUrlFor(componentId),
+        hoverSelector: 'button',
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (focus)`,
+        url: storyUrlFor(componentId),
+        focusSelector: 'button',
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (active)`,
+        url: storyUrlFor(componentId),
+        clickSelector: 'button',
+        viewports: [viewport],
+      },
+    ];
+  }
+
   return {
     id: 'backstop_default',
     viewports: [
@@ -13,6 +42,18 @@ module.exports = function (baseUrl) {
     ],
     onReadyScript: 'onReady.js',
     scenarios: [
+      ...buildButtonScenarios(
+        'Components/Buttons/Primary',
+        'components-buttons--primary'
+      ),
+      ...buildButtonScenarios(
+        'Components/Buttons/Secondary',
+        'components-buttons--secondary'
+      ),
+      ...buildButtonScenarios(
+        'Components/Buttons/Tertiary',
+        'components-buttons--tertiary'
+      ),
       {
         label: 'Components/Callout (standard)',
         url: storyUrlFor('components-callouts--standard-callout'),
@@ -121,19 +162,6 @@ module.exports = function (baseUrl) {
           '.cads-styleguide__language-label',
         ],
         hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_BUTTONS',
-        url: `${baseUrl}/iframe.html?id=3-components--buttons`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-button',
         selectors: ['#a11yComponentToTest'],
         selectorExpansion: true,
       },

@@ -13,7 +13,6 @@ import GreedyNav from '../src/ts/greedy-nav';
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
-import Buttons from './components/buttons';
 import { Pagination, PagingInfo } from './components/pagination';
 import RelatedContent from './components/related-content';
 
@@ -89,7 +88,6 @@ export default {
   ],
 };
 
-export const buttons = () => Buttons();
 export const pagination = () => Pagination();
 export const pagingInfo = () => PagingInfo();
 export const relatedContent = () => RelatedContent();
