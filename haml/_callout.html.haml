@@ -1,3 +1,6 @@
-%div{class: "cads-callout cads-callout-#{notice['type']}"}
+-# Default type to standard if none is provided
+- type = notice.fetch('type', 'standard')
+
+%div{class: "cads-callout cads-callout-#{type}"}
   .cads-callout__adviser-label
   = notice['body']

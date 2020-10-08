@@ -6,7 +6,6 @@ import './styles.scss';
 import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initAdviceFeedback from '../src/js/advice-feedback';
-import initCallouts from '../src/js/callout';
 import initTables from '../src/js/tables';
 
 import GreedyNav from '../src/ts/greedy-nav';
@@ -20,7 +19,6 @@ import RelatedContent from './components/related-content';
 
 // Haml setup
 // Import all the templates...
-import tCallout from '../haml/_callout.html.haml';
 import tFooter from '../haml/_footer.html.haml';
 import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
@@ -177,17 +175,6 @@ export const navigation = () =>
 
 export const noticeBanner = () =>
   renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
-export const callout = () =>
-  renderHamlTemplate(
-    'Callout',
-    tCallout,
-    'callout',
-    `The callout component uses javascript to rearrange the heading level of the first callout on the screen (H2 vs H3 heading).
-        \n\n
-        <pre><code>import initCallouts from '@citizensadvice/design-system/lib/callout'</code></pre> and execute that function after the the page has finished loading.`,
-    null,
-    initCallouts
-  );
 export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 export const websiteFeedback = () =>

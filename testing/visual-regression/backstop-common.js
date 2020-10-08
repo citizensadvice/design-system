@@ -1,4 +1,8 @@
 module.exports = function (baseUrl) {
+  function storyUrlFor(componentId) {
+    return `${baseUrl}/iframe.html?id=${componentId}&viewMode=story`;
+  }
+
   return {
     id: 'backstop_default',
     viewports: [
@@ -10,18 +14,34 @@ module.exports = function (baseUrl) {
     onReadyScript: 'onReady.js',
     scenarios: [
       {
+        label: 'Components/Callout (standard)',
+        url: storyUrlFor('components-callouts--standard-callout'),
+      },
+      {
+        label: 'Components/Callout (example)',
+        url: storyUrlFor('components-callouts--example-callout'),
+      },
+      {
+        label: 'Components/Callout (important)',
+        url: storyUrlFor('components-callouts--example-callout'),
+      },
+      {
+        label: 'Components/Callout (adviser)',
+        url: storyUrlFor('components-callouts--adviser-callout'),
+      },
+      {
         label: 'Components/OISC Warning/With title and description',
-        url: `${baseUrl}/iframe.html?id=components-oisc-warning--with-title-and-description&viewMode=story`,
+        url: storyUrlFor('components-oisc-warning--with-title-and-description'),
         selectors: ['.cads-oisc-warning'],
       },
       {
         label: 'Components/OISC Warning/Title only',
-        url: `${baseUrl}/iframe.html?id=components-oisc-warning--title-only&viewMode=story`,
+        url: storyUrlFor('components-oisc-warning--title-only'),
         selectors: ['.cads-oisc-warning'],
       },
       {
         label: 'Components/OISC Warning/Sticky (scrolled)',
-        url: `${baseUrl}/iframe.html?id=components-oisc-warning--sticky&viewMode=story`,
+        url: storyUrlFor('components-oisc-warning--sticky'),
         selectors: ['viewport'],
         clickSelector: '#heading-anchor',
         postInteractionWait: 500,
@@ -114,18 +134,6 @@ module.exports = function (baseUrl) {
         ],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-button',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_CALLOUTS',
-        url: `${baseUrl}/iframe.html?id=3-components--callout`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
         selectorExpansion: true,
       },
