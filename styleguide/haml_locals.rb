@@ -222,7 +222,7 @@
   },
 
   "contact_details" => <<~HTML,
-    <p><strong>Bail for Immigration Detainees</strong></p>
+    <p>Bail for Immigration Detainees</p>
     <p>Telephone: 01234 567890</p>
     <p>Monday to Thursday 8am to 1pm</p>
     <p>Calls cost a lot of money</p>
