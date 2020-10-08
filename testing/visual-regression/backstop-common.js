@@ -107,12 +107,16 @@ module.exports = function backstopCommon(baseUrl) {
       },
       {
         label: 'Components/Breadcrumbs/Default',
-        url: `${baseUrl}/iframe.html?id=components-breadcrumb--default&viewMode=story`,
+        url: storyUrlFor(
+          'components-breadcrumbs--breadcrumbs-default&viewMode=story'
+        ),
         selectors: ['.cads-breadcrumbs'],
       },
       {
         label: 'Components/Breadcrumbs/No Collapse',
-        url: `${baseUrl}/iframe.html?id=components-breadcrumb--no-collapse&viewMode=story`,
+        url: storyUrlFor(
+          'components-breadcrumbs--breadcrumbs-no-collapse&viewMode=story'
+        ),
         selectors: ['.cads-breadcrumbs'],
       },
 
