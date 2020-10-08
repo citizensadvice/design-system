@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
 module.exports = async (page, scenario) => {
   console.log(`SCENARIO > ${scenario.label}`);
@@ -21,29 +23,37 @@ module.exports = async (page, scenario) => {
   const keyPressSelector =
     scenario.keyPressSelectors || scenario.keyPressSelector;
   if (keyPressSelector) {
-    [].concat(keyPressSelector).forEach(async (keyPressSelectorItem) => {
+    for (const keyPressSelectorItem of [].concat(keyPressSelector)) {
       await page.waitFor(keyPressSelectorItem.selector);
       await page.type(
         keyPressSelectorItem.selector,
         keyPressSelectorItem.keyPress
       );
-    });
+    }
   }
 
   const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
   if (hoverSelector) {
-    [].concat(hoverSelector).forEach(async (hoverSelectorItem) => {
-      await page.waitFor(hoverSelectorItem);
-      await page.hover(hoverSelectorItem);
-    });
+    for (const hoverSelectorIndex of [].concat(hoverSelector)) {
+      await page.waitFor(hoverSelectorIndex);
+      await page.hover(hoverSelectorIndex);
+    }
+  }
+
+  const focusSelector = scenario.focusSelectors || scenario.focusSelector;
+  if (focusSelector) {
+    for (const focusSelectorIndex of [].concat(focusSelector)) {
+      await page.waitFor(focusSelectorIndex);
+      await page.focus(focusSelectorIndex);
+    }
   }
 
   const clickSelector = scenario.clickSelectors || scenario.clickSelector;
   if (clickSelector) {
-    [].concat(clickSelector).forEach(async (clickSelectorItem) => {
-      await page.waitFor(clickSelectorItem);
-      await page.hover(clickSelectorItem);
-    });
+    for (const clickSelectorIndex of [].concat(clickSelector)) {
+      await page.waitFor(clickSelectorIndex);
+      await page.click(clickSelectorIndex);
+    }
   }
 
   const { postInteractionWait } = scenario; // selector [str] | ms [int]
