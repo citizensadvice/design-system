@@ -172,7 +172,6 @@
     }
   ],
 
-
   "notice" => {
     "type" => "important",
     "body" => <<~HTML
