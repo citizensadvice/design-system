@@ -1,8 +1,9 @@
-*.md
-lib
-docs
-vendor/bundle
-testing/visual-regression/backstop_data/**/*
-testing/package-lock.json
-stats/*
-assets/cads.css
+.storybook/vendor/
+assets/
+docs/
+lib/
+stats/
+testing/artifacts/
+testing/visual-regression/backstop_data/
+testing/wcag/
+vendor/
