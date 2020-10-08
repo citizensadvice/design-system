@@ -7,13 +7,20 @@
     }
   },
   "urls": [
+    "http://localhost:6006/iframe.html?id=components-buttons--primary&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-buttons--secondary&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-buttons--tertiary&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-callouts--standard-callout&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-callouts--example-callout&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-callouts--adviser-callout&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-oisc-warning--with-title-and-description&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-oisc-warning--title-only&viewMode=story",
+    "http://localhost:6006/iframe.html?id=components-oisc-warning--sticky&viewMode=story",
     "http://localhost:6006/iframe.html?id=2-design-foundations--colour-language",
     "http://localhost:6006/iframe.html?id=2-design-foundations--colour-palette",
     "http://localhost:6006/iframe.html?id=3-components--advice-feedback",
     "http://localhost:6006/iframe.html?id=3-components--asset-hyperlink",
     "http://localhost:6006/iframe.html?id=3-components--breadcrumb",
-    "http://localhost:6006/iframe.html?id=3-components--buttons",
-    "http://localhost:6006/iframe.html?id=3-components--callout",
     "http://localhost:6006/iframe.html?id=3-components--contact-details",
     "http://localhost:6006/iframe.html?id=3-components--error-summary",
     "http://localhost:6006/iframe.html?id=3-components--footer",
@@ -34,8 +41,6 @@
     "http://localhost:6006/iframe.html?id=3-components--website-feedback",
     "http://localhost:6006/iframe.html?id=3-components--related-content",
     "http://localhost:6006/iframe.html?id=3-components--tables",
-    "http://localhost:6006/iframe.html?id=components-oisc-warning--with-title-and-description&viewMode=story",
-    "http://localhost:6006/iframe.html?id=components-oisc-warning--title-only&viewMode=story",
-    "http://localhost:6006/iframe.html?id=components-oisc-warning--sticky&viewMode=story"
+    "http://localhost:6006/iframe.html?id=3-components--advisernet-related-content"
   ]
 }
