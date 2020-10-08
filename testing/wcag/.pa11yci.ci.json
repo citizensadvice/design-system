@@ -7,13 +7,20 @@
     }
   },
   "urls": [
+    "ca-styleguide:6006/iframe.html?id=components-buttons--primary&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-buttons--secondary&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-buttons--tertiary&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-callouts--standard-callout&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-callouts--example-callout&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-callouts--adviser-callout&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-oisc-warning--with-title-and-description&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-oisc-warning--title-only&viewMode=story",
+    "ca-styleguide:6006/iframe.html?id=components-oisc-warning--sticky&viewMode=story",
     "ca-styleguide:6006/iframe.html?id=2-design-foundations--colour-language",
     "ca-styleguide:6006/iframe.html?id=2-design-foundations--colour-palette",
     "ca-styleguide:6006/iframe.html?id=3-components--advice-feedback",
     "ca-styleguide:6006/iframe.html?id=3-components--asset-hyperlink",
     "ca-styleguide:6006/iframe.html?id=3-components--breadcrumb",
-    "ca-styleguide:6006/iframe.html?id=3-components--buttons",
-    "ca-styleguide:6006/iframe.html?id=3-components--callout",
     "ca-styleguide:6006/iframe.html?id=3-components--contact-details",
     "ca-styleguide:6006/iframe.html?id=3-components--error-summary",
     "ca-styleguide:6006/iframe.html?id=3-components--footer",
@@ -33,6 +40,7 @@
     "ca-styleguide:6006/iframe.html?id=3-components--textarea",
     "ca-styleguide:6006/iframe.html?id=3-components--website-feedback",
     "ca-styleguide:6006/iframe.html?id=3-components--related-content",
-    "ca-styleguide:6006/iframe.html?id=3-components--tables"
+    "ca-styleguide:6006/iframe.html?id=3-components--tables",
+    "ca-styleguide:6006/iframe.html?id=3-components--advisernet-related-content"
   ]
 }
