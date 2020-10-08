@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 module.exports = async (page, scenario) => {
-  console.log('SCENARIO > ' + scenario.label);
+  console.log(`SCENARIO > ${scenario.label}`);
 
   // Enable prefers-reduced-motion to disable animations
   await page.emulateMediaFeatures([
@@ -10,51 +11,51 @@ module.exports = async (page, scenario) => {
    * Wait for fonts to be loaded.
    * Ensure that icon fonts are ready to avoid display inconsitencies
    */
-  await page.waitFor(() => {
-    return document.fonts.ready.then(() => {
+  await page.waitFor(() =>
+    document.fonts.ready.then(() => {
       console.log('Fonts loaded');
       return true;
-    });
-  });
+    })
+  );
 
   const keyPressSelector =
     scenario.keyPressSelectors || scenario.keyPressSelector;
   if (keyPressSelector) {
-    for (const keyPressSelectorItem of [].concat(keyPressSelector)) {
+    [].concat(keyPressSelector).forEach(async (keyPressSelectorItem) => {
       await page.waitFor(keyPressSelectorItem.selector);
       await page.type(
         keyPressSelectorItem.selector,
         keyPressSelectorItem.keyPress
       );
-    }
+    });
   }
 
   const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
   if (hoverSelector) {
-    for (const hoverSelectorIndex of [].concat(hoverSelector)) {
-      await page.waitFor(hoverSelectorIndex);
-      await page.hover(hoverSelectorIndex);
-    }
+    [].concat(hoverSelector).forEach(async (hoverSelectorItem) => {
+      await page.waitFor(hoverSelectorItem);
+      await page.hover(hoverSelectorItem);
+    });
   }
 
   const clickSelector = scenario.clickSelectors || scenario.clickSelector;
   if (clickSelector) {
-    for (const clickSelectorIndex of [].concat(clickSelector)) {
-      await page.waitFor(clickSelectorIndex);
-      await page.click(clickSelectorIndex);
-    }
+    [].concat(clickSelector).forEach(async (clickSelectorItem) => {
+      await page.waitFor(clickSelectorItem);
+      await page.hover(clickSelectorItem);
+    });
   }
 
-  const postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
+  const { postInteractionWait } = scenario; // selector [str] | ms [int]
   if (postInteractionWait) {
     await page.waitFor(postInteractionWait);
   }
 
-  const scrollToSelector = scenario.scrollToSelector;
+  const { scrollToSelector } = scenario;
   if (scrollToSelector) {
     await page.waitFor(scrollToSelector);
-    await page.evaluate((scrollToSelector) => {
-      document.querySelector(scrollToSelector).scrollIntoView();
+    await page.evaluate((_scrollToSelector) => {
+      document.querySelector(_scrollToSelector).scrollIntoView();
     }, scrollToSelector);
   }
 };

@@ -1,4 +1,4 @@
-module.exports = function (baseUrl) {
+module.exports = function backstopCommon(baseUrl) {
   function storyUrlFor(componentId) {
     return `${baseUrl}/iframe.html?id=${componentId}&viewMode=story`;
   }
