@@ -1,17 +1,9 @@
 module.exports = {
   root: true,
-  extends: ['airbnb-base'],
-  plugins: ['prettier'],
+  extends: ['airbnb-base', 'prettier'],
   rules: {
-    'prettier/prettier': 'error',
-    'comma-dangle': 'off',
-    'arrow-parens': 'off',
     'no-plusplus': 'off',
-    'operator-linebreak': 'off',
-    'implicit-arrow-linebreak': 'off',
-    'object-curly-newline': 'off',
     'import/extensions': 'off',
-    'function-paren-newline': 'off', // Conflicts with prettier
   },
   settings: {
     'import/resolver': {
