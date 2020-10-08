@@ -1,3 +1,12 @@
+%breadcrumb-arrow-right {
+  color: $cads-language__input-border-colour;
+  content: '\203A';
+  margin-left: $cads-spacing-2;
+  margin-right: $cads-spacing-2;
+  font-size: 18px; // Fix size as this is a symbol
+  display: inline-block;
+}
+
 .cads-breadcrumbs {
   @include cads-restrict-content-width();
 
@@ -5,24 +14,21 @@
   padding-bottom: $cads-spacing-3;
   border-bottom: $cads-border-width-small solid $cads-language__border_colour;
 
-  ul {
-    margin: 0 !important;
+  &__list {
+    margin: 0;
   }
 
   &__crumb {
-    margin: 0 !important;
+    display: inline-block;
+    margin: 0;
     max-width: 55ch;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1rem;
+    font-size: $cads-font-size;
 
     &::after {
-      color: $cads-language__input-border-colour;
-      content: '\203A';
-      margin-left: $cads-spacing-2;
-      margin-right: $cads-spacing-2;
-      font-size: 18px; // Fix size as this is a symbol
+      @extend %breadcrumb-arrow-right;
     }
 
     &:last-of-type {
@@ -35,12 +41,12 @@
   }
 
   @include cads-media-breakpoint-only(sm) {
-    li {
-      display: none !important;
+    &__crumb {
+      display: none;
     }
 
-    li:nth-last-child(2) {
-      display: block !important;
+    &__crumb:nth-last-child(2) {
+      display: block;
 
       &::before {
         content: '\2039';
@@ -52,6 +58,24 @@
       &::after {
         display: none;
       }
+    }
+  }
+}
+
+.cads-breadcrumbs--no-collapse.cads-breadcrumbs {
+  .cads-breadcrumbs__crumb {
+    display: inline-block;
+  }
+
+  .cads-breadcrumbs__crumb:nth-last-child(2) {
+    display: inline-block;
+
+    &::after {
+      @extend %breadcrumb-arrow-right;
+    }
+
+    &::before {
+      display: none;
     }
   }
 }

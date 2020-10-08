@@ -37,7 +37,7 @@ You can prevent the default collapse behaviour on mobile when you don't want thi
     name="Breadcrumbs (No collapse)"
     parameters={{ docs: { source: { code: templateNoCollapseCode } } }}
   >
-    {() => templateDefault}
+    {() => templateNoCollapse}
   </Story>
 </Preview>
 
@@ -47,13 +47,15 @@ When shown in a search result, the breadcumbs do not show the home page and do n
 
 ## Haml template options
 
-The Haml partial takes a `breadcrumb_links` hash, which is an array of hashes with the following properties:
+The Haml partial takes a `breadcrumb` hash, which has the following properties:
 
-| Property | Description                             |
-| -------- | --------------------------------------- |
-| `url`    | Required, url for the breadcrumb link   |
-| `title ` | Required, title for the breadcrumb link |
+| Property           | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| `type`             | Optional, one of: `collapse` (default), `no-collapse`  |
+| `breadcrumb_links` | Required, an array of hashes, each with the following: |
+| `link[url]`        | &rarr; Required, url for the breadcrumb link           |
+| `link[title]`      | &rarr; Required, title for the breadcrumb link         |
 
 For example:
 
-<Source dark="true" lang="haml" code={templateDefaultCode} />
+<Source dark="true" lang="haml" code={templateNoCollapseCode} />
