@@ -2,7 +2,7 @@
 
 module DesignSystem
   class Breadcrumbs < SitePrism::Page
-    set_url "/iframe.html?/?path=/story/components-breadcrumbs--breadcrumbs-default"
+    set_url "/iframe.html?id=components-breadcrumbs--breadcrumbs-default&viewMode=story"
 
     section :initial_form, ".cads-breadcrumbs" do
       elements :breadcrumbs, ".cads-breadcrumbs li"
