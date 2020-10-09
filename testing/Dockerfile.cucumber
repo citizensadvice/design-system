@@ -5,12 +5,28 @@ RUN apt update -y && apt install jq build-essential patch ruby-dev zlib1g-dev li
 
 RUN gem install bundler -v '2.1.4'
 
+RUN mkdir -p app && chown 1000:1000 app
+
+USER 1000
+
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock /app/
+COPY --chown=1000:1000 Gemfile* /app/
 
-RUN bundle install
+RUN bundle install && bundle clean --force
 
-RUN mkdir -p /app
+COPY --chown=1000:1000 . /app
 
-COPY . /app
+# FROM ruby:2.6 - done
+# Needed for running bin/docker/waiter
+# RUN apt update -y && apt install jq -y && apt clean - done
+# RUN gem install bundler -v '2.1.4' - done
+# RUN mkdir -p tests && chown 1000:1000 tests - done
+# USER 1000 - new done
+
+# ENV HOME=/tmp - not done?!?!?!
+
+# WORKDIR /tests - done
+# COPY --chown=1000:1000 Gemfile* /tests/ - done
+# RUN bundle install && bundle clean --force- done
+# COPY --chown=1000:1000 . /tests/ - done
