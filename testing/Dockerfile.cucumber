@@ -1,9 +1,7 @@
 FROM ruby:2.6
 
 # Needed for running bin/docker/waiter
-RUN apt update -y && apt install jq -y && apt clean
-
-RUN apt-get install -y build-essential patch ruby-dev zlib1g-dev liblzma-dev
+RUN apt update -y && apt install jq build-essential patch ruby-dev zlib1g-dev liblzma-dev -y && apt clean
 
 RUN gem install bundler -v '2.1.4'
 
