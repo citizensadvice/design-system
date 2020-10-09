@@ -115,6 +115,18 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-breadcrumbs--breadcrumbs-no-collapse'),
         selectors: ['.cads-breadcrumbs'],
       },
+      {
+        label: 'Components/Messages (success)',
+        url: storyUrlFor('components-messages--success-message'),
+        selectors: ['.cads-success-message'],
+        viewports: [{ label: 'message', width: 1000, height: 600 }],
+      },
+      {
+        label: 'Components/Messages (error)',
+        url: storyUrlFor('components-messages--error-message'),
+        selectors: ['.cads-error-message'],
+        viewports: [{ label: 'message', width: 1000, height: 600 }],
+      },
 
       // Old format component tests below here
       {
@@ -401,18 +413,6 @@ module.exports = function backstopCommon(baseUrl) {
         ],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-radio-button-checkmark',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_SUCCESS_MESSAGE',
-        url: `${baseUrl}/iframe.html?id=3-components--success-message`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
         selectorExpansion: true,
       },
