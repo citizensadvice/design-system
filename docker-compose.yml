@@ -8,7 +8,7 @@ services:
     command: npm run styleguide:ci -- --quiet
     hostname: ca-styleguide.test
     ports:
-      - 6006
+      - 6006:6006
     environment:
       - NODE_ENV=development
 
@@ -41,7 +41,7 @@ services:
       context: ./
       dockerfile: ./testing/Dockerfile.cucumber
     image: 'design_system_cucumber${PROJECT_VERSION_TAG}'
-    command: bundle exec rake design_system:all
+    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 bundle exec rake design_system:all
     container_name: design-system-cucumber.test
     environment:
       - BRANCH_NAME

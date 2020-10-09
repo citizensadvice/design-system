@@ -12,4 +12,4 @@ while ! curl -sSL "http://hub:4444/wd/hub/status" 2>&1 | jq '.value.nodes | leng
     sleep 1
 done
 
-echo 'Grid is now ready with 2 Active Nodes'
+echo 'Grid is now ready with 2 Active Nodes, App running successfully.'

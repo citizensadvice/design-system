@@ -1,7 +1,7 @@
 FROM ruby:2.6
 
 # Needed for running bin/docker/waiter
-RUN apt update -y && apt install jq -y && apt clean
+RUN apt update -y && apt install jq wait-for-it -y && apt clean
 
 RUN gem install bundler -v '2.1.4'
 
