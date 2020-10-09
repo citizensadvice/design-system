@@ -1,0 +1,21 @@
+/* =========================================================================
+   Messages
+   ========================================================================= */
+
+.cads-success-message,
+.cads-error-message {
+  display: inline-block;
+  min-width: 300px;
+  margin: 0 0 $cads-spacing-5 0;
+  padding: $cads-spacing-4;
+}
+
+.cads-success-message {
+  border-left: solid $cads-border-width-large $cads-language__success-colour;
+  background-color: rgba($cads-language__success-colour, 0.1);
+}
+
+.cads-error-message {
+  border-left: solid $cads-border-width-large $cads-language__error-colour;
+  background-color: rgba($cads-language__error-colour, 0.1);
+}

@@ -29,7 +29,6 @@ import tPageReview from '../haml/_page_review.html.haml';
 import tInput from '../haml/_input.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
-import tSuccessMessage from '../haml/_success_message.html.haml';
 import tTextarea from '../haml/_textarea.html.haml';
 import tErrorSummary from '../haml/_error_summary.html.haml';
 import tTables from '../haml/_table.html.haml';
@@ -182,9 +181,6 @@ export const targetedContent = () =>
     null,
     () => initTargetedContent()
   );
-
-export const successMessage = () =>
-  renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');
 
 export const tables = () =>
   renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);

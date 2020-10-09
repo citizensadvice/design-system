@@ -1,0 +1,59 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Messages" />
+
+# Messages
+
+Messages are used to show feedback based on success or error statuses.
+
+## Success message
+
+import templateSuccess from './_success.html.haml';
+import templateSuccessCode from '!!raw-loader!./_success.html.haml';
+
+<Preview>
+  <Story
+    name="Success message"
+    parameters={{ docs: { source: { code: templateSuccessCode } } }}
+  >
+    {() => templateSuccess}
+  </Story>
+</Preview>
+
+### Haml template options
+
+The Haml partial for success messages takes the following properties:
+
+| Property          | Description            |
+| ----------------- | ---------------------- |
+| `success_message` | Required, message text |
+
+For example:
+
+<Source dark="true" lang="haml" code={templateSuccessCode} />
+
+## Error message
+
+import templateError from './_error.html.haml';
+import templateErrorCode from '!!raw-loader!./_error.html.haml';
+
+<Preview>
+  <Story
+    name="Error message"
+    parameters={{ docs: { source: { code: templateErrorCode } } }}
+  >
+    {() => templateError}
+  </Story>
+</Preview>
+
+### Haml template options
+
+The Haml partial for error messages takes the following properties:
+
+| Property        | Description            |
+| --------------- | ---------------------- |
+| `error_message` | Required, message text |
+
+For example:
+
+<Source dark="true" lang="haml" code={templateErrorCode} />
