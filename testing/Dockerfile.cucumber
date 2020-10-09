@@ -1,32 +1,24 @@
 FROM ruby:2.6
 
-# Needed for running bin/docker/waiter
-RUN apt update -y && apt install jq build-essential patch ruby-dev zlib1g-dev liblzma-dev -y && apt clean
+# Install dockerize so that we can wait for hubs to be up
+RUN apt-get update && apt-get install -y wget
+
+ENV DOCKERIZE_VERSION v0.6.1
+
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+RUN apt-get install -y build-essential patch ruby-dev zlib1g-dev liblzma-dev
 
 RUN gem install bundler -v '2.1.4'
 
-RUN mkdir -p app && chown 1000:1000 app
-
-USER 1000
-
 WORKDIR /app
 
-COPY --chown=1000:1000 Gemfile* /app/
+COPY Gemfile Gemfile.lock /app/
 
-RUN bundle install && bundle clean --force
+RUN bundle install
 
-COPY --chown=1000:1000 . /app
+RUN mkdir -p /app
 
-# FROM ruby:2.6 - done
-# Needed for running bin/docker/waiter
-# RUN apt update -y && apt install jq -y && apt clean - done
-# RUN gem install bundler -v '2.1.4' - done
-# RUN mkdir -p tests && chown 1000:1000 tests - done
-# USER 1000 - new done
-
-# ENV HOME=/tmp - not done?!?!?!
-
-# WORKDIR /tests - done
-# COPY --chown=1000:1000 Gemfile* /tests/ - done
-# RUN bundle install && bundle clean --force- done
-# COPY --chown=1000:1000 . /tests/ - done
+COPY . /app
