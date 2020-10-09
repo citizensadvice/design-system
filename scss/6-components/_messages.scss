@@ -4,9 +4,10 @@
 
 .cads-success-message,
 .cads-error-message {
+  @include cads-paragraph-s();
+
   display: inline-block;
   min-width: 300px;
-  margin: 0 0 $cads-spacing-5 0;
   padding: $cads-spacing-4;
 }
 

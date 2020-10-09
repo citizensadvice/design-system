@@ -66,24 +66,12 @@ h4,
 }
 
 p,
+// @TODO: Rename this cads-paragraph?
 .paragraph {
-  font-size: 1.125rem;
-  line-height: 1.5rem; // Line-height remains the same
-  font-weight: $cads-font-weight__regular;
-  margin: 0 0 $cads-spacing-4 0;
-
-  @include cads-media-breakpoint-down(sm) {
-    font-size: 1rem;
-  }
+  @include cads-paragraph();
 }
 
+// @TODO: Rename this cads-paragraph-s?
 .paragraph-s {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: $cads-font-weight__regular;
-  margin: 0 0 $cads-spacing-3 0;
-
-  @include cads-media-breakpoint-down(sm) {
-    font-size: 0.875rem;
-  }
+  @include cads-paragraph-s();
 }

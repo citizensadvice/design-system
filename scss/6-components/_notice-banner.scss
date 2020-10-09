@@ -14,12 +14,12 @@
     }
   }
 
-  .paragraph-s {
-    margin: 0;
-  }
-
   p {
-    @extend .paragraph-s;
+    @include cads-paragraph-s();
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   @include cads-media-breakpoint-only(sm) {
