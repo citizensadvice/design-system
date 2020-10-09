@@ -1,6 +1,6 @@
 FROM ruby:2.6
 
-# Needed for running bin/docker/waiter
+# Needed for ./bin/docker/waiter and `wait-for-it` CLI for waiting for server to launch
 RUN apt update -y && apt install jq wait-for-it -y && apt clean
 
 RUN gem install bundler -v '2.1.4'
