@@ -4,7 +4,7 @@
   .cads-grid-container
     .cads-grid-row
       .cads-grid-col-12
-        = render partial: "@citizensadvice/design-system/haml/breadcrumb"
+        = render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: {breadcrumbs: {"breadcrumb_links" => [{"url" => "/link", "title" => "Tables"}]}}
   %main.cads-main-content
     .cads-grid-container
       .cads-grid-row

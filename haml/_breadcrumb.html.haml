@@ -1,10 +1,13 @@
-.cads-breadcrumbs
-  %ul.cads-list-unordered.cads-list-unordered__inline
-    %li
+-# Default type to collapse if none is provided
+- type = breadcrumbs.fetch('type', 'collapse')
+
+%nav{class: "cads-breadcrumbs cads-breadcrumbs--#{type}"}
+  %ul.cads-breadcrumbs__list
+    %li.cads-breadcrumbs__crumb
       %a.cads-breadcrumb{:href => "/"} Home
-    - breadcrumb_links.each_with_index do |link, index|
-      %li
-        - if index == breadcrumb_links.size - 1
+    - breadcrumbs['breadcrumb_links'].each_with_index do |link, index|
+      %li.cads-breadcrumbs__crumb
+        - if index == breadcrumbs['breadcrumb_links'].size - 1
           %span.cads-breadcrumb
             = link['title']
         - else

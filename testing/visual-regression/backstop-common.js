@@ -88,6 +88,33 @@ module.exports = function backstopCommon(baseUrl) {
         postInteractionWait: 500,
         viewports: [{ label: 'sticky', width: 1000, height: 600 }],
       },
+      {
+        label: 'Components/Search',
+        url: storyUrlFor('components-search--search'),
+        selectors: ['.cads-search'],
+      },
+      {
+        label: 'Components/Search (hover)',
+        url: storyUrlFor('components-search--search'),
+        hoverSelector: '.cads-search__button',
+        selectors: ['.cads-search'],
+      },
+      {
+        label: 'Components/Search (focus)',
+        url: storyUrlFor('components-search--search'),
+        focusSelector: '.cads-search__button',
+        selectors: ['.cads-search'],
+      },
+      {
+        label: 'Components/Breadcrumbs/Default',
+        url: storyUrlFor('components-breadcrumbs--breadcrumbs-default'),
+        selectors: ['.cads-breadcrumbs'],
+      },
+      {
+        label: 'Components/Breadcrumbs/No Collapse',
+        url: storyUrlFor('components-breadcrumbs--breadcrumbs-no-collapse'),
+        selectors: ['.cads-breadcrumbs'],
+      },
 
       // Old format component tests below here
       {
@@ -150,18 +177,6 @@ module.exports = function backstopCommon(baseUrl) {
           '.cads-styleguide__breakpoint-label',
           '.cads-styleguide__language-label',
         ],
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_BREADCRUMBS',
-        url: `${baseUrl}/iframe.html?id=3-components--breadcrumb`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
         selectorExpansion: true,
       },
@@ -414,18 +429,6 @@ module.exports = function backstopCommon(baseUrl) {
         ],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-radio-button-checkmark',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_SEARCH',
-        url: `${baseUrl}/iframe.html?id=3-components--search`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
         selectorExpansion: true,
       },
