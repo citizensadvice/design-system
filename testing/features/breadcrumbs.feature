@@ -3,8 +3,9 @@ Feature: Breadcrumbs component
   The Breadcrumbs component allows users to see a navigable path to their
   previous content pages they have traversed through
 
-  @future_release @v1.11.0+
+
   Background:
+    @future_release @v1.11.0+
     Given a Breadcrumbs component is on the page
 
   @future_release @v1.11.0+
