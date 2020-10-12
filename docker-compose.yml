@@ -8,7 +8,7 @@ services:
     command: npm run styleguide:ci -- --quiet
     hostname: ca-styleguide.test
     ports:
-      - 6006
+      - 6006:6006
     environment:
       - NODE_ENV=development
 
@@ -41,6 +41,7 @@ services:
       context: ./
       dockerfile: ./testing/Dockerfile.cucumber
     image: 'design_system_cucumber${PROJECT_VERSION_TAG}'
+    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- bundle exec rake design_system:all
     container_name: design-system-cucumber.test
     environment:
       - BRANCH_NAME
@@ -70,15 +71,17 @@ services:
     depends_on: []
 
   hub:
-    image: selenium/hub:3.141.59-20200525
+    image: selenium/hub:4.0.0-alpha-6-20200609
     container_name: design-system-hub.test
     env_file:
       - testing/grid_ci.env
+    ports:
+      - 4444:4444
     volumes:
       - ./:/app
 
   node-chrome: &node_default
-    image: selenium/node-chrome:3.141.59-20200525
+    image: selenium/node-chrome:4.0.0-alpha-6-20200609
     container_name: design-system-node-chrome.test
     env_file:
       - testing/grid_ci.env
@@ -90,5 +93,5 @@ services:
 
   node-firefox:
     <<: *node_default
-    image: selenium/node-firefox:3.141.59-20200525
+    image: selenium/node-firefox:4.0.0-alpha-6-20200609
     container_name: design-system-node-firefox.test
