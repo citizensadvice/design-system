@@ -1,3 +1,7 @@
+## <sub>v1.12.0</sub>
+
+#### _Oct. 12, 2020_
+
 * NP-756 Advisernet related content component
 * Update oisc_warning component to accept a hash
 
