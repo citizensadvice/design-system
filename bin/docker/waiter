@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -ex
+
+while ! curl -sSL "http://hub:4444/wd/hub/status" 2>&1 | jq -r '.value.ready' 2>&1 | grep "true" >/dev/null; do
+    echo 'GRID STATUS: NOT READY'
+    sleep 2
+done
+
+while ! curl -sSL "http://hub:4444/wd/hub/status" 2>&1 | jq '.value.nodes | length == 2' 2>&1; do
+    echo 'GRID STATUS: READY. NODE STATUSES: NOT READY'
+    sleep 1
+done
+
+echo 'Grid is now ready with 2 Active Nodes. App is being launched asynchronously - Will be waited for using `wait-for-it`.'

@@ -2,8 +2,4 @@
 
 set -ex
 
-docker-compose run cucumber dockerize -wait http://hub:4444 \
-  -wait http://node-chrome:5555/wd/hub/static/resource/hub.html \
-  -wait http://node-firefox:5555/wd/hub/static/resource/hub.html \
-  -wait http://ca-styleguide:6006 \
-  -timeout 60s bundle exec rake design_system:all $@
+docker-compose up -d hub node-chrome node-firefox && docker-compose run cucumber ./bin/docker/waiter && docker-compose run cucumber $@
