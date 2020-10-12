@@ -35,6 +35,7 @@ pipeline {
                 script {
                     currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
                 }
+                script { docker-compose build }
             }
         }
         stage('Lint and unit test') {
