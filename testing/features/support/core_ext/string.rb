@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class String
-  def camelize
+  def pascalize
     split("_").map(&:capitalize).join
   end
 end
