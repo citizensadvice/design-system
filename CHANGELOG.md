@@ -1,10 +1,11 @@
 ## <sub>v1.12.0</sub>
 
+* NP-978 Remove advice feedback component
+
 #### _Oct. 12, 2020_
 
 * NP-756 Advisernet related content component
 * Update oisc_warning component to accept a hash
-* NP-978 Remove advice feedback component
 
 ## <sub>v1.11.0</sub>
 
