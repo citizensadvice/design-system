@@ -6,10 +6,10 @@
   max-width: $size;
 }
 
-@function rem($pixels) {
+@function cads-rem($pixels) {
   @return #{$pixels/$cads-font-size}rem;
 }
 
-@function rem-to-px($rem) {
+@function cads-rem-to-px($rem) {
   @return ($rem / 1rem) * $cads-font-size;
 }
