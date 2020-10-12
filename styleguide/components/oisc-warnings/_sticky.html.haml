@@ -6,7 +6,7 @@
   %p
     %a#anchor-link{ href: "#heading-anchor"} Jump to heading level 3
 
-  = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { title: "This is an OISC level 2 topic", body: "<p>Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a></p>", is_sticky: true }
+  = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { 'oisc_warning' => { 'title' => "This is an OISC level 2 topic.", 'body' => "<p>Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a></p>", 'is_sticky' => true } }
 
   %h2 Heading level 2
 

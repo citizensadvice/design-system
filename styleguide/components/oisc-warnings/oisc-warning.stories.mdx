@@ -68,13 +68,13 @@ import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
 
 ## Haml template options
 
-The Haml partial takes the following properties:
+The Haml partial takes a `oisc_warning` hash with the following properties:
 
-| properties  | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| `title`     | Required                                                  |
-| `body`      | Optional body content                                     |
-| `is_sticky` | Flag if the warning should be sticky, defaults to `false` |
+| properties                  | Description                                               |
+| --------------------------- | --------------------------------------------------------- |
+| `oisc_warning['title']`     | Required                                                  |
+| `oisc_warning['body']`      | Optional body content                                     |
+| `oisc_warning['is_sticky']` | Flag if the warning should be sticky, defaults to `false` |
 
 For example:
 
