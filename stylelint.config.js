@@ -3,8 +3,14 @@ module.exports = {
   plugins: ['stylelint-scss', 'stylelint-selector-bem-pattern'],
   ignoreFiles: ['**/_normalize.scss', '**/_cads-iconfont.scss'],
   rules: {
+    // Disallow named colours, for colours we use sass variables
     'color-named': 'never',
+
+    // Set a reasonable limit on how many compound selectors we can have
     'selector-max-compound-selectors': 4,
+
+    // Vendor prefixes are handled by autoprefixer (or are no longer needed)
+    // So require that no-vendor prefixes are used.
     'selector-no-vendor-prefix': true,
     'value-no-vendor-prefix': true,
 
@@ -13,9 +19,10 @@ module.exports = {
     // so disallow this property when used without this mixin.
     'property-disallowed-list': ['transition'],
 
+    // Ensure that all font-stacks have a generic fallback,
+    // with the exception of the cads icon font.
     'font-family-no-missing-generic-family-keyword': [
       true,
-      // Allow cads icon font
       { ignoreFontFamilies: ['/cads/'] },
     ],
 
