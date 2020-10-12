@@ -5,7 +5,6 @@ import './styles.scss';
 
 import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
-import initAdviceFeedback from '../src/js/advice-feedback';
 import initTables from '../src/js/tables';
 
 import GreedyNav from '../src/ts/greedy-nav';
@@ -32,7 +31,6 @@ import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tSuccessMessage from '../haml/_success_message.html.haml';
 import tTextarea from '../haml/_textarea.html.haml';
-import tAdviceFeedback from '../haml/_advice_feedback.html.haml';
 import tErrorSummary from '../haml/_error_summary.html.haml';
 import tTables from '../haml/_table.html.haml';
 import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
@@ -183,15 +181,6 @@ export const targetedContent = () =>
         <pre><code>import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content'</code></pre> and execute that function after the the page has finished loading.`,
     null,
     () => initTargetedContent()
-  );
-export const adviceFeedback = () =>
-  renderHamlTemplate(
-    'Advice feedback',
-    tAdviceFeedback,
-    'advice_feedback',
-    null,
-    null,
-    () => initAdviceFeedback()
   );
 
 export const successMessage = () =>
