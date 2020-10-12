@@ -106,11 +106,23 @@ Releasing a new npm package version is a two step process.
 
 ### 1. Prepare the release
 
-Run `npm run release`. This prepares the release and puts it in a branch with the appropriate version name, which needs a PR to be merged into master. Once that is merged you can then do the actual release.
+```sh
+npm run release
+```
+
+This prepares the release and puts it in a branch with the appropriate version name, which needs a pull request to be merged into master. Once that is merged you can then do the actual release.
+
+**Note:** The current release script does not update the version inside `package-lock.json`. To correct this you should run `npm install` after creating a release and commit the resulting change.
 
 ### 2. Publish to npm
 
-After the new version branch is merged, switch to `master`, pull the latest and run `npm publish`. The `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm.
+After the new version branch is merged, switch to `master`, pull the latest changes and run:
+
+```sh
+npm publish
+```
+
+A `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm.
 
 **_Note:_** To run this step you need to be part of the npm org and have 2FA enabled.
 
