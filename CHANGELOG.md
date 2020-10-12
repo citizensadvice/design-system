@@ -4,6 +4,7 @@
 
 * NP-756 Advisernet related content component
 * Update oisc_warning component to accept a hash
+* NP-978 Remove advice feedback component
 
 ## <sub>v1.11.0</sub>
 

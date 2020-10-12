@@ -5,7 +5,6 @@ import './styles.scss';
 import GreedyNav from '../src/ts/greedy-nav/GreedyNav';
 import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
-import initAdviceFeedback from '../src/js/advice-feedback';
 import initCallouts from '../src/js/callout';
 import initTables from '../src/js/tables';
 import initOISCWarnings from '../src/js/oisc-warnings';
@@ -23,7 +22,6 @@ import tTables from './samples/_tables.html.haml';
 function init() {
   initHeader();
   initTargetedContent();
-  initAdviceFeedback();
   initCallouts();
   initTables();
   initOISCWarnings();
