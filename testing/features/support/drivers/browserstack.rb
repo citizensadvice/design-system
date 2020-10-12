@@ -36,7 +36,7 @@ module Drivers
 
     def browser_type_class
       if specialized_driver?
-        Module.const_get("Drivers::Browserstack::#{browser.to_s.camelize}")
+        Module.const_get("Drivers::Browserstack::#{browser.to_s.pascalize}")
       else
         AutomationLogger.debug("Non-specialized driver requested, will use standard Base Driver")
         Drivers::Browserstack::Base

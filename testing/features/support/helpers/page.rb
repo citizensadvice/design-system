@@ -15,13 +15,13 @@ module Helpers
       resize_page_to_fullsize
       AutomationLogger.info("Taking a screenshot to #{path}")
       save_image(path)
-      embed(path, "image/png", "Screenshot - Won't work on JenkinsBlue!")
+      attach(path, "image/png")
     end
 
     def save_full_page_html(scenario)
       file_path = html_file_path(scenario)
       File.write(file_path, full_page_html)
-      embed(file_path, "text/html", "HTML Page - Won't work on JenkinsBlue!")
+      attach(file_path, "text/html")
     end
 
     private
