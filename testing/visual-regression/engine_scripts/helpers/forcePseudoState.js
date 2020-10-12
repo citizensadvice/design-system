@@ -8,12 +8,12 @@ module.exports = async function forcePseudoState({
   const docNodeId = (await cdp.send('DOM.getDocument')).root.nodeId;
   const { nodeId } = await cdp.send('DOM.querySelector', {
     nodeId: docNodeId,
-    selector: selector,
+    selector,
   });
 
   await cdp.send('CSS.enable');
   await cdp.send('CSS.forcePseudoState', {
-    nodeId: nodeId,
+    nodeId,
     forcedPseudoClasses: [pseudoClass],
   });
 };

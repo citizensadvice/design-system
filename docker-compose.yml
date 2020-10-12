@@ -29,10 +29,10 @@ services:
       context: ./
       dockerfile: ./testing/Dockerfile.wcag
     image: 'ca-wcag-tests${CA_STYLEGUIDE_VERSION_TAG}'
-    container_name: wcag_tests.test
-    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- pa11y-ci --config /app/config.js
+    container_name: wcag-tests.test
+    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- pa11y-ci --config=/src/wcag/pa11yci.ci.js
     volumes:
-      - ./testing/wcag/.pa11yci.ci.json:/app/config.json
+      - ./testing:/src
     depends_on:
       - ca-styleguide
 

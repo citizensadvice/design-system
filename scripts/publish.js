@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const { prompt } = require('inquirer');
 const currentVersion = require('../package.json').version;

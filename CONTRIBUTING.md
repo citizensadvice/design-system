@@ -94,11 +94,11 @@ For more advanced details see the [BackstopJS Github's page](https://github.com/
 
 ### Accessibility testing
 
-`pa11y-ci` is used to perform automated accessibility tests.  The default configuration is to use htmlsniffer and the urls in the `.pa11yci.*.json` config files.  The files are generated dynamically from the backtopJS scenarios when running the `wcag` tasks in `package.json`.
+`pa11y-ci` is used to perform automated accessibility tests. The default configuration is to use htmlsniffer and the urls in the `pa11yci.*.js` config files.
 
-The following tasks can be used to perform WCAG tests:
-  - `npm run wcag-test` - runs WCAG tests using the local config files.  This runs storybook then runs `pa11y-ci` against the local storybook urls
-  - `npm run wcag-test:ci` - runs WCAG tests using the ci config files.
+```sh
+npm run wcag-test
+```
 
 ## Release process
 
@@ -108,9 +108,9 @@ Releasing a new npm package version is a two step process.
 
 Run `npm run release`. This prepares the release and puts it in a branch with the appropriate version name, which needs a PR to be merged into master. Once that is merged you can then do the actual release.
 
-### 2. Publish to npm 
+### 2. Publish to npm
 
-After the new version branch is merged, switch to `master`, pull the latest and run `npm publish`. The `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm. 
+After the new version branch is merged, switch to `master`, pull the latest and run `npm publish`. The `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm.
 
 ***Note:*** To run this step you need to be part of the npm org and have 2FA enabled.
 

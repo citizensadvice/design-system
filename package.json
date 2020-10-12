@@ -27,7 +27,7 @@
     "docs:build": "build-storybook -o docs",
     "docs:serve": "http-server docs",
     "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
-    "lint:es": "eslint src testing --ext .js,.ts",
+    "lint:es": "eslint src scripts testing --ext .js,.ts",
     "lint": "npm-run-all lint:css lint:es",
     "test": "npm run lint && jest",
     "vr-test:install": "cd testing && npm install",
@@ -36,8 +36,7 @@
     "vr-test:standalone": "cd testing/visual-regression && npx backstop test --docker --config=backstop-config.js",
     "vr-test:approve": "cd testing/visual-regression && npx backstop approve --config=backstop-config.js",
     "vr-test:open-report": "cd testing/visual-regression && npx backstop openReport --config=backstop-config.js",
-    "wcag-test": "node scripts/wcag-test.js",
-    "wcag-test:ci": "node scripts/wcag-test.js -- --ci"
+    "wcag-test": "node scripts/wcag-test.js"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-const forcePseudoState = require('./lib/forcePseudoState');
+const forcePseudoState = require('./helpers/forcePseudoState');
 
 module.exports = async (page) => {
   // Enable prefers-reduced-motion to disable animations

@@ -4,7 +4,7 @@ USER root
 
 RUN apt-get update && apt-get install wait-for-it
 
-RUN yarn global add pa11y pa11y-ci
+RUN yarn global add pa11y-ci
 
 ENV PATH "/usr/local/share/.config/yarn/global/node_modules/.bin/:${PATH}"
 

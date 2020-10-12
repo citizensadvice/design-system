@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const simpleGit = require('simple-git');
 const fs = require('fs-extra');
 const chalk = require('chalk');

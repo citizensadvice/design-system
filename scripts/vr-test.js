@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const childProcess = require('child_process');
 const chalk = require('chalk');
 
