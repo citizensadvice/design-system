@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const sass = require('node-sass');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -37,7 +36,6 @@ function compileSass() {
             .then((compiledCSS) => {
               fs.writeFile(dest, compiledCSS.css, (err) => {
                 if (!err) {
-                  // eslint-disable-next-line no-console
                   log(chalk.green(`${file}.css written`));
                 } else {
                   log(chalk.red(`Error writing ${file}: ${err}`));

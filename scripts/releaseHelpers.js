@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const gitState = require('git-state');
 const chalk = require('chalk');
 

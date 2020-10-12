@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/no-var-requires */
 /*
  * Uses pa11y-ci and pa11y configs to perform WCAG 2 AA accessibility tests
  */

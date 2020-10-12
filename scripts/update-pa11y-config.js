@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/no-var-requires */
 /*
  * Builds pa11y config files by extracting URLs from the backstop VR test data located
  * in /testing/visual-regression.

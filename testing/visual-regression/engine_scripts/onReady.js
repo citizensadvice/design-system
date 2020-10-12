@@ -1,6 +1,5 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-console */
 module.exports = async (page, scenario) => {
   console.log(`SCENARIO > ${scenario.label}`);
 
