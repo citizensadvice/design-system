@@ -2,8 +2,8 @@
 
 As we have to support a number of languages, e.g. Welsh (Cymraeg), a top level language class should be applied to the document (e.g. `<body>` tag or top level `<div>`). This will be used to apply language specific styling and in some instances content updates (for example see the Callout component type label).
 
-* `cads-lang-en`: English, this is optional as the default language is set to English
-* `cads-lang-cy`: Welsh (Cymraeg)
+- `cads-lang-en`: English, this is optional as the default language is set to English
+- `cads-lang-cy`: Welsh (Cymraeg)
 
 ## Examples
 

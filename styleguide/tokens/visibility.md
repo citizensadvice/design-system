@@ -8,11 +8,15 @@ There are a number of ways to show/hide text visually and in the context of a sc
 <p aria-hidden="true">This text can be seen, but won't be read by a screen reader.</p>
 
 ```html
-	<p class="cads-hide">completely hidden text</p>
-    <p class="cads-invisible">hidden text but takes up the same space if the text was visible</p>
-    
-    <p class="cads-sr-show">Only seen by screen readers</p>
-    <p aria-hidden="true">This text can be seen, but won't be read by a screen reader.</p>
+<p class="cads-hide">completely hidden text</p>
+<p class="cads-invisible">
+  hidden text but takes up the same space if the text was visible
+</p>
+
+<p class="cads-sr-show">Only seen by screen readers</p>
+<p aria-hidden="true">
+  This text can be seen, but won't be read by a screen reader.
+</p>
 ```
 
 ### Show from breakpoint up
@@ -21,8 +25,8 @@ There are a number of ways to show/hide text visually and in the context of a sc
 <p class="cads-show-lg-up">Show this text from the lg breakpoint and above</p>
 
 ```html
-    <p class="cads-show-md-up">Show this text from the md breakpoint and above</p>
-    <p class="cads-show-lg-up">Show this text from the lg breakpoint and above</p>
+<p class="cads-show-md-up">Show this text from the md breakpoint and above</p>
+<p class="cads-show-lg-up">Show this text from the lg breakpoint and above</p>
 ```
 
 ### Show for breakpoint only
@@ -31,8 +35,8 @@ There are a number of ways to show/hide text visually and in the context of a sc
 <p class="cads-show-lg-only">Show this text at the lg breakpoint</p>
 
 ```html
-    <p class="cads-show-md-only">Show this text from the md breakpoint</p>
-    <p class="cads-show-lg-only">Show this text from the lg breakpoint</p>
+<p class="cads-show-md-only">Show this text from the md breakpoint</p>
+<p class="cads-show-lg-only">Show this text from the lg breakpoint</p>
 ```
 
 ### Hide from breakpoint up
@@ -41,8 +45,8 @@ There are a number of ways to show/hide text visually and in the context of a sc
 <p class="cads-hide-lg-up">Hide this text from the lg breakpoint and above</p>
 
 ```html
-    <p class="cads-hide-md-up">Hide this text from the md breakpoint and above</p>
-    <p class="cads-hide-lg-up">Hide this text from the lg breakpoint and above</p>
+<p class="cads-hide-md-up">Hide this text from the md breakpoint and above</p>
+<p class="cads-hide-lg-up">Hide this text from the lg breakpoint and above</p>
 ```
 
 ### Hide for breakpoint only
@@ -51,6 +55,6 @@ There are a number of ways to show/hide text visually and in the context of a sc
 <p class="cads-hide-lg-only">Hide this text for the lg breakpoint</p>
 
 ```html
-    <p class="cads-hide-md-only">Hide this text for the md breakpoint</p>
-    <p class="cads-hide-lg-only">Hide this text for the lg breakpoint</p>
+<p class="cads-hide-md-only">Hide this text for the md breakpoint</p>
+<p class="cads-hide-lg-only">Hide this text for the lg breakpoint</p>
 ```

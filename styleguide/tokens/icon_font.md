@@ -1,12 +1,12 @@
 # Icon Fonts
 
-Icons are made available via the `cads-icons` font. To use them apply the appropriate class to the element that is displaying them. For example, to display the left chevron  <span class="cads-icon_arrow-left"></span> you would use <span class="html inline">&lt;span class="cads-icon_arrow-left"&gt;&lt;/span&gt;</span>.
+Icons are made available via the `cads-icons` font. To use them apply the appropriate class to the element that is displaying them. For example, to display the left chevron <span class="cads-icon_arrow-left"></span> you would use <span class="html inline">&lt;span class="cads-icon_arrow-left"&gt;&lt;/span&gt;</span>.
 
 You can apply normal CSS styles, e.g. `color` to change their appearance: <span class="html inline">&lt;span class="cads-icon_arrow-left" style="color: blue"&gt;&lt;/span&gt;</span> produces <span class="cads-icon_arrow-left" style="color: blue"></span>.
 
 ## List of icons and classes
 
-Do not forget to prefix the given class name with <span class="html inline">cads-icon_</span>.
+Do not forget to prefix the given class name with <span class="html inline">cads-icon\_</span>.
 
 <ul class="cads-styleguide-icon-list">
 <li><span class="cads-icon_arrow-left"></span><span>arrow-left</span></li>

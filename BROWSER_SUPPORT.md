@@ -13,7 +13,7 @@ combinations are supported.
 - Windows 7
 - Windows 8.1
 - Windows 10
-- OSX Catalina (13) - _NB: This doesn't like working on certain pages, there are several issues with `safaridriver`
+- OSX Catalina (13) - \_NB: This doesn't like working on certain pages, there are several issues with `safaridriver`
 - OSX Mojave (12)
 - Android Q (10)
 - Android Pie (9) - _NB: This one is likely not to work as intended, due to the hardware restrictions - Use at own risk_
