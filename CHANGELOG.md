@@ -1,3 +1,5 @@
+* add `.js-cads-greedy-nav` class to header navigation and fix greedy nav config 
+
 ## <sub>v1.13.0</sub>
 
 #### _Oct. 13, 2020_
