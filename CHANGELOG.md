@@ -1,3 +1,7 @@
+## <sub>v1.13.0</sub>
+
+#### _Oct. 13, 2020_
+
 * NP-895 Rename and refactor breadcrumb hash to accept a type var *(breaking change)*
  * `breadcrumb_links: { ... }` becomes `breadcrumbs: { type => ..., breadcrumb_links => { ... }}`
 * NP-895 Add breadcrumb variant that does not collapse on mobile
