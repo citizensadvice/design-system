@@ -1,3 +1,6 @@
+* NP-895 Refactor breadcrumb hash to accept a type var
+* NP-895 Add breadcrumb variant that does not collapse on mobile
+
 ## <sub>v1.12.0</sub>
 
 * NP-978 Remove advice feedback component
