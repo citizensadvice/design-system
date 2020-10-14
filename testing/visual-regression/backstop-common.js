@@ -32,6 +32,32 @@ module.exports = function backstopCommon(baseUrl) {
     ];
   }
 
+  function buildFormFieldScenarios(labelPrefix, componentId) {
+    const viewport = { label: 'form-field', width: 800, height: 400 };
+    return [
+      {
+        label: `${labelPrefix} (basic)`,
+        url: storyUrlFor(`${componentId}--basic`),
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (with hint)`,
+        url: storyUrlFor(`${componentId}--with-hint`),
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (optional field)`,
+        url: storyUrlFor(`${componentId}--optional-field`),
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (with error)`,
+        url: storyUrlFor(`${componentId}--with-error`),
+        viewports: [viewport],
+      },
+    ];
+  }
+
   return {
     id: 'backstop_default',
     viewports: [
@@ -54,6 +80,9 @@ module.exports = function backstopCommon(baseUrl) {
         'Components/Buttons/Tertiary',
         'components-buttons--tertiary'
       ),
+      ...buildFormFieldScenarios('Components/Input', 'forms-input'),
+      ...buildFormFieldScenarios('Components/Textarea', 'forms-textarea'),
+      ...buildFormFieldScenarios('Components/Radio group', 'forms-radio-group'),
       {
         label: 'Components/Callout (standard)',
         url: storyUrlFor('components-callouts--standard-callout'),
@@ -191,14 +220,6 @@ module.exports = function backstopCommon(baseUrl) {
         ],
       },
       {
-        label: '3_Components_INPUT',
-        url: `${baseUrl}/iframe.html?id=3-components--input`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: ['.cads-styleguide__language-label'],
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
         label: '3_Components_LOGO',
         url: `${baseUrl}/iframe.html?id=3-components--logo`,
         readySelector: '#a11yComponentToTest',
@@ -313,15 +334,6 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['#a11yComponentToTest'],
       },
       {
-        label: '3_Components_RADIO_GROUP',
-        url: `${baseUrl}/iframe.html?id=3-components--radio-group`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: ['.cads-styleguide__language-label'],
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-radio-button-checkmark',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
         label: '3_Components_RADIO_GROUP_small',
         url: `${baseUrl}/iframe.html?id=3-components--radio-group-small`,
         readySelector: '#a11yComponentToTest',
@@ -345,14 +357,6 @@ module.exports = function backstopCommon(baseUrl) {
         removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-targeted-content',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_TEXTAREA',
-        url: `${baseUrl}/iframe.html?id=3-components--textarea`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: ['.cads-styleguide__language-label'],
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
       {

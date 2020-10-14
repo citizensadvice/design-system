@@ -22,15 +22,12 @@ import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
-import tRadio from '../haml/_radio_group.html.haml';
 import tRadioSmall from '../haml/_radio_group_small.html.haml';
 import tTargetedContent from '../haml/_targeted-content.html.haml';
 import tPageReview from '../haml/_page_review.html.haml';
-import tInput from '../haml/_input.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tSuccessMessage from '../haml/_success_message.html.haml';
-import tTextarea from '../haml/_textarea.html.haml';
 import tErrorSummary from '../haml/_error_summary.html.haml';
 import tTables from '../haml/_table.html.haml';
 import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
@@ -103,13 +100,8 @@ export const header = () =>
     null,
     () => initHeader()
   );
-export const input = () => renderHamlTemplate('Input', tInput, 'input');
-export const textarea = () =>
-  renderHamlTemplate('Textarea', tTextarea, 'textarea');
 export const pageReview = () =>
   renderHamlTemplate('Page Review', tPageReview, 'page_review');
-export const radioGroup = () =>
-  renderHamlTemplate('Radio Group', tRadio, 'radio_group');
 export const radioGroupSmall = () =>
   renderHamlTemplate('Radio Group (small)', tRadioSmall, 'radio_group_small');
 
