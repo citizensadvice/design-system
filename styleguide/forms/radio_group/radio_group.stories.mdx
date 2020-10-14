@@ -1,0 +1,53 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Forms/Radio group" />
+
+# Radio Groups
+
+import templateRadioGroup from './_radio_group.html.haml';
+import templateRadioGroupCode from '!!raw-loader!./_radio_group.html.haml';
+
+<Preview>
+  <Story
+    name="Basic"
+    parameters={{ docs: { source: { code: templateRadioGroupCode } } }}
+  >
+    {() => templateRadioGroup}
+  </Story>
+</Preview>
+
+import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
+import templateRadioGroupWithHintCode from '!!raw-loader!./_radio_group-with-hint.html.haml';
+
+<Preview>
+  <Story
+    name="With hint"
+    parameters={{ docs: { source: { code: templateRadioGroupWithHintCode } } }}
+  >
+    {() => templateRadioGroupWithHint}
+  </Story>
+</Preview>
+
+import templateRadioGroupOptional from './_radio_group-optional.html.haml';
+import templateRadioGroupOptionalCode from '!!raw-loader!./_radio_group-optional.html.haml';
+
+<Preview>
+  <Story
+    name="Optional field"
+    parameters={{ docs: { source: { code: templateRadioGroupOptionalCode } } }}
+  >
+    {() => templateRadioGroupOptional}
+  </Story>
+</Preview>
+
+import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
+import templateRadioGroupWithErrorCode from '!!raw-loader!./_radio_group-with-error.html.haml';
+
+<Preview>
+  <Story
+    name="With error"
+    parameters={{ docs: { source: { code: templateRadioGroupWithErrorCode } } }}
+  >
+    {() => templateRadioGroupWithError}
+  </Story>
+</Preview>
