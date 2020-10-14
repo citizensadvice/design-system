@@ -51,3 +51,16 @@ import templateInputWithErrorCode from '!!raw-loader!./_input-with-error.html.ha
     {() => templateInputWithError}
   </Story>
 </Preview>
+
+## Haml template options
+
+The Haml partial takes an `input` hash with the following properties:
+
+| properties      | Description                                                 |
+| --------------- | ----------------------------------------------------------- |
+| `name`          | Required, field name                                        |
+| `label`         | Required, label text                                        |
+| `hint`          | Optional, hint text                                         |
+| `optional`      | Optional, boolean flag to mark the field as optional        |
+| `error_message` | Optional, error message for the field                       |
+| `has_error`     | Optional, boolean flag to mark the field as having an error |
