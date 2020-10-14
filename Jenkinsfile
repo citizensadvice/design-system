@@ -12,7 +12,10 @@ configurationTypes = [
 //     ['OSX_Mojave_12', 'safari'], - These seem to be "too" popular!
 ]
 
+cron_schedule = deployBranches.contains(BRANCH_NAME) ? "0 2 * * *" : ""
+
 pipeline {
+    triggers { cron(cron_schedule) }
     agent {
         label 'docker && awsaccess'
     }
