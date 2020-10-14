@@ -2,8 +2,10 @@
   .cads-form-error-marker
   %fieldset.cads-form-content.cads-radio-group.cads-radio-group__small
     %legend.cads-form-label.cads-heading-small= radio['label']
-    %p.cads-form__hint= radio['hint']
-    %p.cads-form__error-message= radio['error_message']
+    - if radio['hint']
+      %p.cads-form__hint= radio['hint']
+    - if radio['error_message']
+      %p.cads-form__error-message= radio['error_message']
     - radio['options'].each do |radioItem|
       %label.cads-radio-button{for: "#{radio['name']}-#{radioItem['value']}"}
         = radioItem['label']
