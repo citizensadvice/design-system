@@ -61,10 +61,7 @@ module Drivers
       end
 
       def browserstack_hub_url
-        # NB: This is a new endpoint (hub-use), which should ONLY be used temporarily
-        # This ideally should be removed before November 2020 as using this endpoint
-        # results in a much slower performance (But more reliable)
-        "https://#{browserstack_username}:#{browserstack_api_key}@hub-use.browserstack.com/wd/hub"
+        "https://#{browserstack_username}:#{browserstack_api_key}@hub-cloud.browserstack.com/wd/hub"
       end
 
       def build_name
