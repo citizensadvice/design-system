@@ -1,0 +1,69 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Forms/Radio group (small)" />
+
+# Radio Groups (small)
+
+import templateRadioGroup from './_radio_group_small.html.haml';
+import templateRadioGroupCode from '!!raw-loader!./_radio_group_small.html.haml';
+
+<Preview>
+  <Story
+    name="Basic"
+    parameters={{ docs: { source: { code: templateRadioGroupCode } } }}
+  >
+    {() => templateRadioGroup}
+  </Story>
+</Preview>
+
+import templateRadioGroupWithHint from './_radio_group_small-with-hint.html.haml';
+import templateRadioGroupWithHintCode from '!!raw-loader!./_radio_group_small-with-hint.html.haml';
+
+<Preview>
+  <Story
+    name="With hint"
+    parameters={{ docs: { source: { code: templateRadioGroupWithHintCode } } }}
+  >
+    {() => templateRadioGroupWithHint}
+  </Story>
+</Preview>
+
+import templateRadioGroupOptional from './_radio_group_small-optional.html.haml';
+import templateRadioGroupOptionalCode from '!!raw-loader!./_radio_group_small-optional.html.haml';
+
+<Preview>
+  <Story
+    name="Optional field"
+    parameters={{ docs: { source: { code: templateRadioGroupOptionalCode } } }}
+  >
+    {() => templateRadioGroupOptional}
+  </Story>
+</Preview>
+
+import templateRadioGroupWithError from './_radio_group_small-with-error.html.haml';
+import templateRadioGroupWithErrorCode from '!!raw-loader!./_radio_group_small-with-error.html.haml';
+
+<Preview>
+  <Story
+    name="With error"
+    parameters={{ docs: { source: { code: templateRadioGroupWithErrorCode } } }}
+  >
+    {() => templateRadioGroupWithError}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial takes a `radio` hash with the following properties:
+
+| properties      | Description                                                 |
+| --------------- | ----------------------------------------------------------- |
+| `name`          | Required, field name                                        |
+| `label`         | Required, label text                                        |
+| `options`       | Reqiuired, an array of hashes, each with the following:     |
+| `option[name]`  | &rarr; Required, name for the option                        |
+| `option[value]` | &rarr; Required, value for the option                       |
+| `hint`          | Optional, hint text                                         |
+| `optional`      | Optional, boolean flag to mark the field as optional        |
+| `error_message` | Optional, error message for the field                       |
+| `has_error`     | Optional, boolean flag to mark the field as having an error |

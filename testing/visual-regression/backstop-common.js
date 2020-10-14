@@ -83,6 +83,10 @@ module.exports = function backstopCommon(baseUrl) {
       ...buildFormFieldScenarios('Components/Input', 'forms-input'),
       ...buildFormFieldScenarios('Components/Textarea', 'forms-textarea'),
       ...buildFormFieldScenarios('Components/Radio group', 'forms-radio-group'),
+      ...buildFormFieldScenarios(
+        'Components/Radio group small',
+        'forms-radio-group-small'
+      ),
       {
         label: 'Components/Callout (standard)',
         url: storyUrlFor('components-callouts--standard-callout'),
@@ -331,15 +335,6 @@ module.exports = function backstopCommon(baseUrl) {
         delay: 100,
         removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_RADIO_GROUP_small',
-        url: `${baseUrl}/iframe.html?id=3-components--radio-group-small`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: ['.cads-styleguide__language-label'],
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-radio-button-checkmark',
         selectors: ['#a11yComponentToTest'],
       },
       {
