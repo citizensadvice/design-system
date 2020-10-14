@@ -12,7 +12,7 @@ configurationTypes = [
 //     ['OSX_Mojave_12', 'safari'], - These seem to be "too" popular!
 ]
 
-cron_schedule = BRANCH_NAME == "master" ? "0 2 * * *" : ""
+cron_schedule = deployBranches.contains(BRANCH_NAME) ? "0 2 * * *" : ""
 
 pipeline {
     triggers { cron(cron_schedule) }
