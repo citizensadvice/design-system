@@ -96,6 +96,7 @@
     "shell-loader": "^1.2.1",
     "simple-git": "^2.21.0",
     "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
