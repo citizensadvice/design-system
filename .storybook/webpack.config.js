@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = async ({ config, mode }) => {
   // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'
   // You can change the configuration based on that.
@@ -14,10 +16,9 @@ module.exports = async ({ config, mode }) => {
     {
       test: /\.haml$/,
       use: [
-        'raw-loader',
+        'json5-loader',
         {
-          loader: 'shell-loader',
-          options: { script: 'ruby ./scripts/haml.rb' },
+          loader: path.resolve('./scripts/translated-haml-loader.js'),
         },
       ],
     },
