@@ -7,7 +7,7 @@ module DesignSystem
     section :initial_form, "#a11yComponentToTest" do
       element :heading, "#error-summary-title"
       element :error_quantity_label, ".cads-error-summary__field_count"
-      elements :errors, ".cads-error-summary__list > li"
+      elements :errors, "ul > li"
 
       def error_quantity
         error_quantity_label.text.to_i
