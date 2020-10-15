@@ -120,16 +120,12 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
-        readySelector: '.cads-styleguide__wrapper',
         removeSelectors: ['h1', '.cads-styleguide__language-label'],
-        selectors: ['.cads-styleguide__wrapper'],
       },
       {
         label: '2_Design_Foundations_COLOUR_PALETTE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-palette`,
-        readySelector: '.cads-styleguide__wrapper',
         removeSelectors: ['h1', '.cads-styleguide__language-label'],
-        selectors: ['.cads-styleguide__wrapper'],
       },
       {
         label: '3_Components_ASSET_HYPERLINK',
