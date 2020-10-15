@@ -1,17 +1,12 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
 
 <Meta title="Components/Translation example" />
 
-## en
+# Translated name
 
 import haml from './_example.html.haml';
 
 <Preview>
-  <Story name="en">{() => haml.en}</Story>
-</Preview>
-
-## cy
-
-<Preview>
-  <Story name="cy">{() => haml.cy}</Story>
+  <Story name="en">{(_, options) => translate(haml, options)}</Story>
 </Preview>
