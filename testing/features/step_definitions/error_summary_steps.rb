@@ -6,7 +6,7 @@ Given("an Error Summary component is on the page") do
 end
 
 Then("the component will indicate there has been a problem") do
-  expect(@component.initial_form).to have_title
+  expect(@component.initial_form).to have_heading
 end
 
 Then("the component should list the issues in bullet point format") do
