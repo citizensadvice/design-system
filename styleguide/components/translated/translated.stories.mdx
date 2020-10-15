@@ -8,5 +8,7 @@ import { translate } from '../../../scripts/story-helpers';
 import haml from './_example.html.haml';
 
 <Preview>
-  <Story name="en">{(_, options) => translate(haml, options)}</Story>
+  <Story name="Example translation">
+    {(_, options) => translate(haml, options)}
+  </Story>
 </Preview>
