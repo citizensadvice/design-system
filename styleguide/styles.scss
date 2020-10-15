@@ -50,14 +50,6 @@
   }
 }
 
-.cads-styleguide__wrapper {
-  padding: 16px;
-
-  @include cads-media-breakpoint-only(sm) {
-    padding: 0;
-  }
-}
-
 .cads-styleguide__colour-tile {
   display: inline-grid;
   margin: 1em;
@@ -189,8 +181,4 @@
   padding: 1rem;
   border: 1px solid $cads-language__border-colour;
   margin-bottom: 1rem;
-}
-
-.sb-show-main {
-  padding: 0 !important;
 }
