@@ -19,6 +19,10 @@ module CoreExtension
         def font_weight
           native.css_value("font-weight")
         end
+
+        def vertical_position
+          native.rect[:y]
+        end
       end
     end
   end
