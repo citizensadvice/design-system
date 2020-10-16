@@ -2,7 +2,7 @@
 
 module DesignSystem
   class ErrorSummary < SitePrism::Page
-    set_url "/iframe.html?id=3-components--error-summary&viewMode=story"
+    set_url "/iframe.html?id=forms-error-summary--example&viewMode=story"
 
     section :initial_form, "#a11yComponentToTest" do
       element :heading, "#error-summary-title"
