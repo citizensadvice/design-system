@@ -29,10 +29,14 @@ Feature: OISC Warnings components
       And the OISC message is visible
       And the OISC message contains a link
 
+    Scenario: Sticky component follows you down the page
+      When I scroll to the bottom of the page
+      Then the OISC component is visible at the top of the viewport
+
     Scenario: Sticky component can be closed off
       When I scroll to the bottom of the page
       And I close the sticky component
-      Then the OISC component is no longer visible
+      Then the OISC component is no longer visible at the top of the viewport
 
     Scenario: Sticky component is no longer sticky after being closed
       When I scroll to the bottom of the page
@@ -40,4 +44,3 @@ Feature: OISC Warnings components
       And I scroll to the top of the page
       And I scroll to the bottom of the page
       Then the component will not be closeable
-      

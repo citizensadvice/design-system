@@ -45,10 +45,16 @@ Then('the OISC message contains a link') do
   expect(@component).to have_link
 end
 
-Then("the OISC component is no longer visible") do
-  expect(@component).not_to have_heading
+Then("the OISC component is visible at the top of the viewport") do
+  expect(@component.vertical_position_of(heading)).to be > 900
 
-  expect(@component).not_to have_description
+  expect(@component.vertical_position_of(description)).to be > 950
+end
+
+Then("the OISC component is no longer visible at the top of the viewport") do
+  expect(@component.vertical_position_of(heading)).to be < 200
+
+  expect(@component.vertical_position_of(description)).to be < 250
 end
 
 Then("the component will not be closeable") do
