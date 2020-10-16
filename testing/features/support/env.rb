@@ -9,6 +9,7 @@ require_relative "automation_logger"
 require_relative "core_ext/string"
 require_relative "driver"
 require_relative "drivers/all"
+require_relative "pages/all"
 
 World(
   Helpers::Page,

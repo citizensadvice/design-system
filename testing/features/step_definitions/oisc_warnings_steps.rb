@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 Given("a Title and Description OISC component is on the page") do
-  @component = OISCWarning::TitleDescription.new
+  @component = OiscWarning::TitleDescription.new
   @component.load
 end
 
 Given("a Title Only OISC component is on the page") do
-  @component = OISCWarning::TitleOnly.new
+  @component = OiscWarning::TitleOnly.new
   @component.load
 end
 
 Given("a Sticky OISC component is on the page") do
-  @component = OISCWarning::Sticky.new
+  @component = OiscWarning::Sticky.new
   @component.load
 end
 

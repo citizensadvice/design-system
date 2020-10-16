@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module OISCWarning
+module OiscWarning
   class TitleDescription < SitePrism::Page
     set_url "/iframe.html?id=components-oisc-warning--with-title-and-description"
 

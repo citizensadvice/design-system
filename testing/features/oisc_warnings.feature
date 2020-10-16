@@ -1,7 +1,7 @@
-Feature: OISC Warnings components
+Feature: OISC Warning components
 
-  The AOISC Warnings components allows content managers to provide options
-  for Users to be warned about something important in a variety of ways
+  The OISC Warning components allow content managers to provide options
+  to warn users about something important; in a variety of ways
 
   Rule: OISC With Title and Description
     Background:
@@ -20,7 +20,7 @@ Feature: OISC Warnings components
       Then the OISC title is visible
       But the OISC message is not visible
 
-  Rule: Sticky OISC With Title and Description
+  Rule: Sticky OISC
     Background:
       Given a Sticky OISC component is on the page
 

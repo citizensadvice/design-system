@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module OISCWarning
+module OiscWarning
   class TitleOnly < TitleDescription
     set_url "/iframe.html?id=components-oisc-warning--title-only"
   end
