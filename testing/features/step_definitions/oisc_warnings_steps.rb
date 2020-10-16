@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-Given('a Title and Description OISC component is on the page') do
+Given("a Title and Description OISC component is on the page") do
   @component = OISCWarning::TitleDescription.new
   @component.load
 end
 
-Given('a Title Only OISC component is on the page') do
+Given("a Title Only OISC component is on the page") do
   @component = OISCWarning::TitleOnly.new
   @component.load
 end
 
-Given('a Sticky OISC component is on the page') do
+Given("a Sticky OISC component is on the page") do
   @component = OISCWarning::Sticky.new
   @component.load
 end
@@ -29,19 +29,19 @@ When("I close the sticky component") do
   @component.close_sticky.click
 end
 
-Then('the OISC title is visible') do
+Then("the OISC title is visible") do
   expect(@component).to have_heading
 end
 
-Then('the OISC message is visible') do
+Then("the OISC message is visible") do
   expect(@component).to have_description
 end
 
-Then('the OISC message is not visible') do
+Then("the OISC message is not visible") do
   expect(@component).not_to have_description
 end
 
-Then('the OISC message contains a link') do
+Then("the OISC message contains a link") do
   expect(@component).to have_link
 end
 
