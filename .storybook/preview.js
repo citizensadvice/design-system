@@ -1,12 +1,6 @@
-import { addDecorator, addParameters } from '@storybook/html';
-
-addDecorator(
-  (storyFn) => `<div class="cads-styleguide__wrapper">${storyFn()}</div>`
-);
-
-// Option defaults:
-addParameters({
+export const parameters = {
   options: {
+    layout: 'padded',
     isToolshown: true,
     showPanel: true,
     panelPosition: 'bottom',
@@ -15,4 +9,4 @@ addParameters({
       order: ['Welcome', ['Getting started'], 'Components'],
     },
   },
-});
+};

@@ -75,12 +75,14 @@ export default {
     },
   },
   decorators: [
-    (storyFn) => `<div
-      class="cads-styleguide__language-label"
-      onclick="javascript:styleguideChangeLangugage();"
-      aria-hidden="true"
-    ></div>
-    ${storyFn()}`,
+    (storyFn) => `<div class="cads-styleguide__wrapper">
+      <div
+        class="cads-styleguide__language-label"
+        onclick="javascript:styleguideChangeLangugage();"
+        aria-hidden="true"
+      ></div>
+      ${storyFn()}
+    </div>`,
   ],
 };
 
