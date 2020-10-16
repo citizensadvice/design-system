@@ -3,6 +3,8 @@
   .cads-form-content.cads-input-group
     %label.cads-form-label.cads-heading-small{id: "#{input['name']}-label", for: "#{input['name']}-input" }
       = input['label']
-    %p.cads-form__hint= input['hint']
-    %p.cads-form__error-message= input['error_message']
+    - if input['hint']
+      %p.cads-form__hint= input['hint']
+    - if input['error_message']
+      %p.cads-form__error-message= input['error_message']
     %input.cads-input{type: "text", id: "#{input['name']}-input"}
