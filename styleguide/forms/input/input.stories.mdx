@@ -4,6 +4,8 @@ import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 
 # Inputs
 
+## Variant: Basic input
+
 import templateInput from './_input.html.haml';
 import templateInputCode from '!!raw-loader!./_input.html.haml';
 
@@ -16,6 +18,8 @@ import templateInputCode from '!!raw-loader!./_input.html.haml';
   </Story>
 </Preview>
 
+## Variant: With hint
+
 import templateInputWithHint from './_input-with-hint.html.haml';
 import templateInputWithHintCode from '!!raw-loader!./_input-with-hint.html.haml';
 
@@ -27,6 +31,8 @@ import templateInputWithHintCode from '!!raw-loader!./_input-with-hint.html.haml
     {() => templateInputWithHint}
   </Story>
 </Preview>
+
+## Variant: With optional field marker
 
 import templateInputOptional from './_input-optional.html.haml';
 import templateInputOptionalCode from '!!raw-loader!./_input-optional.html.haml';
@@ -42,6 +48,8 @@ import templateInputOptionalCode from '!!raw-loader!./_input-optional.html.haml'
 
 import templateInputWithError from './_input-with-error.html.haml';
 import templateInputWithErrorCode from '!!raw-loader!./_input-with-error.html.haml';
+
+## Variant: With error message
 
 <Preview>
   <Story
