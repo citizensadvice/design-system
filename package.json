@@ -60,6 +60,7 @@
     "@storybook/addon-essentials": "^6.0.25",
     "@storybook/html": "^6.0.25",
     "@testing-library/dom": "^7.26.0",
+    "@testing-library/jest-dom": "^5.11.4",
     "@types/jest": "^26.0.14",
     "@types/jsdom": "^16.2.4",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
