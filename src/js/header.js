@@ -10,13 +10,13 @@ const initHeader = () => {
         header.classList.remove('cads-header-show-search');
         controlButton.classList.remove('cads-icon_close');
         controlButton.classList.add('cads-icon_search');
-        controlButton.ariaExpanded = false;
+        controlButton.setAttribute('aria-expanded', 'false');
         controlButton.title = 'Open search';
       } else {
         header.classList.add('cads-header-show-search');
         controlButton.classList.remove('cads-icon_search');
         controlButton.classList.add('cads-icon_close');
-        controlButton.ariaExpanded = true;
+        controlButton.setAttribute('aria-expanded', 'true');
         controlButton.title = 'Close search';
       }
     });
