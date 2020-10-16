@@ -30,6 +30,7 @@
     "lint:es": "eslint src scripts testing --ext .js,.ts",
     "lint": "prettier --check . && npm-run-all lint:css lint:es",
     "test": "npm run lint && jest",
+    "test:watch": "jest --watch --notify",
     "vr-test:install": "cd testing && npm install",
     "vr-test:test": "node scripts/vr-test.js",
     "vr-test:ci": "./bin/jenkins/visual_regression && docker-compose down",
