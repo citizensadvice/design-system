@@ -14,7 +14,7 @@ Feature: OISC Warnings components
 
   Rule: OISC With Title only
     Background:
-      Given a Title OISC component is on the page
+      Given a Title Only OISC component is on the page
 
     Scenario: Validate initial state
       Then the OISC title is visible
@@ -22,7 +22,7 @@ Feature: OISC Warnings components
 
   Rule: Sticky OISC With Title and Description
     Background:
-      Given a Title and Description OISC component is on the page
+      Given a 'Sticky' Title and Description OISC component is on the page
 
     Scenario: Validate initial state
       Then the OISC title is visible
@@ -40,4 +40,4 @@ Feature: OISC Warnings components
       And I scroll to the top of the page
       And I scroll to the bottom of the page
       Then the component will not be sticky / closeable
-      
+
