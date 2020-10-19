@@ -30,7 +30,8 @@
 
         = render partial: "@citizensadvice/design-system/haml/textarea", locals: { input: { "name" => "example-textarea", "label" => "Outline the trader's response to the complaint, if any"}}
 
-        <p><button type="button" class="cads-button cads-button__primary">Submit complaint</button></p>
+        %p
+          %button.cads-button.cads-button__primary{ "type" => "button" } Submit complaint
 
       .cads-grid-col-md-4
         %aside.cads-related-content
