@@ -24,6 +24,9 @@ const initHeader = () => {
         controlButton.title = 'Close search';
       }
     });
+  } else {
+    // eslint-disable-next-line no-console
+    console.warn('Header: no search toggle button found');
   }
 };
 

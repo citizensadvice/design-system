@@ -9,10 +9,12 @@ const initCallouts = () => {
    */
   if (firstCallout && h2s.length === 0) {
     const h3ToReplace = firstCallout.querySelector('h3');
-    const heading = h3ToReplace.innerHTML;
-    const newHeading = document.createElement('h2');
-    newHeading.innerHTML = heading;
-    h3ToReplace.parentNode.replaceChild(newHeading, h3ToReplace);
+    if (h3ToReplace) {
+      const heading = h3ToReplace.innerHTML;
+      const newHeading = document.createElement('h2');
+      newHeading.innerHTML = heading;
+      h3ToReplace.parentNode.replaceChild(newHeading, h3ToReplace);
+    }
   }
 };
 
