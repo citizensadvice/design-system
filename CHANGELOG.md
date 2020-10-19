@@ -1,6 +1,8 @@
 * Bugfix: fix issue with form labels when hint is ommitted.
 * Remove % width from error summary component
 * Add `.js-cads-greedy-nav` class to header navigation and fix greedy nav config
+* Update visited links to consistently use link-visited-colour=
+* Remove margin-bottom from page-review component
 
 ## <sub>v1.13.0</sub>
 
