@@ -11,6 +11,7 @@ import GreedyNav from '../src/ts/greedy-nav';
 
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
+import { translate } from '../scripts/story-helpers';
 
 import { Pagination, PagingInfo } from './components/pagination';
 import RelatedContent from './components/related-content';
@@ -87,10 +88,10 @@ export const relatedContent = () => RelatedContent();
 
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
 export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
-export const header = () =>
+export const header = (_, options) =>
   renderHamlTemplate(
     'Header',
-    tHeader,
+    translate(tHeader, options),
     'header',
     `The header component uses javascript to show/hide the search bar in small screen sizes.
 \n\n

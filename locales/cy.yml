@@ -1,3 +1,5 @@
 cy:
   cads:
-    name: "Cyngor ar Bopeth"
+    name: 'Cyngor ar Bopeth'
+    search:
+      label: 'Chwilio'
