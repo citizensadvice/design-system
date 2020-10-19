@@ -1,7 +1,6 @@
 * Bugfix: fix issue with form labels when hint is ommitted.
 * Remove % width from error summary component
 * Add `.js-cads-greedy-nav` class to header navigation and fix greedy nav config
-* Gap analysis updates
 
 ## <sub>v1.13.0</sub>
 
