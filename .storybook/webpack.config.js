@@ -16,7 +16,6 @@ module.exports = async ({ config, mode }) => {
     {
       test: /\.haml$/,
       use: [
-        'json5-loader',
         {
           loader: path.resolve('./scripts/translated-haml-loader.js'),
         },

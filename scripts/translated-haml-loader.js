@@ -1,6 +1,9 @@
 /**
  * Webpack loader, takes a haml file as input and outputs
  * an object keyed by translation.
+ *
+ * Note: Changing this file will trigger hot reloading but changes will
+ * now be included, you must restart webpack.
  */
 const execNP = require('child_process').exec;
 
@@ -27,9 +30,9 @@ module.exports = function loader(content) {
     .then((values) =>
       callback(
         null,
-        JSON.stringify(
-          Object.assign.apply(this, [{ default: content }, ...values])
-        )
+        `module.exports = ${JSON.stringify(
+          Object.assign.apply(this, [...values])
+        )}`
       )
     )
     .catch((err) => callback(err));
