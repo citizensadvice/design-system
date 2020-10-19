@@ -2,9 +2,9 @@
 
 module DesignSystem
   class ErrorSummary < SitePrism::Page
-    set_url "/iframe.html?id=3-components--error-summary&viewMode=story"
+    set_url "/iframe.html?id=forms-error-summary--example&viewMode=story"
 
-    section :initial_form, "#a11yComponentToTest" do
+    section :initial_form, ".cads-error-summary" do
       element :heading, "#error-summary-title"
       element :error_quantity_label, ".cads-error-summary__field_count"
       elements :errors, "ul > li"

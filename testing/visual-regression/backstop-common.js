@@ -149,6 +149,12 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-breadcrumbs'],
       },
 
+      // Forms
+      {
+        label: 'Forms/Error summary',
+        url: storyUrlFor('forms-error-summary--example'),
+      },
+
       // Old format component tests below here
       {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
@@ -170,14 +176,6 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: '3_Components_CONTACT_DETAILS',
         url: `${baseUrl}/iframe.html?id=3-components--contact-details`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: ['.cads-styleguide__language-label'],
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_ERROR_SUMMARY',
-        url: `${baseUrl}/iframe.html?id=3-components--error-summary`,
         readySelector: '#a11yComponentToTest',
         removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
