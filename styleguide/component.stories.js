@@ -9,6 +9,7 @@ import initTables from '../src/js/tables';
 
 import GreedyNav from '../src/ts/greedy-nav';
 
+// eslint-disable-next-line no-unused-vars
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
