@@ -32,6 +32,32 @@ module.exports = function backstopCommon(baseUrl) {
     ];
   }
 
+  function buildFormFieldScenarios(labelPrefix, componentId) {
+    const viewport = { label: 'form-field', width: 800, height: 400 };
+    return [
+      {
+        label: `${labelPrefix} (basic)`,
+        url: storyUrlFor(`${componentId}--basic`),
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (with hint)`,
+        url: storyUrlFor(`${componentId}--with-hint`),
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (optional field)`,
+        url: storyUrlFor(`${componentId}--optional-field`),
+        viewports: [viewport],
+      },
+      {
+        label: `${labelPrefix} (with error)`,
+        url: storyUrlFor(`${componentId}--with-error`),
+        viewports: [viewport],
+      },
+    ];
+  }
+
   return {
     id: 'backstop_default',
     viewports: [
@@ -53,6 +79,13 @@ module.exports = function backstopCommon(baseUrl) {
       ...buildButtonScenarios(
         'Components/Buttons/Tertiary',
         'components-buttons--tertiary'
+      ),
+      ...buildFormFieldScenarios('Components/Input', 'forms-input'),
+      ...buildFormFieldScenarios('Components/Textarea', 'forms-textarea'),
+      ...buildFormFieldScenarios('Components/Radio group', 'forms-radio-group'),
+      ...buildFormFieldScenarios(
+        'Components/Radio group small',
+        'forms-radio-group-small'
       ),
       {
         label: 'Components/Callout (standard)',
@@ -116,89 +149,53 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-breadcrumbs'],
       },
 
+      // Forms
+      {
+        label: 'Forms/Error summary',
+        url: storyUrlFor('forms-error-summary--example'),
+      },
+
       // Old format component tests below here
       {
         label: '2_Design_Foundations_COLOUR_LANGUAGE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
-        readySelector: '.cads-styleguide__wrapper',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          'h1',
-          '.cads-styleguide__language-label',
-        ],
-        selectors: ['.cads-styleguide__wrapper'],
-        selectorExpansion: true,
+        removeSelectors: ['h1', '.cads-styleguide__language-label'],
       },
       {
         label: '2_Design_Foundations_COLOUR_PALETTE',
         url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-palette`,
-        readySelector: '.cads-styleguide__wrapper',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          'h1',
-          '.cads-styleguide__language-label',
-        ],
-        selectors: ['.cads-styleguide__wrapper'],
-        selectorExpansion: true,
+        removeSelectors: ['h1', '.cads-styleguide__language-label'],
       },
       {
         label: '3_Components_ASSET_HYPERLINK',
         url: `${baseUrl}/iframe.html?id=3-components--asset-hyperlink`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_CONTACT_DETAILS',
         url: `${baseUrl}/iframe.html?id=3-components--contact-details`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_ERROR_SUMMARY',
-        url: `${baseUrl}/iframe.html?id=3-components--error-summary`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_FOOTER',
         url: `${baseUrl}/iframe.html?id=3-components--footer`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_HEADER',
         url: `${baseUrl}/iframe.html?id=3-components--header`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_HEADER_EXPANDED',
@@ -209,14 +206,10 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '#a11yComponentToTest',
         delay: 0,
         hideSelectors: [],
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         clickSelector: '.cads-search-reveal',
         postInteractionWait: 0,
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
         expect: 0,
         misMatchThreshold: 0.1,
         requireSameDimensions: true,
@@ -229,28 +222,12 @@ module.exports = function backstopCommon(baseUrl) {
         ],
       },
       {
-        label: '3_Components_INPUT',
-        url: `${baseUrl}/iframe.html?id=3-components--input`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
         label: '3_Components_LOGO',
         url: `${baseUrl}/iframe.html?id=3-components--logo`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_NAVIGATION',
@@ -258,7 +235,6 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '.js-CadsGreedyNav',
         delay: 750,
         removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
           '.cads-styleguide__language-label',
           '.cads-styleguide-max-content-width',
           'h1',
@@ -267,7 +243,6 @@ module.exports = function backstopCommon(baseUrl) {
         clickSelector: '.cads-greedy-nav__dropdown-toggle',
         postInteractionWait: 1000,
         selectors: [],
-        selectorExpansion: true,
         viewports: [
           {
             label: 'phone',
@@ -297,7 +272,6 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '.js-CadsGreedyNav',
         delay: 750,
         removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
           '.cads-styleguide__language-label',
           '.cads-styleguide-max-content-width',
           'h1',
@@ -305,7 +279,6 @@ module.exports = function backstopCommon(baseUrl) {
         keyPressSelectors: [{ selector: '.cads-nav-link', keyPress: 'Tab' }],
         postInteractionWait: 1000,
         selectors: [],
-        selectorExpansion: true,
         viewports: [
           {
             label: 'phone',
@@ -333,149 +306,75 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_NOTICE_BANNER',
         url: `${baseUrl}/iframe.html?id=3-components--notice-banner`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_PAGE_REVIEW',
         url: `${baseUrl}/iframe.html?id=3-components--page-review`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_PAGINATION',
         url: `${baseUrl}/iframe.html?id=3-components--pagination`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_PAGING_INFO',
         url: `${baseUrl}/iframe.html?id=3-components--paging-info`,
         readySelector: '#a11yComponentToTest',
         delay: 100,
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_RADIO_GROUP',
-        url: `${baseUrl}/iframe.html?id=3-components--radio-group`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-radio-button-checkmark',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_RADIO_GROUP_small',
-        url: `${baseUrl}/iframe.html?id=3-components--radio-group-small`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-radio-button-checkmark',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_SUCCESS_MESSAGE',
         url: `${baseUrl}/iframe.html?id=3-components--success-message`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_TARGED_CONTENT',
         url: `${baseUrl}/iframe.html?id=3-components--targeted-content`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-targeted-content',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
-      },
-      {
-        label: '3_Components_TEXTAREA',
-        url: `${baseUrl}/iframe.html?id=3-components--textarea`,
-        readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_WEBSITE-FEEDBACK',
         url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_RELATED-CONTENT',
         url: `${baseUrl}/iframe.html?id=3-components--related-content`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_TABLES',
         url: `${baseUrl}/iframe.html?id=3-components--tables`,
         readySelector: '#a11yComponentToTest',
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
       },
       {
         label: '3_Components_RELATED_CONTENT_ADVISERNET',
@@ -486,15 +385,11 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '#a11yComponentToTest',
         delay: 0,
         hideSelectors: [],
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '',
         postInteractionWait: 0,
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
         expect: 0,
         misMatchThreshold: 0.1,
         requireSameDimensions: true,
@@ -520,15 +415,11 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '#a11yComponentToTest',
         delay: 0,
         hideSelectors: [],
-        removeSelectors: [
-          '.cads-styleguide__breakpoint-label',
-          '.cads-styleguide__language-label',
-        ],
+        removeSelectors: ['.cads-styleguide__language-label'],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-targeted-content',
         postInteractionWait: 0,
         selectors: ['#a11yComponentToTest'],
-        selectorExpansion: true,
         expect: 0,
         misMatchThreshold: 0.1,
         requireSameDimensions: true,

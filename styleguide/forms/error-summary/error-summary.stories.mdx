@@ -1,0 +1,20 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title="Forms/Error summary"
+  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
+/>
+
+# Error summary
+
+import templateExample from './_example.html.haml';
+import templateExampleCode from '!!raw-loader!./_example.html.haml';
+
+<Preview>
+  <Story
+    name="Example"
+    parameters={{ docs: { source: { code: templateExampleCode } } }}
+  >
+    {() => templateExample}
+  </Story>
+</Preview>

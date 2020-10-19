@@ -1,14 +1,9 @@
 .cads-error-summary {
   border: solid $cads-border-width-medium $cads-language__border-colour;
   border-radius: $cads-border-radius;
-  width: 50%;
   padding: $cads-spacing-4;
   color: $cads-language__warning-colour;
   margin-bottom: $cads-spacing-4;
-
-  @include cads-media-breakpoint-down(sm) {
-    width: 100%;
-  }
 
   &:focus {
     outline: 2px solid $cads_language__focus-colour;

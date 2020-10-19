@@ -1,0 +1,74 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Forms/Textarea" />
+
+# Textareas
+
+## Variant: Basic input
+
+import templateTextarea from './_textarea.html.haml';
+import templateTextareaCode from '!!raw-loader!./_textarea.html.haml';
+
+<Preview>
+  <Story
+    name="Basic"
+    parameters={{ docs: { source: { code: templateTextareaCode } } }}
+  >
+    {() => templateTextarea}
+  </Story>
+</Preview>
+
+## Variant: With hint
+
+import templateTextareaWithHint from './_textarea-with-hint.html.haml';
+import templateTextareaWithHintCode from '!!raw-loader!./_textarea-with-hint.html.haml';
+
+<Preview>
+  <Story
+    name="With hint"
+    parameters={{ docs: { source: { code: templateTextareaWithHintCode } } }}
+  >
+    {() => templateTextareaWithHint}
+  </Story>
+</Preview>
+
+## Variant: With optional field marker
+
+import templateTextareaOptional from './_textarea-optional.html.haml';
+import templateTextareaOptionalCode from '!!raw-loader!./_textarea-optional.html.haml';
+
+<Preview>
+  <Story
+    name="Optional field"
+    parameters={{ docs: { source: { code: templateTextareaOptionalCode } } }}
+  >
+    {() => templateTextareaOptional}
+  </Story>
+</Preview>
+
+import templateTextareaWithError from './_textarea-with-error.html.haml';
+import templateTextareaWithErrorCode from '!!raw-loader!./_textarea-with-error.html.haml';
+
+## Variant: With error message
+
+<Preview>
+  <Story
+    name="With error"
+    parameters={{ docs: { source: { code: templateTextareaWithErrorCode } } }}
+  >
+    {() => templateTextareaWithError}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial takes an `input` hash with the following properties:
+
+| properties      | Description                                                 |
+| --------------- | ----------------------------------------------------------- |
+| `name`          | Required, field name                                        |
+| `label`         | Required, label text                                        |
+| `hint`          | Optional, hint text                                         |
+| `optional`      | Optional, boolean flag to mark the field as optional        |
+| `error_message` | Optional, error message for the field                       |
+| `has_error`     | Optional, boolean flag to mark the field as having an error |

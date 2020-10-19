@@ -22,16 +22,11 @@ import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
-import tRadio from '../haml/_radio_group.html.haml';
-import tRadioSmall from '../haml/_radio_group_small.html.haml';
 import tTargetedContent from '../haml/_targeted-content.html.haml';
 import tPageReview from '../haml/_page_review.html.haml';
-import tInput from '../haml/_input.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tSuccessMessage from '../haml/_success_message.html.haml';
-import tTextarea from '../haml/_textarea.html.haml';
-import tErrorSummary from '../haml/_error_summary.html.haml';
 import tTables from '../haml/_table.html.haml';
 import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
 import tAdvisernetRelatedContent from '../haml/_related_content_advisernet.html.haml';
@@ -75,12 +70,14 @@ export default {
     },
   },
   decorators: [
-    (storyFn) => `<div
-      class="cads-styleguide__language-label"
-      onclick="javascript:styleguideChangeLangugage();"
-      aria-hidden="true"
-    ></div>
-    ${storyFn()}`,
+    (storyFn) => `<div class="cads-styleguide__wrapper">
+      <div
+        class="cads-styleguide__language-label"
+        onclick="javascript:styleguideChangeLangugage();"
+        aria-hidden="true"
+      ></div>
+      ${storyFn()}
+    </div>`,
   ],
 };
 
@@ -101,34 +98,9 @@ export const header = () =>
     null,
     () => initHeader()
   );
-export const input = () => renderHamlTemplate('Input', tInput, 'input');
-export const textarea = () =>
-  renderHamlTemplate('Textarea', tTextarea, 'textarea');
 export const pageReview = () =>
   renderHamlTemplate('Page Review', tPageReview, 'page_review');
-export const radioGroup = () =>
-  renderHamlTemplate('Radio Group', tRadio, 'radio_group');
-export const radioGroupSmall = () =>
-  renderHamlTemplate('Radio Group (small)', tRadioSmall, 'radio_group_small');
 
-export const errorSummary = () =>
-  renderHamlTemplate(
-    'Error summary',
-    tErrorSummary,
-    'error_summary',
-    `The error summary is used to provide a summary of form errors.
-You will need to provide the validation content and set the content.
-To set the number of fields use the <code>cads-error-summary__field_count</code>
-span and set the content to <code>1 field</code>, <code>5 fields</code>, etc.
-
-The error summary should gain focus when it first appears, tabbing should then flow through
-the links in the error summary in the normal way.
-
-Then use the <code>cads-error-summary__list</code> to add the relevant <code>li</code>
-items.  Each item should contain a link with text that is the same as the error message next
-to the field.  Each link should give focus to the related field when clicked.
-`
-  );
 export const logo = () =>
   renderHamlTemplate(
     'Logo',
