@@ -10,7 +10,6 @@ Feature: OISC Warning components
     Scenario: Validate initial state
       Then the OISC title is visible
       And the OISC message is visible
-      And the OISC message contains a link
 
   Rule: OISC With Title only
     Background:
@@ -27,7 +26,6 @@ Feature: OISC Warning components
     Scenario: Validate initial state
       Then the OISC title is visible
       And the OISC message is visible
-      And the OISC message contains a link
 
     Scenario: Sticky component follows you down the page
       When I scroll to the bottom of the page

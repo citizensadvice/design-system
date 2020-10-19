@@ -41,10 +41,6 @@ Then("the OISC message is not visible") do
   expect(@component).not_to have_description
 end
 
-Then("the OISC message contains a link") do
-  expect(@component).to have_link
-end
-
 Then("the OISC component is visible at the top of the viewport") do
   expect(@component.heading.vertical_position).to be > 900
 
