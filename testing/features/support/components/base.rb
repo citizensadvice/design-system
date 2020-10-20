@@ -5,4 +5,8 @@ class Base < SitePrism::Page
     AutomationLogger.debug("Waiting for #{self.class} component.")
     [validate_initial_state!, "Initial #{self.class} component didn't load correctly!"]
   end
+
+  def validate_initial_state!
+    has_initial_form?(wait: 5)
+  end
 end
