@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DesignSystem
-  class Callout < SitePrism::Page
+  class Callout < ::Base
     set_url "/iframe.html?id=3-components--callout&viewMode=story"
 
     section :initial_form, ".cads-callout-important" do
@@ -15,11 +15,6 @@ module DesignSystem
           ).getPropertyValue('content')"
         ).delete('\\"')
       end
-    end
-
-    load_validation do
-      AutomationLogger.debug("Waiting for Callout component.")
-      [has_initial_form?(wait: 5), "Initial Callout component didn't load correctly!"]
     end
   end
 end
