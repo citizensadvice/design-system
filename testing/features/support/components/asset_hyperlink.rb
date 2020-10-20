@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DesignSystem
-  class AssetHyperlink < SitePrism::Page
+  class AssetHyperlink < ::Base
     set_url "/iframe.html?id=3-components--asset-hyperlink&viewMode=story"
 
     section :initial_form, "#a11yComponentToTest" do
@@ -15,11 +15,6 @@ module DesignSystem
           ).getPropertyValue('content')"
         ).delete('\\"')
       end
-    end
-
-    load_validation do
-      AutomationLogger.debug("Waiting for Asset Hyperlink component.")
-      [has_initial_form?(wait: 5), "Initial Asset Hyperlink component didn't load correctly!"]
     end
   end
 end

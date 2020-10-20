@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DesignSystem
-  class ErrorSummary < SitePrism::Page
+  class ErrorSummary < ::Base
     set_url "/iframe.html?id=forms-error-summary--example&viewMode=story"
 
     section :initial_form, ".cads-error-summary" do
@@ -12,11 +12,6 @@ module DesignSystem
       def error_quantity
         error_quantity_label.text.to_i
       end
-    end
-
-    load_validation do
-      AutomationLogger.debug("Waiting for Error Summary component.")
-      [has_initial_form?(wait: 5), "Initial Error Summary component didn't load correctly!"]
     end
   end
 end
