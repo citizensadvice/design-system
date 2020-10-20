@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-Given("a Breadcrumbs component is on the page") do
-  @component = DesignSystem::Breadcrumbs.new
+Given("a Default Breadcrumbs component is on the page") do
+  @component = Breadcrumbs::Default.new
   @component.load
 end
 
