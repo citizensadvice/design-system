@@ -5,6 +5,11 @@ Given("a Default Breadcrumbs component is on the page") do
   @component.load
 end
 
+Given("a No Collapse Breadcrumbs component is on the page") do
+  @component = Breadcrumbs::NoCollapse.new
+  @component.load
+end
+
 Then("a series of breadcrumbs are present") do
   expect(@component.initial_form).to have_breadcrumbs
 end
