@@ -18,6 +18,7 @@ import tAdviceCollection from './samples/_advice_collection.html.haml';
 import tAdviceCollectionAdviser from './samples/_advice_collection_adviser.html.haml';
 import tAdviceCollectionAdvisernet from './samples/_advice_collection_advisernet.html.haml';
 import tTables from './samples/_tables.html.haml';
+import tForms from './samples/_forms.html.haml';
 
 function init() {
   initHeader();
@@ -94,3 +95,6 @@ export const adviceCollectionAdvisernet = () =>
 
 export const tables = () =>
   renderHamlTemplate('Tables)', tTables, 'tables', '', null, init, true);
+
+export const forms = () =>
+  renderHamlTemplate('Forms)', tForms, 'forms', '', null, init, true);
