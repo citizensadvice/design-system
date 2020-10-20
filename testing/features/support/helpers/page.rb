@@ -44,12 +44,16 @@ module Helpers
       current_session.execute_script("return document.documentElement.outerHTML")
     end
 
-    def image_file_path(scenario)
-      "artifacts/screenshots/#{timestamp}_#{scenario.feature.name}_#{scenario.name}.png"
+    def image_file_path(test_case)
+      "artifacts/screenshots/#{name_of_file(test_case)}.png"
     end
 
-    def html_file_path(scenario)
-      "artifacts/html_pages/#{timestamp}_#{scenario.feature.name}_#{scenario.name}.html"
+    def html_file_path(test_case)
+      "artifacts/html_pages/#{name_of_file(test_case)}.html"
+    end
+
+    def name_of_file(test_case)
+      "#{timestamp}_#{test_case.feature_file_name}_#{test_case.name}"
     end
 
     def width(fallback: 1600)
