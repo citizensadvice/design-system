@@ -5,6 +5,7 @@ module OiscWarning
     set_url "/iframe.html?id=components-oisc-warning--title-only"
 
     element :heading, "h2"
+    element :description, "p"
 
     def validate_initial_state!
       has_heading?(wait: 5)

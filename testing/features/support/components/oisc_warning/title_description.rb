@@ -3,7 +3,5 @@
 module OiscWarning
   class TitleDescription < TitleOnly
     set_url "/iframe.html?id=components-oisc-warning--with-title-and-description"
-
-    element :description, "p"
   end
 end
