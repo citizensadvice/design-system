@@ -5,7 +5,7 @@ services:
     build: .
     image: 'ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}'
     container_name: ca-styleguide.test
-    command: npm run styleguide:ci -- --quiet
+    command: npm run docs:serve
     hostname: ca-styleguide.test
     ports:
       - 6006:6006
