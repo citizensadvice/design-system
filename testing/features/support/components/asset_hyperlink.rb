@@ -11,7 +11,7 @@ module DesignSystem
       element :download_size, ".cads-asset-type"
 
       def download_icon_content
-        evaluate_script(before_content('.cads-icon_file')).delete('\\"')
+        evaluate_script(before_content(".cads-icon_file")).delete('\\"')
       end
     end
   end

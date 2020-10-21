@@ -10,7 +10,7 @@ module Callout
     element :message, "p"
 
     def warning
-      evaluate_script(before_content('h3')).delete('\\"')
+      evaluate_script(before_content("h3")).delete('\\"')
     end
 
     def validate_initial_state!
