@@ -18,7 +18,7 @@ services:
       context: ./
     image: 'ca-backstop${CA_STYLEGUIDE_VERSION_TAG}'
     container_name: visual-tests.test
-    command: wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-config-ci.js
+    command: wait-for-it --timeout=360 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-config-ci.js
     volumes:
       - ./testing/visual-regression:/src
     depends_on:
@@ -30,7 +30,7 @@ services:
       dockerfile: ./testing/Dockerfile.wcag
     image: 'ca-wcag-tests${CA_STYLEGUIDE_VERSION_TAG}'
     container_name: wcag-tests.test
-    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- pa11y-ci --config=/src/wcag/pa11yci.ci.js
+    command: wait-for-it --timeout=360 --strict ca-styleguide:6006 -- pa11y-ci --config=/src/wcag/pa11yci.ci.js
     volumes:
       - ./testing:/src
     depends_on:
@@ -41,7 +41,7 @@ services:
       context: ./
       dockerfile: ./testing/Dockerfile.cucumber
     image: 'design_system_cucumber${PROJECT_VERSION_TAG}'
-    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- bundle exec rake design_system:all
+    command: wait-for-it --timeout=360 --strict ca-styleguide:6006 -- bundle exec rake design_system:all
     container_name: design-system-cucumber.test
     environment:
       - BRANCH_NAME
