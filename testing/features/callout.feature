@@ -18,3 +18,19 @@ Feature: Callout component
     Scenario: Validate state of component
       Then a callout title and message are present
       And an "Example" label is present above the callout title
+
+  Rule: Important Callout
+    Background:
+      Given an Important Callout component is on the page
+
+    Scenario: Validate state of component
+      Then a callout title and message are present
+      And an "Important" label is present above the callout title
+
+  Rule: Adviser Callout
+    Background:
+      Given an Adviser Callout component is on the page
+
+    Scenario: Validate state of component
+      Then a callout title and message are present
+      And an "Adviser" label is present above the callout title
