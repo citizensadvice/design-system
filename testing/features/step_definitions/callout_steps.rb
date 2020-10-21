@@ -6,11 +6,11 @@ Given("a Callout component is on the page") do
 end
 
 Then("a callout title and message are present") do
-  expect(@component.initial_form).to have_heading
+  expect(@component).to have_heading
 
-  expect(@component.initial_form).to have_message
+  expect(@component).to have_message
 end
 
 Then("a/an {string} label is present above the callout title") do |label|
-  expect(@component.initial_form.warning).to eq(label)
+  expect(@component.warning).to eq(label)
 end

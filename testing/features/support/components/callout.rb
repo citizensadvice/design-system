@@ -2,19 +2,21 @@
 
 module DesignSystem
   class Callout < ::Base
-    set_url "/iframe.html?id=3-components--callout&viewMode=story"
+    set_url "/iframe.html?id=components-callouts--standard-callout&viewMode=story"
 
-    section :initial_form, ".cads-callout-important" do
-      element :heading, "h3"
-      element :message, "p"
+    element :heading, "h3"
+    element :message, "p"
 
-      def warning
-        Capybara.current_session.evaluate_script(
-          "window.getComputedStyle(
-            document.querySelector('.cads-callout-important h3'), '::before'
-          ).getPropertyValue('content')"
-        ).delete('\\"')
-      end
+    def warning
+      evaluate_script(
+        "window.getComputedStyle(
+          document.querySelector('h3'), '::before'
+        ).getPropertyValue('content')"
+      ).delete('\\"')
+    end
+
+    def validate_initial_state!
+      has_heading?(wait: 5)
     end
   end
 end
