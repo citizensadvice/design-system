@@ -287,11 +287,11 @@ describe('Greedy Nav', () => {
 
     it('toggles the menu open', () => {
       const event = new dom.window.FocusEvent('focus');
-      nav.navDropdownToggle.dispatchEvent(event);
+      nav.navDropdownToggle!.dispatchEvent(event);
 
-      expect(nav.navDropdown.className).toContain('show');
-      expect(nav.mainNavWrapper.className).toContain('is-open');
-      expect(nav.navDropdownToggle.innerHTML).toContain('Close');
+      expect(nav.navDropdown!.className).toContain('show');
+      expect(nav.mainNavWrapper!.className).toContain('is-open');
+      expect(nav.navDropdownToggle!.innerHTML).toContain('Close');
     });
 
     it('when tabbing backwards through the dropdown menu', () => {
@@ -299,17 +299,17 @@ describe('Greedy Nav', () => {
 
       const openEvent = new dom.window.MouseEvent('focus');
 
-      nav.navDropdownToggle.dispatchEvent(openEvent);
+      nav.navDropdownToggle!.dispatchEvent(openEvent);
 
       const event = new dom.window.FocusEvent('blur', {
         relatedTarget: siteMenuItem,
       });
 
-      nav.navDropdownToggle.dispatchEvent(event);
+      nav.navDropdownToggle!.dispatchEvent(event);
 
-      expect(nav.navDropdown.className).not.toContain('show');
-      expect(nav.mainNavWrapper.className).not.toContain('is-open');
-      expect(nav.navDropdownToggle.innerHTML).toContain('More');
+      expect(nav.navDropdown!.className).not.toContain('show');
+      expect(nav.mainNavWrapper!.className).not.toContain('is-open');
+      expect(nav.navDropdownToggle!.innerHTML).toContain('More');
     });
   });
 });
