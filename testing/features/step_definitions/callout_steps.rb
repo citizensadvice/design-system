@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
-Given("a Callout component is on the page") do
-  @component = DesignSystem::Callout.new
+Given("a Standard Callout component is on the page") do
+  @component = Callout::Standard.new
+  @component.load
+end
+
+Given("an Example Callout component is on the page") do
+  @component = Callout::Example.new
   @component.load
 end
 

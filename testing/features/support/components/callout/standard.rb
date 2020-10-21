@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module DesignSystem
-  class Callout < ::Base
+module Callout
+  class Standard < ::Base
     set_url "/iframe.html?id=components-callouts--standard-callout&viewMode=story"
 
     element :heading, "h3"
