@@ -6,11 +6,9 @@ Feature: Asset Hyperlink component
   Background:
     Given an Asset Hyperlink component is on the page
 
-  Scenario: Validate initial state
+  Scenario: Label is informative and contains lots of easy to understand info
     Then a link to the PDF is present
-
-  Scenario: Label is informative and easy to understand for all types of user
-    Then the label includes a name at the beginning
+    And the label includes a name at the beginning
     And the label includes an icon
     And the label includes the file size
     And the label is a downloadable link

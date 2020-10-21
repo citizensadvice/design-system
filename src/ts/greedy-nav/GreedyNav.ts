@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Config, defaultConfig } from './Config';
 
 const root = window;
@@ -852,11 +853,17 @@ export class GreedyNavMenu {
       this.navDropdownSelector
     );
     const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
+
     /**
      * Move items from dropdown to menu
      */
-    if (mainNav && navDropdown && navDropdown.children.length > 0) {
-      mainNav.appendChild(navDropdown.firstElementChild!);
+    if (
+      mainNav &&
+      navDropdown &&
+      navDropdown.children.length > 0 &&
+      navDropdown.firstElementChild
+    ) {
+      mainNav.appendChild(navDropdown.firstElementChild);
     }
 
     /**
