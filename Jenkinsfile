@@ -54,14 +54,16 @@ pipeline {
                 script { env.BUILD_STAGE = 'Sanity Test' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
                         "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
-                    try {
-                        sh './bin/jenkins/visual_regression'
-                        sh './bin/docker/a11y-test'
-                        sh './bin/docker/grid_tests'
+                    script {
+                        try {
+                            sh './bin/jenkins/visual_regression'
+                            sh './bin/docker/a11y-test'
+                            sh './bin/docker/grid_tests'
                     } catch (Exception e) {
-                        sh 'docker-compose logs --no-color'
-                    }
+                            sh 'docker-compose logs --no-color'
                         }
+                    }
+                }
             }
         }
         stage('Full Regression Test') {
