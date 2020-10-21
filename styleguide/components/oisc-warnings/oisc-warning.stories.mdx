@@ -1,9 +1,10 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
 import initOISCWarnings from '../../../src/js/oisc-warnings';
 
 <Meta
   title="Components/OISC Warning"
-  component={() => templateDefault}
   decorators={[
     (Story) => {
       setTimeout(() => initOISCWarnings());
@@ -21,14 +22,13 @@ OISC warnings show advisers what regulations apply to specific content.
 The default variant is to show a static banner with a title and body text.
 
 import templateDefault from './_default.html.haml';
-import templateDefaultCode from '!!raw-loader!./_default.html.haml';
 
 <Preview>
   <Story
     name="With title and description"
-    parameters={{ docs: { source: { code: templateDefaultCode } } }}
+    parameters={{ docs: { source: { code: templateDefault.raw } } }}
   >
-    {() => templateDefault}
+    {(_, options) => translate(templateDefault, options)}
   </Story>
 </Preview>
 
@@ -37,14 +37,13 @@ import templateDefaultCode from '!!raw-loader!./_default.html.haml';
 The warning can be shown with just a title.
 
 import templateTitleOnly from './_title-only.html.haml';
-import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
 
 <Preview>
   <Story
     name="Title only"
-    parameters={{ docs: { source: { code: templateTitleOnlyCode } } }}
+    parameters={{ docs: { source: { code: templateTitleOnly.raw } } }}
   >
-    {() => templateTitleOnly}
+    {(_, options) => translate(templateTitleOnly, options)}
   </Story>
 </Preview>
 
@@ -53,16 +52,15 @@ import templateTitleOnlyCode from '!!raw-loader!./_title-only.html.haml';
 This component accepts an optional `is_sticky` setting. If enabled the warning will be sticky when scrolling and can be dismissed.
 
 import templateSticky from './_sticky.html.haml';
-import templateStickyCode from '!!raw-loader!./_sticky-example.html.haml';
 
 <Preview>
   <Story
     name="Sticky"
     inline={false}
     height={'500px'}
-    parameters={{ docs: { source: { code: templateStickyCode } } }}
+    parameters={{ docs: { source: { code: templateSticky.raw } } }}
   >
-    {() => templateSticky}
+    {(_, options) => translate(templateSticky, options)}
   </Story>
 </Preview>
 
@@ -78,7 +76,8 @@ The Haml partial takes a `oisc_warning` hash with the following properties:
 
 For example:
 
-<Source dark="true" lang="haml" code={templateDefaultCode} />
+<Source dark="true" lang="haml" code={templateDefault.raw} />
+:s
 
 ## JavaScript behaviour
 
