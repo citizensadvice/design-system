@@ -15,6 +15,7 @@ World(
   Helpers::Page,
   Helpers::Methods,
   Helpers::Regex,
+  Helpers::EnvVariables,
   Capybara::RSpecMatcherProxies
 )
 

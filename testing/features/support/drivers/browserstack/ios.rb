@@ -7,7 +7,7 @@ module Drivers
         {
           "bstack:options" => {
             "osVersion" => "13",
-            "deviceName" => "iPhone X",
+            "deviceName" => "iPhone 8",
             "realMobile" => "true",
             "appiumVersion" => "1.17.0"
           }
