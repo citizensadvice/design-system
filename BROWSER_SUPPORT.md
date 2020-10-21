@@ -13,8 +13,7 @@ combinations are supported.
 - Windows 7
 - Windows 8.1
 - Windows 10
-- OSX Catalina (13) - \_NB: This doesn't like working on certain pages, there are several issues with `safaridriver`
-- OSX Mojave (12)
+- OSX Mojave (12) - We **don't** support Catalina (13), as it is too flaky (Big Sur will be supported).
 - Android Q (10)
 - Android Pie (9) - _NB: This one is likely not to work as intended, due to the hardware restrictions - Use at own risk_
 - iOS 13
@@ -23,13 +22,10 @@ combinations are supported.
 
 ## Browsers
 
-- Chrome 80-83 - **NB: Version 82 doesn't exist!**
-- Chrome 77-79 - **NB: Only use with Mojave and Windows**
-- Firefox 60+ - With `geckodriver 0.26.0` and above
-- Firefox 57-59 - With `geckodriver 0.25.0`
-- Edge 81/83 - _NB: These are now tied into the Chromium version support, but 79/80 were the "flip-flop" versions_
-- Safari 12 - **Always use Mojave**
-- Safari 13 - **Always use Catalina** - note this is flaky on heavy JS pages
+- Chrome 77-85 - **NB: Version 82 doesn't exist!**
+- Firefox 60-80 - With `geckodriver 0.26.0` and above
+- Edge 81/83/84 - _NB: These are known as "Chrome" Edge in some locations_
+- Safari 12 - **Always use OSX Mojave**
 - IE 11 - **See below for more detailed info**
 
 ### IE11
