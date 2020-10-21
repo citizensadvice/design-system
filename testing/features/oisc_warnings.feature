@@ -7,7 +7,7 @@ Feature: OISC Warning components
     Background:
       Given a Title and Description OISC component is on the page
 
-    Scenario: Validate initial state
+    Scenario: OISC component has a title and message
       Then the OISC title is visible
       And the OISC message is visible
 
@@ -15,7 +15,7 @@ Feature: OISC Warning components
     Background:
       Given a Title Only OISC component is on the page
 
-    Scenario: Validate initial state
+    Scenario: OISC component has a title
       Then the OISC title is visible
       But the OISC message is not visible
 
@@ -23,7 +23,7 @@ Feature: OISC Warning components
     Background:
       Given a Sticky OISC component is on the page
 
-    Scenario: Validate initial state
+    Scenario: OISC component has a title and message
       Then the OISC title is visible
       And the OISC message is visible
 

@@ -7,7 +7,7 @@ Feature: Callout component
     Background:
       Given a Standard Callout component is on the page
 
-    Scenario: Validate state of component
+    Scenario: Callout contains a title and message
       Then a callout title and message are present
       But no label is present above the callout title
 
@@ -15,7 +15,7 @@ Feature: Callout component
     Background:
       Given an Example Callout component is on the page
 
-    Scenario: Validate state of component
+    Scenario: Callout contains a title, message and warning
       Then a callout title and message are present
       And an "Example" label is present above the callout title
 
@@ -23,7 +23,7 @@ Feature: Callout component
     Background:
       Given an Important Callout component is on the page
 
-    Scenario: Validate state of component
+    Scenario: Callout contains a title, message and warning
       Then a callout title and message are present
       And an "Important" label is present above the callout title
 
@@ -31,6 +31,6 @@ Feature: Callout component
     Background:
       Given an Adviser Callout component is on the page
 
-    Scenario: Validate state of component
+    Scenario: Callout contains a title, message and an adviser label
       Then a callout title and message are present
       And an "Adviser" label is present above the callout title
