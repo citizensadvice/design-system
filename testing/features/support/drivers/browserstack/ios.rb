@@ -9,9 +9,19 @@ module Drivers
         # iOS 12: iPhone XS / iPhone 8
         # iOS 11: iPhone X  / iPhone 8
         # Use this availability list with caution!: LH - October 2020
+        #
+        # Testing checklist
+        # ios11 iphone x - fine
+        # ios11 iphone 8 - fine
+        # ios12 iphone xs - cap yes - session no
+        # ios12 iphone 8
+        # ios13 iphone 11 pro
+        # ios13 iphone 8
+        # ios13 iphone xs
+        # ios13 iphone 8
         {
           "bstack:options" => {
-            "deviceName" => "iPhone 8",
+            "deviceName" => device_name,
             "realMobile" => "true",
             "appiumVersion" => appium_version
           }
@@ -19,6 +29,10 @@ module Drivers
       end
 
       private
+
+      def device_name
+        browserstack_os
+      end
 
       def appium_version
         if ios13? || ios12?
