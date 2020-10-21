@@ -32,7 +32,9 @@ module.exports = function loader(content) {
         null,
         `var lang = ${JSON.stringify(Object.assign.apply(this, [...values]))};
 
-        module.exports = Object.assign(lang.en, lang);`
+        module.exports = Object.assign(lang.en, lang, {raw: ${JSON.stringify(
+          content.toString()
+        )}});`
       )
     )
     .catch((err) => callback(err));
