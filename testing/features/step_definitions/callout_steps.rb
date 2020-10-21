@@ -16,6 +16,10 @@ Then("a callout title and message are present") do
   expect(@component).to have_message
 end
 
+Then("no label is present above the callout title") do
+  expect(@component.warning).to eq("none")
+end
+
 Then("a/an {string} label is present above the callout title") do |label|
   expect(@component.warning).to eq(label)
 end

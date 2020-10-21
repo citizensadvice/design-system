@@ -9,7 +9,7 @@ Feature: Callout component
 
     Scenario: Validate state of component
       Then a callout title and message are present
-      And an "Important" label is present above the callout title
+      But no label is present above the callout title
 
   Rule: Example Callout
     Background:
