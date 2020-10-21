@@ -11,7 +11,6 @@ module Drivers
         # Use this availability list with caution!: LH - October 2020
         {
           "bstack:options" => {
-            "osVersion" => "13",
             "deviceName" => "iPhone 8",
             "realMobile" => "true",
             "appiumVersion" => appium_version
@@ -30,11 +29,11 @@ module Drivers
       end
 
       def ios13?
-        "TBC"
+        browserstack_os_version == "13"
       end
 
       def ios12?
-        "TBC"
+        browserstack_os_version == "12"
       end
     end
   end
