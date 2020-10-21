@@ -1,3 +1,5 @@
 cy:
   cads:
-    name: 'Cyngor ar Bopeth'
+    example:
+      name: 'Cyngor ar Bopeth'
+      body: 'Dyma ychydig o destun y corff'

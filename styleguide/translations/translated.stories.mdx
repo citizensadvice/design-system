@@ -1,0 +1,46 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../scripts/story-helpers';
+
+<Meta title="Translations/How To" />
+
+# Translations
+
+Translations are handled using the [Rails i18n API](https://guides.rubyonrails.org/i18n.html).
+
+Rather than including English or Welsh strings in a component's HAML code they are placed in one of the `yml` files located in the `locales` directrory.
+
+For Example `en.yml` may contain:
+
+```yaml
+en:
+  cads:
+    example.name: Citizens Advice
+    example.body: Loren ipsum dolar sit
+    search.button: Search
+```
+
+To use translations inside of a HAML component pass the translation key to the `t` method like so:
+
+```haml
+%h1= t('cads.example.name')
+%p= t('cads.example.body')
+```
+
+As a rule you should always translate the complete sentance rather than individual words or pharses, this allows the translation to capture the full context of the text.
+
+If a translation is missing the last part of the translation key will be included in the rendered webpage as a capitalised string. There's one in the included example template, press the 'Show code' link to see the underlying code.
+
+## Including desing system translations in your app
+
+We export the locales folder which includes both `en.yml` and `cy.yml`. You can include them in your rails app by [following the guide](https://guides.rubyonrails.org/i18n.html#configure-the-i18n-module). The files will be located in `node_modules/@citizensadvice/design-system/locales`.
+
+import haml from './_example.html.haml';
+
+<Preview>
+  <Story
+    name="Example translation"
+    parameters={{ docs: { source: { code: haml.raw } } }}
+  >
+    {(_, options) => translate(haml, options)}
+  </Story>
+</Preview>

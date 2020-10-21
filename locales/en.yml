@@ -1,3 +1,6 @@
 en:
   cads:
-    name: 'Citizens Advice'
+    example:
+      name: 'Citizens Advice'
+      body: 'This is some body text'
+
