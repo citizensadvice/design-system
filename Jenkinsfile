@@ -24,7 +24,7 @@ pipeline {
     }
     environment {
         DOCKER_TAG = "${JOB_NAME}_${getSha()}"
-        CA_STYLEGUIDE_VERSION_TAG = "dev_${DOCKER_TAG.toLowerCase()}"
+        CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
         BUILD_STAGE = ''
     }
     parameters {
@@ -51,10 +51,10 @@ pipeline {
                             try {
                                 docker.image("${docker_registry}/design-system:${it}").pull()
                                 if (env.BRANCH_NAME != 'master') {
-                                        docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
+                                        docker.image("${docker_registry}:dev_${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
                                 }
                             } catch (Exception e) {
-                                    echo "Error pulling ${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
+                                    echo "Error pulling ${docker_registry}:dev_${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
                             }
                         }
                     }
@@ -66,10 +66,10 @@ pipeline {
                         ['story-server', 'backstop', 'wcag', 'ruby'].each {
                             if (env.BRANCH_NAME == 'master') {
                                 // If we're building on master, update the master images.
-                                docker.image("${docker_registry}:${it}-${CA_STYLEGUIDE_VERSION_TAG}").tag("${docker_registry}:${it}")
+                                docker.image("${docker_registry}:dev_${it}-${CA_STYLEGUIDE_VERSION_TAG}").tag("${docker_registry}:${it}")
                                 docker.image("${docker_registry}:${it}").push()
                             } else {
-                                docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").push()
+                                docker.image("${docker_registry}:dev_${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").push()
                             }
                         }
                     }
