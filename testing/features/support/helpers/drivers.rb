@@ -45,11 +45,11 @@ module Helpers
     end
 
     def android_options
-      nil
+      {}
     end
 
     def ios_options
-      nil
+      {}
     end
   end
 end
