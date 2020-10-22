@@ -5,6 +5,7 @@
   "files": [
     "scss",
     "lib",
+    "locales",
     "fonts",
     "haml",
     "CHANGELOG.md",
@@ -17,7 +18,7 @@
     "pre-commit": "lint-staged",
     "check-size": "node ./scripts/check-size -r",
     "check-size:write": "node ./scripts/check-size -r -w",
-    "build:js": "babel src/js -d lib",
+    "build:js": "babel src/js -d lib --ignore src/js/**/*.test.js",
     "build:ts": "tsc -b",
     "build:scss": "node ./scripts/build -r && npm run check-size -r",
     "build": "npm run clean && npm-run-all build:scss build:js build:ts",
@@ -25,7 +26,7 @@
     "styleguide": "start-storybook -p 6006 -s styleguide",
     "styleguide:ci": "start-storybook -p 6006 --ci",
     "docs:build": "build-storybook -o docs",
-    "docs:serve": "http-server docs",
+    "docs:serve": "http-server -p 6006 docs",
     "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
     "lint:es": "eslint src scripts testing --ext .js,.ts",
     "lint": "prettier --check . && npm-run-all lint:css lint:es",
@@ -121,7 +122,8 @@
     "coverageDirectory": "coverage",
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/vendor/"
+      "/vendor/",
+      "/lib/"
     ]
   },
   "lint-staged": {

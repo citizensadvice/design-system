@@ -1,4 +1,5 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
 
 <Meta title="Forms/Input" />
 
@@ -7,56 +8,52 @@ import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 ## Variant: Basic input
 
 import templateInput from './_input.html.haml';
-import templateInputCode from '!!raw-loader!./_input.html.haml';
 
 <Preview>
   <Story
     name="Basic"
-    parameters={{ docs: { source: { code: templateInputCode } } }}
+    parameters={{ docs: { source: { code: templateInput.raw } } }}
   >
-    {() => templateInput}
+    {(_, options) => translate(templateInput, options)}
   </Story>
 </Preview>
 
 ## Variant: With hint
 
 import templateInputWithHint from './_input-with-hint.html.haml';
-import templateInputWithHintCode from '!!raw-loader!./_input-with-hint.html.haml';
 
 <Preview>
   <Story
     name="With hint"
-    parameters={{ docs: { source: { code: templateInputWithHintCode } } }}
+    parameters={{ docs: { source: { code: templateInputWithHint.raw } } }}
   >
-    {() => templateInputWithHint}
+    {(_, options) => translate(templateInputWithHint, options)}
   </Story>
 </Preview>
 
 ## Variant: With optional field marker
 
 import templateInputOptional from './_input-optional.html.haml';
-import templateInputOptionalCode from '!!raw-loader!./_input-optional.html.haml';
 
 <Preview>
   <Story
     name="Optional field"
-    parameters={{ docs: { source: { code: templateInputOptionalCode } } }}
+    parameters={{ docs: { source: { code: templateInputOptional.raw } } }}
   >
-    {() => templateInputOptional}
+    {(_, options) => translate(templateInputOptional, options)}
   </Story>
 </Preview>
 
 import templateInputWithError from './_input-with-error.html.haml';
-import templateInputWithErrorCode from '!!raw-loader!./_input-with-error.html.haml';
 
 ## Variant: With error message
 
 <Preview>
   <Story
     name="With error"
-    parameters={{ docs: { source: { code: templateInputWithErrorCode } } }}
+    parameters={{ docs: { source: { code: templateInputWithError.raw } } }}
   >
-    {() => templateInputWithError}
+    {(_, options) => translate(templateInputWithError, options)}
   </Story>
 </Preview>
 

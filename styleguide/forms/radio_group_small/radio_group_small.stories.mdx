@@ -1,4 +1,5 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
 
 <Meta title="Forms/Radio group (small)" />
 
@@ -7,56 +8,52 @@ import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 ## Variant: Basic input
 
 import templateRadioGroup from './_radio_group_small.html.haml';
-import templateRadioGroupCode from '!!raw-loader!./_radio_group_small.html.haml';
 
 <Preview>
   <Story
     name="Basic"
-    parameters={{ docs: { source: { code: templateRadioGroupCode } } }}
+    parameters={{ docs: { source: { code: templateRadioGroup.raw } } }}
   >
-    {() => templateRadioGroup}
+    {(_, options) => translate(templateRadioGroup, options)}
   </Story>
 </Preview>
 
 import templateRadioGroupWithHint from './_radio_group_small-with-hint.html.haml';
-import templateRadioGroupWithHintCode from '!!raw-loader!./_radio_group_small-with-hint.html.haml';
 
 ## Variant: With hint
 
 <Preview>
   <Story
     name="With hint"
-    parameters={{ docs: { source: { code: templateRadioGroupWithHintCode } } }}
+    parameters={{ docs: { source: { code: templateRadioGroupWithHint.raw } } }}
   >
-    {() => templateRadioGroupWithHint}
+    {(_, options) => translate(templateRadioGroupWithHint, options)}
   </Story>
 </Preview>
 
 import templateRadioGroupOptional from './_radio_group_small-optional.html.haml';
-import templateRadioGroupOptionalCode from '!!raw-loader!./_radio_group_small-optional.html.haml';
 
 ## Variant: With optional field marker
 
 <Preview>
   <Story
     name="Optional field"
-    parameters={{ docs: { source: { code: templateRadioGroupOptionalCode } } }}
+    parameters={{ docs: { source: { code: templateRadioGroupOptional.raw } } }}
   >
-    {() => templateRadioGroupOptional}
+    {(_, options) => translate(templateRadioGroupOptional, options)}
   </Story>
 </Preview>
 
 import templateRadioGroupWithError from './_radio_group_small-with-error.html.haml';
-import templateRadioGroupWithErrorCode from '!!raw-loader!./_radio_group_small-with-error.html.haml';
 
 ## Variant: With error message
 
 <Preview>
   <Story
     name="With error"
-    parameters={{ docs: { source: { code: templateRadioGroupWithErrorCode } } }}
+    parameters={{ docs: { source: { code: templateRadioGroupWithError.raw } } }}
   >
-    {() => templateRadioGroupWithError}
+    {(_, options) => translate(templateRadioGroupWithError, options)}
   </Story>
 </Preview>
 

@@ -1,4 +1,5 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
 
 <Meta
   title="Components/Callouts"
@@ -12,56 +13,52 @@ There are several different variants of the callout component:
 ## Standard
 
 import templateStandard from './_standard.html.haml';
-import templateStandardCode from '!!raw-loader!./_standard.html.haml';
 
 <Preview>
   <Story
     name="Standard callout"
-    parameters={{ docs: { source: { code: templateStandardCode } } }}
+    parameters={{ docs: { source: { code: templateStandard.raw } } }}
   >
-    {() => templateStandard}
+    {(_, options) => translate(templateStandard, options)}
   </Story>
 </Preview>
 
 ## Example
 
 import templateExample from './_example.html.haml';
-import templateExampleCode from '!!raw-loader!./_example.html.haml';
 
 <Preview>
   <Story
     name="Example callout"
-    parameters={{ docs: { source: { code: templateExampleCode } } }}
+    parameters={{ docs: { source: { code: templateExample.raw } } }}
   >
-    {() => templateExample}
+    {(_, options) => translate(templateExample, options)}
   </Story>
 </Preview>
 
 ## Important
 
 import templateImportant from './_important.html.haml';
-import templateImportantCode from '!!raw-loader!./_important.html.haml';
 
 <Preview>
   <Story
     name="Important callout"
-    parameters={{ docs: { source: { code: templateImportantCode } } }}
+    parameters={{ docs: { source: { code: templateImportant.raw } } }}
   >
-    {() => templateImportant}
+    {(_, options) => translate(templateImportant, options)}
   </Story>
 </Preview>
 
 ## Adviser
 
 import templateAdviser from './_adviser.html.haml';
-import templateAdviserCode from '!!raw-loader!./_adviser.html.haml';
 
 <Preview>
   <Story
     name="Adviser callout"
-    parameters={{ docs: { source: { code: templateAdviserCode } } }}
+    parameters={{ docs: { source: { code: templateAdviser.raw } } }}
   >
-    {() => templateAdviser}
+    {(_, options) => translate(templateAdviser, options)}
   </Story>
 </Preview>
 
@@ -76,4 +73,4 @@ The Haml partial takes a `notice` hash with the following properties:
 
 For example:
 
-<Source dark="true" lang="haml" code={templateImportantCode} />
+<Source dark="true" lang="haml" code={templateImportant.raw} />
