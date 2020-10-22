@@ -16,16 +16,17 @@ combinations are supported.
 - OSX Mojave (12) - We **don't** support Catalina (13), as it is too flaky (Big Sur will be supported).
 - Android Q (10)
 - Android Pie (9) - _NB: This one is likely not to work as intended, due to the hardware restrictions - Use at own risk_
-- iOS 13
-- iOS 12
-- iOS 11
+- iOS 13 - iPhone 11 Pro / iPhone 11 / iPhone XS / iPhone 8
+- iOS 12 - iPhone 8
+- iOS 11 - iPhone X / iPhone 8
 
 ## Browsers
 
 - Chrome 77-85 - **NB: Version 82 doesn't exist!**
 - Firefox 60-80 - With `geckodriver 0.26.0` and above
 - Edge 81/83/84 - _NB: These are known as "Chrome" Edge in some locations_
-- Safari 12 - **Always use OSX Mojave**
+- Desktop Safari 12 - **Always use OSX Mojave**
+- iOS Safari 11-13 - **Tied to iOS Versions**
 - IE 11 - **See below for more detailed info**
 
 ### IE11

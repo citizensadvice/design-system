@@ -13,7 +13,7 @@ module Drivers
         # Use this availability list with caution!: LH - October 2020
         {
           "bstack:options" => {
-            "deviceName" => device_name,
+            "deviceName" => browserstack_os,
             "realMobile" => "true",
             "appiumVersion" => appium_version
           }
@@ -21,10 +21,6 @@ module Drivers
       end
 
       private
-
-      def device_name
-        browserstack_os
-      end
 
       def appium_version
         if ios13? || ios12?
