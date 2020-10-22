@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module DesignSystem
-  class Buttons < SitePrism::Page
-    set_url "/iframe.html?id=3-components--buttons&viewMode=story"
+module Button
+  class Primary < SitePrism::Page
+    set_url "/iframe.html?id=components-buttons--primary&viewMode=story"
 
     element :primary, ".cads-button.cads-button__primary"
     element :secondary, ".cads-button.cads-button__secondary"
@@ -22,20 +22,20 @@ module DesignSystem
 
     def initial_properties
       @initial_properties ||=
-          {
-              primary: {
-                  background: primary.background_color,
-                  text: primary.color
-              },
-              secondary: {
-                  background: secondary.background_color,
-                  text: secondary.color
-              },
-              tertiary: {
-                  background: tertiary.background_color,
-                  text: tertiary.color
-              }
+        {
+          primary: {
+            background: primary.background_color,
+            text: primary.color
+          },
+          secondary: {
+            background: secondary.background_color,
+            text: secondary.color
+          },
+          tertiary: {
+            background: tertiary.background_color,
+            text: tertiary.color
           }
+        }
     end
 
     def initial_background_color_of(button_name)

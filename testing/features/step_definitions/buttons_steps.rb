@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Given("the Buttons component is on the page") do
-  @component = DesignSystem::Buttons.new
+  @component = Button::Primary.new
   @component.load
 end
 
