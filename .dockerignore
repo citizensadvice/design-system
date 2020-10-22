@@ -11,4 +11,4 @@ coverage
 spec/reports
 node_modules
 vendor/bundle
-*.md
+AUTOMATED_BROWSER_SUPPORT.md
