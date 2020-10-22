@@ -14,9 +14,12 @@ For Example `en.yml` may contain:
 ```yaml
 en:
   cads:
-    example.name: Citizens Advice
-    example.body: Loren ipsum dolar sit
-    search.button: Search
+    example:
+      name: Citizens Advice
+    example:
+      body: Loren ipsum dolar sit
+    search:
+      button: Search
 ```
 
 To use translations inside of a HAML component pass the translation key to the `t` method like so:

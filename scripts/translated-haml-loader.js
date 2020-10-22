@@ -3,7 +3,8 @@
  * an object keyed by translation.
  *
  * Note: Changing this file will trigger hot reloading but changes will
- * now be included, you must restart webpack.
+ * not be loaded, you must restart the webpack process (npm run storybook)
+ * if you are making changes to this file.
  */
 const execNP = require('child_process').exec;
 
