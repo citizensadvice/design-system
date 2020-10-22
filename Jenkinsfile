@@ -42,11 +42,11 @@ pipeline {
                     // Pull the master images and any previous builds if we're on a different branch
                     // docker-compose only looks in the local images and doesn't try to pull when building
                     ['story-server', 'backstop', 'wcag', 'ruby'].each {
-                        sh 'docker pull ${env.ECR_REPOSITORY}:${it}'
-                        if (env.BRANCH_NAME != "master") {
+                        sh "docker pull ${env.ECR_REPOSITORY}:${it}"
+                        if (env.BRANCH_NAME != 'master') {
                             // Ignore failures from docker - it's probably an Image Not Found.
                             // Other errors like out of disk space will cause problems in other commands
-                            result = sh(script: 'docker pull ${env.ECR_REPOSITORY}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}', returnStatus: true)
+                            result = sh(script: "docker pull ${env.ECR_REPOSITORY}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}", returnStatus: true)
                         }
                     }
                 }
@@ -54,12 +54,12 @@ pipeline {
                 script {
                     // Push updated containers so they can be used on the next run
                     ['story-server', 'backstop', 'wcag', 'ruby'].each {
-                        if (env.BRANCH_NAME == "master") {
+                        if (env.BRANCH_NAME == 'master') {
                             // If we're building on master, update the master images.
-                            sh 'docker tag ${env.ECR_REPOSITORY}:${it}-${CA_STYLEGUIDE_VERSION_TAG} ${env.ECR_REPOSITORY}:${it}'
-                            sh 'docker push ${env.ECR_REPOSITORY}:${it}'
+                            sh "docker tag ${env.ECR_REPOSITORY}:${it}-${CA_STYLEGUIDE_VERSION_TAG} ${env.ECR_REPOSITORY}:${it}"
+                            sh "docker push ${env.ECR_REPOSITORY}:${it}"
                         } else {
-                            sh 'docker push ${env.ECR_REPOSITORY}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}'
+                            sh "docker push ${env.ECR_REPOSITORY}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
                         }
                     }
                 }
