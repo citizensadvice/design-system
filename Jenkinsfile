@@ -37,37 +37,40 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                docker.withRegistry(docker_registry_url, ecr_credential) {
                     script { env.BUILD_STAGE = 'Setup' }
                     script {
                         currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
                     }
                     script {
-                        // Pull the master images and any previous builds if we're on a different branch
-                        // docker-compose only looks in the local images and doesn't try to pull when building
-                        ['story-server', 'backstop', 'wcag', 'ruby'].each {
-                            docker.image("${docker_registry}/design-system:${it}").pull()
-                            if (env.BRANCH_NAME != 'master') {
-                                // Ignore failures from docker - it's probably an Image Not Found.
-                                // Other errors like out of disk space will cause problems in other commands
-                                try {
-                                    docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
-                                } catch (Exception e) {
-                                    echo "Error pulling ${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
+                        docker.withRegistry(docker_registry_url, ecr_credential) {
+                            // Pull the master images and any previous builds if we're on a different branch
+                            // docker-compose only looks in the local images and doesn't try to pull when building
+                            ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                                docker.image("${docker_registry}/design-system:${it}").pull()
+                                if (env.BRANCH_NAME != 'master') {
+                                    // Ignore failures from docker - it's probably an Image Not Found.
+                                    // Other errors like out of disk space will cause problems in other commands
+                                    try {
+                                        docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
+                                    } catch (Exception e) {
+                                        echo "Error pulling ${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
+                                    }
                                 }
                             }
                         }
                     }
                     script { sh 'docker-compose build' }
                     script {
-                        // Push updated containers so they can be used on the next run
-                        ['story-server', 'backstop', 'wcag', 'ruby'].each {
-                            if (env.BRANCH_NAME == 'master') {
-                                // If we're building on master, update the master images.
-                                docker.image("${docker_registry}:${it}-${CA_STYLEGUIDE_VERSION_TAG}").tag("${docker_registry}:${it}")
-                                docker.image("${docker_registry}:${it}").push()
-                            } else {
-                                docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").push()
+                        docker.withRegistry(docker_registry_url, ecr_credential) {
+                            // Push updated containers so they can be used on the next run
+                            ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                                if (env.BRANCH_NAME == 'master') {
+                                    // If we're building on master, update the master images.
+                                    docker.image("${docker_registry}:${it}-${CA_STYLEGUIDE_VERSION_TAG}").tag("${docker_registry}:${it}")
+                                    docker.image("${docker_registry}:${it}").push()
+                                } else {
+                                    docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").push()
+                                }
                             }
                         }
                     }
