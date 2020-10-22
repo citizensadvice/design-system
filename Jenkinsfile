@@ -51,10 +51,10 @@ pipeline {
                             try {
                                 docker.image("${docker_registry}/design-system:${it}").pull()
                                 if (env.BRANCH_NAME != 'master') {
-                                        docker.image("${docker_registry}/design-system:dev_${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
+                                        docker.image("${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
                                 }
                             } catch (Exception e) {
-                                    echo "Error pulling ${docker_registry}/design-system:dev_${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
+                                    echo "Error pulling ${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}"
                             }
                         }
                     }
@@ -66,10 +66,10 @@ pipeline {
                         ['story-server', 'backstop', 'wcag', 'ruby'].each {
                             if (env.BRANCH_NAME == 'master') {
                                 // If we're building on master, update the master images.
-                                docker.image("${docker_registry}/design-system:dev_${it}-${CA_STYLEGUIDE_VERSION_TAG}").tag("${docker_registry}:${it}")
+                                docker.image("${docker_registry}/design-system:dev_${it}_${CA_STYLEGUIDE_VERSION_TAG}").tag("${docker_registry}:${it}")
                                 docker.image("${docker_registry}/design-system:${it}").push()
                             } else {
-                                docker.image("${docker_registry}/design-system:dev_${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").push()
+                                docker.image("${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}").push()
                             }
                         }
                     }
