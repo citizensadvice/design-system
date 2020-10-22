@@ -11,4 +11,18 @@ Feature: Button components
       Given the Primary Button component is on the page
 
     Scenario: Ensure button is of correct type
-      Then the primary button acts as a button
+      Then the Primary button acts as a button
+
+  Rule: Secondary Button
+    Background:
+      Given the Secondary Button component is on the page
+
+    Scenario: Ensure button is of correct type
+      Then the Secondary button acts as a button
+
+  Rule: Tertiary Button
+    Background:
+      Given the Tertiary Button component is on the page
+
+    Scenario: Ensure button is of correct type
+      Then the Tertiary button acts as a button
