@@ -5,6 +5,7 @@
   "files": [
     "scss",
     "lib",
+    "locales",
     "fonts",
     "haml",
     "CHANGELOG.md",
@@ -25,7 +26,7 @@
     "styleguide": "start-storybook -p 6006 -s styleguide",
     "styleguide:ci": "start-storybook -p 6006 --ci",
     "docs:build": "build-storybook -o docs",
-    "docs:serve": "http-server docs",
+    "docs:serve": "http-server -p 6006 docs",
     "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
     "lint:es": "eslint src scripts testing --ext .js,.ts",
     "lint": "prettier --check . && npm-run-all lint:css lint:es",

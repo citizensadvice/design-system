@@ -1,12 +1,11 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
 import templateDefault from './_default.html.haml';
-import templateDefaultCode from '!!raw-loader!./_default.html.haml';
 import templateNoCollapse from './_no-collapse.html.haml';
-import templateNoCollapseCode from '!!raw-loader!./_no-collapse.html.haml';
 
 <Meta
   title="Components/Breadcrumbs"
-  component={() => templateDefault}
   decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
 />
 
@@ -22,9 +21,9 @@ By default they will collapse to the parent page on mobile. You can explicity se
 <Preview>
   <Story
     name="Breadcrumbs (default)"
-    parameters={{ docs: { source: { code: templateDefaultCode } } }}
+    parameters={{ docs: { source: { code: templateDefault.raw } } }}
   >
-    {() => templateDefault}
+    {(_, options) => translate(templateDefault, options)}
   </Story>
 </Preview>
 
@@ -35,9 +34,9 @@ You can prevent the default collapse behaviour on mobile when you don't want thi
 <Preview>
   <Story
     name="Breadcrumbs (No collapse)"
-    parameters={{ docs: { source: { code: templateNoCollapseCode } } }}
+    parameters={{ docs: { source: { code: templateNoCollapse.raw } } }}
   >
-    {() => templateNoCollapse}
+    {(_, options) => translate(templateNoCollapse, options)}
   </Story>
 </Preview>
 
@@ -58,4 +57,4 @@ The Haml partial takes a `breadcrumb` hash, which has the following properties:
 
 For example:
 
-<Source dark="true" lang="haml" code={templateNoCollapseCode} />
+<Source dark="true" lang="haml" code={templateNoCollapse.raw} />

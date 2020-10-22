@@ -1,7 +1,7 @@
 deployBranches = ['master']
 
 configurationTypes = [
-//     ['Windows_10_83', 'chrome'], - These seem to be "too" popular!
+    //     ['Windows_10_83', 'chrome'], - These seem to be "too" popular!
     ['Windows_10_85', 'chrome'],
     ['Windows_10_80', 'firefox'],
     ['Windows_10_76', 'firefox'],
@@ -12,7 +12,7 @@ configurationTypes = [
 //     ['OSX_Mojave_12', 'safari'], - These seem to be "too" popular!
 ]
 
-cron_schedule = deployBranches.contains(BRANCH_NAME) ? "0 2 * * *" : ""
+cron_schedule = deployBranches.contains(BRANCH_NAME) ? '0 2 * * *' : ''
 
 pipeline {
     triggers { cron(cron_schedule) }
@@ -53,10 +53,16 @@ pipeline {
             steps {
                 script { env.BUILD_STAGE = 'Sanity Test' }
                 withDockerSandbox(["ca-styleguide${CA_STYLEGUIDE_VERSION_TAG}",
-                    "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
-                    sh './bin/jenkins/visual_regression'
-                    sh './bin/docker/a11y-test'
-                    sh './bin/docker/grid_tests'
+                        "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
+                    script {
+                        try {
+                            sh './bin/jenkins/visual_regression'
+                            sh './bin/docker/a11y-test'
+                            sh './bin/docker/grid_tests'
+                    } catch (Exception e) {
+                            sh 'docker-compose logs --no-color'
+                        }
+                    }
                 }
             }
         }
@@ -120,7 +126,7 @@ pipeline {
                             if (currentBuild.currentResult != 'SUCCESS') {
                                 throw new Exception("Build Failed: ${currentBuild.currentResult}")
                             }
-                        }
+                                     }
                     } catch (Exception e) {
                     // do nothing, exception just used to trigger failure message.
                     }

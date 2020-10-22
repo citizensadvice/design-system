@@ -10,3 +10,18 @@ export const parameters = {
     },
   },
 };
+
+export const globalTypes = {
+  locale: {
+    name: 'Locale',
+    description: 'I18n locale',
+    defaultValue: 'en',
+    toolbar: {
+      icon: 'globe',
+      items: [
+        { value: 'en', right: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', title: 'English' },
+        { value: 'cy', right: '🏴󠁧󠁢󠁷󠁬󠁳󠁿', title: 'Cymraeg' },
+      ],
+    },
+  },
+};

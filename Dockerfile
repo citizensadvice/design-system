@@ -15,6 +15,9 @@ RUN apk add --upgrade ruby ruby-dev ruby-json ruby-etc
 # nokogiri compilation (C-gem)
 RUN apk add gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base
 
+# required for activesupport v6
+RUN apk add ruby-bigdecimal
+
 # git for repository-based gems
 RUN apk add --no-cache git
 
@@ -31,4 +34,7 @@ RUN mkdir -p /app && cp -a /tmp/node_modules /app
 
 COPY . /app
 
-RUN bundle install
+RUN bundle config --local build.nokogiri --use-system-libraries bundle config build.nokogiri --with-xml2-dir=/usr/include/libxml2 --with-xslt-dir=/usr/include/libxslt \
+  && bundle install
+
+RUN npm run docs:build
