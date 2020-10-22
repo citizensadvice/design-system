@@ -11,7 +11,7 @@ const { log } = console;
 const PATH = path.join(__dirname, '..'); // Where's stuff?
 const OUTPUT_DIR = path.join(PATH, 'lib');
 
-const files = ['lib', 'public', 'advisernet'];
+const files = ['lib'];
 
 function compileSass() {
   files.forEach((file) => {
