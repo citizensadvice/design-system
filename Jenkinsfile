@@ -23,7 +23,7 @@ pipeline {
         label 'docker && awsaccess'
     }
     environment {
-        DOCKER_TAG = "${JOB_NAME}_${getSha()}"
+        DOCKER_TAG = "${env.BRANCH_NAME}_${getSha()}"
         CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
         BUILD_STAGE = ''
     }
