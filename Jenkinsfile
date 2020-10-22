@@ -46,15 +46,15 @@ pipeline {
                         // Pull the master images and any previous builds if we're on a different branch
                         // docker-compose only looks in the local images and doesn't try to pull when building
                         ['story-server', 'backstop', 'wcag', 'ruby'].each {
-                            docker.image("${docker_registry}/design-system:${it}").pull()
-                            if (env.BRANCH_NAME != 'master') {
-                                // Ignore failures from docker - it's probably an Image Not Found.
-                                // Other errors like out of disk space will cause problems in other commands
-                                try {
-                                    docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
-                                } catch (Exception e) {
-                                    echo "Error pulling ${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
+                            // Ignore failures from docker - it's probably an Image Not Found.
+                            // Other errors like out of disk space will cause problems in other commands
+                            try {
+                                docker.image("${docker_registry}/design-system:${it}").pull()
+                                if (env.BRANCH_NAME != 'master') {
+                                        docker.image("${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
                                 }
+                            } catch (Exception e) {
+                                    echo "Error pulling ${docker_registry}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}"
                             }
                         }
                     }
