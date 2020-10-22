@@ -5,6 +5,7 @@
   "files": [
     "scss",
     "lib",
+    "locales",
     "fonts",
     "haml",
     "CHANGELOG.md",
