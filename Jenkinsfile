@@ -20,8 +20,9 @@ pipeline {
     }
     environment {
         DOCKER_TAG = "${JOB_NAME}_${getSha()}"
-        CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
+        CA_STYLEGUIDE_VERSION_TAG = "dev_${DOCKER_TAG.toLowerCase()}"
         BUILD_STAGE = ''
+        ECR_REPOSITORY = '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system'
     }
     parameters {
         string(name: 'slackChannel', defaultValue: '#new_platform_builds',
@@ -37,7 +38,31 @@ pipeline {
                 script {
                     currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
                 }
+                script {
+                    // Pull the master images and any previous builds if we're on a different branch
+                    // docker-compose only looks in the local images and doesn't try to pull when building
+                    ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                        sh 'docker pull ${env.ECR_REPOSITORY}:${it}'
+                        if (env.BRANCH_NAME != "master") {
+                            // Ignore failures from docker - it's probably an Image Not Found.
+                            // Other errors like out of disk space will cause problems in other commands
+                            result = sh(script: 'docker pull ${env.ECR_REPOSITORY}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}', returnStatus: true)
+                        }
+                    }
+                }
                 script { sh 'docker-compose build' }
+                script {
+                    // Push updated containers so they can be used on the next run
+                    ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                        if (env.BRANCH_NAME == "master") {
+                            // If we're building on master, update the master images.
+                            sh 'docker tag ${env.ECR_REPOSITORY}:${it}-${CA_STYLEGUIDE_VERSION_TAG} ${env.ECR_REPOSITORY}:${it}'
+                            sh 'docker push ${env.ECR_REPOSITORY}:${it}'
+                        } else {
+                            sh 'docker push ${env.ECR_REPOSITORY}:${it}-${env.CA_STYLEGUIDE_VERSION_TAG}'
+                        }
+                    }
+                }
             }
         }
         stage('Lint and unit test') {
@@ -58,8 +83,9 @@ pipeline {
                             sh './bin/jenkins/visual_regression'
                             sh './bin/docker/a11y-test'
                             sh './bin/docker/grid_tests'
-                    } catch (Exception e) {
+                        } catch (Exception e) {
                             sh 'docker-compose logs --no-color'
+                            currentBuild.result = 'FAILURE'
                         }
                     }
                 }
