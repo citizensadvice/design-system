@@ -25,3 +25,9 @@ export const globalTypes = {
     },
   },
 };
+
+const withLocaleClassname = (Story, { globals }) => {
+  return `<div class="cads-lang-${globals.locale || 'en'}">${Story()}</div>`;
+};
+
+export const decorators = [withLocaleClassname];

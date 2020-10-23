@@ -69,32 +69,6 @@
   }
 }
 
-.cads-styleguide__language-label {
-  position: fixed;
-  background: rgba($cads-palette__heritage-blue, 0.5);
-  color: $cads-palette__white;
-  top: 0;
-  right: 0;
-  width: 4em;
-  text-align: center;
-  font-size: 0.75em;
-  padding: 0.75em;
-  z-index: 1000;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba($cads-palette__heritage-blue, 1);
-  }
-
-  &::after {
-    content: 'en';
-  }
-
-  .cads-lang-cy &::after {
-    content: 'cy';
-  }
-}
-
 .cads-styleguide__table {
   box-shadow: none;
 
