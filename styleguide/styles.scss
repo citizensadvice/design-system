@@ -1,38 +1,6 @@
 // These styles are for use in the storybook styleguide
 @import '../scss/lib';
 
-.cads-styleguide-icon-list {
-  li {
-    display: inline-block;
-    border: 1px solid $cads-language__border-colour;
-    border-radius: $cads-border-radius;
-    padding: 1em;
-    margin-right: 0.25em;
-    margin-bottom: 0.25em;
-    text-align: center;
-    width: 200px;
-
-    @include cads-transition-animation();
-
-    &:hover {
-      background-color: $cads-language__border-colour;
-    }
-
-    span {
-      display: block;
-    }
-
-    span:first-child {
-      font-size: 2em;
-      margin-bottom: 0.5em;
-    }
-  }
-}
-
-.cads-styleguide-max-content-width {
-  max-width: $cads-max-content-size * 0.6;
-}
-
 .html {
   font-family: monospace;
   font-size: 1rem;
@@ -47,6 +15,31 @@
   &.inline {
     display: inline-block;
     padding: 0;
+  }
+}
+
+.cads-styleguide-icon-list {
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    border: 1px solid $cads-language__border-colour;
+    border-radius: $cads-border-radius;
+    padding: 1em;
+    margin-right: 0.25em;
+    margin-bottom: 0.25em;
+    text-align: center;
+    width: 200px;
+
+    span {
+      display: block;
+    }
+
+    span:first-child {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
   }
 }
 
@@ -66,17 +59,6 @@
     font-size: 0.75em;
     line-height: 1.25em;
     padding: 8px 0 0 0;
-  }
-}
-
-.cads-styleguide__table {
-  box-shadow: none;
-
-  td {
-    border: none;
-    vertical-align: middle;
-    padding-right: 1em;
-    padding-bottom: 1em;
   }
 }
 
@@ -130,22 +112,4 @@
       }
     }
   }
-}
-
-.cads-styleguide-table {
-  text-align: center;
-
-  thead tr th {
-    font-weight: bold;
-  }
-
-  tr:nth-child(even) {
-    background-color: $cads-language__border-colour;
-  }
-}
-
-.cads-styleguide__highlight-box {
-  padding: 1rem;
-  border: 1px solid $cads-language__border-colour;
-  margin-bottom: 1rem;
 }
