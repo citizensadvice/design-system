@@ -2,15 +2,14 @@ import './styles.scss';
 import sassPalette from '../scss/1-settings/_colour-palette.scss';
 import sassLanguage from '../scss/1-settings/_colour-language.scss';
 
-// import Animations from './tokens/animations.md';
-import Breakpoints from './tokens/breakpoints.md';
-import Typography from './tokens/typography.md';
-import Spacing from './tokens/spacing.md';
-import Grid from './tokens/grid.md';
-import Borders from './tokens/borders.md';
-import Visibility from './tokens/visibility.md';
-import Languages from './tokens/languages.md';
-import IconFont from './tokens/icon_font.md';
+import Breakpoints from './foundations/breakpoints.md';
+import Typography from './foundations/typography.md';
+import Spacing from './foundations/spacing.md';
+import Grid from './foundations/grid.md';
+import Borders from './foundations/borders.md';
+import Visibility from './foundations/visibility.md';
+import Languages from './foundations/languages.md';
+import IconFont from './foundations/icon_font.md';
 
 export default {
   title: '2: Design Foundations',
@@ -57,7 +56,6 @@ export const spacingAndSizing = () => Spacing;
 export const grid = () => Grid;
 export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;
-// export const animations = () => Animations;
 export const visibility = () => Visibility;
 export const languages = () => Languages;
 export const iconFont = () => IconFont;
