@@ -1,18 +1,17 @@
 deployBranches = ['master']
 
 configurationTypes = [
-//     ['Windows_10_83', 'chrome'], - These seem to be "too" popular!
+    //     ['Windows_10_83', 'chrome'], - These seem to be "too" popular!
     ['Windows_10_85', 'chrome'],
     ['Windows_10_80', 'firefox'],
     ['Windows_10_76', 'firefox'],
     ['Windows_7_80', 'chrome'],
     ['Windows_7_78', 'firefox'],
-    ['OSX_Catalina_80', 'firefox'],
     ['OSX_Mojave_78', 'firefox'],
 //     ['OSX_Mojave_12', 'safari'], - These seem to be "too" popular!
 ]
 
-cron_schedule = deployBranches.contains(BRANCH_NAME) ? "0 2 * * *" : ""
+cron_schedule = deployBranches.contains(BRANCH_NAME) ? '0 2 * * *' : ''
 
 def docker_registry = '979633842206.dkr.ecr.eu-west-1.amazonaws.com'
 def docker_registry_url = "https://${docker_registry}"
@@ -93,12 +92,11 @@ pipeline {
                         "ca-backstop${CA_STYLEGUIDE_VERSION_TAG}"]) {
                     script {
                         try {
-                            sh('./bin/jenkins/visual_regression')
-                            sh('./bin/docker/a11y-test')
-                            sh('./bin/docker/grid_tests')
+                            sh './bin/jenkins/visual_regression'
+                            sh './bin/docker/a11y-test'
+                            sh './bin/docker/grid_tests'
                         } catch (Exception e) {
-                            sh('docker-compose logs --no-color')
-                            error(e)
+                            sh 'docker-compose logs --no-color'
                         }
                     }
                 }
@@ -164,7 +162,7 @@ pipeline {
                             if (currentBuild.currentResult != 'SUCCESS') {
                                 throw new Exception("Build Failed: ${currentBuild.currentResult}")
                             }
-                        }
+                                     }
                     } catch (Exception e) {
                     // do nothing, exception just used to trigger failure message.
                     }

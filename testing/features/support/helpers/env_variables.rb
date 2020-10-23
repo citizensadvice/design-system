@@ -59,5 +59,17 @@ module Helpers
     def docker_tag
       ENV["DOCKER_TAG"]
     end
+
+    def browserstack_os
+      ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[0]
+    end
+
+    def browserstack_os_version
+      ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[1]
+    end
+
+    def browserstack_browser_version
+      ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[2]
+    end
   end
 end

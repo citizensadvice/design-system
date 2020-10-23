@@ -1,4 +1,5 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
 
 <Meta
   title="Forms/Error summary"
@@ -8,13 +9,12 @@ import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 # Error summary
 
 import templateExample from './_example.html.haml';
-import templateExampleCode from '!!raw-loader!./_example.html.haml';
 
 <Preview>
   <Story
     name="Example"
-    parameters={{ docs: { source: { code: templateExampleCode } } }}
+    parameters={{ docs: { source: { code: templateExample.raw } } }}
   >
-    {() => templateExample}
+    {(_, options) => translate(templateExample, options)}
   </Story>
 </Preview>

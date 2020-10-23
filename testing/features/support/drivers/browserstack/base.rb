@@ -38,7 +38,7 @@ module Drivers
 
         {
           "browserName" => browser,
-          "browserVersion" => browser_version
+          "browserVersion" => browserstack_browser_version
         }
       end
 
@@ -48,8 +48,8 @@ module Drivers
             "buildName" => build_name,
             "projectName" => "Design System tests",
             "sessionName" => session_name,
-            "os" => os,
-            "osVersion" => os_version,
+            "os" => browserstack_os,
+            "osVersion" => browserstack_os_version,
             "local" => "false",
             "seleniumVersion" => selenium_jar_version,
             "debug" => browserstack_debug_mode,
@@ -70,18 +70,6 @@ module Drivers
 
       def session_name
         PayloadValuesGenerator.session_name
-      end
-
-      def os
-        ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[0]
-      end
-
-      def os_version
-        ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[1]
-      end
-
-      def browser_version
-        ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[2]
       end
 
       def selenium_jar_version
