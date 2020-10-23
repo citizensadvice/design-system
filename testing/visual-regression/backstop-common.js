@@ -104,6 +104,15 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-callouts--adviser-callout'),
       },
       {
+        label: 'Components/Targeted content',
+        url: storyUrlFor('components-targeted-content--default-story'),
+      },
+      {
+        label: 'Components/Targeted content (open)',
+        url: storyUrlFor('components-targeted-content--default-story'),
+        clickSelector: '.cads-targeted-content',
+      },
+      {
         label: 'Components/OISC Warning/With title and description',
         url: storyUrlFor('components-oisc-warning--with-title-and-description'),
         selectors: ['.cads-oisc-warning'],
@@ -322,14 +331,6 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/iframe.html?id=3-components--success-message`,
         readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_TARGED_CONTENT',
-        url: `${baseUrl}/iframe.html?id=3-components--targeted-content`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-targeted-content',
         selectors: ['#a11yComponentToTest'],
       },
       {
