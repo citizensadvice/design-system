@@ -1,4 +1,3 @@
-import Breakpoints from './foundations/breakpoints.md';
 import Typography from './foundations/typography.md';
 import Spacing from './foundations/spacing.md';
 import Borders from './foundations/borders.md';
@@ -15,7 +14,6 @@ export default {
 
 export const typography = () => Typography;
 export const spacingAndSizing = () => Spacing;
-export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;
 export const visibility = () => Visibility;
 export const iconFont = () => IconFont;
