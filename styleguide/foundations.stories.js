@@ -7,7 +7,6 @@ import Typography from './foundations/typography.md';
 import Spacing from './foundations/spacing.md';
 import Borders from './foundations/borders.md';
 import Visibility from './foundations/visibility.md';
-import Languages from './foundations/languages.md';
 import IconFont from './foundations/icon_font.md';
 
 export default {
@@ -55,5 +54,4 @@ export const spacingAndSizing = () => Spacing;
 export const breakpoints = () => Breakpoints;
 export const borders = () => Borders;
 export const visibility = () => Visibility;
-export const languages = () => Languages;
 export const iconFont = () => IconFont;
