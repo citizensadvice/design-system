@@ -79,18 +79,3 @@
     }
   }
 }
-
-.cads-targeted-content__expand-all {
-  display: none;
-}
-
-.cads-adviser {
-  .cads-targeted-content__expand-all {
-    display: inline-block;
-
-    span {
-      font-size: 0.875em;
-      margin-left: $cads-spacing-2;
-    }
-  }
-}
