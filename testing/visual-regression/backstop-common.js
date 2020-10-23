@@ -157,16 +157,6 @@ module.exports = function backstopCommon(baseUrl) {
 
       // Old format component tests below here
       {
-        label: '2_Design_Foundations_COLOUR_LANGUAGE',
-        url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
-        removeSelectors: ['h1'],
-      },
-      {
-        label: '2_Design_Foundations_COLOUR_PALETTE',
-        url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-palette`,
-        removeSelectors: ['h1'],
-      },
-      {
         label: '3_Components_ASSET_HYPERLINK',
         url: `${baseUrl}/iframe.html?id=3-components--asset-hyperlink`,
         readySelector: '#a11yComponentToTest',
