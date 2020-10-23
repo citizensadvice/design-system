@@ -1,5 +1,4 @@
 import Typography from './foundations/typography.md';
-import Visibility from './foundations/visibility.md';
 import IconFont from './foundations/icon_font.md';
 
 export default {
@@ -11,5 +10,4 @@ export default {
 };
 
 export const typography = () => Typography;
-export const visibility = () => Visibility;
 export const iconFont = () => IconFont;
