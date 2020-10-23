@@ -28,7 +28,7 @@
     "docs:build": "build-storybook -o docs",
     "docs:serve": "http-server -p 6006 docs",
     "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
-    "lint:es": "eslint src scripts testing --ext .js,.ts",
+    "lint:es": "eslint . --ext .js,.ts",
     "lint": "prettier --check . && npm-run-all lint:css lint:es",
     "test": "npm run lint && jest",
     "test:watch": "jest --watch --notify",
