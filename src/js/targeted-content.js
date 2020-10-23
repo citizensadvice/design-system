@@ -3,8 +3,39 @@ const initTargetedContent = () => {
     isOpen: 'is-open',
   };
 
-  const pageContents = document.querySelector('.cads-main-content') || document;
-  const targetedContentEls = pageContents.querySelectorAll(
+  function setOpen(el) {
+    el.classList.add(CLASS_NAMES.isOpen);
+    el.querySelector('summary').setAttribute('aria-expanded', 'true');
+  }
+
+  function forceOpen(el) {
+    setOpen(el);
+    // eslint-disable-next-line no-param-reassign
+    el.open = true;
+  }
+
+  function setClosed(el) {
+    el.classList.remove(CLASS_NAMES.isOpen);
+    el.querySelector('summary').setAttribute('aria-expanded', 'false');
+  }
+
+  function forceClosed(el) {
+    setClosed(el);
+    // eslint-disable-next-line no-param-reassign
+    el.open = false;
+  }
+
+  function openByHash(hash) {
+    const targetEl = document.querySelector(hash);
+    if (targetEl) {
+      const closestDetailsEl = targetEl.closest('.cads-targeted-content');
+      if (closestDetailsEl) {
+        forceOpen(closestDetailsEl);
+      }
+    }
+  }
+
+  const targetedContentEls = document.querySelectorAll(
     '.cads-targeted-content'
   );
 
@@ -15,11 +46,9 @@ const initTargetedContent = () => {
 
       summary.addEventListener('click', () => {
         if (item.classList.contains(CLASS_NAMES.isOpen)) {
-          item.classList.remove(CLASS_NAMES.isOpen);
-          summary.setAttribute('aria-expanded', 'false');
+          setClosed(item);
         } else {
-          item.classList.add(CLASS_NAMES.isOpen);
-          summary.setAttribute('aria-expanded', 'true');
+          setOpen(item);
         }
       });
 
@@ -29,12 +58,21 @@ const initTargetedContent = () => {
 
       if (closeButtonEl) {
         closeButtonEl.addEventListener('click', () => {
-          item.classList.remove(CLASS_NAMES.isOpen);
-          summary.setAttribute('aria-expanded', 'false');
-          item.open = false;
+          forceClosed(item);
         });
       }
     }
+
+    /**
+     * Toggle open matching targeted content if anchoring to or into it.
+     */
+    if (window.location.hash) {
+      openByHash(window.location.hash);
+    }
+
+    window.addEventListener('hashchange', () => {
+      openByHash(window.location.hash);
+    });
 
     /**
      * Toggle open all targeted content elements if printing
@@ -42,10 +80,7 @@ const initTargetedContent = () => {
     window.addEventListener('beforeprint', () => {
       for (let i = 0; i < targetedContentEls.length; i++) {
         const item = targetedContentEls[i];
-        const summary = item.querySelector('summary');
-        if (!item.classList.contains('is-open')) {
-          summary.click();
-        }
+        forceOpen(item);
       }
     });
   }
