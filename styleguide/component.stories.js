@@ -23,7 +23,6 @@ import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
-import tTargetedContent from '../haml/_targeted-content.html.haml';
 import tPageReview from '../haml/_page_review.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
@@ -137,17 +136,6 @@ export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 export const websiteFeedback = () =>
   renderHamlTemplate('Website Feedback', tWebsiteFeedback, 'website_feedback');
-export const targetedContent = () =>
-  renderHamlTemplate(
-    'Targeted Content',
-    tTargetedContent,
-    'targeted-content',
-    `The targeted component uses javascript to initialise the click handlers for the collapse/expand behaviour.
-        \n\n
-        <pre><code>import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content'</code></pre> and execute that function after the the page has finished loading.`,
-    null,
-    () => initTargetedContent()
-  );
 
 export const successMessage = () =>
   renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');

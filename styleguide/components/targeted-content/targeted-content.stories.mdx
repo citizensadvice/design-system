@@ -1,0 +1,65 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import initTargetedContent from '../../../src/js/targeted-content';
+import { translate } from '../../../scripts/story-helpers';
+
+import templateDefault from './_default.html.haml';
+import templateAnchor from './_anchor.html.haml';
+
+<Meta
+  title="Components/Targeted content"
+  decorators={[
+    (Story) => {
+      setTimeout(() => initTargetedContent());
+      return Story();
+    },
+  ]}
+/>
+
+# Targeted content
+
+## Default behaviour
+
+<Preview>
+  <Story
+    name="Default"
+    parameters={{ docs: { source: { code: templateDefault.raw } } }}
+  >
+    {(_, options) => translate(templateDefault, options)}
+  </Story>
+</Preview>
+
+## Open targeted content with anchor
+
+<Preview>
+  <Story
+    name="With anchor"
+    parameters={{ docs: { source: { code: templateAnchor.raw } } }}
+  >
+    {(_, options) => translate(templateAnchor, options)}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial takes a `targetContent` hash with the following properties:
+
+| properties               | Description            |
+| ------------------------ | ---------------------- |
+| `targetContent['id']`    | Required, unique ID    |
+| `targetContent['title']` | Required, title string |
+| `targetContent['body']`  | Required, body HTML    |
+
+For example:
+
+<Source dark="true" lang="haml" code={templateDefault.raw} />
+
+## JavaScript behaviour
+
+Targeted content requires some additional JavaScript behaviour which can be initialised with:
+
+```js
+import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content';
+initTargetedContent();
+```
+
+**Note**: If you are supporting IE 11 or earlier make sure you include an [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest).
