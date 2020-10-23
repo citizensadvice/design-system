@@ -30,7 +30,7 @@ When("I close the sticky component") do
 end
 
 Then("the OISC title is visible") do
-  expect(@component).to have_heading
+  expect(@component).to have_heading(text: I18n.t("components.oisc_warning.title"))
 end
 
 Then("the OISC message is visible") do

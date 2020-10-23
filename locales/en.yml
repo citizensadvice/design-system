@@ -9,3 +9,5 @@ en:
         adviser: Adviser
         example: Example
         important: Important
+    oisc_warning:
+      title: This is an OISC level 2 topic
