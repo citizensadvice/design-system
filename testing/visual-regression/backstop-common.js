@@ -166,16 +166,6 @@ module.exports = function backstopCommon(baseUrl) {
 
       // Old format component tests below here
       {
-        label: '2_Design_Foundations_COLOUR_LANGUAGE',
-        url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-language`,
-        removeSelectors: ['h1'],
-      },
-      {
-        label: '2_Design_Foundations_COLOUR_PALETTE',
-        url: `${baseUrl}/iframe.html?id=2-design-foundations--colour-palette`,
-        removeSelectors: ['h1'],
-      },
-      {
         label: '3_Components_ASSET_HYPERLINK',
         url: `${baseUrl}/iframe.html?id=3-components--asset-hyperlink`,
         readySelector: '#a11yComponentToTest',
@@ -237,7 +227,7 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
         readySelector: '.js-CadsGreedyNav',
         delay: 750,
-        removeSelectors: ['.cads-styleguide-max-content-width', 'h1'],
+        removeSelectors: ['.cads-styleguide-usage', 'h1'],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-greedy-nav__dropdown-toggle',
         postInteractionWait: 1000,
@@ -270,7 +260,7 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
         readySelector: '.js-CadsGreedyNav',
         delay: 750,
-        removeSelectors: ['.cads-styleguide-max-content-width', 'h1'],
+        removeSelectors: ['.cads-styleguide-usage', 'h1'],
         keyPressSelectors: [{ selector: '.cads-nav-link', keyPress: 'Tab' }],
         postInteractionWait: 1000,
         selectors: [],

@@ -1,0 +1,18 @@
+import { Meta, Description } from '@storybook/addon-docs/blocks';
+
+import sassPalette from '../../scss/1-settings/_colour-palette.scss';
+import sassLanguage from '../../scss/1-settings/_colour-language.scss';
+
+import getColours from './get-colours';
+
+<Meta title="Foundations/Colours" />
+
+# Colours
+
+## Colour palette
+
+<Description>{getColours('palette', sassPalette)}</Description>
+
+## Colour language
+
+<Description>{getColours('language', sassLanguage)}</Description>

@@ -28,7 +28,7 @@ const wrapper = (title, component, usage, js, pageTemplate) => {
 ${component}
 </div>
 <hr />
-<div class="cads-styleguide-max-content-width">
+<div class="cads-styleguide-usage">
 <h2 aria-hidden="true">Code example</h2>
 <pre class="html" aria-hidden="true"><code>
 ${source}

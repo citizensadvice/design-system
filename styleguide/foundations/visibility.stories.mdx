@@ -1,3 +1,7 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Visibility" />
+
 # Text visibility
 
 There are a number of ways to show/hide text visually and in the context of a screen reader. Use the inspect tools to see what the gap below is.
@@ -5,7 +9,9 @@ There are a number of ways to show/hide text visually and in the context of a sc
 <p class="cads-hide">completely hidden text</p>
 <p class="cads-invisible">mostly hidden text</p>
 <p class="cads-sr-show">Only seen by screen readers</p>
-<p aria-hidden="true">This text can be seen, but won't be read by a screen reader.</p>
+<p aria-hidden="true">
+  This text can be seen, but won't be read by a screen reader.
+</p>
 
 ```html
 <p class="cads-hide">completely hidden text</p>
