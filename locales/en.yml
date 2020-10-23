@@ -3,3 +3,9 @@ en:
     example:
       name: 'Citizens Advice'
       body: 'This is some body text'
+  components:
+    callout:
+      warning:
+        adviser: Adviser
+        example: Example
+        important: Important

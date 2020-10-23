@@ -3,3 +3,9 @@ cy:
     example:
       name: 'Cyngor ar Bopeth'
       body: 'Dyma ychydig o destun y corff'
+  components:
+    callout:
+      warning:
+        adviser: Adviser
+        example: Example
+        important: Important
