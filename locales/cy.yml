@@ -17,7 +17,8 @@ cy:
       body_html: Page last reviewed on <span class="cads-page-review-date">%{date}</span>
     search:
       input_aria_label: Search through site content
-      submit: Submit search query
+      submit_title: Submit search query
+      submit_label: Search
     website_feedback:
       body: Is there anything wrong with this page? Let us know
     shared:

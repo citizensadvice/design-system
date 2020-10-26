@@ -17,7 +17,8 @@ en:
       body_html: Page last reviewed on <span class="cads-page-review-date">%{date}</span>
     search:
       input_aria_label: Search through site content
-      submit: Submit search query
+      submit_title: Submit search query
+      submit_label: Search
     targeted_content:
       close_button_aria: Collapse %{title}
     website_feedback:

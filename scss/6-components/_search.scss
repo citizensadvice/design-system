@@ -24,16 +24,6 @@
     border: solid $cads-border-width-medium
       $cads-language__primary-button-colour;
 
-    &::after {
-      font-family: $cads-font-family;
-      font-weight: $cads-font-weight__bold;
-      content: 'Search';
-    }
-
-    .cads-lang-cy &::after {
-      content: 'Chwilio';
-    }
-
     &:hover {
       box-shadow: none;
     }
