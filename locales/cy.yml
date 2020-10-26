@@ -14,6 +14,9 @@ cy:
     search:
       input_aria_label: Search through site content
       submit: Submit search query
+    website_feedback:
+      link_title: Let us know
+      body: Is there anything wrong with this page? Let us know
     shared:
       ui:
         close: Close
