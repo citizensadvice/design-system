@@ -9,6 +9,9 @@ en:
       example: Example
       important: Important
       adviser: Adviser
+    form:
+      label:
+        optional: optional
     logo:
       title: Citizens Advice homepage
     oisc_warning:

@@ -9,6 +9,9 @@ cy:
       example: Example
       important: Important
       adviser: Adviser
+    form:
+      label:
+        optional: dewisol
     logo:
       title: Citizens Advice homepage
     oisc_warning:
