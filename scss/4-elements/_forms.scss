@@ -216,6 +216,10 @@ textarea,
   margin-bottom: $cads-spacing-3;
 }
 
+.cads-form__optional {
+  font-weight: normal;
+}
+
 .cads-form__hint {
   color: $cads-language__secondary-text-colour;
   display: block;

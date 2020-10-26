@@ -4,7 +4,7 @@
     %label.cads-form-label.cads-heading-small{id: "#{input['name']}-label", for: "#{input['name']}-input" }
       = input['label']
       - if input['optional']
-        = " (#{t('cads.form.optional')})"
+        %span.cads-form__optional= " (#{t('cads.form.optional')})"
     - if input['hint']
       %p.cads-form__hint= input['hint']
     - if input['error_message']

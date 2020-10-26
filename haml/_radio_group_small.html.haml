@@ -2,6 +2,8 @@
   .cads-form-error-marker
   %fieldset.cads-form-content.cads-radio-group.cads-radio-group__small
     %legend.cads-form-label.cads-heading-small= radio['label']
+      - if input['optional']
+        %span.cads-form__optional= " (#{t('cads.form.optional')})"
     - if radio['hint']
       %p.cads-form__hint= radio['hint']
     - if radio['error_message']
@@ -9,7 +11,5 @@
     - radio['options'].each do |radioItem|
       %label.cads-radio-button{for: "#{radio['name']}-#{radioItem['value']}"}
         = radioItem['label']
-        - if input['optional']
-          = " (#{t('cads.form.optional')})"
         %input{type: "radio", id: "#{radio['name']}-#{radioItem['value']}", name: radio['name'], value: radioItem['value']}
         %span.cads-radio-button-checkmark
