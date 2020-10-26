@@ -218,11 +218,7 @@ textarea,
 }
 
 .cads-form-label {
-<<<<<<< HEAD
   @extend %cads-h4;
-=======
-  @extend %h4;
->>>>>>> fix: correct input label and error
 
   display: block;
   margin-bottom: $cads-spacing-3;
