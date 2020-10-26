@@ -5,21 +5,6 @@
 
 .cads-grid-row {
   @include cads-make-row();
-
-  // Remove the negative margin from default .row, then the horizontal padding
-  // from all immediate children columns. This prevents runaway style inheritance.
-  // &--no-gutters {
-  //     margin-right: 0;
-  //     margin-left: 0;
-  //     margin-top: 0;
-  //     margin-bottom: 0;
-
-  //     > .cads-grid-col,
-  //     > [class*='cads-grid-col-'] {
-  //         padding-right: 0;
-  //         padding-left: 0;
-  //     }
-  // }
 }
 
 // Common styles for small and large grid columns

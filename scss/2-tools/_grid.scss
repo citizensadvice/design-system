@@ -28,9 +28,6 @@
     $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
 
     @include cads-media-breakpoint-up($breakpoint) {
-      // margin-top: ($gutter / 2);
-      // margin-bottom: ($gutter / 2);
-
       margin-right: ($gutter / -2);
       margin-left: ($gutter / -2);
     }
