@@ -11,6 +11,9 @@ cy:
       title: Citizens Advice homepage
     page_review:
       body_html: Page last reviewed on <span class="cads-page-review-date">%{date}</span>
+    search:
+      input_aria_label: Search through site content
+      submit: Submit search query
     shared:
       copyright: Copyright ©2020 Citizens Advice. All rights reserved.
       legal_summary: >
