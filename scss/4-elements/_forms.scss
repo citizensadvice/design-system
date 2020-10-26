@@ -3,7 +3,11 @@
 }
 
 .cads-form__error-message {
+<<<<<<< HEAD
   @extend %cads-paragraph;
+=======
+  @extend %p;
+>>>>>>> fix: correct input label and error
 
   display: none;
   color: $cads-language__warning-colour;
@@ -214,7 +218,11 @@ textarea,
 }
 
 .cads-form-label {
+<<<<<<< HEAD
   @extend %cads-h4;
+=======
+  @extend %h4;
+>>>>>>> fix: correct input label and error
 
   display: block;
   margin-bottom: $cads-spacing-3;
