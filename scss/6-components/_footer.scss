@@ -3,7 +3,7 @@
   padding: $cads-spacing-4;
 
   h2 {
-    @extend .cads-heading-small;
+    @extend %h4;
 
     margin: 0 0 $cads-spacing-4 0;
   }

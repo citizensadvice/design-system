@@ -1,7 +1,7 @@
 .cads-form{ class: [radio['has_error'] && 'cads-form-error', radio['optional'] && 'cads-form-optional'] }
   .cads-form-error-marker
   %fieldset.cads-form-content.cads-radio-group.cads-radio-group__small
-    %legend.cads-form-label.cads-heading-small= radio['label']
+    %legend.cads-form-label= radio['label']
     - if radio['hint']
       %p.cads-form__hint= radio['hint']
     - if radio['error_message']

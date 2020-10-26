@@ -10,12 +10,14 @@
     border-color: $cads-language__error-colour;
   }
 
-  .cads-heading-small {
+  &__title {
+    @extend %h4;
+
     color: $cads-language__warning-colour;
     margin-bottom: $cads-spacing-4;
   }
 
-  .cads-error-summary__list {
+  &__list {
     margin-bottom: 0;
 
     li {

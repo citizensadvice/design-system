@@ -8,6 +8,8 @@
   margin-bottom: $cads-spacing-3;
 
   &__title {
+    @extend %h4;
+
     padding: $cads-spacing-3;
   }
 
