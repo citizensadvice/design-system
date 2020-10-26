@@ -2,9 +2,10 @@
 // Grids
 // ============================================================================
 // Grids are made up of three parts:
-// A .cads-grid-container wrapper element
-// A number of .cads-grid-row elements to demarcate a grid rows
-// A combination of .cads-grid-col-* classes to demarcate grid columns
+//
+// - A `.cads-grid-container` wrapper element
+// - One or more `.cads-grid-row` elements to demarcate a grid rows
+// - A combination of `.cads-grid-col-*` classes to demarcate grid columns
 
 .cads-grid-container {
   width: 100%;
