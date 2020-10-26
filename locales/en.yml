@@ -11,6 +11,8 @@ en:
       adviser: Adviser
     form:
       optional: optional
+    header:
+      search_mobile: Open search
     logo:
       title: Citizens Advice homepage
     oisc_warning:

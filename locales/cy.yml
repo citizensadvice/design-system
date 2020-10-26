@@ -11,6 +11,8 @@ cy:
       adviser: Adviser
     form:
       optional: dewisol
+    header:
+      search_mobile: Open search
     logo:
       title: Citizens Advice homepage
     oisc_warning:
