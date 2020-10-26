@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
 import templateBasic from './_basic-grid.html.haml';
 import templateMultiColumn from './_multi-column-grid.html.haml';
 import templateResponsive from './_responsive-grid.html.haml';
@@ -30,6 +30,8 @@ Grids are made up of three parts:
   </Story>
 </Canvas>
 
+<Source dark="true" lang="haml" code={templateBasic.raw} />
+
 ## Multi-column grids
 
 Grids are **12** columns by default (although this can be configured by overriding the `$cads-grid-columns` variable). You can combine a number of column sizes within a grid row.
@@ -45,6 +47,8 @@ Grids are **12** columns by default (although this can be configured by overridi
     {() => templateMultiColumn}
   </Story>
 </Canvas>
+
+<Source dark="true" lang="haml" code={templateMultiColumn.raw} />
 
 ## Responsive grids
 
@@ -63,3 +67,5 @@ The following example has a column which 10 columns at large breakpoints, 8 at m
     {() => templateResponsive}
   </Story>
 </Canvas>
+
+<Source dark="true" lang="haml" code={templateResponsive.raw} />
