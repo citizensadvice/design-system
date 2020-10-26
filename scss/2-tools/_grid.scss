@@ -34,34 +34,10 @@
   }
 }
 
-@mixin cads-make-col-ready() {
-  position: relative;
-  min-height: 1px; // Stop it from collapsing
-
-  /* Prevent columns from becoming too narrow when at smaller grid tiers by
-  always setting width to 100% (flex will override later this) */
-  width: 100%;
-
-  @each $breakpoint in map-keys($cads-breakpoints) {
-    $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
-
-    @include cads-media-breakpoint-up($breakpoint) {
-      padding-right: ($gutter / 2);
-      padding-left: ($gutter / 2);
-    }
-  }
-}
-
 @mixin cads-make-col($size, $columns: $cads-grid-columns) {
   flex: 0 0 percentage($size / $columns);
   // Ensure content within each column does not blow out the width of the column
   max-width: percentage($size / $columns);
-}
-
-@mixin cads-make-col-offset($size, $columns) {
-  $num: $size / $columns;
-
-  margin-left: if($num == 0, 0, percentage($num));
 }
 
 // Generate the correct number of grid classes
