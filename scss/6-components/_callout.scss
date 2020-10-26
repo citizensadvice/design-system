@@ -11,7 +11,7 @@
   }
 
   h2 {
-    @extend .cads-heading-medium;
+    @extend %h2;
   }
 
   @include cads-media-breakpoint-up(md) {
