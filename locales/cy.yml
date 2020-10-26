@@ -9,6 +9,8 @@ cy:
       adviser: Adviser
     logo:
       title: Citizens Advice homepage
+    oisc_warning:
+      close: Close this warning
     page_review:
       body_html: Page last reviewed on <span class="cads-page-review-date">%{date}</span>
     search:

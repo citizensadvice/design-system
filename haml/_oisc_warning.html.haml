@@ -10,7 +10,7 @@
     - if is_sticky
       %button.cads-oisc-warning__close.js-oisc-warning-close
         %span.cads-icon_close
-        %span.cads-sr-only
-          Close this warning
+        %span.cads-sr-only= t('cads.oisc_warning.close')
+
   - if not body.empty?
     .cads-oisc-warning__body= body
