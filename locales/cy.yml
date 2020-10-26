@@ -10,8 +10,7 @@ cy:
       important: Important
       adviser: Adviser
     form:
-      label:
-        optional: dewisol
+      optional: dewisol
     logo:
       title: Citizens Advice homepage
     oisc_warning:

@@ -9,5 +9,7 @@
     - radio['options'].each do |radioItem|
       %label.cads-radio-button{for: "#{radio['name']}-#{radioItem['value']}"}
         = radioItem['label']
+        - if input['optional']
+          = " (#{t('cads.form.optional')})"
         %input{type: "radio", id: "#{radio['name']}-#{radioItem['value']}", name: radio['name'], value: radioItem['value']}
         %span.cads-radio-button-checkmark

@@ -10,8 +10,7 @@ en:
       important: Important
       adviser: Adviser
     form:
-      label:
-        optional: optional
+      optional: optional
     logo:
       title: Citizens Advice homepage
     oisc_warning:
