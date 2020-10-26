@@ -8,6 +8,9 @@ linters:
   SpaceInsideHashAttributes:
     enabled: false
 
+  UnnecessaryStringOutput:
+    enabled: false
+
   RuboCop:
     # @TODO: Probably turn this back on
     enabled: false
