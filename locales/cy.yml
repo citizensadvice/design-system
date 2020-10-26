@@ -15,6 +15,8 @@ cy:
       input_aria_label: Search through site content
       submit: Submit search query
     shared:
+      ui:
+        close: Close
       copyright: Copyright ©2020 Citizens Advice. All rights reserved.
       legal_summary: >
           Citizens Advice is an operating name of the National Association of

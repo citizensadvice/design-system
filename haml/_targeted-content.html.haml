@@ -7,4 +7,4 @@
   .cads-targeted-content__content{:id => "#{targetContent['id']}-content"}
     = targetContent['body']
     %hr.cads-separator
-    %button.cads-linkbutton.cads-targeted-content__close-button{:"aria-label" => "Collapse #{targetContent['title']}"}
+    %button.cads-linkbutton.cads-targeted-content__close-button{:"aria-label" => t('cads.targeted_content', title: targetContent['title'])}= t('cads.shared.ui.close')
