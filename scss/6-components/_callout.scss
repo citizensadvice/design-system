@@ -10,9 +10,14 @@
     display: none;
   }
 
+<<<<<<< HEAD
   h2:first-of-type,
   h3:first-of-type {
     @extend %cads-h3;
+=======
+  h2 {
+    @extend %h2;
+>>>>>>> wip: temp replace removed classes with placeholders
   }
 
   @include cads-media-breakpoint-up(md) {
