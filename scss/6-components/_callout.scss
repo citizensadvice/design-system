@@ -28,6 +28,10 @@
     background-color: cads-colour-to-bg($cads-language__brand-secondary);
   }
 
+  .cads-callout-label {
+    font-weight: bold;
+  }
+
   &.cads-callout-example {
     border: solid $cads-border-width-small $cads-language__border-colour;
     border-radius: $cads-border-radius;
@@ -35,24 +39,15 @@
     border-left-width: $cads-border-width-large;
     background-color: $cads-palette__white;
 
-    h2:first-of-type,
-    h3:first-of-type {
-      &::before {
-        margin-bottom: $cads-spacing-3;
-        color: $cads-language__secondary-text-colour;
-        font-size: 0.875rem;
-        line-height: 0.875rem;
-        display: block;
+    .cads-callout-label {
+      margin-bottom: $cads-spacing-3;
+      color: $cads-language__secondary-text-colour;
+      font-size: 0.875rem;
+      line-height: 0.875rem;
+      display: block;
 
-        @include cads-media-breakpoint-up(md) {
-          font-size: 1rem;
-        }
-
-        content: 'Example';
-      }
-
-      .cads-lang-cy &::before {
-        content: 'Example';
+      @include cads-media-breakpoint-up(md) {
+        font-size: 1rem;
       }
     }
   }
@@ -61,25 +56,15 @@
     border-color: $cads-language__error-colour;
     background-color: cads-colour-to-bg($cads-language__error-colour);
 
-    h2:first-of-type,
-    h3:first-of-type {
-      /* stylelint-disable-next-line */
-      &::before {
-        margin-bottom: $cads-spacing-3;
-        color: $cads-language__secondary-text-colour;
-        font-size: 0.875rem;
-        line-height: 0.875rem;
-        display: block;
+    .cads-callout-label {
+      margin-bottom: $cads-spacing-3;
+      color: $cads-language__secondary-text-colour;
+      font-size: 0.875rem;
+      line-height: 0.875rem;
+      display: block;
 
-        @include cads-media-breakpoint-up(md) {
-          font-size: 1rem;
-        }
-
-        content: 'Important';
-      }
-
-      .cads-lang-cy &::before {
-        content: 'Important';
+      @include cads-media-breakpoint-up(md) {
+        font-size: 1rem;
       }
     }
   }
@@ -88,34 +73,25 @@
     border-color: $cads-language__brand-adviser;
     background-color: cads-colour-to-bg($cads-language__brand-adviser);
 
-    .cads-callout__adviser-label {
-      display: block;
+    .cads-callout-label {
       /* stylelint-disable-next-line */
-      &::before {
-        margin-bottom: $cads-spacing-3;
-        background: $cads-language__brand-adviser;
-        color: $cads-palette__white;
-        padding: $cads-spacing-2;
-        font-size: 0.875rem;
-        font-weight: $cads-font-weight__bold;
-        line-height: 0.875rem;
-        display: inline-block;
+      margin-bottom: $cads-spacing-3;
+      background: $cads-language__brand-adviser;
+      color: $cads-palette__white;
+      padding: $cads-spacing-2;
+      font-size: 0.875rem;
+      font-weight: $cads-font-weight__bold;
+      line-height: 0.875rem;
+      display: inline-block;
 
-        @include cads-media-breakpoint-up(md) {
-          font-size: 1rem;
-        }
-
-        content: 'Adviser';
-      }
-
-      .cads-lang-cy &::before {
-        content: 'Adviser';
+      @include cads-media-breakpoint-up(md) {
+        font-size: 1rem;
       }
     }
-  }
 
-  & & {
-    // For when adviser callouts are inside callouts
-    margin-top: $cads-spacing-4;
+    & & {
+      // For when adviser callouts are inside callouts
+      margin-top: $cads-spacing-4;
+    }
   }
 }
