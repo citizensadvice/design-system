@@ -157,6 +157,11 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-breadcrumbs--breadcrumbs-no-collapse'),
         selectors: ['.cads-breadcrumbs'],
       },
+      {
+        label: 'Components/Page review',
+        url: storyUrlFor('components-page-review--page-review'),
+        viewports: [{ label: 'page-review', width: 600, height: 100 }],
+      },
 
       // Forms
       {
@@ -290,13 +295,6 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: '3_Components_NOTICE_BANNER',
         url: `${baseUrl}/iframe.html?id=3-components--notice-banner`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_PAGE_REVIEW',
-        url: `${baseUrl}/iframe.html?id=3-components--page-review`,
         readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
