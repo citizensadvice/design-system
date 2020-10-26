@@ -5,7 +5,7 @@ source "https://rubygems.org"
 gem "haml", "~> 5.2"
 
 gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v0.4.0"
-gem "cucumber", "~> 4.0"
+gem "cucumber", "~> 5.2"
 gem "dotenv"
 gem "faraday", "~> 1.1"
 gem "haml_lint"
