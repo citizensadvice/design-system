@@ -21,7 +21,6 @@ en:
     targeted_content:
       close_button_aria: Collapse %{title}
     website_feedback:
-      link_title: Let us know
       body: Is there anything wrong with this page? Let us know
     shared:
       ui:
