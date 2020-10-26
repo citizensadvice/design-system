@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 %cads-h1 {
+=======
+%h1 {
+>>>>>>> feat: change typography styles into placeholders
   font-size: 2.5rem;
   line-height: 1.2em; // Line-height is variable
   font-weight: $cads-font-weight__bold;
@@ -11,7 +15,11 @@
   }
 }
 
+<<<<<<< HEAD
 %cads-h2 {
+=======
+%h2 {
+>>>>>>> feat: change typography styles into placeholders
   font-size: 2rem;
   line-height: 1.25em; // Line-height is variable
   font-weight: $cads-font-weight__bold;
@@ -24,7 +32,11 @@
   }
 }
 
+<<<<<<< HEAD
 %cads-h3 {
+=======
+%h3 {
+>>>>>>> feat: change typography styles into placeholders
   font-size: 1.4rem;
   line-height: 1.25em; // Line-height is variable
   font-weight: $cads-font-weight__bold;
@@ -37,7 +49,11 @@
   }
 }
 
+<<<<<<< HEAD
 %cads-h4 {
+=======
+%h4 {
+>>>>>>> feat: change typography styles into placeholders
   font-size: 1.125rem;
   line-height: 1.5rem; // Line-height remains the same
   font-weight: $cads-font-weight__bold;
@@ -50,18 +66,26 @@
   }
 }
 
+<<<<<<< HEAD
 %cads-paragraph {
+=======
+%p {
+>>>>>>> feat: change typography styles into placeholders
   font-size: 1.125rem;
   line-height: 1.5rem; // Line-height remains the same
   font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-4 0;
 
+<<<<<<< HEAD
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
   }
 }
 
 %cads-paragraph-small {
+=======
+%paragraph--small {
+>>>>>>> feat: change typography styles into placeholders
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: $cads-font-weight__regular;
