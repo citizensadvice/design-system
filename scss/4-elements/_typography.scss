@@ -1,4 +1,4 @@
-h1 {
+%h1 {
   font-size: 2.5rem;
   line-height: 1.2em; // Line-height is variable
   font-weight: $cads-font-weight__bold;
@@ -11,8 +11,7 @@ h1 {
   }
 }
 
-h2,
-.cads-heading-large {
+%h2 {
   font-size: 2rem;
   line-height: 1.25em; // Line-height is variable
   font-weight: $cads-font-weight__bold;
@@ -31,8 +30,7 @@ h2,
   }
 }
 
-h3,
-.cads-heading-medium {
+%h3 {
   font-size: 1.4rem;
   line-height: 1.25em; // Line-height is variable
   font-weight: $cads-font-weight__bold;
@@ -51,8 +49,7 @@ h3,
   }
 }
 
-h4,
-.cads-heading-small {
+%h4 {
   font-size: 1.125rem;
   line-height: 1.5rem; // Line-height remains the same
   font-weight: $cads-font-weight__bold;
@@ -65,15 +62,16 @@ h4,
   }
 }
 
-p,
-.paragraph {
-  @include cads-paragraph();
-
+%p {
+  font-size: 1.125rem;
+  line-height: 1.5rem; // Line-height remains the same
+  font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-4 0;
 }
 
-.paragraph-s {
-  @include cads-paragraph-s();
-
+%paragraph--small {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-3 0;
 }
