@@ -3,6 +3,8 @@ en:
     example:
       name: 'Citizens Advice'
       body: 'This is some body text'
+    breadcrumbs:
+      home: Home
     callouts:
       example: Example
       important: Important
