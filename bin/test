@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-bundle exec rubocop
-
-bundle exec haml-lint haml styleguide
-
-npm test
