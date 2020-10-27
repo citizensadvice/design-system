@@ -98,6 +98,7 @@ pipeline {
                         } catch (Exception e) {
                             sh 'docker-compose logs --no-color'
                             currentBuild.result = 'FAILURE'
+                            throw e
                         }
                     }
                 }
