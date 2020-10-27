@@ -55,7 +55,7 @@ services:
         - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_ruby_${CA_STYLEGUIDE_VERSION_TAG}'
         - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:ruby'
     image: '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_ruby_${CA_STYLEGUIDE_VERSION_TAG}'
-    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- bundle exec rake design_system:all
+    command: bin/wait-for --timeout=120 ca-styleguide:6006 -- bundle exec rake design_system:all
     container_name: design-system-cucumber.test
     environment:
       - BRANCH_NAME
