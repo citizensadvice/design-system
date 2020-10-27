@@ -17,7 +17,7 @@ def docker_registry = '979633842206.dkr.ecr.eu-west-1.amazonaws.com'
 def docker_registry_url = "https://${docker_registry}"
 def ecr_credential = 'ecr:eu-west-1:cita-devops'
 
-def images = {}
+def images = [:]
 
 pipeline {
     triggers { cron(cron_schedule) }
