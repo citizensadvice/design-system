@@ -17,4 +17,4 @@ Feature: Footer component
   @failing @NP-1173
   Scenario: Report a problem with this page
     When I report a problem with this page
-    Then a new tab is opened to report an issue with the page
+    Then a new window/tab is opened to report an issue with the page

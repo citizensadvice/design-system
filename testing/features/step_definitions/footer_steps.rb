@@ -29,7 +29,8 @@ Then("a company info is present") do
   expect(@component.initial_form).to have_company_info
 end
 
-Then("a new tab is opened to report an issue with the page") do
+Then("a new window\\/tab is opened to report an issue with the page") do
   switch_to_newly_opened_window!(new_page: true)
+
   expect(page.current_url).to eq("https://www.research.net/r/J8PLH2H")
 end
