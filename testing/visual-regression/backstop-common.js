@@ -375,6 +375,7 @@ module.exports = function backstopCommon(baseUrl) {
         clickSelector: 'summary',
         postInteractionWait: 500,
         requireSameDimensions: true,
+        misMatchThreshold: 0.7,
         selectors: ['#a11yComponentToTest'],
         viewports: [
           {
