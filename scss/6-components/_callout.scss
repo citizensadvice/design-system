@@ -123,3 +123,10 @@
     margin-top: $cads-spacing-4;
   }
 }
+
+.cads-prose .cads-callout__title {
+  h2:first-of-type,
+  h3:first-of-type {
+    @extend %h3;
+  }
+}

@@ -2,15 +2,19 @@
    The Office of the Immigration Services Commissioner (OISC)  Warnings
    ========================================================================= */
 
+%cads-oisc-warning__title {
+  @extend %h4;
+
+  padding: $cads-spacing-3;
+}
+
 .cads-oisc-warning {
   background-color: $cads-palette__light-grey;
   border: 1px solid $cads-palette__dark-grey;
   margin-bottom: $cads-spacing-3;
 
   &__title {
-    @extend %h4;
-
-    padding: $cads-spacing-3;
+    @extend %cads-oisc-warning__title;
   }
 
   &__body {
@@ -38,32 +42,36 @@
       background-color: rgba(0, 0, 0, 0.05);
     }
   }
+}
 
-  /**
-   * Conditional sticky behaviour
-   * is-stuck is added via IntersectionObserver with a polyfill for older browsers
-   */
-  &.is-sticky.is-stuck {
-    /* stylelint-disable declaration-block-no-duplicate-properties */
-    position: fixed; // Default to position: fixed for older browsers
-    max-width: inherit; // Makes fixed positioning inherit parent width
-    position: sticky; // Switch to position sticky where supported
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.cads-prose .cads-oisc-warning__title {
+  @extend %cads-oisc-warning__title;
+}
 
-    .cads-oisc-warning__header {
-      display: flex;
-      align-items: flex-start;
-    }
+/**
+* Conditional sticky behaviour
+* is-stuck is added via IntersectionObserver with a polyfill for older browsers
+*/
+.cads-oisc-warning.is-sticky.is-stuck {
+  /* stylelint-disable declaration-block-no-duplicate-properties */
+  position: fixed; // Default to position: fixed for older browsers
+  max-width: inherit; // Makes fixed positioning inherit parent width
+  position: sticky; // Switch to position sticky where supported
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-    .cads-oisc-warning__title {
-      flex: 1;
-    }
+  .cads-oisc-warning__header {
+    display: flex;
+    align-items: flex-start;
+  }
 
-    .cads-oisc-warning__close {
-      // Show close button when stuck to allow warning to be dismissed.
-      display: inline-block;
-    }
+  .cads-oisc-warning__title {
+    flex: 1;
+  }
+
+  .cads-oisc-warning__close {
+    // Show close button when stuck to allow warning to be dismissed.
+    display: inline-block;
   }
 }

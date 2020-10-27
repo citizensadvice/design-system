@@ -11,7 +11,7 @@
         .cads-grid-col-md-8
           = render partial: "@citizensadvice/design-system/haml/notice_banner", locals: { 'banner' => { 'label' => 'Page Template Warning', 'body' => '<p>This is a sample page. Note that the layout may not reflect the actual page layout of the website.</p>' } }
       .cads-grid-row
-        .cads-grid-col-md-8
+        .cads-grid-col-md-8.cads-prose
           %h1 Adviser Sample Page
           = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { 'oisc_warning' => { 'title' => "This is an OISC level 2 topic", 'body' => "Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a>", 'is_sticky' => true } }
 
