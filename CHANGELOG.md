@@ -9,7 +9,7 @@
 * Removed `radio_group_small`, `radio_group` now accepts a modifier
 * Renamed `cads-radio-button` to `cads-radio-group__item`
 * Renamed `cads-radio-button-checkmark` to `cads-radio-group__item-checkmark`
-
+* Added character width modifiers to inputs: `2ch`, `4ch`, `8ch`, `16ch`
 
 ## <sub>v1.15.0</sub>
 

@@ -111,29 +111,61 @@
 // ============================================================================
 
 /* stylelint-disable plugin/selector-bem-pattern  */
-
 %cads-input {
   @include cads-interactive-element();
 
-  width: 50%;
-  min-width: 1px;
-  padding: round(cads-rem-to-px(1rem) - 9px) 1rem;
-  margin: 0 0 $cads-spacing-4 0;
   display: inline-block;
-  font-size: 1.125rem;
-  line-height: 1.5rem; // Line-height remains the same
-
-  @include cads-media-breakpoint-down(sm) {
-    font-size: 1rem;
-    width: 100%;
-  }
+  width: 100%;
+  min-width: 1px;
+  font-size: cads-rem(18px);
+  height: cads-rem(44px);
+  padding: cads-rem(8px);
+  margin: 0 0 $cads-spacing-4 0;
 }
-
 /* stylelint-enable */
 
 /** @define input */
 .cads-input {
   @extend %cads-input;
+}
+
+// Character width modifiers
+// Based on https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/input/_index.scss#L62-L92
+// The ex measurements are based on the number of W's that can fit inside the input
+// Extra space is left on the right hand side to allow for the Safari prefill icon
+
+@function cads-character-width($desired-characters) {
+  // Linear regression estimation based on visual tests: y = 1.76 + 1.81x
+  // e.g. 2 characters desired = 1.76 + (2 * 1.81)
+  @return #{1.76 + ($desired-characters * 1.81)}ex;
+}
+
+//
+// Modifier: ~2 characters wide
+//
+.cads-input--2ch {
+  max-width: cads-character-width(2);
+}
+
+//
+// Modifier: ~4 characters wide
+//
+.cads-input--4ch {
+  max-width: cads-character-width(4);
+}
+
+//
+// Modifier: ~8 characters wide
+//
+.cads-input--8ch {
+  max-width: cads-character-width(8);
+}
+
+//
+// Modifier: ~16 characters wide
+//
+.cads-input--16ch {
+  max-width: cads-character-width(16);
 }
 
 /** @define textarea */
