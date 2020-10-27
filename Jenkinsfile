@@ -80,15 +80,29 @@ pipeline {
                 }
             }
         }
-        stage('Lint and unit test') {
+        stage('Lint') {
             environment {
                 PRODUCTION="true"
                 NODE_ENV="test"
             }
             steps {
                 script { env.BUILD_STAGE = 'Lint and unit test' }
-                withDockerSandbox([ images['ca-styleguide' ]]) {
-                    sh 'docker-compose run ca-styleguide sh bin/test'
+                withDockerSandbox([ images['ca-styleguide'] ]) {
+                    sh 'docker-compose run ca-styleguide bundle exec rubocop'
+                    sh 'docker-compose run ca-styleguide bundle exec haml-lint haml styleguide'
+                    sh 'docker-compose run ca-styleguide npm run lint'
+                }
+            }
+        }
+        stage('Unit test') {
+            environment {
+                PRODUCTION="true"
+                NODE_ENV="test"
+            }
+            steps {
+                script { env.BUILD_STAGE = 'Lint and unit test' }
+                withDockerSandbox([ images['ca-styleguide'] ]) {
+                    sh 'docker-compose run ca-styleguide jest'
                 }
             }
         }
