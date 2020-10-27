@@ -8,6 +8,10 @@
     margin: 0 0 $cads-spacing-4 0;
   }
 
+  p {
+    @extend %paragraph--small;
+  }
+
   ul {
     @extend .cads-list__no-bullet;
   }

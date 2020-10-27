@@ -1,6 +1,6 @@
 /** @define page-review */
 .cads-page-review {
-  @include cads-paragraph-s();
+  @extend %paragraph--small;
 
   color: $cads-language__secondary-text-colour;
   margin-bottom: 0;

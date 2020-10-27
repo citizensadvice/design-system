@@ -1,4 +1,6 @@
 .cads-website-feedback {
+  @extend %paragraph--small;
+
   width: 100%;
   text-align: center;
   color: $cads-language__brand-primary;
