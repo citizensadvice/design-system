@@ -1,7 +1,5 @@
 FROM ruby:2.6-alpine as build
 
-ENV BUNDLER_VERSION 2.1.4
-
 RUN apk add --no-cache --update build-base git
 
 RUN mkdir -p /app
