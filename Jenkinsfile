@@ -87,9 +87,9 @@ pipeline {
             }
             steps {
                 script { env.BUILD_STAGE = 'Lint and unit test' }
-                withDockerSandbox([ images['ca-styleguide'] ]) {
-                    sh 'docker-compose run ca-styleguide bundle exec rubocop'
-                    sh 'docker-compose run ca-styleguide bundle exec haml-lint haml styleguide'
+                withDockerSandbox([ images['ca-styleguide'], images['cucumber'] ]) {
+                    sh 'docker-compose run cucumber bundle exec rubocop'
+                    sh 'docker-compose run cucumber bundle exec haml-lint haml styleguide'
                     sh 'docker-compose run ca-styleguide npm run lint'
                 }
             }
