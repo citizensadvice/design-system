@@ -124,3 +124,7 @@ h3 {
     @extend %p;
   }
 }
+
+.cads-prose {
+  @extend %prose;
+}
