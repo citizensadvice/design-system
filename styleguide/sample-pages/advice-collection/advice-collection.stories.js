@@ -8,8 +8,10 @@ export default {
   decorators: [pageDecorator],
 };
 
-export const adviceCollectionPublic = () => templateAdviceCollectionPublic;
+export const adviceCollectionPublic = () =>
+  templateAdviceCollectionPublic.toString();
 adviceCollectionPublic.storyName = 'Public';
 
-export const adviceCollectionAdviser = () => templateAdviceCollectionAdviser;
+export const adviceCollectionAdviser = () =>
+  templateAdviceCollectionAdviser.toString();
 adviceCollectionAdviser.storyName = 'Adviser';
