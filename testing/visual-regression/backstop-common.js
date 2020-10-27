@@ -325,6 +325,12 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_WEBSITE-FEEDBACK',
         url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
         readySelector: '#a11yComponentToTest',
+        selectors: ['#a11yComponentToTest'],
+      },
+      {
+        label: '3_Components_WEBSITE-FEEDBACK-HOVER',
+        url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
+        readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
@@ -332,7 +338,6 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_RELATED-CONTENT',
         url: `${baseUrl}/iframe.html?id=3-components--related-content`,
         readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
       {
