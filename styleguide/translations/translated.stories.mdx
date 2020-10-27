@@ -47,3 +47,7 @@ import haml from './_example.html.haml';
     {(_, options) => translate(haml, options)}
   </Story>
 </Preview>
+
+## Testing translations
+
+To support automated testing of translations you may simply add `&locale=<locale>` to the end of a url. This will work with both the main site and individual component iframes.
