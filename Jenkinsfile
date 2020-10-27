@@ -81,13 +81,13 @@ pipeline {
             }
         }
         stage('Lint and unit test') {
+            environment {
+                PRODUCTION="true"
+                NODE_ENV="test"
+            }
             steps {
                 script { env.BUILD_STAGE = 'Lint and unit test' }
                 withDockerSandbox([ images['ca-styleguide' ]]) {
-                    environment {
-                        PRODUCTION="true"
-                        NODE_ENV="test"
-                    }
                     sh 'docker-compose run ca-styleguide sh bin/test'
                 }
             }
