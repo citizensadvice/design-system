@@ -7,14 +7,13 @@ Feature: Footer component
   Background:
     Given a Footer component is on the page
 
-  Scenario: Footer is present
+  Scenario: Footer contains a variety of links / content
     Then a report problem with this page link is present
     And each header item has at least 1 link below it
     And a footer logo is present
     And a copyright notice is present
     And a company info is present
 
-  @failing @NP-1173
-  Scenario: Report a problem with this page
+  Scenario: Users can report a problem about the specific page they are on
     When I report a problem with this page
-    Then a new window/tab is opened to report an issue with the page
+    Then I am presented with a form to report the issue about the page I am on
