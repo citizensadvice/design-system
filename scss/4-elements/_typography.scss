@@ -75,3 +75,25 @@
   font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-3 0;
 }
+
+%prose {
+  h1 {
+    @extend %h1;
+  }
+
+  h2 {
+    @extend %h2;
+  }
+
+  h3 {
+    @extend %h3;
+  }
+
+  h4 {
+    @extend %h4;
+  }
+
+  p {
+    @extend %p;
+  }
+}

@@ -47,6 +47,8 @@
   }
 
   &__content {
+    @extend %prose;
+
     display: none;
     border: solid $cads-border-width-small $cads-language__brand-primary;
     border-bottom-width: $cads-border-width-small;
