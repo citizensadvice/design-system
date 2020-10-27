@@ -102,34 +102,3 @@ h2,
 h3 {
   @include cads-adjacent-heading-margin($cads-spacing-6);
 }
-
-%prose {
-  h1 {
-    @extend %h1;
-  }
-
-  h2 {
-    @extend %h2;
-  }
-
-  h3 {
-    @extend %h3;
-  }
-
-  h4 {
-    @extend %h4;
-  }
-
-  p {
-    @extend %p;
-  }
-}
-
-.cads-prose {
-  @extend %prose;
-}
-
-h2,
-h3 {
-  @include cads-adjacent-heading-margin($cads-spacing-6);
-}

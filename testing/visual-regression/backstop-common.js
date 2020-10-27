@@ -245,7 +245,7 @@ module.exports = function backstopCommon(baseUrl) {
           },
           {
             label: 'Small',
-            width: 641,
+            width: 640,
             height: 300,
           },
           {
