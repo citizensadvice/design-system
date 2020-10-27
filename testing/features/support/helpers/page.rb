@@ -75,7 +75,7 @@ module Helpers
     end
 
     def second_window
-      (page.windows.to_a - [page.current_window]).first
+      page.windows.detect { |window| !window.current? }
     end
 
     def wait_for_new_url
