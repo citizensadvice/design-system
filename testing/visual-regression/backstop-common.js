@@ -230,7 +230,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: '3_Components_NAVIGATION',
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
-        readySelector: '.js-CadsGreedyNav',
+        readySelector: '.cads-greedy-nav-has-dropdown',
         delay: 750,
         removeSelectors: ['.cads-styleguide-usage', 'h1'],
         hoverSelector: '#a11yComponentToTest',
@@ -245,7 +245,7 @@ module.exports = function backstopCommon(baseUrl) {
           },
           {
             label: 'Small',
-            width: 641,
+            width: 640,
             height: 300,
           },
           {
@@ -385,7 +385,7 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '#a11yComponentToTest',
         delay: 0,
         hideSelectors: [],
-        hoverSelector: '#a11yComponentToTest',
+        hoverSelector: '.cads-targeted-content',
         clickSelector: '.cads-targeted-content',
         postInteractionWait: 0,
         selectors: ['#a11yComponentToTest'],
