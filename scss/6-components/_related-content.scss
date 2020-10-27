@@ -6,12 +6,16 @@
   }
 
   .section-title {
+    @extend %paragraph--small;
+
     color: $cads-language__secondary-text-colour;
     margin-top: $cads-spacing-5;
     margin-bottom: $cads-spacing-4;
   }
 
   h3 {
+    @extend %h3;
+
     margin-top: 0;
     margin-bottom: $cads-spacing-4;
   }

@@ -1,5 +1,7 @@
 /** @define success-message */
 .cads-success-message {
+  @extend %paragraph--small;
+
   border-left: solid $cads-border-width-large $cads-language__success-colour;
   display: inline-block;
   min-width: 300px;
