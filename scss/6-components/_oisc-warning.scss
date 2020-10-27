@@ -8,12 +8,14 @@
   margin-bottom: $cads-spacing-3;
 
   &__title {
-    @extend %h4;
+    @extend %h3;
 
     padding: $cads-spacing-3;
   }
 
   &__body {
+    @extend %prose;
+
     padding: 0 $cads-spacing-3 $cads-spacing-3;
 
     p:last-of-type {
