@@ -17,7 +17,7 @@ Then("each header item has at least 1 link below it") do
   expect(@component.category_titles).to all have_links
 end
 
-Then("a logo is present") do
+Then("a footer logo is present") do
   expect(@component.initial_form).to have_logo
 end
 
