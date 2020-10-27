@@ -18,7 +18,7 @@ Then("a login/logout link is present") do
   expect(@component).to have_login
 end
 
-Then("a logo is present") do
+Then("a header logo is present") do
   expect(@component.logo["title"]).to eq("Citizens Advice homepage")
 
   expect(@component.logo["href"]).not_to be_blank

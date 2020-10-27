@@ -10,7 +10,7 @@ Feature: Footer component
   Scenario: Footer is present
     Then a report problem with this page link is present
     And each header item has at least 1 link below it
-    And a logo is present
+    And a footer logo is present
     And a copyright notice is present
     And a company info is present
 
