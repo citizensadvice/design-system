@@ -6,7 +6,13 @@ export const parameters = {
     panelPosition: 'bottom',
     storySort: {
       method: 'alphabetical',
-      order: ['Welcome', 'Foundations', ['Getting started'], 'Components'],
+      order: [
+        'Welcome',
+        ['Getting started'],
+        'Foundations',
+        ['Grid'],
+        'Components',
+      ],
     },
   },
 };

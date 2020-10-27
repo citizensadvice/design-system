@@ -1,0 +1,71 @@
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
+import templateBasic from './_basic-grid.html.haml';
+import templateMultiColumn from './_multi-column-grid.html.haml';
+import templateResponsive from './_responsive-grid.html.haml';
+
+<Meta
+  title="Foundations/Grid"
+  decorators={[(Story) => `<div style="padding: 20px 0">${Story()}</div>`]}
+/>
+
+# Grid
+
+## Basic grids
+
+Grids are made up of three parts:
+
+- A `.cads-grid-container` wrapper element
+- One or more `.cads-grid-row` elements to demarcate grid rows
+- A combination of `.cads-grid-col-*` classes to demarcate grid columns
+
+<Canvas>
+  <Story
+    name="Basic grid"
+    parameters={{
+      layout: 'fullscreen',
+      docs: { source: { code: templateBasic.raw } },
+    }}
+  >
+    {() => templateBasic}
+  </Story>
+</Canvas>
+
+<Source dark="true" language="haml" code={templateBasic.raw} />
+
+## Multi-column grids
+
+Grids are **12** columns by default (although this can be configured by overriding the `$cads-grid-columns` variable). You can combine a number of column sizes within a grid row.
+
+<Canvas>
+  <Story
+    name="Multi-column grid"
+    parameters={{
+      layout: 'fullscreen',
+      docs: { source: { code: templateMultiColumn.raw } },
+    }}
+  >
+    {() => templateMultiColumn}
+  </Story>
+</Canvas>
+
+<Source dark="true" language="haml" code={templateMultiColumn.raw} />
+
+## Responsive grids
+
+If you want variable grid columns at different breakpoints you can use `sm`, `md`, and `lg` variants of the `.cads-grid-col` classes to control this.
+
+The following example has a column which is 10 columns at large breakpoints, 8 at medium breakpoints, and full-width at small breakpoints.
+
+<Canvas>
+  <Story
+    name="Responsive grid columns"
+    parameters={{
+      layout: 'fullscreen',
+      docs: { source: { code: templateResponsive.raw } },
+    }}
+  >
+    {() => templateResponsive}
+  </Story>
+</Canvas>
+
+<Source dark="true" language="haml" code={templateResponsive.raw} />
