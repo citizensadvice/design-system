@@ -28,7 +28,7 @@ Feature: OISC Warning components
       And the OISC message is visible
 
     Scenario: Welsh OISC component has a title and message
-      When I change language to Welsh
+      Given the language is Welsh
       Then the OISC title is visible
       And the OISC message is visible
 

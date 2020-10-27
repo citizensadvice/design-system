@@ -12,7 +12,7 @@ Feature: Callout component
       But no label is present above the callout title
 
     Scenario: Welsh Callout contains a title and message
-      When I change language to Welsh
+      Given the language is Welsh
       Then a callout title and message are present
       But no label is present above the callout title
 
@@ -25,7 +25,7 @@ Feature: Callout component
       And an "Example" label is present above the callout title
 
     Scenario: Welsh Callout contains a title, message and warning
-      When I change language to Welsh
+      Given the language is Welsh
       Then a callout title and message are present
       And an "Example" label is present above the callout title
 
@@ -38,7 +38,7 @@ Feature: Callout component
       And an "Important" label is present above the callout title
 
     Scenario: Welsh Callout contains a title, message and warning
-      When I change language to Welsh
+      Given the language is Welsh
       Then a callout title and message are present
       And an "Important" label is present above the callout title
 
@@ -51,6 +51,6 @@ Feature: Callout component
       And an "Adviser" label is present above the callout title
 
     Scenario: Welsh Callout contains a title, message and an adviser label
-      When I change language to Welsh
+      Given the language is Welsh
       Then a callout title and message are present
       And an "Adviser" label is present above the callout title

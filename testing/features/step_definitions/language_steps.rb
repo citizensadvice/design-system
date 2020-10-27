@@ -1,15 +1,9 @@
 # frozen_string_literal: true
 
-When("I change language to Welsh") do
-  unless I18n.locale == :cy
-    @component.switch_language(I18n.t(:change_language))
-    I18n.locale = :cy
-  end
+Given("the language is Welsh") do
+  @component.switch_language(:cy)
 end
 
-When("I change language to English") do
-  unless I18n.locale == :en
-    @component.switch_language(I18n.t(:change_language))
-    I18n.locale = :en
-  end
+Given("the language is English") do
+  @component.switch_language(:en)
 end
