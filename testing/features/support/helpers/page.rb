@@ -24,6 +24,10 @@ module Helpers
       attach(file_path, "text/html")
     end
 
+    def switch_to_newly_opened_window!
+      page.switch_to_window(page.windows.last)
+    end
+
     private
 
     def resize_page_to_fullsize
