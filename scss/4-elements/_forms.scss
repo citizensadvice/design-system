@@ -41,7 +41,8 @@
   margin-bottom: $cads-spacing-3;
 }
 .cads-form-field__label + .cads-form-field__hint {
-  margin-top: -$cads-spacing-3;
+  // Reduces visual spacing between label + hint when there is a hint
+  margin-top: -$cads-spacing-2;
 }
 
 //
