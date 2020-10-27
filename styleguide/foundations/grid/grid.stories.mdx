@@ -15,7 +15,7 @@ import templateResponsive from './_responsive-grid.html.haml';
 Grids are made up of three parts:
 
 - A `.cads-grid-container` wrapper element
-- One or more `.cads-grid-row` elements to demarcate a grid rows
+- One or more `.cads-grid-row` elements to demarcate grid rows
 - A combination of `.cads-grid-col-*` classes to demarcate grid columns
 
 <Canvas>
@@ -30,7 +30,7 @@ Grids are made up of three parts:
   </Story>
 </Canvas>
 
-<Source dark="true" lang="haml" code={templateBasic.raw} />
+<Source dark="true" language="haml" code={templateBasic.raw} />
 
 ## Multi-column grids
 
@@ -48,13 +48,13 @@ Grids are **12** columns by default (although this can be configured by overridi
   </Story>
 </Canvas>
 
-<Source dark="true" lang="haml" code={templateMultiColumn.raw} />
+<Source dark="true" language="haml" code={templateMultiColumn.raw} />
 
 ## Responsive grids
 
-If you want different grid columns at different breakpoints you can use `sm`, `md`, and `lg` variants of the `.cads-grid-col` classes to control this.
+If you want variable grid columns at different breakpoints you can use `sm`, `md`, and `lg` variants of the `.cads-grid-col` classes to control this.
 
-The following example has a column which 10 columns at large breakpoints, 8 at medium breakpoints, and full-width at small breakpoints.
+The following example has a column which is 10 columns at large breakpoints, 8 at medium breakpoints, and full-width at small breakpoints.
 
 <Canvas>
   <Story
@@ -68,4 +68,4 @@ The following example has a column which 10 columns at large breakpoints, 8 at m
   </Story>
 </Canvas>
 
-<Source dark="true" lang="haml" code={templateResponsive.raw} />
+<Source dark="true" language="haml" code={templateResponsive.raw} />
