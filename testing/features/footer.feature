@@ -14,6 +14,7 @@ Feature: Footer component
     And a copyright notice is present
     And a company info is present
 
+  @failing @NP-1173
   Scenario: Report a problem with this page
     When I report a problem with this page
     Then a new tab is opened to report an issue with the page
