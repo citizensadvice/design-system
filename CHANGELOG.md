@@ -1,3 +1,11 @@
+**Forms breaking changes**:
+
+* Renamed `cads-form` to `cads-form-field`
+* Renamed `cads-form-error` modifier to `cads-form-field--has-error`
+* Renamed `cads-form-optional` modifier to `cads-form-field--optional`
+* Renamed `cads-form-error-marker` to `cads-form-field__error-marker`
+* Renamed `cads-form-label` to to `cads-form-field__label`
+
 ## <sub>v1.15.0</sub>
 
 #### _Oct. 27, 2020_

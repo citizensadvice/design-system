@@ -1,10 +1,10 @@
-.cads-form{ class: [input['has_error'] && 'cads-form-error', input['optional'] && 'cads-form-optional'] }
-  .cads-form-error-marker
-  .cads-form-content.cads-input-group
-    %label.cads-form-label.cads-heading-small{id: "#{input['name']}-label", for: "#{input['name']}-input" }
+.cads-form-field{ class: [input['has_error'] && 'cads-form-field--has-error', input['optional'] && 'cads-form-field--optional'] }
+  .cads-form-field__error-marker
+  .cads-form-field__content.cads-input-group
+    %label.cads-form-field__label.cads-heading-small{id: "#{input['name']}-label", for: "#{input['name']}-input" }
       = input['label']
     - if input['hint']
-      %p.cads-form__hint= input['hint']
+      %p.cads-form-field__hint= input['hint']
     - if input['error_message']
-      %p.cads-form__error-message= input['error_message']
+      %p.cads-form-field__error-message= input['error_message']
     %textarea.cads-input.cads-textarea{type: "text", id: "#{input['name']}-input", "aria-label": input['label'], rows: 4}
