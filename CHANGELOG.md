@@ -1,3 +1,5 @@
+* NP-1074 Typography updates (typography scoping and placeholders)
+
 ## <sub>v1.15.0</sub>
 
 #### _Oct. 27, 2020_
