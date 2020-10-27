@@ -102,10 +102,9 @@
   }
 }
 
-input,
-.cads-input,
-textarea,
-.cads-textarea {
+/* stylelint-disable plugin/selector-bem-pattern  */
+
+%cads-input {
   @include cads-interactive-element();
 
   width: 50%;
@@ -120,14 +119,19 @@ textarea,
     font-size: 1rem;
     width: 100%;
   }
-
-  &::placeholder {
-    display: none;
-  }
 }
 
-textarea,
+/* stylelint-enable */
+
+/** @define input */
+.cads-input {
+  @extend %cads-input;
+}
+
+/** @define textarea */
 .cads-textarea {
+  @extend %cads-input;
+
   width: 100%;
   max-width: 50%;
 

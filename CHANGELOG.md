@@ -5,6 +5,7 @@
 * Renamed `cads-form-optional` modifier to `cads-form-field--optional`
 * Renamed `cads-form-error-marker` to `cads-form-field__error-marker`
 * Renamed `cads-form-label` to to `cads-form-field__label`
+* Don't style raw `input` and `textarea` elements
 
 ## <sub>v1.15.0</sub>
 

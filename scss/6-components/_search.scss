@@ -6,7 +6,7 @@
   flex-direction: row;
   margin-bottom: $cads-spacing-7;
 
-  input {
+  &__input {
     font-size: 1rem;
     flex: 1 1;
     border-right-width: 0; // TODO: Do we want to do this? Hover looks a bit funny next to input box
@@ -53,7 +53,7 @@
       padding: 11px 12px 11px 12px;
     }
 
-    input {
+    &__input {
       height: $cads-interactive-target-size;
     }
   }
