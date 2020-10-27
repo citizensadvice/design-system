@@ -13,13 +13,17 @@ configurationTypes = [
 
 cron_schedule = deployBranches.contains(BRANCH_NAME) ? '0 2 * * *' : ''
 
+def docker_registry = '979633842206.dkr.ecr.eu-west-1.amazonaws.com'
+def docker_registry_url = "https://${docker_registry}"
+def ecr_credential = 'ecr:eu-west-1:cita-devops'
+
 pipeline {
     triggers { cron(cron_schedule) }
     agent {
         label 'docker && awsaccess'
     }
     environment {
-        DOCKER_TAG = "${JOB_NAME}_${getSha()}"
+        DOCKER_TAG = "${env.BRANCH_NAME}_${getSha()}"
         CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
         BUILD_STAGE = ''
     }
@@ -37,7 +41,40 @@ pipeline {
                 script {
                     currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
                 }
+                script {
+                    docker.withRegistry(docker_registry_url, ecr_credential) {
+                        // Pull the master images and any previous builds if we're on a different branch
+                        // docker-compose only looks in the local images and doesn't try to pull when building
+                        ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                            // Ignore failures from docker - it's probably an Image Not Found.
+                            // Other errors like out of disk space will cause problems in other commands
+                            try {
+                                docker.image("${docker_registry}/design-system:${it}").pull()
+                                if (env.BRANCH_NAME != 'master') {
+                                        docker.image("${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}").pull()
+                                }
+                            } catch (Exception e) {
+                                    echo "Error pulling ${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}"
+                            }
+                        }
+                    }
+                }
                 script { sh 'docker-compose build' }
+                script {
+                    docker.withRegistry(docker_registry_url, ecr_credential) {
+                        // Push updated containers so they can be used on the next run
+                        ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                            if (env.BRANCH_NAME == 'master') {
+                                // If we're building on master, update the master images.
+                                // The tag function only changes the last part of the image name (unlike docker tag)
+                                docker.image("${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}").tag("${it}")
+                                docker.image("${docker_registry}/design-system:${it}").push()
+                            } else {
+                                docker.image("${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}").push()
+                            }
+                        }
+                    }
+                }
             }
         }
         stage('Lint and unit test') {
@@ -58,8 +95,10 @@ pipeline {
                             sh './bin/jenkins/visual_regression'
                             sh './bin/docker/a11y-test'
                             sh './bin/docker/grid_tests'
-                    } catch (Exception e) {
+                        } catch (Exception e) {
                             sh 'docker-compose logs --no-color'
+                            currentBuild.result = 'FAILURE'
+                            throw e
                         }
                     }
                 }
