@@ -6,7 +6,13 @@ export const parameters = {
     panelPosition: 'bottom',
     storySort: {
       method: 'alphabetical',
-      order: ['Welcome', ['Getting started'], 'Components'],
+      order: [
+        'Welcome',
+        ['Getting started'],
+        'Foundations',
+        ['Grid'],
+        'Components',
+      ],
     },
   },
 };
@@ -25,3 +31,9 @@ export const globalTypes = {
     },
   },
 };
+
+const withLocaleClassname = (Story, { globals }) => {
+  return `<div class="cads-lang-${globals.locale || 'en'}">${Story()}</div>`;
+};
+
+export const decorators = [withLocaleClassname];

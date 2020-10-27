@@ -1,8 +1,7 @@
+/** @define page-review */
 .cads-page-review {
+  @include cads-paragraph-s();
+
   color: $cads-language__secondary-text-colour;
   margin-bottom: 0;
-
-  .cads-page-review-date {
-    font-weight: $cads-font-weight__bold;
-  }
 }

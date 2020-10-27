@@ -9,6 +9,7 @@ import initTables from '../src/js/tables';
 
 import GreedyNav from '../src/ts/greedy-nav';
 
+// eslint-disable-next-line no-unused-vars
 import locals from './haml_locals.rb'; // just used to watch
 import wrapper from './component-wrapper';
 
@@ -22,8 +23,6 @@ import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
-import tTargetedContent from '../haml/_targeted-content.html.haml';
-import tPageReview from '../haml/_page_review.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tSuccessMessage from '../haml/_success_message.html.haml';
@@ -70,14 +69,7 @@ export default {
     },
   },
   decorators: [
-    (storyFn) => `<div class="cads-styleguide__wrapper">
-      <div
-        class="cads-styleguide__language-label"
-        onclick="javascript:styleguideChangeLangugage();"
-        aria-hidden="true"
-      ></div>
-      ${storyFn()}
-    </div>`,
+    (storyFn) => `<div class="cads-styleguide__wrapper">${storyFn()}</div>`,
   ],
 };
 
@@ -98,8 +90,6 @@ export const header = () =>
     null,
     () => initHeader()
   );
-export const pageReview = () =>
-  renderHamlTemplate('Page Review', tPageReview, 'page_review');
 
 export const logo = () =>
   renderHamlTemplate(
@@ -143,17 +133,6 @@ export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 export const websiteFeedback = () =>
   renderHamlTemplate('Website Feedback', tWebsiteFeedback, 'website_feedback');
-export const targetedContent = () =>
-  renderHamlTemplate(
-    'Targeted Content',
-    tTargetedContent,
-    'targeted-content',
-    `The targeted component uses javascript to initialise the click handlers for the collapse/expand behaviour.
-        \n\n
-        <pre><code>import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content'</code></pre> and execute that function after the the page has finished loading.`,
-    null,
-    () => initTargetedContent()
-  );
 
 export const successMessage = () =>
   renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');

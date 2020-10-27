@@ -3,7 +3,7 @@
 .cads-navigation {
   display: flex;
   justify-content: space-between;
-  background-color: $cads-palette__heritage-blue;
+  background-color: $cads-language__brand-primary;
   width: 100%;
   height: 3rem;
 
@@ -31,8 +31,8 @@
     font-weight: bold;
     font-size: 1rem;
     color: $cads-palette__white;
-    background-color: $cads-palette__heritage-blue;
-    border: $cads-palette__heritage-blue;
+    background-color: $cads-language__brand-primary;
+    border: $cads-language__brand-primary;
     box-shadow: none;
 
     &:hover {
@@ -45,7 +45,7 @@
     &:active {
       /* stylelint-enable */
       background-color: $cads-palette__white;
-      color: $cads-palette__heritage-blue;
+      color: $cads-language__brand-primary;
       border: 2px solid $cads-palette__heritage-yellow;
       padding: calc(1rem - 2px);
     }
@@ -97,7 +97,7 @@
     @include cads-transition-animation();
 
     border: 2px solid;
-    border-color: $cads-palette__heritage-blue;
+    border-color: $cads-language__brand-primary;
     line-height: 1em;
 
     &:hover {
@@ -111,7 +111,7 @@
     &:focus {
       /* stylelint-enable */
       background-color: $cads-palette__white;
-      color: $cads-palette__heritage-blue;
+      color: $cads-language__brand-primary;
       border: 2px solid $cads-palette__heritage-yellow;
       padding: calc(1rem - 2px) calc(1rem - 12px);
       outline: none;
@@ -119,7 +119,7 @@
   }
 
   .cads-greedy-nav__dropdown {
-    background-color: $cads-palette__heritage-blue;
+    background-color: $cads-language__brand-primary;
     border-top: 1px solid $cads-palette__white;
     right: 0;
     top: 100%;
@@ -137,7 +137,7 @@
 }
 
 .cads-navigation-full-width-wrapper {
-  background-color: $cads-palette__heritage-blue;
+  background-color: $cads-language__brand-primary;
 
   nav {
     @extend .cads-max-content-width;

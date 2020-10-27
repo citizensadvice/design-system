@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
+<Meta title="Components/Page review" />
+
+# Page review
+
+import template from './_example.html.haml';
+
+<Preview>
+  <Story
+    name="Page review"
+    parameters={{ docs: { source: { code: template.raw } } }}
+  >
+    {(_, options) => translate(template, options)}
+  </Story>
+</Preview>
+
+## Haml template options
+
+| Property           | Description                     |
+| ------------------ | ------------------------------- |
+| `page_review_date` | Required. Formatted date string |

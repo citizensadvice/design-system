@@ -1,38 +1,6 @@
 // These styles are for use in the storybook styleguide
 @import '../scss/lib';
 
-.cads-styleguide-icon-list {
-  li {
-    display: inline-block;
-    border: 1px solid $cads-language__border-colour;
-    border-radius: $cads-border-radius;
-    padding: 1em;
-    margin-right: 0.25em;
-    margin-bottom: 0.25em;
-    text-align: center;
-    width: 200px;
-
-    @include cads-transition-animation();
-
-    &:hover {
-      background-color: $cads-language__border-colour;
-    }
-
-    span {
-      display: block;
-    }
-
-    span:first-child {
-      font-size: 2em;
-      margin-bottom: 0.5em;
-    }
-  }
-}
-
-.cads-styleguide-max-content-width {
-  max-width: $cads-max-content-size * 0.6;
-}
-
 .html {
   font-family: monospace;
   font-size: 1rem;
@@ -47,6 +15,31 @@
   &.inline {
     display: inline-block;
     padding: 0;
+  }
+}
+
+.cads-styleguide-icon-list {
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    border: 1px solid $cads-language__border-colour;
+    border-radius: $cads-border-radius;
+    padding: 1em;
+    margin-right: 0.25em;
+    margin-bottom: 0.25em;
+    text-align: center;
+    width: 200px;
+
+    span {
+      display: block;
+    }
+
+    span:first-child {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
   }
 }
 
@@ -69,60 +62,20 @@
   }
 }
 
-.cads-styleguide__language-label {
-  position: fixed;
-  background: rgba($cads-palette__heritage-blue, 0.5);
-  color: $cads-palette__white;
-  top: 0;
-  right: 0;
-  width: 4em;
-  text-align: center;
-  font-size: 0.75em;
-  padding: 0.75em;
-  z-index: 1000;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba($cads-palette__heritage-blue, 1);
-  }
-
-  &::after {
-    content: 'en';
-  }
-
-  .cads-lang-cy &::after {
-    content: 'cy';
-  }
-}
-
-.cads-styleguide__table {
-  box-shadow: none;
-
-  td {
-    border: none;
+@each $size, $length in $cads-spacers {
+  .cads-styleguide-spacing-block-#{$size} {
+    display: inline-block;
     vertical-align: middle;
-    padding-right: 1em;
-    padding-bottom: 1em;
+    background: rgba($cads-language__border-colour, 0.4);
+    border: dotted 1px $cads-language__border-colour;
+    width: $length;
+    height: $length;
   }
 }
 
-.cads-styleguide__spacing-block {
-  display: inline-block;
-  width: $cads-spacing-0;
-  height: $cads-spacing-0;
-  vertical-align: middle;
-  background: rgba($cads-language__border-colour, 0.4);
-  border: dotted 1px $cads-language__border-colour;
-
-  @each $size, $length in $cads-spacers {
-    &--spacing-#{$size} {
-      width: $length;
-      height: $length;
-    }
-  }
-}
-
-.cads-styleguide__sizing-border-medium {
+.cads-styleguide-sizing-border-small,
+.cads-styleguide-sizing-border-medium,
+.cads-styleguide-sizing-border-large {
   display: inline-block;
   width: 100px;
   height: 40px;
@@ -132,18 +85,14 @@
   margin-right: 11px;
 }
 
-.cads-styleguide__sizing-border-large {
-  @extend .cads-styleguide__sizing-border-medium;
-
-  border: solid $cads-border-width-large $cads-language__border-colour;
+.cads-styleguide-sizing-border-medium {
+  border: solid $cads-border-width-medium $cads-language__border-colour;
   margin-left: 10px;
 }
 
-.cads-styleguide__sizing-radius {
-  @extend .cads-styleguide__sizing-border-medium;
-
-  border: solid $cads-border-width-small $cads-language__border-colour;
-  border-radius: $cads-border-radius;
+.cads-styleguide-sizing-border-large {
+  border: solid $cads-border-width-large $cads-language__border-colour;
+  margin-left: 10px;
 }
 
 .cads-styleguide-grid {
@@ -165,20 +114,7 @@
   }
 }
 
-.cads-styleguide-table {
-  text-align: center;
-
-  thead tr th {
-    font-weight: bold;
-  }
-
-  tr:nth-child(even) {
-    background-color: $cads-language__border-colour;
-  }
-}
-
-.cads-styleguide__highlight-box {
-  padding: 1rem;
-  border: 1px solid $cads-language__border-colour;
-  margin-bottom: 1rem;
+.cads-styleguide-grid-example {
+  padding: $cads-spacing-4;
+  background-color: $cads-palette__light-grey;
 }
