@@ -2,6 +2,10 @@
 // Forms
 // ============================================================================
 
+// ============================================================================
+// Forms: Form field
+// ============================================================================
+
 /** @define form-field */
 .cads-form-field {
   display: flex;
@@ -102,6 +106,10 @@
   }
 }
 
+// ============================================================================
+// Forms: Text inputs
+// ============================================================================
+
 /* stylelint-disable plugin/selector-bem-pattern  */
 
 %cads-input {
@@ -140,7 +148,17 @@
   }
 }
 
-.cads-radio-button {
+// ============================================================================
+// Forms: Radio groups
+// ============================================================================
+
+/** @define radio-group */
+.cads-radio-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.cads-radio-group__item {
   display: block;
   position: relative;
   padding: 0 0 0
@@ -150,101 +168,91 @@
   height: $cads-interactive-target-size;
   cursor: pointer;
   user-select: none;
+}
+.cads-radio-group__item-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.cads-radio-group__item-checkmark {
+  @include cads-interactive-element();
 
-  input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $cads-interactive-target-size;
+  width: $cads-interactive-target-size;
+  border-radius: 50%;
+
+  &::after {
+    content: '';
     position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  .cads-radio-button-checkmark {
-    @include cads-interactive-element();
-
-    transition: none; /* stylelint-disable property-disallowed-list */
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: $cads-interactive-target-size;
-    width: $cads-interactive-target-size;
+    display: none;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-
-    &::after {
-      content: '';
-      position: absolute;
-      display: none;
-      top: 10px;
-      left: 10px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: $cads-language__input-border-colour;
-    }
+    background: $cads-language__input-border-colour;
   }
+}
+.cads-radio-group__item-input:checked ~ .cads-radio-group__item-checkmark {
+  border-color: $cads-language__input-border-colour;
 
-  input:checked ~ .cads-radio-button-checkmark {
-    border-color: $cads-language__input-border-colour;
-
-    &::after {
-      display: block;
-      left: 10px;
-      top: 10px;
-    }
+  &::after {
+    display: block;
+    left: 10px;
+    top: 10px;
   }
+}
+.cads-radio-group__item:hover .cads-radio-group__item-checkmark {
+  border-color: $cads-language__focus-border-colour;
 
-  &:hover input ~ .cads-radio-button-checkmark {
-    border-color: $cads-language__focus-border-colour;
-
-    &::after {
-      background-color: $cads-language__focus-border-colour;
-    }
+  &::after {
+    background-color: $cads-language__focus-border-colour;
   }
+}
+.cads-radio-group__item-input:focus ~ .cads-radio-group__item-checkmark {
+  border-color: $cads-language__focus-border-colour;
+  // We need to use box-shadow instead of outline as outline does not have a radius
+  box-shadow: 0 0 0 $cads-border-width-medium $cads-language__focus-colour;
 
-  input:focus ~ .cads-radio-button-checkmark {
-    border-color: $cads-language__focus-border-colour;
-    // We need to use box-shadow instead of outline as outline does not have a radius
-    box-shadow: 0 0 0 $cads-border-width-medium $cads-language__focus-colour;
-
-    &::after {
-      background-color: $cads-language__focus-border-colour;
-    }
+  &::after {
+    background-color: $cads-language__focus-border-colour;
   }
 }
 
-.cads-radio-group {
-  border: none;
-  padding: 0;
-  margin: 0;
+//
+// Modifier: compact
+//
+.cads-radio-group--compact {
+  .cads-radio-group__item {
+    display: inline-block;
+    margin-right: $cads-spacing-5;
+    padding: 10px 0 10px
+      calc(#{$cads-interactive-target-size__small} + #{$cads-spacing-2});
+    line-height: $cads-interactive-target-size__small + 3px;
+    height: $cads-interactive-target-size;
 
-  &.cads-radio-group__small {
-    .cads-radio-button {
-      display: inline-block;
-      margin-right: $cads-spacing-5;
-      padding: 10px 0 10px
-        calc(#{$cads-interactive-target-size__small} + #{$cads-spacing-2});
-      line-height: $cads-interactive-target-size__small + 3px;
-      height: $cads-interactive-target-size;
+    .cads-radio-group__item-checkmark {
+      height: $cads-interactive-target-size__small;
+      width: $cads-interactive-target-size__small;
+      top: 10px;
 
-      .cads-radio-button-checkmark {
-        height: $cads-interactive-target-size__small;
-        width: $cads-interactive-target-size__small;
-        top: 10px;
-
-        &::after {
-          width: 10px;
-          height: 10px;
-          top: 5px;
-          left: 5px;
-        }
+      &::after {
+        width: 10px;
+        height: 10px;
+        top: 5px;
+        left: 5px;
       }
+    }
 
-      input:checked ~ .cads-radio-button-checkmark {
-        &::after {
-          left: 5px;
-          top: 5px;
-        }
-      }
+    .cads-radio-group__item-input:checked
+      ~ .cads-radio-group__item-checkmark::after {
+      left: 5px;
+      top: 5px;
     }
   }
 }

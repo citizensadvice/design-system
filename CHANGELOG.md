@@ -4,8 +4,12 @@
 * Renamed `cads-form-error` modifier to `cads-form-field--has-error`
 * Renamed `cads-form-optional` modifier to `cads-form-field--optional`
 * Renamed `cads-form-error-marker` to `cads-form-field__error-marker`
-* Renamed `cads-form-label` to to `cads-form-field__label`
+* Renamed `cads-form-label` to `cads-form-field__label`
 * Don't style raw `input` and `textarea` elements
+* Removed `radio_group_small`, `radio_group` now accepts a modifier
+* Renamed `cads-radio-button` to `cads-radio-group__item`
+* Renamed `cads-radio-button-checkmark` to `cads-radio-group__item-checkmark`
+
 
 ## <sub>v1.15.0</sub>
 
