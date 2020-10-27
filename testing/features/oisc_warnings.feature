@@ -7,12 +7,7 @@ Feature: OISC Warning components
     Background:
       Given a Title and Description OISC component is on the page
 
-    Scenario: English OISC component has a title and message
-      Then the OISC title is visible
-      And the OISC message is visible
-
-    Scenario: Welsh OISC component has a title and message
-      When I change language to Welsh
+    Scenario: OISC component has a title and message
       Then the OISC title is visible
       And the OISC message is visible
 
@@ -20,12 +15,7 @@ Feature: OISC Warning components
     Background:
       Given a Title Only OISC component is on the page
 
-    Scenario: English OISC component has a title
-      Then the OISC title is visible
-      But the OISC message is not visible
-
-    Scenario: Welsh OISC component has a title
-      When I change language to Welsh
+    Scenario: OISC component has a title
       Then the OISC title is visible
       But the OISC message is not visible
 
