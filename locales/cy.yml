@@ -18,7 +18,7 @@ cy:
     oisc_warning:
       close: Close this warning
     page_review:
-      body_html: Page last reviewed on <span class="cads-page-review-date">%{date}</span>
+      body_html: Page last reviewed on <strong>%{date}</strong>
     search:
       input_aria_label: Search through site content
       submit_title: Submit search query
