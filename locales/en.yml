@@ -5,7 +5,6 @@ en:
       body: 'This is some body text'
   components:
     callout:
-      warning:
-        adviser: Adviser
-        example: Example
-        important: Important
+      adviser: Adviser
+      example: Example
+      important: Important

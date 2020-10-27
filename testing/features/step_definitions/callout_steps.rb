@@ -31,5 +31,5 @@ Then("no label is present above the callout title") do
 end
 
 Then("a/an {string} label is present above the callout title") do |label|
-  expect(@component.warning).to eq(I18n.t("components.callout.warning.#{label.downcase}"))
+  expect(@component.warning).to eq(I18n.t("components.callout.#{label.downcase}"))
 end
