@@ -110,20 +110,10 @@ h3 {
 
   h2 {
     @extend %h2;
-    @include cads-adjacent-heading-margin($cads-spacing-6);
-
-    &.adjacent-heading-margin {
-      margin-top: $cads-spacing-6;
-    }
   }
 
   h3 {
     @extend %h3;
-    @include cads-adjacent-heading-margin($cads-spacing-6);
-
-    &.adjacent-heading-margin {
-      margin-top: $cads-spacing-6;
-    }
   }
 
   h4 {
@@ -137,4 +127,9 @@ h3 {
 
 .cads-prose {
   @extend %prose;
+}
+
+h2,
+h3 {
+  @include cads-adjacent-heading-margin($cads-spacing-6);
 }
