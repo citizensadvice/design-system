@@ -231,12 +231,10 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_NAVIGATION',
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
         readySelector: '.cads-greedy-nav-has-dropdown',
-        delay: 750,
         removeSelectors: ['.cads-styleguide-usage', 'h1'],
         hoverSelector: '#a11yComponentToTest',
         clickSelector: '.cads-greedy-nav__dropdown-toggle',
         postInteractionWait: 1000,
-        selectors: [],
         viewports: [
           {
             label: 'phone',
