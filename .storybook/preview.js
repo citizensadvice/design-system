@@ -32,8 +32,15 @@ export const globalTypes = {
   },
 };
 
-const withLocaleClassname = (Story, { globals }) => {
-  return `<div class="cads-lang-${globals.locale || 'en'}">${Story()}</div>`;
+const setLocaleFromUrl = (Story, context) => {
+  const params = new URL(document.location).searchParams;
+
+  const locale = params.get('locale');
+  if (locale) {
+    context.globals.locale = locale;
+  }
+
+  return Story();
 };
 
-export const decorators = [withLocaleClassname];
+export const decorators = [setLocaleFromUrl];
