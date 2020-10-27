@@ -30,6 +30,6 @@ Then("a company info is present") do
 end
 
 Then("a new tab is opened to report an issue with the page") do
-  switch_to_newly_opened_window!
+  switch_to_newly_opened_window!(new_page: true)
   expect(page.current_url).to eq("https://www.research.net/r/J8PLH2H")
 end
