@@ -5,11 +5,7 @@ import templateRadioGroup from './_radio_group.html.haml';
 import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
 import templateRadioGroupOptional from './_radio_group-optional.html.haml';
 import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
-
 import templateRadioGroupCompact from './_radio_group_compact.html.haml';
-import templateRadioGroupCompactWithHint from './_radio_group_compact-with-hint.html.haml';
-import templateRadioGroupCompactOptional from './_radio_group_compact-optional.html.haml';
-import templateRadioGroupCompactWithError from './_radio_group_compact-with-error.html.haml';
 
 <Meta title="Forms/Radio group" />
 
@@ -63,7 +59,7 @@ Radio groups come in two styles: standard and compact.
   </Story>
 </Preview>
 
-## Compact radio groups
+## Variant: Compact radio groups
 
 Radio groups can accept an optional `is_compact` setting.
 
@@ -73,45 +69,6 @@ Radio groups can accept an optional `is_compact` setting.
     parameters={{ docs: { source: { code: templateRadioGroupCompact.raw } } }}
   >
     {(_, options) => translate(templateRadioGroupCompact, options)}
-  </Story>
-</Preview>
-
-### Variant: Compact with hint
-
-<Preview>
-  <Story
-    name="Compact with hint"
-    parameters={{
-      docs: { source: { code: templateRadioGroupCompactWithHint.raw } },
-    }}
-  >
-    {(_, options) => translate(templateRadioGroupCompactWithHint, options)}
-  </Story>
-</Preview>
-
-### Variant: Compact with optional field marker
-
-<Preview>
-  <Story
-    name="Compact optional field"
-    parameters={{
-      docs: { source: { code: templateRadioGroupCompactOptional.raw } },
-    }}
-  >
-    {(_, options) => translate(templateRadioGroupCompactOptional, options)}
-  </Story>
-</Preview>
-
-### Variant: Compact with error message
-
-<Preview>
-  <Story
-    name="Compact with error"
-    parameters={{
-      docs: { source: { code: templateRadioGroupCompactWithError.raw } },
-    }}
-  >
-    {(_, options) => translate(templateRadioGroupCompactWithError, options)}
   </Story>
 </Preview>
 

@@ -32,32 +32,6 @@ module.exports = function backstopCommon(baseUrl) {
     ];
   }
 
-  function buildFormFieldScenarios(labelPrefix, componentId) {
-    const viewport = { label: 'form-field', width: 800, height: 400 };
-    return [
-      {
-        label: `${labelPrefix} (basic)`,
-        url: storyUrlFor(`${componentId}--basic`),
-        viewports: [viewport],
-      },
-      {
-        label: `${labelPrefix} (with hint)`,
-        url: storyUrlFor(`${componentId}--with-hint`),
-        viewports: [viewport],
-      },
-      {
-        label: `${labelPrefix} (optional field)`,
-        url: storyUrlFor(`${componentId}--optional-field`),
-        viewports: [viewport],
-      },
-      {
-        label: `${labelPrefix} (with error)`,
-        url: storyUrlFor(`${componentId}--with-error`),
-        viewports: [viewport],
-      },
-    ];
-  }
-
   return {
     id: 'backstop_default',
     viewports: [
@@ -79,13 +53,6 @@ module.exports = function backstopCommon(baseUrl) {
       ...buildButtonScenarios(
         'Components/Buttons/Tertiary',
         'components-buttons--tertiary'
-      ),
-      ...buildFormFieldScenarios('Components/Input', 'forms-input'),
-      ...buildFormFieldScenarios('Components/Textarea', 'forms-textarea'),
-      ...buildFormFieldScenarios('Components/Radio group', 'forms-radio-group'),
-      ...buildFormFieldScenarios(
-        'Components/Radio group small',
-        'forms-radio-group-small'
       ),
       {
         label: 'Components/Callout (standard)',
@@ -167,6 +134,76 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Forms/Error summary',
         url: storyUrlFor('forms-error-summary--example'),
+      },
+      {
+        label: `Forms/Input (basic)`,
+        url: storyUrlFor(`forms-input--basic`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Input (with hint)`,
+        url: storyUrlFor(`forms-input--with-hint`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Input (optional field)`,
+        url: storyUrlFor(`forms-input--optional-field`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Input (with error)`,
+        url: storyUrlFor(`forms-input--with-error`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Input (with fixed widths)`,
+        url: storyUrlFor(`forms-input--fixed-widths`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Textarea (basic)`,
+        url: storyUrlFor(`forms-textarea--basic`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Textarea (with hint)`,
+        url: storyUrlFor(`forms-textarea--with-hint`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Textarea (optional field)`,
+        url: storyUrlFor(`forms-textarea--optional-field`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Textarea (with error)`,
+        url: storyUrlFor(`forms-textarea--with-error`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Radio group (basic)`,
+        url: storyUrlFor(`forms-radio-group--basic`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Radio group (with hint)`,
+        url: storyUrlFor(`forms-radio-group--with-hint`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Radio group (optional field)`,
+        url: storyUrlFor(`forms-radio-group--optional-field`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Radio group (with error)`,
+        url: storyUrlFor(`forms-radio-group--with-error`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Radio group (compact)`,
+        url: storyUrlFor(`forms-radio-group--compact`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
 
       // Old format component tests below here
