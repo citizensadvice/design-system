@@ -44,6 +44,11 @@ pipeline {
                     currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
                 }
                 script {
+                    // The docker container will use uid and gid 3000 so that it is not running as root
+                    // and needs to write to the host filesystem in this location
+                    sh "chown -R 3000:3000 testing/artifacts"
+                }
+                script {
                     docker.withRegistry(docker_registry_url, ecr_credential) {
                         // Pull the master images and any previous builds if we're on a different branch
                         // docker-compose only looks in the local images and doesn't try to pull when building
