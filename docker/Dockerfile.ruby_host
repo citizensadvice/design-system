@@ -13,11 +13,11 @@ WORKDIR /app
 
 RUN gem install bundler -v $BUNDLER_VERSION && bundle install --with test && gem cleanup
 
-RUN addgroup --gid 3000 ruby && \
-    adduser --home /home/ruby --uid 3000 --ingroup ruby --disabled-password ruby
+RUN addgroup --gid 1000 ruby && \
+    adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
 
 COPY . /app
 
-RUN rm ./testing/artifacts/*/.keep && chown -R 3000:3000 /app
+RUN rm ./testing/artifacts/*/.keep && chown -R 1000:1000 /app
 
-USER 3000
+USER 1000
