@@ -16,6 +16,8 @@ RUN gem install bundler -v $BUNDLER_VERSION && bundle install --with test && gem
 RUN addgroup --gid 3000 ruby && \
     adduser --home /home/ruby --uid 3000 --ingroup ruby --disabled-password ruby
 
-USER 3000
-
 COPY . /app
+
+RUN chown -R 3000:3000 /app
+
+USER 3000
