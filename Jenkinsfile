@@ -112,9 +112,9 @@ pipeline {
                 withDockerSandbox([ images['ca-styleguide'], images['ca-backstop'] ]) {
                     script {
                         try {
+                            sh './bin/docker/grid_tests'
                             sh './bin/jenkins/visual_regression'
                             sh './bin/docker/a11y-test'
-                            sh './bin/docker/grid_tests'
                         } catch (Exception e) {
                             sh 'docker-compose logs --no-color'
                             currentBuild.result = 'FAILURE'
