@@ -14,7 +14,6 @@
         .cads-grid-col-md-8
           %h1 Adviser Sample Page
           = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { 'oisc_warning' => { 'title' => "This is an OISC level 2 topic", 'body' => "Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a>", 'is_sticky' => true } }
-
           .cads-prose
             = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'adviser', 'body' => '<h3>This is an adviser callout</h3><p>This is the body text of an adviser callout.</p>' } }
             %p Here is an important callout with adviser content
@@ -35,7 +34,7 @@
             %p And some more
             = render partial: "@citizensadvice/design-system/haml/targeted-content"
             %p Etiam laoreet erat sit amet porttitor luctus. Sed vitae enim aliquet, aliquam velit sit amet, placerat diam. Aenean malesuada euismod arcu, vel imperdiet dolor facilisis vitae. Fusce ac lacinia metus, ut interdum nibh. Nunc a lorem dolor. In sodales urna eget libero commodo luctus. Suspendisse commodo est sit amet diam tempus, sit amet vehicula ex sodales. Duis feugiat scelerisque imperdiet. Sed vel lorem id risus porta porta id in libero. In sagittis at magna a semper. Donec aliquet porta vehicula. Integer sit amet quam aliquet, bibendum libero non, aliquet nisi. Mauris ante erat, dictum a urna ut, elementum varius ex. Praesent blandit quis ante id fermentum.
-            = render partial: "@citizensadvice/design-system/haml/page_review"
+          = render partial: "@citizensadvice/design-system/haml/page_review"
         .cads-grid-col-md-4
           %aside.cads-related-content
             %p.paragraph-s.section-title Related Content
