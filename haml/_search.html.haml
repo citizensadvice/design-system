@@ -1,3 +1,4 @@
 %form.cads-search{action: search_action_url, role: "search"}
   %input{type: "search", name: "q", "aria-label": t('cads.search.input_aria_label')}
-  %button.cads-button.cads-search__button{title: t('cads.search.submit_title')}= t('cads.search.submit_label')
+  %button.cads-button.cads-search__button{title: t('cads.search.submit_title')}
+    .cads-search__button-label= t('cads.search.submit_label')
