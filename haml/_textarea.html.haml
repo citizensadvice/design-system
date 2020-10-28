@@ -1,3 +1,6 @@
+-# Default rows to 8 if none is provided
+- rows = radio.fetch('rows', 8)
+
 .cads-form-field{ class: [input['has_error'] && 'cads-form-field--has-error', input['optional'] && 'cads-form-field--optional'] }
   .cads-form-field__error-marker
   .cads-form-field__content.cads-input-group
@@ -7,4 +10,4 @@
       %p.cads-form-field__hint= input['hint']
     - if input['error_message']
       %p.cads-form-field__error-message= input['error_message']
-    %textarea.cads-textarea{type: "text", id: "#{input['name']}-input", "aria-label": input['label'], rows: 4}
+    %textarea.cads-textarea{ type: "text", id: "#{input['name']}-input", "aria-label": input['label'], rows: rows }

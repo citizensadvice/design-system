@@ -115,23 +115,16 @@
 // Forms: Text inputs
 // ============================================================================
 
-/* stylelint-disable plugin/selector-bem-pattern  */
-%cads-input {
-  @include cads-interactive-element();
-
-  display: inline-block;
-  width: 100%;
-  min-width: 1px;
-  font-size: cads-rem(18px);
-  height: cads-rem(44px);
-  padding: cads-rem(8px);
-  margin: 0 0 $cads-spacing-4 0;
-}
-/* stylelint-enable */
-
 /** @define input */
 .cads-input {
-  @extend %cads-input;
+  @include cads-interactive-element();
+
+  width: 100%;
+  // prevent elements with size attributes overflowing on mobile
+  max-width: 100%;
+  height: $cads-interactive-target-size;
+  padding: $cads-spacing-2;
+  appearance: none;
 }
 
 // Character width modifiers
@@ -175,14 +168,16 @@
 
 /** @define textarea */
 .cads-textarea {
-  @extend %cads-input;
+  @include cads-interactive-element();
 
+  display: block;
   width: 100%;
-  max-width: 50%;
-
-  @include cads-media-breakpoint-down(sm) {
-    max-width: 100%;
-  }
+  min-height: 40px;
+  padding: $cads-spacing-2;
+  border-radius: 0;
+  -webkit-appearance: none;
+  // Limit resizing to vertical
+  resize: vertical;
 }
 
 // ============================================================================
