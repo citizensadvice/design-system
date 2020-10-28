@@ -17,9 +17,7 @@
     @extend %cads-list-no-bullet;
   }
 
-  li,
-  .cads-list-item {
-    font-size: 1rem;
+  li {
     display: inline-block;
     font-weight: $cads-font-weight__bold;
   }
@@ -89,6 +87,7 @@
   }
 
   .cads-nav-link {
+    font-size: 1rem;
     color: $cads-palette__white;
     padding: calc(1rem - 2px) calc(1rem - 12px);
     display: inline-block;

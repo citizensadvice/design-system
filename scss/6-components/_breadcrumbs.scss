@@ -10,12 +10,12 @@
 .cads-breadcrumbs {
   @include cads-restrict-content-width();
 
-  padding-top: $cads-spacing-3;
-  padding-bottom: $cads-spacing-3;
+  padding: $cads-spacing-3 0 $cads-spacing-3 $cads-spacing-4;
   border-bottom: $cads-border-width-small solid $cads-language__border_colour;
 
   &__list {
     margin: 0;
+    padding: 0;
   }
 
   &__crumb {

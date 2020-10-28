@@ -18,7 +18,7 @@
   font-weight: $cads-font-weight__regular;
   background-color: transparent;
   min-width: $cads-interactive-target-size;
-  margin-bottom: 0;
+  margin-bottom: $cads-spacing-2;
 
   &:focus {
     outline: none;
