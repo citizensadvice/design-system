@@ -92,6 +92,14 @@
   p {
     @extend %cads-paragraph;
   }
+
+  ul {
+    @extend %cads-list-unordered;
+  }
+
+  ol {
+    @extend %cads-list-ordered;
+  }
 }
 
 .cads-prose {

@@ -19,6 +19,8 @@
   }
 
   &__crumb {
+    @extend %cads-list-item;
+
     display: inline-block;
     margin: 0;
     max-width: 55ch;
