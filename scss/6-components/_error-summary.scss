@@ -10,7 +10,9 @@
     border-color: $cads-language__error-colour;
   }
 
-  .cads-heading-small {
+  &__title {
+    @extend %cads-h4;
+
     color: $cads-language__warning-colour;
     margin-bottom: $cads-spacing-4;
   }

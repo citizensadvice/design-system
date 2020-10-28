@@ -5,6 +5,4 @@ export default create({
   base: 'light',
   brandTitle: `Citizens Advice Design System v${version}`,
   fontBase: "'Open Sans', helvetica, 'helvetica neue', arial, sans-serif",
-  colorPrimary: '#004b88',
-  colorSecondary: '#fcbb69',
 });

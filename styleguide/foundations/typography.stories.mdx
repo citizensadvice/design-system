@@ -1,0 +1,56 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Typography styles have been created using placeholders and extended into the relevant classes for components that consume them.
+
+## Scoped Styles
+
+Where is it not possible to add classes to typography elements, for example where the content comes from a CMS or some such WYSIWYG editor, they should be encolsed in a `.cads-prose` element.
+
+```html
+<main class="cads-prose">
+  <h1>Your options if you're in the UK illegally</h1>
+  <h2>Get immigration advice</h2>
+  <p>
+    There are ways to make your stay legal. An immigration specialist will
+    decide which applies to you. Don't worry, getting advice will be
+    confidential - they won't tell anybody about your query. Contact your
+    nearest Citizens Advice for help finding an adviser in your area.
+  </p>
+</main>
+```
+
+## Adjacent Header Mixin
+
+To ensure that headers have the correct margins applied inside the `.cads-prose` element, a mixin has been used that will add the correct margin.
+
+```scss
+@include cads-adjacent-heading-margin($margin);
+```
+
+If you are creating components that will live inside a `.cads-prose` element and that will enclose an `h2` or `h3` element, you will need to add the mixin to the class that is enclosing the header.
+
+For example, you have created a `.references-has-button` div that wraps a header and a button, which is itself inside the `.cads-prose` element:
+
+```html
+<main class="cads-prose">
+  <h2>Some heading</h2>
+  <p>Some content</p>
+  <div class="references-has-button">
+    <h2>My reference heading</h2>
+    <button>Add reference</button>
+  </div>
+</main>
+```
+
+To ensure the appropriate margin between the `<p>` and the `<div>`, use the mixin above:
+
+```scss
+.references-has-button {
+    @include cads-adjacent-heading-margin($cads-spacing-6);
+    ...
+}
+```

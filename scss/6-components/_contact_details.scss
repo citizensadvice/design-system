@@ -1,4 +1,6 @@
 .cads-contact-details {
+  @extend %cads-prose;
+
   margin-bottom: $cads-spacing-5;
 
   p {

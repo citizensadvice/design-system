@@ -27,11 +27,15 @@
   display: none;
 }
 .cads-form-field__error-message {
+  @extend %cads-paragraph;
+
   display: none;
   color: $cads-language__warning-colour;
   margin-bottom: $cads-spacing-3;
 }
 .cads-form-field__label {
+  @extend %cads-h4;
+
   display: block;
   margin-bottom: $cads-spacing-3;
 }

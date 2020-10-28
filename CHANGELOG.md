@@ -1,3 +1,5 @@
+* NP-1074 Typography updates (typography scoping and placeholders)
+
 **Forms breaking changes**:
 
 * Renamed `cads-form` to `cads-form-field`

@@ -4,35 +4,15 @@
     update the list of elements that we want to check against.
 */
 @mixin cads-adjacent-heading-margin($m) {
-  h2 + &,
-  h3 + &,
-  h4 + &,
-  p + &,
-  ul + &,
-  img + &,
-  details + &,
-  table + &,
-  .cads-callout + & {
+  .cads-prose h2 + &,
+  .cads-prose h3 + &,
+  .cads-prose h4 + &,
+  .cads-prose p + &,
+  .cads-prose ul + &,
+  .cads-prose img + &,
+  .cads-prose details + &,
+  .cads-prose table + &,
+  .cads-prose .cads-callout + & {
     margin-top: $m;
-  }
-}
-
-@mixin cads-paragraph() {
-  font-size: 1.125rem;
-  line-height: 1.5rem; // Line-height remains the same
-  font-weight: $cads-font-weight__regular;
-
-  @include cads-media-breakpoint-down(sm) {
-    font-size: 1rem;
-  }
-}
-
-@mixin cads-paragraph-s() {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: $cads-font-weight__regular;
-
-  @include cads-media-breakpoint-down(sm) {
-    font-size: 0.875rem;
   }
 }

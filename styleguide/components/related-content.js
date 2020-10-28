@@ -2,7 +2,7 @@ import wrapper from '../component-wrapper';
 
 const relatedContent = () => {
   const component = `<aside class="cads-related-content">
-    <p class="paragraph-s section-title">Related Content</p>
+    <p class="section-title">Related Content</p>
     <h3>Some related content title</h3>
     <ul>
       <li><a href="#">Link 1</a></li>

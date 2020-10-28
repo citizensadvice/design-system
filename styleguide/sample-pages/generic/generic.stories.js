@@ -8,5 +8,5 @@ export default {
   decorators: [pageDecorator],
 };
 
-export const tables = () => templateTables;
-export const forms = () => templateForms;
+export const tables = () => templateTables.toString();
+export const forms = () => templateForms.toString();
