@@ -5,7 +5,7 @@ en:
       body: 'This is some body text'
     breadcrumbs:
       home: Home
-    callouts:
+    callout:
       example: Example
       important: Important
       adviser: Adviser

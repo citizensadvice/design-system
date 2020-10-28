@@ -1,37 +1,38 @@
 cy:
   cads:
     example:
-      name: 'Cyngor ar Bopeth'
-      body: 'Dyma ychydig o destun y corff'
+      name: Cyngor ar Bopeth
+      body: Dyma enghraifft o destun wedi'i gyfieithu
     breadcrumbs:
-      home: Home
-    callouts:
-      example: Example
-      important: Important
-      adviser: Adviser
+      home: Hafan
+    callout:
+      example: Enghraifft
+      important: Pwysig
+      adviser: Cynghorydd
     form:
       optional: dewisol
     header:
-      search_mobile: Open search
+      search_mobile: Ymchwiliad agored
     logo:
       title: Citizens Advice homepage
     oisc_warning:
-      close: Close this warning
+      close: Caewch y rhybudd hwn
     page_review:
-      body_html: Page last reviewed on <strong>%{date}</strong>
+      body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>
     search:
-      input_aria_label: Search through site content
-      submit_title: Submit search query
-      submit_label: Search
+      input_aria_label: Chwiliwch trwy gynnwys y wefan
+      submit_title: Cyflwyno ymholiad chwilio
+      submit_label: Chwilio
+    targeted_content:
+      close_button_aria: Cau %{title}
     website_feedback:
-      body: Is there anything wrong with this page? Let us know
+      body: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
     shared:
       ui:
-        close: Close
-      copyright: Copyright ©2020 Citizens Advice. All rights reserved.
+        close: Cau
+      copyright: Hawlfraint © 2020 Cyngor ar Bopeth. Cedwir pob hawl.
       legal_summary: >
-        Citizens Advice is an operating name of the National Association of
-        Citizens Advice Bureaux. Registered charity number 279057. VAT number
-        726 0202 76. Company limited by guarantee. Registered number 01436945
-        England. Registered office: Citizens Advice, 3rd Floor North, 200
-        Aldersgate, London, EC1A 4HD
+        Cyngor ar Bopeth yn enw gweithredol ar Gymdeithas Genedlaethol Cyngor ar Bopeth.
+        Rhif elusen gofrestredig 279057. Rhif TAW 726 0202 76. Cwmni cyfyngedig drwy warant.
+        Rhif cofrestredig 0143694 Lloegr. Swyddfa gofrestredig:
+        Cyngor ar Bopeth, 3ydd Llawr Gogledd, 200 Aldersgate, Llundain, EC1A 4HD
