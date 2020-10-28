@@ -5,6 +5,7 @@ import templateRadioGroup from './_radio_group.html.haml';
 import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
 import templateRadioGroupOptional from './_radio_group-optional.html.haml';
 import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
+import templateRadioGrougWithLongOptions from './_radio_group-long-options.html.haml';
 import templateRadioGroupCompact from './_radio_group_compact.html.haml';
 
 <Meta title="Forms/Radio group" />
@@ -56,6 +57,20 @@ Radio groups come in two styles: standard and compact.
     parameters={{ docs: { source: { code: templateRadioGroupWithError.raw } } }}
   >
     {(_, options) => translate(templateRadioGroupWithError, options)}
+  </Story>
+</Preview>
+
+### Variant: With long options
+
+<Preview>
+  <Story
+    name="With long options"
+    decorators={[(Story) => `<div style="max-width: 540px">${Story()}</div>`]}
+    parameters={{
+      docs: { source: { code: templateRadioGrougWithLongOptions.raw } },
+    }}
+  >
+    {(_, options) => translate(templateRadioGrougWithLongOptions, options)}
   </Story>
 </Preview>
 
