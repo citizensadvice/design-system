@@ -19,6 +19,7 @@
 
 * Forms: Make success message a block element, no width constraints
 * Forms: Increase spacing between labels and hints
+* Forms: Fix radio option line-height for wrapping text
 
 ## <sub>v1.15.0</sub>
 
