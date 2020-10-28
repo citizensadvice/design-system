@@ -4,7 +4,7 @@
     %span.cads-target-content__button.cads-icon_plus
     %span.cads-targeted-content__title
       = targetContent['title']
-  .cads-targeted-content__content{:id => "#{targetContent['id']}-content"}
+  .cads-targeted-content__content.cads-prose{:id => "#{targetContent['id']}-content"}
     = targetContent['body']
     %hr.cads-separator
     %button.cads-linkbutton.cads-targeted-content__close-button{:"aria-label" => "Collapse #{targetContent['title']}"}
