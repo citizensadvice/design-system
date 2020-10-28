@@ -5,7 +5,7 @@ namespace :design_system do
   task :all do
     puts "Running all design system tests"
     system(
-      "touch artifacts/reports/.keep && cd ./testing && bundle exec cucumber -p reports && cd .."
+      "cd ./testing && touch artifacts/reports/.keep && bundle exec cucumber -p reports && cd .."
     ) || raise
   end
 end
