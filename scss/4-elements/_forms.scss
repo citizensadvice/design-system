@@ -3,11 +3,7 @@
 }
 
 .cads-form__error-message {
-<<<<<<< HEAD
   @extend %cads-paragraph;
-=======
-  @extend %p;
->>>>>>> fix: correct input label and error
 
   display: none;
   color: $cads-language__warning-colour;
