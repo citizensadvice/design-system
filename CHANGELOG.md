@@ -10,6 +10,7 @@
 * Forms: Removed `radio_group_small`, `radio_group` now accepts a modifier
 * Forms: Renamed `cads-radio-button` to `cads-radio-group__item`
 * Forms: Renamed `cads-radio-button-checkmark` to `cads-radio-group__item-checkmark`
+* Forms: Refactor radio component. Fix line-height for wrapping text
 
 **New features**:
 
@@ -19,7 +20,6 @@
 
 * Forms: Make success message a block element, no width constraints
 * Forms: Increase spacing between labels and hints
-* Forms: Fix radio option line-height for wrapping text
 
 ## <sub>v1.15.0</sub>
 

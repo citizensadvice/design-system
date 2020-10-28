@@ -7,7 +7,11 @@
     - if radio['error_message']
       %p.cads-form-field__error-message= radio['error_message']
     - radio['options'].each do |radioItem|
-      %label.cads-radio-group__item{for: "#{radio['name']}-#{radioItem['value']}"}
-        %span.cads-radio-group__item-label= radioItem['label']
-        %input.cads-radio-group__item-input{type: "radio", id: "#{radio['name']}-#{radioItem['value']}", name: radio['name'], value: radioItem['value']}
-        %span.cads-radio-group__item-checkmark
+      .cads-radio-group__item
+        %input.cads-radio-group__input{ type: "radio",
+          id: "#{radio['name']}-#{radioItem['value']}",
+          name: radio['name'],
+          value: radioItem['value'] }
+        %label.cads-radio-group__label{ for: "#{radio['name']}-#{radioItem['value']}" }
+          = radioItem['label']
+        -# %span.cads-radio-group__item-checkmark
