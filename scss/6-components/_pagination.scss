@@ -1,3 +1,7 @@
+.cads-paging {
+  @extend %cads-list-unordered-inline;
+}
+
 .cads-paging-info {
   font-size: 1rem;
   line-height: 1.25rem;

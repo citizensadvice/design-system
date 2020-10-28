@@ -18,6 +18,8 @@
   }
 
   .cads-error-summary__list {
+    @extend %cads-list-no-bullet;
+
     margin-bottom: 0;
 
     li {

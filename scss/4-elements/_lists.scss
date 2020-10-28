@@ -1,5 +1,4 @@
-li,
-.cads-list-item {
+%cads-list-item {
   padding: 0;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -10,42 +9,53 @@ li,
   }
 }
 
-ol,
-.cads-list-ordered {
+%cads-list-ordered {
   padding: 0 0 0 $cads-spacing-5;
   margin: 0 0 $cads-spacing-4 0;
+
+  li {
+    @extend %cads-list-item;
+  }
 }
 
-ul,
-.cads-list-unordered {
+//used in PW - paging control
+%cads-list-unordered {
   padding: 0 0 0 $cads-spacing-4;
   margin: 0 0 $cads-spacing-4 0;
   list-style-type: disc;
 
-  &.cads-list-unordered__inline {
-    padding: 0;
-    margin: 0 0 $cads-spacing-4 0;
-    list-style-type: none;
+  li {
+    @extend %cads-list-item;
+  }
+}
 
-    li,
-    .cads-list-item {
-      display: inline-block;
-      margin-right: 1rem;
-    }
+// used in PW - paging control
+%cads-list-unordered-inline {
+  padding: 0;
+  margin: 0 0 $cads-spacing-4 0;
+  list-style-type: none;
 
-    // Reverse margins if this is right aligned
-    .cads-align-right & {
-      li,
-      .cads-list-item {
-        margin-right: 0;
-        margin-left: 1rem;
-      }
-    }
+  li {
+    display: inline-block;
+    margin-right: 1rem;
   }
 
-  &.cads-list__no-bullet {
-    padding: 0;
-    margin: 0 0 $cads-spacing-4 0;
-    list-style-type: none;
+  // Reverse margins if this is right aligned
+  .cads-align-right & {
+    li {
+      margin-right: 0;
+      margin-left: 1rem;
+    }
+  }
+}
+
+//used in error summary, adice list and onthispage
+%cads-list-no-bullet {
+  padding: 0;
+  margin: 0 0 $cads-spacing-4 0;
+  list-style-type: none;
+
+  li {
+    @extend %cads-list-item;
   }
 }

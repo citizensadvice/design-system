@@ -1,7 +1,7 @@
 import wrapper from '../component-wrapper';
 
 const Pagination = () => {
-  const component = `<ul class="cads-list-unordered__inline cads-paging">
+  const component = `<ul class="cads-paging">
     <li>
         <button class="cads-paging__button" type="button">
             First

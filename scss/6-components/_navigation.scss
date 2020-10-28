@@ -14,7 +14,7 @@
   ul {
     display: inline-block;
 
-    @extend .cads-list__no-bullet;
+    @extend %cads-list-no-bullet;
   }
 
   li,
