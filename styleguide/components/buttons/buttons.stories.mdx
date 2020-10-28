@@ -4,18 +4,37 @@ import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 
 ## Primary buttons
 
+export const buttonPrimaryHtml = `<button type="button" class="cads-button cads-button__primary">Primary button</button>`;
+export const buttonSecondaryHtml = `<button type="button" class="cads-button cads-button__secondary">Secondary button</button>`;
+export const buttonTertiaryHtml = `<button type="button" class="cads-button cads-button__tertiary">Tertiary button</button>`;
+
 <Preview>
-  <Story name="Primary">{`<p><button type="button" class="cads-button cads-button__primary">Primary button</button></p>`}</Story>
+  <Story
+    name="Primary"
+    parameters={{ docs: { source: { code: buttonPrimaryHtml } } }}
+  >
+    {() => buttonPrimaryHtml}
+  </Story>
 </Preview>
 
 ## Secondary buttons
 
 <Preview>
-  <Story name="Secondary">{`<p><button type="button" class="cads-button cads-button__secondary">Secondary button</button></p>`}</Story>
+  <Story
+    name="Secondary"
+    parameters={{ docs: { source: { code: buttonSecondaryHtml } } }}
+  >
+    {() => buttonSecondaryHtml}
+  </Story>
 </Preview>
 
 ## Tertiary buttons
 
 <Preview>
-  <Story name="Tertiary">{`<p><button type="button" class="cads-button cads-button__tertiary">Tertiary button</button></p>`}</Story>
+  <Story
+    name="Tertiary"
+    parameters={{ docs: { source: { code: buttonTertiaryHtml } } }}
+  >
+    {() => buttonTertiaryHtml}
+  </Story>
 </Preview>

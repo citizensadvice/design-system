@@ -24,6 +24,12 @@ module Helpers
       attach(file_path, "text/html")
     end
 
+    def switch_to_newly_opened_window!(new_page: false)
+      wait_for_second_window
+      page.switch_to_window(second_window)
+      wait_for_new_url if firefox? && new_page
+    end
+
     private
 
     def resize_page_to_fullsize
@@ -62,6 +68,18 @@ module Helpers
 
     def height(fallback: 800)
       ENV.fetch("BROWSER_HEIGHT", fallback)
+    end
+
+    def wait_for_second_window
+      Selenium::WebDriver::Wait.new.until { page.windows.length == 2 }
+    end
+
+    def second_window
+      page.windows.detect { |window| !window.current? }
+    end
+
+    def wait_for_new_url
+      Selenium::WebDriver::Wait.new.until { page.current_url != "about:blank" }
     end
   end
 end

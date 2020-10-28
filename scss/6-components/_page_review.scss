@@ -1,4 +1,6 @@
 .cads-page-review {
+  @extend %cads-paragraph-small;
+
   color: $cads-language__secondary-text-colour;
   margin-bottom: 0;
 }

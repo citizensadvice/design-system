@@ -1,3 +1,15 @@
+* NP-1074 Typography updates (typography scoping and placeholders)
+
+## <sub>v1.15.0</sub>
+
+#### _Oct. 27, 2020_
+
+* Bugfix: Spacing on page review component
+* Add default to all colour variables to allow overriding in themes
+* Add support for anchor links opening targeted content elements
+* Updated foundations and grid documentation
+* Initial prep for translations support
+
 ## <sub>v1.14.0</sub>
 
 #### _Oct. 22, 2020_

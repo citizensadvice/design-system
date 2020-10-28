@@ -1,11 +1,7 @@
-import { addons } from '@storybook/addons';
-import { create } from '@storybook/theming/create';
-import { version } from '../package.json';
+require('url-polyfill');
 
-const theme = create({
-  base: 'light',
-  brandTitle: `Citizens Advice Design System v${version}`,
-});
+import { addons } from '@storybook/addons';
+import theme from './theme';
 
 addons.setConfig({
   panelPosition: 'bottom',

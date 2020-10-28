@@ -12,7 +12,7 @@ Feature: Header component
     Scenario: Header has some quick links
       Then a language change link is present
       And a login link is present
-      And a logo is present
+      And a header logo is present
 
     Scenario: Header has a search option
       When I type "Immigration" into the search box
@@ -26,7 +26,7 @@ Feature: Header component
     Scenario: Header has some quick links
       Then a language change link is present
       And a logout link is present
-      And a logo is present
+      And a header logo is present
 
     @future_release @NP-1137
     Scenario: Header has a search option

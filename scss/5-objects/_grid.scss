@@ -1,26 +1,100 @@
-// Top level grid container
+// ============================================================================
+// Grids
+// ============================================================================
+// Grids are made up of three parts:
+//
+// - A `.cads-grid-container` wrapper element
+// - One or more `.cads-grid-row` elements to demarcate a grid rows
+// - A combination of `.cads-grid-col-*` classes to demarcate grid columns
+
 .cads-grid-container {
-  @include cads-make-container();
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint in map-keys($cads-breakpoints) {
+    $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+
+    @include cads-media-breakpoint-up($breakpoint) {
+      padding-right: $gutter;
+      padding-left: $gutter;
+    }
+  }
+
+  @each $breakpoint, $container-max-width in $cads-container-max-widths {
+    @include cads-media-breakpoint-up($breakpoint, $cads-breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
 }
 
 .cads-grid-row {
-  @include cads-make-row();
+  display: flex;
+  flex-wrap: wrap;
 
-  // Remove the negative margin from default .row, then the horizontal padding
-  // from all immediate children columns. This prevents runaway style inheritance.
-  // &--no-gutters {
-  //     margin-right: 0;
-  //     margin-left: 0;
-  //     margin-top: 0;
-  //     margin-bottom: 0;
+  @each $breakpoint in map-keys($cads-breakpoints) {
+    $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
 
-  //     > .cads-grid-col,
-  //     > [class*='cads-grid-col-'] {
-  //         padding-right: 0;
-  //         padding-left: 0;
-  //     }
-  // }
+    @include cads-media-breakpoint-up($breakpoint) {
+      margin-right: ($gutter / -2);
+      margin-left: ($gutter / -2);
+    }
+  }
 }
 
-// Common styles for small and large grid columns
-@include cads-make-grid-columns();
+// Common properties for all breakpoints
+%grid-column {
+  position: relative;
+  width: 100%;
+  min-height: 1px; // Don't collapse when empty
+}
+
+// Generate the correct number of grid classes
+@each $breakpoint in map-keys($cads-breakpoints) {
+  $infix: cads-breakpoint-infix($breakpoint);
+  $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+
+  %grid-gutters {
+    @include cads-media-breakpoint-up($breakpoint) {
+      padding-right: ($gutter / 2);
+      padding-left: ($gutter / 2);
+    }
+  }
+
+  // Allow columns to stretch full width below their breakpoints
+  @for $i from 1 through $cads-grid-columns {
+    .cads-grid-col#{$infix}-#{$i} {
+      @extend %grid-column;
+      @extend %grid-gutters;
+    }
+  }
+
+  .cads-grid-col#{$infix},
+  .cads-grid-col#{$infix}-auto {
+    @extend %grid-column;
+    @extend %grid-gutters;
+  }
+
+  @include cads-media-breakpoint-up($breakpoint) {
+    // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+    .cads-grid-col#{$infix} {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+
+    .cads-grid-col#{$infix}-auto {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none; // Reset earlier grid tiers
+    }
+
+    @for $i from 1 through $cads-grid-columns {
+      .cads-grid-col#{$infix}-#{$i} {
+        flex: 0 0 percentage($i / $cads-grid-columns);
+        // Ensure content within each column does not blow out the width of the column
+        max-width: percentage($i / $cads-grid-columns);
+      }
+    }
+  }
+}

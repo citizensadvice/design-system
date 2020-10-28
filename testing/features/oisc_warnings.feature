@@ -23,7 +23,12 @@ Feature: OISC Warning components
     Background:
       Given a Sticky OISC component is on the page
 
-    Scenario: OISC component has a title and message
+    Scenario: English OISC component has a title and message
+      Then the OISC title is visible
+      And the OISC message is visible
+
+    Scenario: Welsh OISC component has a title and message
+      Given the language is Welsh
       Then the OISC title is visible
       And the OISC message is visible
 

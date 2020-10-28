@@ -23,7 +23,6 @@ import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
-import tPageReview from '../haml/_page_review.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tSuccessMessage from '../haml/_success_message.html.haml';
@@ -91,8 +90,6 @@ export const header = () =>
     null,
     () => initHeader()
   );
-export const pageReview = () =>
-  renderHamlTemplate('Page Review', tPageReview, 'page_review');
 
 export const logo = () =>
   renderHamlTemplate(

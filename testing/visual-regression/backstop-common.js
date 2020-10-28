@@ -157,6 +157,11 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-breadcrumbs--breadcrumbs-no-collapse'),
         selectors: ['.cads-breadcrumbs'],
       },
+      {
+        label: 'Components/Page review',
+        url: storyUrlFor('components-page-review--page-review'),
+        viewports: [{ label: 'page-review', width: 600, height: 100 }],
+      },
 
       // Forms
       {
@@ -225,7 +230,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: '3_Components_NAVIGATION',
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
-        readySelector: '.js-CadsGreedyNav',
+        readySelector: '.cads-greedy-nav-has-dropdown',
         delay: 750,
         removeSelectors: ['.cads-styleguide-usage', 'h1'],
         hoverSelector: '#a11yComponentToTest',
@@ -295,13 +300,6 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['#a11yComponentToTest'],
       },
       {
-        label: '3_Components_PAGE_REVIEW',
-        url: `${baseUrl}/iframe.html?id=3-components--page-review`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
         label: '3_Components_PAGINATION',
         url: `${baseUrl}/iframe.html?id=3-components--pagination`,
         readySelector: '#a11yComponentToTest',
@@ -327,6 +325,12 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_WEBSITE-FEEDBACK',
         url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
         readySelector: '#a11yComponentToTest',
+        selectors: ['#a11yComponentToTest'],
+      },
+      {
+        label: '3_Components_WEBSITE-FEEDBACK-HOVER',
+        url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
+        readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
@@ -334,7 +338,6 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_RELATED-CONTENT',
         url: `${baseUrl}/iframe.html?id=3-components--related-content`,
         readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
       {
@@ -348,18 +351,9 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_RELATED_CONTENT_ADVISERNET',
         cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--advisernet-related-content`,
-        referenceUrl: `${baseUrl}/iframe.html?id=3-components--advisernet-related-content`,
-        readyEvent: '',
         readySelector: '#a11yComponentToTest',
-        delay: 0,
-        hideSelectors: [],
         hoverSelector: '#a11yComponentToTest',
-        clickSelector: '',
-        postInteractionWait: 0,
         selectors: ['#a11yComponentToTest'],
-        expect: 0,
-        misMatchThreshold: 0.1,
-        requireSameDimensions: true,
         viewports: [
           {
             label: 'Medium',
@@ -377,18 +371,12 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_RELATED_CONTENT_ADVISERNET_SMALL',
         cookiePath: 'backstop_data/engine_scripts/cookies.json',
         url: `${baseUrl}/iframe.html?id=3-components--advisernet-related-content`,
-        referenceUrl: `${baseUrl}/iframe.html?id=3-components--advisernet-related-content`,
-        readyEvent: '',
         readySelector: '#a11yComponentToTest',
-        delay: 0,
-        hideSelectors: [],
-        hoverSelector: '#a11yComponentToTest',
-        clickSelector: '.cads-targeted-content',
-        postInteractionWait: 0,
-        selectors: ['#a11yComponentToTest'],
-        expect: 0,
-        misMatchThreshold: 0.1,
+        clickSelector: 'summary',
+        postInteractionWait: 500,
         requireSameDimensions: true,
+        misMatchThreshold: 0.7,
+        selectors: ['#a11yComponentToTest'],
         viewports: [
           {
             label: 'phone',
