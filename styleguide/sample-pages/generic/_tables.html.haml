@@ -10,7 +10,7 @@
       .cads-grid-col-md-8
         = render partial: "@citizensadvice/design-system/haml/notice_banner"
     .cads-grid-row
-      .cads-grid-col-md-8
+      .cads-grid-col-md-8.cads-prose
         %h1 Tables examples
         = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'standard', 'body' => '<h3>Standard callout</h3><p>This is a sample page. Note that the layout may not reflect the actual page layout of the website.</p>' } }
         %h3 This is a long table
