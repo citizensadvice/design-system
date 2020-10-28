@@ -86,7 +86,7 @@ pipeline {
                 NODE_ENV="test"
             }
             steps {
-                script { env.BUILD_STAGE = 'Lint and unit test' }
+                script { env.BUILD_STAGE = 'Lint' }
                 withDockerSandbox([ images['ca-styleguide'], images['cucumber'] ]) {
                     sh 'docker-compose run cucumber bundle exec rubocop'
                     sh 'docker-compose run cucumber bundle exec haml-lint haml styleguide'
@@ -100,7 +100,7 @@ pipeline {
                 NODE_ENV="test"
             }
             steps {
-                script { env.BUILD_STAGE = 'Lint and unit test' }
+                script { env.BUILD_STAGE = 'Unit test' }
                 withDockerSandbox([ images['ca-styleguide'] ]) {
                     sh 'docker-compose run ca-styleguide npm run jest'
                 }
@@ -112,9 +112,9 @@ pipeline {
                 withDockerSandbox([ images['ca-styleguide'], images['ca-backstop'] ]) {
                     script {
                         try {
-                            sh './bin/docker/grid_tests'
                             sh './bin/jenkins/visual_regression'
                             sh './bin/docker/a11y-test'
+                            sh './bin/docker/grid_tests'
                         } catch (Exception e) {
                             sh 'docker-compose logs --no-color'
                             currentBuild.result = 'FAILURE'
