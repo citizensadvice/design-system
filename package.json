@@ -30,6 +30,7 @@
     "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
     "lint:es": "eslint . --ext .js,.ts",
     "lint": "prettier --check . && npm-run-all lint:css lint:es",
+    "jest": "jest",
     "test": "npm run lint && jest",
     "test:watch": "jest --watch --notify",
     "vr-test:install": "cd testing && npm install",

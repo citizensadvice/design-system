@@ -102,7 +102,7 @@ pipeline {
             steps {
                 script { env.BUILD_STAGE = 'Lint and unit test' }
                 withDockerSandbox([ images['ca-styleguide'] ]) {
-                    sh 'docker-compose run ca-styleguide jest'
+                    sh 'docker-compose run ca-styleguide npm run jest'
                 }
             }
         }
