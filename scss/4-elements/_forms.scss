@@ -3,7 +3,7 @@
 }
 
 .cads-form__error-message {
-  @extend %p;
+  @extend %cads-paragraph;
 
   display: none;
   color: $cads-language__warning-colour;
@@ -214,7 +214,7 @@ textarea,
 }
 
 .cads-form-label {
-  @extend %h4;
+  @extend %cads-h4;
 
   display: block;
   margin-bottom: $cads-spacing-3;

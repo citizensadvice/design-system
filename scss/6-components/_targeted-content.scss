@@ -26,7 +26,7 @@
 
     .cads-targeted-content__title,
     .cads-target-content__button {
-      @extend %h4;
+      @extend %cads-h4;
 
       color: $cads-language__brand-primary;
       margin: 0;
@@ -47,7 +47,7 @@
   }
 
   &__content {
-    @extend %prose;
+    @extend %cads-prose;
 
     display: none;
     border: solid $cads-border-width-small $cads-language__brand-primary;

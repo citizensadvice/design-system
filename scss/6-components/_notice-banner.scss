@@ -3,7 +3,7 @@
   margin: 0 0 $cads-spacing-5 0;
 
   .cads-notice-banner__title {
-    @extend %h4;
+    @extend %cads-h4;
 
     font-size: 0.875rem;
     line-height: 1.5rem;
@@ -15,7 +15,7 @@
   }
 
   p {
-    @extend %paragraph--small;
+    @extend %cads-paragraph-small;
 
     margin: 0;
   }

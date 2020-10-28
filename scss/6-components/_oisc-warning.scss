@@ -3,7 +3,7 @@
    ========================================================================= */
 
 %cads-oisc-warning__title {
-  @extend %h4;
+  @extend %cads-h4;
 
   padding: $cads-spacing-3;
 }
@@ -18,7 +18,7 @@
   }
 
   &__body {
-    @extend %prose;
+    @extend %cads-prose;
 
     padding: 0 $cads-spacing-3 $cads-spacing-3;
 

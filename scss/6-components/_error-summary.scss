@@ -11,7 +11,7 @@
   }
 
   &__title {
-    @extend %h4;
+    @extend %cads-h4;
 
     color: $cads-language__warning-colour;
     margin-bottom: $cads-spacing-4;

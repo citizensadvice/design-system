@@ -3,13 +3,13 @@
   padding: $cads-spacing-4;
 
   h2 {
-    @extend %h4;
+    @extend %cads-h4;
 
     margin: 0 0 $cads-spacing-4 0;
   }
 
   p {
-    @extend %paragraph--small;
+    @extend %cads-paragraph-small;
   }
 
   ul {
