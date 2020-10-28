@@ -18,6 +18,6 @@ RUN addgroup --gid 3000 ruby && \
 
 COPY . /app
 
-RUN chown -R 3000:3000 /app
+RUN rm ./testing/artifacts/*/.keep && chown -R 3000:3000 /app
 
 USER 3000
