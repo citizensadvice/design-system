@@ -44,10 +44,6 @@
   }
 }
 
-.cads-prose .cads-oisc-warning__title {
-  @extend %cads-oisc-warning__title;
-}
-
 /**
 * Conditional sticky behaviour
 * is-stuck is added via IntersectionObserver with a polyfill for older browsers
