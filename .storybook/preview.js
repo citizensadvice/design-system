@@ -1,4 +1,9 @@
+import theme from './theme';
+
 export const parameters = {
+  docs: {
+    theme: theme,
+  },
   options: {
     layout: 'padded',
     isToolshown: true,
