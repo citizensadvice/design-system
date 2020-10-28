@@ -132,6 +132,11 @@ module.exports = function backstopCommon(baseUrl) {
 
       // Forms
       {
+        label: 'Forms/Success message',
+        url: storyUrlFor('forms-success-message--example'),
+        viewports: [{ label: 'success-message', width: 600, height: 100 }],
+      },
+      {
         label: 'Forms/Error summary',
         url: storyUrlFor('forms-error-summary--example'),
       },
@@ -348,13 +353,6 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/iframe.html?id=3-components--paging-info`,
         readySelector: '#a11yComponentToTest',
         delay: 100,
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_SUCCESS_MESSAGE',
-        url: `${baseUrl}/iframe.html?id=3-components--success-message`,
-        readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
