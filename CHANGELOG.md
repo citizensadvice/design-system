@@ -1,12 +1,17 @@
 **Breaking changes**
 
 * Typography: removed typography utility classes (NP-1074)
-* List: removed list utility classes (with exception of `.cads-list--no-bullet`) (NP-1074)
+* List: removed list utility classes (with exception of `.cads-list-no-bullet`) (NP-1074)
+
+**New features**
+* Rails I18n API translated haml templates - NP-974
 
 **Bug fixes**
+
 * Typography: fixed adjacent header margin for headers with 'Add reference' buttons
 * Lists: align list markers with grid
 * Lists: cater for `p` inside `li` in prose content
+
 
 ## <sub>v1.15.0</sub>
 
