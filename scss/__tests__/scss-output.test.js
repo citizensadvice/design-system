@@ -2,14 +2,22 @@
  * @jest-environment node
  */
 /* eslint-env jest */
-const globby = require('globby');
-const renderSass = require('../../scripts/render-sass');
+const sass = require('sass');
 
-test.each(
-  globby.sync(
-    'scss/{1-settings/settings-imports.scss,2-tools/tools-imports.scss}'
-  )
-)('%p does not output CSS', (file) => {
+/**
+ * @seee https://obyford.com/posts/testing-sass-with-jest/
+ */
+function renderSass(options) {
+  return sass.renderSync({
+    includePaths: ['scss/'],
+    ...options,
+  });
+}
+
+test.each([
+  'scss/2-tools/tools-imports.scss',
+  'scss/1-settings/settings-imports.scss',
+])('%p does not output CSS', (file) => {
   const output = renderSass({ file });
   expect(output.css.toString()).toEqual('');
 });
