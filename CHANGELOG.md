@@ -1,15 +1,9 @@
 **Breaking changes**:
 
 * Typography: typography scoping and placeholders (NP-1074)
-* Forms: Renamed `cads-form` to `cads-form-field`
-* Forms: Renamed `cads-form-error` modifier to `cads-form-field--has-error`
-* Forms: Renamed `cads-form-optional` modifier to `cads-form-field--optional`
-* Forms: Renamed `cads-form-error-marker` to `cads-form-field__error-marker`
-* Forms: Renamed `cads-form-label` to `cads-form-field__label`
 * Forms: Don't style raw `input` and `textarea` elements
+* Forms: Updated all forms classnames to use consistent BEM conventions
 * Forms: Removed `radio_group_small`, `radio_group` now accepts a modifier
-* Forms: Renamed `cads-radio-button` to `cads-radio-group__item`
-* Forms: Renamed `cads-radio-button-checkmark` to `cads-radio-group__item-checkmark`
 * Forms: Refactor radio component. Fix line-height for wrapping text
 
 **New features**:
@@ -21,6 +15,7 @@
 * Forms: Make success message a block element, no width constraints
 * Forms: Increase spacing between labels and hints
 * Forms: Normalise spacing between fields
+* Forms: No width constraints on inputs or textareas
 
 ## <sub>v1.15.0</sub>
 
