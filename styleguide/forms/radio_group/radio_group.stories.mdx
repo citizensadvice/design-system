@@ -1,13 +1,19 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 import { translate } from '../../../scripts/story-helpers';
 
+import templateRadioGroup from './_radio_group.html.haml';
+import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
+import templateRadioGroupOptional from './_radio_group-optional.html.haml';
+import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
+import templateRadioGrougWithLongOptions from './_radio_group-long-options.html.haml';
+import templateRadioGroupInline from './_radio_group_inline.html.haml';
+import templateRadioGroupSmall from './_radio_group_small.html.haml';
+
 <Meta title="Forms/Radio group" />
 
-# Radio Groups
+# Radio groups
 
 ## Variant: Basic input
-
-import templateRadioGroup from './_radio_group.html.haml';
 
 <Preview>
   <Story
@@ -17,8 +23,6 @@ import templateRadioGroup from './_radio_group.html.haml';
     {(_, options) => translate(templateRadioGroup, options)}
   </Story>
 </Preview>
-
-import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
 
 ## Variant: With hint
 
@@ -31,8 +35,6 @@ import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
   </Story>
 </Preview>
 
-import templateRadioGroupOptional from './_radio_group-optional.html.haml';
-
 ## Variant: With optional field marker
 
 <Preview>
@@ -44,8 +46,6 @@ import templateRadioGroupOptional from './_radio_group-optional.html.haml';
   </Story>
 </Preview>
 
-import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
-
 ## Variant: With error message
 
 <Preview>
@@ -54,6 +54,46 @@ import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
     parameters={{ docs: { source: { code: templateRadioGroupWithError.raw } } }}
   >
     {(_, options) => translate(templateRadioGroupWithError, options)}
+  </Story>
+</Preview>
+
+## Variant: With long options
+
+<Preview>
+  <Story
+    name="With long options"
+    decorators={[(Story) => `<div style="max-width: 540px">${Story()}</div>`]}
+    parameters={{
+      docs: { source: { code: templateRadioGrougWithLongOptions.raw } },
+    }}
+  >
+    {(_, options) => translate(templateRadioGrougWithLongOptions, options)}
+  </Story>
+</Preview>
+
+## Variant: Inline
+
+Radio groups accept an optional `inline` flag.
+
+<Preview>
+  <Story
+    name="Inline"
+    parameters={{ docs: { source: { code: templateRadioGroupInline.raw } } }}
+  >
+    {(_, options) => translate(templateRadioGroupInline, options)}
+  </Story>
+</Preview>
+
+## Variant: Small
+
+Radio groups accept an optional `small` flag.
+
+<Preview>
+  <Story
+    name="Small"
+    parameters={{ docs: { source: { code: templateRadioGroupSmall.raw } } }}
+  >
+    {(_, options) => translate(templateRadioGroupSmall, options)}
   </Story>
 </Preview>
 
@@ -72,3 +112,5 @@ The Haml partial takes a `radio` hash with the following properties:
 | `optional`      | Optional, boolean flag to mark the field as optional        |
 | `error_message` | Optional, error message for the field                       |
 | `has_error`     | Optional, boolean flag to mark the field as having an error |
+| `inline`        | Optional, boolean flag to display radio buttons inline      |
+| `small`         | Optional, boolean flag to display radio in small style      |
