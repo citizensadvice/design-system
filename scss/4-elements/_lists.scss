@@ -18,7 +18,6 @@
   }
 }
 
-//used in PW - paging control
 %cads-list-unordered {
   padding: 0 0 0 $cads-spacing-4;
   margin: 0 0 $cads-spacing-4 0;
@@ -29,7 +28,6 @@
   }
 }
 
-// used in PW - paging control
 %cads-list-unordered-inline {
   padding: 0;
   margin: 0 0 $cads-spacing-4 0;
@@ -49,7 +47,6 @@
   }
 }
 
-//used in error summary, adice list and onthispage
 %cads-list-no-bullet {
   padding: 0;
   margin: 0 0 $cads-spacing-4 0;
@@ -58,6 +55,10 @@
   li {
     @extend %cads-list-item;
   }
+}
+
+.cads-list--no-bullet {
+  @extend %cads-list-no-bullet;
 }
 
 .cads-prose {
@@ -79,5 +80,9 @@
     li p {
       margin-bottom: 0;
     }
+  }
+
+  .cads-list--no-bullet {
+    @extend %cads-list-no-bullet;
   }
 }
