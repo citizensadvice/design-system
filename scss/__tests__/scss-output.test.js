@@ -12,3 +12,8 @@ test.each(globby.sync('scss/2-tools/*.scss'))(
     expect(output.css.toString()).toEqual('');
   }
 );
+
+test('grid styles match snapshot', () => {
+  const output = renderSass({ file: 'scss/5-objects/_grid.scss' });
+  expect(output.css.toString()).toMatchSnapshot();
+});
