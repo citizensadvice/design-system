@@ -46,15 +46,15 @@ namespace :npm do
     system("npm run lint")
   end
 
-  desc "Install Node modules"
-  task :install do
-    puts "Installing modules"
-    system("npm install") || raise
-  end
-
   desc "Build Node files"
   task build: :install do
     puts "Compiling files"
     system("npm run build") || raise
+  end
+
+  desc "Install Node modules"
+  task :install do
+    puts "Installing modules"
+    system("npm install") || raise
   end
 end
