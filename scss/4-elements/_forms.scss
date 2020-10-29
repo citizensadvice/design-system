@@ -218,16 +218,11 @@ textarea,
 
   display: block;
   margin-bottom: $cads-spacing-3;
+}
 
-  .cads-form-optional &::after {
-    content: ' (optional)';
-    color: $cads-language__secondary-text-colour;
-    font-weight: $cads-font-weight__regular;
-
-    .cads-lang-cy & {
-      content: ' (dewisol)';
-    }
-  }
+.cads-form__optional {
+  color: $cads-language__secondary-text-colour;
+  font-weight: normal;
 }
 
 .cads-form__hint {

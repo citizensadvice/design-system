@@ -1,10 +1,38 @@
 cy:
   cads:
     example:
-      name: 'Cyngor ar Bopeth'
-      body: 'Dyma ychydig o destun y corff'
-  components:
+      name: Cyngor ar Bopeth
+      body: Dyma enghraifft o destun wedi'i gyfieithu
+    breadcrumbs:
+      home: Hafan
     callout:
-      adviser: Adviser
-      example: Example
-      important: Important
+      example: Enghraifft
+      important: Pwysig
+      adviser: Cynghorydd
+    form:
+      optional: dewisol
+    header:
+      search_mobile: Ymchwiliad agored
+    logo:
+      title: Hafan Cyngor ar Bopeth
+    oisc_warning:
+      close: Caewch y rhybudd hwn
+    page_review:
+      body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>
+    search:
+      input_aria_label: Chwiliwch trwy gynnwys y wefan
+      submit_title: Cyflwyno ymholiad chwilio
+      submit_label: Chwilio
+    targeted_content:
+      close_button_aria: Cau %{title}
+    website_feedback:
+      body: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
+    shared:
+      ui:
+        close: Cau
+      copyright: Hawlfraint © 2020 Cyngor ar Bopeth. Cedwir pob hawl.
+      legal_summary: >
+        Cyngor ar Bopeth yn enw gweithredol ar Gymdeithas Genedlaethol Cyngor ar Bopeth.
+        Rhif elusen gofrestredig 279057. Rhif TAW 726 0202 76. Cwmni cyfyngedig drwy warant.
+        Rhif cofrestredig 0143694 Lloegr. Swyddfa gofrestredig:
+        Cyngor ar Bopeth, 3ydd Llawr Gogledd, 200 Aldersgate, Llundain, EC1A 4HD
