@@ -1,5 +1,7 @@
+
 **Breaking changes**:
 
+* i18n: Rails I18n API translated haml templates (NP-974)
 * Typography: typography scoping and placeholders (NP-1074)
 * Forms: Don't style raw `input` and `textarea` elements
 * Forms: Updated all forms classnames to use consistent BEM conventions
