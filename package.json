@@ -5,6 +5,7 @@
   "files": [
     "scss",
     "lib",
+    "!scss/__tests__",
     "locales",
     "fonts",
     "haml",

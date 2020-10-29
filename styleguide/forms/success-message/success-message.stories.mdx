@@ -1,0 +1,23 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
+<Meta title="Forms/Success message" />
+
+# Error summary
+
+import templateExample from './_example.html.haml';
+
+<Preview>
+  <Story
+    name="Example"
+    parameters={{ docs: { source: { code: templateExample.raw } } }}
+  >
+    {(_, options) => translate(templateExample, options)}
+  </Story>
+</Preview>
+
+## Haml template options
+
+| Property          | Description              |
+| ----------------- | ------------------------ |
+| `success_message` | Required. Message string |

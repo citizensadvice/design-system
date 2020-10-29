@@ -25,7 +25,6 @@ import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
-import tSuccessMessage from '../haml/_success_message.html.haml';
 import tTables from '../haml/_table.html.haml';
 import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
 import tAdvisernetRelatedContent from '../haml/_related_content_advisernet.html.haml';
@@ -133,9 +132,6 @@ export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 export const websiteFeedback = () =>
   renderHamlTemplate('Website Feedback', tWebsiteFeedback, 'website_feedback');
-
-export const successMessage = () =>
-  renderHamlTemplate('Success Message', tSuccessMessage, 'success_message');
 
 export const tables = () =>
   renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);

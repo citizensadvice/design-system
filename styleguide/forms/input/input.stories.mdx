@@ -1,13 +1,17 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 import { translate } from '../../../scripts/story-helpers';
 
+import templateInput from './_input.html.haml';
+import templateInputWithHint from './_input-with-hint.html.haml';
+import templateInputOptional from './_input-optional.html.haml';
+import templateInputWithError from './_input-with-error.html.haml';
+import templateInputFixedWidths from './_input-fixed-widths.html.haml';
+
 <Meta title="Forms/Input" />
 
 # Inputs
 
 ## Variant: Basic input
-
-import templateInput from './_input.html.haml';
 
 <Preview>
   <Story
@@ -20,8 +24,6 @@ import templateInput from './_input.html.haml';
 
 ## Variant: With hint
 
-import templateInputWithHint from './_input-with-hint.html.haml';
-
 <Preview>
   <Story
     name="With hint"
@@ -33,8 +35,6 @@ import templateInputWithHint from './_input-with-hint.html.haml';
 
 ## Variant: With optional field marker
 
-import templateInputOptional from './_input-optional.html.haml';
-
 <Preview>
   <Story
     name="Optional field"
@@ -43,8 +43,6 @@ import templateInputOptional from './_input-optional.html.haml';
     {(_, options) => translate(templateInputOptional, options)}
   </Story>
 </Preview>
-
-import templateInputWithError from './_input-with-error.html.haml';
 
 ## Variant: With error message
 
@@ -57,15 +55,27 @@ import templateInputWithError from './_input-with-error.html.haml';
   </Story>
 </Preview>
 
+## Variant: Fixed widths
+
+<Preview>
+  <Story
+    name="Fixed widths"
+    parameters={{ docs: { source: { code: templateInputFixedWidths.raw } } }}
+  >
+    {(_, options) => translate(templateInputFixedWidths, options)}
+  </Story>
+</Preview>
+
 ## Haml template options
 
 The Haml partial takes an `input` hash with the following properties:
 
-| properties      | Description                                                 |
-| --------------- | ----------------------------------------------------------- |
-| `name`          | Required, field name                                        |
-| `label`         | Required, label text                                        |
-| `hint`          | Optional, hint text                                         |
-| `optional`      | Optional, boolean flag to mark the field as optional        |
-| `error_message` | Optional, error message for the field                       |
-| `has_error`     | Optional, boolean flag to mark the field as having an error |
+| properties      | Description                                                               |
+| --------------- | ------------------------------------------------------------------------- |
+| `name`          | Required, field name                                                      |
+| `label`         | Required, label text                                                      |
+| `hint`          | Optional, hint text                                                       |
+| `optional`      | Optional, boolean flag to mark the field as optional                      |
+| `error_message` | Optional, error message for the field                                     |
+| `has_error`     | Optional, boolean flag to mark the field as having an error               |
+| `size`          | Optional, fixed character width size. One of: `2ch`, `4ch`, `8ch`, `16ch` |

@@ -1,11 +1,11 @@
-.cads-error-summary{"aria-live" => "assertive", "aria-labelledby" => "error-summary-title", :role => "alert", :tabindex => 0}
-  %p.cads-error-summary__title{:id => "error-summary-title"}
+.cads-error-summary{ "role": "alert", "aria-live": "assertive", "aria-labelledby": "error-summary-title", "tabindex": 0 }
+  %p.cads-error-summary__title{ id: "error-summary-title" }
     There is a problem with
     %span.cads-error-summary__field_count 2 fields
   %ul.cads-error-summary__list
     %li
-      %a{:href => "#"}
+      %a{ href: "#" }
         Enter an email address in the correct format, like name@example.com
     %li
-      %a{:href => "#"}
+      %a{ href: "#" }
         Enter your full name
