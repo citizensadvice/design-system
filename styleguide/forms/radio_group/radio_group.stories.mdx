@@ -6,17 +6,13 @@ import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
 import templateRadioGroupOptional from './_radio_group-optional.html.haml';
 import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
 import templateRadioGrougWithLongOptions from './_radio_group-long-options.html.haml';
-import templateRadioGroupCompact from './_radio_group_compact.html.haml';
+import templateRadioGroupInline from './_radio_group_inline.html.haml';
 
 <Meta title="Forms/Radio group" />
 
 # Radio groups
 
-Radio groups come in two styles: standard and compact.
-
-## Standard radio groups
-
-### Variant: Basic input
+## Variant: Basic input
 
 <Preview>
   <Story
@@ -27,7 +23,7 @@ Radio groups come in two styles: standard and compact.
   </Story>
 </Preview>
 
-### Variant: With hint
+## Variant: With hint
 
 <Preview>
   <Story
@@ -38,7 +34,7 @@ Radio groups come in two styles: standard and compact.
   </Story>
 </Preview>
 
-### Variant: With optional field marker
+## Variant: With optional field marker
 
 <Preview>
   <Story
@@ -49,7 +45,7 @@ Radio groups come in two styles: standard and compact.
   </Story>
 </Preview>
 
-### Variant: With error message
+## Variant: With error message
 
 <Preview>
   <Story
@@ -60,7 +56,7 @@ Radio groups come in two styles: standard and compact.
   </Story>
 </Preview>
 
-### Variant: With long options
+## Variant: With long options
 
 <Preview>
   <Story
@@ -74,16 +70,16 @@ Radio groups come in two styles: standard and compact.
   </Story>
 </Preview>
 
-## Variant: Compact radio groups
+## Variant: Inline
 
-Radio groups can accept an optional `is_compact` setting.
+Radio groups can accept an optional `inline` flag.
 
 <Preview>
   <Story
-    name="Compact"
-    parameters={{ docs: { source: { code: templateRadioGroupCompact.raw } } }}
+    name="Inline"
+    parameters={{ docs: { source: { code: templateRadioGroupInline.raw } } }}
   >
-    {(_, options) => translate(templateRadioGroupCompact, options)}
+    {(_, options) => translate(templateRadioGroupInline, options)}
   </Story>
 </Preview>
 
@@ -102,4 +98,4 @@ The Haml partial takes a `radio` hash with the following properties:
 | `optional`      | Optional, boolean flag to mark the field as optional        |
 | `error_message` | Optional, error message for the field                       |
 | `has_error`     | Optional, boolean flag to mark the field as having an error |
-| `is_compact`    | Optional, boolean flag to display in compact style          |
+| `inline`        | Optional, boolean flag to display radio buttons inline      |

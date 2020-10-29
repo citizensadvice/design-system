@@ -189,7 +189,6 @@ $cads-radios-size: 40px;
     margin-bottom: 0;
   }
 }
-
 .cads-radio-group__input {
   $input-offset: ($cads-interactive-target-size - $cads-radios-size) / 2;
 
@@ -256,9 +255,9 @@ $cads-radios-size: 40px;
 }
 
 //
-// Modifier: compact
+// Modifier: inline
 //
-.cads-radio-group--compact {
+.cads-radio-group--inline {
   .cads-radio-group__item {
     display: inline-block;
     margin-right: $cads-spacing-5;
