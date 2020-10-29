@@ -1,3 +1,6 @@
+**Breaking changes**
+
+* Rails I18n API translated haml templates - NP-974
 * NP-1074 Typography updates (typography scoping and placeholders)
 
 ## <sub>v1.15.0</sub>
