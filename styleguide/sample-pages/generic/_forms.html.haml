@@ -14,21 +14,28 @@
         %h1 Consumer Query
         %p From 1 April 2019 we are only able to provide general consumer advice to residents of England and Wales. If you are resident in Scotland and have a general consumer enquiry please contact Advice Direct Scotland / 0808 164 6000
 
-        = render partial: "@citizensadvice/design-system/haml/input", locals: { input: { "name" => "example-input", "label" => "First name or initials" }}
+        = render partial: "@citizensadvice/design-system/haml/input",
+          locals: { input: { "name" => "example-input", "label" => "First name or initials", "size" => "16ch" }}
 
-        = render partial: "@citizensadvice/design-system/haml/input", locals: { input: { "name" => "example-input", "label" => "Last name" }}
+        = render partial: "@citizensadvice/design-system/haml/input",
+          locals: { input: { "name" => "example-input", "label" => "Last name", "size" => "16ch" }}
 
-        = render partial: "@citizensadvice/design-system/haml/textarea", locals: { input: { "name" => "example-textarea", "label" => "Your complaint or enquiry", "hint" => "Please provide details of your complaint or enquiry." }}
+        = render partial: "@citizensadvice/design-system/haml/textarea",
+          locals: { input: { "name" => "example-textarea", "label" => "Your complaint or enquiry", "hint" => "Please provide details of your complaint or enquiry." }}
 
         %h2 Purchase details
 
-        = render partial: "@citizensadvice/design-system/haml/radio_group", locals: { radio: { "name" => "example-radio-group", "label" => "Have you paid for goods or services from this trader?", "options" => [{ "value" => "opt1", "label" => "Yes - If yes, answer the below questions" }, { "value" => "opt2", "label" => " No" }] } }
+        = render partial: "@citizensadvice/design-system/haml/radio_group",
+          locals: { radio: { "name" => "example-radio-group", "label" => "Have you paid for goods or services from this trader?", "options" => [{ "value" => "opt1", "label" => "Yes - If yes, answer the below questions" }, { "value" => "opt2", "label" => " No" }] } }
 
-        = render partial: "@citizensadvice/design-system/haml/input", locals: { input: { "name" => "example-input", "label" => "What was the total amount paid for the goods or services?", "hint" => "Enter a value in pounds and pence only e.g. £112.00" }}
+        = render partial: "@citizensadvice/design-system/haml/input",
+          locals: { input: { "name" => "example-input", "label" => "What was the total amount paid for the goods or services?", "hint" => "Enter a value in pounds and pence only e.g. £112.00", "size" => "4ch" }}
 
-        = render partial: "@citizensadvice/design-system/haml/radio_group", locals: { radio: { "name" => "example-radio-group", "label" => "Have you contacted the trader about this complaint? ", "options" => [{ "value" => "opt1", "label" => "Yes - If yes, answer the below questions" }, { "value" => "opt2", "label" => " No" }] } }
+        = render partial: "@citizensadvice/design-system/haml/radio_group",
+          locals: { radio: { "name" => "example-radio-group", "label" => "Have you contacted the trader about this complaint? ", "options" => [{ "value" => "opt1", "label" => "Yes - If yes, answer the below questions" }, { "value" => "opt2", "label" => " No" }] } }
 
-        = render partial: "@citizensadvice/design-system/haml/textarea", locals: { input: { "name" => "example-textarea", "label" => "Outline the trader's response to the complaint, if any"}}
+        = render partial: "@citizensadvice/design-system/haml/textarea",
+          locals: { input: { "name" => "example-textarea", "label" => "Outline the trader's response to the complaint, if any"}}
 
         %button.cads-button.cads-button__primary{ "type" => "button" } Submit complaint
 
