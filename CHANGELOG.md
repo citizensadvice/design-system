@@ -3,7 +3,7 @@
 * Typography: typography scoping and placeholders (NP-1074)
 * Forms: Don't style raw `input` and `textarea` elements
 * Forms: Updated all forms classnames to use consistent BEM conventions
-* Forms: Removed `radio_group_small`, `radio_group` now accepts a modifier
+* Forms: Removed `radio_group_small`, `radio_group`. Inline and small are now two separate modifiers
 * Forms: Refactor radio component. Fix line-height for wrapping text
 
 **New features**:

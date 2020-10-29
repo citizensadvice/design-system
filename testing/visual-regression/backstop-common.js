@@ -210,8 +210,13 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor(`forms-radio-group--with-long-options`),
       },
       {
-        label: `Forms/Radio group (compact)`,
-        url: storyUrlFor(`forms-radio-group--compact`),
+        label: `Forms/Radio group (inline)`,
+        url: storyUrlFor(`forms-radio-group--inline`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Radio group (small)`,
+        url: storyUrlFor(`forms-radio-group--small`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
 

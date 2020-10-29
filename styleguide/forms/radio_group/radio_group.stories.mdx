@@ -7,6 +7,7 @@ import templateRadioGroupOptional from './_radio_group-optional.html.haml';
 import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
 import templateRadioGrougWithLongOptions from './_radio_group-long-options.html.haml';
 import templateRadioGroupInline from './_radio_group_inline.html.haml';
+import templateRadioGroupSmall from './_radio_group_small.html.haml';
 
 <Meta title="Forms/Radio group" />
 
@@ -72,7 +73,7 @@ import templateRadioGroupInline from './_radio_group_inline.html.haml';
 
 ## Variant: Inline
 
-Radio groups can accept an optional `inline` flag.
+Radio groups accept an optional `inline` flag.
 
 <Preview>
   <Story
@@ -80,6 +81,19 @@ Radio groups can accept an optional `inline` flag.
     parameters={{ docs: { source: { code: templateRadioGroupInline.raw } } }}
   >
     {(_, options) => translate(templateRadioGroupInline, options)}
+  </Story>
+</Preview>
+
+## Variant: Small
+
+Radio groups accept an optional `inline` flag.
+
+<Preview>
+  <Story
+    name="Small"
+    parameters={{ docs: { source: { code: templateRadioGroupSmall.raw } } }}
+  >
+    {(_, options) => translate(templateRadioGroupSmall, options)}
   </Story>
 </Preview>
 
@@ -99,3 +113,4 @@ The Haml partial takes a `radio` hash with the following properties:
 | `error_message` | Optional, error message for the field                       |
 | `has_error`     | Optional, boolean flag to mark the field as having an error |
 | `inline`        | Optional, boolean flag to display radio buttons inline      |
+| `small`         | Optional, boolean flag to display radio in small style      |
