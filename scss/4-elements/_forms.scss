@@ -32,6 +32,14 @@
 .cads-form-field__optional {
   color: $cads-language__secondary-text-colour;
   font-weight: normal;
+
+  &::before {
+    content: ' (';
+  }
+
+  &::after {
+    content: ')';
+  }
 }
 .cads-form-field__hint {
   display: block;

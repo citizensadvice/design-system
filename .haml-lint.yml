@@ -13,6 +13,7 @@ linters:
 
   RuboCop:
     enabled: true
+
     # @TODO: Gradually turn this on for all haml files
     exclude:
       - 'haml/_asset_hyperlink.html.haml'
@@ -32,3 +33,11 @@ linters:
       - 'haml/_targeted-content.html.haml'
       - 'haml/_website_feedback.html.haml'
       - 'styleguide/**/**.haml'
+
+    ignored_cops:
+      # These cops are noisy when it comes to HAML templates, so we ignore them
+      - Layout/TrailingEmptyLines
+      - Style/FrozenStringLiteralComment
+
+      # These cops should eventually get enabled
+      - Naming/VariableName
