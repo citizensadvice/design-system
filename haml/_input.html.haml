@@ -1,8 +1,10 @@
-.cads-form-field{ class: [input['has_error'] && 'cads-form-field--has-error', input['optional'] && 'cads-form-field--optional'] }
+.cads-form-field{ class: ('cads-form-field--has-error' if input['has_error']) }
   .cads-form-field__error-marker
   .cads-form-field__content.cads-input-group
     %label.cads-form-field__label{id: "#{input['name']}-label", for: "#{input['name']}-input" }
       = input['label']
+      - if input['optional']
+        %span.cads-form-field__optional= " (#{t('cads.form.optional')})"
     - if input['hint']
       %p.cads-form-field__hint= input['hint']
     - if input['error_message']

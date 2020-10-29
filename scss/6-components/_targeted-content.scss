@@ -75,9 +75,5 @@
     font-weight: $cads-font-weight__bold;
     margin-bottom: 0;
     cursor: pointer;
-
-    &::after {
-      content: 'Close';
-    }
   }
 }

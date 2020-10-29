@@ -29,6 +29,10 @@
   display: block;
   margin-bottom: $cads-spacing-3;
 }
+.cads-form-field__optional {
+  color: $cads-language__secondary-text-colour;
+  font-weight: normal;
+}
 .cads-form-field__hint {
   display: block;
   margin: 0 0 $cads-spacing-3 0;
@@ -45,23 +49,6 @@
   display: none;
   color: $cads-language__warning-colour;
   margin: 0 0 $cads-spacing-3 0;
-}
-
-//
-// Modifier: optional
-//
-.cads-form-field--optional {
-  .cads-form-field__label::after {
-    content: ' (optional)';
-    color: $cads-language__secondary-text-colour;
-    font-weight: $cads-font-weight__regular;
-
-    // @TODO: Remove when translations changes are merged
-    /* stylelint-disable-next-line */
-    .cads-lang-cy & {
-      content: ' (dewisol)';
-    }
-  }
 }
 
 //
