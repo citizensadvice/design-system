@@ -16,6 +16,7 @@ Feature: Callout component
       Then a callout title and message are present
       But no label is present above the callout title
 
+  @future_release
   Rule: Example Callout
     Background:
       Given an Example Callout component is on the page
@@ -29,6 +30,7 @@ Feature: Callout component
       Then a callout title and message are present
       And an "Example" label is present above the callout title
 
+  @future_release
   Rule: Important Callout
     Background:
       Given an Important Callout component is on the page
@@ -42,6 +44,7 @@ Feature: Callout component
       Then a callout title and message are present
       And an "Important" label is present above the callout title
 
+  @future_release
   Rule: Adviser Callout
     Background:
       Given an Adviser Callout component is on the page
