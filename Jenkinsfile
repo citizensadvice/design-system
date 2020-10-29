@@ -88,9 +88,8 @@ pipeline {
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
                 withDockerSandbox([ images['ca-styleguide'], images['cucumber'] ]) {
-                    sh 'docker-compose run cucumber bundle exec rubocop'
-                    sh 'docker-compose run cucumber bundle exec haml-lint haml styleguide'
-                    sh 'docker-compose run ca-styleguide npm run lint'
+                    sh 'docker-compose run cucumber bundle exec rake ruby:lint'
+                    sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
                 }
             }
         }
@@ -102,7 +101,7 @@ pipeline {
             steps {
                 script { env.BUILD_STAGE = 'Unit test' }
                 withDockerSandbox([ images['ca-styleguide'] ]) {
-                    sh 'docker-compose run ca-styleguide npm run jest'
+                    sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
                 }
             }
         }
