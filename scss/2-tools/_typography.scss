@@ -1,8 +1,6 @@
-/*
-    Use this mixin to add a margin to the top of a heading that is placed
-    directly after other text. Done as a mixin so that we can easily
-    update the list of elements that we want to check against.
-*/
+// Use this mixin to add a margin to the top of a heading that is placed
+// directly after other text. Done as a mixin so that we can easily
+// update the list of elements that we want to check against.
 @mixin cads-adjacent-heading-margin($m) {
   .cads-prose h2 + &,
   .cads-prose h3 + &,

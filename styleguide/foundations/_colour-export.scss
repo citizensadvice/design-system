@@ -1,0 +1,51 @@
+@import '../../scss/1-settings/colour-palette';
+@import '../../scss/1-settings/colour-language';
+
+// The following map is only used to provide a loop for displaying the colours in Storybook.
+/* stylelint-disable */
+:export {
+  palette: {
+    black: $cads-palette__black;
+    blueadviser: $cads-palette__blue-adviser;
+    blueadviserdark: $cads-palette__blue-adviser-dark;
+    bluedark: $cads-palette__heritage-blue-dark;
+    bluelight: $cads-palette__blue-light;
+    darkgrey: $cads-palette__dark-grey;
+    green: $cads-palette__green;
+    heritageblue: $cads-palette__heritage-blue;
+    heritageyellow: $cads-palette__heritage-yellow;
+    lightgrey: $cads-palette__light-grey;
+    midgrey: $cads-palette__mid-grey;
+    purple: $cads-palette__purple;
+    red: $cads-palette__red;
+    redlight: $cads-palette__red-light;
+    teal: $cads-palette__teal;
+    tealdark: $cads-palette__teal-dark;
+    white: $cads-palette__white;
+  }
+  language: {
+    brand_colours-brandprimary: $cads-language__brand-primary;
+    brand_colours-brandsecondary: $cads-language__brand-secondary;
+    brand_colours-brandadviser: $cads-language__brand-adviser;
+    text-textcolour: $cads-language__text-colour;
+    text-secondarytextcolour: $cads-language__secondary-text-colour;
+    links-linkcolour: $cads-language__link-colour;
+    links-linkhovercolour: $cads-language__link-hover-colour;
+    links-linkvisitedcolour: $cads-language__link-visited-colour;
+    links-linkactivecolour: $cads-language__link-active-colour;
+    links-linkadviserhovercolour: $cads-language__link-hover-adviser-colour;
+    focus-hoverbackgroundcolour: $cads-language__hover-background-colour;
+    focus-focuscolour: $cads-language__focus-colour;
+    focus-focusbordercolour: $cads-language__focus-border-colour;
+    focus-focustextcolour: $cads-language__focus-text-colour;
+    error_state-errorcolour: $cads-language__error-colour;
+    borders-inputbordercolour: $cads-language__input-border-colour;
+    borders-bordercolour: $cads-language__border-colour;
+    buttons-primarybuttoncolour: $cads-language__primary-button-colour;
+    buttons-primarybuttonhovercolour: $cads-language__primary-button-hover-colour;
+    buttons-secondarybuttonhovercolour: $cads-language__secondary-button-hover-colour;
+    buttons-buttonshadowcolour: $cads-language__button-shadow-colour;
+    other-warningcolour: $cads-language__warning-colour;
+    other-successcolour: $cads-language__success-colour;
+  }
+}
