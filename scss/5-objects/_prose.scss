@@ -1,0 +1,49 @@
+%cads-prose {
+  h1 {
+    @extend %cads-h1;
+  }
+
+  h2 {
+    @extend %cads-h2;
+  }
+
+  h3 {
+    @extend %cads-h3;
+  }
+
+  h4 {
+    @extend %cads-h4;
+  }
+
+  p {
+    @extend %cads-paragraph;
+  }
+
+  ul {
+    @extend %cads-list-unordered;
+
+    padding-left: 1.25rem;
+
+    li p {
+      margin-bottom: 0;
+    }
+  }
+
+  ol {
+    @extend %cads-list-ordered;
+
+    padding-left: 1.25rem;
+
+    li p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.cads-prose {
+  @extend %cads-prose;
+
+  .cads-list--no-bullet {
+    @extend %cads-list-no-bullet;
+  }
+}

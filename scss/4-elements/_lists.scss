@@ -60,29 +60,3 @@
 .cads-list-no-bullet {
   @extend %cads-list-no-bullet;
 }
-
-.cads-prose {
-  ul {
-    @extend %cads-list-unordered;
-
-    padding-left: 1.25rem;
-
-    li p {
-      margin-bottom: 0;
-    }
-  }
-
-  ol {
-    @extend %cads-list-ordered;
-
-    padding-left: 1.25rem;
-
-    li p {
-      margin-bottom: 0;
-    }
-  }
-
-  .cads-list--no-bullet {
-    @extend %cads-list-no-bullet;
-  }
-}
