@@ -67,7 +67,7 @@
     }
 
     &__button-label {
-      display: none;
+      @include cads-visually-hidden();
     }
   }
 }
