@@ -3,6 +3,8 @@
   .cads-form-content.cads-input-group
     %label.cads-form-label{id: "#{input['name']}-label", for: "#{input['name']}-input" }
       = input['label']
+      - if input['optional']
+        %span.cads-form__optional= " (#{t('cads.form.optional')})"
     - if input['hint']
       %p.cads-form__hint= input['hint']
     - if input['error_message']
