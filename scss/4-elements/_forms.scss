@@ -212,7 +212,8 @@ $cads-radios-size: 40px;
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 0;
-  padding: 5px $cads-spacing-4 $cads-spacing-2;
+  // optically align radio labels with controls
+  padding: cads-rem(7px) $cads-spacing-4 $cads-spacing-2;
   cursor: pointer;
   // remove 300ms pause on mobile
   touch-action: manipulation;
