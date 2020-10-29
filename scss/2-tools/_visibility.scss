@@ -1,5 +1,5 @@
+// This is visually hidden but will still be picked up by the screen reader
 @mixin cads-visually-hidden() {
-  /* This is visually hidden but will still be picked up by the screen reader */
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
