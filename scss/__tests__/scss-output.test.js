@@ -5,13 +5,14 @@
 const globby = require('globby');
 const renderSass = require('../../scripts/render-sass');
 
-test.each(globby.sync('scss/2-tools/*.scss'))(
-  '%p does not output CSS',
-  (file) => {
-    const output = renderSass({ file });
-    expect(output.css.toString()).toEqual('');
-  }
-);
+test.each(
+  globby.sync(
+    'scss/{1-settings/settings-imports.scss,2-tools/tools-imports.scss}'
+  )
+)('%p does not output CSS', (file) => {
+  const output = renderSass({ file });
+  expect(output.css.toString()).toEqual('');
+});
 
 test('grid styles match snapshot', () => {
   const output = renderSass({ file: 'scss/5-objects/_grid.scss' });
