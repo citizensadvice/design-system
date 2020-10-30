@@ -5,7 +5,7 @@
         = render "@citizensadvice/design-system/haml/logo_clickable", locals: { root_path: root_path }
         %button.cads-search-reveal.cads-icon_search{title: t('cads.header.search_mobile'), "aria-expanded": "false"}
       .cads-grid-col-md-7.cads-align-right.cads-header-search-row
-        %ul.cads-list-unordered.cads-list-unordered__inline.cads-header-account-panel
+        %ul.cads-header-account-panel
           %li
             %a{href: alt_language['url']}= alt_language['title']
           %li

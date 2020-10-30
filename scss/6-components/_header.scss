@@ -30,8 +30,14 @@
     /* stylelint-enable */
   }
 
-  .cads-header-account-panel li {
-    font-size: 1rem;
+  .cads-header-account-panel {
+    @extend %cads-list-unordered-inline;
+    li {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      margin-bottom: $cads-spacing-2;
+      margin-left: $cads-spacing-4;
+    }
   }
 
   @include cads-media-breakpoint-only(sm) {

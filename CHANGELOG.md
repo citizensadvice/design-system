@@ -1,8 +1,8 @@
-
 **Breaking changes**:
 
 * i18n: Rails I18n API translated haml templates (NP-974)
-* Typography: typography scoping and placeholders (NP-1074)
+* Typography: removed typography utility classes (NP-1074)
+* List: removed list utility classes (with exception of `.cads-list-no-bullet`) (NP-1074)
 * Forms: Don't style raw `input` and `textarea` elements
 * Forms: Updated all forms classnames to use consistent BEM conventions
 * Forms: Removed `radio_group_small`, `radio_group`. Inline and small are now two separate modifiers
@@ -18,6 +18,10 @@
 * Forms: Increase spacing between labels and hints
 * Forms: Normalise spacing between fields
 * Forms: No width constraints on inputs or textareas
+* Typography: fixed adjacent header margin for headers with 'Add reference' buttons
+* Lists: align list markers with grid
+* Lists: cater for `p` inside `li` in prose content
+
 
 ## <sub>v1.15.0</sub>
 

@@ -21,10 +21,10 @@
   }
 
   ul {
-    @extend .cads-list__no-bullet;
-  }
+    @extend %cads-list-no-bullet;
 
-  li {
-    margin-bottom: $cads-spacing-4;
+    li {
+      margin-bottom: $cads-spacing-4;
+    }
   }
 }

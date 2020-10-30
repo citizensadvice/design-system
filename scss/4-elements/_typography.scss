@@ -72,32 +72,6 @@
   }
 }
 
-%cads-prose {
-  h1 {
-    @extend %cads-h1;
-  }
-
-  h2 {
-    @extend %cads-h2;
-  }
-
-  h3 {
-    @extend %cads-h3;
-  }
-
-  h4 {
-    @extend %cads-h4;
-  }
-
-  p {
-    @extend %cads-paragraph;
-  }
-}
-
-.cads-prose {
-  @extend %cads-prose;
-}
-
 h2,
 h3 {
   @include cads-adjacent-heading-margin($cads-spacing-6);
