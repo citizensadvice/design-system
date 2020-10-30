@@ -5,14 +5,14 @@
     .cads-grid-row
       .cads-grid-col-12
         = render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: {breadcrumbs: {"breadcrumb_links" => [{"url" => "/link", "title" => "Tables"}]}}
-  %main.cads-main-content
+  %main.cads-page-content
     .cads-grid-container
       .cads-grid-row
         .cads-grid-col-md-8
           = render partial: "@citizensadvice/design-system/haml/notice_banner", locals: { 'banner' => { 'label' => 'Page Template Warning', 'body' => '<p>This is a sample page. Note that the layout may not reflect the actual page layout of the website.</p>' } }
       .cads-grid-row
         .cads-grid-col-md-8
-          %h1 Adviser Sample Page
+          %h1.cads-page-title Adviser Sample Page
           = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { 'oisc_warning' => { 'title' => "This is an OISC level 2 topic", 'body' => "Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a>", 'is_sticky' => true } }
           .cads-prose
             = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'adviser', 'body' => '<h3>This is an adviser callout</h3><p>This is the body text of an adviser callout.</p>' } }

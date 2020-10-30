@@ -7,6 +7,7 @@
 * Forms: Updated all forms classnames to use consistent BEM conventions
 * Forms: Removed `radio_group_small`, `radio_group`. Inline and small are now two separate modifiers
 * Forms: Refactor radio component. Fix line-height for wrapping text
+* Layout: Split `cads-main-content` out into `cads-page-title` and `cads-page-content`
 
 **New features**:
 
