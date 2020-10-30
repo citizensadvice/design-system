@@ -1,42 +1,24 @@
 FROM node:14-alpine
 
-RUN apk update && apk upgrade
+ENV BUNDLER_VERSION 2.1.4
+# Alpine doesn't keep older patch versions, so we can only specify the minor version here
+ENV RUBY_VERSION=2.6
+ENV LANG=C.UTF-8 \
+    BUNDLE_JOBS=6 \
+    BUNDLE_RETRY=3
 
-# Install dockerize so that we can wait for hubs to be up
-RUN apk add wget
-ENV DOCKERIZE_VERSION v0.6.1
-RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+RUN apk --no-cache --update add ruby~$RUBY_VERSION ruby-dev~$RUBY_VERSION ruby-json ruby-etc gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base ruby-bigdecimal git && gem install bundler -v $BUNDLER_VERSION
 
-# Ruby Packages
-RUN apk add --upgrade ruby ruby-dev ruby-json ruby-etc
-
-# nokogiri compilation (C-gem)
-RUN apk add gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base
-
-# required for activesupport v6
-RUN apk add ruby-bigdecimal
-
-# git for repository-based gems
-RUN apk add --no-cache git
-
-# Install latest bundler
-RUN gem install bundler -v '2.1.4'
-
+RUN mkdir -p /app && chown -R 1000:1000 /app
+COPY --chown=node:node package*.json Gemfile* /app/
+COPY --chown=node:node .bundle/config /app/.bundle/
 WORKDIR /app
 
-COPY package*.json /tmp/
+# node user already exists as uid 1000
+USER 1000
 
-RUN cd /tmp && npm ci --loglevel error
+RUN npm ci --loglevel error && bundle config && bundle install && gem cleanup
 
-RUN mkdir -p /app && cp -a /tmp/node_modules /app
+COPY --chown=node:node . /app
 
-COPY . /app
-
-RUN bundle config --local build.nokogiri --use-system-libraries bundle config build.nokogiri --with-xml2-dir=/usr/include/libxml2 --with-xslt-dir=/usr/include/libxslt \
-  && bundle install
-
-RUN npm run docs:build
-
-RUN npm run build
+RUN npm run docs:build && npm run build
