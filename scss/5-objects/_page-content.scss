@@ -1,0 +1,15 @@
+// ============================================================================
+// Page content
+// ============================================================================
+
+/** @define page-title */
+.cads-page-title {
+  @extend %cads-h1;
+
+  margin-top: $cads-spacing-5;
+}
+
+/** @define page-content */
+.cads-page-content {
+  padding-bottom: cads-rem(80px);
+}

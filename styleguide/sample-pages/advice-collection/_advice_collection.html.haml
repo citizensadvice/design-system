@@ -4,15 +4,15 @@
   .cads-grid-row
     .cads-grid-col-12
       = render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: {breadcrumbs: {"breadcrumb_links" => [{"url" => "/link", "title" => "Tables"}]}}
-%main.cads-main-content
+%main.cads-page-content
   .cads-grid-container
     .cads-grid-row
       .cads-grid-col-md-8
         = render partial: "@citizensadvice/design-system/haml/notice_banner"
     .cads-grid-row
       .cads-grid-col-md-8
+        %h1.cads-page-title Advice Collection
         .cads-prose
-          %h1 Advice Collection
           %p Here is a standard callout.
           = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'standard', 'body' => '<h3>Standard callout</h3><p>This is a sample page. Note that the layout may not reflect the actual page layout of the website.</p>' } }
           %h2 Title after callout
