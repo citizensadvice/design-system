@@ -1,6 +1,6 @@
 .git*
 .DS_Store
-Dockerfile
+docker/Dockerfile*
 public/assets
 log/*.log
 tmp/cache/*
