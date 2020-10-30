@@ -152,18 +152,20 @@ prompt([
         fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 
         // Rebuild the docs
-        const docsBuildStatus = spawnSync('npm run docs:build', {
-          cwd: __dirname,
-          shell: true,
-        }).status;
+        if (!newVersion.indexOf('alpha')) {
+          const docsBuildStatus = spawnSync('npm run docs:build', {
+            cwd: __dirname,
+            shell: true,
+          }).status;
 
-        if (docsBuildStatus === 0) {
-          log(chalk.green.dim(`${ok} Documentation build complete.`));
-        } else {
-          showError(
-            `${error} Documentation build failed, check the repo status.`,
-            true
-          );
+          if (docsBuildStatus === 0) {
+            log(chalk.green.dim(`${ok} Documentation build complete.`));
+          } else {
+            showError(
+              `${error} Documentation build failed, check the repo status.`,
+              true
+            );
+          }
         }
 
         try {
