@@ -6,8 +6,9 @@ configurationTypes = [
     ['Windows_7_80', 'chrome'],
     ['Windows_7_78', 'firefox'],
     ['OSX_Mojave_84', 'chrome'],
-    ['OSX_Mojave_78', 'firefox'],
     ['OSX_Mojave_12', 'safari'],
+    ['iPhone11_13', 'safari'],
+    ['iPhone8_12', 'safari'],
 ]
 
 cron_schedule = deployBranches.contains(BRANCH_NAME) ? '0 2 * * *' : ''
