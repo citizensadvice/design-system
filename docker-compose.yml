@@ -4,7 +4,7 @@ services:
   ca-styleguide:
     build:
       context: ./
-      dockerfile: ./Dockerfile
+      dockerfile: ./docker/Dockerfile.ca-styleguide
       cache_from:
         - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}'
         - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:ca-styleguide'
