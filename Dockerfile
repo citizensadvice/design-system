@@ -38,3 +38,5 @@ RUN bundle config --local build.nokogiri --use-system-libraries bundle config bu
   && bundle install
 
 RUN npm run docs:build
+
+RUN npm run build
