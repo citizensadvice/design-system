@@ -11,13 +11,12 @@ RUN apk --no-cache --update add ruby~$RUBY_VERSION ruby-dev~$RUBY_VERSION ruby-j
 
 RUN mkdir -p /app && chown -R 1000:1000 /app
 COPY --chown=node:node package*.json Gemfile* /app/
-COPY --chown=node:node .bundle/config /app/.bundle/
 WORKDIR /app
 
 # node user already exists as uid 1000
 USER 1000
 
-RUN npm ci --loglevel error && bundle config && bundle install && gem cleanup
+RUN npm ci --loglevel error && bundle config --local path "vendor/bundle" && bundle config --local without test && bundle config && bundle install && gem cleanup
 
 COPY --chown=node:node . /app
 

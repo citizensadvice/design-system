@@ -9,10 +9,9 @@ RUN apk add --no-cache --update build-base git jq curl
 
 RUN mkdir -p /app
 COPY Gemfile* /app/
-COPY .bundle/config /app/.bundle/
 WORKDIR /app
 
-RUN gem install bundler -v $BUNDLER_VERSION && bundle config --local with 'test' && bundle install && gem cleanup
+RUN gem install bundler -v $BUNDLER_VERSION && bundle config --local path "vendor/bundle" && bundle config --local with test && bundle install && gem cleanup
 
 RUN addgroup --gid 1000 ruby && \
     adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
