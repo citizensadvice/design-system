@@ -89,6 +89,7 @@ pipeline {
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
                 withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
+                    sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
                     sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
                 }
             }
