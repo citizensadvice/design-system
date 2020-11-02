@@ -1,23 +1,27 @@
+// ============================================================================
+// Footer
+// ============================================================================
+
+/** @define footer */
 .cads-footer {
+  @include cads-typographic-scale-text-small();
+
   background-color: $cads-palette__blue-light;
   padding: $cads-spacing-4;
 
-  h2 {
+  .cads-footer__section-title {
     @extend %cads-h4;
 
-    margin: 0 0 $cads-spacing-4 0;
+    margin: 0 0 $cads-spacing-2 0;
   }
 
-  p {
-    @extend %cads-paragraph-small;
-  }
-
-  ul {
+  .cads-footer__links {
     @extend %cads-list-no-bullet;
   }
 
-  .cads-footer__link {
-    font-size: 1rem;
+  .cads-footer__links .cads-footer__link {
+    // @TODO: cads-list-no-bullet contains font-sizes, should it inherit?
+    @include cads-typographic-scale-text-small();
   }
 
   .cads-footer__company-info {
@@ -25,16 +29,23 @@
 
     padding-top: $cads-spacing-5;
     border-top: 1px solid $cads-language__border-colour;
-    display: flex;
-    flex-direction: row;
 
-    .cads-logo {
-      flex: none;
+    @include cads-media-breakpoint-up(md) {
+      display: flex;
+      flex-direction: row;
+
+      .cads-footer__logo {
+        flex: none;
+      }
     }
 
-    p {
+    .cads-footer__meta {
       margin: 0;
       padding: 0;
+    }
+
+    .cads-footer__meta-text {
+      margin: 0 0 $cads-spacing-3 0;
     }
   }
 }
