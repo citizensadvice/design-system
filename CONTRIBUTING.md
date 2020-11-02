@@ -124,6 +124,14 @@ After the new version branch is merged, switch to `master`, pull the latest chan
 npm publish
 ```
 
+Followed by
+
+```
+git push origin v{your_version_here}
+```
+
+To publish the release tag to GitHub.
+
 A `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm.
 
 **_Note:_** To run this step you need to be part of the npm org and have 2FA enabled.
