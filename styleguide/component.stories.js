@@ -3,7 +3,6 @@
 // The styles
 import './styles.scss';
 
-import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initTables from '../src/js/tables';
 
@@ -19,7 +18,6 @@ import RelatedContent from './components/related-content';
 // Haml setup
 // Import all the templates...
 import tFooter from '../haml/_footer.html.haml';
-import tHeader from '../haml/_header.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
@@ -79,17 +77,6 @@ export const relatedContent = () => RelatedContent();
 
 // The haml components. Thet will be sorted alphabetically so the order here is not important.
 export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
-export const header = () =>
-  renderHamlTemplate(
-    'Header',
-    tHeader,
-    'header',
-    `The header component uses javascript to show/hide the search bar in small screen sizes.
-\n\n
-<code>import { initHeader } from @citizensadvice/design-system/lib/header</code> and execute that function after the header html has loaded into the DOM.`,
-    null,
-    () => initHeader()
-  );
 
 export const logo = () =>
   renderHamlTemplate(
