@@ -18,15 +18,10 @@ services:
       - NODE_ENV=development
 
   visual-tests:
-    build:
-      dockerfile: ./testing/Dockerfile
-      context: ./
-      cache_from:
-        - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_backstop_${CA_STYLEGUIDE_VERSION_TAG}'
-        - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:backstop'
-    image: '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_backstop_${CA_STYLEGUIDE_VERSION_TAG}'
+    image: 'backstopjs/backstopjs:${BACKSTOPJS_VERSION:-latest}'
     container_name: visual-tests.test
-    command: wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop test --config=backstop-config-ci.js
+    # Default entrypoint is backstop, so the command just needs to be the arguments
+    command: test --config=backstop-config-ci.js
     volumes:
       - ./testing/visual-regression:/src
     depends_on:
