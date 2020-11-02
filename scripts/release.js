@@ -171,7 +171,7 @@ prompt([
               git
                 .add('.')
                 .commit(releaseMessage)
-                .push('origin', newVersionBranch, (gitErr2) => {
+                .push(['origin', '--tags'], newVersionBranch, (gitErr2) => {
                   if (gitErr2) {
                     showError(gitErr2, true);
                   }
