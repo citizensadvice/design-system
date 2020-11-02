@@ -49,14 +49,8 @@ namespace :npm do
   end
 
   desc "Build Node files"
-  task build: :install do
+  task :build do
     puts "Compiling files"
     system("npm run build") || raise
-  end
-
-  desc "Install Node modules"
-  task :install do
-    puts "Installing modules"
-    system("npm ci") || raise
   end
 end
