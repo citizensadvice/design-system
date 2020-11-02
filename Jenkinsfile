@@ -26,7 +26,8 @@ pipeline {
     }
     environment {
         DOCKER_TAG = "${env.BRANCH_NAME}_${getSha()}"
-        CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
+        // Using the commit SHA would mean that every build gets a different tag and this busts the cache between PR builds.
+        CA_STYLEGUIDE_VERSION_TAG = "${env.BRANCH_NAME}"
         BUILD_STAGE = ''
     }
     parameters {
