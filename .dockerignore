@@ -1,5 +1,6 @@
 .git*
 .DS_Store
+.bundle/config
 docker/Dockerfile*
 public/assets
 log/*.log
