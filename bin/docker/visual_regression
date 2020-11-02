@@ -6,4 +6,4 @@ set -e
 docker-compose up -d ca-styleguide
 
 # run visual regression tests
-docker-compose run visual-tests
+BACKSTOPJS_VERSION=`npm view backstopjs version` docker-compose run visual-tests
