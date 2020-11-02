@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const chalk = require('chalk');
 const path = require('path');
 const { prompt } = require('inquirer');
-const { spawnSync } = require('child_process');
+const { execSync, spawnSync } = require('child_process');
 const semver = require('semver');
 const moment = require('moment');
 const { checkBuildOutput } = require('./check-size');
@@ -17,25 +17,9 @@ const PACKAGE_NAME = 'design-system';
 const FULL_PACKAGE_NAME = `${ORG_NAME}/${PACKAGE_NAME}`;
 
 function updateVersionNumber(newVersion) {
-  log(
-    chalk.blue.dim(
-      `${ok} Updating version number in ${FULL_PACKAGE_NAME}/package.json to ${newVersion}`
-    )
-  );
-  // Update the version number in package.json
-  const PACKAGE_JSON = path.join(PATH, 'package.json');
-  const packageJson = fs.readJsonSync(PACKAGE_JSON);
-  packageJson.version = newVersion;
-  // Write the updated file
-  fs.writeJsonSync(PACKAGE_JSON, packageJson, {
-    spaces: 2,
-    EOL: '\n',
-  });
-  log(
-    chalk.green(
-      `${ok} Updated version number in ${FULL_PACKAGE_NAME}/package.json to ${newVersion}`
-    )
-  );
+  log(chalk.blue.dim(`${ok} Updating version number to ${newVersion}`));
+  execSync(`npm version ${newVersion}`);
+  log(chalk.green(`${ok} Updated version number to ${newVersion}`));
 }
 
 /* ///////////////////////////////////////////////////////////////////////// */
