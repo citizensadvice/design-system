@@ -3,7 +3,7 @@
 
 .cads-form-field{ class: ("cads-form-field--has-error" if input["has_error"]) }
   .cads-form-field__error-marker
-  .cads-form-field__content.cads-input-group
+  .cads-form-field__content
     %label.cads-form-field__label{id: "#{input['name']}-label", for: "#{input['name']}-input" }
       = input["label"]
       - if input["optional"]
