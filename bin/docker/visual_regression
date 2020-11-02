@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-# start styleguide in background
-docker-compose up -d ca-styleguide
-
-# run visual regression tests
-docker-compose run visual-tests

@@ -111,7 +111,7 @@ pipeline {
                 withDockerSandbox([ images['ca-styleguide'], 'backstopjs/backstopjs' ]) {
                     script {
                         try {
-                            sh './bin/jenkins/visual_regression'
+                            sh 'bundle exec rake tests:visual_regression'
                             sh './bin/docker/a11y-test'
                             sh './bin/docker/grid_tests'
                         } catch (Exception e) {

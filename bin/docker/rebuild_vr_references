@@ -1,8 +1,0 @@
-#!/bin/bash
-
-set -e
-
-# start styleguide in background
-docker-compose up -d ca-styleguide
-
-docker-compose run visual-tests wait-for-it --timeout=120 --strict ca-styleguide.test:6006 -- backstop reference --config=backstop-config-ci.js
