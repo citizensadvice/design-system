@@ -35,13 +35,13 @@ services:
   wcag-tests:
     build:
       context: ./
-      dockerfile: ./testing/Dockerfile.wcag
+      dockerfile: ./docker/Dockerfile.wcag
       cache_from:
         - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_wcag_${CA_STYLEGUIDE_VERSION_TAG}'
         - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:wcag'
     image: '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_wcag_${CA_STYLEGUIDE_VERSION_TAG}'
     container_name: wcag-tests.test
-    command: wait-for-it --timeout=120 --strict ca-styleguide:6006 -- pa11y-ci --config=/src/wcag/pa11yci.ci.js
+    command: pa11y-ci --config=/src/wcag/pa11yci.ci.js
     volumes:
       - ./testing:/src
     depends_on:
