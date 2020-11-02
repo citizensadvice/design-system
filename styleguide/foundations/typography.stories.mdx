@@ -4,9 +4,41 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Typography
 
+Our typeface is Open Sans, it's modern, easy to read and available to download for free. We use font weight bold (700) and normal (400) on our websites.
+
+## Body
+
+The default paragraph font size is 18px on large screens and 16px on small screens.
+
+[example of paragraph text]
+
+Use small text for metadata and some UI components. The majority of your body copy should use the standard 18px font size.
+
+[example of small paragraph]
+
+
+## Headings
+
+Make sure to use the appropriate <h#> level, and don't skip heading levels.
+
+[example of headings]
+
+H4s are available for custom designed components or pages. Do not use for advice content.  If using an H4 in your designs, make sure to use correct heading levels.
+
+## Links
+
+Links are blue and underlined by default.
+
+[example link]
+
+Read our guidance about using buttons as links [link to button section].
+
+
+## Technical implementation
+
 Typography styles have been created using placeholders and extended into the relevant classes for components that consume them.
 
-## Scoped Styles
+### Scoped Styles
 
 Where is it not possible to add classes to typography elements, for example where the content comes from a CMS or some such WYSIWYG editor, they should be encolsed in a `.cads-prose` element.
 
@@ -23,13 +55,24 @@ Where is it not possible to add classes to typography elements, for example wher
 </main>
 ```
 
-## Adjacent Header Mixin
+### Adjacent Header Mixin
 
 To ensure that headers have the correct margins applied inside the `.cads-prose` element, a mixin has been used that will add the correct margin.
 
 ```scss
 @include cads-adjacent-heading-margin($margin);
 ```
+
+To ensure the appropriate margin between the `<p>` and the `<div>`, use the mixin above:
+
+```scss
+.references-has-button {
+    @include cads-adjacent-heading-margin($cads-spacing-6);
+    ...
+}
+```
+
+### Using typography for new components 
 
 If you are creating components that will live inside a `.cads-prose` element and that will enclose an `h2` or `h3` element, you will need to add the mixin to the class that is enclosing the header.
 
@@ -45,12 +88,4 @@ For example, you have created a `.references-has-button` div that wraps a header
   </div>
 </main>
 ```
-
-To ensure the appropriate margin between the `<p>` and the `<div>`, use the mixin above:
-
-```scss
-.references-has-button {
-    @include cads-adjacent-heading-margin($cads-spacing-6);
-    ...
-}
-```
+When building new components, avoid using line height for spacing and alignment. Use the typographic scale that is established.
