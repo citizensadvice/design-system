@@ -1,7 +1,9 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 import { translate } from '../../scripts/story-helpers';
 
-<Meta title="Translations/How To" />
+import haml from './_example.html.haml';
+
+<Meta title="Translations/How to" />
 
 # Translations
 
@@ -34,9 +36,22 @@ If a translation is missing the last part of the translation key will be include
 
 ## Including design system translations in your app
 
-We export the locales folder which includes both `en.yml` and `cy.yml`. You can include them in your rails app by [following the guide](https://guides.rubyonrails.org/i18n.html#configure-the-i18n-module). The files will be located in `node_modules/@citizensadvice/design-system/locales`.
+We export the locales folder which includes both `en.yml` and `cy.yml`. The files will be located in `node_modules/@citizensadvice/design-system/locales`.
 
-import haml from './_example.html.haml';
+You can include them in your rails app by adding a `config/initializers/locales.rb` file:
+
+```ruby
+# frozen_string_literal: true
+
+I18n.available_locales = [:en, :cy]
+
+# Add design-system locales to the load path
+I18n.load_path += Dir[
+  Rails.root.join("node_modules/@citizensadvice/design-system/locales/*.yml"),
+]
+```
+
+See the [Rails i18n guide](https://guides.rubyonrails.org/i18n.html#configure-the-i18n-module) for more details.
 
 <Preview>
   <Story
@@ -49,4 +64,4 @@ import haml from './_example.html.haml';
 
 ## Testing translations
 
-To support automated testing of translations you may simply add `&locale=<locale>` to the end of a url. This will work with both the main site and individual component iframes.
+To support automated testing of translations you may simply add `&locale=<locale>` to the end of a url. This will work with both the main storybook docs and individual component iframes.
