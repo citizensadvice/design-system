@@ -71,6 +71,16 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-callouts--adviser-callout'),
       },
       {
+        label: 'Components/Header',
+        url: storyUrlFor('components-header--default'),
+      },
+      {
+        label: 'Components/Header',
+        url: storyUrlFor('components-header--default'),
+        clickSelector: '.cads-search-reveal',
+        viewports: [{ label: 'small', width: 320, height: 480 }],
+      },
+      {
         label: 'Components/Targeted content',
         url: storyUrlFor('components-targeted-content--default-story'),
       },
@@ -240,36 +250,6 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_HEADER',
-        url: `${baseUrl}/iframe.html?id=3-components--header`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_HEADER_EXPANDED',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
-        url: `${baseUrl}/iframe.html?id=3-components--header`,
-        referenceUrl: `${baseUrl}/iframe.html?id=3-components--header`,
-        readyEvent: '',
-        readySelector: '#a11yComponentToTest',
-        delay: 0,
-        hideSelectors: [],
-        clickSelector: '.cads-search-reveal',
-        postInteractionWait: 0,
-        selectors: ['#a11yComponentToTest'],
-        expect: 0,
-        misMatchThreshold: 0.1,
-        requireSameDimensions: true,
-        viewports: [
-          {
-            label: 'phone',
-            width: 320,
-            height: 480,
-          },
-        ],
       },
       {
         label: '3_Components_LOGO',
