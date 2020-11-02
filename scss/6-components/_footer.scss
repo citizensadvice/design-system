@@ -48,4 +48,8 @@
       margin: 0 0 $cads-spacing-3 0;
     }
   }
+
+  @media print {
+    display: none;
+  }
 }

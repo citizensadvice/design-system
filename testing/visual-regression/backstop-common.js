@@ -77,7 +77,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Header',
         url: storyUrlFor('components-header--default'),
-        clickSelector: '.cads-search-reveal',
+        clickSelector: '.js-cads-search-reveal',
         viewports: [{ label: 'small', width: 320, height: 480 }],
       },
       {

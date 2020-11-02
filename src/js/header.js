@@ -1,12 +1,12 @@
 const initHeader = () => {
   const CLASS_NAMES = {
-    showSearch: 'cads-header-show-search',
+    showSearch: 'cads-header--show-search',
     iconSearch: 'cads-icon_search',
     iconClose: 'cads-icon_close',
   };
 
   const header = document.querySelector('.cads-header');
-  const controlButton = header.querySelector('.cads-search-reveal');
+  const controlButton = header.querySelector('.js-cads-search-reveal');
 
   if (header && controlButton) {
     controlButton.addEventListener('click', () => {
