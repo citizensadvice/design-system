@@ -55,6 +55,6 @@ namespace :npm do
   desc "Install Node modules"
   task :install do
     puts "Installing modules"
-    system("npm install") || raise
+    system("npm ci") || raise
   end
 end

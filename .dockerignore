@@ -1,6 +1,7 @@
 .git*
 .DS_Store
-Dockerfile
+.bundle/config
+docker/Dockerfile*
 public/assets
 log/*.log
 tmp/cache/*

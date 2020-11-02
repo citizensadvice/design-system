@@ -47,7 +47,7 @@ pipeline {
                     docker.withRegistry(docker_registry_url, ecr_credential) {
                         // Pull the master images and any previous builds if we're on a different branch
                         // docker-compose only looks in the local images and doesn't try to pull when building
-                        ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                        ['ca-styleguide', 'backstop', 'wcag', 'ruby'].each {
                             images[it] = "${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}"
                             // Ignore failures from docker - it's probably an Image Not Found.
                             // Other errors like out of disk space will cause problems in other commands
@@ -66,7 +66,7 @@ pipeline {
                 script {
                     docker.withRegistry(docker_registry_url, ecr_credential) {
                         // Push updated containers so they can be used on the next run
-                        ['story-server', 'backstop', 'wcag', 'ruby'].each {
+                        ['ca-styleguide', 'backstop', 'wcag', 'ruby'].each {
                             if (env.BRANCH_NAME == 'master') {
                                 // If we're building on master, update the master images.
                                 // The tag function only changes the last part of the image name (unlike docker tag)
