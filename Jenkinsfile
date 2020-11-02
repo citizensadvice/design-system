@@ -88,8 +88,7 @@ pipeline {
             }
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
-                withDockerSandbox([ images['ca-styleguide'], images['cucumber'] ]) {
-                    sh 'docker-compose run cucumber bundle exec rake ruby:lint'
+                withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
                     sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
                 }
             }
@@ -109,7 +108,14 @@ pipeline {
         stage('Sanity Test') {
             steps {
                 script { env.BUILD_STAGE = 'Sanity Test' }
-                withDockerSandbox([ images['ca-styleguide'], 'backstopjs/backstopjs' ]) {
+                withDockerSandbox([
+                    images['ca-styleguide'],
+                    'backstopjs/backstopjs',
+                    images['ruby'],
+                    images['wcag'],
+                    'selenium/hub:4.0.0-alpha-6-20200609',
+                    'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                    'selenium/node-firefox:4.0.0-alpha-6-20200609' ]) {
                     script {
                         try {
                             sh './bin/jenkins/visual_regression'
