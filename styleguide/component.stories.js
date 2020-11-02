@@ -17,7 +17,6 @@ import RelatedContent from './components/related-content';
 
 // Haml setup
 // Import all the templates...
-import tFooter from '../haml/_footer.html.haml';
 import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
@@ -74,9 +73,6 @@ export default {
 export const pagination = () => Pagination();
 export const pagingInfo = () => PagingInfo();
 export const relatedContent = () => RelatedContent();
-
-// The haml components. Thet will be sorted alphabetically so the order here is not important.
-export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
 
 export const logo = () =>
   renderHamlTemplate(

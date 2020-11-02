@@ -81,6 +81,10 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'small', width: 320, height: 480 }],
       },
       {
+        label: 'Components/Footer',
+        url: storyUrlFor('components-footer--default'),
+      },
+      {
         label: 'Components/Targeted content',
         url: storyUrlFor('components-targeted-content--default-story'),
       },
@@ -240,13 +244,6 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: '3_Components_CONTACT_DETAILS',
         url: `${baseUrl}/iframe.html?id=3-components--contact-details`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_FOOTER',
-        url: `${baseUrl}/iframe.html?id=3-components--footer`,
         readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
