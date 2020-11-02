@@ -114,7 +114,7 @@ prompt([
         process.exit(1);
       }
 
-      const newVersionBranch = `v${newVersion}`;
+      const newVersionBranch = `release/v${newVersion}`;
       const git = simpleGit(PATH);
 
       git.checkoutBranch(newVersionBranch, 'HEAD', (gitErr) => {
