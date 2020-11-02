@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "open3"
-
 task default: :check
 
 namespace :design_system do
@@ -60,44 +58,5 @@ namespace :npm do
   task :install do
     puts "Installing modules"
     system("npm ci") || raise
-  end
-end
-
-namespace :tests do
-  desc "Visual Regression Tests"
-  task visual_regression: ["services:up_styleguide"] do
-    backstopjs_version = Open3.popen3("npm view backstopjs version") { |_, stdout, _, _| stdout.read.chomp }
-    puts("Using BackstopJS #{backstopjs_version}")
-    environment = {
-      "BACKSTOPJS_VERSION" => backstopjs_version,
-      "PRODUCTION" => "true",
-      "NODE_ENV" => "test"
-    }
-    system(environment, "docker-compose run visual-tests")
-  end
-end
-
-namespace :services do
-  desc "Start all services"
-  task up: [:up_styleguide, :up_grid]
-
-  desc "Start the styleguide server"
-  task :up_styleguide do
-    system("docker-compose up -d ca-styleguide")
-  end
-
-  desc "Start the Selenium grid servers"
-  task :up_grid do
-    system("docker-compose up -d hub node-chrome node-firefox && docker-compose run cucumber ./bin/docker/waiter")
-  end
-
-  desc "Rebuild Visual Regression References"
-  task rebuild_vr_references: :up_styleguide do
-    backstopjs_version = Open3.popen3("npm view backstopjs version") { |_, stdout, _, _| stdout.read.chomp }
-    puts("Using BackstopJS #{backstopjs_version}")
-    environment = {
-      "BACKSTOPJS_VERSION" => backstopjs_version
-    }
-    system(environment, "docker-compose run visual-tests reference --config=backstop-config-ci.js")
   end
 end
