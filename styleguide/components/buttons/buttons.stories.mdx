@@ -15,6 +15,7 @@ Primary buttons should be used for the main call to action, such as submitting a
 export const buttonPrimaryHtml = `<button type="button" class="cads-button cads-button__primary">Primary button</button>`;
 export const buttonSecondaryHtml = `<button type="button" class="cads-button cads-button__secondary">Secondary button</button>`;
 export const buttonTertiaryHtml = `<button type="button" class="cads-button cads-button__tertiary">Tertiary button</button>`;
+export const buttonLinkHtml = `<button type="button" class="cads-linkbutton">Link button</button>`;
 
 <Preview>
   <Story
@@ -49,5 +50,18 @@ Tertiary buttons are used for on page interactions, for example: â€œReferencesâ€
     parameters={{ docs: { source: { code: buttonTertiaryHtml } } }}
   >
     {() => buttonTertiaryHtml}
+  </Story>
+</Preview>
+
+## Link buttons
+
+Styling buttons as links should be avoided when possible and used very sparingly based on research.
+
+<Preview>
+  <Story
+    name="Link"
+    parameters={{ docs: { source: { code: buttonLinkHtml } } }}
+  >
+    {() => buttonLinkHtml}
   </Story>
 </Preview>
