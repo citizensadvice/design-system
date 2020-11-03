@@ -26,7 +26,8 @@ pipeline {
     }
     environment {
         DOCKER_TAG = "${env.BRANCH_NAME}_${getSha()}"
-        CA_STYLEGUIDE_VERSION_TAG = "${DOCKER_TAG.toLowerCase()}"
+        // Using the commit SHA would mean that every build gets a different tag and this busts the cache between PR builds.
+        CA_STYLEGUIDE_VERSION_TAG = "${env.BRANCH_NAME}"
         BUILD_STAGE = ''
     }
     parameters {
@@ -87,8 +88,8 @@ pipeline {
             }
             steps {
                 script { env.BUILD_STAGE = 'Lint' }
-                withDockerSandbox([ images['ca-styleguide'], images['cucumber'] ]) {
-                    sh 'docker-compose run cucumber bundle exec rake ruby:lint'
+                withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
+                    sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
                     sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
                 }
             }
@@ -108,7 +109,14 @@ pipeline {
         stage('Sanity Test') {
             steps {
                 script { env.BUILD_STAGE = 'Sanity Test' }
-                withDockerSandbox([ images['ca-styleguide'], 'backstopjs/backstopjs' ]) {
+                withDockerSandbox([
+                    images['ca-styleguide'],
+                    'backstopjs/backstopjs',
+                    images['ruby'],
+                    images['wcag'],
+                    'selenium/hub:4.0.0-alpha-6-20200609',
+                    'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                    'selenium/node-firefox:4.0.0-alpha-6-20200609' ]) {
                     script {
                         try {
                             sh './bin/jenkins/visual_regression'

@@ -79,6 +79,14 @@ services:
       - testing/browserstack_ci.env
     depends_on: []
 
+  ruby-tests:
+    <<: *cucumber_default
+    container_name: design-system-ruby-tests.test
+    command: sh
+    environment: []
+    env_file: []
+    volumes: []
+
   hub:
     image: selenium/hub:4.0.0-alpha-6-20200609
     container_name: design-system-hub.test
