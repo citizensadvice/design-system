@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+# This patch fixes an issue with Selenium4 not camelising the browser_name property
+# The issue is the driver now fully W3C conformany expects `browserName`
+#
+# See: https://github.com/SeleniumHQ/selenium/pull/8834
+# for more details/discussion including this fix
+#
+# LH - Sep 2020
 module Selenium
   module WebDriver
     module Firefox
