@@ -5,6 +5,7 @@ AfterConfiguration do
 end
 
 Before do |scenario|
+  skip_this_scenario("This needs fixing on mobile") if device? && scenario.source_tag_names.include?("@not_mobile")
   resize_window unless device?
   AutomationLogger.info("Running Scenario: #{scenario.name}")
   AutomationLogger.debug("BROWSERSTACK_CONFIGURATION_OPTIONS = #{ENV['BROWSERSTACK_CONFIGURATION_OPTIONS']}")
