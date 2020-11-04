@@ -136,7 +136,7 @@ prompt([
         fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 
         // Rebuild the docs
-        if (!newVersion.indexOf('alpha')) {
+        if (newVersion.includes('alpha') === false) {
           const docsBuildStatus = spawnSync('npm run docs:build', {
             cwd: __dirname,
             shell: true,
