@@ -119,8 +119,18 @@
   background-color: $cads-palette__light-grey;
 }
 
-.typography-examples {
-  .cads-paragraph-small {
-    @extend %cads-paragraph-small;
-  }
+.my-unordered-list {
+  @extend %cads-list-unordered;
+}
+
+.my-ordered-list {
+  @extend %cads-list-ordered;
+}
+
+.my-plain-list {
+  @extend %cads-list-no-bullet;
+}
+
+.my-small-paragraph {
+  @extend %cads-paragraph-small;
 }
