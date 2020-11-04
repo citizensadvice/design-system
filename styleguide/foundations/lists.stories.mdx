@@ -1,0 +1,80 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Lists" />
+
+export const ulHtml =
+  '<div class="cads-prose"><ul><li>Lorem ipsum dolor sit amet.</li><li>Morbi in sem quis <a href="#">dui placerat ornare</a>. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat</li><li>Beatae consequuntur iure odio commodi!</li><li>Totam, exercitationem? Ullam, illum aut!</li><li>Modi exercitationem nihil cumque dolores.</li></ul></div>';
+export const ulCode =
+  '<ul class="my-class-with-extend"><li>Lorem ipsum dolor sit amet.</li><li>Morbi in sem quis <a href="#">dui placerat ornare</a>. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat</li><li>Beatae consequuntur iure odio commodi!</li><li>Totam, exercitationem? Ullam, illum aut!</li><li>Modi exercitationem nihil cumque dolores.</li></ul>';
+export const olHtml =
+  '<div class="cads-prose"><ol><li>Lorem ipsum dolor sit amet.</li><li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat</li><li>Beatae consequuntur iure odio commodi!</li><li>Totam, exercitationem? Ullam, illum aut!</li><li>Modi exercitationem nihil cumque dolores.</li></ol></div>';
+export const olCode =
+  '<ol class="my-class-with-extend"><li>Lorem ipsum dolor sit amet.</li><li>Morbi in sem quis <a href="#">dui placerat ornare</a>. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat</li><li>Beatae consequuntur iure odio commodi!</li><li>Totam, exercitationem? Ullam, illum aut!</li><li>Modi exercitationem nihil cumque dolores.</li></ol>';
+export const noBulletHtml =
+  '<ul class="cads-list-no-bullet"><li>Lorem ipsum dolor sit amet.</li><li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat</li><li>Beatae consequuntur iure odio commodi!</li><li>Totam, exercitationem? Ullam, illum aut!</li><li>Modi exercitationem nihil cumque dolores.</li></ul>';
+export const noBulletCode =
+  '<ul class="my-class-with-extend"><li>Lorem ipsum dolor sit amet.</li><li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat</li><li>Beatae consequuntur iure odio commodi!</li><li>Totam, exercitationem? Ullam, illum aut!</li><li>Modi exercitationem nihil cumque dolores.</li></ul>';
+
+# Lists
+
+## Unordered lists
+
+Unordered lists should be used to show collections of items where their order does not have meaning, for example the criteria for claiming a particular benefit.
+
+<Preview>
+  <Story
+    name="Unordered List"
+    parameters={{ docs: { source: { code: ulCode } } }}
+  >
+    {() => ulHtml}
+  </Story>
+</Preview>
+
+### Unordered list placeholders
+
+You can use the following placeholders to achieve the correct unordered list styling outside of a `.cads-prose` element.
+
+```scss
+@extend %cads-list-unordered; // use for normal unordered lists
+@extend %cads-list-unordered-line; // use for inline unordered lists
+```
+
+## Ordered lists
+
+Ordered lists should be used to show collections of items where the order does have meaning, for example the steps in a process.
+
+<Preview>
+  <Story
+    name="Ordered List"
+    parameters={{ docs: { source: { code: olCode } } }}
+  >
+    {() => olHtml}
+  </Story>
+</Preview>
+
+### Ordered list placeholders
+
+You can use the following placeholders to achieve the correct ordered list styling outside of a `.cads-prose` element.
+
+```scss
+@extend %cads-list-ordered; // use for normal ordered lists
+```
+
+## Plain lists (no markers)
+
+In some situations, you will want the styles of an unordered list without the bullet points - for example to present a list of links on a summary page.
+
+<Preview>
+  <Story
+    name="Plain List"
+    parameters={{ docs: { source: { code: noBulletCode } } }}
+  >
+    {() => noBulletHtml}
+  </Story>
+</Preview>
+
+This can be achieved by extending the placeholder below.
+
+```scss
+@extend %cads-list-no-bullet;
+```

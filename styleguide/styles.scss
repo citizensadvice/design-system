@@ -118,3 +118,9 @@
   padding: $cads-spacing-4;
   background-color: $cads-palette__light-grey;
 }
+
+.typography-examples {
+  .cads-paragraph-small {
+    @extend %cads-paragraph-small;
+  }
+}
