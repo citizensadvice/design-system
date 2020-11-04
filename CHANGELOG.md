@@ -2,10 +2,6 @@
 
 #### _Nov. 4, 2020_
 
-## <sub>v2.0.0-alpha.0</sub>
-
-#### _Oct. 30, 2020_
-
 **Breaking changes**:
 
 * i18n: Rails I18n API translated haml templates (NP-974)
