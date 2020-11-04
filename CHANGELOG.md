@@ -1,3 +1,8 @@
+**Bugfixes**:
+
+* Header: Fix spacing and grid sizing around search form (NP-1024)
+* Footer: Fix spacing and responsive styling (NP-1033)
+
 ## <sub>v2.0.0</sub>
 
 #### _Nov. 4, 2020_
