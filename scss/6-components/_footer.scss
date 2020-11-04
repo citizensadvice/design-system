@@ -14,7 +14,25 @@
 
     margin: 0 0 $cads-spacing-2 0;
   }
+  .cads-footer__feedback {
+    @include cads-typographic-scale-text-small();
 
+    width: 100%;
+    text-align: center;
+    color: $cads-language__brand-primary;
+    border-bottom: 1px solid $cads-language__brand-primary;
+    padding-bottom: $cads-spacing-4;
+    margin: 0 0 $cads-spacing-4 0;
+
+    @media print {
+      display: none;
+    }
+
+    .cads-footer__feedback-icon {
+      font-size: 0.7rem;
+      margin-left: 0.5ch;
+    }
+  }
   .cads-footer__links {
     @extend %cads-list-no-bullet;
   }
