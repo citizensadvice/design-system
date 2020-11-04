@@ -25,7 +25,6 @@ linters:
       - 'haml/_oisc_warning.html.haml'
       - 'haml/_page_review.html.haml'
       - 'haml/_related_content_advisernet.html.haml'
-      - 'haml/_search.html.haml'
       - 'haml/_table.html.haml'
       - 'haml/_targeted-content.html.haml'
       - 'styleguide/**/**.haml'
