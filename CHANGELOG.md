@@ -1,6 +1,6 @@
-## <sub>v2.0.0-alpha.0</sub>
+## <sub>v2.0.0</sub>
 
-#### _Oct. 30, 2020_
+#### _Nov. 4, 2020_
 
 **Breaking changes**:
 
