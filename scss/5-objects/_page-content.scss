@@ -12,4 +12,8 @@
 /** @define page-content */
 .cads-page-content {
   padding-bottom: cads-rem(80px);
+
+  @include cads-media-breakpoint-only(sm) {
+    padding-bottom: cads-rem(40px);
+  }
 }

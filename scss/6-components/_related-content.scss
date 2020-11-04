@@ -23,8 +23,14 @@
   ul {
     @extend %cads-list-no-bullet;
 
+    margin-bottom: 0;
+
     li {
       margin-bottom: $cads-spacing-4;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
     }
   }
 }
