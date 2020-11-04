@@ -249,13 +249,6 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['#a11yComponentToTest'],
       },
       {
-        label: '3_Components_LOGO',
-        url: `${baseUrl}/iframe.html?id=3-components--logo`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
         label: '3_Components_NAVIGATION',
         url: `${baseUrl}/iframe.html?id=3-components--navigation`,
         readySelector: '.cads-greedy-nav-has-dropdown',
@@ -290,19 +283,6 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/iframe.html?id=3-components--paging-info`,
         readySelector: '#a11yComponentToTest',
         delay: 100,
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_WEBSITE-FEEDBACK',
-        url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
-        readySelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_WEBSITE-FEEDBACK-HOVER',
-        url: `${baseUrl}/iframe.html?id=3-components--website-feedback`,
-        readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
