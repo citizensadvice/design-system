@@ -4,34 +4,46 @@ Feature: Input
   So I can check whether it is being used correctly
   And I can check if is buggy
 
-  Background: Given I have an Input component on page
-
   Rule: Basic
+    Background:
+      Given I have a Basic Input component on page
 
-    Then there is a label
-    But there is no hint
-    And there is no optional field
-    And there is no error message
-    Then I can type "Hello" into the text box
-
-  Rule: With Optional field
-    Then there is a label
-    And there is a hint
-    And there is an optional field
-    But there is no error message
-    Then I can type "Hello" into the text box
+    Scenario:
+      Then there is a label
+      But there is no hint
+      And there is no optional field
+      And there is no error message
+      Then I can type "Hello" into the text box
 
   Rule: With Optional field
-    Then there is a label
-    And there is a hint
-    And there is an optional field
-    But there is no error message
+    Background:
+      Given I have an Input with hint component on page
 
+    Scenario:
+      Then there is a label
+      And there is no hint
+      And there is an optional field
+      But there is no error message
+      Then I can type "Hello" into the text box
+
+  Rule: With Optional field
+    Background:
+      Given I have an Optional Input component on page
+
+    Scenario:
+      Then there is a label
+      And there is a hint
+      And there is an optional field
+      But there is no error message
       Then I can type "Hello" into the text box
 
   Rule: With Error
-    Then there is a label
-    And there is a hint
-    And there is an optional field
-    And there is an error message
-    Then I can type "Hello" into the text box
+    Background:
+      Given I have an Input with error component on page
+
+    Scenario:
+      Then there is a label
+      And there is a hint
+      And there is an optional field
+      And there is an error message
+      Then I can type "Hello" into the text box
