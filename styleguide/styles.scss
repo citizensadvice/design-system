@@ -118,3 +118,19 @@
   padding: $cads-spacing-4;
   background-color: $cads-palette__light-grey;
 }
+
+.my-unordered-list {
+  @extend %cads-list-unordered;
+}
+
+.my-ordered-list {
+  @extend %cads-list-ordered;
+}
+
+.my-plain-list {
+  @extend %cads-list-no-bullet;
+}
+
+.my-small-paragraph {
+  @extend %cads-paragraph-small;
+}
