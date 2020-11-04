@@ -1,4 +1,4 @@
-@future_release
+@future_release @NP-1125 @v2.1.0+
 Feature: Error Summary component
 
   The Error Summary component shows users of the site when a form/input
