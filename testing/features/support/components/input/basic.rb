@@ -8,6 +8,7 @@ module Input
     element :label, "label"
     element :hint, ".cads-form__hint"
     element :optional, ".cads-form-label::after"
+    element :error_message, ".cads-form-field__error-message"
 
     def validate_initial_state!
       has_input?(wait: 5)
