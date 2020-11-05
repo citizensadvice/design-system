@@ -1,3 +1,7 @@
+## <sub>v2.1.0-alpha.0</sub>
+
+#### _Nov. 5, 2020_
+
 **Deprecations**:
 
 * Removed standalone `logo_clickable` component. Only used within header and footer
