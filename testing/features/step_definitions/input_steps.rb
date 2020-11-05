@@ -13,6 +13,10 @@ Then('there is no hint') do
   expect(@component).not_to have_hint
 end
 
+Then('there is no optional field') do
+  expect(@component).not_to have_optional
+end
+
 Then('I can type {string} into the text box') do |string|
   @component.input.send_keys(string)
   sleep 4

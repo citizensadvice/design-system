@@ -7,6 +7,7 @@ module Input
     element :input, ".cads-input"
     element :label, "label"
     element :hint, ".cads-form__hint"
+    element :optional, ".cads-form-label::after"
 
     def validate_initial_state!
       has_input?(wait: 5)
