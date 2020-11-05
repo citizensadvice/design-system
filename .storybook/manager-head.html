@@ -1,8 +1,9 @@
 <script>
-  document.title = 'CA Design System';
+  var newTitle = 'Citizens Advice Design System';
+  document.title = newTitle;
   var observer = new MutationObserver(function (mutations) {
     if (document.title.match(/Storybook$/)) {
-      document.title = 'CA Design System';
+      document.title = document.title.replace('Storybook', newTitle);
     }
   }).observe(document.querySelector('title'), {
     childList: true,
