@@ -16,15 +16,6 @@
           = render partial: "@citizensadvice/design-system/haml/oisc_warning", locals: { 'oisc_warning' => { 'title' => "This is an OISC level 2 topic", 'body' => "Generalist advisers can give clients the information on this page, but must refer them to an immigration specialist if they need advice. <a href='#'>Check what to do if your client needs level 2 advice.</a>", 'is_sticky' => true } }
           .cads-prose
             = render partial: "@citizensadvice/design-system/haml/callout", locals: { 'notice' => { 'type' => 'adviser', 'body' => '<h3>This is an adviser callout</h3><p>This is the body text of an adviser callout.</p>' } }
-            %p Here is an important callout with adviser content
-            .cads-callout.cads-callout-important
-              .cads-callout__adviser-label
-              %h3 This is the callout title
-              %p The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.
-              .cads-callout.cads-callout-adviser
-                .cads-callout__adviser-label
-                %h3 This is the callout title
-                %p The important callout should be used for any important snippet of text that has serious and/or legal implications if the client does not follow the advice.
             %p
               Every page should have some lorem ipsum. So here it is.
             %ul

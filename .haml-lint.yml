@@ -18,7 +18,6 @@ linters:
     exclude:
       - 'haml/_asset_hyperlink.html.haml'
       - 'haml/_breadcrumb.html.haml'
-      - 'haml/_callout.html.haml'
       - 'haml/_contact_details.html.haml'
       - 'haml/_navigation.html.haml'
       - 'haml/_notice_banner.html.haml'

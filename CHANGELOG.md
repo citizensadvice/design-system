@@ -7,6 +7,7 @@
 
 * Header: Fix spacing and grid sizing around search form (NP-1024)
 * Footer: Fix spacing and responsive styling (NP-1033)
+* Callout: Don't render empty `.cads-callout-label` for standard callouts (no label)
 
 ## <sub>v2.0.0</sub>
 
