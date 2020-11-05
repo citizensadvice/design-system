@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
+import templateExample from './_example.html.haml';
+
+<Meta title="Components/Asset hyperlink" />
+
+# Asset hyperlink
+
+<Preview>
+  <Story
+    name="Example"
+    parameters={{ docs: { source: { code: templateExample.raw } } }}
+  >
+    {(_, options) => translate(templateExample, options)}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial takes a `asset_hyperlink` hash with the following properties:
+
+| properties    | Description                        |
+| ------------- | ---------------------------------- |
+| `uri`         | Required, URI for the asset        |
+| `description` | Required, description of the asset |
+| `size`        | Required, size in bytes            |
+| `type`        | Required, type e.g. pdf            |
