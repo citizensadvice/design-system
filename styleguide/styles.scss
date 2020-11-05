@@ -114,7 +114,45 @@
   }
 }
 
+// Typography example styles
+
 .cads-styleguide-grid-example {
   padding: $cads-spacing-4;
   background-color: $cads-palette__light-grey;
+}
+
+.my-unordered-list {
+  @extend %cads-list-unordered;
+}
+
+.my-ordered-list {
+  @extend %cads-list-ordered;
+}
+
+.my-plain-list {
+  @extend %cads-list-no-bullet;
+}
+
+.my-paragraph {
+  @extend %cads-paragraph;
+}
+
+.my-small-paragraph {
+  @extend %cads-paragraph-small;
+}
+
+.my-h1 {
+  @extend %cads-h1;
+}
+
+.my-h2 {
+  @extend %cads-h2;
+}
+
+.my-h3 {
+  @extend %cads-h3;
+}
+
+.my-h4 {
+  @extend %cads-h4;
 }

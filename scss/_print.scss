@@ -2,15 +2,11 @@
   // Components that are not shown when printing
   .cads-breadcrumbs,
   .cads-error-summary,
-  .cads-header-account-panel,
-  footer,
-  .cads-footer,
   .cads-navigation,
   .cads-search,
   .cads-search-reveal,
   .cads-success-message,
-  .cads-related-content,
-  .cads-website-feedback {
+  .cads-related-content {
     display: none !important;
   }
 

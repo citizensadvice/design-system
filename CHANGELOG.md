@@ -1,6 +1,17 @@
-## <sub>v2.0.0-alpha.0</sub>
+**Deprecations**:
 
-#### _Oct. 30, 2020_
+* Removed standalone `logo_clickable` component. Only used within header and footer
+* Removed standalone `website_feedack` component. Only ever used within footer
+
+**Bugfixes**:
+
+* Header: Fix spacing and grid sizing around search form (NP-1024)
+* Footer: Fix spacing and responsive styling (NP-1033)
+* Callout: Don't render empty `.cads-callout-label` for standard callouts (no label)
+
+## <sub>v2.0.0</sub>
+
+#### _Nov. 4, 2020_
 
 **Breaking changes**:
 

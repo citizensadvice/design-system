@@ -6,10 +6,6 @@
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
 
-  .cads-callout__adviser-label {
-    display: none;
-  }
-
   h2:first-of-type,
   h3:first-of-type {
     @extend %cads-h3;

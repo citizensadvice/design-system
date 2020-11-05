@@ -1,3 +1,21 @@
+@mixin cads-typographic-scale-text() {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+
+  @include cads-media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+}
+
+@mixin cads-typographic-scale-text-small() {
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  @include cads-media-breakpoint-down(sm) {
+    font-size: 0.875rem;
+  }
+}
+
 // Use this mixin to add a margin to the top of a heading that is placed
 // directly after other text. Done as a mixin so that we can easily
 // update the list of elements that we want to check against.
