@@ -1,14 +1,14 @@
 deployBranches = ['master']
 
 configurationTypes = [
-    //     ['Windows_10_83', 'chrome'], - These seem to be "too" popular!
     ['Windows_10_85', 'chrome'],
-    ['Windows_10_80', 'firefox'],
-    ['Windows_10_76', 'firefox'],
+    ['Windows_10_81', 'firefox'],
     ['Windows_7_80', 'chrome'],
     ['Windows_7_78', 'firefox'],
-    ['OSX_Mojave_78', 'firefox'],
-//     ['OSX_Mojave_12', 'safari'], - These seem to be "too" popular!
+    ['OSX_Mojave_84', 'chrome'],
+    ['OSX_Mojave_12', 'safari'],
+    ['iPhone11_13', 'safari'],
+    ['iPhone8_12', 'safari'],
 ]
 
 cron_schedule = deployBranches.contains(BRANCH_NAME) ? '0 2 * * *' : ''

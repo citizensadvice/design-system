@@ -32,6 +32,7 @@ Feature: OISC Warning components
       Then the OISC title is visible
       And the OISC message is visible
 
+    @not_mobile @NP-1230
     Scenario: Sticky component follows you down the page
       When I scroll to the bottom of the page
       Then the OISC component is visible at the top of the viewport
