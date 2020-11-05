@@ -1,3 +1,13 @@
+**Deprecations**:
+
+* Removed standalone `logo_clickable` component. Only used within header and footer
+* Removed standalone `website_feedack` component. Only ever used within footer
+
+**Bugfixes**:
+
+* Header: Fix spacing and grid sizing around search form (NP-1024)
+* Footer: Fix spacing and responsive styling (NP-1033)
+
 ## <sub>v2.0.0</sub>
 
 #### _Nov. 4, 2020_

@@ -3,7 +3,6 @@
 // The styles
 import './styles.scss';
 
-import initHeader from '../src/js/header';
 import initTargetedContent from '../src/js/targeted-content';
 import initTables from '../src/js/tables';
 
@@ -18,13 +17,9 @@ import RelatedContent from './components/related-content';
 
 // Haml setup
 // Import all the templates...
-import tFooter from '../haml/_footer.html.haml';
-import tHeader from '../haml/_header.html.haml';
-import tLogo from '../haml/_logo_clickable.html.haml';
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
-import tWebsiteFeedback from '../haml/_website_feedback.html.haml';
 import tTables from '../haml/_table.html.haml';
 import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
 import tAdvisernetRelatedContent from '../haml/_related_content_advisernet.html.haml';
@@ -77,28 +72,6 @@ export const pagination = () => Pagination();
 export const pagingInfo = () => PagingInfo();
 export const relatedContent = () => RelatedContent();
 
-// The haml components. Thet will be sorted alphabetically so the order here is not important.
-export const footer = () => renderHamlTemplate('Footer', tFooter, 'footer');
-export const header = () =>
-  renderHamlTemplate(
-    'Header',
-    tHeader,
-    'header',
-    `The header component uses javascript to show/hide the search bar in small screen sizes.
-\n\n
-<code>import { initHeader } from @citizensadvice/design-system/lib/header</code> and execute that function after the header html has loaded into the DOM.`,
-    null,
-    () => initHeader()
-  );
-
-export const logo = () =>
-  renderHamlTemplate(
-    'Logo',
-    tLogo,
-    'logo_clickable',
-    `You can use the <code>cads-logo</code> class on anything to display the logo.
-Make sure that an accessible title/etc is available.`
-  );
 export const navigation = () =>
   renderHamlTemplate(
     'Navigation',
@@ -131,8 +104,6 @@ export const noticeBanner = () =>
   renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
-export const websiteFeedback = () =>
-  renderHamlTemplate('Website Feedback', tWebsiteFeedback, 'website_feedback');
 
 export const tables = () =>
   renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);

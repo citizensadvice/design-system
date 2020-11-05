@@ -1,3 +1,4 @@
+@future_release
 Feature: Header component
 
   The Header component allows users to perform some quick tasks
@@ -22,13 +23,11 @@ Feature: Header component
     Background:
       Given a Logged in Header component is on the page
 
-    @future_release @NP-1137
     Scenario: Header has some quick links
       Then a language change link is present
       And a logout link is present
       And a header logo is present
 
-    @future_release @NP-1137
     Scenario: Header has a search option
       When I type "Immigration" into the search box
       Then I can search for "Immigration"

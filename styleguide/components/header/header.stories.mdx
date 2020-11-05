@@ -1,0 +1,50 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
+import initHeader from '../../../src/js/header';
+import templateDefault from './_default.html.haml';
+
+<Meta
+  title="Components/Header"
+  decorators={[
+    (Story) => {
+      setTimeout(() => initHeader());
+      return Story();
+    },
+  ]}
+/>
+
+# Header
+
+<Preview>
+  <Story
+    name="Default"
+    parameters={{ docs: { source: { code: templateDefault.raw } } }}
+  >
+    {(_, options) => translate(templateDefault, options)}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial the following locals:
+
+| Property              | Description                                 |
+| --------------------- | ------------------------------------------- |
+| `root_path`           | Required, root path for the logo home link  |
+| `alt_language`        | Required, a hash with the following:        |
+| `alt_language[url]`   | &rarr; Required, url for the alt language   |
+| `alt_language[title]` | &rarr; Required, title for the language     |
+| `sign_in`             | Required, a hash with the following:        |
+| `sign_in[url]`        | &rarr; Required, url for the sign in link   |
+| `sign_in[title]`      | &rarr; Required, title for the sign in link |
+| `search_action_url`   | Required, URL for the search form           |
+
+## JavaScript behaviour
+
+If you plan to use this component you will need to initialise the following JavaScript:
+
+```js
+import initHeader from '@citizensadvice/design-system/lib/header';
+initHeader();
+```
