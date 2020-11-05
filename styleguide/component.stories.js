@@ -53,7 +53,8 @@ ${usage || ''}`,
 
 // Storybook section setup
 export default {
-  title: '3: Components',
+  title: 'Components',
+  id: '3: Components',
   parameters: {
     options: {
       showPanel: true,
