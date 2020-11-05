@@ -41,7 +41,7 @@ Feature: Input
     Background:
       Given I have an Input with error component on page
 
-    Scenario:
+    Scenario: Input is on the page but there is an error message
       Then there is a label
       And there is a hint
       And there is an optional field
