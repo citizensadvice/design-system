@@ -8,7 +8,7 @@ Feature: Input
     Background:
       Given I have a Basic Input component on page
 
-    Scenario: Basic Input is on the page and accepts data.
+    Scenario: Basic Input is on the page and accepts data
       Then there is a label
       But there is no hint
       And there is no optional field
@@ -19,7 +19,7 @@ Feature: Input
     Background:
       Given I have an Input with hint component on page
 
-    Scenario:
+    Scenario: Basic Input is optional and accepts data
       Then there is a label
       And there is no hint
       And there is an optional field
