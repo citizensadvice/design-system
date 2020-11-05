@@ -10,7 +10,7 @@ Then('there is a label') do
 end
 
 Then('there is no hint') do
-  pending
+  expect(@component).not_to have_hint
 end
 
 Then('I can type {string} into the text box') do |string|
