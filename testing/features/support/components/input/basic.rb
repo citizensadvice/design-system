@@ -6,7 +6,7 @@ module Input
 
     element :input, ".cads-input"
     element :label, "label"
-    element :hint, ".cads-form__hint"
+    element :hint, ".cads-form-field__hint"
     element :optional, ".cads-form-field__optional"
     element :error_message, ".cads-form-field__error-message"
 

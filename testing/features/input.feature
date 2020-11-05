@@ -8,21 +8,21 @@ Feature: Input
     Background:
       Given I have a Basic Input component on page
 
-    Scenario: Basic Input is on the page and accepts data
+    Scenario: Input is on the page and I can type on it
       Then there is a label
       But there is no hint
       And there is no optional field
       And there is no error message
       Then I can type "Hello" into the text box
 
-  Rule: With Optional field
+  Rule: With Hint
     Background:
       Given I have an Input with hint component on page
 
-    Scenario: Basic Input is optional and accepts data
+    Scenario: Input is on the page and has a hint
       Then there is a label
-      And there is no hint
-      And there is an optional field
+      And there is a hint
+      And there is no optional field
       But there is no error message
       Then I can type "Hello" into the text box
 
@@ -30,7 +30,7 @@ Feature: Input
     Background:
       Given I have an Optional Input component on page
 
-    Scenario:
+    Scenario: Input is on the page and it is optional
       Then there is a label
       And there is a hint
       And there is an optional field

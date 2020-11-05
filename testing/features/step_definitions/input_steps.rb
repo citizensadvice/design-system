@@ -6,12 +6,21 @@ Given('I have a Basic Input component on page') do
 end
 
 Given('I have an Input with hint component on page') do
+  @component = Input::Hint.new
+  @component.load
+end
+
+Given('I have an Optional Input component on page') do
   @component = Input::Optional.new
   @component.load
 end
 
 Then('there is a label') do
   expect(@component).to have_label
+end
+
+Then('there is a hint') do
+  expect(@component).to have_hint
 end
 
 Then('there is no hint') do
@@ -32,5 +41,6 @@ end
 
 Then('I can type {string} into the text box') do |string|
   @component.input.send_keys(string)
+  sleep 5
 end
 
