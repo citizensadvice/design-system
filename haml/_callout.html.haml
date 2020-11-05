@@ -2,7 +2,7 @@
 - type = notice.fetch('type', 'standard')
 
 %div{class: "cads-callout cads-callout-#{type}"}
-  .cads-callout-label
-    - if type != 'standard'
+  - if type != 'standard'
+    .cads-callout-label
       = t("cads.callout.#{type}")
   = notice['body']
