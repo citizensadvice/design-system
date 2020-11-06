@@ -1,23 +1,19 @@
 # frozen_string_literal: true
 
 Given("I have a Basic Input component on page") do
-  @component = Input::Basic.new
-  @component.load
+  @component = Input::Basic.new.tap(&:load)
 end
 
 Given("I have an Input component with a hint") do
-  @component = Input::Hint.new
-  @component.load
+  @component = Input::Hint.new.tap(&:load)
 end
 
 Given("I have an Optional Input component on page") do
-  @component = Input::Optional.new
-  @component.load
+  @component = Input::Optional.new.tap(&:load)
 end
 
 Given("I have an Input with error component on page") do
-  @component = Input::ErrorMessage.new
-  @component.load
+  @component = Input::ErrorMessage.new.tap(&:load)
 end
 
 Then("there is a label") do
