@@ -5,7 +5,7 @@ module Input
     set_url "/iframe.html?id=forms-input--basic&viewMode=story"
 
     element :input, ".cads-input"
-    element :label, "label"
+    element :title_label, "label"
     element :hint, ".cads-form-field__hint"
     element :optional_label, ".cads-form-field__optional"
     element :error_message, ".cads-form-field__error-message"

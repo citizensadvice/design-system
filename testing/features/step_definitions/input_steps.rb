@@ -17,7 +17,7 @@ Given("I have an Input with error component on page") do
 end
 
 Then("there is a label") do
-  expect(@component).to have_label
+  expect(@component).to have_title_label
 end
 
 Then("there is a hint") do
