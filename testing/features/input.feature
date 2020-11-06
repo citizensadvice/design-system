@@ -19,7 +19,7 @@ Feature: Input component
     Background:
       Given I have an Input component with a hint
 
-    Scenario: Input form is on the page with hints
+    Scenario: Input can have a hint
       Then there is a label
       And there is a hint
       And I can type "Hello" into the text box
@@ -30,7 +30,7 @@ Feature: Input component
     Background:
       Given I have an Optional Input component on page
 
-    Scenario: Input form is on the page with hints
+    Scenario: Input can have an optional label
       Then there is a label
       And there is a hint
       And there is an optional label
@@ -41,7 +41,7 @@ Feature: Input component
     Background:
       Given I have an Input with error component on page
 
-    Scenario: I have an Errored Input component on page
+    Scenario: An Input can show an error message
       Then there is a label
       And there is a hint
       And there is an optional label
