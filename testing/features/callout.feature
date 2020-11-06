@@ -7,12 +7,12 @@ Feature: Callout component
     Background:
       Given a Standard Callout component is on the page
 
-    @failing @NP-1244
+    @future_release @v2.1.0+
     Scenario: English Callout contains a title and message
       Then a callout title and message are present
       But no label is present above the callout title
 
-    @failing @NP-1244
+    @future_release @v2.1.0+
     Scenario: Welsh Callout contains a title and message
       Given the language is Welsh
       Then a callout title and message are present

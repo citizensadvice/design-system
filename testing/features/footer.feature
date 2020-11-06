@@ -1,4 +1,4 @@
-@future_release
+@failing @NP-1263
 Feature: Footer component
 
   The footer component shows users of the site useful links
