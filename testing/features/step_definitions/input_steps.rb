@@ -29,11 +29,11 @@ Then("there is no hint") do
 end
 
 Then("there is an optional label") do
-  expect(@component).to have_optional
+  expect(@component).to have_optional_label
 end
 
 Then("there is no optional label") do
-  expect(@component).not_to have_optional
+  expect(@component).not_to have_optional_label
 end
 
 Then("there is an error message") do
