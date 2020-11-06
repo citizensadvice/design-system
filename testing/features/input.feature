@@ -12,7 +12,7 @@ Feature: Input component
       Then there is a label
       And I can type "Hello" into the text box
       But there is no hint
-      And there is no optional field
+      And there is no optional label
       And there is no error message
 
   Rule: Input with a Hint
@@ -23,7 +23,7 @@ Feature: Input component
       Then there is a label
       And there is a hint
       And I can type "Hello" into the text box
-      But there is no optional field
+      But there is no optional label
       And there is no error message
 
   Rule: Optional Input
@@ -33,7 +33,7 @@ Feature: Input component
     Scenario: Input form is on the page with hints
       Then there is a label
       And there is a hint
-      And there is an optional field
+      And there is an optional label
       And I can type "Hello" into the text box
       But there is no error message
 
@@ -44,6 +44,6 @@ Feature: Input component
     Scenario: I have an Errored Input component on page
       Then there is a label
       And there is a hint
-      And there is an optional field
+      And there is an optional label
       And there is an error message
       And I can type "Hello" into the text box
