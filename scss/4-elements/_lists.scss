@@ -37,14 +37,6 @@
     display: inline-block;
     margin-right: 1rem;
   }
-
-  // Reverse margins if this is right aligned
-  .cads-align-right & {
-    li {
-      margin-right: 0;
-      margin-left: 1rem;
-    }
-  }
 }
 
 %cads-list-no-bullet {

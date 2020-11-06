@@ -1,14 +1,17 @@
 %header.cads-header
   .cads-grid-container
     .cads-grid-row
-      .cads-grid-col-md-5.cads-header-logo-row
-        = render "@citizensadvice/design-system/haml/logo_clickable", locals: { root_path: root_path }
-        %button.cads-search-reveal.cads-icon_search{title: t('cads.header.search_mobile'), "aria-expanded": "false"}
-      .cads-grid-col-md-7.cads-align-right.cads-header-search-row
-        %ul.cads-header-account-panel
-          %li
-            %a{href: alt_language['url']}= alt_language['title']
-          %li
-            %a{href: sign_in['url']}
-              = sign_in['text']
-        = render partial: "@citizensadvice/design-system/haml/search", locals: { search_action_url: search_action_url }
+      .cads-grid-col-md-6.cads-header__logo-row
+        %a.cads-logo{ href: root_path, title: t("cads.shared.logo_title") }
+        %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t("cads.header.search_mobile"), "aria-expanded": "false" }
+      .cads-grid-col-md-6.cads-header__search-row
+        %ul.cads-header__account-links
+          %li.cads-header__account-links-item
+            %a{ href: alt_language["url"] }= alt_language["title"]
+          %li.cads-header__account-links-item
+            %a{href: sign_in["url"]}
+              = sign_in["text"]
+        %form.cads-search.cads-search--icon-only{ action: search_action_url, role: "search" }
+          %input.cads-search__input.cads-input{ type: "search", name: "q", "aria-label": t("cads.search.input_aria_label") }
+          %button.cads-button.cads-search__button{title: t("cads.search.submit_title")}
+            %span.cads-search__button-label= t("cads.search.submit_label")

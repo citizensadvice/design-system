@@ -1,12 +1,13 @@
+// ============================================================================
+// Footer
+// ============================================================================
+
+/** @define header */
 .cads-header {
   background-color: $cads-palette__white;
   padding: $cads-spacing-4 0;
 
-  .cads-search {
-    margin-top: 1rem;
-  }
-
-  .cads-search-reveal {
+  .cads-header__search-reveal {
     @include cads-button-defaults();
 
     display: none;
@@ -22,52 +23,57 @@
       background-color: $cads-language__secondary-button-hover-colour;
     }
 
-    /* stylelint-disable */
     &:focus,
     &:active {
       color: $cads-language__focus-text-colour;
     }
-    /* stylelint-enable */
   }
 
-  .cads-header-account-panel {
+  .cads-header__account-links {
     @extend %cads-list-unordered-inline;
-    li {
+
+    text-align: right;
+
+    .cads-header__account-links-item {
       font-size: 1rem;
       line-height: 1.5rem;
       margin-bottom: $cads-spacing-2;
+      margin-right: 0;
       margin-left: $cads-spacing-4;
+    }
+
+    @media print {
+      display: none;
     }
   }
 
   @include cads-media-breakpoint-only(sm) {
-    .cads-header-logo-row {
+    .cads-header__logo-row {
       display: flex;
       justify-content: space-between;
     }
 
-    .cads-search-reveal {
+    .cads-header__search-reveal {
       display: inline-block;
       width: $cads-interactive-target-size;
     }
 
-    .cads-header-account-panel {
+    .cads-header__account-links {
       display: none;
     }
 
-    .cads-search {
-      margin-top: 0;
-    }
-
-    .cads-header-search-row {
-      margin-top: 1rem;
+    .cads-header__search-row {
+      margin-top: $cads-spacing-4;
       display: none;
     }
+  }
+}
 
-    &.cads-header-show-search {
-      .cads-header-search-row {
-        display: block;
-      }
-    }
+///
+// Modifier: Show search
+//
+.cads-header--show-search {
+  .cads-header__search-row {
+    display: block;
   }
 }

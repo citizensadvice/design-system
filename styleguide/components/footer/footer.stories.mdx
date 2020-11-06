@@ -1,0 +1,25 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
+import templateDefault from './_default.html.haml';
+
+<Meta title="Components/Footer" />
+
+# Footer
+
+<Preview>
+  <Story
+    name="Default"
+    parameters={{ docs: { source: { code: templateDefault.raw } } }}
+  >
+    {(_, options) => translate(templateDefault, options)}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial the following locals:
+
+| Property    | Description                                |
+| ----------- | ------------------------------------------ |
+| `root_path` | Required, root path for the logo home link |
