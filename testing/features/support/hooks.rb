@@ -14,7 +14,7 @@ end
 
 After do |scenario|
   if scenario.failed?
-    save_full_page_screenshot(scenario)
+    save_full_page_screenshot(scenario) unless device?
     save_full_page_html(scenario)
 
     CucumberResults.instance.status = "failed"
