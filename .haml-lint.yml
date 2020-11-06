@@ -16,7 +16,6 @@ linters:
 
     # @TODO: Gradually turn this on for all haml files
     exclude:
-      - 'haml/_asset_hyperlink.html.haml'
       - 'haml/_breadcrumb.html.haml'
       - 'haml/_contact_details.html.haml'
       - 'haml/_navigation.html.haml'
@@ -30,6 +29,7 @@ linters:
 
     ignored_cops:
       # These cops are noisy when it comes to HAML templates, so we ignore them
+      - Lint/Void
       - Layout/TrailingEmptyLines
       - Style/FrozenStringLiteralComment
 
