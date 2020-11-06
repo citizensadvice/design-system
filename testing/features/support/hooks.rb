@@ -15,7 +15,7 @@ end
 
 After do |test_case|
   if test_case.failed?
-    save_full_page_screenshot(test_case)
+    save_full_page_screenshot(test_case) unless device?
     save_full_page_html(test_case)
 
     CucumberResults.instance.status = "failed"
