@@ -10,10 +10,10 @@ Feature: Input component
 
     Scenario: Input is on the page and I can type on it
       Then there is a label
+      And I can type "Hello" into the text box
       But there is no hint
       And there is no optional field
       And there is no error message
-      Then I can type "Hello" into the text box
 
   Rule: With Hint
     Background:
@@ -22,9 +22,9 @@ Feature: Input component
     Scenario: Input is on the page and has a hint
       Then there is a label
       And there is a hint
-      And there is no optional field
-      But there is no error message
-      Then I can type "Hello" into the text box
+      And I can type "Hello" into the text box
+      But there is no optional field
+      And there is no error message
 
   Rule: With Optional field
     Background:
@@ -34,8 +34,8 @@ Feature: Input component
       Then there is a label
       And there is a hint
       And there is an optional field
+      And I can type "Hello" into the text box
       But there is no error message
-      Then I can type "Hello" into the text box
 
   Rule: With Error
     Background:
@@ -46,4 +46,4 @@ Feature: Input component
       And there is a hint
       And there is an optional field
       And there is an error message
-      Then I can type "Hello" into the text box
+      And I can type "Hello" into the text box
