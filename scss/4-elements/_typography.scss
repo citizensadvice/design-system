@@ -68,3 +68,13 @@ h2,
 h3 {
   @include cads-adjacent-heading-margin($cads-spacing-6);
 }
+
+hr,
+.cads-separator {
+  padding: 0;
+  width: 100%;
+  display: block;
+  margin: $cads-spacing-3 0;
+  border: none;
+  border-top: solid $cads-border-width-small $cads-language__border-colour;
+}
