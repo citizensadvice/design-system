@@ -4,18 +4,19 @@ AfterConfiguration do
   CucumberResults.instance.set_session_id
 end
 
-Before do |scenario|
+Before do |test_case|
+  I18n.locale = :en
   skip_this_scenario("This needs fixing on mobile") if device? && scenario.source_tag_names.include?("@not_mobile")
   resize_window unless device?
-  AutomationLogger.info("Running Scenario: #{scenario.name}")
+  AutomationLogger.info("Running Scenario: #{test_case.name}")
   AutomationLogger.debug("BROWSERSTACK_CONFIGURATION_OPTIONS = #{ENV['BROWSERSTACK_CONFIGURATION_OPTIONS']}")
   AutomationLogger.debug("DOCKER_TAG = #{ENV['DOCKER_TAG']}")
 end
 
-After do |scenario|
-  if scenario.failed?
-    save_full_page_screenshot(scenario) unless device?
-    save_full_page_html(scenario)
+After do |test_case|
+  if test_case.failed?
+    save_full_page_screenshot(test_case) unless device?
+    save_full_page_html(test_case)
 
     CucumberResults.instance.status = "failed"
   end

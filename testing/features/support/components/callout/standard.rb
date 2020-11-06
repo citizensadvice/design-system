@@ -6,12 +6,9 @@ module Callout
 
     set_url "/iframe.html?id=components-callouts--standard-callout&viewMode=story"
 
+    element :label, ".cads-callout-label"
     element :heading, "h3"
     element :message, "p"
-
-    def warning
-      evaluate_script(before_content("h3")).delete('\\"')
-    end
 
     def validate_initial_state!
       has_heading?(wait: 5)

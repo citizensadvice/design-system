@@ -1,4 +1,4 @@
-@future_release
+@failing @NP-1024
 Feature: Header component
 
   The Header component allows users to perform some quick tasks

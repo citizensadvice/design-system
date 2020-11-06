@@ -1,4 +1,3 @@
-@future_release @v1.16.0+
 Feature: Callout component
 
   The Callout component notifies users of important information
@@ -8,10 +7,12 @@ Feature: Callout component
     Background:
       Given a Standard Callout component is on the page
 
+    @future_release @v2.1.0+
     Scenario: English Callout contains a title and message
       Then a callout title and message are present
       But no label is present above the callout title
 
+    @future_release @v2.1.0+
     Scenario: Welsh Callout contains a title and message
       Given the language is Welsh
       Then a callout title and message are present
