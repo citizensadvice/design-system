@@ -1,8 +1,8 @@
-Feature: Input
-  As a non-technical person at Citizens Advice
-  I want to know the full specification of what an “Input” component can / should do
-  So I can check whether it is being used correctly
-  And I can check if is buggy
+Feature: Input component
+
+  The Input component represents a field for text input, the control associated
+  with this field is a text box that allows users to edit a single line of plain
+  text, providing means to submit data
 
   Rule: Basic
     Background:
