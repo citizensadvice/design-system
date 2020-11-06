@@ -5,7 +5,7 @@ Given("I have a Basic Input component on page") do
   @component.load
 end
 
-Given("I have an Input with hint component on page") do
+Given("I have an Input component with a hint") do
   @component = Input::Hint.new
   @component.load
 end

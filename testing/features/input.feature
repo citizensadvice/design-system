@@ -4,44 +4,44 @@ Feature: Input component
   with this field is a text box that allows users to edit a single line of plain
   text, providing means to submit data
 
-  Rule: Basic
+  Rule: Basic Input
     Background:
       Given I have a Basic Input component on page
 
-    Scenario: Input is on the page and I can type on it
+    Scenario: Input form is on the page without any hints
       Then there is a label
       And I can type "Hello" into the text box
       But there is no hint
       And there is no optional field
       And there is no error message
 
-  Rule: With Hint
+  Rule: Input with a Hint
     Background:
-      Given I have an Input with hint component on page
+      Given I have an Input component with a hint
 
-    Scenario: Input is on the page and has a hint
+    Scenario: Input form is on the page with hints
       Then there is a label
       And there is a hint
       And I can type "Hello" into the text box
       But there is no optional field
       And there is no error message
 
-  Rule: With Optional field
+  Rule: Optional Input
     Background:
       Given I have an Optional Input component on page
 
-    Scenario: Input is on the page and it is optional
+    Scenario: Input form is on the page with hints
       Then there is a label
       And there is a hint
       And there is an optional field
       And I can type "Hello" into the text box
       But there is no error message
 
-  Rule: With Error
+  Rule: Errored Input
     Background:
       Given I have an Input with error component on page
 
-    Scenario: Input is on the page but there is an error message
+    Scenario: I have an Errored Input component on page
       Then there is a label
       And there is a hint
       And there is an optional field
