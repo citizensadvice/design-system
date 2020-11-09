@@ -11,7 +11,6 @@ import GreedyNav from '../src/ts/greedy-nav';
 // eslint-disable-next-line no-unused-vars
 import wrapper from './component-wrapper';
 
-import { PagingInfo } from './components/pagination';
 import RelatedContent from './components/related-content';
 
 // Haml setup
@@ -66,7 +65,6 @@ export default {
   ],
 };
 
-export const pagingInfo = () => PagingInfo();
 export const relatedContent = () => RelatedContent();
 
 export const navigation = () =>
