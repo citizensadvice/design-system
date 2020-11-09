@@ -1,13 +1,13 @@
-@failing @NP-1125
 Feature: Error Summary component
 
   The Error Summary component shows users of the site when a form/input
   entry is invalid, and what they can do to rectify it
 
-  Background:
-    Given an Error Summary component is on the page
+  Rule: Example Error Summary
+    Background:
+      Given an Example Error Summary component is on the page
 
-  Scenario: Error Labels are informative and easy to understand for all types of user
-    Then the component will indicate there has been a problem
-    And the component should list the issues in bullet point format
-    And the number of errors should equal the number of bullet points
+    Scenario: Error Labels are informative and easy to understand for all types of user
+      Then the component indicates there is a problem
+      And the component lists the issues in bullet point format
+      And there is an error for each bullet point
