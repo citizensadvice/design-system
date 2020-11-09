@@ -121,6 +121,18 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'sticky', width: 1000, height: 600 }],
       },
       {
+        label: 'Components/Pagination (basic)',
+        url: storyUrlFor('components-pagination--basic'),
+      },
+      {
+        label: 'Components/Pagination (many pages)',
+        url: storyUrlFor('components-pagination--many-pages'),
+      },
+      {
+        label: 'Components/Pagination (paging info)',
+        url: storyUrlFor('components-pagination--paging-info'),
+      },
+      {
         label: 'Components/Search',
         url: storyUrlFor('components-search--search'),
         selectors: ['.cads-search'],
@@ -271,21 +283,6 @@ module.exports = function backstopCommon(baseUrl) {
         label: '3_Components_NOTICE_BANNER',
         url: `${baseUrl}/iframe.html?id=3-components--notice-banner`,
         readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_PAGINATION',
-        url: `${baseUrl}/iframe.html?id=3-components--pagination`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_PAGING_INFO',
-        url: `${baseUrl}/iframe.html?id=3-components--paging-info`,
-        readySelector: '#a11yComponentToTest',
-        delay: 100,
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
       },
