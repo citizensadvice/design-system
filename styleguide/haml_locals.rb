@@ -182,6 +182,10 @@
     HTML
   },
 
+  "footer" => {
+    "feedback_url" => "https://www.research.net/r/J8PLH2H"
+  },
+
   "footer_links" => {
     "column_one" => {
       "title" => "Advice",

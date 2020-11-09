@@ -1,7 +1,9 @@
+- feedback_url = feedback_url || false
 %footer.cads-footer
-  %p.cads-footer__feedback
-    %a{ href: "https://www.research.net/r/J8PLH2H", target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
-    %span.cads-footer__feedback-icon.cads-icon_external-link
+  - if feedback_url
+    %p.cads-footer__feedback
+      %a{ href: feedback_url, target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
+      %span.cads-footer__feedback-icon.cads-icon_external-link
   .cads-grid-container
     .cads-grid-row
       - if footer_links["column_one"]
