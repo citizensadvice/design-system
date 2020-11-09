@@ -1,79 +1,44 @@
+- feedback_url ||= false
+- links ||= {}
 %footer.cads-footer
-  %p.cads-footer__feedback
-    %a{ href: "https://www.research.net/r/J8PLH2H", target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
-    %span.cads-footer__feedback-icon.cads-icon_external-link
+  - if feedback_url
+    %p.cads-footer__feedback
+      %a{ href: feedback_url, target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
+      %span.cads-footer__feedback-icon.cads-icon_external-link
   .cads-grid-container
     .cads-grid-row
-      .cads-grid-col-md-3
-        %h2.cads-footer__section-title Advice
-        %ul.cads-footer__links
-          %li.cads-footer__link
-            %a{ href: "/benefits/" } Benefits
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/work/" } Work
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/debt-and-money/" } Debt and Money
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/consumer/" } Consumer
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/family/" } Family
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/housing/" } Housing
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/law-and-courts/" } Law and courts
-          %li.cads-footer__link
-            %a{ href: "/immigration/" } Immigration
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/health/" } Health
-      .cads-grid-col-md-3
-        %h2.cads-footer__section-title Resources and tools
-        %ul.cads-footer__links
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/how-citizens-advice-works/products-and-services/adviser-resources/" } Advisor resources
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/how-we-provide-advice/our-prevention-work/education/" } Education resources
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/resources-and-tools/about-this-site/accessibility/" } Accessibility
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/resources-and-tools/about-this-site/accessibility/" } Site search
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/resources-and-tools/search-navigation-tools/a-to-z-of-advice/" } A-Z of advice
-      .cads-grid-col-md-3
-        %h2.cads-footer__section-title More from us
-        %ul.cads-footer__links
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/" } About us
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/how-citizens-advice-works/who-we-are-and-what-we-do/annual-reports/" } Annual reports
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/contact-us/" } Contact us
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/make-a-complaint-about-us/" } Complaints
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/how-citizens-advice-works/media/" } Media
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/policy/" } Policy reseach
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/support-us/" } Support us
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/support-us/volunteering/" } Volunteering
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/how-citizens-advice-works/job-and-voluntary-opportunities/" } Jobs
-      .cads-grid-col-md-3
-        %h2.cads-footer__section-title About Citizens Advice
-        %ul.cads-footer__links
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/how-we-provide-advice/" } How we provide advice
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/difference-we-make/" } The difference we make
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/support-us/" } Support us
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/how-citizens-advice-works/" } How Citizens Advice works
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/resources-and-tools/about-this-site/disclaimer-and-copyright/" } Disclaimer and Copyright
-          %li.cads-footer__link
-            %a{ href: "https://www.citizensadvice.org.uk/about-us/citizens-advice-privacy-policy/" } Privacy and cookies
+      - if links["column_one"]
+        .cads-grid-col-md-3
+          %h2.cads-footer__section-title= links["column_one"]["title"]
+          - if links["column_one"]["links"]
+            %ul.cads-footer__links
+              - links["column_one"]["links"].each do |link|
+                %li.cads-footer__link
+                  %a{ href: link["url"] }= link["label"]
+      - if links["column_two"]
+        .cads-grid-col-md-3
+          %h2.cads-footer__section-title= links["column_two"]["title"]
+          - if links["column_two"]["links"]
+            %ul.cads-footer__links
+              - links["column_two"]["links"].each do |link|
+                %li.cads-footer__link
+                  %a{ href: link["url"] }= link["label"]
+      - if links["column_three"]
+        .cads-grid-col-md-3
+          %h2.cads-footer__section-title= links["column_three"]["title"]
+          - if links["column_three"]["links"]
+            %ul.cads-footer__links
+              - links["column_three"]["links"].each do |link|
+                %li.cads-footer__link
+                  %a{ href: link["url"] }= link["label"]
+      - if links["column_four"]
+        .cads-grid-col-md-3
+          %h2.cads-footer__section-title= links["column_four"]["title"]
+          - if links["column_four"]["links"]
+            %ul.cads-footer__links
+              - links["column_four"]["links"].each do |link|
+                %li.cads-footer__link
+                  %a{ href: link["url"] }= link["label"]
 
     .cads-footer__company-info
       .cads-footer__logo

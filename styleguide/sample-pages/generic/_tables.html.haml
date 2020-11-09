@@ -47,4 +47,4 @@
               %a{:href=> 'https://www.citizensadvice.org.uk'} Link 8
             %li
               %a{:href=> 'https://www.citizensadvice.org.uk'} Link 9
-= render partial: "@citizensadvice/design-system/haml/footer"
+= render partial: "@citizensadvice/design-system/haml/footer", locals: { "root_path" => "#", "feedback_url" => footer["feedback_url"], "links" => footer["links"] }
