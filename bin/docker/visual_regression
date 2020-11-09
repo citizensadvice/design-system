@@ -6,7 +6,4 @@ set -e
 docker-compose up -d ca-styleguide
 
 # run visual regression tests
-# Get version string from npm inside a context with npm accessible
-version_string=`docker-compose run ca-styleguide npm view backstopjs version`
-# Use the version string and strip the additional \r that docker-compose output adds
-BACKSTOPJS_VERSION=${version_string//[[:cntrl:]]/} docker-compose run visual-tests
+docker-compose run visual-tests

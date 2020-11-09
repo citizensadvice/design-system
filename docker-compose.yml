@@ -18,7 +18,7 @@ services:
       - NODE_ENV=development
 
   visual-tests:
-    image: 'backstopjs/backstopjs:${BACKSTOPJS_VERSION:-latest}'
+    image: 'backstopjs/backstopjs:5.0.6'
     container_name: visual-tests.test
     # Default entrypoint is backstop, so the command just needs to be the arguments
     command: test --config=backstop-config-ci.js
