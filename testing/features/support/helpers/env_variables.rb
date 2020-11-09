@@ -75,5 +75,13 @@ module Helpers
     def browserstack_browser_version
       ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[2]
     end
+
+    def ios13?
+      browserstack_os_version == "13"
+    end
+
+    def ios12?
+      browserstack_os_version == "12"
+    end
   end
 end
