@@ -1,3 +1,7 @@
+**Bugfixes**:
+
+* Search: Normalise search button styles and use 44px height. Removed `cads-button` from search input.
+
 ## <sub>v2.1.0-alpha.0</sub>
 
 **New features**:
