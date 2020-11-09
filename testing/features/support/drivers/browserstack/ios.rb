@@ -29,14 +29,6 @@ module Drivers
           "1.16.0"
         end
       end
-
-      def ios13?
-        browserstack_os_version == "13"
-      end
-
-      def ios12?
-        browserstack_os_version == "12"
-      end
     end
   end
 end

@@ -1,3 +1,4 @@
+@not_mobile @NP-1253
 Feature: Breadcrumbs component
 
   The Breadcrumbs component allows users to see a navigable path to their
