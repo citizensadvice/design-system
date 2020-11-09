@@ -77,11 +77,11 @@ module Helpers
     end
 
     def ios13?
-      browserstack_os_version == "13"
+      browserstack? && browserstack_os_version == "13"
     end
 
     def ios12?
-      browserstack_os_version == "12"
+      browserstack? && browserstack_os_version == "12"
     end
   end
 end
