@@ -282,7 +282,7 @@
     <p>Telephone: 01234 567890</p>
     <p>Monday to Thursday 8am to 1pm</p>
     <p>Calls cost a lot of money</p>
-    <p><a href='http =>//link.to.the.website'>Link to the website</a></p>
+    <p><a href='http://link.to.the.website'>Link to the website</a></p>
   HTML
 
   "page_review_date" => "21 September 2019",
@@ -291,7 +291,7 @@
     "id" => "target-content-123",
     "title" => "If you are a citizen of a country outside the EU, EEA or Switzerland",
     "body" => <<~HTML
-      <p>You should apply to the EU Settlement Scheme if both =></p>
+      <p>You should apply to the EU Settlement Scheme if both:</p>
       <ul>
         <li>you’re in the UK by 31 December 2020</li>
         <li>you have family in the UK from the EU, EEA or Switzerland</li>
@@ -301,7 +301,7 @@
         it will not be valid after 31 December 2020.
       </p>
       <p>
-        <a href="https =>//www.citizensadvice.org.uk/immigration/staying-in-the-uk-after-brexit/keeping-your-family-in-the-uk-after-brexit/">
+        <a href="https://www.citizensadvice.org.uk/immigration/staying-in-the-uk-after-brexit/keeping-your-family-in-the-uk-after-brexit/">
         Check if you can apply to the EU Settlement Scheme</a>
       </p>
     HTML
@@ -310,23 +310,23 @@
   "success_message" => "Thank you for your feedback",
 
   "related_content" => <<~HTML
-    <h3><a href="https =>//www.citizensadvice.org.uk">Search and navigation tools</a></h3>
+    <h3><a href="https://www.citizensadvice.org.uk">Search and navigation tools</a></h3>
     <ul>
-      <li><a href="https =>//www.citizensadvice.org.uk">Search</a></li>
-      <li><a href="https =>//www.citizensadvice.org.uk">A to Z of advice</a></li>
-      <li><a href="https =>//www.citizensadvice.org.uk">Finding information</a></li>
-      <li><a href="https =>//www.citizensadvice.org.uk">Search for your local Citizens Advice</a></li>
-      <li><a href="https =>//www.citizensadvice.org.uk">Browse our campaign pages</a></li>
-      <li><a href="https =>//www.citizensadvice.org.uk">Browse our research pages</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Search</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">A to Z of advice</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Finding information</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Search for your local Citizens Advice</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Browse our campaign pages</a></li>
+      <li><a href="https://www.citizensadvice.org.uk">Browse our research pages</a></li>
     </ul>
     <div class="cads-related-content__advisernet">
       <ul>
-        <li><a href="https =>//www.citizensadvice.org.uk">Link 1</a></li>
-        <li><a href="https =>//www.citizensadvice.org.uk">Link 2</a></li>
-        <li><a href="https =>//www.citizensadvice.org.uk">Link 3</a></li>
-        <li><a href="https =>//www.citizensadvice.org.uk">Link 4</a></li>
-        <li><a href="https =>//www.citizensadvice.org.uk">Link 5</a></li>
-        <li><a href="https =>//www.citizensadvice.org.uk">Link 6</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 1</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 2</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 3</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 4</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 5</a></li>
+        <li><a href="https://www.citizensadvice.org.uk">Link 6</a></li>
       </ul>
     </div>
   HTML
