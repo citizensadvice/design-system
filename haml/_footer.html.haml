@@ -1,4 +1,5 @@
 - feedback_url = feedback_url || false
+- links = links || {}
 %footer.cads-footer
   - if feedback_url
     %p.cads-footer__feedback
@@ -6,36 +7,36 @@
       %span.cads-footer__feedback-icon.cads-icon_external-link
   .cads-grid-container
     .cads-grid-row
-      - if footer_links["column_one"]
+      - if links["column_one"]
         .cads-grid-col-md-3
-          %h2.cads-footer__section-title= footer_links["column_one"]["title"]
-          - if footer_links["column_one"]["links"]
+          %h2.cads-footer__section-title= links["column_one"]["title"]
+          - if links["column_one"]["links"]
             %ul.cads-footer__links
-              - footer_links["column_one"]["links"].each do |link|
+              - links["column_one"]["links"].each do |link|
                 %li.cads-footer__link
                   %a{ href: link["url"] }= link["label"]
-      - if footer_links["column_two"]
+      - if links["column_two"]
         .cads-grid-col-md-3
-          %h2.cads-footer__section-title= footer_links["column_two"]["title"]
-          - if footer_links["column_two"]["links"]
+          %h2.cads-footer__section-title= links["column_two"]["title"]
+          - if links["column_two"]["links"]
             %ul.cads-footer__links
-              - footer_links["column_two"]["links"].each do |link|
+              - links["column_two"]["links"].each do |link|
                 %li.cads-footer__link
                   %a{ href: link["url"] }= link["label"]
-      - if footer_links["column_three"]
+      - if links["column_three"]
         .cads-grid-col-md-3
-          %h2.cads-footer__section-title= footer_links["column_three"]["title"]
-          - if footer_links["column_three"]["links"]
+          %h2.cads-footer__section-title= links["column_three"]["title"]
+          - if links["column_three"]["links"]
             %ul.cads-footer__links
-              - footer_links["column_three"]["links"].each do |link|
+              - links["column_three"]["links"].each do |link|
                 %li.cads-footer__link
                   %a{ href: link["url"] }= link["label"]
-      - if footer_links["column_four"]
+      - if links["column_four"]
         .cads-grid-col-md-3
-          %h2.cads-footer__section-title= footer_links["column_four"]["title"]
-          - if footer_links["column_four"]["links"]
+          %h2.cads-footer__section-title= links["column_four"]["title"]
+          - if links["column_four"]["links"]
             %ul.cads-footer__links
-              - footer_links["column_four"]["links"].each do |link|
+              - links["column_four"]["links"].each do |link|
                 %li.cads-footer__link
                   %a{ href: link["url"] }= link["label"]
 
