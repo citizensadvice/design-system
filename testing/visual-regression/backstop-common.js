@@ -85,7 +85,7 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-footer--default'),
       },
       {
-        label: 'Components/Footer',
+        label: 'Components/Footer (minimal)',
         url: storyUrlFor('components-footer--minimal'),
       },
       {
