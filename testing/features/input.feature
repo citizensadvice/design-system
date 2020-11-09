@@ -9,8 +9,9 @@ Feature: Input component
       Given I have a Basic Input component on page
 
     Scenario: Input form is on the page without any hints
-      Then there is a label
-      And I can type "Hello" into the text box
+      When I type "Hello" into the text box
+      Then the text box has a value of "Hello"
+      And there is a label
       But there is no hint
       And there is no optional label
       And there is no error message
@@ -20,9 +21,10 @@ Feature: Input component
       Given I have an Input component with a hint
 
     Scenario: Input can have a hint
-      Then there is a label
+      When I type "Hello" into the text box
+      Then the text box has a value of "Hello"
+      And there is a label
       And there is a hint
-      And I can type "Hello" into the text box
       But there is no optional label
       And there is no error message
 
@@ -31,19 +33,21 @@ Feature: Input component
       Given I have an Optional Input component on page
 
     Scenario: Input can have an optional label
-      Then there is a label
+      When I type "Hello" into the text box
+      Then the text box has a value of "Hello"
+      And there is a label
       And there is a hint
       And there is an optional label
-      And I can type "Hello" into the text box
       But there is no error message
 
   Rule: Errored Input
     Background:
-      Given I have an Input with error component on page
+      Given I have an Errored Input component on page
 
     Scenario: An Input can show an error message
-      Then there is a label
+      When I type "Hello" into the text box
+      Then the text box has a value of "Hello"
+      And there is a label
       And there is a hint
       And there is an optional label
       And there is an error message
-      And I can type "Hello" into the text box

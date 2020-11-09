@@ -12,7 +12,7 @@ Given("I have an Optional Input component on page") do
   @component = Input::Optional.new.tap(&:load)
 end
 
-Given("I have an Input with error component on page") do
+Given("I have an Errored Input component on page") do
   @component = Input::ErrorMessage.new.tap(&:load)
 end
 
@@ -44,6 +44,10 @@ Then("there is no error message") do
   expect(@component).not_to have_error_message
 end
 
-Then("I can type {string} into the text box") do |string|
-  @component.input.send_keys(string)
+When("I type {string} into the text box") do |text|
+  @component.input.send_keys(text)
+end
+
+Then("the text box has a value of {string}") do |text|
+  expect(@component.input.value).to eq(text)
 end
