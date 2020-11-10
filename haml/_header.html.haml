@@ -9,10 +9,9 @@
         %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t("cads.header.search_mobile"), "aria-expanded": "false" }
       .cads-grid-col-md-6.cads-header__search-row
         %ul.cads-header__links
-          - if links
-            - links.each do |link|
-              %li.cads-header__links-item
-                %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
+          - links&.each do |link|
+            %li.cads-header__links-item
+              %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
           - if sign_in_out
             %li.cads-header__account-link
               %a.cads-header__hyperlink{href: sign_in_out["url"]}= sign_in_out["title"]
