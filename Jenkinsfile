@@ -19,14 +19,11 @@ def ecr_credential = 'ecr:eu-west-1:cita-devops'
 
 def images = [:]
 
-def withCucumberNode(String description, Boolean useBrowserStack = false, Closure body) {
+def withCucumberNode(String description, Array images, Closure body) {
     node("docker && awsaccess") {
         stage (description) {
             checkout scm
-            docker.withRegistry(DOCKER_REGISTRY_URL, params.ecrCredentialId) {
-                docker.image("$DOCKER_IMAGE_ID").pull()
-            }
-            withDockerSandbox(["$DOCKER_IMAGE_ID"]) {
+            withDockerSandbox(images) {
                 // Call closure
                 body()
             } // withDockerSandbox
@@ -148,11 +145,14 @@ pipeline {
                 stage('Interim Stage: Test Chrome') {
                     steps {
                         script { env.BUILD_STAGE = 'Interim Stage: Test Chrome' }
-                        withDockerSandbox([
-                            images['ruby'],
-                            'selenium/hub:4.0.0-alpha-6-20200609',
-                            'selenium/node-chrome:4.0.0-alpha-6-20200609',
-                            'selenium/node-firefox:4.0.0-alpha-6-20200609' ]) {
+                        withCucumberNode('Interim Stage: Test Chrome (inner)',
+                            [
+                                images['ruby'],
+                                'selenium/hub:4.0.0-alpha-6-20200609',
+                                'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                                'selenium/node-firefox:4.0.0-alpha-6-20200609'
+                            ]
+                        ) {
                             script {
                                 try {
                                     sh 'BROWSER=chrome bin/docker/grid_tests'
@@ -168,11 +168,14 @@ pipeline {
                 stage('Interim Stage: Test Firefox') {
                     steps {
                         script { env.BUILD_STAGE = 'Interim Stage: Test Firefox' }
-                        withDockerSandbox([
-                            images['ruby'],
-                            'selenium/hub:4.0.0-alpha-6-20200609',
-                            'selenium/node-chrome:4.0.0-alpha-6-20200609',
-                            'selenium/node-firefox:4.0.0-alpha-6-20200609' ]) {
+                        withCucumberNode('Interim Stage: Test Firefox (inner)',
+                            [
+                                images['ruby'],
+                                'selenium/hub:4.0.0-alpha-6-20200609',
+                                'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                                'selenium/node-firefox:4.0.0-alpha-6-20200609'
+                            ]
+                        ) {
                             script {
                                 try {
                                     sh 'BROWSER=firefox bin/docker/grid_tests'
