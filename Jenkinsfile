@@ -19,6 +19,21 @@ def ecr_credential = 'ecr:eu-west-1:cita-devops'
 
 def images = [:]
 
+def withCucumberNode(String description, Boolean useBrowserStack = false, Closure body) {
+    node("docker && awsaccess") {
+        stage (description) {
+            checkout scm
+            docker.withRegistry(DOCKER_REGISTRY_URL, params.ecrCredentialId) {
+                docker.image("$DOCKER_IMAGE_ID").pull()
+            }
+            withDockerSandbox(["$DOCKER_IMAGE_ID"]) {
+                // Call closure
+                body()
+            } // withDockerSandbox
+        } // stage
+    } // node
+} // withCucumberNode
+
 pipeline {
     triggers { cron(cron_schedule) }
     agent {
