@@ -2,7 +2,7 @@
 
 module DesignSystem
   class AssetHyperlink < ::Base
-    set_url "/iframe.html?id=3-components--asset-hyperlink&viewMode=story"
+    set_url "/iframe.html?id=components-asset-hyperlink--example&viewMode=story"
 
     section :initial_form, "#a11yComponentToTest" do
       include Helpers::Scripts

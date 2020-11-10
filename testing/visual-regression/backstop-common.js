@@ -55,6 +55,11 @@ module.exports = function backstopCommon(baseUrl) {
         'components-buttons--tertiary'
       ),
       {
+        label: 'Components/Asset hyperlink',
+        url: storyUrlFor('components-asset-hyperlink--example'),
+        viewports: [{ label: 'small', width: 300, height: 100 }],
+      },
+      {
         label: 'Components/Callout (standard)',
         url: storyUrlFor('components-callouts--standard-callout'),
       },
@@ -239,12 +244,6 @@ module.exports = function backstopCommon(baseUrl) {
       },
 
       // Old format component tests below here
-      {
-        label: '3_Components_ASSET_HYPERLINK',
-        url: `${baseUrl}/iframe.html?id=3-components--asset-hyperlink`,
-        readySelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
       {
         label: '3_Components_CONTACT_DETAILS',
         url: `${baseUrl}/iframe.html?id=3-components--contact-details`,

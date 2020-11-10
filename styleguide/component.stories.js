@@ -20,7 +20,6 @@ import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tTables from '../haml/_table.html.haml';
-import tAssetHyperlink from '../haml/_asset_hyperlink.html.haml';
 import tAdvisernetRelatedContent from '../haml/_related_content_advisernet.html.haml';
 
 // Haml rendering wrapper for convenience
@@ -106,9 +105,6 @@ export const contactDetails = () =>
 
 export const tables = () =>
   renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);
-
-export const assetHyperlink = () =>
-  renderHamlTemplate('Asset hyperlink', tAssetHyperlink, 'asset_hyperlink');
 
 export const advisernetRelatedContent = () =>
   `<div class="cads-advisernet">
