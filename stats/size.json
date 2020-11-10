@@ -599,6 +599,15 @@
           "size": 72813
         }
       ]
+    },
+    {
+      "version": "2.1.0-alpha.1",
+      "stats": [
+        {
+          "filename": "lib.css",
+          "size": 73324
+        }
+      ]
     }
   ]
 }
