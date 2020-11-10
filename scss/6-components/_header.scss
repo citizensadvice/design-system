@@ -29,17 +29,22 @@
     }
   }
 
-  .cads-header__account-links {
+  .cads-header__links {
     @extend %cads-list-unordered-inline;
 
     text-align: right;
 
-    .cads-header__account-links-item {
+    .cads-header__account-link,
+    .cads-header__links-item {
       font-size: 1rem;
       line-height: 1.5rem;
       margin-bottom: $cads-spacing-2;
       margin-right: 0;
       margin-left: $cads-spacing-4;
+    }
+
+    .cads-header__account-link:first-child {
+      border-left: solid 1px #fff;
     }
 
     @media print {

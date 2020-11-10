@@ -1,3 +1,6 @@
+- links ||= []
+- sign_in_out ||= {}
+
 %header.cads-header
   .cads-grid-container
     .cads-grid-row
@@ -5,12 +8,14 @@
         %a.cads-logo{ href: root_path, title: t("cads.shared.logo_title") }
         %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t("cads.header.search_mobile"), "aria-expanded": "false" }
       .cads-grid-col-md-6.cads-header__search-row
-        %ul.cads-header__account-links
-          %li.cads-header__account-links-item
-            %a{ href: alt_language["url"] }= alt_language["title"]
-          %li.cads-header__account-links-item
-            %a{href: sign_in["url"]}
-              = sign_in["text"]
+        %ul.cads-header__links
+          - if links
+            - links.each do |link|
+              %li.cads-header__links-item
+                %a{ href: link["url"] }= link["title"]
+          - if sign_in_out
+            %li.cads-header__account-link
+              %a{href: sign_in_out["url"]}= sign_in_out["title"]
         %form.cads-search.cads-search--icon-only{ action: search_action_url, role: "search" }
           %input.cads-search__input.cads-input{ type: "search", name: "q", "aria-label": t("cads.search.input_aria_label") }
           %button.cads-button.cads-search__button{title: t("cads.search.submit_title")}
