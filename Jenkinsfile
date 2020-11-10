@@ -132,7 +132,7 @@ pipeline {
             parallel {
                 stage('Interim Stage: Test Chrome') {
                     steps {
-                        script {
+                        script { env.BUILD_STAGE = 'Interim Stage: Test Chrome' }
                         withDockerSandbox([
                             images['ruby'],
                             'selenium/hub:4.0.0-alpha-6-20200609',
@@ -152,7 +152,7 @@ pipeline {
                 }
                 stage('Interim Stage: Test Firefox') {
                     steps {
-                        script {
+                        script { env.BUILD_STAGE = 'Interim Stage: Test Firefox' }
                         withDockerSandbox([
                             images['ruby'],
                             'selenium/hub:4.0.0-alpha-6-20200609',
