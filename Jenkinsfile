@@ -106,26 +106,67 @@ pipeline {
                 }
             }
         }
-        stage('Sanity Test') {
+        stage('VRT / Ally Tests') {
             steps {
-                script { env.BUILD_STAGE = 'Sanity Test' }
+                script { env.BUILD_STAGE = 'VRT / Ally Tests' }
                 withDockerSandbox([
                     images['ca-styleguide'],
                     'backstopjs/backstopjs',
                     images['ruby'],
-                    images['wcag'],
-                    'selenium/hub:4.0.0-alpha-6-20200609',
-                    'selenium/node-chrome:4.0.0-alpha-6-20200609',
-                    'selenium/node-firefox:4.0.0-alpha-6-20200609' ]) {
+                    images['wcag'] ]) {
                     script {
                         try {
                             sh './bin/jenkins/visual_regression'
                             sh './bin/docker/a11y-test'
-                            sh './bin/docker/grid_tests'
                         } catch (Exception e) {
                             sh 'docker-compose logs --no-color'
                             currentBuild.result = 'FAILURE'
                             throw e
+                        }
+                    }
+                }
+            }
+        }
+        stage('Local Grid Tests') {
+            failFast false
+            parallel {
+                stage('Interim Stage: Test Chrome') {
+                    steps {
+                        script {
+                        withDockerSandbox([
+                            images['ruby'],
+                            'selenium/hub:4.0.0-alpha-6-20200609',
+                            'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                            'selenium/node-firefox:4.0.0-alpha-6-20200609' ]) {
+                            script {
+                                try {
+                                    sh 'BROWSER=chrome bin/docker/grid_tests'
+                                } catch (Exception e) {
+                                    sh 'docker-compose logs --no-color'
+                                    currentBuild.result = 'FAILURE'
+                                    throw e
+                                }
+                            }
+                        }
+                    }
+                }
+                stage('Interim Stage: Test Firefox') {
+                    steps {
+                        script {
+                        withDockerSandbox([
+                            images['ruby'],
+                            'selenium/hub:4.0.0-alpha-6-20200609',
+                            'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                            'selenium/node-firefox:4.0.0-alpha-6-20200609' ]) {
+                            script {
+                                try {
+                                    sh 'BROWSER=firefox bin/docker/grid_tests'
+                                } catch (Exception e) {
+                                    sh 'docker-compose logs --no-color'
+                                    currentBuild.result = 'FAILURE'
+                                    throw e
+                                }
+                            }
                         }
                     }
                 }
