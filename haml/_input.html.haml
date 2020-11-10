@@ -9,4 +9,4 @@
       %p.cads-form-field__hint= input["hint"]
     - if input["error_message"]
       %p.cads-form-field__error-message= input["error_message"]
-    %input.cads-input{ type: "text", id: "#{input['name']}-input", class: ("cads-input--#{input['size']}" if input["size"]) }
+    %input.cads-input{ type: "text", id: "#{input['name']}-input", name: input["name"], class: ("cads-input--#{input['size']}" if input["size"]) }
