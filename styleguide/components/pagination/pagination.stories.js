@@ -1,6 +1,5 @@
 import docs from './pagination-docs.mdx';
-import templateBasic from './_basic.html';
-import templateManyPages from './_many-pages.html';
+import templateExample from './_example.html';
 import templatePagingInfo from './_paging-info.html';
 
 export default {
@@ -8,13 +7,8 @@ export default {
   parameters: { docs: { page: docs } },
 };
 
-export const Basic = () => templateBasic;
-Basic.parameters = { docs: { source: { code: templateBasic.toString() } } };
-
-export const ManyPages = () => templateManyPages;
-ManyPages.parameters = {
-  docs: { source: { code: templateManyPages.toString() } },
-};
+export const Example = () => templateExample;
+Example.parameters = { docs: { source: { code: templateExample.toString() } } };
 
 export const PagingInfo = () => templatePagingInfo;
 PagingInfo.parameters = {

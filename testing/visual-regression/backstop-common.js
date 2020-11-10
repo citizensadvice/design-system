@@ -121,12 +121,8 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'sticky', width: 1000, height: 600 }],
       },
       {
-        label: 'Components/Pagination (basic)',
-        url: storyUrlFor('components-pagination--basic'),
-      },
-      {
-        label: 'Components/Pagination (many pages)',
-        url: storyUrlFor('components-pagination--many-pages'),
+        label: 'Components/Pagination (example)',
+        url: storyUrlFor('components-pagination--example'),
       },
       {
         label: 'Components/Pagination (paging info)',
