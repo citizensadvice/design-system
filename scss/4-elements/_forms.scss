@@ -102,6 +102,7 @@
 .cads-input {
   @include cads-interactive-element();
 
+  color: inherit;
   width: 100%;
   // prevent elements with size attributes overflowing on mobile
   max-width: 100%;
@@ -153,6 +154,7 @@
 .cads-textarea {
   @include cads-interactive-element();
 
+  color: inherit;
   display: block;
   width: 100%;
   min-height: 40px;
