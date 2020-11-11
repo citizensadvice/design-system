@@ -3,7 +3,7 @@
 %footer.cads-footer
   - if feedback_url
     %p.cads-footer__feedback
-      %a{ href: feedback_url, target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
+      %a.cads-footer__hyperlink{ href: feedback_url, target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
       %span.cads-footer__feedback-icon.cads-icon_external-link
   .cads-grid-container
     .cads-grid-row
@@ -14,7 +14,7 @@
             %ul.cads-footer__links
               - links["column_one"]["links"].each do |link|
                 %li.cads-footer__link
-                  %a{ href: link["url"] }= link["label"]
+                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
       - if links["column_two"]
         .cads-grid-col-md-3
           %h2.cads-footer__section-title= links["column_two"]["title"]
@@ -22,7 +22,7 @@
             %ul.cads-footer__links
               - links["column_two"]["links"].each do |link|
                 %li.cads-footer__link
-                  %a{ href: link["url"] }= link["label"]
+                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
       - if links["column_three"]
         .cads-grid-col-md-3
           %h2.cads-footer__section-title= links["column_three"]["title"]
@@ -30,7 +30,7 @@
             %ul.cads-footer__links
               - links["column_three"]["links"].each do |link|
                 %li.cads-footer__link
-                  %a{ href: link["url"] }= link["label"]
+                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
       - if links["column_four"]
         .cads-grid-col-md-3
           %h2.cads-footer__section-title= links["column_four"]["title"]
@@ -38,7 +38,7 @@
             %ul.cads-footer__links
               - links["column_four"]["links"].each do |link|
                 %li.cads-footer__link
-                  %a{ href: link["url"] }= link["label"]
+                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
 
     .cads-footer__company-info
       .cads-footer__logo

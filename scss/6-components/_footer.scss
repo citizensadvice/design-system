@@ -6,12 +6,13 @@
 .cads-footer {
   @include cads-typographic-scale-text-small();
 
-  background-color: $cads-palette__blue-light;
+  background-color: $cads-footer__background-colour;
   padding: $cads-spacing-4;
 
   .cads-footer__section-title {
     @extend %cads-h4;
 
+    color: $cads-footer__text-colour;
     margin: 0 0 $cads-spacing-2 0;
   }
   .cads-footer__feedback {
@@ -19,8 +20,8 @@
 
     width: 100%;
     text-align: center;
-    color: $cads-language__brand-primary;
-    border-bottom: 1px solid $cads-language__brand-primary;
+    color: $cads-footer__text-secondary-colour;
+    border-bottom: 1px solid $cads-footer__divider-colour;
     padding-bottom: $cads-spacing-4;
     margin: 0 0 $cads-spacing-4 0;
 
@@ -33,8 +34,32 @@
       margin-left: 0.5ch;
     }
   }
+
   .cads-footer__links {
     @extend %cads-list-no-bullet;
+  }
+
+  .cads-footer__hyperlink {
+    color: $cads-footer__link-colour;
+
+    &:hover {
+      color: $cads-footer__link-hover-colour;
+      background-color: $cads-footer__hover-background-colour;
+    }
+
+    &:active {
+      color: $cads-footer__link-active-colour;
+    }
+
+    &:focus {
+      color: $cads-palette__black;
+      background-color: $cads-footer__link-focus-colour;
+      border-bottom: 2px solid $cads-footer__link-focus-highlight-colour;
+    }
+
+    &:visited {
+      color: $cads-footer__link-visited-colour;
+    }
   }
 
   .cads-footer__links .cads-footer__link {
@@ -45,6 +70,7 @@
   .cads-footer__company-info {
     @include cads-restrict-content-width();
 
+    color: $cads-footer__text-colour;
     padding-top: $cads-spacing-5;
     border-top: 1px solid $cads-language__border-colour;
 
