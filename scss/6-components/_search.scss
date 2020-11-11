@@ -10,45 +10,43 @@
   display: flex;
   flex-direction: row;
 
-  &__input {
+  @media print {
+    display: none;
+  }
+
+  &__input,
+  &__button {
     font-size: 1rem;
+    height: $cads-interactive-target-size;
+  }
+
+  &__input {
     flex: 1 1;
-    border-right-width: 0; // TODO: Do we want to do this? Hover looks a bit funny next to input box
-    height: calc(4px + 3rem);
+    border-right-width: 0;
     margin-bottom: 0;
   }
 
   &__button {
-    font-size: 1rem;
-    flex: 0 0 auto;
-    padding: calc(1em - 1px) 1rem;
-    margin: 0;
-    height: calc(4px + 3rem);
-    box-shadow: none;
+    @include cads-button-defaults();
+
+    margin-bottom: 0;
+    padding: (cads-rem-to-px($cads-spacing-3) - 2px) $cads-spacing-3;
     border: solid $cads-border-width-medium
       $cads-language__primary-button-colour;
+    color: $cads-palette__white;
+    background-color: $cads-language__primary-button-colour;
 
-    &:hover {
-      box-shadow: none;
-    }
-
+    &:hover,
     &:active {
-      transform: none;
+      color: $cads-palette__white;
+      background-color: $cads-language__primary-button-hover-colour;
     }
 
     &:focus {
-      box-shadow: none;
-    }
-  }
-
-  @include cads-media-breakpoint-only(sm) {
-    &__button {
-      height: $cads-interactive-target-size;
-      padding: 11px 12px 11px 12px;
-    }
-
-    &__input {
-      height: $cads-interactive-target-size;
+      outline: none;
+      color: $cads-language__focus-text-colour;
+      border-color: $cads-language__focus-border-colour;
+      background-color: $cads-language__focus-colour;
     }
   }
 }

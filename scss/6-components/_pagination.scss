@@ -1,20 +1,17 @@
+// ============================================================================
+// Pagination
+// ============================================================================
+
+/** @define paging */
 .cads-paging {
   @extend %cads-list-unordered-inline;
 }
-
-.cads-paging-info {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  font-weight: $cads-font-weight__regular;
-  margin: 0 0 $cads-spacing-4 0;
-  color: $cads-language__secondary-text-colour;
-}
-
 .cads-paging__button {
   @include cads-button-defaults();
 
   color: $cads-language__link-colour;
-  border: solid $cads-border-width-medium $cads-language__border-colour;
+  border: solid $cads-border-width-small $cads-language__border-colour;
+  border-radius: $cads-border-radius;
   font-weight: $cads-font-weight__regular;
   background-color: transparent;
   min-width: $cads-interactive-target-size;
@@ -36,14 +33,22 @@
 
   .cads-paging__current & {
     font-weight: $cads-font-weight__bold;
-    background-color: $cads-language__link-colour;
-    border-color: $cads-language__link-colour;
     color: $cads-palette__white;
+    background-color: $cads-language__primary-button-colour;
+    border-color: $cads-language__primary-button-colour;
 
     &:hover {
-      background-color: $cads-language__link-colour;
-      border-color: $cads-language__link-colour;
-      color: $cads-palette__white;
+      border-color: $cads-language__primary-button-hover-colour;
+      background-color: $cads-language__primary-button-hover-colour;
     }
   }
+}
+
+/** @define paging-info */
+.cads-paging-info {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: $cads-font-weight__regular;
+  margin: 0 0 $cads-spacing-4 0;
+  color: $cads-language__secondary-text-colour;
 }
