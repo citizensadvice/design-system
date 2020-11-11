@@ -19,11 +19,11 @@ def ecr_credential = 'ecr:eu-west-1:cita-devops'
 
 def images = [:]
 
-def withCucumberNode(String description, Array images, Closure body) {
+def withCucumberNode(String description, Array imageArray, Closure body) {
     node("docker && awsaccess") {
         stage (description) {
             checkout scm
-            withDockerSandbox(images) {
+            withDockerSandbox(imageArray) {
                 // Call closure
                 body()
             } // withDockerSandbox
@@ -118,17 +118,34 @@ pipeline {
                 }
             }
         }
-        stage('VRT / Ally Tests') {
+        stage('Visual Regression Tests') {
             steps {
-                script { env.BUILD_STAGE = 'VRT / Ally Tests' }
+                script { env.BUILD_STAGE = 'Visual Regression Tests' }
                 withDockerSandbox([
                     images['ca-styleguide'],
                     'backstopjs/backstopjs',
-                    images['ruby'],
                     images['wcag'] ]) {
                     script {
                         try {
                             sh './bin/jenkins/visual_regression'
+                        } catch (Exception e) {
+                            sh 'docker-compose logs --no-color'
+                            currentBuild.result = 'FAILURE'
+                            throw e
+                        }
+                    }
+                }
+            }
+        }
+        stage('Accessibility Tests') {
+            steps {
+                script { env.BUILD_STAGE = 'Accessibility Tests' }
+                withDockerSandbox([
+                    images['ca-styleguide'],
+                    images['ruby'],
+                    images['wcag'] ]) {
+                    script {
+                        try {
                             sh './bin/docker/a11y-test'
                         } catch (Exception e) {
                             sh 'docker-compose logs --no-color'
