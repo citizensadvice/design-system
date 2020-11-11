@@ -118,7 +118,7 @@
 
   "header" => {
     "root_path" => "#",
-    "links" => [{ "title" => "AdviserNet", "url" => "#advisernet" }, { "title" => "Cymraeg", "url" => "?lang=cy" }],
+    "links" => [{ "title" => "AdviserNet", "url" => "?advisernet" }, { "title" => "Cymraeg", "url" => "?lang=cy" }],
     "sign_in_out" => { "title" => "Sign out", "url" => "/sign-out/out" },
     "search_action_url" => "/search"
   },
