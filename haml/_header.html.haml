@@ -14,7 +14,7 @@
               %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
           - if sign_in_out
             %li.cads-header__account-link
-              %a.cads-header__hyperlink{href: sign_in_out["url"]}= sign_in_out["title"]
+              %a.cads-header__hyperlink{href: sign_in_out["url"], "data-testid": "account-link"}= sign_in_out["title"]
         %form.cads-search.cads-search--icon-only{ action: search_action_url, role: "search" }
           %input.cads-search__input.cads-input{ type: "search", name: "q", "aria-label": t("cads.search.input_aria_label") }
           %button.cads-search__button{title: t("cads.search.submit_title")}
