@@ -123,8 +123,8 @@ pipeline {
                 script { env.BUILD_STAGE = 'Visual Regression Tests' }
                 withDockerSandbox([
                     images['ca-styleguide'],
-                    'backstopjs/backstopjs',
-                    images['wcag'] ]) {
+                    'backstopjs/backstopjs'
+                ]) {
                     script {
                         try {
                             sh './bin/jenkins/visual_regression'
@@ -162,21 +162,23 @@ pipeline {
                 stage('Interim Stage: Test Chrome') {
                     steps {
                         script { env.BUILD_STAGE = 'Interim Stage: Test Chrome' }
-                        withCucumberNode('Interim Stage: Test Chrome (inner)',
-                            [
-                                images['ruby'],
-                                'selenium/hub:4.0.0-alpha-6-20200609',
-                                'selenium/node-chrome:4.0.0-alpha-6-20200609',
-                                'selenium/node-firefox:4.0.0-alpha-6-20200609'
-                            ]
-                        ) {
-                            script {
-                                try {
-                                    sh 'BROWSER=chrome bin/docker/grid_tests'
-                                } catch (Exception e) {
-                                    sh 'docker-compose logs --no-color'
-                                    currentBuild.result = 'FAILURE'
-                                    throw e
+                        script {
+                            withCucumberNode('Interim Stage: Test Chrome (inner)',
+                                [
+                                    images['ruby'],
+                                    'selenium/hub:4.0.0-alpha-6-20200609',
+                                    'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                                    'selenium/node-firefox:4.0.0-alpha-6-20200609'
+                                ]
+                            ) {
+                                script {
+                                    try {
+                                        sh 'BROWSER=chrome bin/docker/grid_tests'
+                                    } catch (Exception e) {
+                                        sh 'docker-compose logs --no-color'
+                                        currentBuild.result = 'FAILURE'
+                                        throw e
+                                    }
                                 }
                             }
                         }
@@ -185,21 +187,23 @@ pipeline {
                 stage('Interim Stage: Test Firefox') {
                     steps {
                         script { env.BUILD_STAGE = 'Interim Stage: Test Firefox' }
-                        withCucumberNode('Interim Stage: Test Firefox (inner)',
-                            [
-                                images['ruby'],
-                                'selenium/hub:4.0.0-alpha-6-20200609',
-                                'selenium/node-chrome:4.0.0-alpha-6-20200609',
-                                'selenium/node-firefox:4.0.0-alpha-6-20200609'
-                            ]
-                        ) {
-                            script {
-                                try {
-                                    sh 'BROWSER=firefox bin/docker/grid_tests'
-                                } catch (Exception e) {
-                                    sh 'docker-compose logs --no-color'
-                                    currentBuild.result = 'FAILURE'
-                                    throw e
+                        script {
+                            withCucumberNode('Interim Stage: Test Firefox (inner)',
+                                [
+                                    images['ruby'],
+                                    'selenium/hub:4.0.0-alpha-6-20200609',
+                                    'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                                    'selenium/node-firefox:4.0.0-alpha-6-20200609'
+                                ]
+                            ) {
+                                script {
+                                    try {
+                                        sh 'BROWSER=firefox bin/docker/grid_tests'
+                                    } catch (Exception e) {
+                                        sh 'docker-compose logs --no-color'
+                                        currentBuild.result = 'FAILURE'
+                                        throw e
+                                    }
                                 }
                             }
                         }
