@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Header
-  class LoggedOut < ::Base
+  class Standard < ::Base
     set_url "/iframe.html?id=components-header--default&viewMode=story"
 
-    element :change_language, ".cads-header__links li:last-child"
+    element :change_language, "a", text: "Cymraeg"
     element :login, "[data-testid='account-link']"
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
