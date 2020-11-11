@@ -19,11 +19,11 @@ def ecr_credential = 'ecr:eu-west-1:cita-devops'
 
 def images = [:]
 
-def withCucumberNode(String description, Array imageArray, Closure body) {
+def withCucumberNode(String description, Map imageMap, Closure body) {
     node("docker && awsaccess") {
         stage (description) {
             checkout scm
-            withDockerSandbox(imageArray) {
+            withDockerSandbox(imageMap) {
                 // Call closure
                 body()
             } // withDockerSandbox
