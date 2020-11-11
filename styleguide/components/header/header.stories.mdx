@@ -1,8 +1,9 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Source, Story, Preview } from '@storybook/addon-docs/blocks';
 import { translate } from '../../../scripts/story-helpers';
 
 import initHeader from '../../../src/js/header';
 import templateDefault from './_default.html.haml';
+import linksVariable from '!!raw-loader!./links_example.rb';
 
 <Meta
   title="Components/Header"
@@ -29,16 +30,28 @@ import templateDefault from './_default.html.haml';
 
 The Haml partial the following locals:
 
-| Property              | Description                                 |
-| --------------------- | ------------------------------------------- |
-| `root_path`           | Required, root path for the logo home link  |
-| `alt_language`        | Required, a hash with the following:        |
-| `alt_language[url]`   | &rarr; Required, url for the alt language   |
-| `alt_language[title]` | &rarr; Required, title for the language     |
-| `sign_in`             | Required, a hash with the following:        |
-| `sign_in[url]`        | &rarr; Required, url for the sign in link   |
-| `sign_in[title]`      | &rarr; Required, title for the sign in link |
-| `search_action_url`   | Required, URL for the search form           |
+| Property             | Description                                             |
+| -------------------- | ------------------------------------------------------- |
+| `root_path`          | Required, root path for the logo home link              |
+| `links`              | Optional, an array made up of links (see example below) |
+| `sign_in_out`        | Optional, a hash with the following:                    |
+| `sign_in_out[url]`   | &rarr; Required, url for the sign in link               |
+| `sign_in_out[title]` | &rarr; Required, title for the sign in link             |
+| `search_action_url`  | Required, URL for the search form                       |
+
+### `links` template option
+
+The links variable allows you to insert links to the left of the `sign_in_out` link:
+
+<Source language="ruby" dark="true" code={linksVariable} />
+
+## Customising the logo
+
+You can customise the logo by overriding the `.cads-logo` class within your own stylesheet.
+
+The logo provided with this design system covers large and small responsive styles plus print versions. Be sure to cover all of these cases, or override them if not needed.
+
+See `@citizensadvice/design-system/scss/6-components/_logo.scss` for the specific implementation.
 
 ## JavaScript behaviour
 

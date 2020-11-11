@@ -4,8 +4,31 @@
 
 /** @define header */
 .cads-header {
-  background-color: $cads-palette__white;
+  background-color: $cads-header__background-colour;
   padding: $cads-spacing-4 0;
+
+  .cads-header__hyperlink {
+    color: $cads-header__link-colour;
+
+    &:hover {
+      color: $cads-header__link-hover-colour;
+      background-color: $cads-header__hover-background-colour;
+    }
+
+    &:active {
+      color: $cads-header__link-active-colour;
+    }
+
+    &:focus {
+      color: $cads-palette__black;
+      background-color: $cads-header__link-focus-colour;
+      border-bottom: 2px solid $cads-header__link-focus-highlight-colour;
+    }
+
+    &:visited {
+      color: $cads-header__link-visited-colour;
+    }
+  }
 
   .cads-header__search-reveal {
     @include cads-button-defaults();
@@ -29,17 +52,23 @@
     }
   }
 
-  .cads-header__account-links {
+  .cads-header__links {
     @extend %cads-list-unordered-inline;
 
     text-align: right;
 
-    .cads-header__account-links-item {
+    .cads-header__account-link,
+    .cads-header__links-item {
       font-size: 1rem;
       line-height: 1.5rem;
       margin-bottom: $cads-spacing-2;
       margin-right: 0;
       margin-left: $cads-spacing-4;
+    }
+
+    .cads-header__account-link {
+      border-left: solid 1px $cads-header__link-colour;
+      padding-left: $cads-spacing-4;
     }
 
     @media print {
@@ -58,7 +87,7 @@
       width: $cads-interactive-target-size;
     }
 
-    .cads-header__account-links {
+    .cads-header__links {
       display: none;
     }
 
