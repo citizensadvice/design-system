@@ -4,6 +4,7 @@ module Helpers
   module Page
     include Helpers::Methods
     include Helpers::EnvVariables
+    include Helpers::Javascript
 
     def resize_window(desired_width = width, desired_height = height)
       AutomationLogger.warn("Resizing Windows on Browserstack IE can be flaky!") if browserstack? && internet_explorer?
@@ -38,16 +39,8 @@ module Helpers
       resize_window(width(fallback: 1024), height_of_page + 150)
     end
 
-    def height_of_page
-      current_session.execute_script("return document.body.scrollHeight")
-    end
-
     def save_image(path)
       current_session.save_screenshot(path)
-    end
-
-    def full_page_html
-      current_session.execute_script("return document.documentElement.outerHTML")
     end
 
     def image_file_path(test_case)

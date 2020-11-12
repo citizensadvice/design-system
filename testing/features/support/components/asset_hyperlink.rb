@@ -5,13 +5,13 @@ module DesignSystem
     set_url "/iframe.html?id=components-asset-hyperlink--example&viewMode=story"
 
     section :initial_form, "#a11yComponentToTest" do
-      include Helpers::Scripts
+      include Helpers::Javascript
 
       element :download_link, "a"
       element :download_size, ".cads-asset-type"
 
       def download_icon_content
-        evaluate_script(before_content(".cads-icon_file")).delete('\\"')
+        before_content(".cads-icon_file").delete('\\"')
       end
     end
   end

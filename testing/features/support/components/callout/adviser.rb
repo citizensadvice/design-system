@@ -5,7 +5,7 @@ module Callout
     set_url "/iframe.html?id=components-callouts--adviser-callout&viewMode=story"
 
     def warning
-      evaluate_script(before_content(".cads-callout__adviser-label")).delete('\\"')
+      before_content(".cads-callout__adviser-label").delete('\\"')
     end
   end
 end
