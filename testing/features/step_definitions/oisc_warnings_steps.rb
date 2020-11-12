@@ -16,13 +16,11 @@ Given("a Sticky OISC component is on the page") do
 end
 
 When("I scroll to the bottom of the page") do
-  @component.execute_script("window.scrollTo(0, 100000)")
-  sleep 0.5
+  scroll_to_bottom_of_page
 end
 
 When("I scroll to the top of the page") do
-  @component.execute_script("window.scrollTo(0, 0)")
-  sleep 0.5
+  scroll_to_top_of_page
 end
 
 When("I close the sticky component") do

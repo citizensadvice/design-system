@@ -2,6 +2,8 @@
 
 module Helpers
   module Javascript
+    include Helpers::EnvVariables
+
     def height_of_page
       session.execute_script("return document.body.scrollHeight")
     end
@@ -19,10 +21,26 @@ module Helpers
       )
     end
 
+    def scroll_to_top_of_page
+      session.execute_script("window.scrollTo(0, 0)")
+      sleep js_delay_time
+    end
+
+    def scroll_to_bottom_of_page
+      session.execute_script("window.scrollTo(0, 100000)")
+      sleep js_delay_time
+    end
+
     private
 
     def session
       Capybara.current_session
+    end
+
+    def js_delay_time
+      return 1.5 if ios12?
+      return 0.75 if device? || safari?
+      0.5
     end
   end
 end
