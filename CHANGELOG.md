@@ -1,3 +1,7 @@
+**Bugfixes**:
+
+- Forms: Fix error message display on inline radio buttons and fixed width inputs (NP-1275)
+
 ## <sub>v2.1.0-alpha.1</sub>
 
 #### _Nov. 10, 2020_
@@ -5,7 +9,7 @@
 **Bugfixes**:
 
 * Search: Normalise search button styles and use 44px height. Removed `cads-button` from search input
-* Pagination: Update pagiantion designs and add reference aria examples
+* Pagination: Update pagination designs and add reference aria examples
 * Forms: Add `name` attribute to input haml partial
 
 **New features**:

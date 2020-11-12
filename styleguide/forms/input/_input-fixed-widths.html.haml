@@ -9,3 +9,6 @@
 
 = render partial: "@citizensadvice/design-system/haml/input",
   locals: { input: { "name" => "example-input-fixed-16", "label" => "Example input", "hint" => "This input is 16 characters wide", "size" => "16ch" } }
+
+= render partial: "@citizensadvice/design-system/haml/input",
+  locals: { input: { "name" => "example-input-fixed-16-with-error", "label" => "Example input", "hint" => "This input is 16 characters wide with an error message", "size" => "16ch", "error_message" => "This is an error messsage", "has_error" => true } }
