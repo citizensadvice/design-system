@@ -37,13 +37,12 @@ Feature: OISC Warning components
       When I scroll to the bottom of the page
       Then the OISC component is visible at the top of the viewport
 
-    @not_ios12 @NP-1264
+    @not_mobile @NP-1230
     Scenario: Sticky component can be closed off
       When I scroll to the bottom of the page
       And I close the sticky component
       Then the OISC component is no longer visible at the top of the viewport
 
-    @not_ios12 @NP-1264
     Scenario: Sticky component is no longer sticky after being closed
       When I scroll to the bottom of the page
       And I close the sticky component
