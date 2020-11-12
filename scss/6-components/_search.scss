@@ -1,5 +1,5 @@
 // ============================================================================
-// Footer
+// Search
 // ============================================================================
 
 /** @define search */
@@ -33,12 +33,12 @@
     padding: (cads-rem-to-px($cads-spacing-3) - 2px) $cads-spacing-3;
     border: solid $cads-border-width-medium
       $cads-language__primary-button-colour;
-    color: $cads-palette__white;
+    color: $cads-language__primary-button-text-colour;
     background-color: $cads-language__primary-button-colour;
 
     &:hover,
     &:active {
-      color: $cads-palette__white;
+      color: $cads-language__primary-button-text-colour;
       background-color: $cads-language__primary-button-hover-colour;
     }
 
