@@ -52,9 +52,9 @@
     }
 
     &:focus {
-      color: $cads-palette__black;
-      background-color: $cads-footer__link-focus-colour;
-      border-bottom: 2px solid $cads-footer__link-focus-highlight-colour;
+      color: $cads-footer__link-focus-colour;
+      background-color: $cads-footer__link-focus-background-colour;
+      border-bottom: 2px solid $cads-footer__link-focus-border-colour;
     }
 
     &:visited {
