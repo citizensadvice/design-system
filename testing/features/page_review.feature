@@ -5,8 +5,8 @@ Feature: Page Review component
 
   Rule: Standard Page Review text
     Background:
-      Given a Default Page Review component is on the page
+      Given a Standard Page Review component is on the page
 
     Scenario: Label includes the date
-      Then the date that the page was last updated is present
+      Then the date that the page was last reviewed is present
       And the date is bold
