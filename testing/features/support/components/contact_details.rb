@@ -8,5 +8,9 @@ module DesignSystem
       elements :paragraphs, "p"
       element :first_bold_paragraph, "p:nth-of-type(1) strong"
     end
+
+    def validate_initial_state!
+      has_initial_form?(wait: 5)
+    end
   end
 end

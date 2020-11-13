@@ -14,5 +14,9 @@ module DesignSystem
         before_content(".cads-icon_file").delete('\\"')
       end
     end
+
+    def validate_initial_state!
+      has_initial_form?(wait: 5)
+    end
   end
 end
