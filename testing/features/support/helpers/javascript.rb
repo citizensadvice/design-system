@@ -38,9 +38,6 @@ module Helpers
     end
 
     def js_delay_time
-      return 2.5 if ios12?
-      return 1 if device? || safari?
-
       0.5
     end
   end
