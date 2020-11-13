@@ -24,7 +24,7 @@ When("I scroll to the top of the page") do
 end
 
 When("I close the sticky component") do
-  @component.wait_until_close_sticky_visible(wait: 5) if ios? || safari?
+  @component.wait_until_close_sticky_visible(wait: 5)
   @component.close_sticky.click
 end
 
