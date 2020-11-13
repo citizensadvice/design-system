@@ -2,7 +2,7 @@
 
 module Callout
   class Standard < ::Base
-    include Helpers::Scripts
+    include Helpers::Javascript
 
     set_url "/iframe.html?id=components-callouts--standard-callout&viewMode=story"
 
