@@ -20,6 +20,11 @@ Feature: OISC Warning components
       But the OISC message is not visible
 
   Rule: Sticky OISC
+  # These scenarios are especially problematic for Phones. Mainly due to the way
+  # The JS interacts with the scrolling behaviour. There are some known issues and
+  # some unknown issues being investigated. So be very careful when un-tagging
+  # Specific scenarios to run against all/some mobile devices!
+  # LH - Nov 2020
     Background:
       Given a Sticky OISC component is on the page
 
@@ -43,6 +48,10 @@ Feature: OISC Warning components
       And I close the sticky component
       Then the OISC component is no longer visible at the top of the viewport
 
+    @not_ios12 @not_ios11
+    # This won't ever work on iOS11/12. It seems like the behaviour just is mangled.
+    # Once we drop these iOS versions from our support we can just remove these tags
+    # And then focus on improving things where we can.
     Scenario: Sticky component is no longer sticky after being closed
       When I scroll to the bottom of the page
       And I close the sticky component
