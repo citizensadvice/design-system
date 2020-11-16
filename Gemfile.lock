@@ -40,7 +40,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    childprocess (3.0.0)
+    childprocess (4.0.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     cucumber (4.1.0)
@@ -162,8 +162,8 @@ GEM
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     rubyzip (2.3.0)
-    selenium-webdriver (4.0.0.alpha6)
-      childprocess (>= 0.5, < 4.0)
+    selenium-webdriver (4.0.0.alpha7)
+      childprocess (>= 0.5, < 5.0)
       rubyzip (>= 1.2.2)
       websocket (~> 1.0)
     site_prism (3.7)
@@ -205,7 +205,7 @@ DEPENDENCIES
   rake
   retriable (~> 3.1)
   rspec
-  selenium-webdriver (= 4.0.0.alpha6)
+  selenium-webdriver (= 4.0.0.alpha7)
   site_prism (~> 3.7)
   webdrivers
 
