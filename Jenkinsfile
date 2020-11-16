@@ -32,8 +32,8 @@ def images = [:]
 node(nodeLabel) {
   stage('Setup') {
     cleanWs()
-    //checkout scm
-    git credentialsId: 'jenkins-pipeline-gh-access', url: 'https://github.com/citizensadvice/design-system.git'
+    checkout scm
+
     slackNotifyReleaseOnly {
       stash 'source'
 
