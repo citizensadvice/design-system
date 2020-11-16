@@ -140,7 +140,6 @@ node(nodeLabel) {
       }
     }
   }
-
 } // end node
 
 grid_tests = [:]
@@ -152,10 +151,10 @@ grid_tests = [:]
       [
         images['ruby'],
         'selenium/hub:4.0.0-alpha-6-20200609',
-        "selenium/node-chrome:4.0.0-alpha-6-20200609",
-        "selenium/node-firefox:4.0.0-alpha-6-20200609"
+        'selenium/node-chrome:4.0.0-alpha-6-20200609',
+        'selenium/node-firefox:4.0.0-alpha-6-20200609'
       ]
-    ){
+    ) {
       try {
         sh "BROWSER=${browser} bin/docker/grid_tests"
       } catch (Exception e) {
@@ -212,7 +211,6 @@ def dockerTag() {
   "${env.BRANCH_NAME}_${getSha()}"
 }
 
-
 // archiveArtifacts([
 //                 artifacts: 'testing/artifacts/screenshots/*.png, ' +
 //                 'testing/artifacts/reports/report.html, ' +
@@ -235,5 +233,5 @@ def slackNotifyReleaseOnly(Closure body) {
                       message: "${sh(returnStdout: true, script: 'git log -1')}" +
                                 "\nBackstop: ${BUILD_URL}BackstopJS_20Report/",]) {
     body()
-  }
+                                }
 }
