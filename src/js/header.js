@@ -6,9 +6,9 @@ const initHeader = () => {
   };
 
   const header = document.querySelector('.cads-header');
-  const controlButton = header.querySelector('.js-cads-search-reveal');
 
-  if (header && controlButton) {
+  if (header) {
+    const controlButton = header.querySelector('.js-cads-search-reveal');
     controlButton.addEventListener('click', () => {
       if (header.classList.contains(CLASS_NAMES.showSearch)) {
         header.classList.remove(CLASS_NAMES.showSearch);
@@ -24,9 +24,6 @@ const initHeader = () => {
         controlButton.title = 'Close search';
       }
     });
-  } else {
-    // eslint-disable-next-line no-console
-    console.warn('Header: no search toggle button found');
   }
 };
 
