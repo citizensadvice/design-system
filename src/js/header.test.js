@@ -44,3 +44,8 @@ test('allow toggling search', () => {
   expect(controlButtonEl).toHaveAttribute('aria-expanded', 'true');
   expect(controlButtonEl).toHaveClass('cads-icon_close');
 });
+
+test('only initialises when header is present', () => {
+  document.body.innerHTML = '';
+  expect(() => initHeader()).not.toThrow();
+});
