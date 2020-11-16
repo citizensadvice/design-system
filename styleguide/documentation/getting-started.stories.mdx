@@ -103,18 +103,16 @@ JavaScript components can be included as part of your application bundle.
 Components which require JavaScript include the expected usage in their documentation. Typical usage is as follows:
 
 ```js
-import header from '@citizensadvice/design-system/lib/header.js';
+import header from '@citizensadvice/design-system/lib/header';
 import greedyNav from '@citizensadvice/design-system/lib/greedy-nav/index';
-import targetedContent from '@citizensadvice/design-system/lib/targeted-content.js';
-import tables from '@citizensadvice/design-system/lib/tables.js';
-import initOISCWarnings from '@citizensadvice/design-system/lib/oisc-warnings';
+import targetedContent from '@citizensadvice/design-system/lib/targeted-content';
+import tables from '@citizensadvice/design-system/lib/tables';
 
 window.addEventListener('load', () => {
   header();
   greedyNav.init();
   targetedContent();
   tables();
-  initOISCWarnings();
 });
 ```
 
@@ -123,7 +121,6 @@ window.addEventListener('load', () => {
 Some components require polyfills for older browsers. Components which require polyfills note this in their documentation. The full list is:
 
 - Targeted content: [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest)
-- OISC Warning: [IntersectionObserver polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
 
 We don't include the polyfills by default in order to avoid double bundling if you have your own.
 

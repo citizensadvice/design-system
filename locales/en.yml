@@ -15,8 +15,6 @@ en:
       search_mobile: Open search
     footer:
       website_feedback: Is there anything wrong with this page? Let us know
-    oisc_warning:
-      close: Close this warning
     page_review:
       body_html: Page last reviewed on <strong>%{date}</strong>
     search:
