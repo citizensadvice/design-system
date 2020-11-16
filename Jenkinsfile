@@ -58,9 +58,9 @@ node(nodeLabel) {
               echo "Error pulling ${images[it]}"
             }
           }
-        }
-        sh 'docker-compose build'
-        docker.withRegistry(docker_registry_url, ecr_credential) {
+
+          sh 'docker-compose build'
+
           // Push updated containers so they can be used on the next run
           ['ca-styleguide', 'wcag', 'ruby'].each {
             if (env.BRANCH_NAME == 'master') {
