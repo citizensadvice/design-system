@@ -32,11 +32,8 @@ def images = [:]
 node(nodeLabel) {
   stage('Setup') {
     cleanWs()
-    //checkout scm
-    git credentialsId: 'jenkins-pipeline-gh-access', url: 'https://github.com/citizensadvice/design-system.git'
+    checkout scm
     slackNotifyReleaseOnly {
-      stash 'source'
-
       withEnv([
         "DOCKER_TAG=${dockerTag()}",
         // Using the commit SHA would mean that every build
@@ -173,7 +170,7 @@ grid_tests = [:]
 grid_tests['regression'] = {
   stage('Full Regression Test') {
     node(nodeLabel) {
-      unstash 'source'
+      checkout scm
       if (isRelease) {
         env.BUILD_STAGE = 'Full Regression Test'
         withVaultSecrets([
@@ -200,7 +197,7 @@ parallel grid_tests
 def withCucumberNode(def description, def imageMap, Closure body) {
   node('docker && awsaccess') {
     stage(description) {
-      unstash 'source'
+      checkout scm
       slackNotifyReleaseOnly {
         withDockerSandbox(imageMap) {
           // Call closure
