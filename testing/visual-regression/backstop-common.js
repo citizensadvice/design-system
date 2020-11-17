@@ -103,24 +103,6 @@ module.exports = function backstopCommon(baseUrl) {
         clickSelector: '.cads-targeted-content',
       },
       {
-        label: 'Components/OISC Warning/With title and description',
-        url: storyUrlFor('components-oisc-warning--with-title-and-description'),
-        selectors: ['.cads-oisc-warning'],
-      },
-      {
-        label: 'Components/OISC Warning/Title only',
-        url: storyUrlFor('components-oisc-warning--title-only'),
-        selectors: ['.cads-oisc-warning'],
-      },
-      {
-        label: 'Components/OISC Warning/Sticky (scrolled)',
-        url: storyUrlFor('components-oisc-warning--sticky'),
-        selectors: ['viewport'],
-        clickSelector: '#heading-anchor',
-        postInteractionWait: 500,
-        viewports: [{ label: 'sticky', width: 1000, height: 600 }],
-      },
-      {
         label: 'Components/Pagination (example)',
         url: storyUrlFor('components-pagination--example'),
       },

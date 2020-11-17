@@ -4,6 +4,10 @@
 
 ## <sub>v2.1.0-alpha.2</sub>
 
+**Removal**
+
+- Remove OISC warnings from design-system (NP-1285)
+
 #### _Nov. 12, 2020_
 
 **Bugfixes**:

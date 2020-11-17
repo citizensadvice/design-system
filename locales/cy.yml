@@ -15,8 +15,6 @@ cy:
       search_mobile: Ymchwiliad agored
     footer:
       website_feedback: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
-    oisc_warning:
-      close: Caewch y rhybudd hwn
     page_review:
       body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>
     search:
