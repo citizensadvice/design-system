@@ -1,6 +1,8 @@
+
 **Bugfixes**:
 
 - Header: Correctly guard for when header is not present
+- Forms: Add `value` attribute to input haml partial
 
 ## <sub>v2.1.0-alpha.2</sub>
 
@@ -23,6 +25,7 @@
 * Search: Normalise search button styles and use 44px height. Removed `cads-button` from search input
 * Pagination: Update pagination designs and add reference aria examples
 * Forms: Add `name` attribute to input haml partial
+* Forms: Add `value` attribute to input haml partial
 
 **New features**:
 
