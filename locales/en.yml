@@ -13,6 +13,9 @@ en:
       optional: optional
     header:
       search_mobile: Open search
+      skip_to_content: Skip to content
+      skip_to_nav: Skip to navigation
+      skip_to_footer: Skip to footer
     footer:
       website_feedback: Is there anything wrong with this page? Let us know
     oisc_warning:

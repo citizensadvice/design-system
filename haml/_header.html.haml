@@ -1,9 +1,19 @@
-- links ||= []
-- sign_in_out ||= {}
+:ruby
+  links = header.fetch("links", [])
+  sign_in_out = header.fetch("sign_in_out", {})
+  main_content_anchor_link = header.fetch("main_content_id", "#cads-main-content")
 
 %header.cads-header
   .cads-grid-container
     .cads-grid-row
+      .cads-grid-col-12
+        %nav.cads-skip-links
+          %a.cads-skip-links__link{ href: "#cads-navigation" }
+            = t("cads.header.skip_to_nav")
+          %a.cads-skip-links__link{ href: main_content_anchor_link }
+            = t("cads.header.skip_to_content")
+          %a.cads-skip-links__link{ href: "#cads-footer" }
+            = t("cads.header.skip_to_footer")
       .cads-grid-col-md-6.cads-header__logo-row
         %a.cads-logo{ href: root_path, title: t("cads.shared.logo_title") }
         %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t("cads.header.search_mobile"), "aria-expanded": "false" }

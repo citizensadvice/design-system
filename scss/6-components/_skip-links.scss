@@ -1,0 +1,16 @@
+.cads-skip-links {
+  position: relative;
+
+  &__link {
+    @include cads-visually-hidden();
+
+    &:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      width: auto;
+      z-index: 1;
+    }
+  }
+}

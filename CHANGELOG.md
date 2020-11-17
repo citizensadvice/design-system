@@ -1,6 +1,11 @@
-**Bugfixes**:
+**Bugfixes:**
 
 - Header: Correctly guard for when header is not present
+
+
+**New:**
+
+- 🔗 Header: Add skip links, provide option to override main content anchor link (NP-1181)
 
 ## <sub>v2.1.0-alpha.2</sub>
 
