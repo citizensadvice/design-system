@@ -2,6 +2,10 @@
 
 - Header: Correctly guard for when header is not present
 
+**New features**:
+
+- Form: Add Checkbox input partial
+
 ## <sub>v2.1.0-alpha.2</sub>
 
 **Removal**

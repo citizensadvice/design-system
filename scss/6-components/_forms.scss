@@ -320,3 +320,19 @@ $cads-small-radios-size: 25px;
 .cads-radio-group__input:checked + .cads-radio-group__label::after {
   opacity: 1;
 }
+
+// ============================================================================
+// Forms: Checkbox
+// ============================================================================
+
+/** @define checkbox */
+.cads-checkbox__group {
+  display: inline-block;
+  margin-right: $cads-spacing-5;
+  margin-bottom: 0;
+}
+
+.cads-checkbox__input {
+  width: $cads-interactive-target-size;
+  height: $cads-interactive-target-size;
+}

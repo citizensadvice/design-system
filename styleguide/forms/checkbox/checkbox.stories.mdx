@@ -1,0 +1,69 @@
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
+import templateCheckbox from './_checkbox.html.haml';
+import templateCheckboxWithHint from './_checkbox-with-hint.html.haml';
+import templateCheckboxOptional from './_checkbox-optional.html.haml';
+import templateCheckboxWithError from './_checkbox-with-error.html.haml';
+
+<Meta title="Forms/Checkbox" />
+
+# Checkbox
+
+## Variant: Basic checkbox
+
+<Preview>
+  <Story
+    name="Basic"
+    parameters={{ docs: { source: { code: templateCheckbox.raw } } }}
+  >
+    {(_, options) => translate(templateCheckbox, options)}
+  </Story>
+</Preview>
+
+
+## Variant: With hint
+
+<Preview>
+  <Story
+    name="With hint"
+    parameters={{ docs: { source: { code: templateCheckboxWithHint.raw } } }}
+  >
+    {(_, options) => translate(templateCheckboxWithHint, options)}
+  </Story>
+</Preview>
+
+## Variant: With optional field marker
+
+<Preview>
+  <Story
+    name="Optional field"
+    parameters={{ docs: { source: { code: templateCheckboxOptional.raw } } }}
+  >
+    {(_, options) => translate(templateCheckboxOptional, options)}
+  </Story>
+</Preview>
+
+## Variant: With error message
+
+<Preview>
+  <Story
+    name="With error"
+    parameters={{ docs: { source: { code: templateCheckboxWithError.raw } } }}
+  >
+    {(_, options) => translate(templateCheckboxWithError, options)}
+  </Story>
+</Preview>
+
+## Haml template options
+
+The Haml partial takes an `checkbox` hash with the following properties:
+
+| properties      | Description                                                               |
+| --------------- | ------------------------------------------------------------------------- |
+| `name`          | Required, field name                                                      |
+| `label`         | Required, label text                                                      |
+| `hint`          | Optional, hint text                                                       |
+| `optional`      | Optional, boolean flag to mark the field as optional                      |
+| `error_message` | Optional, error message for the field                                     |
+| `has_error`     | Optional, boolean flag to mark the field as having an error               |

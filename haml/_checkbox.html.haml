@@ -1,0 +1,13 @@
+.cads-form-field{ class: ("cads-form-field--has-error" if checkbox["has_error"]) }
+  .cads-form-field__error-marker
+  .cads-form-field__content
+    - if checkbox["hint"]
+      %p.cads-form-field__hint= checkbox["hint"]
+    - if checkbox["error_message"]
+      %p.cads-form-field__error-message= checkbox["error_message"]
+    .cads-checkbox__group
+      %input.cads-checkbox__input{ type: "checkbox", id: "#{checkbox['name']}-input", name: checkbox["name"] }
+      %label.cads-checkbox__label{id: "#{checkbox['name']}-label", for: "#{checkbox['name']}-input" }
+        = checkbox["label"]
+        - if checkbox["optional"]
+          %span.cads-form-field__optional= t("cads.form.optional")
