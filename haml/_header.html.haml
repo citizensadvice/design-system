@@ -1,7 +1,7 @@
 :ruby
-  links = header.fetch("links", [])
-  sign_in_out = header.fetch("sign_in_out", {})
-  main_content_anchor_link = header.fetch("main_content_id", "#cads-main-content")
+  links ||= []
+  sign_in_out ||= {}
+  main_content_anchor_link ||= "#cads-main-content"
 
 %header.cads-header
   .cads-grid-container
