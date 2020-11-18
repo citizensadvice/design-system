@@ -1,6 +1,6 @@
 - feedback_url ||= false
 - links ||= {}
-%footer.cads-footer
+%footer#cads-footer.cads-footer
   - if feedback_url
     %p.cads-footer__feedback
       %a.cads-footer__hyperlink{ href: feedback_url, target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
