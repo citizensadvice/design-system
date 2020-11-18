@@ -95,12 +95,16 @@ module.exports = function backstopCommon(baseUrl) {
       },
       {
         label: 'Components/Targeted content',
-        url: storyUrlFor('components-targeted-content--default-story'),
+        url: storyUrlFor('components-targeted-content--default'),
       },
       {
         label: 'Components/Targeted content (open)',
-        url: storyUrlFor('components-targeted-content--default-story'),
+        url: storyUrlFor('components-targeted-content--default'),
         clickSelector: '.cads-targeted-content',
+      },
+      {
+        label: 'Components/Targeted content (fallback)',
+        url: storyUrlFor('components-targeted-content--fallback'),
       },
       {
         label: 'Components/Pagination (example)',
@@ -276,49 +280,6 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_RELATED_CONTENT_ADVISERNET',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
-        url: `${baseUrl}/iframe.html?id=3-components--advisernet-related-content`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-        viewports: [
-          {
-            label: 'Medium',
-            width: 800,
-            height: 600,
-          },
-          {
-            label: 'Large',
-            width: 1024,
-            height: 768,
-          },
-        ],
-      },
-      {
-        label: '3_Components_RELATED_CONTENT_ADVISERNET_SMALL',
-        cookiePath: 'backstop_data/engine_scripts/cookies.json',
-        url: `${baseUrl}/iframe.html?id=3-components--advisernet-related-content`,
-        readySelector: '#a11yComponentToTest',
-        clickSelector: 'summary',
-        postInteractionWait: 500,
-        requireSameDimensions: true,
-        misMatchThreshold: 0.7,
-        selectors: ['#a11yComponentToTest'],
-        viewports: [
-          {
-            label: 'phone',
-            width: 320,
-            height: 480,
-          },
-          {
-            label: 'Small',
-            width: 640,
-            height: 960,
-          },
-        ],
       },
     ],
     dockerCommandTemplate:

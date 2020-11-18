@@ -1,0 +1,44 @@
+import { Story, Preview } from '@storybook/addon-docs/blocks';
+
+# Targeted content
+
+## Default behaviour
+
+<Preview>
+  <Story id="components-targeted-content--default" />
+</Preview>
+
+## Open targeted content with anchor
+
+<Preview>
+  <Story id="components-targeted-content--with-anchor" />
+</Preview>
+
+## Fallback behaviour
+
+If JavaScript either fails or is disabled in the users browser the fallback is to show the content as open.
+
+<Preview>
+  <Story id="components-targeted-content--fallback" />
+</Preview>
+
+## Haml template options
+
+The Haml partial takes a `targeted_content` hash with the following properties:
+
+| properties                  | Description            |
+| --------------------------- | ---------------------- |
+| `targeted_content['id']`    | Required, unique ID    |
+| `targeted_content['title']` | Required, title string |
+| `targeted_content['body']`  | Required, body HTML    |
+
+## JavaScript behaviour
+
+Targeted content requires some additional JavaScript behaviour which can be initialised with:
+
+```js
+import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content';
+initTargetedContent();
+```
+
+**Note**: If you are supporting IE 11 or earlier make sure you include an [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest).
