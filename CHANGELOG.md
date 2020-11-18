@@ -1,6 +1,7 @@
 **Bugfixes**:
 
 - Header: Correctly guard for when header is not present
+- Search: Update search partial to accept `search_param` and current `input_value`
 
 ## <sub>v2.1.0-alpha.2</sub>
 
