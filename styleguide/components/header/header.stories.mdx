@@ -30,20 +30,27 @@ import linksVariable from '!!raw-loader!./links_example.rb';
 
 The Haml partial the following locals:
 
-| Property             | Description                                             |
-| -------------------- | ------------------------------------------------------- |
-| `root_path`          | Required, root path for the logo home link              |
-| `links`              | Optional, an array made up of links (see example below) |
-| `sign_in_out`        | Optional, a hash with the following:                    |
-| `sign_in_out[url]`   | &rarr; Required, url for the sign in link               |
-| `sign_in_out[title]` | &rarr; Required, title for the sign in link             |
-| `search_action_url`  | Required, URL for the search form                       |
+| Property                   | Description                                             |
+| -------------------------- | ------------------------------------------------------- |
+| `root_path`                | Required, root path for the logo home link              |
+| `links`                    | Optional, an array made up of links (see example below) |
+| `sign_in_out`              | Optional, a hash with the following:                    |
+| `sign_in_out[url]`         | &rarr; Required, url for the sign in link               |
+| `sign_in_out[title] `      | &rarr; Required, title for the sign in link             |
+| `search_action_url`        | Required, URL for the search form                       |
+| `main_content_anchor_link` | Optional, defaults to `#cads-main-content`              |
 
 ### `links` template option
 
 The links variable allows you to insert links to the left of the `sign_in_out` link:
 
 <Source language="ruby" dark="true" code={linksVariable} />
+
+## Skip links
+
+The header contains three skip links that become visible when they recieve focus. There are three links that link to the navigation, main content and footer.
+
+You can override the default anchor link for linking to the main page content by passing in the `main_content_anchor_link` property above. Don't forget to add the id to the main content of your pages!
 
 ## Customising the logo
 

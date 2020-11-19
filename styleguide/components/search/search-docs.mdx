@@ -1,0 +1,22 @@
+import { Story, Preview } from '@storybook/addon-docs/blocks';
+
+# Search
+
+<Preview>
+  <Story id="components-search--search" />
+</Preview>
+
+# With value
+
+<Preview>
+  <Story id="components-search--search-with-value" />
+</Preview>
+
+## Haml template options
+
+The Haml partial takes a `search` hash with the following properties:
+
+| Property      | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| `action_url`  | Required. The url that will form the base of the GET request |
+| `input_value` | Optional. The current value for the search input             |
