@@ -1,3 +1,7 @@
+## <sub>v2.1.0-alpha.3</sub>
+
+#### _Nov. 19, 2020_
+
 **Bugfixes:**
 
 - Header: Correctly guard for when header is not present
