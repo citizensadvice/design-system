@@ -16,7 +16,7 @@ end
 
 namespace :design_system do
   desc "All Design System Tests"
-  task all: [:report_folders] do
+  task all: :report_folders do
     puts "Running all design system tests"
     system(
       "cd ./testing && bundle exec cucumber -p reports && cd .."
@@ -25,9 +25,8 @@ namespace :design_system do
 
   task :report_folders do
     puts "Creating folder structure for this test run"
-    raise "BROWSER must be set" unless ENV["BROWSER"]
 
-    base_path = "artifacts/#{ENV['BROWSER']}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
+    base_path = "testing/artifacts/#{ENV.fetch('BROWSER', 'unknown')}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
     [
       "#{base_path}/html_pages",
       "#{base_path}/logs",
