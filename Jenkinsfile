@@ -24,6 +24,13 @@ images = [:]
 
 node('docker && awsaccess') {
   try {
+    step([
+      $class: 'WsCleanup',
+      notFailBuild: true
+    ])
+    checkout scm
+    currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
+
     withEnv([
       "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
       // Using the commit SHA would mean that every build
@@ -52,15 +59,7 @@ properties([
 ])
 
 def pipeline() {
-  stage('Setup') {
-    step([
-      $class: 'WsCleanup',
-      notFailBuild: true
-    ])
-    checkout scm
-
-    currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
-
+  stage('Update Docker Images') {
     docker.withRegistry(docker_registry_url, ecr_credential) {
       // Pull the master images and any previous builds if we're on a different branch
       // docker-compose only looks in the local images and doesn't try to pull when building
