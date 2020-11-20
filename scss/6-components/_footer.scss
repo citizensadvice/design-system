@@ -42,6 +42,10 @@
   .cads-footer__hyperlink {
     color: $cads-footer__link-colour;
 
+    &:visited {
+      color: $cads-footer__link-visited-colour;
+    }
+
     &:hover {
       color: $cads-footer__link-hover-colour;
       background-color: $cads-footer__hover-background-colour;
@@ -55,10 +59,6 @@
       color: $cads-footer__link-focus-colour;
       background-color: $cads-footer__link-focus-background-colour;
       border-bottom: 2px solid $cads-footer__link-focus-border-colour;
-    }
-
-    &:visited {
-      color: $cads-footer__link-visited-colour;
     }
   }
 
