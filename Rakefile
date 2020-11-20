@@ -15,7 +15,7 @@ def collect_task_errors(tasks)
 end
 
 def base_cucumber_path
-  "artifacts/#{ENV.fetch('BROWSER', 'unknown')}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
+  "artifacts/#{ENV.fetch('BROWSER', 'unknown')}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'other')}"
 end
 
 namespace :design_system do
