@@ -20,6 +20,13 @@ ecr_credential = 'ecr:eu-west-1:cita-devops'
 
 images = [:]
 
+global_environment_variables = [
+  "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
+  // Using the commit SHA would mean that every build
+  // gets a different tag and this busts the cache between PR builds.
+  "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
+]
+
 // Pipeline definition begins here
 
 node('docker && awsaccess') {
@@ -31,12 +38,7 @@ node('docker && awsaccess') {
     checkout scm
     currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
 
-    withEnv([
-      "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
-      // Using the commit SHA would mean that every build
-      // gets a different tag and this busts the cache between PR builds.
-      "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
-    ]) {
+    withEnv(global_environment_variables) {
       slackNotifyReleaseOnly() {
         pipeline()
       }
@@ -181,7 +183,8 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
   node('docker && awsaccess') {
     try {
       stage(description) {
-          checkout scm
+        checkout scm
+        withEnv(global_environment_variables) {
           if (useBrowserStack) {
             withDockerSandbox([images['ruby']]) {
                 withVaultSecrets([
@@ -205,6 +208,7 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
               body()
             }
           } // end if
+        } // end withEnv
       } // end stage
     } finally {
       step([
