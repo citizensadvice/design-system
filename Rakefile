@@ -14,6 +14,10 @@ def collect_task_errors(tasks)
   errors.count.positive? && raise("The following tasks failed #{errors}")
 end
 
+def base_cucumber_path
+  "artifacts/#{ENV.fetch('BROWSER', 'unknown')}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
+end
+
 namespace :design_system do
   desc "All Design System Tests"
   task all: :report_folders do
@@ -25,13 +29,11 @@ namespace :design_system do
 
   task :report_folders do
     puts "Creating folder structure for this test run"
-
-    base_path = "testing/artifacts/#{ENV.fetch('BROWSER', 'unknown')}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
     [
-      "#{base_path}/html_pages",
-      "#{base_path}/logs",
-      "#{base_path}/reports",
-      "#{base_path}/screenshots"
+      "testing/#{base_cucumber_path}/html_pages",
+      "testing/#{base_cucumber_path}/logs",
+      "testing/#{base_cucumber_path}/reports",
+      "testing/#{base_cucumber_path}/screenshots"
     ].each { |dir| FileUtils.mkdir_p(dir) }
   end
 end

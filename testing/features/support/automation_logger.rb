@@ -23,7 +23,7 @@ class AutomationLogger
     end
 
     def log_name
-      "artifacts/logs/automation_logs.log"
+      "#{ENV['BASE_ARTIFACTS_PATH']}/logs/automation_logs.log"
     end
 
     def logs_to_keep
