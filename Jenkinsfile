@@ -1,6 +1,5 @@
 deployBranches = ['master']
 isRelease = deployBranches.contains(env.BRANCH_NAME)
-nodeLabel = 'docker && awsaccess'
 
 configurationTypes = [
   ['Windows_10_85', 'chrome'],
@@ -15,6 +14,23 @@ configurationTypes = [
 
 cron_schedule = isRelease ? '0 2 * * *' : ''
 
+def docker_registry = '979633842206.dkr.ecr.eu-west-1.amazonaws.com'
+def docker_registry_url = "https://${docker_registry}"
+def ecr_credential = 'ecr:eu-west-1:cita-devops'
+
+def images = [:]
+
+// Pipeline definition begins here
+
+try {
+  slackNotifyReleaseOnly() {
+    pipeline()
+  }
+}
+finally {
+  cleanWS()
+}
+
 properties([
   parameters([
     string(defaultValue: '#new_platform_builds', description: 'channel to print messages', name: 'slackChannel'),
@@ -23,19 +39,13 @@ properties([
   pipelineTriggers([cron(cron_schedule)])
 ])
 
-def docker_registry = '979633842206.dkr.ecr.eu-west-1.amazonaws.com'
-def docker_registry_url = "https://${docker_registry}"
-def ecr_credential = 'ecr:eu-west-1:cita-devops'
-
-def images = [:]
-
-node(nodeLabel) {
-  stage('Setup') {
-    cleanWs()
-    checkout scm
-    slackNotifyReleaseOnly {
+def pipeline() {
+  node('docker && awsaccess') {
+    stage('Setup') {
+      cleanWs()
+      checkout scm
       withEnv([
-        "DOCKER_TAG=${dockerTag()}",
+        "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
         // Using the commit SHA would mean that every build
         // gets a different tag and this busts the cache between PR builds.
         "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
@@ -75,10 +85,8 @@ node(nodeLabel) {
         }
       }
     }
-  }
 
-  stage('Lint') {
-    slackNotifyReleaseOnly {
+    stage('Lint') {
       withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
         withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
           sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
@@ -86,25 +94,18 @@ node(nodeLabel) {
         }
       }
     }
-  }
 
-  stage('Unit test') {
-    slackNotifyReleaseOnly {
+    stage('Unit test') {
       withDockerSandbox([ images['ca-styleguide'] ]) {
         withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
           sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
         }
       }
-      step([
-        $class: 'JUnitResultArchiver',
-        testResults: 'testing/visual-regression/backstop_data/ci_report/*.xml',
-        allowEmptyResults: true,
-      ])
-    }
-  }
 
-  stage('Visual Regression Tests') {
-    slackNotifyReleaseOnly {
+      step ([$class: 'JUnitResultArchiver', testResults: 'testing/visual-regression/backstop_data/ci_report/?*.xml', allowEmptyResults: true])
+    }
+
+    stage('Visual Regression Tests') {
       withDockerSandbox(['backstopjs/backstopjs']) {
         try {
           sh './bin/jenkins/visual_regression'
@@ -125,10 +126,8 @@ node(nodeLabel) {
         }
       }
     }
-  }
 
-  stage('Accessibility Tests') {
-    slackNotifyReleaseOnly {
+    stage('Accessibility Tests') {
       withDockerSandbox([images['wcag'] ]) {
         try {
           sh './bin/docker/a11y-test'
@@ -139,99 +138,126 @@ node(nodeLabel) {
         }
       }
     }
-  }
-} // end node
 
-grid_tests = [:]
+    stage('Grid Tests') {
+      parallel define_grid_tests()
+    }
 
-['chrome', 'firefox'].each { browser ->
-  grid_tests[browser] = {
-    withCucumberNode(
-      "Interim Stage: Test ${browser}",
-      [
-        images['ruby'],
-        'selenium/hub:4.0.0-alpha-6-20200609',
-        'selenium/node-chrome:4.0.0-alpha-6-20200609',
-        'selenium/node-firefox:4.0.0-alpha-6-20200609'
-      ]
-    ) {
-      try {
-        sh "BROWSER=${browser} bin/docker/grid_tests"
-      } catch (Exception e) {
-        sh 'docker-compose logs --no-color'
-        currentBuild.result = 'FAILURE'
-        throw e
-      }
-    } // end withCucumberNode
-  } // end browser grid test block
-}
+    stage('Regression Tests') {
+      parallel define_regression_tests()
+    }
+  } // end node
+} //end pipeline
 
-grid_tests['regression'] = {
-  stage('Full Regression Test') {
-    node(nodeLabel) {
-      checkout scm
-      if (isRelease) {
-        env.BUILD_STAGE = 'Full Regression Test'
-        withVaultSecrets([
-            BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-            BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-        ])
-        {
-          withDockerSandbox {
-              configurationTypes.each { opts ->
-                  def (config, browser) = opts
-                  sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
-              }
-          } // end withDockerSandbox
-        } // end withVaultSecrets
-      } // end if isReleae
-    } // end node
-  } // end Regression test stage
-} // end regression test block
 
-grid_tests.failFast = false
-
-parallel grid_tests
-
-def withCucumberNode(def description, def imageMap, Closure body) {
-  node('docker && awsaccess') {
-    stage(description) {
-      checkout scm
-      slackNotifyReleaseOnly {
-        withDockerSandbox(imageMap) {
-          // Call closure
-          body()
-        } // withDockerSandbox
-      } //slack
-    } // stage
-  } // node
-} // withCucumberNode
-
-def dockerTag() {
-  "${env.BRANCH_NAME}_${getSha()}"
-}
-
-// archiveArtifacts([
-//                 artifacts: 'testing/artifacts/screenshots/*.png, ' +
-//                 'testing/artifacts/reports/report.html, ' +
-//                 'testing/artifacts/reports/*.xml, ' +
-//                 'testing/artifacts/reports/report.json, ' +
-//                 'testing/artifacts/html_pages/*.html, ' +
-//                 'testing/artifacts/logs/*.log',
-//                 allowEmptyArchive: true,
-//                 caseSensitive: false
-//             ])
 
 def slackNotifyReleaseOnly(Closure body) {
   if (!isRelease) {
     body()
     return
   }
-  withSlackNotifier([
-                      channel: params.slackChannel,
-                      credentialsId: params.slackCredentialsId,
-                      message: "${sh(returnStdout: true, script: 'git log -1')}" +
-                                "\nBackstop: ${BUILD_URL}BackstopJS_20Report/",]) {
+  withSlackNotifier(
+    [
+      channel: params.slackChannel,
+      credentialsId: params.slackCredentialsId,
+      message: "${sh(returnStdout: true, script: 'git log -1')}" +
+                "\nBackstop: ${BUILD_URL}BackstopJS_20Report/",
+    ]
+  ) {
     body()
-                                }
+  }
+}
+
+// Grid and Regression Testing
+
+def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
+  node('docker && awsaccess') {
+    stage(description) {
+      checkout scm
+      if (useBrowserStack) {
+        withDockerSandbox([images['ruby']]) {
+            withVaultSecrets([
+              BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+              BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+            ])
+            {
+              // Call closure
+              body()
+            } // withVaultSecrets
+          }
+      } else {
+        withDockerSandbox(
+          [
+            images['ruby'],
+            'selenium/hub:4.0.0-alpha-6-20200609',
+            'selenium/node-chrome:4.0.0-alpha-6-20200609',
+            'selenium/node-firefox:4.0.0-alpha-6-20200609'
+          ]) {
+          // Call closure
+          body()
+        }
+      } // end if
+    } // stage
+  } // node
+} // withTestingNode
+
+def define_grid_tests() {
+  grid_tests = [:]
+  grid_tests.failFast = false
+
+  ['chrome', 'firefox'].each { browser ->
+    grid_tests[browser] = {
+      withTestingNode("Interim Stage: Test ${browser}", false) {
+        try {
+          sh "BROWSER=${browser} bin/docker/grid_tests"
+          archiveArtifacts(
+            [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
+              artifacts: 'testing/${browser}/grid/screenshots/?*.png, ' +
+                         'testing/${browser}/grid/reports/report.html, ' +
+                         'testing/${browser}/grid/reports/?*.xml, ' +
+                         'testing/${browser}/grid/reports/report.json, ' +
+                         'testing/${browser}/grid/html_pages/?*.html, ' +
+                         'testing/${browser}/grid/logs/?*.log',
+              allowEmptyArchive: true,
+              caseSensitive: false
+            ]
+          )
+        } catch (Exception e) {
+          sh 'docker-compose logs --no-color'
+          currentBuild.result = 'FAILURE'
+          throw e
+        }
+      } // end withCucumberNode
+    } // end browser grid test block
+  }
+
+  return grid_tests
+}
+
+def define_regression_tests() {
+  regression_tests = [:]
+  regression_tests.failFast = false
+
+  configurationTypes.each {
+    def stepName  "running ${it}"
+    regression_tests[stepName] = {
+      withTestingNode('Regression Test of ${it}', true) {
+        def (config, browser) = it
+        sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
+        // Archive artifacts from this test run in $browser/$config
+        archiveArtifacts(
+          [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
+            artifacts: 'testing/${browser}/${config}/screenshots/?*.png, ' +
+                       'testing/${browser}/${config}/reports/report.html, ' +
+                       'testing/${browser}/${config}/reports/?*.xml, ' +
+                       'testing/${browser}/${config}/reports/report.json, ' +
+                       'testing/${browser}/${config}/html_pages/?*.html, ' +
+                       'testing/${browser}/${config}/logs/?*.log',
+            allowEmptyArchive: true,
+            caseSensitive: false
+          ]
+        )
+      }
+    }
+  } // end regression test block
 }
