@@ -1,3 +1,7 @@
+## <sub>v3.0.0-alpha.0</sub>
+
+#### _Nov. 20, 2020_
+
 **Bugfixes:**
 
 - Links: pseudo selector order fixed for generic links and footer links
