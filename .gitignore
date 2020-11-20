@@ -23,7 +23,4 @@ vendor/**/*
 
 # Keep nothing in these directories except the 'keep' files
 testing/artifacts/*
-!testing/artifacts/html_pages/.keep
-!testing/artifacts/reports/.keep
-!testing/artifacts/screenshots/.keep
-!testing/artifacts/logs/.keep
+!testing/artifacts/.keep

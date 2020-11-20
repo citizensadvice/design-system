@@ -62,10 +62,7 @@ services:
     env_file:
       - testing/grid_ci.env
     volumes:
-      - ./testing/artifacts/reports:/app/testing/artifacts/reports
-      - ./testing/artifacts/html_pages:/app/testing/artifacts/html_pages
-      - ./testing/artifacts/screenshots:/app/testing/artifacts/screenshots
-      - ./testing/artifacts/logs:/app/testing/artifacts/logs
+      - ./testing/artifacts:/app/testing/artifacts
     depends_on:
       - ca-styleguide
       - hub
