@@ -14,21 +14,33 @@ configurationTypes = [
 
 cron_schedule = isRelease ? '0 2 * * *' : ''
 
-def docker_registry = '979633842206.dkr.ecr.eu-west-1.amazonaws.com'
-def docker_registry_url = "https://${docker_registry}"
-def ecr_credential = 'ecr:eu-west-1:cita-devops'
+docker_registry = '979633842206.dkr.ecr.eu-west-1.amazonaws.com'
+docker_registry_url = "https://${docker_registry}"
+ecr_credential = 'ecr:eu-west-1:cita-devops'
 
-def images = [:]
+images = [:]
 
 // Pipeline definition begins here
 
-try {
-  slackNotifyReleaseOnly() {
-    pipeline()
+node('docker && awsaccess') {
+  try {
+    withEnv([
+      "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
+      // Using the commit SHA would mean that every build
+      // gets a different tag and this busts the cache between PR builds.
+      "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
+    ]) {
+      slackNotifyReleaseOnly() {
+        pipeline()
+      }
+    }
   }
-}
-finally {
-  cleanWS()
+  finally {
+    step([
+      $class: 'WsCleanup',
+      notFailBuild: true
+    ])
+  }
 }
 
 properties([
@@ -40,113 +52,109 @@ properties([
 ])
 
 def pipeline() {
-  node('docker && awsaccess') {
-    stage('Setup') {
-      cleanWs()
-      checkout scm
-      withEnv([
-        "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
-        // Using the commit SHA would mean that every build
-        // gets a different tag and this busts the cache between PR builds.
-        "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
-      ]) {
-        currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
+  stage('Setup') {
+    step([
+      $class: 'WsCleanup',
+      notFailBuild: true
+    ])
+    checkout scm
 
-        docker.withRegistry(docker_registry_url, ecr_credential) {
-          // Pull the master images and any previous builds if we're on a different branch
-          // docker-compose only looks in the local images and doesn't try to pull when building
-          ['ca-styleguide', 'wcag', 'ruby'].each {
-            images[it] = "${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}"
-            // Ignore failures from docker - it's probably an Image Not Found.
-            // Other errors like out of disk space will cause problems in other commands
-            try {
-              docker.image("${docker_registry}/design-system:${it}").pull()
-              if (env.BRANCH_NAME != 'master') {
-                docker.image(images[it]).pull()
-              }
-            } catch (Exception e) {
-              echo "Error pulling ${images[it]}"
-            }
-          }
+    currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
 
-          sh 'docker-compose build'
-
-          // Push updated containers so they can be used on the next run
-          ['ca-styleguide', 'wcag', 'ruby'].each {
-            if (env.BRANCH_NAME == 'master') {
-              // If we're building on master, update the master images.
-              // The tag function only changes the last part of the image name (unlike docker tag)
-              docker.image("${images[it]}").tag("${it}")
-              docker.image("${docker_registry}/design-system:${it}").push()
-            } else {
-              docker.image("${images[it]}").push()
-            }
-          }
-        }
-      }
-    }
-
-    stage('Lint') {
-      withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
-        withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
-          sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
-          sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
-        }
-      }
-    }
-
-    stage('Unit test') {
-      withDockerSandbox([ images['ca-styleguide'] ]) {
-        withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
-          sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
-        }
-      }
-
-      step ([$class: 'JUnitResultArchiver', testResults: 'testing/visual-regression/backstop_data/ci_report/?*.xml', allowEmptyResults: true])
-    }
-
-    stage('Visual Regression Tests') {
-      withDockerSandbox(['backstopjs/backstopjs']) {
+    docker.withRegistry(docker_registry_url, ecr_credential) {
+      // Pull the master images and any previous builds if we're on a different branch
+      // docker-compose only looks in the local images and doesn't try to pull when building
+      ['ca-styleguide', 'wcag', 'ruby'].each {
+        images[it] = "${docker_registry}/design-system:dev_${it}_${env.CA_STYLEGUIDE_VERSION_TAG}"
+        // Ignore failures from docker - it's probably an Image Not Found.
+        // Other errors like out of disk space will cause problems in other commands
         try {
-          sh './bin/jenkins/visual_regression'
+          docker.image("${docker_registry}/design-system:${it}").pull()
+          if (env.BRANCH_NAME != 'master') {
+            docker.image(images[it]).pull()
+          }
         } catch (Exception e) {
-          sh 'docker-compose logs --no-color'
-          currentBuild.result = 'FAILURE'
-          throw e
-        } finally {
-          sh './bin/jenkins/fix_visual_test_report'
-          publishHTML([
-              allowMissing: true,
-              alwaysLinkToLastBuild: true,
-              keepAll: true,
-              reportDir: 'reports/html_report',
-              reportFiles: 'index.html',
-              reportName: 'BackstopJS Report',
-          ])
+          echo "Error pulling ${images[it]}"
+        }
+      }
+
+      sh 'docker-compose build'
+
+      // Push updated containers so they can be used on the next run
+      ['ca-styleguide', 'wcag', 'ruby'].each {
+        if (env.BRANCH_NAME == 'master') {
+          // If we're building on master, update the master images.
+          // The tag function only changes the last part of the image name (unlike docker tag)
+          docker.image("${images[it]}").tag("${it}")
+          docker.image("${docker_registry}/design-system:${it}").push()
+        } else {
+          docker.image("${images[it]}").push()
         }
       }
     }
+  }
 
-    stage('Accessibility Tests') {
-      withDockerSandbox([images['wcag'] ]) {
-        try {
-          sh './bin/docker/a11y-test'
-        } catch (Exception e) {
-          sh 'docker-compose logs --no-color'
-          currentBuild.result = 'FAILURE'
-          throw e
-        }
+  stage('Lint') {
+    withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
+      withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
+        sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
+        sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
+      }
+    }
+  }
+
+  stage('Unit test') {
+    withDockerSandbox([ images['ca-styleguide'] ]) {
+      withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
+        sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
       }
     }
 
-    stage('Grid Tests') {
-      parallel define_grid_tests()
-    }
+    step ([$class: 'JUnitResultArchiver', testResults: 'testing/visual-regression/backstop_data/ci_report/?*.xml', allowEmptyResults: true])
+  }
 
-    stage('Regression Tests') {
-      parallel define_regression_tests()
+  stage('Visual Regression Tests') {
+    withDockerSandbox(['backstopjs/backstopjs']) {
+      try {
+        sh './bin/jenkins/visual_regression'
+      } catch (Exception e) {
+        sh 'docker-compose logs --no-color'
+        currentBuild.result = 'FAILURE'
+        throw e
+      } finally {
+        sh './bin/jenkins/fix_visual_test_report'
+        publishHTML([
+            allowMissing: true,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'reports/html_report',
+            reportFiles: 'index.html',
+            reportName: 'BackstopJS Report',
+        ])
+      }
     }
-  } // end node
+  }
+
+  stage('Accessibility Tests') {
+    withDockerSandbox([images['wcag'] ]) {
+      try {
+        sh './bin/docker/a11y-test'
+      } catch (Exception e) {
+        sh 'docker-compose logs --no-color'
+        currentBuild.result = 'FAILURE'
+        throw e
+      }
+    }
+  }
+
+  stage('Grid Tests') {
+    parallel define_grid_tests()
+  }
+
+  stage('Regression Tests') {
+    parallel define_regression_tests()
+  }
+
 } //end pipeline
 
 
@@ -172,34 +180,41 @@ def slackNotifyReleaseOnly(Closure body) {
 
 def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
   node('docker && awsaccess') {
-    stage(description) {
-      checkout scm
-      if (useBrowserStack) {
-        withDockerSandbox([images['ruby']]) {
-            withVaultSecrets([
-              BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-              BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-            ])
-            {
+    try {
+      stage(description) {
+          checkout scm
+          if (useBrowserStack) {
+            withDockerSandbox([images['ruby']]) {
+                withVaultSecrets([
+                  BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+                  BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+                ])
+                {
+                  // Call closure
+                  body()
+                } // withVaultSecrets
+              }
+          } else {
+            withDockerSandbox(
+              [
+                images['ruby'],
+                'selenium/hub:4.0.0-alpha-6-20200609',
+                'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                'selenium/node-firefox:4.0.0-alpha-6-20200609'
+              ]) {
               // Call closure
               body()
-            } // withVaultSecrets
-          }
-      } else {
-        withDockerSandbox(
-          [
-            images['ruby'],
-            'selenium/hub:4.0.0-alpha-6-20200609',
-            'selenium/node-chrome:4.0.0-alpha-6-20200609',
-            'selenium/node-firefox:4.0.0-alpha-6-20200609'
-          ]) {
-          // Call closure
-          body()
-        }
-      } // end if
-    } // stage
-  } // node
-} // withTestingNode
+            }
+          } // end if
+      } // end stage
+    } finally {
+      step([
+        $class: 'WsCleanup',
+        notFailBuild: true
+      ])
+    } // end try/finally
+  } // end node
+} // end withTestingNode
 
 def define_grid_tests() {
   grid_tests = [:]

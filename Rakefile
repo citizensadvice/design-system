@@ -25,10 +25,9 @@ namespace :design_system do
 
   task :report_folders do
     puts "Creating folder structure for this test run"
-    raise "BROWSERSTACK_CONFIGURATION_OPTIONS must be set" unless ENV["BROWSERSTACK_CONFIGURATION_OPTIONS"]
     raise "BROWSER must be set" unless ENV["BROWSER"]
 
-    base_path = "#{ENV['BROWSER']}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
+    base_path = "artifacts/#{ENV['BROWSER']}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
     [
       "#{base_path}/html_pages",
       "#{base_path}/logs",
