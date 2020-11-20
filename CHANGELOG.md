@@ -1,62 +1,35 @@
-**Bugfixes:**
+## <sub>v3.0.0-alpha.0</sub>
 
-- Links: pseudo selector order fixed for generic links and footer links
-- Footer: links are wrapped in a `nav` element and aria labelled as "Footer Navigation"
-## <sub>v2.1.0-alpha.3</sub>
+#### _Nov. 20, 2020_
 
-#### _Nov. 19, 2020_
+**Breaking Changes**
+- Footer: links are no longer provided by default, see documentation for details
+- Header: Local options have changed, see documentation for details
 
-**Bugfixes:**
-
-- Header: Correctly guard for when header is not present
-- Forms: Add `value` attribute to input haml partial
-- Search: Update search partial to accept `search_param` and current `input_value`
-
-**New:**
-
+**New**
+- ⬆️ Footer: Supply feedback link and links using template locals (NP-662)
 - 🔗 Header: Add skip links, provide option to override main content anchor link (NP-1181)
 
-## <sub>v2.1.0-alpha.2</sub>
-
-**Removal**
-
+**Removals**
 - Remove OISC warnings from design-system (NP-1285)
+- Removed standalone `logo_clickable` component. Only used within header and footer
+- Removed standalone `website_feedack` component. Only ever used within footer
+details of local option structure.
 
-#### _Nov. 12, 2020_
-
-**Bugfixes**:
-
+**Bugfixes**
+- Callout: Don't render empty `.cads-callout-label` for standard callouts (no label)
+- Footer: links are wrapped in a `nav` element and aria labelled as "Footer Navigation"
+- Footer: Fix spacing and responsive styling (NP-1033)
+- Forms: Add `value` attribute to input haml partial
 - Forms: Fix error message display on inline radio buttons and fixed width inputs (NP-1275)
-
-## <sub>v2.1.0-alpha.1</sub>
-
-#### _Nov. 10, 2020_
-
-**Bugfixes**:
-
-* Search: Normalise search button styles and use 44px height. Removed `cads-button` from search input
-* Pagination: Update pagination designs and add reference aria examples
-* Forms: Add `name` attribute to input haml partial
-* Forms: Add `value` attribute to input haml partial
-
-**New features**:
-
-* ⬆️ Footer: Supply feedback link and links using template locals (NP-662)
-
-## <sub>v2.1.0-alpha.0</sub>
-
-#### _Nov. 5, 2020_
-
-**Deprecations**:
-
-* Removed standalone `logo_clickable` component. Only used within header and footer
-* Removed standalone `website_feedack` component. Only ever used within footer
-
-**Bugfixes**:
-
-* Header: Fix spacing and grid sizing around search form (NP-1024)
-* Footer: Fix spacing and responsive styling (NP-1033)
-* Callout: Don't render empty `.cads-callout-label` for standard callouts (no label)
+- Forms: Add `name` attribute to input haml partial
+- Forms: Add `value` attribute to input haml partial
+- Header: Correctly guard for when header is not present
+- Header: Fix spacing and grid sizing around search form (NP-1024)
+- Links: pseudo selector order fixed for generic links and footer links
+- Pagination: Update pagination designs and add reference aria examples
+- Search: Update search partial to accept `search_param` and current `input_value`
+- Search: Normalise search button styles and use 44px height. Removed `cads-button` from search input
 
 ## <sub>v2.0.0</sub>
 
