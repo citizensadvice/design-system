@@ -233,12 +233,12 @@ def define_grid_tests() {
           sh "BROWSER=${browser} bin/docker/grid_tests"
           archiveArtifacts(
             [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
-              artifacts: "testing/${browser}/grid/screenshots/?*.png, " +
-                         "testing/${browser}/grid/reports/report.html, " +
-                         "testing/${browser}/grid/reports/?*.xml, " +
-                         "testing/${browser}/grid/reports/report.json, " +
-                         "testing/${browser}/grid/html_pages/?*.html, " +
-                         "testing/${browser}/grid/logs/?*.log",
+              artifacts: "testing/artifacts/${browser}/grid/screenshots/?*.png, " +
+                         "testing/artifacts/${browser}/grid/reports/report.html, " +
+                         "testing/artifacts/${browser}/grid/reports/?*.xml, " +
+                         "testing/artifacts/${browser}/grid/reports/report.json, " +
+                         "testing/artifacts/${browser}/grid/html_pages/?*.html, " +
+                         "testing/artifacts/${browser}/grid/logs/?*.log",
               allowEmptyArchive: true,
               caseSensitive: false
             ]
@@ -268,12 +268,12 @@ def define_regression_tests() {
         // Archive artifacts from this test run in $browser/$config
         archiveArtifacts(
           [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
-            artifacts: "testing/${browser}/${config}/screenshots/?*.png, " +
-                       "testing/${browser}/${config}/reports/report.html, " +
-                       "testing/${browser}/${config}/reports/?*.xml, " +
-                       "testing/${browser}/${config}/reports/report.json, " +
-                       "testing/${browser}/${config}/html_pages/?*.html, " +
-                       "testing/${browser}/${config}/logs/?*.log",
+            artifacts: "testing/artifacts/${browser}/${config}/screenshots/?*.png, " +
+                       "testing/artifacts/${browser}/${config}/reports/report.html, " +
+                       "testing/artifacts/${browser}/${config}/reports/?*.xml, " +
+                       "testing/artifacts/${browser}/${config}/reports/report.json, " +
+                       "testing/artifacts/${browser}/${config}/html_pages/?*.html, " +
+                       "testing/artifacts/${browser}/${config}/logs/?*.log",
             allowEmptyArchive: true,
             caseSensitive: false
           ]
