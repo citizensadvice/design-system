@@ -20,12 +20,7 @@ ecr_credential = 'ecr:eu-west-1:cita-devops'
 
 images = [:]
 
-global_environment_variables = [
-  "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
-  // Using the commit SHA would mean that every build
-  // gets a different tag and this busts the cache between PR builds.
-  "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
-]
+global_environment_variables = []
 
 // Pipeline definition begins here
 
@@ -36,9 +31,16 @@ node('docker && awsaccess') {
       notFailBuild: true
     ])
     checkout scm
-    currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
+
+    global_environment_variables = [
+      "DOCKER_TAG=${env.BRANCH_NAME}_${getSha()}",
+      // Using the commit SHA would mean that every build
+      // gets a different tag and this busts the cache between PR builds.
+      "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
+    ]
 
     withEnv(global_environment_variables) {
+      currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
       slackNotifyReleaseOnly() {
         pipeline()
       }
