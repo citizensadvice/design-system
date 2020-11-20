@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "fileutils"
+
 task default: :check
 
 def collect_task_errors(tasks)
@@ -14,11 +16,25 @@ end
 
 namespace :design_system do
   desc "All Design System Tests"
-  task :all do
+  task all: [:report_folders] do
     puts "Running all design system tests"
     system(
       "cd ./testing && bundle exec cucumber -p reports && cd .."
     ) || raise
+  end
+
+  task :report_folders do
+    puts "Creating folder structure for this test run"
+    raise "BROWSERSTACK_CONFIGURATION_OPTIONS must be set" unless ENV["BROWSERSTACK_CONFIGURATION_OPTIONS"]
+    raise "BROWSER must be set" unless ENV["BROWSER"]
+
+    base_path = "#{ENV['BROWSER']}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}"
+    [
+      "#{base_path}/html_pages",
+      "#{base_path}/logs",
+      "#{base_path}/reports",
+      "#{base_path}/screenshots"
+    ].each { |dir| FileUtils.mkdir_p(dir) }
   end
 end
 

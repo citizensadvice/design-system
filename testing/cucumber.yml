@@ -1,7 +1,9 @@
 passing: --tags 'not @failing and not @future_release'
 
-html: --format html --out artifacts/reports/report.html
-junit: --format junit --out artifacts/reports
-json: --format json --out artifacts/reports/report.json
+<% base_path = "#{ENV['BROWSER']}/#{ENV.fetch('BROWSERSTACK_CONFIGURATION_OPTIONS', 'grid')}" %>
+
+html: --format html --out "<%= base_path %>/reports/report.html"
+junit: --format junit --out "<%= base_path %>/reports"
+json: --format json --out "<%= base_path %>/reports/report.json"
 
 reports: --format progress -p passing -p html -p junit -p json
