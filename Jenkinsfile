@@ -188,7 +188,7 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
         checkout scm
         withEnv(global_environment_variables) {
           if (useBrowserStack) {
-            withDockerSandbox([images['ruby']]) {
+            withForcedDockerUpdate([images['ruby']]) {
                 withVaultSecrets([
                   BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
                   BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
@@ -199,8 +199,9 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
                 } // withVaultSecrets
               }
           } else {
-            withDockerSandbox(
+            withForcedDockerUpdate(
               [
+                images['ca-styleguide'],
                 images['ruby'],
                 'selenium/hub:4.0.0-alpha-6-20200609',
                 'selenium/node-chrome:4.0.0-alpha-6-20200609',
@@ -259,10 +260,10 @@ def define_regression_tests() {
   regression_tests.failFast = false
 
   configurationTypes.each {
-    def stepName = "running ${it}"
+    def (config, browser) = it
+    def stepName = "${browser} on ${config}"
     regression_tests[stepName] = {
-      withTestingNode('Regression Test of ${it}', true) {
-        def (config, browser) = it
+      withTestingNode("Regression Test of ${browser} on ${config}", true) {
         sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
         // Archive artifacts from this test run in $browser/$config
         archiveArtifacts(
@@ -280,4 +281,21 @@ def define_regression_tests() {
       }
     }
   } // end regression test block
+
+  return regression_tests
+}
+
+def withForcedDockerUpdate(images = [], Closure body) {
+  docker.withRegistry(docker_registry_url, ecr_credential) {
+    images.each {
+      sh "docker pull ${it}"
+      sh "docker image tag ${it} ${it}_tmp"
+      sh "docker image rm ${it}"
+      sh "docker pull ${it}"
+      sh "docker image rm ${it}_tmp"
+    }
+    withDockerSandbox(images) {
+      body{}
+    }
+  }
 }
