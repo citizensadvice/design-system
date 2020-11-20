@@ -239,7 +239,7 @@ def define_regression_tests() {
   regression_tests.failFast = false
 
   configurationTypes.each {
-    def stepName  "running ${it}"
+    def stepName = "running ${it}"
     regression_tests[stepName] = {
       withTestingNode('Regression Test of ${it}', true) {
         def (config, browser) = it
