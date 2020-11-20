@@ -1,3 +1,7 @@
+**Bugfixes:**
+
+- Links: pseudo selector order fixed for generic links and footer links
+- Footer: links are wrapped in a `nav` element and aria labelled as "Footer Navigation"
 ## <sub>v2.1.0-alpha.3</sub>
 
 #### _Nov. 19, 2020_

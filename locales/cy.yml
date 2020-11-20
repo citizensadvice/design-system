@@ -17,6 +17,7 @@ cy:
       skip_to_nav: Neidio i’r llywio
       skip_to_footer: Neidio i’r troedyn
     footer:
+      navigation_title: Footer Navigation
       website_feedback: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
     page_review:
       body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>

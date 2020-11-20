@@ -7,7 +7,9 @@ a,
   color: $cads-language__link-colour;
   text-decoration: underline;
 
-  // Note :visited links should be browser default
+  &:visited {
+    color: $cads-language__link-visited-colour;
+  }
 
   &:hover {
     color: $cads-language__link-hover-colour;
@@ -23,10 +25,6 @@ a,
     background-color: $cads-language__focus-colour;
     text-decoration: none;
     border-bottom: 2px solid $cads-palette__black;
-  }
-
-  &:visited {
-    color: $cads-language__link-visited-colour;
   }
 }
 
