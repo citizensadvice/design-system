@@ -3,7 +3,7 @@
 #### _Nov. 20, 2020_
 
 **Breaking Changes**
-- Footer: links are no longer provided by default, see documentation for 
+- Footer: links are no longer provided by default, see documentation for details
 - Header: Local options have changed, see documentation for details
 
 **New**
