@@ -127,12 +127,12 @@ def pipeline() {
       } finally {
         sh './bin/jenkins/fix_visual_test_report'
         publishHTML([
-            allowMissing: true,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'reports/html_report',
-            reportFiles: 'index.html',
-            reportName: 'BackstopJS Report',
+          allowMissing: true,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'reports/html_report',
+          reportFiles: 'index.html',
+          reportName: 'BackstopJS Report',
         ])
       }
     }
@@ -189,15 +189,15 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
         withEnv(global_environment_variables) {
           if (useBrowserStack) {
             withForcedDockerUpdate([images['ruby']]) {
-                withVaultSecrets([
-                  BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-                  BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-                ])
-                {
-                  // Call closure
-                  body()
-                } // withVaultSecrets
-              }
+              withVaultSecrets([
+                BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+                BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+              ])
+              {
+                // Call closure
+                body()
+              } // withVaultSecrets
+            }
           } else {
             withForcedDockerUpdate(
               [
