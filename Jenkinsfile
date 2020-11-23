@@ -63,7 +63,9 @@ pipeline {
                         }
                     }
                 }
-                script { sh 'docker-compose build' }
+                withDockerRegistry(registry: [credentialsId: 'docker_hub']) {
+                    script { sh 'docker-compose build' }
+                }
                 script {
                     docker.withRegistry(docker_registry_url, ecr_credential) {
                         // Push updated containers so they can be used on the next run
