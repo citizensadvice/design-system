@@ -106,7 +106,7 @@ npm run wcag-test
 
 ## Release process
 
-Releasing a new npm package version is a two step process.
+Releasing a new npm package version is a three step process.
 
 ### 1. Prepare the release
 
@@ -135,6 +135,16 @@ To publish the release tag to GitHub.
 A `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm.
 
 **_Note:_** To run this step you need to be part of the npm org and have 2FA enabled.
+
+### 3. Update the release tag in GitHub
+
+Once the release tag has been push to GitHub in step 2, you must:
+
+- go to the design-system repository in GitHub
+- navigate to the 'Releases' section
+- update the release you pushed to be the latest release
+- copy the contents of the changelog comments for the relase into the release notes section
+- publish the release
 
 ## Assets
 
