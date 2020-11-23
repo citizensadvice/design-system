@@ -1,4 +1,4 @@
-- # Used by _footer.html.haml
+-# Used by _footer.html.haml
 .cads-grid-col-md-3
   %h2.cads-footer__section-title= links["title"]
   - if links["links"]
@@ -7,4 +7,4 @@
         %li.cads-footer__link
           %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
           - if link["icon"]
-            %span{ class: "cads-footer__icon cads-icon_#{link["icon"]}" }
+            %span{ class: "cads-footer__icon cads-icon_#{link['icon']}" }
