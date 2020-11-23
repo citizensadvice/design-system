@@ -1,6 +1,7 @@
-## <sub>v3.0.0-alpha.0</sub>
+## <sub>v3.0.0</sub>
 
-#### _Nov. 20, 2020_
+#### _Nov. 23, 2020_
+
 
 **Breaking Changes**
 - Footer: links are no longer provided by default, see documentation for details
