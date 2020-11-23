@@ -1,7 +1,7 @@
+**New**
+- Footer: links accept icon option, which is displayed after then link label
 ## <sub>v3.0.0</sub>
-
 #### _Nov. 23, 2020_
-
 
 **Breaking Changes**
 - Footer: links are no longer provided by default, see documentation for details
