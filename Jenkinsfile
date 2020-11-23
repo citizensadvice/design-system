@@ -148,8 +148,10 @@ def pipeline() {
     parallel define_grid_tests()
   }
 
-  stage('Regression Tests') {
-    parallel define_regression_tests()
+  if (isRelease) {
+    stage('Regression Tests') {
+      parallel define_regression_tests()
+    }
   }
 
 } //end pipeline
