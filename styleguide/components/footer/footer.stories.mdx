@@ -33,11 +33,14 @@ import linksVariable from '!!raw-loader!./links_example.rb';
 
 The Haml partial the following locals:
 
-| Property       | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| `root_path`    | Required, root path for the logo home link                 |
-| `feedback_url` | If present, a link to this feedback form will be displayed |
-| `links`        | Main content for the footer (see links above)              |
+| Property        | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| `root_path`     | Required, root path for the logo home link                 |
+| `feedback_url`  | If present, a link to this feedback form will be displayed |
+| `links`         | Main content for the footer (see links above)              |
+| `links[url]`    | &rarr; Required, url for the sign in link                  |
+| `links[label] ` | &rarr; Required, title for the sign in link                |
+| `links[icon] `  | &rarr; Optional, display an icon next to the link          |
 
 ### links
 

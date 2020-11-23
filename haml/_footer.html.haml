@@ -7,39 +7,18 @@
       %span.cads-footer__feedback-icon.cads-icon_external-link
   %nav.cads-grid-container{"aria-label": t("cads.footer.navigation_title") }
     .cads-grid-row
-      - if links["column_one"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_one"]["title"]
-          - if links["column_one"]["links"]
-            %ul.cads-footer__links
-              - links["column_one"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
-      - if links["column_two"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_two"]["title"]
-          - if links["column_two"]["links"]
-            %ul.cads-footer__links
-              - links["column_two"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
-      - if links["column_three"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_three"]["title"]
-          - if links["column_three"]["links"]
-            %ul.cads-footer__links
-              - links["column_three"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
-      - if links["column_four"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_four"]["title"]
-          - if links["column_four"]["links"]
-            %ul.cads-footer__links
-              - links["column_four"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
-
+      - %w[column_one column_two column_three column_four].each do |column|
+        - if links[column]
+          - links_column = links[column]
+          .cads-grid-col-md-3
+            %h2.cads-footer__section-title= links_column["title"]
+            - if links_column["links"]
+              %ul.cads-footer__links
+                - links_column["links"].each do |link|
+                  %li.cads-footer__link
+                    %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
+                    - if link["icon"]
+                      %span{ class: "cads-footer__icon cads-icon_#{link['icon']}" }
     .cads-footer__company-info
       .cads-footer__logo
         %a.cads-logo{ href: root_path, title: t("cads.shared.logo_title") }

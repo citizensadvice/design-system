@@ -233,7 +233,8 @@
           { "url" => "/about-us/support-us/", "label" => "Support us" },
           { "url" => "/about-us/how-citizens-advice-works/", "label" => "How Citizens Advice works" },
           { "url" => "/resources-and-tools/about-this-site/disclaimer-and-copyright/", "label" => "Disclaimer and Copyright" },
-          { "url" => "/about-us/citizens-advice-privacy-policy/", "label" => "Privacy and cookies" }
+          { "url" => "/about-us/citizens-advice-privacy-policy/", "label" => "Privacy and cookies" },
+          { "url" => "http://example.com", "label" => "External link", "icon" => "external-link" }
         ]
       }
     }
