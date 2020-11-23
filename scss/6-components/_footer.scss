@@ -39,6 +39,11 @@
     @extend %cads-list-no-bullet;
   }
 
+  .cads-footer__icon {
+    color: $cads-footer__link-colour;
+    font-size: 12px;
+  }
+
   .cads-footer__hyperlink {
     color: $cads-footer__link-colour;
 

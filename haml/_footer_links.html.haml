@@ -6,3 +6,5 @@
       - links["links"].each do |link|
         %li.cads-footer__link
           %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
+          - if link["icon"]
+            %span{ class: "cads-footer__icon cads-icon_#{link["icon"]}" }
