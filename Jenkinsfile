@@ -26,10 +26,7 @@ global_environment_variables = []
 
 node('docker && awsaccess') {
   try {
-    step([
-      $class: 'WsCleanup',
-      notFailBuild: true
-    ])
+    cleanWs()
     checkout scm
 
     global_environment_variables = [
@@ -47,10 +44,7 @@ node('docker && awsaccess') {
     }
   }
   finally {
-    step([
-      $class: 'WsCleanup',
-      notFailBuild: true
-    ])
+    cleanWs()
   }
 }
 
@@ -214,10 +208,7 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
         } // end withEnv
       } // end stage
     } finally {
-      step([
-        $class: 'WsCleanup',
-        notFailBuild: true
-      ])
+      cleanWs()
     } // end try/finally
   } // end node
 } // end withTestingNode
