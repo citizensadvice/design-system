@@ -1,0 +1,8 @@
+- # Used by _footer.html.haml
+.cads-grid-col-md-3
+  %h2.cads-footer__section-title= links["title"]
+  - if links["links"]
+    %ul.cads-footer__links
+      - links["links"].each do |link|
+        %li.cads-footer__link
+          %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]

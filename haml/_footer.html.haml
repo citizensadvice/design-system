@@ -8,37 +8,13 @@
   %nav.cads-grid-container{"aria-label": t("cads.footer.navigation_title") }
     .cads-grid-row
       - if links["column_one"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_one"]["title"]
-          - if links["column_one"]["links"]
-            %ul.cads-footer__links
-              - links["column_one"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
+        = render partial: "footer_links", locals: { links: links["column_one"]}
       - if links["column_two"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_two"]["title"]
-          - if links["column_two"]["links"]
-            %ul.cads-footer__links
-              - links["column_two"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
+        = render partial: "footer_links", locals: { links: links["column_two"]}
       - if links["column_three"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_three"]["title"]
-          - if links["column_three"]["links"]
-            %ul.cads-footer__links
-              - links["column_three"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
+        = render partial: "footer_links", locals: { links: links["column_three"]}
       - if links["column_four"]
-        .cads-grid-col-md-3
-          %h2.cads-footer__section-title= links["column_four"]["title"]
-          - if links["column_four"]["links"]
-            %ul.cads-footer__links
-              - links["column_four"]["links"].each do |link|
-                %li.cads-footer__link
-                  %a.cads-footer__hyperlink{ href: link["url"] }= link["label"]
+        = render partial: "footer_links", locals: { links: links["column_four"]}
 
     .cads-footer__company-info
       .cads-footer__logo
