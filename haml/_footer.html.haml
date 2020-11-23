@@ -7,15 +7,9 @@
       %span.cads-footer__feedback-icon.cads-icon_external-link
   %nav.cads-grid-container{"aria-label": t("cads.footer.navigation_title") }
     .cads-grid-row
-      - if links["column_one"]
-        = render partial: "footer_links", locals: { links: links["column_one"]}
-      - if links["column_two"]
-        = render partial: "footer_links", locals: { links: links["column_two"]}
-      - if links["column_three"]
-        = render partial: "footer_links", locals: { links: links["column_three"]}
-      - if links["column_four"]
-        = render partial: "footer_links", locals: { links: links["column_four"]}
-
+      - ["column_one", "column_two", "column_three", "column_four"].each do |column|
+        - if links[column]
+          = render partial: "footer_links", locals: { links: links[column]}
     .cads-footer__company-info
       .cads-footer__logo
         %a.cads-logo{ href: root_path, title: t("cads.shared.logo_title") }
