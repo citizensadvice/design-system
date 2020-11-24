@@ -183,8 +183,10 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
       stage(description) {
         checkout scm
         withEnv(global_environment_variables) {
+          styleguide_image = isRelease ? "${docker_registry}/design-system:ca-styleguide" : images['ca-styleguide']
+          ruby_image = isRelease ? "${docker_registry}/design-system:ruby" : images['ruby']
           if (useBrowserStack) {
-            withForcedDockerUpdate([images['ruby']]) {
+            withForcedDockerUpdate([ruby_image]) {
               withVaultSecrets([
                 BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
                 BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
@@ -197,8 +199,8 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
           } else {
             withForcedDockerUpdate(
               [
-                images['ca-styleguide'],
-                images['ruby'],
+                styleguide_image,
+                ruby_image,
                 'selenium/hub:4.0.0-alpha-6-20200609',
                 'selenium/node-chrome:4.0.0-alpha-6-20200609',
                 'selenium/node-firefox:4.0.0-alpha-6-20200609'
