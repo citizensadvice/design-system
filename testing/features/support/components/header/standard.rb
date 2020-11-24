@@ -9,9 +9,6 @@ module Header
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
     element :search_button, "[title='Submit search query']"
-
-    def validate_initial_state!
-      has_change_language?(wait: 5)
-    end
+    element :open_search_pane, "[title='Open search']"
   end
 end
