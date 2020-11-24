@@ -34,7 +34,7 @@ module Drivers
       end
 
       def standard_browser_capabilities
-        return {} if device?
+        return {} if mobile_phone?
 
         {
           "browserName" => browser,

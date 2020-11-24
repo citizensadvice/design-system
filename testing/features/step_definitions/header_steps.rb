@@ -23,6 +23,7 @@ When("I type {string} into the search box") do |search_term|
 end
 
 Then("I am able to search for {string}") do |search_term|
+  @component.open_search_pane.click if mobile_phone?
   @component.search_field.send_keys(search_term)
 
   expect(@component.search_field.value).to eq(search_term)
