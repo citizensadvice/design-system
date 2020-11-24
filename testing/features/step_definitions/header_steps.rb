@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 Given("a Standard Header component is on the page") do
-  @component = Header::Standard.new
-  @component.load
+  @component = Header::Standard.new.tap(&:load)
 end
 
-Then("a language change link is present") do
+Then("a link to change language is present") do
   expect(@component).to have_change_language
 end
 
@@ -23,7 +22,9 @@ When("I type {string} into the search box") do |search_term|
   @component.search_field.send_keys(search_term)
 end
 
-Then("I can search for {string}") do |search_term|
+Then("I am able to search for {string}") do |search_term|
+  @component.search_field.send_keys(search_term)
+
   expect(@component.search_field.value).to eq(search_term)
 
   expect(@component).to have_search_button
