@@ -1,3 +1,7 @@
+## <sub>v3.1.0-alpha.0</sub>
+
+#### _Nov. 23, 2020_
+
 **New**
 - Footer: links accept icon option, which is displayed after then link label
 ## <sub>v3.0.0</sub>
