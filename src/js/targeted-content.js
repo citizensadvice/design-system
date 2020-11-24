@@ -14,7 +14,6 @@ const SELECTORS = {
   el: '.js-cads-targeted-content',
   title: '.js-cads-targeted-content__title',
   content: '.js-cads-targeted-content__content',
-  descriptiveLabel: '.js-cads-targeted-content__descriptive-label',
 };
 
 const CLASS_NAMES = {
@@ -30,10 +29,11 @@ function setOpen(el) {
 
   const btn = el.querySelector(SELECTORS.title).querySelector('button');
   btn.setAttribute('aria-expanded', 'true');
-
-  const descriptiveLabelEl = btn.querySelector(SELECTORS.descriptiveLabel);
-  descriptiveLabelEl.textContent = el.getAttribute(
-    'data-descriptive-label-hide'
+  btn.setAttribute(
+    'aria-label',
+    `${btn.textContent.trim()}, ${el.getAttribute(
+      'data-descriptive-label-hide'
+    )}`
   );
 }
 
@@ -42,10 +42,11 @@ function setClosed(el) {
 
   const btn = el.querySelector(SELECTORS.title).querySelector('button');
   btn.setAttribute('aria-expanded', 'false');
-
-  const descriptiveLabelEl = btn.querySelector(SELECTORS.descriptiveLabel);
-  descriptiveLabelEl.textContent = el.getAttribute(
-    'data-descriptive-label-show'
+  btn.setAttribute(
+    'aria-label',
+    `${btn.textContent.trim()}, ${el.getAttribute(
+      'data-descriptive-label-show'
+    )}`
   );
 }
 
@@ -83,14 +84,11 @@ function initTargetedContentFor(el) {
   const createToggleButton = () => {
     title.innerHTML = `<button class="${
       CLASS_NAMES.button
-    }" aria-expanded="false" aria-controls="${content.id}">
+    }" aria-expanded="false" aria-controls="${content.id}"
+      aria-label="${title.textContent.trim()}, ${el.getAttribute(
+      'data-descriptive-label-show'
+    )}">
         ${title.textContent}
-        <span class="cads-sr-only">,
-          <span class="js-cads-targeted-content__descriptive-label">
-            ${el.getAttribute('data-descriptive-label-show')}
-          </span>
-        </span>
-
         <svg class="${
           CLASS_NAMES.icon
         }" viewBox="0 0 10 10" aria-hidden="true" focusable="false">

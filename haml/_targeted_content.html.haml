@@ -1,12 +1,18 @@
 -# Allow disabling toggleable behaviour (mostly for tests)
 - is_toggleable = targeted_content.fetch("is_toggleable", true)
 
-.cads-targeted-content{ class: ("js-cads-targeted-content" if is_toggleable),
-  id: targeted_content["id"],
-  "data-descriptive-label-show": t("cads.targeted_content.descriptive_label_show"),
-  "data-descriptive-label-hide": t("cads.targeted_content.descriptive_label_hide"),
-  "data-close-label": t("cads.targeted_content.close_label") }
-  %h2.cads-targeted-content__title.js-cads-targeted-content__title
+:ruby
+  attributes = {
+    class: ("js-cads-targeted-content" if is_toggleable),
+    data: {
+      descriptive_label_show: t("cads.targeted_content.descriptive_label_show"),
+      descriptive_label_hide: t("cads.targeted_content.descriptive_label_hide"),
+      close_label: t("cads.targeted_content.close_label")
+    }
+  }
+
+.cads-targeted-content{ attributes }
+  %h2.cads-targeted-content__title.js-cads-targeted-content__title{ id: "h-#{targeted_content['id']}" }
     = targeted_content["title"]
   .cads-targeted-content__content.cads-prose.js-cads-targeted-content__content{ id: "#{targeted_content['id']}-content" }
     = targeted_content["body"]
