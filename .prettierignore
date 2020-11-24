@@ -7,4 +7,5 @@ stats/
 testing/artifacts/
 testing/visual-regression/backstop_data/
 testing/wcag/
+testing/cucumber.yml
 vendor/

@@ -44,11 +44,11 @@ module Helpers
     end
 
     def image_file_path(test_case)
-      "artifacts/screenshots/#{name_of_file(test_case)}.png"
+      "#{ENV['BASE_ARTIFACTS_PATH']}/screenshots/#{name_of_file(test_case)}.png"
     end
 
     def html_file_path(test_case)
-      "artifacts/html_pages/#{name_of_file(test_case)}.html"
+      "#{ENV['BASE_ARTIFACTS_PATH']}/html_pages/#{name_of_file(test_case)}.html"
     end
 
     def name_of_file(test_case)

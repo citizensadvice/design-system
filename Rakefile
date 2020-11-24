@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "fileutils"
+
 task default: :check
 
 def collect_task_errors(tasks)
@@ -12,13 +14,27 @@ def collect_task_errors(tasks)
   errors.count.positive? && raise("The following tasks failed #{errors}")
 end
 
+def base_cucumber_path
+  "artifacts/#{ENV['BROWSER']}/#{ENV['BROWSERSTACK'] ? ENV['BROWSERSTACK_CONFIGURATION_OPTIONS'] : 'other'}"
+end
+
 namespace :design_system do
   desc "All Design System Tests"
-  task :all do
+  task all: :report_folders do
     puts "Running all design system tests"
     system(
       "cd ./testing && bundle exec cucumber -p reports --retry 1 && cd .."
     ) || raise
+  end
+
+  task :report_folders do
+    puts "Creating folder structure for this test run"
+    [
+      "testing/#{base_cucumber_path}/html_pages",
+      "testing/#{base_cucumber_path}/logs",
+      "testing/#{base_cucumber_path}/reports",
+      "testing/#{base_cucumber_path}/screenshots"
+    ].each { |dir| FileUtils.mkdir_p(dir) }
   end
 end
 
