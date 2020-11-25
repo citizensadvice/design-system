@@ -20,6 +20,7 @@ const CLASS_NAMES = {
   toggleable: 'cads-targeted-content--toggleable',
   open: 'cads-targeted-content--open',
   button: 'cads-targeted-content__button',
+  titleText: 'cads-targeted-content__title-text',
   icon: 'cads-targeted-content__icon',
   iconVertLine: 'cads-targeted-content__icon-vert',
 };
@@ -88,7 +89,7 @@ function initTargetedContentFor(el) {
       aria-label="${title.textContent.trim()}, ${el.getAttribute(
       'data-descriptive-label-show'
     )}">
-        ${title.textContent}
+        <span class="${CLASS_NAMES.titleText}">${title.textContent}</span>
         <svg class="${
           CLASS_NAMES.icon
         }" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
