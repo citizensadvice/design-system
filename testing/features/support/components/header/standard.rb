@@ -21,7 +21,7 @@ module Header
         # ETA Early December based on previous releases
         #
         # LH - Nov 2020
-        fake_active_element = page.find('body')
+        fake_active_element = page.find("body")
         fake_active_element.send_keys(:tab)
         sleep 0.25
       end
