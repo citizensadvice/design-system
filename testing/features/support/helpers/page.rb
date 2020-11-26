@@ -34,7 +34,7 @@ module Helpers
     def tab_quantity_for_skip_link(desired_area)
       case desired_area
       when :navigation; then 1
-      when :header;     then 2
+      when :content;    then 2
       when :footer;     then 3
       else raise "Invalid Input argument for tabbing!"
       end
