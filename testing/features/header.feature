@@ -38,7 +38,7 @@ Feature: Header component
       Examples:
         | area       |
         | navigation |
-        | header     |
+        | content    |
         | footer     |
 
     Scenario Outline: English Users can quickly navigate to various areas of the page

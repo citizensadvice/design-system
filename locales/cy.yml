@@ -14,7 +14,7 @@ cy:
     header:
       search_mobile: Ymchwiliad agored
       skip_to_content: Neidio i’r cynnwys
-      skip_to_nav: Neidio i’r llywio
+      skip_to_navigation: Neidio i’r llywio
       skip_to_footer: Neidio i’r troedyn
     footer:
       navigation_title: Footer Navigation
