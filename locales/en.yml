@@ -26,7 +26,9 @@ en:
       submit_title: Submit search query
       submit_label: Search
     targeted_content:
-      close_button_aria: Collapse %{title}
+      descriptive_label_show: show this section
+      descriptive_label_hide: hide this section
+      close_label: Close
     shared:
       ui:
         close: Close

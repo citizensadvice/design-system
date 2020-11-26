@@ -290,7 +290,7 @@
 
   "page_review_date" => "21 September 2019",
 
-  "targetContent" => {
+  "targeted_content" => {
     "id" => "target-content-123",
     "title" => "If you are a citizen of a country outside the EU, EEA or Switzerland",
     "body" => <<~HTML

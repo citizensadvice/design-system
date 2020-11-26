@@ -1,53 +1,55 @@
 /* eslint-env jest */
-import { screen } from '@testing-library/dom';
+import { screen, getByRole } from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';
 
 import initTargetedContent from './targeted-content';
 
-const componentHtml = `<details class='cads-targeted-content' id='target-content-123' data-testid="targeted-content">
-  <summary aria-controls='target-content-123-content' aria-expanded='false'
-    class='cads-targeted-content__summary' role='button'>
-    <span class='cads-target-content__button cads-icon_minus'></span>
-    <span class='cads-target-content__button cads-icon_plus'></span>
-    <span class='cads-targeted-content__title'>
-      Summary title
-    </span>
-  </summary>
-  <div class='cads-targeted-content__content' id='target-content-123-content'>
-    Details content
-    <button aria-label='Collapse'
-      class='cads-linkbutton cads-targeted-content__close-button'></button>
+const componentHtml = `<div
+  class="cads-targeted-content js-cads-targeted-content"
+  data-descriptive-label-hide="hide this section"
+  data-descriptive-label-show="show this section"
+  data-close-label="Close"
+  id="targeted-content-123">
+  <h2 class="cads-targeted-content__title js-cads-targeted-content__title">
+    Targeted content title
+  </h2>
+  <div
+    class="cads-targeted-content__content cads-prose js-cads-targeted-content__content"
+    id="targeted-content-123-content">
+    <p>Targeted content body</p>
   </div>
-</details>`;
+</div>`;
 
 test('allow toggling targeted content', () => {
   document.body.innerHTML = componentHtml;
   initTargetedContent();
 
-  const detailsEl = screen.getByTestId('targeted-content');
-  const summaryEl = screen.getByText('Summary title').parentElement;
+  const headingEl = screen.getByRole('heading');
+  const buttonEl = getByRole(headingEl, 'button');
+  const parentEl = headingEl.parentElement;
+  expect(parentEl).toHaveClass('cads-targeted-content--toggleable');
 
   function expectOpen() {
-    expect(detailsEl).toHaveClass('is-open');
-    expect(summaryEl).toHaveAttribute('aria-expanded', 'true');
+    expect(parentEl).toHaveClass('cads-targeted-content--open');
+    expect(buttonEl).toHaveAttribute('aria-expanded', 'true');
   }
 
   function expectClosed() {
-    expect(detailsEl).not.toHaveClass('is-open');
-    expect(summaryEl).toHaveAttribute('aria-expanded', 'false');
+    expect(parentEl).not.toHaveClass('cads-targeted-content--open');
+    expect(buttonEl).toHaveAttribute('aria-expanded', 'false');
   }
 
   expectClosed();
 
-  summaryEl.click();
+  buttonEl.click();
   expectOpen();
 
-  summaryEl.click();
+  buttonEl.click();
   expectClosed();
 
-  summaryEl.click();
+  buttonEl.click();
   expectOpen();
 
-  screen.getByLabelText('Collapse').click();
+  screen.getByText('Close').click();
   expectClosed();
 });

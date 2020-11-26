@@ -23,5 +23,4 @@ linters:
       - 'haml/_page_review.html.haml'
       - 'haml/_related_content_advisernet.html.haml'
       - 'haml/_table.html.haml'
-      - 'haml/_targeted-content.html.haml'
       - 'styleguide/**/**.haml'

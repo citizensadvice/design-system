@@ -7,21 +7,21 @@
     %li you have family in the UK from the EU, EEA or Switzerland
   %p You need to apply to the scheme even if you have a permanent residence card as it will not be valid after 31 December 2020.
 
-- targetContent = { "id" => "targeted-content-234", "title" => "If you are a citizen of a country outside the EU, EEA or Switzerland", "body" => body }
+- targeted_content = { "id" => "targeted-content-234", "title" => "If you are a citizen of a country outside the EU, EEA or Switzerland", "body" => body }
 
 %main
-  %h1 Open targeted content with anchor
+  %h1.cads-page-title Open targeted content with anchor
 
+  .cads-prose
+    %p
+      %a{ href: "#targeted-content-234" } Jump to targeted content
 
-  %p
-    %a{ href: "#targeted-content-234" } Jump to targeted content
+    %h2 Heading level 2
 
-  %h2 Heading level 2
+    - 2.times do
+      %p= lorem
 
-  - 2.times do
-    %p= lorem
+    = render partial: "@citizensadvice/design-system/haml/targeted_content", locals: { targeted_content: targeted_content }
 
-  = render partial: "@citizensadvice/design-system/haml/targeted-content", locals: { targetContent: targetContent }
-
-  - 3.times do
-    %p= lorem
+    - 3.times do
+      %p= lorem
