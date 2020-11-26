@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { screen } from '@testing-library/dom';
+import { screen, getByRole } from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';
 
 import initTargetedContent from './targeted-content';
@@ -25,7 +25,7 @@ test('allow toggling targeted content', () => {
   initTargetedContent();
 
   const headingEl = screen.getByRole('heading');
-  const buttonEl = screen.getByText('Targeted content title', { exact: false });
+  const buttonEl = getByRole(headingEl, 'button');
   const parentEl = headingEl.parentElement;
   expect(parentEl).toHaveClass('cads-targeted-content--toggleable');
 
