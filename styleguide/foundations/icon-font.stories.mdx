@@ -2,13 +2,29 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundations/Icon" />
 
-# Icon font
+# Icons
 
-Icons are made available via the `cads-icons` font. To use them apply the appropriate class to the element that is displaying them. You can apply normal CSS styles, e.g. `color` to change their appearance.
+## Usage 
 
-## List of icons and classes
+Icons should be informative and recognisable. They should only be used in a purposeful manner to maximise comprehension when you need to call attention to a particular action. 
+Icons should be used in combination with a meaningful label or supporting text whenever possible. Avoid `aria-labels` if you are rendering the icon with visible text to prevent accessibility label duplication.
 
-Do not forget to prefix the given class name with `cads-icon_`.
+## Colour
+
+Icons should always be in a single, solid colour and need to meet the same colour contrast ratio as Typography (4.5:1). The colour of the icon should reflect the importance of the icon’s action which should always be to help guide a user. For more information on colour, see the [Colour guidelines](/design-system/?path=/story/foundations-colours--page) . 
+
+## Sizing
+
+There are 2 icon sizes in our Design system:
+
+### 16px (small)
+
+We use small icons in our components such as ‘Chevron’ in the buttons or a ‘Plus’ in the targeted content. We also use an ‘External link’ in the content whenever it’s needed.
+
+### 24px (medium)
+
+Medium icons are generally used as a button such as the ‘Search’ button and the ‘Print this page’ button in the toolbar on the Public site and AdviserNet.
+Do not attempt to re-size the icon, as they are designed specifically for a certain size. Only use these 2 icon sizes to ensure the consistency throughout our designs.
 
 <ul class="cads-styleguide-icon-list">
   <li>
@@ -72,3 +88,34 @@ Do not forget to prefix the given class name with `cads-icon_`.
     <span>undo</span>
   </li>
 </ul>
+
+## Alignment
+
+When an icon is right next to the text, they should be centre-aligned and have 4px spacing in-between.
+
+## Contribute
+
+### Considerations before creating a new icon
+
+Before trying to create a new icon, consider if:
+- The new icon serves a need(s). If in doubt, you probably don’t need it
+- The new icon would be used multiple times throughout the products
+- The new icon has a clear meaning
+
+Propose the new icons to the design community and discuss details and requirements. This will help us to have a transparent process for creating new assets, maintaining a minimal and high quality icon set in our Design system. 
+
+### Making an icon
+
+In order to have the best clarity especially for lower resolution screens, make sure the icon is always pixel-perfect.
+
+Use the guideline artboards in the [Design system 2.0 Figma file](https://www.figma.com/file/J9qfbS9n1pUM2dpRQnTXUD/?node-id=716%3A0) and follow the rules below:
+
+- Use the 16px x 16px or 24px x 24px artboard for each icon.
+- The 16px icon should have 1px padding and the 24px icon should have 2px padding.
+- Set your workspace up from the start to snap to pixels without decimals.
+- Icons should be at whole pixels. No decimals are allowed in x and y coordinates or width and height fields.
+- Each artboard and the artwork within it must be aligned to the pixel grid. 
+- The icon should be on the top of the boundary box layer in the artboard. 
+- All possible shapes and paths should be combined. This will allow us to have a good SVG setup when extracting icons.
+
+Speak to the design community if you have any questions about the rules.
