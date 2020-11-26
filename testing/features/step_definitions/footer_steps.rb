@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
-Given("a Footer component is on the page") do
-  @component = DesignSystem::Footer.new
+Given("the Default Footer component is on the page") do
+  @component = Footer::Default.new
+  @component.load
+end
+
+Given('the Minimal Footer component is on the page') do
+  @component = Footer::Minimal.new
   @component.load
 end
 
@@ -10,7 +15,7 @@ When("I report a problem with this page") do
 end
 
 Then("a report problem with this page link is present") do
-  expect(@component.initial_form).to have_website_feedback
+  expect(@component).to have_website_feedback
 end
 
 Then("each header item has at least 1 link below it") do
