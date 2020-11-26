@@ -26,5 +26,9 @@ module Header
         sleep 0.5
       end
     end
+
+    def active_skip_link_text
+      evaluate_script("document.activeElement").text
+    end
   end
 end
