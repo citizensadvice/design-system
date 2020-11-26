@@ -11,7 +11,7 @@ Given('the Minimal Footer component is on the page') do
 end
 
 When("I report a problem with this page") do
-  @component.initial_form.website_feedback.click
+  @component.website_feedback.click
 end
 
 Then("a report problem with this page link is present") do
