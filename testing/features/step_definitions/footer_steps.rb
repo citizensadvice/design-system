@@ -5,7 +5,7 @@ Given("the Default Footer component is on the page") do
   @component.load
 end
 
-Given('the Minimal Footer component is on the page') do
+Given("the Minimal Footer component is on the page") do
   @component = Footer::Minimal.new
   @component.load
 end
