@@ -8,9 +8,11 @@ import { translate } from '../../../scripts/story-helpers';
 
 # Callouts
 
-There are several different variants of the callout component:
+There are 4 main callout styles in our Design system:
 
-## Standard
+## Info callout
+
+This callout style should be used on important, non-mandatory advice for users that don’t have any serious or legal implications. There might be other implications.
 
 import templateStandard from './_standard.html.haml';
 
@@ -23,7 +25,9 @@ import templateStandard from './_standard.html.haml';
   </Story>
 </Preview>
 
-## Example
+## Example callout
+
+This style is when an example needs to be displayed. Also, use it for quotes.
 
 import templateExample from './_example.html.haml';
 
@@ -36,7 +40,9 @@ import templateExample from './_example.html.haml';
   </Story>
 </Preview>
 
-## Important
+## Important callout
+
+The important callout should be used for any important snippet of text that has serious and/or legal implications if the user does not follow the advice
 
 import templateImportant from './_important.html.haml';
 
@@ -49,7 +55,9 @@ import templateImportant from './_important.html.haml';
   </Story>
 </Preview>
 
-## Adviser
+## Adviser callout
+
+Content that is for advisers. This will only show on the logged-in public site and AdviserNet.
 
 import templateAdviser from './_adviser.html.haml';
 
@@ -61,6 +69,26 @@ import templateAdviser from './_adviser.html.haml';
     {(_, options) => translate(templateAdviser, options)}
   </Story>
 </Preview>
+
+## When to use
+
+Callouts can be used to highlight information within content, for example:
+
+- Important information 
+- Adviser-only information
+- Examples
+- Quotes
+
+Before using a callout, make sure you really need it. Fewer callouts have more of an impact on a piece of content. Too many callouts can confuse and distract users from other important content on a page. 
+
+## Usage
+
+By default, all callouts come with a title that explains the subject of the information. This will give the users an idea of what the information is about. There are some exceptions where a callout doesn’t have a title. Ensure a title is labelled in the code so the screen reader can identify and announce.
+
+### Markup
+
+The title should be used as `h3` no matter where they are on the page. If a callout is the first thing on the page under a `h1`, still put it in the backend as an `h3` and the CMS will make sure it displays correctly.
+
 
 ## Haml template options
 
