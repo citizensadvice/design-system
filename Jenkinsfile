@@ -36,10 +36,12 @@ node('docker && awsaccess') {
       "CA_STYLEGUIDE_VERSION_TAG=${env.BRANCH_NAME}"
     ]
 
-    withEnv(global_environment_variables) {
-      currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
-      slackNotifyReleaseOnly() {
-        pipeline()
+    withDockerRegistry(registry: [credentialsId: 'docker_hub']) {
+      withEnv(global_environment_variables) {
+        currentBuild.displayName = "$BUILD_NUMBER: $DOCKER_TAG"
+        slackNotifyReleaseOnly() {
+          pipeline()
+        }
       }
     }
   }
@@ -182,34 +184,37 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
     try {
       stage(description) {
         checkout scm
-        withEnv(global_environment_variables) {
-          styleguide_image = isRelease ? "${docker_registry}/design-system:ca-styleguide" : images['ca-styleguide']
-          ruby_image = isRelease ? "${docker_registry}/design-system:ruby" : images['ruby']
-          if (useBrowserStack) {
-            withForcedDockerUpdate([ruby_image]) {
-              withVaultSecrets([
-                BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-                BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-              ])
-              {
+
+        withDockerRegistry(registry: [credentialsId: 'docker_hub']) {
+          withEnv(global_environment_variables) {
+            styleguide_image = isRelease ? "${docker_registry}/design-system:ca-styleguide" : images['ca-styleguide']
+            ruby_image = isRelease ? "${docker_registry}/design-system:ruby" : images['ruby']
+            if (useBrowserStack) {
+              withForcedDockerUpdate([ruby_image]) {
+                withVaultSecrets([
+                  BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
+                  BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
+                ])
+                {
+                  // Call closure
+                  body()
+                } // withVaultSecrets
+              }
+            } else {
+              withForcedDockerUpdate(
+                [
+                  styleguide_image,
+                  ruby_image,
+                  'selenium/hub:4.0.0-alpha-6-20200609',
+                  'selenium/node-chrome:4.0.0-alpha-6-20200609',
+                  'selenium/node-firefox:4.0.0-alpha-6-20200609'
+                ]) {
                 // Call closure
                 body()
-              } // withVaultSecrets
-            }
-          } else {
-            withForcedDockerUpdate(
-              [
-                styleguide_image,
-                ruby_image,
-                'selenium/hub:4.0.0-alpha-6-20200609',
-                'selenium/node-chrome:4.0.0-alpha-6-20200609',
-                'selenium/node-firefox:4.0.0-alpha-6-20200609'
-              ]) {
-              // Call closure
-              body()
-            }
-          } // end if
-        } // end withEnv
+              }
+            } // end if
+          } // end withEnv
+        } //end withDockerRegistry
       } // end stage
     } finally {
       cleanWs()
