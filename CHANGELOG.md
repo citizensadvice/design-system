@@ -1,3 +1,7 @@
+## <sub>v3.2.0-alpha.0</sub>
+
+#### _Nov. 26, 2020_
+
 **New**
 - Footer: Logo link can be set by haml template locals
 - Header: Logo link can be set by haml template locals
