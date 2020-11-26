@@ -13,7 +13,6 @@ module Header
     element :search_field, "[type='search']"
     element :search_button, "[title='Submit search query']"
     element :open_search_pane, "[title='Open search']"
-    element :skip_link_text, ".cads-skip-links__link", visible: false
 
     def tab_to(desired_area)
       tab_quantity_for_skip_link(desired_area).times do
@@ -24,12 +23,8 @@ module Header
         # LH - Nov 2020
         fake_active_element = page.find('body')
         fake_active_element.send_keys(:tab)
-        sleep 0.5
+        sleep 0.25
       end
-    end
-
-    def active_skip_link_text
-      active_element.text
     end
   end
 end
