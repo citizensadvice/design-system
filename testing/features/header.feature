@@ -48,7 +48,7 @@ Feature: Header component
       Examples:
         | area       |
         | navigation |
-        | header     |
+        | content    |
         | footer     |
 
     Scenario Outline: Welsh Users can quickly navigate to various areas of the page
@@ -59,5 +59,5 @@ Feature: Header component
       Examples:
         | area       |
         | navigation |
-        | header     |
+        | content    |
         | footer     |
