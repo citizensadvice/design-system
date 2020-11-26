@@ -8,6 +8,6 @@ ParameterType(
 
 ParameterType(
   name: "skip-link-area",
-  regexp: /(navigation|header|footer)/,
+  regexp: /(navigation|content|footer)/,
   transformer: ->(area) { area.to_sym }
 )

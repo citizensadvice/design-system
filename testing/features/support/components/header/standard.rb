@@ -5,6 +5,7 @@ module Header
     set_url "/iframe.html?id=components-header--default&viewMode=story"
 
     include Helpers::Page
+    include Helpers::Javascript
 
     element :change_language, "a", text: "Cymraeg"
     element :login, "[data-testid='account-link']"
@@ -28,7 +29,7 @@ module Header
     end
 
     def active_skip_link_text
-      evaluate_script("document.activeElement").text
+      active_element.text
     end
   end
 end
