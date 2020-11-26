@@ -8,11 +8,11 @@
   .cads-grid-container
     .cads-grid-row
       %nav.cads-skip-links
-        %a.cads-skip-links__link{ href: "#cads-navigation" }
+        %a.cads-skip-links__link{ data: { test_id: "skip_link", test_id: "skip_to_navigation" }, href: "#cads-navigation" }
           = t("cads.header.skip_to_nav")
-        %a.cads-skip-links__link{ href: main_content_anchor_link }
+        %a.cads-skip-links__link{ data: { test_id: "skip_link", test_id: "skip_to_content" }, href: main_content_anchor_link }
           = t("cads.header.skip_to_content")
-        %a.cads-skip-links__link{ href: "#cads-footer" }
+        %a.cads-skip-links__link{ data: { test_id: "skip_link", test_id: "skip_to_footer" }, href: "#cads-footer" }
           = t("cads.header.skip_to_footer")
       .cads-grid-col-md-6.cads-header__logo-row
         %a.cads-logo{ href: homepage_url, title: t("cads.shared.logo_title") }
