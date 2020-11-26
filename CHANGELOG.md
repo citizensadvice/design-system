@@ -1,3 +1,7 @@
+**New**
+- Footer: Logo link can be set by haml template locals
+- Header: Logo link can be set by haml template locals
+
 ## <sub>v3.1.0</sub>
 
 #### _Nov. 26, 2020_

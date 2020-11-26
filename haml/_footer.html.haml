@@ -1,5 +1,8 @@
-- feedback_url ||= false
-- links ||= {}
+:ruby
+  feedback_url ||= false
+  links ||= {}
+  homepage_url ||= "/"
+
 %footer#cads-footer.cads-footer
   - if feedback_url
     %p.cads-footer__feedback
@@ -21,7 +24,7 @@
                       %span{ class: "cads-footer__icon cads-icon_#{link['icon']}" }
     .cads-footer__company-info
       .cads-footer__logo
-        %a.cads-logo{ href: root_path, title: t("cads.shared.logo_title") }
+        %a.cads-logo{ href: homepage_url, title: t("cads.shared.logo_title") }
       .cads-footer__meta
         %p.cads-footer__meta-text= t("cads.shared.copyright")
         %p.cads-footer__meta-text= t("cads.shared.legal_summary")
