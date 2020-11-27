@@ -1,8 +1,7 @@
 Feature: Search components
 
   The Search component allows users to search for the desired term and consists
-  of a search field and a button. The variant 'Search with value' has a
-  pre-defined value in the search field.
+  of a search field and a button.
 
   Rule: Standard Search
     Background:
