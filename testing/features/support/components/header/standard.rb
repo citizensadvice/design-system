@@ -13,7 +13,6 @@ module Header
     element :search_field, "[type='search']"
     element :search_button, "[title='Submit search query']"
     element :open_search_pane, "[title='Open search']"
-    elements :skip_links, "[data-testid='skip-link']"
 
     def tab_to(desired_area)
       tab_quantity_for_skip_link(desired_area).times do
