@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 Given("a Standard Search component is on the page") do
-  @component = Search::Standard.new
-  @component.load
+  @component = Search::Standard.new.tap(&:load)
 end
 
 Given("a Search With Value component is on the page") do
-  @component = Search::WithValue.new
-  @component.load
+  @component = Search::WithValue.new.tap(&:load)
 end
 
 Then("the search field is clear") do

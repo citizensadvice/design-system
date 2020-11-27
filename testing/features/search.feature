@@ -11,7 +11,7 @@ Feature: Search components
       Then the search field is clear
       And User is able to search for "Anything"
 
-  Rule: Search with value
+  Rule: Search with Value
     Background:
       Given a Search With Value component is on the page
 
