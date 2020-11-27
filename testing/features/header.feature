@@ -24,7 +24,7 @@ Feature: Header component
 
     @future_release @v3.1.0+ @not_mobile
     Scenario Outline: English Users can quickly navigate to various areas of the page
-      Then I can skip to the <area> area
+      Then I am able to skip to the <area> part of the page
 
       Examples:
         | area       |
@@ -35,7 +35,7 @@ Feature: Header component
     @future_release @v3.1.0+ @not_mobile
     Scenario Outline: Welsh Users can quickly navigate to various areas of the page
       Given the language is Welsh
-      Then I can skip to the <area> area
+      Then I am able to skip to the <area> part of the page
 
       Examples:
         | area       |
