@@ -16,7 +16,6 @@ Feature: Search components
       Given a Search With Value component is on the page
 
     Scenario: Search component is on the page with a pre-defined value
-      Then User is able to search the pre-defined value "Current search term"
-      And I can delete the pre-defined value
-      And User is able to search for "Something new"
+      Then the search field has a pre-defined value
+      And User is able to search for "Anything"
 
