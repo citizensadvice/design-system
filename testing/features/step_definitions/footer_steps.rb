@@ -21,15 +21,15 @@ Then("each header item has at least 1 link below it") do
 end
 
 Then("a footer logo is present") do
-  expect(@component.initial_form).to have_logo
+  expect(@component).to have_logo
 end
 
 Then("a copyright notice is present") do
-  expect(@component.initial_form).to have_copyright
+  expect(@component).to have_copyright
 end
 
 Then("a company info is present") do
-  expect(@component.initial_form).to have_company_info
+  expect(@component).to have_company_info
 end
 
 Then("I am presented with a form to report the issue about the page I am on") do
