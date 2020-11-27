@@ -9,21 +9,21 @@ Given("a Search With Value component is on the page") do
 end
 
 Then("the search field is clear") do
-  expect(@component.cads_search.search_field.value).to be_empty
+  expect(@component.search_field.value).to be_empty
 end
 
 Then("User is able to search for {string}") do |search_term|
-  @component.cads_search.search_field.send_keys(search_term)
+  @component.search_field.send_keys(search_term)
 
-  expect(@component.cads_search.search_field.value).to eq(search_term)
+  expect(@component.search_field.value).to eq(search_term)
 
-  expect(@component.cads_search).to have_search_button
+  expect(@component).to have_search_button
 end
 
 Then('the search field has a pre-defined value') do
-  expect(@component.cads_search.search_field.value).to eq("Current search term")
+  expect(@component.search_field.value).to eq("Current search term")
 
-  expect(@component.cads_search).to have_search_button
+  expect(@component).to have_search_button
 
   @component.clear_field
 end
