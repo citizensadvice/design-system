@@ -20,7 +20,7 @@ Then("User is able to search for {string}") do |search_term|
   expect(@component).to have_search_button
 end
 
-Then('the search field has a pre-defined value') do
+Then("the search field has a pre-defined value") do
   expect(@component.search_field.value).not_to be_empty
 
   expect(@component).to have_search_button
