@@ -14,7 +14,7 @@ Then("the search field is clear") do
   expect(@component.cads_search.search_field.value).to eq("")
 end
 
-Then("I can search for {string}") do |search_term|
+Then("User is able to search for {string}") do |search_term|
   @component.cads_search.search_field.send_keys(search_term)
 
   expect(@component.cads_search.search_field.value).to eq(search_term)
@@ -22,7 +22,7 @@ Then("I can search for {string}") do |search_term|
   expect(@component.cads_search).to have_search_button
 end
 
-Then("I can search for the pre-defined value {string}") do |pre_defined_value|
+Then("User is able to search the pre-defined value {string}") do |pre_defined_value|
   expect(@component.cads_search.search_field.value).to eq(pre_defined_value)
 
   expect(@component.cads_search).to have_search_button
