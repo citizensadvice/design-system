@@ -26,9 +26,9 @@ Then("User is able to search the pre-defined value {string}") do |pre_defined_va
   expect(@component.cads_search).to have_search_button
 end
 
-Then("the search field is filled with {string}") do |pre_defined_value|
-  expect(@component.cads_search.search_field.value).to eq(pre_defined_value)
-end
+# Then("the search field is filled with {string}") do |pre_defined_value|
+#   expect(@component.cads_search.search_field.value).to eq(pre_defined_value)
+# end
 
 Then("I can delete the pre-defined value") do
   @component.clear_field
