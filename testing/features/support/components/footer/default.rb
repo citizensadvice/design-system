@@ -9,5 +9,9 @@ module Footer
     end
 
     element :website_feedback, ".cads-footer__feedback a"
+
+    def validate_initial_state!
+      has_category_titles?(wait: 5)
+    end
   end
 end
