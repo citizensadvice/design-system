@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 Given("the Default Footer component is on the page") do
-  @component = Footer::Default.new
-  @component.load
+  @component = Footer::Default.new.tap(&:load)
 end
 
 Given("the Minimal Footer component is on the page") do
-  @component = Footer::Minimal.new
-  @component.load
+  @component = Footer::Minimal.new.tap(&:load)
 end
 
 When("I report a problem with this page") do
