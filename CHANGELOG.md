@@ -1,3 +1,11 @@
+## <sub>v3.2.0-alpha.1</sub>
+
+#### _Nov. 27, 2020_
+
+**New**
+
+- Targeted content: Now uses accesible disclosure pattern instead of `details` and `summary`
+
 ## <sub>v3.2.0-alpha.0</sub>
 
 #### _Nov. 26, 2020_
