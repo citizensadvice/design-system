@@ -22,28 +22,9 @@ Feature: Header component
     Scenario: Header has a search option
       Then I am able to search for "Anything"
 
-    Scenario Outline: English Users are able to navigate to various areas of the page
-      Then there is a hidden link to quickly skip to the <area> part of the page
-
-      Examples:
-        | area       |
-        | navigation |
-        | content    |
-        | footer     |
-
-    Scenario Outline: Welsh Users are able to navigate to various areas of the page
-      Given the language is Welsh
-      Then there is a hidden link to quickly skip to the <area> part of the page
-
-      Examples:
-        | area       |
-        | navigation |
-        | content    |
-        | footer     |
-
+    @future_release @v3.1.0+ @not_mobile
     Scenario Outline: English Users can quickly navigate to various areas of the page
-      When I skip to the <area> part of the page
-      Then the URL will have linked me to the <area> part of the page
+      Then I can skip to the <area> area
 
       Examples:
         | area       |
@@ -51,10 +32,10 @@ Feature: Header component
         | content    |
         | footer     |
 
+    @future_release @v3.1.0+ @not_mobile
     Scenario Outline: Welsh Users can quickly navigate to various areas of the page
       Given the language is Welsh
-      When I skip to the <area> part of the page
-      Then the URL will have linked me to the <area> part of the page
+      Then I can skip to the <area> area
 
       Examples:
         | area       |
