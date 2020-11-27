@@ -5,14 +5,16 @@ Feature: Search components
   pre-defined text in the search field.
 
   Rule: Standard Search
-    Background: Given a Standard Search component is on the page
+    Background:
+      Given a Standard Search component is on the page
 
     Scenario: Search component is on the page without any value
       Then the search field is clear
       And I can search for "Anything"
 
   Rule: Search with value
-    Background: Given a Search With Value component is on the page
+    Background:
+      Given a Search With Value component is on the page
 
     Scenario: Search component is on the page with a pre-defined value
       Then the search field is filled with "Current search term"
