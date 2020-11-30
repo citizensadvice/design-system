@@ -12,6 +12,10 @@ module Helpers
       session.execute_script("return document.documentElement.outerHTML")
     end
 
+    def active_element
+      session.evaluate_script("document.activeElement")
+    end
+
     def before_content(selector)
       session.evaluate_script(
         <<~JS

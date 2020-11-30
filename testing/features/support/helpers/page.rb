@@ -31,6 +31,15 @@ module Helpers
       wait_for_new_url if firefox? && new_page
     end
 
+    def tab_quantity_for_skip_link(desired_area)
+      case desired_area
+      when :navigation; then 1
+      when :content;    then 2
+      when :footer;     then 3
+      else raise "Invalid Input argument for tabbing!"
+      end
+    end
+
     private
 
     def resize_page_to_fullsize

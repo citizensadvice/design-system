@@ -5,6 +5,10 @@ Feature: Header component
   - Change Language Between English and Welsh
   - Make a search
 
+  It also allows the user as per new WCAG Guidelines to skip the top part
+  of the page and move straight to the Navigation/Content/Footer by using
+  their "Tab" key on the keyboard
+
   Rule: A Standard Header
     Background:
       Given a Standard Header component is on the page
@@ -17,3 +21,24 @@ Feature: Header component
 
     Scenario: Header has a search option
       Then I am able to search for "Anything"
+
+    @future_release @v3.1.0+ @not_mobile
+    Scenario Outline: English Users can quickly navigate to various areas of the page
+      Then I am able to skip to the <area> part of the page
+
+      Examples:
+        | area       |
+        | navigation |
+        | content    |
+        | footer     |
+
+    @future_release @v3.1.0+ @not_mobile
+    Scenario Outline: Welsh Users can quickly navigate to various areas of the page
+      Given the language is Welsh
+      Then I am able to skip to the <area> part of the page
+
+      Examples:
+        | area       |
+        | navigation |
+        | content    |
+        | footer     |
