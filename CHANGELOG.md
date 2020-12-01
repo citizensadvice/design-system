@@ -1,3 +1,7 @@
+**Bugfixes:**
+
+- Buttons: Limit transition to just the `background` property to avoid unwanted transition animations (NP-1372)
+
 ## <sub>v3.2.0-alpha.1</sub>
 
 #### _Nov. 27, 2020_
