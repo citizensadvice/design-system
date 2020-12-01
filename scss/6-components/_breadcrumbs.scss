@@ -7,6 +7,10 @@
   display: inline-block;
 }
 
+.cads-breadcrumb {
+  display: inline-block;
+}
+
 .cads-breadcrumbs {
   @include cads-restrict-content-width();
 
