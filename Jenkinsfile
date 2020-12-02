@@ -146,19 +146,16 @@ def pipeline() {
     }
   }
 
-  stage('Grid Tests') {
-    parallel define_grid_tests()
-  }
-
   if (isRelease) {
     stage('Regression Tests') {
       parallel define_regression_tests()
     }
+  } else {
+    stage('Grid Tests') {
+      parallel define_grid_tests()
+    }
   }
-
 } //end pipeline
-
-
 
 def slackNotifyReleaseOnly(Closure body) {
   if (!isRelease) {
