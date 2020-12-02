@@ -8,33 +8,30 @@
 }
 
 /** @define breadcrumb */
-
 .cads-breadcrumb {
   display: inline-block;
 }
 
 /** @define breadcrumbs */
 .cads-breadcrumbs {
-  @include cads-restrict-content-width();
-
   border-bottom: $cads-border-width-small solid $cads-language__border_colour;
   margin-bottom: $cads-spacing-5;
-  padding: $cads-spacing-3 0 $cads-spacing-3 $cads-spacing-4;
+  padding: $cads-spacing-3 0 $cads-spacing-3;
 
-  &-full-width {
+  &__list {
+    margin: 0 auto;
+    padding: 0;
+
+    @include cads-restrict-content-width();
+
     @each $breakpoint in map-keys($cads-breakpoints) {
       $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
 
       @include cads-media-breakpoint-up($breakpoint) {
-        padding: $cads-spacing-3 0 $cads-spacing-3 $gutter;
+        padding-left: $gutter;
         padding-right: $gutter;
       }
     }
-  }
-
-  &__list {
-    margin: 0;
-    padding: 0;
   }
 
   &__crumb {

@@ -1,8 +1,7 @@
 -# Default type to collapse if none is provided
 - type = breadcrumbs.fetch("type", "collapse")
-- full_width = breadcrumbs.fetch("full_width", false) ? "cads-breadcrumbs-full-width" : ""
 
-%nav{ class: "cads-breadcrumbs #{full_width} cads-breadcrumbs--#{type}" }
+%nav{ class: "cads-breadcrumbs cads-breadcrumbs--#{type}" }
   %ul.cads-breadcrumbs__list
     %li.cads-breadcrumbs__crumb
       %a.cads-breadcrumb{ href: "/" }= t("cads.breadcrumbs.home")

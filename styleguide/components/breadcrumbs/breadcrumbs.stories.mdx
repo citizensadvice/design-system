@@ -3,7 +3,6 @@ import { translate } from '../../../scripts/story-helpers';
 
 import templateDefault from './_default.html.haml';
 import templateNoCollapse from './_no-collapse.html.haml';
-import templateFullWidth from './_full_width.html.haml';
 
 <Meta
   title="Components/Breadcrumbs"
@@ -14,21 +13,7 @@ import templateFullWidth from './_full_width.html.haml';
 
 Breadcrumbs are used at the top of pages to provide navigation and location context. There are two variants.
 
-## Full width
-
-When using breadcrumbs at the top of a page, specifcy `full_width: true` inside the `breadcrumbs` locals hash. See sample pages
-for an example of usage.
-
-This variant will responsively scale it's padding so that breadcrumbs align with site content.
-
-<Preview>
-  <Story
-    name="Breadcrumbs (full width)"
-    parameters={{ docs: { source: { code: templateFullWidth.raw } } }}
-  >
-    {(_, options) => translate(templateFullWidth, options)}
-  </Story>
-</Preview>
+The breadcrumbs component should be used outside of the grid, at the same levels as headers and site navigation.
 
 ## Default (collapse)
 
