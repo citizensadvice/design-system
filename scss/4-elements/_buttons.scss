@@ -8,7 +8,7 @@
 $button-shadow-size: 4px;
 
 @mixin cads-button-defaults() {
-  @include cads-transition-animation(background, box-shadow, border-color);
+  @include cads-transition-animation(background);
 
   -webkit-appearance: none;
   box-sizing: border-box;
