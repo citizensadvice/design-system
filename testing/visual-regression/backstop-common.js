@@ -132,6 +132,11 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-search'],
       },
       {
+        label: 'Components/Breadcrumbs/SiteWide',
+        url: storyUrlFor('components-breadcrumbs--breadcrumbs-site-wide'),
+        selectors: ['.cads-breadcrumbs-wrapper'],
+      },
+      {
         label: 'Components/Breadcrumbs/Default',
         url: storyUrlFor('components-breadcrumbs--breadcrumbs-default'),
         selectors: ['.cads-breadcrumbs'],
