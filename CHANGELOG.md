@@ -1,12 +1,14 @@
 **Bugfixes:**
 
 - Buttons: Limit transition to just the `background` property to avoid unwanted transition animations (NP-1372)
+- Breadcrumbs: add `display: inline-block` to individual crumbs. Fixes additional space after each breadcrumb (NP-1186)
+- Breadcrumbs: Remove redundant `title` attribute, duplicated link text (NP-1277)
 
 ## <sub>v3.2.0-alpha.1</sub>
 
 #### _Nov. 27, 2020_
 
-**New**
+**New:**
 
 - Targeted content: Now uses accesible disclosure pattern instead of `details` and `summary`
 
