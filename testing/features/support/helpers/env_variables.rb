@@ -59,7 +59,7 @@ module Helpers
         "http://ca-styleguide:6006"
       else
         "https://citizensadvice.github.io/design-system"
-      end 
+      end
     end
 
     # Example: design-system/master_ad4b223
