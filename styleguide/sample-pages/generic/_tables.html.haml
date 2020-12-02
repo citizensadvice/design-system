@@ -1,9 +1,6 @@
 = render partial: "@citizensadvice/design-system/haml/header", local: header
 = render partial: "@citizensadvice/design-system/haml/navigation"
-.cads-grid-container
-  .cads-grid-row
-    .cads-grid-col-12
-      = render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: {breadcrumbs: {"breadcrumb_links" => [{"url" => "/link", "title" => "Tables"}]}}
+= render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: {breadcrumbs: {"full_width" => true, "breadcrumb_links" => [{"url" => "/link", "title" => "Tables"}]}}
 %main.cads-page-content
   .cads-grid-container
     .cads-grid-row
