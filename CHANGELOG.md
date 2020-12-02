@@ -1,3 +1,7 @@
+**New**
+
+- Breadcrumbs: added `.cads-breadcrump-wrapper` to be used when breadcrumbs are used outside of the grid. (NP-1188)
+
 **Bugfixes:**
 
 - Buttons: Limit transition to just the `background` property to avoid unwanted transition animations (NP-1372)

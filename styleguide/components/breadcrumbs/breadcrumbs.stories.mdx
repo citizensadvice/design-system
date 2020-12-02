@@ -3,6 +3,7 @@ import { translate } from '../../../scripts/story-helpers';
 
 import templateDefault from './_default.html.haml';
 import templateNoCollapse from './_no-collapse.html.haml';
+import templateSiteWide from './_site_wide.html.haml';
 
 <Meta
   title="Components/Breadcrumbs"
@@ -15,7 +16,7 @@ Breadcrumbs show users the current location on the website and enable them to qu
 
 ## When to use
 
-Use breadcrumbs when a page is located in a hierarchy of at least two levels. 
+Use breadcrumbs when a page is located in a hierarchy of at least two levels.
 
 ## When not to use
 
@@ -37,23 +38,35 @@ On the small breakpoint, breadcrumbs show the previous parent level as a link by
   </Story>
 </Preview>
 
-> Note: the breadcrumbs component on the small breakpoint is currently experimental because more research is needed to validate it. 
+> Note: the breadcrumbs component on the small breakpoint is currently experimental because more research is needed to validate it.
 
 ## Accessibility
 
 ### Keyboard
 
-Users should be able to navigate between all the links in the breadcrumbs by pressing `Tab` and `Shift-Tab` and trigger a link by pressing `Enter` while the link is focussed. 
+Users should be able to navigate between all the links in the breadcrumbs by pressing `Tab` and `Shift-Tab` and trigger a link by pressing `Enter` while the link is focussed.
 
 ### Screen reader
 
-Make sure your breadcrumb items reflect the page titles exactly for screen readers. 
+Make sure your breadcrumb items reflect the page titles exactly for screen readers.
 
+## Site level breadcrumbs
+
+When breadcrumbs are displayed across the top of site content they must be wrapped in a `.cads-breadcrumb-wrapper`, this
+will correctly style and align the breadcrubs with site content. See sample pages for details.
+
+<Preview>
+  <Story
+    name="Breadcrumbs (site wide)"
+    parameters={{ docs: { source: { code: templateSiteWide.raw } } }}
+  >
+    {(_, options) => translate(templateSiteWide, options)}
+  </Story>
+</Preview>
 
 ## Variation – No collapse
 
-To prevent the default collapse behaviour on the small breakpoint, pass `"type" => "no-collapse"`. For example: in search results. 
-
+To prevent the default collapse behaviour on the small breakpoint, pass `"type" => "no-collapse"`. For example: in search results.
 
 <Preview>
   <Story
