@@ -12,9 +12,43 @@ import templateSiteWide from './_site_wide.html.haml';
 
 # Breadcrumbs
 
-Breadcrumbs are used at the top of pages to provide navigation and location context. There are two variants.
+Breadcrumbs show users the current location on the website and enable them to quickly move up to a parent level.
 
-The breadcrumbs component should be used outside of the grid, at the same levels as headers and site navigation.
+## When to use
+
+Use breadcrumbs when a page is located in a hierarchy of at least two levels.
+
+## When not to use
+
+Do not use breadcrumbs on a website with a flat hierarchy or to show the journey through a transaction. If a page is taking users through a multistep process, use the "[Step-by-step Sidebar Navigation](https://www.figma.com/file/J9qfbS9n1pUM2dpRQnTXUD/Design-system-2.0?node-id=813%3A132)" (or consider if a progress indicator is needed) instead.
+
+## How it works
+
+Breadcrumbs should be placed on the top left of each page and below "Global Navigation". They should start with a link to the home page and end with the current page title. Page titles of parent pages should be linked; the current should not have a link.
+
+On the small breakpoint, breadcrumbs show the previous parent level as a link by default. You can explicity set this behaviour by passing in
+`collaspe` as the type.
+
+<Preview>
+  <Story
+    name="Breadcrumbs (default)"
+    parameters={{ docs: { source: { code: templateDefault.raw } } }}
+  >
+    {(_, options) => translate(templateDefault, options)}
+  </Story>
+</Preview>
+
+> Note: the breadcrumbs component on the small breakpoint is currently experimental because more research is needed to validate it.
+
+## Accessibility
+
+### Keyboard
+
+Users should be able to navigate between all the links in the breadcrumbs by pressing `Tab` and `Shift-Tab` and trigger a link by pressing `Enter` while the link is focussed.
+
+### Screen reader
+
+Make sure your breadcrumb items reflect the page titles exactly for screen readers.
 
 ## Site level breadcrumbs
 
@@ -30,23 +64,9 @@ will correctly style and align the breadcrubs with site content. See sample page
   </Story>
 </Preview>
 
-## Default (collapse)
+## Variation – No collapse
 
-By default they will collapse to the parent page on mobile. You can explicity set this behaviour by passing in
-`collaspe` as the type.
-
-<Preview>
-  <Story
-    name="Breadcrumbs (default)"
-    parameters={{ docs: { source: { code: templateDefault.raw } } }}
-  >
-    {(_, options) => translate(templateDefault, options)}
-  </Story>
-</Preview>
-
-## No collapse
-
-You can prevent the default collapse behaviour on mobile when you don't want this to happen, eg in search results.
+To prevent the default collapse behaviour on the small breakpoint, pass `"type" => "no-collapse"`. For example: in search results.
 
 <Preview>
   <Story
