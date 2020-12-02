@@ -13,13 +13,16 @@ module Search
     end
 
     def clear_field
-      search_field.value.length.times do
-        search_field.send_keys [:backspace]
-      end
+      search_field.send_keys [:command, "a"]
+
+      search_field.send_keys [:control, "a"]
+
+      search_field.send_keys [:backspace]
     end
 
     def search_for(term)
       clear_field
+
       search_field.send_keys(term)
     end
   end
