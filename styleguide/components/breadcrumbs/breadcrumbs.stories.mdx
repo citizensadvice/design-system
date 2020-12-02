@@ -3,6 +3,7 @@ import { translate } from '../../../scripts/story-helpers';
 
 import templateDefault from './_default.html.haml';
 import templateNoCollapse from './_no-collapse.html.haml';
+import templateSiteWide from './_site_wide.html.haml';
 
 <Meta
   title="Components/Breadcrumbs"
@@ -14,6 +15,20 @@ import templateNoCollapse from './_no-collapse.html.haml';
 Breadcrumbs are used at the top of pages to provide navigation and location context. There are two variants.
 
 The breadcrumbs component should be used outside of the grid, at the same levels as headers and site navigation.
+
+## Site level breadcrumbs
+
+When breadcrumbs are displayed across the top of site content they must be wrapped in a `.cads-breadcrumb-wrapper`, this
+will correctly style and align the breadcrubs with site content. See sample pages for details.
+
+<Preview>
+  <Story
+    name="Breadcrumbs (site wide)"
+    parameters={{ docs: { source: { code: templateSiteWide.raw } } }}
+  >
+    {(_, options) => translate(templateSiteWide, options)}
+  </Story>
+</Preview>
 
 ## Default (collapse)
 

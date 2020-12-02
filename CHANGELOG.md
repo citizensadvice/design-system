@@ -1,6 +1,6 @@
 **New**
 
-- Breadcrumbs: can now be used as a top level component. Content is aligned with site, border stretches full width of page (NP-1188)
+- Breadcrumbs: added `.cads-breadcrump-wrapper` to be used when breadcrumbs are used outside of the grid. (NP-1188)
 
 **Bugfixes:**
 

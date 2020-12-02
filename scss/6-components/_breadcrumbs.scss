@@ -14,24 +14,15 @@
 
 /** @define breadcrumbs */
 .cads-breadcrumbs {
+  @include cads-restrict-content-width();
+
+  padding: $cads-spacing-3 0 $cads-spacing-3 $cads-spacing-4;
   border-bottom: $cads-border-width-small solid $cads-language__border_colour;
   margin-bottom: $cads-spacing-5;
-  padding: $cads-spacing-3 0 $cads-spacing-3;
 
   &__list {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-
-    @include cads-restrict-content-width();
-
-    @each $breakpoint in map-keys($cads-breakpoints) {
-      $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
-
-      @include cads-media-breakpoint-up($breakpoint) {
-        padding-left: $gutter;
-        padding-right: $gutter;
-      }
-    }
   }
 
   &__crumb {
@@ -97,6 +88,29 @@
 
     &::before {
       display: none;
+    }
+  }
+}
+
+/** @define breadcrumbs-wrapper; weak */
+.cads-breadcrumbs-wrapper {
+  margin-bottom: $cads-spacing-5;
+  border-bottom: $cads-border-width-small solid $cads-language__border_colour;
+
+  .cads-breadcrumbs {
+    @include cads-restrict-content-width();
+
+    margin: 0 auto;
+    padding: $cads-spacing-3 0;
+    border-bottom: none;
+
+    @each $breakpoint in map-keys($cads-breakpoints) {
+      $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+
+      @include cads-media-breakpoint-up($breakpoint) {
+        padding-left: $gutter;
+        padding-right: $gutter;
+      }
     }
   }
 }
