@@ -91,3 +91,24 @@
     }
   }
 }
+
+/** @define breadcrumbs-wrapper; weak */
+.cads-breadcrumbs-wrapper {
+  margin-bottom: $cads-spacing-5;
+  border-bottom: $cads-border-width-small solid $cads-language__border_colour;
+
+  .cads-breadcrumbs {
+    margin: 0 auto;
+    padding: $cads-spacing-3 0;
+    border-bottom: none;
+
+    @each $breakpoint in map-keys($cads-breakpoints) {
+      $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+
+      @include cads-media-breakpoint-up($breakpoint) {
+        padding-left: $gutter;
+        padding-right: $gutter;
+      }
+    }
+  }
+}
