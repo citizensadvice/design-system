@@ -9,12 +9,12 @@ import iconBadsvgExample from './images/icon-svg-bad-example.png';
 
 # Icons
 
-Icons should be informative and recognisable. They should only be used in a purposeful manner to maximise comprehension when you need to call attention to a particular action. 
+Icons should be informative and recognisable. They should only be used in a purposeful manner to maximise comprehension when you need to call attention to a particular action.
 Icons should be used in combination with a meaningful label or supporting text whenever possible. Avoid `aria-labels` if you are rendering the icon with visible text to prevent accessibility label duplication.
 
 ## Colour
 
-Icons should always be in a single, solid colour and need to meet the same colour contrast ratio as Typography (4.5:1). The colour of the icon should reflect the importance of the icon’s action which should always be to help guide a user. For more information on colour, see the [Colour guidelines](/design-system/?path=/story/foundations-colours--page) . 
+Icons should always be in a single, solid colour and need to meet the same colour contrast ratio as Typography (4.5:1). The colour of the icon should reflect the importance of the icon’s action which should always be to help guide a user. For more information on colour, see the [Colour guidelines](/design-system/?path=/story/foundations-colours--page) .
 
 ## Sizing
 
@@ -96,29 +96,29 @@ Do not attempt to re-size the icon, as they are designed specifically for a cert
 
 When an icon is right next to the text, they should be centre-aligned and have 4px spacing in-between.
 
-<img src={iconAlignmentExample} style={{width: '350px'}} />
+<img src={iconAlignmentExample} style={{ width: '350px' }} />
 
 ## Contribute
 
 ### Considerations before creating a new icon
 
 Before trying to create a new icon, consider if:
+
 - The new icon serves a need(s). If in doubt, you probably don’t need it
 - The new icon would be used multiple times throughout the products
 - The new icon has a clear meaning
 
-Propose the new icons to the design community and discuss details and requirements. This will help us to have a transparent process for creating new assets, maintaining a minimal and high quality icon set in our Design System. 
+Propose the new icons to the design community and discuss details and requirements. This will help us to have a transparent process for creating new assets, maintaining a minimal and high quality icon set in our Design System.
 
 ### Clarity (pixel-perfect)
 
 In order to have the best clarity especially for lower resolution screens, make sure the icon is always pixel-perfect.
 
-<img src={iconGoodpixelExample} style={{width: '350px'}} />  
+<img src={iconGoodpixelExample} style={{ width: '350px' }} />{' '}
 
-👍 Do: an icon is on pixel and pixel-perfect.  
+👍 Do: an icon is on pixel and pixel-perfect.
 
-
-<img src={iconBadpixelExample} style={{width: '350px'}} />  
+<img src={iconBadpixelExample} style={{ width: '350px' }} />{' '}
 
 👎 Don't: an icon is off pixel.
 
@@ -130,11 +130,11 @@ Use the guideline artboards in the [Design System 2.0 Figma file](https://www.fi
 - The 16px icon should have 1px padding and the 24px icon should have 2px padding.
 - Set your workspace up from the start to snap to pixels without decimals.
 - Icons should be at whole pixels. No decimals are allowed in x and y coordinates or width and height fields.
-- Each artboard and the artwork within it must be aligned to the pixel grid. 
-- The icon should be on the top of the boundary box layer in the artboard. 
+- Each artboard and the artwork within it must be aligned to the pixel grid.
+- The icon should be on the top of the boundary box layer in the artboard.
 - All possible shapes and paths should be combined. This will allow us to have a good SVG setup when extracting icons.
 
-<img src={iconGoodsvgExample} style={{width: '200px'}} />  
+<img src={iconGoodsvgExample} style={{ width: '200px' }} />{' '}
 
 ```
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,9 +143,9 @@ Use the guideline artboards in the [Design System 2.0 Figma file](https://www.fi
 </svg>
 ```
 
-👍 Do: all icon paths are combined. 
+👍 Do: all icon paths are combined.
 
-<img src={iconBadsvgExample} style={{width: '200px'}} />  
+<img src={iconBadsvgExample} style={{ width: '200px' }} />{' '}
 
 ```
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
