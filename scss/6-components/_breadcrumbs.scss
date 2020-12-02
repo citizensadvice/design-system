@@ -98,8 +98,6 @@
   border-bottom: $cads-border-width-small solid $cads-language__border_colour;
 
   .cads-breadcrumbs {
-    @include cads-restrict-content-width();
-
     margin: 0 auto;
     padding: $cads-spacing-3 0;
     border-bottom: none;
