@@ -55,7 +55,11 @@ module Helpers
     end
 
     def base_url
-      ENV.fetch("APP_URL", "https://citizensadvice.github.io/design-system")
+      if ENV["APP_ENVIRONMENT"] == "local"
+        "http://ca-styleguide:6006"
+      else
+        "https://citizensadvice.github.io/design-system"
+      end 
     end
 
     # Example: design-system/master_ad4b223
