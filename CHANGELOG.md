@@ -1,3 +1,7 @@
+## <sub>v3.2.0-alpha.2</sub>
+
+#### _Dec. 2, 2020_
+
 **New**
 
 - Breadcrumbs: added `.cads-breadcrump-wrapper` to be used when breadcrumbs are used outside of the grid. (NP-1188)
