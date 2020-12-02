@@ -12,16 +12,8 @@ module Search
       has_search_form?(wait: 5)
     end
 
-    def clear_field
-      search_field.send_keys [:command, "a"]
-
-      search_field.send_keys [:control, "a"]
-
-      search_field.send_keys [:backspace]
-    end
-
     def search_for(term)
-      clear_field
+      search_field.send_keys [:shift, :home, :backspace]
 
       search_field.send_keys(term)
     end

@@ -22,6 +22,4 @@ end
 
 Then("the search field has a pre-defined term") do
   expect(@component.search_field.value).not_to be_empty
-
-  expect(@component).to have_search_button
 end
