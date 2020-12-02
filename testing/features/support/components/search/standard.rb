@@ -17,5 +17,10 @@ module Search
         search_field.send_keys [:backspace]
       end
     end
+
+    def search_for(term)
+      clear_field
+      search_field.send_keys(term)
+    end
   end
 end

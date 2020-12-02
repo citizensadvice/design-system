@@ -13,7 +13,7 @@ Then("the search field is clear") do
 end
 
 Then("the user is able to search for {string}") do |search_term|
-  @component.search_field.send_keys(search_term)
+  @component.search_for(search_term)
 
   expect(@component.search_field.value).to eq(search_term)
 
@@ -24,6 +24,4 @@ Then("the search field has a pre-defined term") do
   expect(@component.search_field.value).not_to be_empty
 
   expect(@component).to have_search_button
-
-  @component.clear_field
 end
