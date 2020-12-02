@@ -1,3 +1,7 @@
+**New**
+
+- Breadcrumbs: can now be used as a top level component. Content is aligned with site, border stretches full width of page (NP-1188)
+
 **Bugfixes:**
 
 - Buttons: Limit transition to just the `background` property to avoid unwanted transition animations (NP-1372)
