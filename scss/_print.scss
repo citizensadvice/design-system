@@ -16,15 +16,6 @@
     border-bottom: none !important;
   }
 
-  .cads-targeted-content {
-    .cads-icon_minus,
-    .cads-icon_plus,
-    &__close-button,
-    .cads-separator {
-      display: none !important;
-    }
-  }
-
   @page {
     /* stylelint-disable */
     size: A4; /* DIN A4 standard, Europe */

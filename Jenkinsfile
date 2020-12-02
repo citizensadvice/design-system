@@ -233,12 +233,12 @@ def define_grid_tests() {
           sh "BROWSER=${browser} bin/docker/grid_tests"
           archiveArtifacts(
             [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
-              artifacts: "testing/artifacts/${browser}/grid/screenshots/?*.png, " +
-                         "testing/artifacts/${browser}/grid/reports/report.html, " +
-                         "testing/artifacts/${browser}/grid/reports/?*.xml, " +
-                         "testing/artifacts/${browser}/grid/reports/report.json, " +
-                         "testing/artifacts/${browser}/grid/html_pages/?*.html, " +
-                         "testing/artifacts/${browser}/grid/logs/?*.log",
+              artifacts: "testing/artifacts/${browser}/other/screenshots/?*.png, " +
+                         "testing/artifacts/${browser}/other/reports/report.html, " +
+                         "testing/artifacts/${browser}/other/reports/?*.xml, " +
+                         "testing/artifacts/${browser}/other/reports/report.json, " +
+                         "testing/artifacts/${browser}/other/html_pages/?*.html, " +
+                         "testing/artifacts/${browser}/other/logs/?*.log",
               allowEmptyArchive: true,
               caseSensitive: false
             ]

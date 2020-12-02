@@ -14,7 +14,7 @@ en:
     header:
       search_mobile: Open search
       skip_to_content: Skip to content
-      skip_to_nav: Skip to navigation
+      skip_to_navigation: Skip to navigation
       skip_to_footer: Skip to footer
     footer:
       navigation_title: Footer Navigation
@@ -26,7 +26,9 @@ en:
       submit_title: Submit search query
       submit_label: Search
     targeted_content:
-      close_button_aria: Collapse %{title}
+      descriptive_label_show: show this section
+      descriptive_label_hide: hide this section
+      close_label: Close
     shared:
       ui:
         close: Close

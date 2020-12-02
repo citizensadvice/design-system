@@ -7,6 +7,12 @@
   display: inline-block;
 }
 
+/** @define breadcrumb */
+.cads-breadcrumb {
+  display: inline-block;
+}
+
+/** @define breadcrumbs */
 .cads-breadcrumbs {
   @include cads-restrict-content-width();
 
@@ -65,7 +71,10 @@
   }
 }
 
-.cads-breadcrumbs--no-collapse.cads-breadcrumbs {
+///
+// Variant: No collapse
+///
+.cads-breadcrumbs--no-collapse {
   .cads-breadcrumbs__crumb {
     display: inline-block;
   }

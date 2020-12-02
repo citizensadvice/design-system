@@ -120,7 +120,8 @@
     "root_path" => "#",
     "links" => [{ "title" => "AdviserNet", "url" => "?advisernet" }, { "title" => "Cymraeg", "url" => "?lang=cy" }],
     "sign_in_out" => { "title" => "Sign out", "url" => "/sign-out/out" },
-    "search_action_url" => "/search"
+    "search_action_url" => "/search",
+    "homepage_url" => "/"
   },
 
   "alt_language" => {
@@ -185,7 +186,7 @@
 
   "footer" => {
     "feedback_url" => "https://www.research.net/r/J8PLH2H",
-
+    "homepage_url" => "/",
     "links" => {
       "column_one" => {
         "title" => "Advice",
@@ -289,7 +290,7 @@
 
   "page_review_date" => "21 September 2019",
 
-  "targetContent" => {
+  "targeted_content" => {
     "id" => "target-content-123",
     "title" => "If you are a citizen of a country outside the EU, EEA or Switzerland",
     "body" => <<~HTML
