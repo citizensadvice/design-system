@@ -1,3 +1,7 @@
+**Bugfixes:**
+
+- Targeted content: Design updates to targeted content button styles
+
 ## <sub>v3.2.0</sub>
 
 #### _Dec. 3, 2020_
