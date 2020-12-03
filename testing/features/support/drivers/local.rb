@@ -5,7 +5,7 @@ module Drivers
     include Helpers::Drivers
 
     def register
-      ::CaTesting::Drivers::Local.register
+      ::CaTesting::Drivers::Local.new(browser).register
     end
   end
 end
