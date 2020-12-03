@@ -1,32 +1,19 @@
-## <sub>v3.2.0-alpha.2</sub>
+## <sub>v3.2.0</sub>
 
-#### _Dec. 2, 2020_
+#### _Dec. 3, 2020_
 
 **New**
 
-- Breadcrumbs: added `.cads-breadcrump-wrapper` to be used when breadcrumbs are used outside of the grid. (NP-1188)
+- 🍞 Breadcrumbs: added `.cads-breadcrumb-wrapper` to be used when breadcrumbs are used outside of the grid. 
+- 👞 Footer: Logo link can be set by haml template locals
+- 👤 Header: Logo link can be set by haml template locals(NP-1188)
+- 🎯 Targeted content: Now uses accesible disclosure pattern instead of `details` and `summary`
 
 **Bugfixes:**
 
 - Buttons: Limit transition to just the `background` property to avoid unwanted transition animations (NP-1372)
 - Breadcrumbs: add `display: inline-block` to individual crumbs. Fixes additional space after each breadcrumb (NP-1186)
 - Breadcrumbs: Remove redundant `title` attribute, duplicated link text (NP-1277)
-
-## <sub>v3.2.0-alpha.1</sub>
-
-#### _Nov. 27, 2020_
-
-**New:**
-
-- Targeted content: Now uses accesible disclosure pattern instead of `details` and `summary`
-
-## <sub>v3.2.0-alpha.0</sub>
-
-#### _Nov. 26, 2020_
-
-**New**
-- Footer: Logo link can be set by haml template locals
-- Header: Logo link can be set by haml template locals
 
 ## <sub>v3.1.0</sub>
 
