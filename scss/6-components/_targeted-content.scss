@@ -10,7 +10,7 @@
     display: block;
     color: $cads-language__brand-primary;
     background: $cads-palette__white;
-    border: solid $cads-border-width-small $cads-language__brand-primary;
+    border: 1px solid $cads-language__link-colour;
     padding: $cads-spacing-3 $cads-spacing-4;
     margin: 0;
     box-shadow: none;
@@ -18,8 +18,7 @@
   }
 
   .cads-targeted-content__content {
-    border: solid $cads-border-width-small $cads-language__brand-primary;
-    border-bottom-width: $cads-border-width-small;
+    border: 1px solid $cads-language__link-colour;
     border-top: none;
     padding: $cads-spacing-3 $cads-spacing-4;
   }
@@ -50,15 +49,20 @@
       width: 100%;
       padding: $cads-spacing-3 $cads-spacing-4;
       text-align: left;
+      border: 1px solid $cads-language__link-colour;
 
       @include cads-media-breakpoint-down(sm) {
         align-items: baseline;
       }
 
-      @include cads-interactive-element();
-
       &:hover {
         background-color: $cads-language__hover-background-colour;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $cads-language__focus-border-colour;
+        box-shadow: 0 0 0 2px $cads-language__focus-colour;
       }
     }
 
