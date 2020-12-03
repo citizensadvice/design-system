@@ -22,10 +22,10 @@ combinations are supported.
 
 ## Browsers
 
-- Chrome 77-85 - **NB: Version 82 doesn't exist!**
-- Firefox 60-80 - With `geckodriver 0.26.0` and above
-- Edge 81/83/84 - _NB: These are known as "Chrome" Edge in some locations_
-- Desktop Safari 12 - **Always use OSX Mojave**
+- Chrome 77+ - **NB: Version 82 doesn't exist!**
+- Firefox 62+ - With `geckodriver 0.26.0` and above
+- Edge 83+ - _NB: These are known as "Chrome" Edge in some locations_
+- Mac Safari 12 - **Always use OSX Mojave**
 - iOS Safari 11-13 - **Tied to iOS Versions**
 - IE 11 - **See below for more detailed info**
 
