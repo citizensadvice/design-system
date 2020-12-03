@@ -2,27 +2,17 @@
 
 #### _Dec. 3, 2020_
 
-**Bugfixes:**
+**Bugfixes**
 
 - Buttons: Limit transition to just the `background` property to avoid unwanted transition animations (NP-1372)
 - Breadcrumbs: add `display: inline-block` to individual crumbs. Fixes additional space after each breadcrumb (NP-1186)
 - Breadcrumbs: Remove redundant `title` attribute, duplicated link text (NP-1277)
 
-## <sub>v3.2.0-alpha.1</sub>
-
-#### _Nov. 27, 2020_
-
-**New:**
-
-- Targeted content: Now uses accesible disclosure pattern instead of `details` and `summary`
-
-## <sub>v3.2.0-alpha.0</sub>
-
-#### _Nov. 26, 2020_
-
 **New**
-- Footer: Logo link can be set by haml template locals
-- Header: Logo link can be set by haml template locals
+
+- :dart: Targeted content: Now uses accesible disclosure pattern instead of `details` and `summary`
+- :feet: Footer: Logo link can be set by haml template locals
+- :no_mouth: Header: Logo link can be set by haml template locals
 
 ## <sub>v3.1.0</sub>
 
