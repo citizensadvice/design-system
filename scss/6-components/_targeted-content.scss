@@ -10,7 +10,7 @@
     display: block;
     color: $cads-language__brand-primary;
     background: $cads-palette__white;
-    border: 1px solid $cads-language__link-colour;
+    border: $cads-border-width-small solid $cads-language__link-colour;
     padding: $cads-spacing-3 $cads-spacing-4;
     margin: 0;
     box-shadow: none;
@@ -18,7 +18,7 @@
   }
 
   .cads-targeted-content__content {
-    border: 1px solid $cads-language__link-colour;
+    border: $cads-border-width-small solid $cads-language__link-colour;
     border-top: none;
     padding: $cads-spacing-3 $cads-spacing-4;
   }
@@ -50,7 +50,7 @@
       width: 100%;
       padding: $cads-spacing-3 $cads-spacing-4;
       text-align: left;
-      border: 1px solid $cads-language__link-colour;
+      border: $cads-border-width-small solid $cads-language__link-colour;
 
       @include cads-media-breakpoint-down(sm) {
         align-items: baseline;
