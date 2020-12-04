@@ -6,11 +6,11 @@
 %footer#cads-footer.cads-footer
   .cads-grid-container
     - if feedback_url
-        .cads-grid-row
-          .cads-grid-col
-            %p.cads-footer__feedback
-              %a.cads-footer__hyperlink{ href: feedback_url, target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
-              %span.cads-footer__feedback-icon.cads-icon_external-link
+      .cads-grid-row
+        .cads-grid-col
+          %p.cads-footer__feedback
+            %a.cads-footer__hyperlink{ href: feedback_url, target: "_blank", rel: "noopener" }= t("cads.footer.website_feedback")
+            %span.cads-footer__feedback-icon.cads-icon_external-link
     %nav{"aria-label": t("cads.footer.navigation_title") }
       .cads-grid-row
         - %w[column_one column_two column_three column_four].each do |column|
