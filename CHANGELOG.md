@@ -1,3 +1,7 @@
+**Breaking changes**
+
+- 💥 Remove related content styles from the design system (NP-1152)
+
 ## <sub>v3.2.0</sub>
 
 #### _Dec. 3, 2020_
