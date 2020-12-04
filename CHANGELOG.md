@@ -6,6 +6,7 @@
 **Bugfixes**
 
 - 🤕 Header: Search reveal button now has correct focus highlight. (NP-1330)
+- 🏈 Footer: Use the grid to control footer alignment. (NP-1318)
 
 ## <sub>v3.2.0</sub>
 
