@@ -147,8 +147,12 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-breadcrumbs'],
       },
       {
+        label: 'Components/Notice banner',
+        url: storyUrlFor('components-notice-banner--example'),
+      },
+      {
         label: 'Components/Page review',
-        url: storyUrlFor('components-page-review--page-review'),
+        url: storyUrlFor('components-page-review--example'),
         viewports: [{ label: 'page-review', width: 600, height: 100 }],
       },
 
@@ -265,13 +269,6 @@ module.exports = function backstopCommon(baseUrl) {
         removeSelectors: ['.cads-styleguide-usage', 'h1'],
         keyPressSelectors: [{ selector: '.cads-nav-link', keyPress: 'Tab' }],
         viewports: [{ label: 'navigation', width: 800, height: 200 }],
-      },
-      {
-        label: '3_Components_NOTICE_BANNER',
-        url: `${baseUrl}/iframe.html?id=3-components--notice-banner`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
       },
       {
         label: '3_Components_TABLES',

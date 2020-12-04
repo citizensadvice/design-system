@@ -13,7 +13,6 @@ import wrapper from './component-wrapper';
 // Haml setup
 // Import all the templates...
 import tNavigation from '../haml/_navigation.html.haml';
-import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tTables from '../haml/_table.html.haml';
 
@@ -89,8 +88,6 @@ export const navigation = () =>
     }
   );
 
-export const noticeBanner = () =>
-  renderHamlTemplate('Notice banner', tNoticeBanner, 'notice_banner');
 export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 
