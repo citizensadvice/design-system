@@ -41,14 +41,17 @@
     border: solid $cads-border-width-medium
       $cads-language__primary-button-colour;
 
-    &:hover {
+    &:hover,
+    &:active {
       color: $cads-language__primary-button-hover-colour;
       background-color: $cads-language__secondary-button-hover-colour;
     }
 
-    &:focus,
-    &:active {
+    &:focus {
+      outline: none;
       color: $cads-language__focus-text-colour;
+      border-color: $cads-language__focus-border-colour;
+      background-color: $cads-language__focus-colour;
     }
   }
 
