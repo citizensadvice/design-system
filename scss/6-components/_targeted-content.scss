@@ -61,9 +61,7 @@
       }
 
       &:focus {
-        outline: none;
-        border-color: $cads-language__focus-border-colour;
-        box-shadow: 0 0 0 2px $cads-language__focus-colour;
+        @include cads-interactive-focus();
       }
     }
 
