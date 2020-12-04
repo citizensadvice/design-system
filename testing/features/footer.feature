@@ -15,6 +15,7 @@ Feature: Footer component
       And a copyright notice is present
       And a company info is present
 
+    @not_mobile
     Scenario: Users can report a problem about the specific page they are on
       When I report a problem with this page
       Then I am presented with a form to report the issue about the page I am on
