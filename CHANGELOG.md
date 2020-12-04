@@ -2,13 +2,18 @@
 
 - 💥 Remove related content styles from the design system (NP-1152)
 
+
+**Bugfixes**
+
+- 🤕 Header: Search reveal button now has correct focus highlight. (NP-1330)
+
 ## <sub>v3.2.0</sub>
 
 #### _Dec. 3, 2020_
 
 **New**
 
-- 🍞 Breadcrumbs: added `.cads-breadcrumb-wrapper` to be used when breadcrumbs are used outside of the grid. 
+- 🍞 Breadcrumbs: added `.cads-breadcrumb-wrapper` to be used when breadcrumbs are used outside of the grid.
 - 👞 Footer: Logo link can be set by haml template locals
 - 👤 Header: Logo link can be set by haml template locals(NP-1188)
 - 🎯 Targeted content: Now uses accesible disclosure pattern instead of `details` and `summary`
