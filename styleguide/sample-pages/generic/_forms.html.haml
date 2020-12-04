@@ -39,21 +39,4 @@
           %button.cads-button.cads-button__primary{ "type" => "button" } Submit complaint
 
       .cads-grid-col-md-4
-        %aside.cads-related-content
-          %p.paragraph-s.section-title Related Content
-          %h3
-            %a{:href=> 'https://www.citizensadvice.org.uk'} Search and navigation tools
-          %ul
-            %li
-              %a{:href=> 'https://www.citizensadvice.org.uk'} Search
-            %li
-              %a{:href=> 'https://www.citizensadvice.org.uk'} A to Z of advice
-            %li
-              %a{:href=> 'https://www.citizensadvice.org.uk'} Finding information
-            %li
-              %a{:href=> 'https://www.citizensadvice.org.uk'} Search for your local Citizens Advice
-            %li
-              %a{:href=> 'https://www.citizensadvice.org.uk'} Browse our campaign pages
-            %li
-              %a{:href=> 'https://www.citizensadvice.org.uk'} Browse our research pages
 = render partial: "@citizensadvice/design-system/haml/footer", locals: { "root_path" => "#", "feedback_url" => footer["feedback_url"], "links" => footer["links"] }

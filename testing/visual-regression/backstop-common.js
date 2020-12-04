@@ -274,12 +274,6 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['#a11yComponentToTest'],
       },
       {
-        label: '3_Components_RELATED-CONTENT',
-        url: `${baseUrl}/iframe.html?id=3-components--related-content`,
-        readySelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
-      {
         label: '3_Components_TABLES',
         url: `${baseUrl}/iframe.html?id=3-components--tables`,
         readySelector: '#a11yComponentToTest',
