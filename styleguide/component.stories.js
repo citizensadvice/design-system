@@ -3,7 +3,6 @@
 // The styles
 import './styles.scss';
 
-import initTargetedContent from '../src/js/targeted-content';
 import initTables from '../src/js/tables';
 
 import GreedyNav from '../src/ts/greedy-nav';
@@ -11,15 +10,12 @@ import GreedyNav from '../src/ts/greedy-nav';
 // eslint-disable-next-line no-unused-vars
 import wrapper from './component-wrapper';
 
-import RelatedContent from './components/related-content';
-
 // Haml setup
 // Import all the templates...
 import tNavigation from '../haml/_navigation.html.haml';
 import tNoticeBanner from '../haml/_notice_banner.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tTables from '../haml/_table.html.haml';
-import tAdvisernetRelatedContent from '../haml/_related_content_advisernet.html.haml';
 
 // Haml rendering wrapper for convenience
 function renderHamlTemplate(
@@ -65,8 +61,6 @@ export default {
   ],
 };
 
-export const relatedContent = () => RelatedContent();
-
 export const navigation = () =>
   renderHamlTemplate(
     'Navigation',
@@ -102,15 +96,3 @@ export const contactDetails = () =>
 
 export const tables = () =>
   renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);
-
-export const advisernetRelatedContent = () =>
-  `<div class="cads-advisernet">
-    ${renderHamlTemplate(
-      'Advisernet Related Content',
-      tAdvisernetRelatedContent,
-      'related_content_advisernet',
-      '',
-      null,
-      () => initTargetedContent()
-    )}
-  </div>`;

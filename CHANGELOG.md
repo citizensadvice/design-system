@@ -1,3 +1,8 @@
+**Breaking changes**
+
+- 💥 Remove related content styles from the design system (NP-1152)
+
+
 **Bugfixes**
 
 - 🤕 Header: Search reveal button now has correct focus highlight. (NP-1330)
