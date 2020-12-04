@@ -7,7 +7,7 @@
   @include cads-typographic-scale-text-small();
 
   background-color: $cads-footer__background-colour;
-  padding: $cads-spacing-4;
+  padding: $cads-spacing-4 0;
 
   .cads-footer__section-title {
     @extend %cads-h4;
