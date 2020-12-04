@@ -310,5 +310,5 @@
     HTML
   },
 
-  "success_message" => "Thank you for your feedback",
+  "success_message" => "Thank you for your feedback"
 }
