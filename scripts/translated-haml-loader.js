@@ -10,7 +10,7 @@ const execNP = require('child_process').exec;
 
 const hamlScript = 'ruby ./scripts/haml.rb';
 
-const translate = (content, lang) => {
+function translate(content, lang) {
   return new Promise((resolve, reject) => {
     const process = execNP(
       `${hamlScript} --language ${lang}`,
@@ -23,7 +23,7 @@ const translate = (content, lang) => {
     process.stdin.write(content);
     process.stdin.end();
   });
-};
+}
 
 module.exports = function loader(content) {
   const callback = this.async();
