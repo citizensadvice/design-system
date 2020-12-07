@@ -2,9 +2,9 @@
 
 - 💥 Remove related content styles from the design system (NP-1152)
 
-
 **Bugfixes**
 
+- 🎯 Targeted content: Design updates to targeted content button styles
 - 🤕 Header: Search reveal button now has correct focus highlight. (NP-1330)
 - 🏈 Footer: Use the grid to control footer alignment. (NP-1318)
 
