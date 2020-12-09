@@ -2,9 +2,12 @@
 
 source "https://rubygems.org"
 
+gem "actionview", "~> 6.0"
 gem "haml", "~> 5.2"
+gem "rails-i18n", "~> 6.0"
 
 group :test do
+  gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v0.2"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v0.4.0"
   gem "cucumber", "~> 4.0"
   gem "dotenv"
@@ -17,6 +20,3 @@ group :test do
   gem "site_prism", "~> 3.7"
   gem "webdrivers"
 end
-
-gem "actionview", "~> 6.0"
-gem "rails-i18n", "~> 6.0"

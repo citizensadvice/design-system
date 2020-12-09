@@ -15,7 +15,7 @@ class Driver
     elsif browserstack?
       Drivers::Browserstack.new.register
     else
-      Drivers::Local.new.register
+      ::CaTesting::Drivers::Local.new(browser).register
     end
   end
 

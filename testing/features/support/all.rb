@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "ca_testing"
 require "capybara"
 require "capybara/dsl"
 require "capybara/cucumber"
