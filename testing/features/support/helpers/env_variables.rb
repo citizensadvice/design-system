@@ -6,6 +6,10 @@ module Helpers
       ENV.fetch("BROWSER", "chrome").to_sym
     end
 
+    def environment
+      ENV.fetch("APP_ENVIRONMENT", "master").to_sym
+    end
+
     def hub_url
       ENV["HUB_URL"]
     end
@@ -55,7 +59,7 @@ module Helpers
     end
 
     def base_url
-      if ENV["APP_ENVIRONMENT"] == "local"
+      if environment == :local
         "http://ca-styleguide:6006"
       else
         "https://citizensadvice.github.io/design-system"
