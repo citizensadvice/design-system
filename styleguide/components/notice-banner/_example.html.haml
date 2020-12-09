@@ -1,0 +1,10 @@
+:ruby
+  body = <<~HTML
+    <p>
+      If you’re a Thomas Cook customer and you’re stuck abroad
+      or want to get your money back, get help from the Civil Aviation Authority.
+    </p>
+  HTML
+
+= render partial: "@citizensadvice/design-system/haml/notice_banner",
+  locals: { banner: { "label" => "Notice banner title", "body" => body } }
