@@ -153,7 +153,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Page review',
         url: storyUrlFor('components-page-review--example'),
-        viewports: [{ label: 'page-review', width: 800, height: 100 }],
+        viewports: [{ label: 'page-review', width: 600, height: 100 }],
       },
       {
         label: ' Components/Navigation',
