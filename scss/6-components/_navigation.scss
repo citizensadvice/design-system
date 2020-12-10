@@ -106,3 +106,17 @@
     display: none;
   }
 }
+
+.no-js {
+  .cads-navigation {
+    height: auto;
+
+    &__list {
+      margin-bottom: 0;
+    }
+
+    &__list-item {
+      margin-bottom: 0;
+    }
+  }
+}
