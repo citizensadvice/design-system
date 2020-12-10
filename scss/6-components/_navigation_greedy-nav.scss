@@ -61,10 +61,8 @@
       border-color: $cads-language__link-hover-colour;
     }
 
-    /* stylelint-disable */
     &:focus,
     &:active {
-      /* stylelint-enable */
       background-color: $cads-palette__white;
       color: $cads-language__brand-primary;
       border: 2px solid $cads-palette__heritage-yellow;

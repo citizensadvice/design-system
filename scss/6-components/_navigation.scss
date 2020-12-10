@@ -16,10 +16,8 @@
     color: $cads-palette__white;
   }
 
-  /* stylelint-disable */
   &:active,
   &:focus {
-    /* stylelint-enable */
     background-color: $cads-palette__white;
     color: $cads-language__brand-primary;
     border: 2px solid $cads-palette__heritage-yellow;
@@ -27,6 +25,7 @@
   }
 }
 
+/** @define navigation */
 .cads-navigation {
   display: flex;
   justify-content: space-between;
@@ -54,6 +53,7 @@
   }
 }
 
+/* stylelint-disable  plugin/selector-bem-pattern */
 .cads-navigation-full-width-wrapper {
   background-color: $cads-language__brand-primary;
 
