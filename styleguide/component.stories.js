@@ -60,34 +60,6 @@ export default {
   ],
 };
 
-export const navigation = () =>
-  renderHamlTemplate(
-    'Navigation',
-    tNavigation,
-    'navigation',
-    `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
-        \n\n
-        <p>SystemJS</p>
-        <pre><code>
-        &lt;script src="system.js">&lt;/script>
-        &lt;script src="@citizensadvice/design-system/lib/greedy-nav'>&lt;/script>
-        &lt;script>
-            System.import("GreedyNav");
-            GreedyNav.init(/* { config if required } */);
-        &lt;/script>
-        </pre></code>
-
-        <p>Common JS</p>
-        <pre><code>
-        import GreedyNav from '@citizensadvice/design-system/lib/greedy-nav/';
-        GreedyNav.init(/* { config if required } */);
-        </code></pre>`,
-    null,
-    () => {
-      GreedyNav.init();
-    }
-  );
-
 export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 

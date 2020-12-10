@@ -1,0 +1,44 @@
+import { Meta, Source, Story, Preview } from '@storybook/addon-docs/blocks';
+import { translate } from '../../../scripts/story-helpers';
+
+import greedyNav from '../../../src/ts/greedy-nav';
+import templateDefault from './_default.html.haml';
+import navigationLinksExample from '!!raw-loader!./navigation_links_example.rb';
+
+<Meta
+  title="Components/Navigation"
+  decorators={[
+    (Story) => {
+      setTimeout(() => greedyNav.init());
+      return Story();
+    },
+  ]}
+/>
+
+# Navigation
+
+<Preview>
+  <Story
+    name="Default"
+    parameters={{ docs: { source: { code: templateDefault.raw } } }}
+  >
+    {(_, options) => translate(templateDefault, options)}
+  </Story>
+</Preview>
+
+The global navigation uses the 'Priority+' pattern to allow as many links to be visible as possible.
+As the width of the viewport is restricted, navigation links fall into a collapsible 'More' section.
+
+On mobile devices, any links that appear in the `.js-cads-copy-into-nav` element in the header are copied into the collapsible more section too.
+
+The global navigation accepts an array of links as per the example below.
+
+## HAML template options
+
+| Property           | Description                                           |
+| ------------------ | ----------------------------------------------------- |
+| `navigation_links` | Required, array of links to display in the navigation |
+
+### `navigation_links` example
+
+<Source language="ruby" dark="true" code={navigationLinksExample} />
