@@ -519,6 +519,12 @@ export class GreedyNavMenu {
     this.navDropdownToggleLabel.setAttribute('id', 'cadsGreedyNavLabel');
     this.navDropdown.setAttribute('aria-hidden', 'true');
 
+    const headerLinks = document.querySelector('.cads-header__links');
+    if (headerLinks) {
+      const headerLinksClone = headerLinks?.cloneNode(true);
+      this.navDropdown.appendChild(headerLinksClone);
+    }
+
     /**
      * Move elements to the right spot
      */
