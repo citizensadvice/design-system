@@ -1,3 +1,6 @@
+**New**
+
+- 🔗 Links: added external link styling. Links within cads-prose are styled automatically [NP-1382]
 ## <sub>v4.0.0-alpha.0</sub>
 
 #### _Dec. 7, 2020_
