@@ -55,8 +55,7 @@
   font-display: block;
 }
 
-[class^='cads-icon_']::before,
-[class*=' cads-icon_']::before {
+%cads-icon {
   font-family: 'cads' !important;
   speak: none;
   font-style: normal;
@@ -67,6 +66,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0.9em;
+}
+
+[class^='cads-icon_']::before,
+[class*=' cads-icon_']::before {
+  @extend %cads-icon;
 }
 
 .cads-icon_arrow-right::before {
