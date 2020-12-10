@@ -1,5 +1,32 @@
 @import 'navigation_greedy-nav';
 
+%cads-nav-link {
+  font-size: 1rem;
+  color: $cads-palette__white;
+  padding: calc(1rem - 2px) calc(1rem - 12px);
+  display: inline-block;
+  text-decoration: none;
+  border: 2px solid;
+  border-color: $cads-language__brand-primary;
+  line-height: 1em;
+
+  &:hover {
+    background-color: $cads-language__link-hover-colour;
+    border-color: $cads-language__link-hover-colour;
+    color: $cads-palette__white;
+  }
+
+  /* stylelint-disable */
+  &:active,
+  &:focus {
+    /* stylelint-enable */
+    background-color: $cads-palette__white;
+    color: $cads-language__brand-primary;
+    border: 2px solid $cads-palette__heritage-yellow;
+    outline: none;
+  }
+}
+
 .cads-navigation {
   display: flex;
   justify-content: space-between;
@@ -11,135 +38,27 @@
     @include cads-visually-hidden;
   }
 
-  ul {
+  &__list {
     display: inline-block;
 
     @extend %cads-list-no-bullet;
   }
 
-  li {
+  &__list-item {
     display: inline-block;
     font-weight: $cads-font-weight__bold;
   }
 
-  .cads-greedy-nav__dropdown-toggle {
-    @include cads-button-defaults();
-
-    height: 100%;
-    font-weight: bold;
-    font-size: 1rem;
-    color: $cads-palette__white;
-    background-color: $cads-language__brand-primary;
-    border: $cads-language__brand-primary;
-    box-shadow: none;
-
-    &:hover {
-      background-color: $cads-language__link-hover-colour;
-      border-color: $cads-language__link-hover-colour;
-    }
-
-    /* stylelint-disable */
-    &:focus,
-    &:active {
-      /* stylelint-enable */
-      background-color: $cads-palette__white;
-      color: $cads-language__brand-primary;
-      border: 2px solid $cads-palette__heritage-yellow;
-      padding: calc(1rem - 2px);
-    }
-
-    &::after {
-      /* Copied from the icon font setup */
-      /* stylelint-disable-next-line */
-      font-family: 'cads' !important;
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-
-      /* Better Font Rendering =========== */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      content: '\0044';
-      display: inline-block;
-      transform: rotate(270deg);
-      font-size: 0.75rem;
-      margin-left: $cads-spacing-1;
-      top: 1px;
-      position: relative;
-    }
-
-    &.is-open {
-      &::after {
-        transform: rotate(90deg);
-      }
-    }
-
-    &.cads-greedy-nav-is-hidden {
-      padding: 0;
-
-      &::after {
-        display: none;
-      }
-    }
-  }
-
-  .cads-nav-link {
-    font-size: 1rem;
-    color: $cads-palette__white;
-    padding: calc(1rem - 2px) calc(1rem - 12px);
-    display: inline-block;
-    text-decoration: none;
-
-    @include cads-transition-animation();
-
-    border: 2px solid;
-    border-color: $cads-language__brand-primary;
-    line-height: 1em;
-
-    &:hover {
-      background-color: $cads-language__link-hover-colour;
-      border-color: $cads-language__link-hover-colour;
-      color: $cads-palette__white;
-    }
-
-    /* stylelint-disable */
-    &:active,
-    &:focus {
-      /* stylelint-enable */
-      background-color: $cads-palette__white;
-      color: $cads-language__brand-primary;
-      border: 2px solid $cads-palette__heritage-yellow;
-      padding: calc(1rem - 2px) calc(1rem - 12px);
-      outline: none;
-    }
-  }
-
-  .cads-greedy-nav__dropdown {
-    background-color: $cads-language__brand-primary;
-    border-top: 1px solid $cads-palette__white;
-    right: 0;
-    top: 100%;
-
-    li {
-      margin-bottom: 0;
-      display: block;
-    }
-
-    a {
-      display: block;
-      transition-property: none;
-    }
+  &__link {
+    @extend %cads-nav-link;
   }
 }
 
 .cads-navigation-full-width-wrapper {
   background-color: $cads-language__brand-primary;
 
-  nav {
-    @extend .cads-max-content-width;
+  .cads-navigation {
+    @include cads-restrict-content-width();
 
     @each $breakpoint in map-keys($cads-breakpoints) {
       $gutter: map-get($cads-nav-breakpoint-gutters, $breakpoint);
@@ -149,5 +68,41 @@
         padding-left: $gutter;
       }
     }
+  }
+}
+
+.cads-greedy-nav__header-links {
+  .cads-header__links {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .cads-header__account-link,
+  .cads-header__links-item {
+    display: block;
+    font-weight: $cads-font-weight__bold;
+
+    &:first-of-type::before {
+      display: block;
+      content: '';
+      border-top: $cads-border-width-small solid $cads-palette__white;
+      position: relative;
+      left: $cads-spacing-4;
+      width: calc(100% - #{2 * $cads-spacing-4});
+    }
+  }
+
+  .cads-header__hyperlink {
+    @extend %cads-nav-link;
+
+    display: block;
+    padding: $cads-spacing-3 $cads-spacing-4;
+  }
+}
+
+.cads-greedy-nav__dropdown .cads-greedy-nav__header-links {
+  @include cads-media-breakpoint-up(md) {
+    display: none;
   }
 }
