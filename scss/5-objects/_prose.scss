@@ -51,4 +51,9 @@
   .cads-list-no-bullet {
     @extend %cads-list-no-bullet;
   }
+
+  a[href*="//"]:not([href*="citizensadvice.org.uk"])::after
+  {
+    @extend %cads-hyperlink--external-icon;
+  }
 }
