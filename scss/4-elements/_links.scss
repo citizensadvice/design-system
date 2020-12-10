@@ -28,6 +28,15 @@ a,
   }
 }
 
+.cads-hyperlink--external::after {
+  @extend %cads-icon;
+
+  display: inline-block;
+  white-space: pre;
+  content: ' \0045';
+  font-size: $cads-spacing-3;
+}
+
 // Reset button styles when styled like a link link
 button.cads-linkbutton {
   -webkit-appearance: none;
