@@ -1,6 +1,8 @@
 **New**
 
 - 🔗 Links: added external link styling. Links within cads-prose are styled automatically [NP-1382]
+- 🌎 Navigation: Header links are now added to the 'More' dropdown and no-js support (NP-1235)
+
 ## <sub>v4.0.0-alpha.0</sub>
 
 #### _Dec. 7, 2020_
@@ -14,7 +16,6 @@
 - 🎯 Targeted content: Design updates to targeted content button styles
 - 🤕 Header: Search reveal button now has correct focus highlight. (NP-1330)
 - 🏈 Footer: Use the grid to control footer alignment. (NP-1318)
-
 ## <sub>v3.2.0</sub>
 
 #### _Dec. 3, 2020_

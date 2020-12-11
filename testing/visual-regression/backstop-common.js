@@ -155,6 +155,22 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-page-review--example'),
         viewports: [{ label: 'page-review', width: 600, height: 100 }],
       },
+      {
+        label: ' Components/Navigation',
+        url: storyUrlFor('components-navigation--default'),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        clickSelector: '.cads-greedy-nav__dropdown-toggle',
+        viewports: [{ label: 'navigation', width: 800, height: 200 }],
+      },
+      {
+        label: 'Components/Navigation (focus)',
+        url: storyUrlFor('components-navigation--default'),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        keyPressSelectors: [
+          { selector: '.cads-navigation__link', keyPress: 'Tab' },
+        ],
+        viewports: [{ label: 'navigation', width: 800, height: 200 }],
+      },
 
       // Forms
       {
@@ -253,22 +269,6 @@ module.exports = function backstopCommon(baseUrl) {
         readySelector: '#a11yComponentToTest',
         hoverSelector: '#a11yComponentToTest',
         selectors: ['#a11yComponentToTest'],
-      },
-      {
-        label: '3_Components_NAVIGATION',
-        url: `${baseUrl}/iframe.html?id=3-components--navigation`,
-        readySelector: '.cads-greedy-nav-has-dropdown',
-        removeSelectors: ['.cads-styleguide-usage', 'h1'],
-        clickSelector: '.cads-greedy-nav__dropdown-toggle',
-        viewports: [{ label: 'navigation', width: 800, height: 200 }],
-      },
-      {
-        label: '3_Components_NAVIGATION_BUTTONS',
-        url: `${baseUrl}/iframe.html?id=3-components--navigation`,
-        readySelector: '.cads-greedy-nav-has-dropdown',
-        removeSelectors: ['.cads-styleguide-usage', 'h1'],
-        keyPressSelectors: [{ selector: '.cads-nav-link', keyPress: 'Tab' }],
-        viewports: [{ label: 'navigation', width: 800, height: 200 }],
       },
       {
         label: '3_Components_TABLES',

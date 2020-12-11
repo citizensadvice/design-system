@@ -18,7 +18,7 @@
         %a.cads-logo{ href: homepage_url, title: t("cads.shared.logo_title") }
         %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t("cads.header.search_mobile"), "aria-expanded": "false" }
       .cads-grid-col-md-6.cads-header__search-row
-        %ul.cads-header__links
+        %ul.cads-header__links.js-cads-copy-into-nav
           - links&.each do |link|
             %li.cads-header__links-item
               %a.cads-header__hyperlink{ href: link["url"] }= link["title"]

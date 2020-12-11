@@ -5,14 +5,11 @@ import './styles.scss';
 
 import initTables from '../src/js/tables';
 
-import GreedyNav from '../src/ts/greedy-nav';
-
 // eslint-disable-next-line no-unused-vars
 import wrapper from './component-wrapper';
 
 // Haml setup
 // Import all the templates...
-import tNavigation from '../haml/_navigation.html.haml';
 import tContactDetails from '../haml/_contact_details.html.haml';
 import tTables from '../haml/_table.html.haml';
 
@@ -59,34 +56,6 @@ export default {
     (storyFn) => `<div class="cads-styleguide__wrapper">${storyFn()}</div>`,
   ],
 };
-
-export const navigation = () =>
-  renderHamlTemplate(
-    'Navigation',
-    tNavigation,
-    'navigation',
-    `The navigation component uses javascript to display options in a dropdown menu that would otherwise appear off screen.
-        \n\n
-        <p>SystemJS</p>
-        <pre><code>
-        &lt;script src="system.js">&lt;/script>
-        &lt;script src="@citizensadvice/design-system/lib/greedy-nav'>&lt;/script>
-        &lt;script>
-            System.import("GreedyNav");
-            GreedyNav.init(/* { config if required } */);
-        &lt;/script>
-        </pre></code>
-
-        <p>Common JS</p>
-        <pre><code>
-        import GreedyNav from '@citizensadvice/design-system/lib/greedy-nav/';
-        GreedyNav.init(/* { config if required } */);
-        </code></pre>`,
-    null,
-    () => {
-      GreedyNav.init();
-    }
-  );
 
 export const contactDetails = () =>
   renderHamlTemplate('Contact details', tContactDetails, 'contact_details');

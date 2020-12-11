@@ -11,19 +11,7 @@
 .cads-greedy-nav {
   white-space: nowrap; // prevent flash of unstyled content
 
-  /*
-      * Makes sure the menu's are inline-block so they don't take up
-      * the entire width of its parent. This will break the plugin.
-      */
-  > ul {
-    display: inline-block;
-
-    > li {
-      display: inline-block;
-    }
-  }
-
-  #cadsGreedyNavLabel {
+  &__label {
     display: none;
   }
 
@@ -31,23 +19,89 @@
     z-index: 1000;
     position: absolute;
     visibility: hidden;
+    background-color: $cads-language__brand-primary;
+    border-top: 1px solid $cads-palette__white;
+    right: 0;
+    top: 100%;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0;
+      display: block;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      transition-property: none;
+      padding: 11px 17px;
+    }
 
     &.show {
       visibility: visible;
     }
-
-    &-toggle {
-      visibility: hidden;
-      position: absolute;
-    }
   }
 
-  &-has-dropdown {
-    .cads-greedy-nav {
-      &__dropdown {
-        &-toggle {
-          position: relative;
-        }
+  &__dropdown-toggle {
+    visibility: hidden;
+    position: absolute;
+    @include cads-button-defaults();
+
+    height: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $cads-palette__white;
+    background-color: $cads-language__brand-primary;
+    border: $cads-language__brand-primary;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $cads-language__link-hover-colour;
+      border-color: $cads-language__link-hover-colour;
+    }
+
+    &:focus,
+    &:active {
+      background-color: $cads-palette__white;
+      color: $cads-language__brand-primary;
+      border: 2px solid $cads-palette__heritage-yellow;
+      padding: calc(1rem - 2px);
+    }
+
+    &::after {
+      /* Copied from the icon font setup */
+      font-family: 'cads';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: '\0044';
+      display: inline-block;
+      transform: rotate(270deg);
+      font-size: 0.75rem;
+      margin-left: $cads-spacing-1;
+      top: 1px;
+      position: relative;
+    }
+
+    &.is-open {
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.cads-greedy-nav-is-hidden {
+      padding: 0;
+
+      &::after {
+        display: none;
       }
     }
   }
@@ -62,5 +116,15 @@
 
   &-is-hidden {
     visibility: hidden;
+  }
+
+  &-has-dropdown {
+    .cads-greedy-nav {
+      &__dropdown {
+        &-toggle {
+          position: relative;
+        }
+      }
+    }
   }
 }

@@ -517,7 +517,17 @@ export class GreedyNavMenu {
       'cadsGreedyNavLabel'
     );
     this.navDropdownToggleLabel.setAttribute('id', 'cadsGreedyNavLabel');
+    this.navDropdownToggleLabel.className = 'cads-greedy-nav__label';
     this.navDropdown.setAttribute('aria-hidden', 'true');
+
+    const headerLinks = document.querySelector('.js-cads-copy-into-nav');
+    if (headerLinks) {
+      const headerLinksClone = headerLinks.cloneNode(true);
+      const headerLinksContainer = document.createElement('li');
+      headerLinksContainer.className = 'cads-greedy-nav__header-links';
+      headerLinksContainer.appendChild(headerLinksClone);
+      this.navDropdown.appendChild(headerLinksContainer);
+    }
 
     /**
      * Move elements to the right spot

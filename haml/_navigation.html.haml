@@ -1,7 +1,7 @@
 .cads-navigation-full-width-wrapper
   %nav#cads-navigation.cads-navigation.js-cads-greedy-nav
-    %ul
+    %ul.cads-navigation__list
       - navigation_links.each_with_index do |link, index|
-        %li
-          %a.cads-nav-link{:href => link['url'], :title => link['title']}
+        %li.cads-navigation__list-item
+          %a.cads-navigation__link{:href => link['url'], :title => link['title']}
             = link['title']
