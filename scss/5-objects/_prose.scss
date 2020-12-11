@@ -52,7 +52,8 @@
     @extend %cads-list-no-bullet;
   }
 
-  a[href*="//"]:not([href*="citizensadvice.org.uk"])::after
+  a[href^="https://"]:not([href*="citizensadvice.org.uk"])::after,
+  a[href^="http://"]:not([href*="citizensadvice.org.uk"])::after
   {
     @extend %cads-hyperlink--external-icon;
   }
