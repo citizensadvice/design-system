@@ -13,7 +13,21 @@ import templateRadioGroupSmall from './_radio_group_small.html.haml';
 
 # Radio groups
 
-## Variant: Basic input
+A radio allows a user to select only one option from a group of exclusive choices and it is usually displayed in a radio group.
+
+## When to use
+
+Use radios when a user can only select one option from a list of choices. The label for the radio buttons should be clear and concise. 
+
+## When not to use
+
+Do not use radios if the user needs to select more than one option from a list of choices. Use a checkbox component instead (not yet developed). 
+
+## How to use this component
+
+### Variant: Inline
+
+Use inline radios if there are only 2 options and the text is short. 
 
 <Preview>
   <Story
@@ -24,40 +38,9 @@ import templateRadioGroupSmall from './_radio_group_small.html.haml';
   </Story>
 </Preview>
 
-## Variant: With hint
+### Variant: With long options
 
-<Preview>
-  <Story
-    name="With hint"
-    parameters={{ docs: { source: { code: templateRadioGroupWithHint.raw } } }}
-  >
-    {(_, options) => translate(templateRadioGroupWithHint, options)}
-  </Story>
-</Preview>
-
-## Variant: With optional field marker
-
-<Preview>
-  <Story
-    name="Optional field"
-    parameters={{ docs: { source: { code: templateRadioGroupOptional.raw } } }}
-  >
-    {(_, options) => translate(templateRadioGroupOptional, options)}
-  </Story>
-</Preview>
-
-## Variant: With error message
-
-<Preview>
-  <Story
-    name="With error"
-    parameters={{ docs: { source: { code: templateRadioGroupWithError.raw } } }}
-  >
-    {(_, options) => translate(templateRadioGroupWithError, options)}
-  </Story>
-</Preview>
-
-## Variant: With long options
+Use stacked radio buttons if there are more than 2 options or the text is very long.
 
 <Preview>
   <Story
@@ -71,22 +54,44 @@ import templateRadioGroupSmall from './_radio_group_small.html.haml';
   </Story>
 </Preview>
 
-## Variant: Inline
+### Variant: With hint
 
-Radio groups accept an optional `inline` flag.
+Use hint text for help that’s relevant to the majority of users, based on the needs of your service.
 
 <Preview>
   <Story
-    name="Inline"
-    parameters={{ docs: { source: { code: templateRadioGroupInline.raw } } }}
+    name="With hint"
+    parameters={{ docs: { source: { code: templateRadioGroupWithHint.raw } } }}
   >
-    {(_, options) => translate(templateRadioGroupInline, options)}
+    {(_, options) => translate(templateRadioGroupWithHint, options)}
   </Story>
 </Preview>
 
-## Variant: Small
+### Variant: With optional field marker
 
-Radio groups accept an optional `small` flag.
+<Preview>
+  <Story
+    name="Optional field"
+    parameters={{ docs: { source: { code: templateRadioGroupOptional.raw } } }}
+  >
+    {(_, options) => translate(templateRadioGroupOptional, options)}
+  </Story>
+</Preview>
+
+### Variant: With error message
+
+<Preview>
+  <Story
+    name="With error"
+    parameters={{ docs: { source: { code: templateRadioGroupWithError.raw } } }}
+  >
+    {(_, options) => translate(templateRadioGroupWithError, options)}
+  </Story>
+</Preview>
+
+## Small radios
+
+Use standard radios in almost all cases. Use small radios to make them less visually prominent or on pages with lots of dense information, such as caseworking software. Small radios can be stacked or inline. 
 
 <Preview>
   <Story
@@ -96,6 +101,12 @@ Radio groups accept an optional `small` flag.
     {(_, options) => translate(templateRadioGroupSmall, options)}
   </Story>
 </Preview>
+
+## Implementation 
+
+You must always have a label associated with the input element.   
+
+The components we provide use wrap radio groups in a fieldset. In this context the 'label' is typically the fieldset legend, as every radio option is a label + input in its own right.
 
 ## Haml template options
 
