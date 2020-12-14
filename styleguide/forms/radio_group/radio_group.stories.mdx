@@ -23,20 +23,24 @@ Use radios when a user can only select one option from a list of choices. The la
 
 Do not use radios if the user needs to select more than one option from a list of choices. Use a checkbox component instead (not yet developed). 
 
-## Variants
+## How it works
+
+### Inline
 
 Use inline radios if there are only 2 options and the text is short. 
 
 <Preview>
   <Story
-    name="Basic"
-    parameters={{ docs: { source: { code: templateRadioGroup.raw } } }}
+    name="Inline"
+    parameters={{ docs: { source: { code: templateRadioGroupInline.raw } } }}
   >
-    {(_, options) => translate(templateRadioGroup, options)}
+    {(_, options) => translate(templateRadioGroupInline, options)}
   </Story>
 </Preview>
 
-Use stacked radio buttons if there are more than 2 options or the text is very long.
+### Stacked
+
+Use stacked radios if there are more than 2 options or the text is very long.
 
 <Preview>
   <Story
