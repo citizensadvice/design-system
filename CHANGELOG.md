@@ -1,18 +1,21 @@
+**Docs**
+
+- 📇 Contact Details: documentation updated (NP-1028)
+
 ## <sub>v4.0.0-alpha.2</sub>
 
 #### _Dec. 14, 2020_
 
 **Bugfixes**
 
-- 🌎 Navigation: Fix visited link colour in global nav 
-
+- 🌎 Navigation: Fix visited link colour in global nav
 ## <sub>v4.0.0-alpha.1</sub>
 
 #### _Dec. 11, 2020_
 
 **New**
 
-- 🔗 Links: added external link styling. Links within cads-prose are styled automatically [NP-1382]
+- 🔗 Links: added external link styling. Links within cads-prose are styled automatically (NP-1382)
 - 🌎 Navigation: Header links are now added to the 'More' dropdown and no-js support (NP-1235)
 
 ## <sub>v4.0.0-alpha.0</sub>

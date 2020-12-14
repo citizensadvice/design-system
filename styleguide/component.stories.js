@@ -10,7 +10,6 @@ import wrapper from './component-wrapper';
 
 // Haml setup
 // Import all the templates...
-import tContactDetails from '../haml/_contact_details.html.haml';
 import tTables from '../haml/_table.html.haml';
 
 // Haml rendering wrapper for convenience
@@ -56,9 +55,6 @@ export default {
     (storyFn) => `<div class="cads-styleguide__wrapper">${storyFn()}</div>`,
   ],
 };
-
-export const contactDetails = () =>
-  renderHamlTemplate('Contact details', tContactDetails, 'contact_details');
 
 export const tables = () =>
   renderHamlTemplate('Tables', tTables, 'table', null, null, initTables);

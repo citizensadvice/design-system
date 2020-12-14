@@ -76,6 +76,10 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-callouts--adviser-callout'),
       },
       {
+        label: `Components/Contact details`,
+        url: storyUrlFor(`components-contact-details--contact-detail`),
+      },
+      {
         label: 'Components/Header',
         url: storyUrlFor('components-header--default'),
       },
@@ -263,13 +267,6 @@ module.exports = function backstopCommon(baseUrl) {
       },
 
       // Old format component tests below here
-      {
-        label: '3_Components_CONTACT_DETAILS',
-        url: `${baseUrl}/iframe.html?id=3-components--contact-details`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
-      },
       {
         label: '3_Components_TABLES',
         url: `${baseUrl}/iframe.html?id=3-components--tables`,
