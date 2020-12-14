@@ -8,11 +8,20 @@ import getColours from './get-colours';
 
 # Colours
 
-We use colour language to dictate what our digital colours are and how they should be used. Use the colour language for the purpose that is defined – for example, use ‘input-border-colour’ for form inputs. [show example]   
+We use colour language to dictate what our digital colours are and how they should be used. Use the colour language for the purpose that is defined – for example, use ‘input-border-colour’ for form inputs.  
 
 The same colour is sometimes repeated because it’s used in different ways – for example, the ‘Important callout’ and ‘Error’ colour are both using the hex value #DF3034. This means we can change the 'Important callout' colour without affecting the 'Error' colour. 
 
+<Description>{getColours('language', sassColours)}</Description>
+
+## Colour palette
+
+<Description>{getColours('palette', sassColours)}</Description>
+
+## Colour language
+
 ### Brand
+
 Brand colours are usually used in global components such as ‘Global Navigation’ to enhance branding and create a consistent look on the website.
 
 | Colour language      | Variables                                       | Hex value              |
@@ -98,11 +107,4 @@ Don’t use colour alone to communicate information. This means users who can’
 ## Implementation
  
 Use the sass variables instead of the hex codes. This means you’ll always be using the most recent colour palette. Only use the sass variables in the context they’re designed for. Otherwise, use the colour palette. 
-
-
-<Description>{getColours('language', sassColours)}</Description>
-
-## Colour palette
-
-<Description>{getColours('palette', sassColours)}</Description>
 
