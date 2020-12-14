@@ -23,9 +23,7 @@ Use radios when a user can only select one option from a list of choices. The la
 
 Do not use radios if the user needs to select more than one option from a list of choices. Use a checkbox component instead (not yet developed). 
 
-## How to use this component
-
-### Variant: Inline
+## Variants
 
 Use inline radios if there are only 2 options and the text is short. 
 
@@ -37,8 +35,6 @@ Use inline radios if there are only 2 options and the text is short.
     {(_, options) => translate(templateRadioGroup, options)}
   </Story>
 </Preview>
-
-### Variant: With long options
 
 Use stacked radio buttons if there are more than 2 options or the text is very long.
 
@@ -54,8 +50,6 @@ Use stacked radio buttons if there are more than 2 options or the text is very l
   </Story>
 </Preview>
 
-### Variant: With hint
-
 Use hint text for help that’s relevant to the majority of users, based on the needs of your service.
 
 <Preview>
@@ -67,7 +61,7 @@ Use hint text for help that’s relevant to the majority of users, based on the 
   </Story>
 </Preview>
 
-### Variant: With optional field marker
+### With optional field marker
 
 <Preview>
   <Story
@@ -78,7 +72,9 @@ Use hint text for help that’s relevant to the majority of users, based on the 
   </Story>
 </Preview>
 
-### Variant: With error message
+### With error message
+
+Error messages are used to highlight where users need to change information. They’re used together with an [error summary](/design-system/styleguide/forms/components-error-summary--page?path=/docs/forms-error-summary--example) 
 
 <Preview>
   <Story
