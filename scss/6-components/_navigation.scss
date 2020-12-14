@@ -10,6 +10,10 @@
   border-color: $cads-language__brand-primary;
   line-height: 1em;
 
+  &:visited {
+    color: $cads-palette__white;
+  }
+
   &:hover {
     background-color: $cads-language__link-hover-colour;
     border-color: $cads-language__link-hover-colour;
