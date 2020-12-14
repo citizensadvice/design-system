@@ -1,3 +1,11 @@
+## <sub>v4.0.0-alpha.2</sub>
+
+#### _Dec. 14, 2020_
+
+**Bugfixes**
+
+- 🌎 Navigation: Fix visited link colour in global nav 
+
 ## <sub>v4.0.0-alpha.1</sub>
 
 #### _Dec. 11, 2020_
