@@ -6,7 +6,7 @@ module DesignSystem
 
     section :initial_form, ".cads-contact-details" do
       elements :paragraphs, "p"
-      element :first_bold_paragraph, "p:nth-of-type(1) strong"
+      element :first_bold_paragraph, "p:nth-of-type(1) b"
     end
 
     def validate_initial_state!
