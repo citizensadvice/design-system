@@ -1,0 +1,41 @@
+FROM ruby:2.7.2
+
+ENV NODE_MAJOR_VERSION 14
+
+RUN curl --retry 5 --retry-connrefuse --retry-delay 4 -sL https://deb.nodesource.com/setup_$NODE_MAJOR_VERSION.x | bash - && \
+    apt-get install -y nodejs inotify-tools && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    truncate -s 0 /var/log/*log
+
+RUN gem install bundler
+
+RUN bundle config --global frozen 1
+
+COPY Gemfile Gemfile.lock ./
+
+ARG cab_gem_mirror=true
+
+RUN if [ "$cab_gem_mirror" = "true" ]; then \
+    bundle config mirror.https://rubygems.org https://nexus.devops.citizensadvice.org.uk/repository/rubygems-proxy && \
+    bundle config mirror.https://rubygems.org.fallback_timeout 1; \
+    fi
+
+RUN bundle install -j6
+
+ADD package*.json /tmp/
+RUN cd /tmp && npm ci
+RUN mkdir -p /app && cp -a /tmp/node_modules /app
+
+WORKDIR /app
+ADD . /app/
+
+RUN ./bin/webpack && RAILS_ENV=test ./bin/webpack
+
+RUN groupadd ruby -g 3000 \
+    && useradd -m -d /home/ruby -u 3000 --no-user-group ruby \
+    && usermod -g ruby ruby
+
+RUN chmod -R 777 /app/tmp /app/log
+
+USER ruby
