@@ -43,6 +43,17 @@
   }
 }
 
+.cads-styleguide-colour-swatch {
+  display: block;
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px !important;
+  position: relative;
+  top: 3px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.5);
+}
+
 .cads-styleguide__colour-tile {
   display: inline-grid;
   margin: 1em;
@@ -133,6 +144,7 @@ $cads-spacers: (
   padding: $cads-spacing-4;
   background-color: $cads-palette__light-grey;
 }
+
 
 .my-unordered-list {
   @extend %cads-list-unordered;
