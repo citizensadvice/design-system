@@ -175,6 +175,10 @@ module.exports = function backstopCommon(baseUrl) {
         ],
         viewports: [{ label: 'navigation', width: 800, height: 200 }],
       },
+      {
+        label: 'Components/Tables',
+        url: storyUrlFor('components-tables--table'),
+      },
 
       // Forms
       {
@@ -259,15 +263,6 @@ module.exports = function backstopCommon(baseUrl) {
         label: `Forms/Radio group (small)`,
         url: storyUrlFor(`forms-radio-group--small`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
-      },
-
-      // Old format component tests below here
-      {
-        label: '3_Components_TABLES',
-        url: `${baseUrl}/iframe.html?id=3-components--tables`,
-        readySelector: '#a11yComponentToTest',
-        hoverSelector: '#a11yComponentToTest',
-        selectors: ['#a11yComponentToTest'],
       },
     ],
     dockerCommandTemplate:
