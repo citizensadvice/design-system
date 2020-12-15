@@ -1,14 +1,19 @@
+# done
 FROM node:14-alpine
 
+# done
 ENV BUNDLER_VERSION 2.1.4
 # Alpine doesn't keep older patch versions, so we can only specify the minor version here
+# done
 ENV RUBY_VERSION=2.6
 ENV LANG=C.UTF-8 \
     BUNDLE_JOBS=6 \
     BUNDLE_RETRY=3
 
+# done
 RUN apk --no-cache --update add ruby~$RUBY_VERSION ruby-dev~$RUBY_VERSION ruby-json ruby-etc gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base ruby-bigdecimal git && gem install bundler -v $BUNDLER_VERSION
 
+# done
 RUN mkdir -p /app && chown -R 1000:1000 /app
 COPY --chown=node:node package*.json Gemfile* /app/
 WORKDIR /app
