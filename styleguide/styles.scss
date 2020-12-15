@@ -43,23 +43,15 @@
   }
 }
 
-.cads-styleguide__colour-tile {
-  display: inline-grid;
-  margin: 1em;
-  width: 150px;
-
-  .cads-styleguide__colour-tile-bg {
-    height: 48px;
-    width: 48px;
-    border-radius: 100%;
-    border: solid 1px #000;
-  }
-
-  p {
-    font-size: 0.75em;
-    line-height: 1.25em;
-    padding: 8px 0 0 0;
-  }
+.cads-styleguide-colour-swatch {
+  display: block;
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px !important;
+  position: relative;
+  top: 3px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
 $cads-spacers: (

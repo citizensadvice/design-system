@@ -232,11 +232,6 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
-        label: `Forms/Radio group (basic)`,
-        url: storyUrlFor(`forms-radio-group--basic`),
-        viewports: [{ label: 'form-field', width: 800, height: 400 }],
-      },
-      {
         label: `Forms/Radio group (with hint)`,
         url: storyUrlFor(`forms-radio-group--with-hint`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
