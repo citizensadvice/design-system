@@ -13,7 +13,7 @@ end
 
 Then("a series of breadcrumbs are present") do
   if mobile_phone?
-    expect(@component).to have_breadcrumbs(minimum: 1) if mobile_phone?
+    expect(@component).to have_breadcrumbs(minimum: 1)
   else
     expect(@component).to have_breadcrumbs(minimum: 3)
   end
