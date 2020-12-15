@@ -24,7 +24,7 @@ Then("the initial breadcrumbs are all links") do
 end
 
 Then("the final breadcrumb isn't a link") do
-  if mobile_phone? && @default === true
+  if mobile_phone? && @default == true
     expect(@component.breadcrumbs.last).to have_link
   else
     expect(@component.breadcrumbs.last).not_to have_link
