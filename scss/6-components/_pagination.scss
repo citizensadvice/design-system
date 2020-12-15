@@ -4,7 +4,13 @@
 
 /** @define paging */
 .cads-paging {
-  @extend %cads-list-unordered-inline;
+  @include cads-reset-list-style();
+
+  display: flex;
+  flex-wrap: wrap;
+}
+.cads-paging__item {
+  margin-right: $cads-spacing-4;
 }
 .cads-paging__button {
   @include cads-button-defaults();

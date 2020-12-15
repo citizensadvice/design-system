@@ -2,6 +2,10 @@
 
 - 📇 Contact Details: documentation updated (NP-1028)
 
+**Breaking changes**
+
+- 🔗 Pagination links: Now have flex layout, fixes spacing between each item. All pagination list items require a `cads-paging__item` class.
+
 ## <sub>v4.0.0-alpha.2</sub>
 
 #### _Dec. 14, 2020_
