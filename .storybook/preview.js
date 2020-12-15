@@ -1,5 +1,7 @@
 import theme from './theme';
 
+import '../styleguide/styles.scss';
+
 export const parameters = {
   docs: {
     theme: theme,
