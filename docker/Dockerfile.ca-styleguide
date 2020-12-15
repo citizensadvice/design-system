@@ -13,12 +13,12 @@ RUN curl --retry 5 --retry-connrefuse --retry-delay 4 -sL https://deb.nodesource
     truncate -s 0 /var/log/*log
 
 RUN apt-get update && \
-    apt-get install -y gcc libc-dev libxslt-dev libxml2-dev zlib1g-dev build-essential & \
+    apt-get install -y gcc libc-dev libxslt-dev libxml2-dev zlib1g-dev build-essential && \
     apt-get install -y apt-utils
 
-RUN groupadd ruby -g 1000 \
-    && useradd -m -d /home/ruby -u 1000 --no-user-group ruby \
-    && usermod -g ruby ruby
+RUN groupadd ruby -g 1000 && \
+    useradd -m -d /home/ruby -u 1000 --no-user-group ruby && \
+    usermod -g ruby ruby
 
 RUN gem install bundler -v $BUNDLER_VERSION
 RUN mkdir -p /app && chown -R 1000:1000 /app
