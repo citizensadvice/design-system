@@ -1,11 +1,10 @@
 import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
 import { translate } from '../../../scripts/story-helpers';
 
-import templateRadioGroup from './_radio_group.html.haml';
 import templateRadioGroupWithHint from './_radio_group-with-hint.html.haml';
 import templateRadioGroupOptional from './_radio_group-optional.html.haml';
 import templateRadioGroupWithError from './_radio_group-with-error.html.haml';
-import templateRadioGrougWithLongOptions from './_radio_group-long-options.html.haml';
+import templateRadioGroupWithLongOptions from './_radio_group-long-options.html.haml';
 import templateRadioGroupInline from './_radio_group_inline.html.haml';
 import templateRadioGroupSmall from './_radio_group_small.html.haml';
 
@@ -47,10 +46,10 @@ Use stacked radios if there are more than 2 options or the text is very long.
     name="With long options"
     decorators={[(Story) => `<div style="max-width: 540px">${Story()}</div>`]}
     parameters={{
-      docs: { source: { code: templateRadioGrougWithLongOptions.raw } },
+      docs: { source: { code: templateRadioGroupWithLongOptions.raw } },
     }}
   >
-    {(_, options) => translate(templateRadioGrougWithLongOptions, options)}
+    {(_, options) => translate(templateRadioGroupWithLongOptions, options)}
   </Story>
 </Preview>
 
