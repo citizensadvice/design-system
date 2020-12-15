@@ -298,15 +298,18 @@ def withForcedDockerUpdate(images = [], local_images = [], Closure body) {
       sh "docker pull ${it}"
       sh "docker image rm ${it}_tmp"
     }
-    // docker-compose builds a container with a name like dev_ruby_master on the release branch
-    // This name doesn't exist remotely.
-    // If this exists in the local context then it will be used. So it needs to be removed
-    local_images.each {
-      // Delete the image if it exists - it's ok if there's an error which will most likely be the tag does not exist.
-      sh "docker image rm ${it} || true"
-    }
-    withDockerSandbox(images) {
-      body{}
+    try {
+      withDockerSandbox(images) {
+        body{}
+      }
+    } finally {
+      // docker-compose builds a container with a name like dev_ruby_master on the release branch
+      // This name doesn't exist remotely.
+      // If this exists in the local context then it will be used. So it needs to be removed
+      local_images.each {
+        // Delete the image if it exists - it's ok if there's an error which will most likely be the tag does not exist.
+        sh "docker image rm ${it}"
+      }
     }
   }
 }
