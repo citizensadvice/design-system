@@ -186,8 +186,12 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
           withEnv(global_environment_variables) {
             styleguide_image = isRelease ? "${docker_registry}/design-system:ca-styleguide" : images['ca-styleguide']
             ruby_image = isRelease ? "${docker_registry}/design-system:ruby" : images['ruby']
+            local_images = []
             if (useBrowserStack) {
-              withForcedDockerUpdate([ruby_image]) {
+              if (isRelease) {
+                local_images = [images['ruby']]
+              }
+              withForcedDockerUpdate([ruby_image], local_images) {
                 withVaultSecrets([
                   BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
                   BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
@@ -198,6 +202,9 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
                 } // withVaultSecrets
               }
             } else {
+              if (isRelease) {
+                local_images = [images['ruby'], images['ca-styleguide']]
+              }
               withForcedDockerUpdate(
                 [
                   styleguide_image,
@@ -205,7 +212,7 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
                   'selenium/hub:4.0.0-alpha-6-20200609',
                   'selenium/node-chrome:4.0.0-alpha-6-20200609',
                   'selenium/node-firefox:4.0.0-alpha-6-20200609'
-                ]) {
+                ], local_images) {
                 // Call closure
                 body()
               }
@@ -282,7 +289,7 @@ def define_regression_tests() {
   return regression_tests
 }
 
-def withForcedDockerUpdate(images = [], Closure body) {
+def withForcedDockerUpdate(images = [], local_images = [], Closure body) {
   docker.withRegistry(docker_registry_url, ecr_credential) {
     images.each {
       sh "docker pull ${it}"
@@ -290,6 +297,13 @@ def withForcedDockerUpdate(images = [], Closure body) {
       sh "docker image rm ${it}"
       sh "docker pull ${it}"
       sh "docker image rm ${it}_tmp"
+    }
+    // docker-compose builds a container with a name like dev_ruby_master on the release branch
+    // This name doesn't exist remotely.
+    // If this exists in the local context then it will be used. So it needs to be removed
+    local_images.each {
+      // Delete the image if it exists - it's ok if there's an error which will most likely be the tag does not exist.
+      sh "docker image rm ${it} || true"
     }
     withDockerSandbox(images) {
       body{}
