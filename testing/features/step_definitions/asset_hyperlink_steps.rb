@@ -6,21 +6,21 @@ Given("an Asset Hyperlink component is on the page") do
 end
 
 Then("a link to the PDF is present") do
-  expect(@component.initial_form).to have_download_link
+  expect(@component).to have_download_link
 end
 
 Then("the label includes a name at the beginning") do
-  expect(@component.initial_form.download_link.text).to start_with("Test pdf")
+  expect(@component.download_link.text).to start_with("Test pdf")
 end
 
 Then("the label includes an icon") do
-  expect(@component.initial_form.download_icon_content).not_to be_blank
+  expect(@component.download_icon_content).not_to be_blank
 end
 
 Then("the label includes the file size") do
-  expect(@component.initial_form.download_size.text).to match(file_size)
+  expect(@component.download_size.text).to match(file_size)
 end
 
 Then("the label is a downloadable link") do
-  expect(@component.initial_form.download_link["href"]).not_to be_blank
+  expect(@component.download_link["href"]).not_to be_blank
 end
