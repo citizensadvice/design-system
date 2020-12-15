@@ -17,22 +17,6 @@ services:
     environment:
       - NODE_ENV=development
 
-  ca-styleguide-new:
-    build:
-      context: ./
-      dockerfile: ./docker/Dockerfile.from_pw
-#      cache_from:
-#        - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}'
-#        - '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:ca-styleguide'
-#    image: '979633842206.dkr.ecr.eu-west-1.amazonaws.com/design-system:dev_ca-styleguide_${CA_STYLEGUIDE_VERSION_TAG}'
-    container_name: ca-styleguide-new.test
-    command: npm run docs:serve
-    hostname: ca-styleguide-new.test
-    ports:
-      - 6006:6006
-    environment:
-      - NODE_ENV=development
-
   visual-tests:
     image: 'backstopjs/backstopjs:${BACKSTOPJS_VERSION:-latest}'
     container_name: visual-tests.test
