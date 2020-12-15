@@ -1,4 +1,4 @@
-FROM ruby:2.6-alpine as build
+FROM ruby:2.7-alpine as build
 
 ENV BUNDLER_VERSION 2.1.4
 ENV LANG=C.UTF-8 \
