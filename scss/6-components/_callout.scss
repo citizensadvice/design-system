@@ -1,8 +1,12 @@
+// ============================================================================
+// Callouts
+// ============================================================================
+
 .cads-callout {
-  border: solid 0 $cads-language__border-colour;
-  border-radius: $cads-border-radius;
   position: relative;
-  border-width: 0 0 0 $cads-border-width-large;
+  border-radius: $cads-border-radius;
+  border: solid 0 $cads-language__border-colour;
+  border-left-width: $cads-border-width-large;
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
 
@@ -14,6 +18,7 @@
   @include cads-media-breakpoint-up(md) {
     padding: $cads-spacing-4;
   }
+
   p {
     @extend %cads-paragraph;
   }
@@ -28,66 +33,22 @@
     background-color: cads-colour-to-bg($cads-language__brand-secondary);
   }
 
-  .cads-callout-label {
-    font-weight: bold;
-  }
-
   &.cads-callout-example {
     border: solid $cads-border-width-small $cads-language__border-colour;
     border-radius: $cads-border-radius;
     border-left-color: $cads-palette__mid-grey;
     border-left-width: $cads-border-width-large;
     background-color: $cads-palette__white;
-
-    .cads-callout-label {
-      margin-bottom: $cads-spacing-3;
-      color: $cads-language__secondary-text-colour;
-      font-size: 0.875rem;
-      line-height: 0.875rem;
-      display: block;
-
-      @include cads-media-breakpoint-up(md) {
-        font-size: 1rem;
-      }
-    }
   }
 
   &.cads-callout-important {
     border-color: $cads-language__error-colour;
     background-color: cads-colour-to-bg($cads-language__error-colour);
-
-    .cads-callout-label {
-      margin-bottom: $cads-spacing-3;
-      color: $cads-language__secondary-text-colour;
-      font-size: 0.875rem;
-      line-height: 0.875rem;
-      display: block;
-
-      @include cads-media-breakpoint-up(md) {
-        font-size: 1rem;
-      }
-    }
   }
 
   &.cads-callout-adviser {
     border-color: $cads-language__brand-adviser;
     background-color: cads-colour-to-bg($cads-language__brand-adviser);
-
-    .cads-callout-label {
-      /* stylelint-disable-next-line */
-      margin-bottom: $cads-spacing-3;
-      background: $cads-language__brand-adviser;
-      color: $cads-palette__white;
-      padding: $cads-spacing-2;
-      font-size: 0.875rem;
-      font-weight: $cads-font-weight__bold;
-      line-height: 0.875rem;
-      display: inline-block;
-
-      @include cads-media-breakpoint-up(md) {
-        font-size: 1rem;
-      }
-    }
 
     & & {
       // For when adviser callouts are inside callouts
