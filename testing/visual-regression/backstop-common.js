@@ -61,19 +61,19 @@ module.exports = function backstopCommon(baseUrl) {
       },
       {
         label: 'Components/Callout (standard)',
-        url: storyUrlFor('components-callouts--standard-callout'),
+        url: storyUrlFor('components-callouts--standard'),
       },
       {
         label: 'Components/Callout (example)',
-        url: storyUrlFor('components-callouts--example-callout'),
+        url: storyUrlFor('components-callouts--example'),
       },
       {
         label: 'Components/Callout (important)',
-        url: storyUrlFor('components-callouts--important-callout'),
+        url: storyUrlFor('components-callouts--important'),
       },
       {
         label: 'Components/Callout (adviser)',
-        url: storyUrlFor('components-callouts--adviser-callout'),
+        url: storyUrlFor('components-callouts--adviser'),
       },
       {
         label: `Components/Contact details`,
