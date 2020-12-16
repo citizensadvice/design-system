@@ -20,7 +20,7 @@
     position: absolute;
     visibility: hidden;
     background-color: $cads-language__brand-primary;
-    border-top: 1px solid $cads-palette__white;
+    border-top: $cads-border-width-small solid $cads-palette__white;
     right: 0;
     width: 100vw;
     top: 100%;
@@ -43,8 +43,12 @@
 
       display: block;
       transition-property: none;
-      padding: (cads-rem-to-px($cads-spacing-4) - $cads-border-width-medium)
-        $cads-spacing-4;
+      padding: $cads-spacing-4;
+
+      @include cads-media-breakpoint-up(md) {
+        padding: (cads-rem-to-px($cads-spacing-4) - $cads-border-width-medium)
+          $cads-spacing-4;
+      }
     }
 
     &.show {
@@ -59,7 +63,10 @@
     font-weight: bold;
     background-color: $cads-language__brand-primary;
     border-left: $cads-border-width-small solid $cads-language__border-colour;
-    padding: 0 $cads-spacing-2;
+
+    @include cads-media-breakpoint-up(md) {
+      padding: 0 $cads-spacing-2;
+    }
 
     &::after {
       @extend %cads-icon;
