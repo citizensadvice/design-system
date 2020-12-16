@@ -1,3 +1,6 @@
+**New**
+
+- 📋 Footer Feedback: add a class to allow selection of footer feedback link
 **Docs**
 
 - 📇 Contact Details: documentation updated (NP-1028)
