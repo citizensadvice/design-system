@@ -1,9 +1,11 @@
+import { translate } from '../../story-helpers';
+import initTargetedContent from '../../../src/js/targeted-content';
+
 import docs from './targeted-content-docs.mdx';
 import templateDefault from './_default.html.haml';
 import templateAnchor from './_anchor.html.haml';
 import templateFallback from './_fallback.html.haml';
-import { translate } from '../../story-helpers';
-import initTargetedContent from '../../../src/js/targeted-content';
+import templateAdviser from './_adviser.html.haml';
 
 function decorateWithBehaviour(Story) {
   setTimeout(() => initTargetedContent());
@@ -18,6 +20,9 @@ export default {
 
 export const Default = (_, options) => translate(templateDefault, options);
 Default.parameters = { docs: { source: { code: templateDefault.raw } } };
+
+export const Adviser = (_, options) => translate(templateAdviser, options);
+Adviser.parameters = { docs: { source: { code: templateAdviser.raw } } };
 
 export const WithAnchor = (_, options) => translate(templateAnchor, options);
 WithAnchor.storyName = 'With anchor';

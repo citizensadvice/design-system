@@ -41,15 +41,22 @@ If JavaScript either fails or is disabled in the users browser the fallback is t
   <Story id="components-targeted-content--fallback" />
 </Preview>
 
+## Adviser variant
+
+<Preview>
+  <Story id="components-targeted-content--adviser" />
+</Preview>
+
 ## Haml template options
 
 The Haml partial takes a `targeted_content` hash with the following properties:
 
-| properties                  | Description            |
-| --------------------------- | ---------------------- |
-| `targeted_content['id']`    | Required, unique ID    |
-| `targeted_content['title']` | Required, title string |
-| `targeted_content['body']`  | Required, body HTML    |
+| properties | Description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| `id`       | Required, unique ID                                          |
+| `title`    | Required, title string                                       |
+| `body`     | Required, body HTML                                          |
+| `type`     | Optional, one of `public` or `adviser`. Defaults to `public` |
 
 ## JavaScript behaviour
 

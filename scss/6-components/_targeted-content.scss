@@ -1,3 +1,7 @@
+// ============================================================================
+// Targeted Content
+// ============================================================================
+
 /** @define targeted-content */
 .cads-targeted-content {
   display: block;
@@ -9,7 +13,6 @@
 
     display: block;
     color: $cads-language__brand-primary;
-    background: $cads-palette__white;
     border: $cads-border-width-small solid $cads-language__link-colour;
     padding: $cads-spacing-3 $cads-spacing-4;
     margin: 0;
@@ -21,6 +24,18 @@
     border: $cads-border-width-small solid $cads-language__link-colour;
     border-top: none;
     padding: $cads-spacing-3 $cads-spacing-4;
+  }
+}
+
+///
+// Modifier: Adviser
+///
+.cads-targeted-content--adviser {
+  background-color: cads-colour-to-bg($cads-language__brand-adviser);
+
+  .cads-targeted-content__title,
+  .cads-targeted-content__content {
+    border-color: $cads-language__brand-adviser;
   }
 }
 
