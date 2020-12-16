@@ -89,7 +89,7 @@ function initTargetedContentFor(el) {
       aria-label="${title.textContent.trim()}, ${el.getAttribute(
       'data-descriptive-label-show'
     )}">
-        <span class="${CLASS_NAMES.titleText}">${title.textContent}</span>
+        <div class="${CLASS_NAMES.titleText}">${title.innerHTML}</div>
         <svg class="${
           CLASS_NAMES.icon
         }" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
