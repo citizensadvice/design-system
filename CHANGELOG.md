@@ -1,3 +1,6 @@
+**Bugfixes**
+🌎: Navigation: Padding, spacing and mobile design improvements (NP-1026)
+
 **Docs**
 
 - 📇 Contact Details: documentation updated (NP-1028)
