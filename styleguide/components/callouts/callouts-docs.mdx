@@ -1,10 +1,4 @@
-import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
-import { translate } from '../../story-helpers';
-
-<Meta
-  title="Components/Callouts"
-  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
-/>
+import { Story, Preview, Source } from '@storybook/addon-docs/blocks';
 
 # Callouts
 
@@ -14,60 +8,32 @@ There are 4 main callout styles in our Design System:
 
 This callout style should be used on important, non-mandatory advice for users that don’t have any serious or legal implications. There might be other implications.
 
-import templateStandard from './_standard.html.haml';
-
 <Preview>
-  <Story
-    name="Standard callout"
-    parameters={{ docs: { source: { code: templateStandard.raw } } }}
-  >
-    {(_, options) => translate(templateStandard, options)}
-  </Story>
+  <Story id="components-callouts--standard" />
 </Preview>
 
 ## Example callout
 
 This style is when an example needs to be displayed. Also, use it for quotes.
 
-import templateExample from './_example.html.haml';
-
 <Preview>
-  <Story
-    name="Example callout"
-    parameters={{ docs: { source: { code: templateExample.raw } } }}
-  >
-    {(_, options) => translate(templateExample, options)}
-  </Story>
+  <Story id="components-callouts--example" />
 </Preview>
 
 ## Important callout
 
 The important callout should be used for any important snippet of text that has serious and/or legal implications if the user does not follow the advice.
 
-import templateImportant from './_important.html.haml';
-
 <Preview>
-  <Story
-    name="Important callout"
-    parameters={{ docs: { source: { code: templateImportant.raw } } }}
-  >
-    {(_, options) => translate(templateImportant, options)}
-  </Story>
+  <Story id="components-callouts--important" />
 </Preview>
 
 ## Adviser callout
 
 Content that is for advisers. This should not be shown to the public and you should only show this when an adviser is logged in.
 
-import templateAdviser from './_adviser.html.haml';
-
 <Preview>
-  <Story
-    name="Adviser callout"
-    parameters={{ docs: { source: { code: templateAdviser.raw } } }}
-  >
-    {(_, options) => translate(templateAdviser, options)}
-  </Story>
+  <Story id="components-callouts--adviser" />
 </Preview>
 
 ## When to use
@@ -93,11 +59,7 @@ The title should be used as `h3` no matter where they are on the page. If a call
 
 The Haml partial takes a `notice` hash with the following properties:
 
-| Property         | Description                                                       |
-| ---------------- | ----------------------------------------------------------------- |
-| `notice['type']` | Optional type, one of: `standard`, `example`, `import`, `adviser` |
-| `notice['body']` | HTML string                                                       |
-
-For example:
-
-<Source dark="true" language="haml" code={templateImportant.raw} />
+| Property | Description                                                          |
+| -------- | -------------------------------------------------------------------- |
+| `type`   | Optional type, one of: `standard`, `example`, `important`, `adviser` |
+| `body`   | HTML string                                                          |
