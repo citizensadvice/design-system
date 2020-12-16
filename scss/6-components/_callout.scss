@@ -2,11 +2,13 @@
 // Callouts
 // ============================================================================
 
+/** @define callout; weak **/
 .cads-callout {
   position: relative;
   border-radius: $cads-border-radius;
-  border: solid 0 $cads-language__border-colour;
+  border: solid 0 $cads-language__brand-secondary;
   border-left-width: $cads-border-width-large;
+  background-color: cads-colour-to-bg($cads-language__brand-secondary);
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
 
@@ -21,42 +23,37 @@
 
   p {
     @extend %cads-paragraph;
-  }
 
-  p:last-of-type {
-    margin-bottom: 0;
-  }
-
-  &,
-  &.cads-callout-standard {
-    border-color: $cads-language__brand-secondary;
-    background-color: cads-colour-to-bg($cads-language__brand-secondary);
-  }
-
-  &.cads-callout-example {
-    border: solid $cads-border-width-small $cads-language__border-colour;
-    border-radius: $cads-border-radius;
-    border-left-color: $cads-palette__mid-grey;
-    border-left-width: $cads-border-width-large;
-    background-color: $cads-palette__white;
-  }
-
-  &.cads-callout-important {
-    border-color: $cads-language__error-colour;
-    background-color: cads-colour-to-bg($cads-language__error-colour);
-  }
-
-  &.cads-callout-adviser {
-    border-color: $cads-language__brand-adviser;
-    background-color: cads-colour-to-bg($cads-language__brand-adviser);
-
-    & & {
-      // For when adviser callouts are inside callouts
-      margin-top: $cads-spacing-4;
+    &:last-of-type {
+      margin-bottom: 0;
     }
+  }
+
+  & & {
+    // For when callouts are inside callouts
+    margin-top: $cads-spacing-4;
   }
 }
 
+.cads-callout--example {
+  border: solid $cads-border-width-small $cads-language__border-colour;
+  border-radius: $cads-border-radius;
+  border-left-color: $cads-palette__mid-grey;
+  border-left-width: $cads-border-width-large;
+  background-color: $cads-palette__white;
+}
+
+.cads-callout--important {
+  border-color: $cads-language__error-colour;
+  background-color: cads-colour-to-bg($cads-language__error-colour);
+}
+
+.cads-callout--adviser {
+  border-color: $cads-language__brand-adviser;
+  background-color: cads-colour-to-bg($cads-language__brand-adviser);
+}
+
+/* stylelint-disable  plugin/selector-bem-pattern */
 .cads-prose .cads-callout__title {
   h2:first-of-type,
   h3:first-of-type {
