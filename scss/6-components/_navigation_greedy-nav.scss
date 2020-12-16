@@ -22,9 +22,15 @@
     background-color: $cads-language__brand-primary;
     border-top: 1px solid $cads-palette__white;
     right: 0;
+    width: 100vw;
     top: 100%;
-    padding: 0;
+    padding: $cads-spacing-2 0;
     margin: 0;
+
+    @include cads-media-breakpoint-up(md) {
+      width: auto;
+      padding: 0;
+    }
 
     li {
       margin-bottom: 0;
@@ -33,9 +39,12 @@
     }
 
     a {
+      @include cads-nav-link;
+
       display: block;
       transition-property: none;
-      padding: 11px 17px;
+      padding: (cads-rem-to-px($cads-spacing-4) - $cads-border-width-medium)
+        $cads-spacing-4;
     }
 
     &.show {
@@ -44,44 +53,17 @@
   }
 
   &__dropdown-toggle {
-    visibility: hidden;
-    position: absolute;
-    @include cads-button-defaults();
+    @include cads-nav-link;
 
     height: 100%;
     font-weight: bold;
-    font-size: 1rem;
-    color: $cads-palette__white;
     background-color: $cads-language__brand-primary;
-    border: $cads-language__brand-primary;
-    box-shadow: none;
-
-    &:hover {
-      background-color: $cads-language__link-hover-colour;
-      border-color: $cads-language__link-hover-colour;
-    }
-
-    &:focus,
-    &:active {
-      background-color: $cads-palette__white;
-      color: $cads-language__brand-primary;
-      border: 2px solid $cads-palette__heritage-yellow;
-      padding: calc(1rem - 2px);
-    }
+    border-left: $cads-border-width-small solid $cads-language__border-colour;
+    padding: 0 $cads-spacing-2;
 
     &::after {
-      /* Copied from the icon font setup */
-      font-family: 'cads';
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
+      @extend %cads-icon;
 
-      /* Better Font Rendering =========== */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       content: '\0044';
       display: inline-block;
       transform: rotate(270deg);
@@ -108,6 +90,12 @@
 
   &__wrapper {
     position: relative;
+
+    @include cads-media-breakpoint-up(md) {
+      position: absolute;
+      right: 0;
+      height: 100%;
+    }
   }
 
   &-is-visible {
@@ -126,5 +114,10 @@
         }
       }
     }
+  }
+
+  &__header-links,
+  &__header-links li:first-child {
+    margin-top: $cads-spacing-2;
   }
 }

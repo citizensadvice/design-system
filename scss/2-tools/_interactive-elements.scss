@@ -15,3 +15,36 @@
     @include cads-interactive-focus();
   }
 }
+
+@mixin cads-nav-link-focus() {
+  background-color: $cads-palette__white;
+  color: $cads-language__brand-primary;
+  border: $cads-border-width-medium solid $cads-palette__heritage-yellow;
+  outline: none;
+}
+
+@mixin cads-nav-link() {
+  font-size: 1rem;
+  color: $cads-palette__white;
+  padding: $cads-spacing-3 cads-rem(6px - $cads-border-width-medium);
+  display: inline-block;
+  text-decoration: none;
+  border: $cads-border-width-medium solid;
+  border-color: transparent;
+  line-height: 1em;
+
+  &:visited {
+    color: $cads-palette__white;
+  }
+
+  &:hover {
+    background-color: $cads-language__link-hover-colour;
+    border-color: $cads-language__link-hover-colour;
+    color: $cads-palette__white;
+  }
+
+  &:active,
+  &:focus {
+    @include cads-nav-link-focus();
+  }
+}
