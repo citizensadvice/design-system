@@ -26,7 +26,7 @@
 @mixin cads-nav-link() {
   font-size: 1rem;
   color: $cads-palette__white;
-  padding: $cads-spacing-3 cads-rem(6px - $cads-border-width-medium);
+  padding: $cads-spacing-3 cads-rem(6px);
   display: inline-block;
   text-decoration: none;
   border: $cads-border-width-medium solid;

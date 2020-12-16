@@ -19,7 +19,7 @@
     display: inline-block;
     margin: 0;
     list-style-type: none;
-    padding: 0 0 0 2px; // padding on LIs is reduced by 2px to account for border, adding here realigns with grid
+    padding: 0;
   }
 
   &__list-item {
@@ -45,14 +45,8 @@
 
       @include cads-media-breakpoint-up($breakpoint) {
         padding-left: $gutter;
-
-        @if $breakpoint != 'sm' {
-          padding-right: $gutter;
-        }
       }
     }
-
-    padding-right: 0;
   }
 }
 

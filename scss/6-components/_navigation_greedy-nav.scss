@@ -90,6 +90,7 @@
 
   &__wrapper {
     position: relative;
+    visibility: hidden;
 
     @include cads-media-breakpoint-up(md) {
       position: absolute;

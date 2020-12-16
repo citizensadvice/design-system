@@ -69,7 +69,7 @@ const defaultConfig: Config = {
   navDropdownBreakpointLabel: 'menu',
   breakPoint: 0,
   throttleDelay: 50,
-  offsetPixels: 0,
+  offsetPixels: -2,
   count: true,
 
   // Callbacks
