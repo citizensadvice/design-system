@@ -75,3 +75,18 @@
     }
   }
 }
+
+/* stylelint-disable plugin/selector-bem-pattern */
+.cads-header__search-row {
+  .cads-search {
+    margin-left: auto;
+
+    @include cads-media-breakpoint-only(md) {
+      width: 70%;
+    }
+
+    @include cads-media-breakpoint-only(lg) {
+      width: 55%;
+    }
+  }
+}

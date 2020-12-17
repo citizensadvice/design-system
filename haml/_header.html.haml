@@ -14,14 +14,18 @@
           = t("cads.header.skip_to_content")
         %a.cads-skip-links__link{ href: "#cads-footer" }
           = t("cads.header.skip_to_footer")
-      .cads-grid-col-md-6.cads-header__logo-row
+      .cads-grid-col-md-2.cads-header__logo-row
         %a.cads-logo{ href: homepage_url, title: t("cads.shared.logo_title") }
         %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t("cads.header.search_mobile"), "aria-expanded": "false" }
-      .cads-grid-col-md-6.cads-header__search-row
+      .cads-grid-col-md-10.cads-header__search-row
         %ul.cads-header__links.js-cads-copy-into-nav
           - links&.each do |link|
             %li.cads-header__links-item
-              %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
+              - if link.key?("url")
+                %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
+              - else
+                %span.cads-header__text
+                  = link["title"]
           - if sign_in_out
             %li.cads-header__account-link
               %a.cads-header__hyperlink{href: sign_in_out["url"], "data-testid": "account-link"}= sign_in_out["title"]

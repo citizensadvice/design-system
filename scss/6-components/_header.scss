@@ -7,7 +7,7 @@
   background-color: $cads-header__background-colour;
   padding: $cads-spacing-4 0;
 
-  .cads-header__hyperlink {
+  &__hyperlink {
     color: $cads-header__link-colour;
 
     &:hover {
@@ -30,7 +30,11 @@
     }
   }
 
-  .cads-header__search-reveal {
+  &__text {
+    color: $cads-language__secondary-text-colour;
+  }
+
+  &__search-reveal {
     @include cads-button-defaults();
 
     display: none;
@@ -55,7 +59,7 @@
     }
   }
 
-  .cads-header__links {
+  &__links {
     @extend %cads-list-unordered-inline;
 
     text-align: right;
@@ -70,8 +74,10 @@
     }
 
     .cads-header__account-link {
-      border-left: solid 1px $cads-header__link-colour;
-      padding-left: $cads-spacing-4;
+      @include cads-media-breakpoint-up(lg) {
+        border-left: solid 1px $cads-header__link-colour;
+        padding-left: $cads-spacing-4;
+      }
     }
 
     @media print {
@@ -80,21 +86,21 @@
   }
 
   @include cads-media-breakpoint-only(sm) {
-    .cads-header__logo-row {
+    &__logo-row {
       display: flex;
       justify-content: space-between;
     }
 
-    .cads-header__search-reveal {
+    &__search-reveal {
       display: inline-block;
       width: $cads-interactive-target-size;
     }
 
-    .cads-header__links {
+    &__links {
       display: none;
     }
 
-    .cads-header__search-row {
+    &__search-row {
       margin-top: $cads-spacing-4;
       display: none;
     }
