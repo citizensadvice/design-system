@@ -10,10 +10,9 @@ Given("a No Collapse Breadcrumbs component is on the page") do
   @component.load
 end
 
-Given('a Site Wide Breadcrumbs component is on the page') do
+Given("a Site Wide Breadcrumbs component is on the page") do
   @component = Breadcrumbs::SiteWide.new
   @component.load
-
 end
 
 Then("a series of breadcrumbs are present") do
@@ -28,10 +27,14 @@ Then("the initial breadcrumbs are all links") do
   expect(@component.all_but_last_breadcrumb).to all have_link
 end
 
-Then("the final breadcrumb isn't a link") do
-  if mobile_phone? && @default == true
+Then("the final breadcrumb isn't a link unless on mobile") do
+  if mobile_phone?
     expect(@component.breadcrumbs.last).to have_link
   else
     expect(@component.breadcrumbs.last).not_to have_link
   end
+end
+
+Then("the final breadcrumb isn't a link") do
+  expect(@component.breadcrumbs.last).not_to have_link
 end

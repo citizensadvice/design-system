@@ -10,7 +10,7 @@ Feature: Breadcrumbs component
     Scenario: Breadcrumbs only link up till the last one
       Then a series of breadcrumbs are present
       And the initial breadcrumbs are all links
-      But the final breadcrumb isn't a link
+      But the final breadcrumb isn't a link unless on mobile
 
   Rule: Site Wide Breadcrumb
     Background:
