@@ -21,11 +21,12 @@
         %ul.cads-header__links.js-cads-copy-into-nav
           - links&.each do |link|
             %li.cads-header__links-item
-              - if link.key?("url")
-                %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
-              - else
+              - if link["current_site"]
                 %span.cads-header__text
                   = link["title"]
+              - else
+                %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
+
           - if sign_in_out
             %li.cads-header__account-link
               %a.cads-header__hyperlink{href: sign_in_out["url"], "data-testid": "account-link"}= sign_in_out["title"]
