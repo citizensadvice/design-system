@@ -4,7 +4,7 @@
     "title" => "Public site",
     "url" => "/",
     "current_site" => true
-  }
+  },
   {
     "title" => "Intranet",
     "url" => "#intranet"
