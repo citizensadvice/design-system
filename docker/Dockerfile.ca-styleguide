@@ -20,9 +20,8 @@ RUN apk add nodejs inotify-tools && \
 
 RUN apk update
 
-RUN groupadd ruby -g 1000 && \
-    useradd -m -d /home/ruby -u 1000 --no-user-group ruby && \
-    usermod -g ruby ruby
+RUN addgroup --gid 1000 ruby && \
+    adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
 
 RUN gem install bundler -v $BUNDLER_VERSION
 RUN mkdir -p /app && chown -R 1000:1000 /app
