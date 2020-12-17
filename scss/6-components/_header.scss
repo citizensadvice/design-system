@@ -103,6 +103,18 @@
       display: none;
     }
   }
+
+  .cads-header__search-form {
+    margin-left: auto;
+
+    @include cads-media-breakpoint-only(md) {
+      width: 70%;
+    }
+
+    @include cads-media-breakpoint-only(lg) {
+      width: 55%;
+    }
+  }
 }
 
 ///
