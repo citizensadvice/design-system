@@ -22,7 +22,7 @@ Feature: Header component
     Scenario: Header has a search option
       Then I am able to search for "Anything"
 
-    @future_release @v3.1.0+ @not_mobile
+    @not_mobile
     Scenario Outline: English Users can quickly navigate to various areas of the page
       Then I am able to skip to the <area> part of the page
 
@@ -32,7 +32,7 @@ Feature: Header component
         | content    |
         | footer     |
 
-    @future_release @v3.1.0+ @not_mobile
+    @not_mobile
     Scenario Outline: Welsh Users can quickly navigate to various areas of the page
       Given the language is Welsh
       Then I am able to skip to the <area> part of the page
