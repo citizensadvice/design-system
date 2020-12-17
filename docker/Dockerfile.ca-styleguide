@@ -6,19 +6,11 @@ ENV NODE_MAJOR_VERSION=14 \
     BUNDLE_JOBS=6 \
     BUNDLE_RETRY=3
 
-RUN apk add bash
-RUN echo $NODE_MAJOR_VERSION
-RUN apk add curl gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base
-
-RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs
-
-RUN echo node -v
-
-RUN apk add nodejs inotify-tools && \
+RUN apk add bash curl gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base inotify-tools && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     truncate -s 0 /var/log/*log
 
-RUN apk update
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs
 
 RUN addgroup --gid 1000 ruby && \
     adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
