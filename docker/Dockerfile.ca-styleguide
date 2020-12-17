@@ -6,19 +6,19 @@ ENV NODE_MAJOR_VERSION=14 \
     BUNDLE_JOBS=6 \
     BUNDLE_RETRY=3
 
-RUN apk update
-RUN apk upgrade
 RUN apk add bash
-
+RUN echo $NODE_MAJOR_VERSION
 RUN apk add curl gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base
 
-RUN curl --retry 5 --retry-connrefuse --retry-delay 4 -sL https://deb.nodesource.com/setup_$NODE_MAJOR_VERSION.x | bash -
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs
+
+RUN echo node -v
 
 RUN apk add nodejs inotify-tools && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     truncate -s 0 /var/log/*log
 
-RUN apt-get update && apt-get install -y apt-utils
+RUN apk update
 
 RUN groupadd ruby -g 1000 && \
     useradd -m -d /home/ruby -u 1000 --no-user-group ruby && \
