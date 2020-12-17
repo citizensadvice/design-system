@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "fileutils"
+require "yaml"
 
 task default: :check
 
@@ -16,6 +17,19 @@ end
 
 def base_cucumber_path
   "artifacts/#{ENV['BROWSER']}/#{ENV['BROWSERSTACK'] == 'true' ? ENV['BROWSERSTACK_CONFIGURATION_OPTIONS'] : 'other'}"
+end
+
+def compare_yaml_hash(yaml_a, yaml_b, context = [])
+  yaml_a.each do |key, value|
+    raise "Missing key: #{key} in path #{context.join('.')}" unless yaml_b.key?(key)
+
+    raise "Key value type mismatch: #{key} in path #{context.join('.')}" if value.class != yaml_b[key].class
+
+    if value.is_a?(Hash)
+      compare_yaml_hash(value, yaml_b[key], (context + [key]))
+      next
+    end
+  end
 end
 
 namespace :design_system do
@@ -45,7 +59,7 @@ end
 namespace :ruby do
   desc "Lint ruby files"
   task :lint do
-    collect_task_errors(%w[ruby:rubocop ruby:haml_lint])
+    collect_task_errors(%w[ruby:rubocop ruby:haml_lint ruby:locale_lint])
   end
 
   desc "Rubocop Linting"
@@ -58,6 +72,15 @@ namespace :ruby do
   task :haml_lint do
     puts "Running haml-lint"
     system("bundle exec haml-lint haml styleguide") || raise
+  end
+
+  desc "Locale linting"
+  task :locale_lint do
+    puts "Checking locale files have matching keys"
+    compare_yaml_hash(
+      YAML.load_file("locales/en.yml")["en"]["cads"],
+      YAML.load_file("locales/cy.yml")["cy"]["cads"]
+    )
   end
 end
 
