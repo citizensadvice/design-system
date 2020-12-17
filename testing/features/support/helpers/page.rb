@@ -61,7 +61,7 @@ module Helpers
     end
 
     def name_of_file(test_case)
-      "#{timestamp}_#{test_case.feature_file_name}_#{test_case.name}"
+      "#{timestamp}_#{test_case.feature_file_name}_#{test_case.name.gsub("/", "or").gsub(" ", "_")}"
     end
 
     def width(fallback: 1600)
