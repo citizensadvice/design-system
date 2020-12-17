@@ -12,6 +12,15 @@ Feature: Breadcrumbs component
       And the initial breadcrumbs are all links
       But the final breadcrumb isn't a link
 
+  Rule: Site Wide Breadcrumb
+    Background:
+      Given a Site Wide Breadcrumbs component is on the page
+
+    Scenario: Breadcrumbs only link up till the last one
+      Then a series of breadcrumbs are present
+      And the initial breadcrumbs are all links
+      But the final breadcrumb isn't a link
+
   Rule: No Collapse Breadcrumb
     Background:
       Given a No Collapse Breadcrumbs component is on the page

@@ -3,12 +3,17 @@
 Given("a Default Breadcrumbs component is on the page") do
   @component = Breadcrumbs::Default.new
   @component.load
-  @default = true
 end
 
 Given("a No Collapse Breadcrumbs component is on the page") do
   @component = Breadcrumbs::NoCollapse.new
   @component.load
+end
+
+Given('a Site Wide Breadcrumbs component is on the page') do
+  @component = Breadcrumbs::SiteWide.new
+  @component.load
+
 end
 
 Then("a series of breadcrumbs are present") do
