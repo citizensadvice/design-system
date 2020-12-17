@@ -20,10 +20,6 @@ Then("each header item has at least 1 link below it") do
   expect(@component.category_titles).to all have_links
 end
 
-Then("a footer logo is present") do
-  expect(@component).to have_logo
-end
-
 Then("a copyright notice is present") do
   expect(@component).to have_copyright(text: I18n.t("cads.shared.copyright"))
 end

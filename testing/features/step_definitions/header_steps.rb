@@ -12,12 +12,6 @@ Then("a login/logout link is present") do
   expect(@component).to have_login
 end
 
-Then("a header logo is present") do
-  expect(@component.logo["title"]).to eq("Citizens Advice homepage")
-
-  expect(@component.logo["href"]).not_to be_blank
-end
-
 When("I type {string} into the search box") do |search_term|
   @component.search_field.send_keys(search_term)
 end
