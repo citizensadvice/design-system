@@ -15,3 +15,40 @@
     @include cads-interactive-focus();
   }
 }
+
+@mixin cads-nav-link-focus() {
+  background-color: $cads-language__brand-primary-contrast;
+  color: $cads-language__brand-primary;
+  border: $cads-border-width-medium solid $cads-palette__heritage-yellow;
+  outline: none;
+}
+
+@mixin cads-nav-link() {
+  font-size: $cads-font-size;
+  color: $cads-language__brand-primary-contrast;
+  padding: $cads-spacing-3 $cads-spacing-2;
+  display: inline-block;
+  text-decoration: none;
+  border: $cads-border-width-medium solid;
+  border-color: transparent;
+  line-height: $cads-font-size;
+
+  @include cads-media-breakpoint-up(md) {
+    padding: $cads-spacing-3 cads-rem(6px);
+  }
+
+  &:visited {
+    color: $cads-language__brand-primary-contrast;
+  }
+
+  &:hover {
+    background-color: $cads-language__link-hover-colour;
+    border-color: $cads-language__link-hover-colour;
+    color: $cads-language__brand-primary-contrast;
+  }
+
+  &:active,
+  &:focus {
+    @include cads-nav-link-focus();
+  }
+}

@@ -1,6 +1,11 @@
+**Bugfixes**
+- 🌎: Navigation: Padding, spacing and mobile design improvements (NP-1026)
+
+
 **New**
 
 - 📋 Footer Feedback: add a class to allow selection of footer feedback link
+
 **Docs**
 
 - 📇 Contact Details: documentation updated (NP-1028)

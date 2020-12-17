@@ -1,41 +1,15 @@
 @import 'navigation_greedy-nav';
 
-%cads-nav-link {
-  font-size: 1rem;
-  color: $cads-palette__white;
-  padding: calc(1rem - 2px) calc(1rem - 12px);
-  display: inline-block;
-  text-decoration: none;
-  border: 2px solid;
-  border-color: $cads-language__brand-primary;
-  line-height: 1em;
-
-  &:visited {
-    color: $cads-palette__white;
-  }
-
-  &:hover {
-    background-color: $cads-language__link-hover-colour;
-    border-color: $cads-language__link-hover-colour;
-    color: $cads-palette__white;
-  }
-
-  &:active,
-  &:focus {
-    background-color: $cads-palette__white;
-    color: $cads-language__brand-primary;
-    border: 2px solid $cads-palette__heritage-yellow;
-    outline: none;
-  }
-}
-
 /** @define navigation */
 .cads-navigation {
   display: flex;
   justify-content: space-between;
   background-color: $cads-language__brand-primary;
   width: 100%;
-  height: 3rem;
+  padding: 0;
+  margin-bottom: 0;
+  position: relative;
+  font-size: 0;
 
   .cads-navigation-toggle-label {
     @include cads-visually-hidden;
@@ -43,17 +17,19 @@
 
   &__list {
     display: inline-block;
-
-    @extend %cads-list-no-bullet;
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
   }
 
   &__list-item {
     display: inline-block;
     font-weight: $cads-font-weight__bold;
+    margin-bottom: 0;
   }
 
   &__link {
-    @extend %cads-nav-link;
+    @include cads-nav-link;
   }
 }
 
@@ -68,7 +44,6 @@
       $gutter: map-get($cads-nav-breakpoint-gutters, $breakpoint);
 
       @include cads-media-breakpoint-up($breakpoint) {
-        padding-right: $gutter;
         padding-left: $gutter;
       }
     }
@@ -80,25 +55,28 @@
     width: 100%;
     margin-bottom: 0;
     padding: 0;
+
+    &::before {
+      display: block;
+      content: '';
+      border-top: $cads-border-width-small solid $cads-palette__white;
+      position: relative;
+      // take focus border into account
+      left: cads-rem-to-px($cads-spacing-4) + $cads-border-width-medium;
+      width: calc(
+        100% - #{2 * $cads-spacing-4} - #{2 * $cads-border-width-medium}
+      );
+    }
   }
 
   .cads-header__account-link,
   .cads-header__links-item {
     display: block;
     font-weight: $cads-font-weight__bold;
-
-    &:first-of-type::before {
-      display: block;
-      content: '';
-      border-top: $cads-border-width-small solid $cads-palette__white;
-      position: relative;
-      left: $cads-spacing-4;
-      width: calc(100% - #{2 * $cads-spacing-4});
-    }
   }
 
   .cads-header__hyperlink {
-    @extend %cads-nav-link;
+    @include cads-nav-link;
 
     display: block;
     padding: $cads-spacing-3 $cads-spacing-4;

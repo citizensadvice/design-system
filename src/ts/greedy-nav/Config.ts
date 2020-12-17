@@ -69,7 +69,12 @@ const defaultConfig: Config = {
   navDropdownBreakpointLabel: 'menu',
   breakPoint: 0,
   throttleDelay: 50,
-  offsetPixels: 0,
+  /* Offset pixels add a tolerance to when an item is removed from the nav and put in the dropdown.
+   * Aligning the nav with the grid in NP-1026 makes the contents of the nav 2px too wide for
+   * GreedyNav's calculations and puts the last nav item in the dropdown at lg.  This offset prevents
+   * that from whilst maintainng the otherwise correct behaviour of GreedyNav.
+   */
+  offsetPixels: -2,
   count: true,
 
   // Callbacks

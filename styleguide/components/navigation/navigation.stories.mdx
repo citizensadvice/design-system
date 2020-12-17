@@ -12,6 +12,7 @@ import navigationLinksExample from '!!raw-loader!./navigation_links_example.rb';
       setTimeout(() => greedyNav.init());
       return Story();
     },
+    (Story) => `<div class="remove-margins">${Story()}</div>`,
   ]}
 />
 

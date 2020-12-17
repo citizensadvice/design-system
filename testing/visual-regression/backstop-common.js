@@ -164,7 +164,7 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-navigation--default'),
         readySelector: '.cads-greedy-nav-has-dropdown',
         clickSelector: '.cads-greedy-nav__dropdown-toggle',
-        viewports: [{ label: 'navigation', width: 800, height: 200 }],
+        viewports: [{ label: 'desktop', width: 800, height: 200 }],
       },
       {
         label: 'Components/Navigation (focus)',
@@ -173,7 +173,14 @@ module.exports = function backstopCommon(baseUrl) {
         keyPressSelectors: [
           { selector: '.cads-navigation__link', keyPress: 'Tab' },
         ],
-        viewports: [{ label: 'navigation', width: 800, height: 200 }],
+        viewports: [{ label: 'desktop', width: 800, height: 200 }],
+      },
+      {
+        label: 'Components/Navigation mobile',
+        url: storyUrlFor('components-navigation--default'),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        clickSelector: '.cads-greedy-nav__dropdown-toggle',
+        viewports: [{ label: 'mobile', width: 320, height: 400 }],
       },
       {
         label: 'Components/Tables',
