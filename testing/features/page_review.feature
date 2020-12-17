@@ -1,4 +1,3 @@
-@future_release
 Feature: Page Review component
 
   The Page Review component reassures the public that the content
@@ -8,6 +7,11 @@ Feature: Page Review component
     Background:
       Given a Standard Page Review component is on the page
 
-    Scenario: Label includes the date
+    Scenario: English Label includes the date
+      Then the date that the page was last reviewed is present
+      And the date is bold
+
+    Scenario: Welsh Label includes the date
+      Given the language is Welsh
       Then the date that the page was last reviewed is present
       And the date is bold
