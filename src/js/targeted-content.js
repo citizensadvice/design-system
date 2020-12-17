@@ -20,33 +20,28 @@ const CLASS_NAMES = {
   toggleable: 'cads-targeted-content--toggleable',
   open: 'cads-targeted-content--open',
   button: 'cads-targeted-content__button',
-  titleText: 'cads-targeted-content__title-text',
   icon: 'cads-targeted-content__icon',
   iconVertLine: 'cads-targeted-content__icon-vert',
 };
 
-function setOpen(el) {
-  el.classList.add(CLASS_NAMES.open);
+function setState(el, state) {
+  if (state === 'open') {
+    el.classList.add(CLASS_NAMES.open);
+  } else {
+    el.classList.remove(CLASS_NAMES.open);
+  }
 
-  const btn = el.querySelector(SELECTORS.title).querySelector('button');
-  btn.setAttribute('aria-expanded', 'true');
+  const titleEl = el.querySelector(SELECTORS.title);
+  const titleText = el.getAttribute('data-title-text');
+  const btn = titleEl.querySelector('button');
+
+  btn.setAttribute('aria-expanded', state === 'open' ? 'true' : 'false');
   btn.setAttribute(
     'aria-label',
-    `${btn.textContent.trim()}, ${el.getAttribute(
-      'data-descriptive-label-hide'
-    )}`
-  );
-}
-
-function setClosed(el) {
-  el.classList.remove(CLASS_NAMES.open);
-
-  const btn = el.querySelector(SELECTORS.title).querySelector('button');
-  btn.setAttribute('aria-expanded', 'false');
-  btn.setAttribute(
-    'aria-label',
-    `${btn.textContent.trim()}, ${el.getAttribute(
-      'data-descriptive-label-show'
+    `${titleText}, ${el.getAttribute(
+      state === 'open'
+        ? 'data-descriptive-label-hide'
+        : 'data-descriptive-label-show'
     )}`
   );
 }
@@ -56,14 +51,15 @@ function openByHash(hash) {
   if (targetEl) {
     const matchEl = targetEl.closest(SELECTORS.el);
     if (matchEl) {
-      setOpen(matchEl);
+      setState(matchEl, 'open');
     }
   }
 }
 
 function initTargetedContentFor(el) {
-  const title = el.querySelector(SELECTORS.title);
-  const content = el.querySelector(SELECTORS.content);
+  const titleEl = el.querySelector(SELECTORS.title);
+  const titleText = el.getAttribute('data-title-text');
+  const contentEl = el.querySelector(SELECTORS.content);
 
   /**
    * Create the toggle button
@@ -83,13 +79,13 @@ function initTargetedContentFor(el) {
    * @see https://inclusive-components.design/collapsible-sections/
    */
   const createToggleButton = () => {
-    title.innerHTML = `<button class="${
+    titleEl.innerHTML = `<button class="${
       CLASS_NAMES.button
-    }" aria-expanded="false" aria-controls="${content.id}"
-      aria-label="${title.textContent.trim()}, ${el.getAttribute(
+    }" aria-expanded="false" aria-controls="${contentEl.id}"
+      aria-label="${titleText}, ${el.getAttribute(
       'data-descriptive-label-show'
     )}">
-        <div class="${CLASS_NAMES.titleText}">${title.innerHTML}</div>
+        ${titleEl.innerHTML}
         <svg class="${
           CLASS_NAMES.icon
         }" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
@@ -110,12 +106,12 @@ function initTargetedContentFor(el) {
    */
   const createCloseButton = () => {
     const ariaLabel = el.getAttribute('data-descriptive-label-hide');
-    const closeButton = `<hr class="cads-separator"></hr>
+    const closeButton = `<hr class="cads-separator" />
         <button aria-label="${ariaLabel}" class="cads-linkbutton cads-targeted-content__close-button">
           ${el.getAttribute('data-close-label')}
         </button>`;
 
-    content.insertAdjacentHTML('beforeend', closeButton);
+    contentEl.insertAdjacentHTML('beforeend', closeButton);
   };
 
   el.classList.add(CLASS_NAMES.toggleable);
@@ -127,18 +123,14 @@ function initTargetedContentFor(el) {
     const currentlyExpanded =
       toggleButtonEl.getAttribute('aria-expanded') === 'true' || false;
 
-    if (currentlyExpanded) {
-      setClosed(el);
-    } else {
-      setOpen(el);
-    }
+    setState(el, currentlyExpanded ? 'closed' : 'open');
   });
 
-  const closeButtonEl = content.querySelector('button');
+  const closeButtonEl = contentEl.querySelector('button');
   closeButtonEl.addEventListener('click', () => {
     const matchEl = closeButtonEl.closest(SELECTORS.el);
     if (matchEl) {
-      setClosed(matchEl);
+      setState(matchEl, 'closed');
     }
   });
 }
