@@ -38,6 +38,7 @@
       padding: 0;
     }
 
+    span,
     a {
       @include cads-nav-link;
 
@@ -49,6 +50,10 @@
         padding: (cads-rem-to-px($cads-spacing-4) - $cads-border-width-medium)
           $cads-spacing-4;
       }
+    }
+
+    span {
+      font-weight: normal;
     }
 
     &.show {

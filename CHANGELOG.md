@@ -5,6 +5,7 @@
 **New**
 
 - 📋 Footer Feedback: add a class to allow selection of footer feedback link
+- 🔗 Header: Links in the header now accept a `current_site` boolean in the `link` object to render a span instead of a link
 
 **Docs**
 

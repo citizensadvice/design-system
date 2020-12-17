@@ -43,7 +43,13 @@ The Haml partial supports the following locals:
 
 ### `links` template option
 
-The links variable allows you to insert links to the left of the `sign_in_out` link:
+The links variable allows you to insert links to the left of the `sign_in_out` link. Each link object has the following properties:
+
+| Property       | Description                                                                      |
+| -------------- | -------------------------------------------------------------------------------- |
+| `title`        | Required, the text to display                                                    |
+| `url`          | Required, the url of the link                                                    |
+| `current_site` | Optional, a boolean used to render a span for the current site instead of a link |
 
 <Source language="ruby" dark="true" code={linksVariable} />
 
