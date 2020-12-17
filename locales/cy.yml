@@ -28,7 +28,6 @@ cy:
     targeted_content:
       descriptive_label_show: show this section
       descriptive_label_hide: hide this section
-      close_label: Cau
     shared:
       ui:
         close: Cau
