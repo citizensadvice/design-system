@@ -13,3 +13,5 @@ spec/reports
 node_modules
 vendor/bundle
 AUTOMATED_BROWSER_SUPPORT.md
+.nvmrc
+.ruby-version

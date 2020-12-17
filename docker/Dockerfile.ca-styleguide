@@ -10,7 +10,7 @@ RUN apk add bash curl gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base i
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     truncate -s 0 /var/log/*log
 
-RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs npm
 
 RUN addgroup --gid 1000 ruby && \
     adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
