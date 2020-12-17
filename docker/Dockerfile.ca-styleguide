@@ -1,20 +1,24 @@
 FROM ruby:2.7-alpine
 
-ENV NODE_MAJOR_VERSION 14
-ENV BUNDLER_VERSION 2.1.4
-ENV LANG=C.UTF-8 \
+ENV NODE_MAJOR_VERSION 14 \
+    BUNDLER_VERSION 2.1.4 \
+    LANG=C.UTF-8 \
     BUNDLE_JOBS=6 \
     BUNDLE_RETRY=3
 
-RUN curl --retry 5 --retry-connrefuse --retry-delay 4 -sL https://deb.nodesource.com/setup_$NODE_MAJOR_VERSION.x | bash - && \
-    apt-get install -y nodejs inotify-tools && \
-    apt-get clean && \
+RUN apk update
+RUN apk upgrade
+RUN apk add bash
+
+RUN apk add curl gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base
+
+RUN curl --retry 5 --retry-connrefuse --retry-delay 4 -sL https://deb.nodesource.com/setup_$NODE_MAJOR_VERSION.x | bash -
+
+RUN apk add nodejs inotify-tools && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     truncate -s 0 /var/log/*log
 
-RUN apt-get update && \
-    apt-get install -y gcc libc-dev libxslt-dev libxml2-dev zlib1g-dev build-essential && \
-    apt-get install -y apt-utils
+RUN apt-get update && apt-get install -y apt-utils
 
 RUN groupadd ruby -g 1000 && \
     useradd -m -d /home/ruby -u 1000 --no-user-group ruby && \
