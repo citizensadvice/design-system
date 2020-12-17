@@ -29,5 +29,5 @@
         .cads-footer__logo
           %a.cads-logo{ href: homepage_url, title: t("cads.shared.logo_title") }
         .cads-footer__meta
-          %p.cads-footer__meta-text= t("cads.shared.copyright")
-          %p.cads-footer__meta-text= t("cads.shared.legal_summary")
+          %p.cads-footer__meta-text{ data: { test_id: "copyright" }}= t("cads.shared.copyright")
+          %p.cads-footer__meta-text{ data: { test_id: "legal summary" }}= t("cads.shared.legal_summary")
