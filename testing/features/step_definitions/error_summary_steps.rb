@@ -8,7 +8,7 @@ Then("the component indicates there is a problem") do
   expect(@component).to have_heading
 end
 
-Then("the component lists the issues in bullet point format") do
+Then("the component shows the errors in a list format") do
   expect(@component).to have_errors
 end
 
