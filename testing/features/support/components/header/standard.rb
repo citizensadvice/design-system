@@ -11,7 +11,7 @@ module Header
     element :login, "[data-testid='account-link']"
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
-    element :search_button, "[title='Submit search query']"
+    element :search_button, "form > button"
     element :open_search_pane, "[title='Open search']"
 
     def tab_to(desired_area)

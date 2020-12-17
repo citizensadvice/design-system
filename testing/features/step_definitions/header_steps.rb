@@ -28,5 +28,5 @@ Then("I am able to search for {string}") do |search_term|
 
   expect(@component.search_field.value).to eq(search_term)
 
-  expect(@component).to have_search_button
+  expect(@component.search_button.text).to eq(I18n.t("cads.search.submit_label"))
 end

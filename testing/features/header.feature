@@ -19,7 +19,11 @@ Feature: Header component
       And a login link is present
       And a header logo is present
 
-    Scenario: Header has a search option
+    Scenario: English Header has a search option
+      Then I am able to search for "Anything"
+
+    Scenario: Welsh Header has a search option
+      Given the language is Welsh
       Then I am able to search for "Anything"
 
     @not_mobile
