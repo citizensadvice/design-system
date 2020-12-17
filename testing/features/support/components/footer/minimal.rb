@@ -5,7 +5,7 @@ module Footer
     set_url "/iframe.html?id=components-footer--minimal&viewMode=story"
 
     element :logo, ".cads-logo"
-    element :copyright, ".cads-footer__company-info div p:nth-of-type(1)"
-    element :company_info, ".cads-footer__company-info div p:nth-of-type(2)"
+    element :copyright, "[data-test-id='copyright']"
+    element :company_info, "[data-test-id='legal summary']"
   end
 end

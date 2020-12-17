@@ -25,7 +25,7 @@ Then("a footer logo is present") do
 end
 
 Then("a copyright notice is present") do
-  expect(@component).to have_copyright
+  expect(@component).to have_copyright(text: I18n.t("cads.shared.copyright"))
 end
 
 Then("a company info is present") do
