@@ -27,6 +27,8 @@ cy:
       submit_label: Chwilio
     targeted_content:
       close_button_aria: Cau %{title}
+      descriptive_label_show: show this section
+      descriptive_label_hide: hide this section
     shared:
       ui:
         close: Cau
