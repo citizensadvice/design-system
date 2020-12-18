@@ -6,11 +6,15 @@ ENV NODE_MAJOR_VERSION=14 \
     BUNDLE_JOBS=6 \
     BUNDLE_RETRY=3
 
-RUN apk add --no-cache gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base inotify-tools && \
+RUN apk add --no-cache gcc zlib-dev build-base inotify-tools && \
+    gem install bundler -v $BUNDLER_VERSION && \
+    # These next 2 lines essentially do a fancy form of apt-get clean (In alpine)
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     truncate -s 0 /var/log/*log && \
-    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs npm && \
-    gem install bundler -v $BUNDLER_VERSION
+    # This allows us to pull from a different repo than default
+    # Default repo is (3.12), which whilst latest only contains Node 12
+    # This new repo allows us to install Node 14 LTS
+    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs npm
 
 RUN addgroup --gid 1000 ruby && \
     adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
