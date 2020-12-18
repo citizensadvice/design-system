@@ -7,10 +7,15 @@ Feature: Breadcrumbs component
     Background:
       Given a Default Breadcrumbs component is on the page
 
-    Scenario: Breadcrumbs only link up till the last one
+    @not_mobile
+    Scenario: On large devices breadcrumbs only link up till the last one
       Then a series of breadcrumbs are present
       And the initial breadcrumbs are all links
-      But the final breadcrumb isn't a link unless on mobile
+      But the final breadcrumb isn't a link
+
+    @small_screen
+    Scenario: On small devices there is only ever one breadcrumb link
+      Then the only breadcrumb is a link
 
   Rule: Site Wide Breadcrumb
     Background:
