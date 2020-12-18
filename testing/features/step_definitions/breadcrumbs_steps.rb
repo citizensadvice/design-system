@@ -1,18 +1,15 @@
 # frozen_string_literal: true
 
 Given("a Default Breadcrumbs component is on the page") do
-  @component = Breadcrumbs::Default.new
-  @component.load
+  @component = Breadcrumbs::Default.new.tap(&:load)
 end
 
 Given("a No Collapse Breadcrumbs component is on the page") do
-  @component = Breadcrumbs::NoCollapse.new
-  @component.load
+  @component = Breadcrumbs::NoCollapse.new.tap(&:load)
 end
 
 Given("a Site Wide Breadcrumbs component is on the page") do
-  @component = Breadcrumbs::SiteWide.new
-  @component.load
+  @component = Breadcrumbs::SiteWide.new.tap(&:load)
 end
 
 Then("a series of breadcrumbs are present") do
