@@ -8,14 +8,13 @@ ENV NODE_MAJOR_VERSION=14 \
 
 RUN apk add --no-cache gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base inotify-tools && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    truncate -s 0 /var/log/*log
-
-RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs npm
+    truncate -s 0 /var/log/*log && \
+    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs npm && \
+    gem install bundler -v $BUNDLER_VERSION
 
 RUN addgroup --gid 1000 ruby && \
     adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
 
-RUN gem install bundler -v $BUNDLER_VERSION
 RUN mkdir -p /app && chown -R 1000:1000 /app
 COPY --chown=1000:1000 package*.json Gemfile* /app/
 WORKDIR /app
