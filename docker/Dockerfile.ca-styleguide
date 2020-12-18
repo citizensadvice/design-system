@@ -14,7 +14,7 @@ RUN apk add --no-cache gcc zlib-dev build-base inotify-tools && \
     # This allows us to pull from a different repo than default
     # Default repo is (3.12), which whilst latest only contains Node 12
     # This new repo allows us to install Node 14 LTS
-    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs npm
+    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ nodejs~$NODE_MAJOR_VERSION npm~$NODE_MAJOR_VERSION
 
 RUN addgroup --gid 1000 ruby && \
     adduser --home /home/ruby --uid 1000 --ingroup ruby --disabled-password ruby
