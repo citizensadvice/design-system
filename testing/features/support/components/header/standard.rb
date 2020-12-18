@@ -14,6 +14,11 @@ module Header
     element :search_button, "form > button"
     element :open_search_pane, "[title='Open search']"
 
+    def search_for(search_term)
+      open_search_pane.click if mobile_phone?
+      search_field.send_keys(search_term)
+    end
+
     def tab_to(desired_area)
       tab_quantity_for_skip_link(desired_area).times do
         # This next line is a hack until capybara cut a new version containing

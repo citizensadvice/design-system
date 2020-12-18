@@ -18,4 +18,3 @@ Feature: Search components
     Scenario: Search component is on the page with a pre-defined term
       Then the search field has a pre-defined term
       And the user is able to search for "Anything"
-
