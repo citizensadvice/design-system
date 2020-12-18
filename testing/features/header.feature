@@ -13,7 +13,7 @@ Feature: Header component
     Background:
       Given a Standard Header component is on the page
 
-    @not_mobile @failing @NP-1235
+    @not_mobile
     Scenario: Header has some quick links
       Then a link to change language is present
       And a login link is present
