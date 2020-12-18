@@ -2,6 +2,6 @@
 
 module Callout
   class Important < Standard
-    set_url "/iframe.html?id=components-callouts--important-callout&viewMode=story"
+    set_url "/iframe.html?id=components-callouts--important&viewMode=story"
   end
 end

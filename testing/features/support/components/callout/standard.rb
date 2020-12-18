@@ -4,9 +4,9 @@ module Callout
   class Standard < ::Base
     include Helpers::Javascript
 
-    set_url "/iframe.html?id=components-callouts--standard-callout&viewMode=story"
+    set_url "/iframe.html?id=components-callouts--standard&viewMode=story"
 
-    element :label, ".cads-callout-label"
+    element :label, ".cads-badge"
     element :heading, "h3"
     element :message, "p"
 
