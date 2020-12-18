@@ -6,7 +6,7 @@ ENV NODE_MAJOR_VERSION=14 \
     BUNDLE_JOBS=6 \
     BUNDLE_RETRY=3
 
-RUN apk add bash curl gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base inotify-tools && \
+RUN apk add --no-cache gcc libc-dev libxslt-dev libxml2-dev zlib-dev build-base inotify-tools && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     truncate -s 0 /var/log/*log
 
