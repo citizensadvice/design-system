@@ -1,6 +1,6 @@
 import docs from './tables-docs.mdx';
 import template from './_table.html.haml';
-import { translate } from '../../../scripts/story-helpers';
+import { translate } from '../../story-helpers';
 import initTables from '../../../src/js/tables';
 
 function decorateWithBehaviour(Story) {

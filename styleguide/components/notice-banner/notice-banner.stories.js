@@ -1,6 +1,6 @@
 import docs from './notice-banner-docs.mdx';
 import templateExample from './_example.html.haml';
-import { translate } from '../../../scripts/story-helpers';
+import { translate } from '../../story-helpers';
 
 export default {
   title: 'Components/Notice banner',

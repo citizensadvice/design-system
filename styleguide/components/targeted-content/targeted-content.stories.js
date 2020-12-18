@@ -2,7 +2,7 @@ import docs from './targeted-content-docs.mdx';
 import templateDefault from './_default.html.haml';
 import templateAnchor from './_anchor.html.haml';
 import templateFallback from './_fallback.html.haml';
-import { translate } from '../../../scripts/story-helpers';
+import { translate } from '../../story-helpers';
 import initTargetedContent from '../../../src/js/targeted-content';
 
 function decorateWithBehaviour(Story) {
