@@ -1,3 +1,7 @@
+## <sub>v4.0.0-alpha.3</sub>
+
+#### _Dec. 18, 2020_
+
 **Bugfixes**
 - 🌎: Navigation: Padding, spacing and mobile design improvements (NP-1026)
 
