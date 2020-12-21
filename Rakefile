@@ -46,7 +46,7 @@ namespace :design_system do
     puts "Creating folder structure for this test run"
     dirs = %w[html_pages logs reports screenshots]
     dirs.each do |dir|
-      FileUtils.mkdir_p("testing/#{base_cucumber_path}/#{dir}}")
+      FileUtils.mkdir_p("testing/#{base_cucumber_path}/#{dir}")
     end
   end
 end
@@ -78,8 +78,8 @@ namespace :ruby do
   task :locale_lint do
     puts "Checking locale files have matching keys"
     compare_yaml_hash(
-      YAML.load_file("locales/en.yml")["en"]["cads"],
-      YAML.load_file("locales/cy.yml")["cy"]["cads"]
+      YAML.load_file("locales/en.yml")["en"],
+      YAML.load_file("locales/cy.yml")["cy"]
     )
   end
 end
