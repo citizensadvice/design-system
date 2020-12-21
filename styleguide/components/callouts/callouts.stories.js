@@ -1,4 +1,4 @@
-import { translate } from '../../../scripts/story-helpers';
+import { translate } from '../../story-helpers';
 
 import docs from './callouts-docs.mdx';
 import templateStandard from './_standard.html.haml';

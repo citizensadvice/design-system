@@ -3,11 +3,12 @@
 #### _Dec. 18, 2020_
 
 **Bugfixes**
-- 🌎: Navigation: Padding, spacing and mobile design improvements (NP-1026)
 
+- 🌎: Navigation: Padding, spacing and mobile design improvements (NP-1026)
 
 **New**
 
+- 📛 Badges: New `cads-badge` element used in callouts and targeted content
 - 📋 Footer Feedback: add a class to allow selection of footer feedback link
 - 🔗 Header: Links in the header now accept a `current_site` boolean in the `link` object to render a span instead of a link
 
@@ -17,6 +18,9 @@
 
 **Breaking changes**
 
+- 🗣️ Callouts: New badge and modifier classes
+  - Modifier classes use BEM style, e.g. `cads-callout--adviser` vs. `cads-callout-adviser`
+  - Variants now use new `cads-badge` element for labels
 - 🔗 Pagination links: Now have flex layout, fixes spacing between each item. All pagination list items require a `cads-paging__item` class.
 
 ## <sub>v4.0.0-alpha.2</sub>
