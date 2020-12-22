@@ -1,3 +1,11 @@
+**New:**
+
+- 🎯 Targeted content: New adviser specific variant
+
+**Bugfixes:**
+
+- ⬜ Tables: Give tables an explicit white background to allow them to be used against darker backgrounds
+
 ## <sub>v4.0.0-alpha.3</sub>
 
 #### _Dec. 18, 2020_
