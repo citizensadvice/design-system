@@ -32,17 +32,16 @@ function setState(el, state) {
   }
 
   const titleEl = el.querySelector(SELECTORS.title);
-  const titleText = el.getAttribute('data-title-text');
   const btn = titleEl.querySelector('button');
 
   btn.setAttribute('aria-expanded', state === 'open' ? 'true' : 'false');
   btn.setAttribute(
     'aria-label',
-    `${titleText}, ${el.getAttribute(
+    el.getAttribute(
       state === 'open'
         ? 'data-descriptive-label-hide'
         : 'data-descriptive-label-show'
-    )}`
+    )
   );
 }
 
@@ -58,7 +57,6 @@ function openByHash(hash) {
 
 function initTargetedContentFor(el) {
   const titleEl = el.querySelector(SELECTORS.title);
-  const titleText = el.getAttribute('data-title-text');
   const contentEl = el.querySelector(SELECTORS.content);
 
   /**
@@ -82,9 +80,7 @@ function initTargetedContentFor(el) {
     titleEl.innerHTML = `<button class="${
       CLASS_NAMES.button
     }" aria-expanded="false" aria-controls="${contentEl.id}"
-      aria-label="${titleText}, ${el.getAttribute(
-      'data-descriptive-label-show'
-    )}">
+      aria-label="${el.getAttribute('data-descriptive-label-show')}">
         ${titleEl.innerHTML}
         <svg class="${
           CLASS_NAMES.icon
