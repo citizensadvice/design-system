@@ -9,9 +9,10 @@ const componentHtml = `<div
   data-descriptive-label-hide="hide this section"
   data-descriptive-label-show="show this section"
   data-close-label="Close"
+  data-title-text="Targeted content title"
   id="targeted-content-123">
   <h2 class="cads-targeted-content__title js-cads-targeted-content__title">
-    Targeted content title
+    <div class="cads-targeted-content__title-text">Targeted content title</div>
   </h2>
   <div
     class="cads-targeted-content__content cads-prose js-cads-targeted-content__content"
@@ -39,16 +40,15 @@ test('allow toggling targeted content', () => {
     expect(buttonEl).toHaveAttribute('aria-expanded', 'false');
   }
 
+  expect(headingEl.innerHTML).toMatchSnapshot();
   expectClosed();
 
   buttonEl.click();
+  expect(headingEl.innerHTML).toMatchSnapshot();
   expectOpen();
 
   buttonEl.click();
   expectClosed();
-
-  buttonEl.click();
-  expectOpen();
 
   screen.getByText('Close').click();
   expectClosed();

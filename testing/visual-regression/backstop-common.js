@@ -107,6 +107,15 @@ module.exports = function backstopCommon(baseUrl) {
         clickSelector: '.cads-targeted-content',
       },
       {
+        label: 'Components/Targeted content adviser',
+        url: storyUrlFor('components-targeted-content--adviser'),
+      },
+      {
+        label: 'Components/Targeted content adviser (open)',
+        url: storyUrlFor('components-targeted-content--adviser'),
+        clickSelector: '.cads-targeted-content',
+      },
+      {
         label: 'Components/Targeted content (fallback)',
         url: storyUrlFor('components-targeted-content--fallback'),
       },

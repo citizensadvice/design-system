@@ -1,18 +1,30 @@
--# Allow disabling toggleable behaviour (mostly for tests)
-- is_toggleable = targeted_content.fetch("is_toggleable", true)
-
 :ruby
+  # Default type to standard if none is provided
+  type = targeted_content.fetch("type", "public")
+  id = targeted_content["id"]
+  title = targeted_content["title"].squish
+  body = targeted_content["body"]
+  # Allow disabling toggleable behaviour (mostly for tests)
+  is_toggleable = targeted_content.fetch("is_toggleable", true)
+
   attributes = {
-    class: ("js-cads-targeted-content" if is_toggleable),
+    class: [
+      ("cads-targeted-content--adviser" if type == "adviser"),
+      ("js-cads-targeted-content" if is_toggleable)
+    ],
     data: {
-      descriptive_label_show: t("cads.targeted_content.descriptive_label_show"),
-      descriptive_label_hide: t("cads.targeted_content.descriptive_label_hide"),
+      descriptive_label_show: "#{t('cads.targeted_content.descriptive_label_show')}, #{title}",
+      descriptive_label_hide: "#{t('cads.targeted_content.descriptive_label_hide')}, #{title}",
       close_label: t("cads.targeted_content.close_label")
     }
   }
 
 .cads-targeted-content{ attributes }
-  %h2.cads-targeted-content__title.js-cads-targeted-content__title{ id: "h-#{targeted_content['id']}" }
-    = targeted_content["title"]
-  .cads-targeted-content__content.cads-prose.js-cads-targeted-content__content{ id: "#{targeted_content['id']}-content" }
-    = targeted_content["body"]
+  %h2.cads-targeted-content__title.js-cads-targeted-content__title{ id: "h-#{id}" }
+    .cads-targeted-content__title-text
+      - if type != "public"
+        .cads-targeted-content__badge
+          %span.cads-badge.cads-badge--adviser= t("cads.targeted_content.#{type}")
+      = title
+  .cads-targeted-content__content.cads-prose.js-cads-targeted-content__content{ id: "#{id}-content" }
+    = body

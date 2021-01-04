@@ -31,6 +31,7 @@ cy:
         Cyngor ar Bopeth, 3ydd Llawr Gogledd, 200 Aldersgate, Llundain, EC1A 4HD'
       logo_title: Hafan Cyngor ar Bopeth
     targeted_content:
+      adviser: Cynghorydd
       close_label: Cau
       descriptive_label_hide: cuddio’r adran hon
       descriptive_label_show: dangos yr adran hon
