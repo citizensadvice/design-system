@@ -27,32 +27,25 @@ namespace :design_system do
     ) || raise
   end
 
+  desc "Creating report folders"
   task :report_folders do
     puts "Creating folder structure for this test run"
-    [
-      "testing/#{base_cucumber_path}/html_pages",
-      "testing/#{base_cucumber_path}/logs",
-      "testing/#{base_cucumber_path}/reports",
-      "testing/#{base_cucumber_path}/screenshots"
-    ].each { |dir| FileUtils.mkdir_p(dir) }
+    dirs = %w[html_pages logs reports screenshots]
+    dirs.each do |dir|
+      FileUtils.mkdir_p("testing/#{base_cucumber_path}/#{dir}")
+    end
   end
 end
 
 desc "Run all checks in the local context"
 task :check do
-  collect_task_errors([
-    "ruby:lint",
-    "npm:test"
-  ])
+  collect_task_errors(%w[ruby:lint npm:test])
 end
 
 namespace :ruby do
   desc "Lint ruby files"
   task :lint do
-    collect_task_errors([
-      "ruby:rubocop",
-      "ruby:haml_lint"
-    ])
+    collect_task_errors(%w[ruby:rubocop ruby:haml_lint ruby:i18n_tasks])
   end
 
   desc "Rubocop Linting"
@@ -66,15 +59,18 @@ namespace :ruby do
     puts "Running haml-lint"
     system("bundle exec haml-lint haml styleguide") || raise
   end
+
+  desc "i18n-tasks health"
+  task :i18n_tasks do
+    puts "Checking locale files have matching keys"
+    system("bundle exec i18n-tasks health") || raise
+  end
 end
 
 namespace :npm do
   desc "Run node test"
   task :test do
-    collect_task_errors([
-      "npm:lint",
-      "npm:jest"
-    ])
+    collect_task_errors(%w[npm:lint npm:jest])
   end
 
   desc "Run jest tests in node"

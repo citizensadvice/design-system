@@ -99,8 +99,19 @@ GEM
       rainbow
       rubocop (>= 0.50.0)
       sysexits (~> 1.1)
+    highline (2.0.3)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    i18n-tasks (0.9.32)
+      activesupport (>= 4.0.2)
+      ast (>= 2.1.0)
+      erubi
+      highline (>= 2.0.0)
+      i18n
+      parser (>= 2.2.3.0)
+      rails-i18n
+      rainbow (>= 2.2.2, < 4.0)
+      terminal-table (>= 1.5.1)
     loofah (2.8.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -168,6 +179,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.8.0)
       parser (>= 2.7.1.5)
+    rubocop-rake (0.5.1)
+      rubocop
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     rubyzip (2.3.0)
@@ -184,6 +197,8 @@ GEM
       ffi (~> 1.1)
     sysexits (1.2.0)
     temple (0.8.2)
+    terminal-table (2.0.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -211,10 +226,12 @@ DEPENDENCIES
   faraday (~> 1.1)
   haml (~> 5.2)
   haml_lint
+  i18n-tasks (~> 0.9.32)
   rails-i18n (~> 6.0)
   rake
   retriable (~> 3.1)
   rspec
+  rubocop-rake
   selenium-webdriver (= 4.0.0.alpha6)
   site_prism (~> 3.7)
   webdrivers
