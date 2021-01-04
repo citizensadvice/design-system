@@ -1,6 +1,7 @@
 **New:**
 
 - 🎯 Targeted content: New adviser specific variant
+- 🗣️ Callouts: Support callouts within callouts
 
 **Bugfixes:**
 
