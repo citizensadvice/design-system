@@ -13,9 +13,11 @@ group :test do
   gem "dotenv"
   gem "faraday", "~> 1.3"
   gem "haml_lint"
+  gem "i18n-tasks", "~> 0.9.32"
   gem "rake"
   gem "retriable", "~> 3.1"
   gem "rspec"
+  gem "rubocop-rake", require: false
   gem "selenium-webdriver", "4.0.0.alpha6"
   gem "site_prism", "~> 3.7"
   gem "webdrivers"

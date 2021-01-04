@@ -1,42 +1,37 @@
+---
 en:
   cads:
-    example:
-      name: 'Citizens Advice'
-      body: 'This is some body text'
     breadcrumbs:
       home: Home
     callout:
+      adviser: Adviser
       example: Example
       important: Important
-      adviser: Adviser
+    footer:
+      navigation_title: Footer Navigation
+      website_feedback: Is there anything wrong with this page? Let us know
     form:
       optional: optional
     header:
       search_mobile: Open search
       skip_to_content: Skip to content
-      skip_to_navigation: Skip to navigation
       skip_to_footer: Skip to footer
-    footer:
-      navigation_title: Footer Navigation
-      website_feedback: Is there anything wrong with this page? Let us know
+      skip_to_navigation: Skip to navigation
     page_review:
       body_html: Page last reviewed on <strong>%{date}</strong>
     search:
       input_aria_label: Search through site content
-      submit_title: Submit search query
       submit_label: Search
-    targeted_content:
-      descriptive_label_show: show this section
-      descriptive_label_hide: hide this section
-      close_label: Close
+      submit_title: Submit search query
     shared:
-      ui:
-        close: Close
-      logo_title: Citizens Advice homepage
       copyright: Copyright ©2020 Citizens Advice. All rights reserved.
-      legal_summary: >
-        Citizens Advice is an operating name of the National Association of
-        Citizens Advice Bureaux. Registered charity number 279057. VAT number
-        726 0202 76. Company limited by guarantee. Registered number 01436945
-        England. Registered office: Citizens Advice, 3rd Floor North, 200
-        Aldersgate, London, EC1A 4HD
+      legal_summary: 'Citizens Advice is an operating name of the National Association
+        of Citizens Advice Bureaux. Registered charity number 279057. VAT number 726
+        0202 76. Company limited by guarantee. Registered number 01436945 England.
+        Registered office: Citizens Advice, 3rd Floor North, 200 Aldersgate, London,
+        EC1A 4HD'
+      logo_title: Citizens Advice homepage
+    targeted_content:
+      close_label: Close
+      descriptive_label_hide: hide this section
+      descriptive_label_show: show this section
