@@ -9,3 +9,7 @@ testing/visual-regression/backstop_data/
 testing/wcag/
 testing/cucumber.yml
 vendor/
+
+# Ignore locale files from prettier
+# formatted by i18n-tasks
+/locales/

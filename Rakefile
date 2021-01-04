@@ -62,7 +62,6 @@ namespace :ruby do
 
   desc "i18n-tasks health"
   task :i18n_tasks do
-    puts "Checking locale files have matching keys"
     system("bundle exec i18n-tasks health") || raise
   end
 end
