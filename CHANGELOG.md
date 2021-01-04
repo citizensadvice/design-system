@@ -1,3 +1,7 @@
+## <sub>v4.0.0-alpha.4</sub>
+
+#### _Jan. 4, 2021_
+
 **New:**
 
 - 🎯 Targeted content: New adviser specific variant
