@@ -1,8 +1,7 @@
-Feature: Input component
+Feature: Input components
 
-  The Input component represents a field for text input, the control associated
-  with this field is a text box that allows users to edit a single line of plain
-  text, providing means to submit data
+  The Input components provides the user with a way of submitting plain text.
+  They can be provided with varying levels of hints or labels
 
   Rule: Basic Input
     Background:

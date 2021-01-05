@@ -1,7 +1,7 @@
 @future_release
-Feature: Callout component
+Feature: Callout components
 
-  The Callout component notifies users of important information
+  The Callout components notify users of important information
   that they must adhere to or be aware of
 
   Rule: Standard Callout
