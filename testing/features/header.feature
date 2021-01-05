@@ -27,11 +27,11 @@ Feature: Header component
       And a logo is present
 
     Scenario: English Header has a search option
-      Then I am able to search for "Anything"
+      Then I am able to search in English
 
     Scenario: Welsh Header has a search option
       Given the language is Welsh
-      Then I am able to search for "Anything"
+      Then I am able to search in Welsh
 
     @not_mobile
     Scenario Outline: English Users can quickly navigate to various areas of the page

@@ -12,10 +12,14 @@ Then("a logo is present") do
   expect(@component.logo["href"]).not_to be_blank
 end
 
-Then("I am able to search for {string}") do |search_term|
-  @component.search_for(search_term)
+Then("I am able to search in English/Welsh") do
+  @component.search_for("Anything")
 
-  expect(@component.search_field.value).to eq(search_term)
+  expect(@component.search_field.value).to eq("Anything")
+
+  expect(@component.search_field["aria-label"]).to eq(I18n.t("cads.search.input_aria_label"))
 
   expect(@component.search_button.text).to eq(I18n.t("cads.search.submit_label"))
+
+  expect(@component.search_button["title"]).to eq(I18n.t("cads.search.submit_title"))
 end
