@@ -17,10 +17,6 @@
     @extend %cads-h3;
   }
 
-  @include cads-media-breakpoint-up(md) {
-    padding: $cads-spacing-4;
-  }
-
   p {
     @extend %cads-paragraph;
 
@@ -31,7 +27,13 @@
 
   & & {
     // For when callouts are inside callouts
-    margin-top: $cads-spacing-4;
+    margin: $cads-spacing-4 0;
+    // Nested callouts sit flush right
+    margin-right: -$cads-spacing-4;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
