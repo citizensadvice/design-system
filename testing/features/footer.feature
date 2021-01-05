@@ -34,12 +34,12 @@ Feature: Footer component
       Given the Minimal Footer component is on the page
 
     Scenario: English Footer contains a variety of links / content
-      Then a footer logo is present
+      Then a logo is present
       And a copyright notice is present
       And a company info is present
 
     Scenario: Welsh Footer contains a variety of links / content
       Given the language is Welsh
-      Then a footer logo is present
+      Then a logo is present
       And a copyright notice is present
       And a company info is present
