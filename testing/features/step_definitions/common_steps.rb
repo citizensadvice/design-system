@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+Given("the language is Welsh") do
+  @component.switch_language(:cy)
+end
+
+Given("the language is English") do
+  @component.switch_language(:en)
+end
+
 When("I am able to skip to the {skip-link-area} part of the page") do |area|
   @component.tab_to(area)
 
