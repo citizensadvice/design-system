@@ -7,14 +7,24 @@ Feature: Search components
     Background:
       Given a Standard Search component is on the page
 
-    Scenario: Search component is on the page without any term
+    Scenario: English Search component is on the page without any term
       Then the search field is clear
-      And the user is able to search for "Anything"
+      And I am able to search for "Anything"
+
+    Scenario: Welsh Search component is on the page without any term
+      Given the language is Welsh
+      Then the search field is clear
+      And I am able to search for "Anything"
 
   Rule: Search with Value
     Background:
       Given a Search With Value component is on the page
 
-    Scenario: Search component is on the page with a pre-defined term
+    Scenario: English Search component is on the page with a pre-defined term
       Then the search field has a pre-defined term
-      And the user is able to search for "Anything"
+      And I am able to search for "Anything"
+
+    Scenario: Welsh Search component is on the page with a pre-defined term
+      Given the language is Welsh
+      Then the search field has a pre-defined term
+      And I am able to search for "Anything"
