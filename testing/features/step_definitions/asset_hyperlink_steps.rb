@@ -9,7 +9,7 @@ Then("a link to the PDF is present") do
 end
 
 Then("the label includes a name at the beginning") do
-  expect(@component.download_link.text).to start_with("Test pdf")
+  expect(@component.download_link.text).to start_with("Test PDF")
 end
 
 Then("the label includes an icon") do
