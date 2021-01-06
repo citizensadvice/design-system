@@ -1,3 +1,10 @@
+**Bugfixes**
+
+- 🥾 Footer: Correct spelling of policy research
+## <sub>v4.0.0-alpha.4</sub>
+
+#### _Jan. 6, 2021_
+
 **New:**
 
 - 🎯 Targeted content: New adviser specific variant
