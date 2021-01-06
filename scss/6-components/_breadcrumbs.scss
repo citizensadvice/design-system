@@ -1,15 +1,10 @@
-%breadcrumb-arrow-right {
+// can't extend a placeholder across selectors so use a mixin instead
+@mixin cads-breadcrumb-arrow-right {
   color: $cads-language__input-border-colour;
   content: '\203A';
-  margin-left: $cads-spacing-2;
-  margin-right: $cads-spacing-2;
+  margin-right: $cads-spacing-3;
   font-size: 18px; // Fix size as this is a symbol
-  display: inline-block;
-}
-
-/** @define breadcrumb */
-.cads-breadcrumb {
-  display: inline-block;
+  float: left; // Suppress inline spacings and underlining of the separator
 }
 
 /** @define breadcrumbs */
@@ -21,31 +16,22 @@
   margin-bottom: $cads-spacing-5;
 
   &__list {
-    margin: 0;
+    margin: 0 0 0 (-$cads-spacing-3); // account for left margin of breadcrumb items
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &__crumb {
     @extend %cads-list-item;
 
-    display: inline-block;
+    list-style: none;
     margin: 0;
-    max-width: 55ch;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-size: $cads-font-size;
+    margin-left: $cads-spacing-3;
 
-    &::after {
-      @extend %breadcrumb-arrow-right;
-    }
-
-    &:last-of-type {
-      margin-left: 0;
-
-      &::after {
-        display: none;
-      }
+    + .cads-breadcrumbs__crumb::before {
+      @include cads-breadcrumb-arrow-right;
     }
   }
 
@@ -54,18 +40,15 @@
       display: none;
     }
 
+    // show only the second to last item in list - i.e. link to parent page.
     &__crumb:nth-last-child(2) {
       display: block;
+      margin-left: 0;
 
       &::before {
         content: '\2039';
-        margin-left: 0;
-        margin-right: $cads-spacing-1;
+        margin: 0 $cads-spacing-3;
         color: $cads-language__input-border-colour;
-      }
-
-      &::after {
-        display: none;
       }
     }
   }
@@ -75,19 +58,20 @@
 // Variant: No collapse
 ///
 .cads-breadcrumbs--no-collapse {
-  .cads-breadcrumbs__crumb {
-    display: inline-block;
-  }
+  @include cads-media-breakpoint-only(sm) {
+    .cads-breadcrumbs__crumb {
+      display: inline;
 
-  .cads-breadcrumbs__crumb:nth-last-child(2) {
-    display: inline-block;
+      &:nth-last-child(2) {
+        display: inline;
+        margin-left: 0;
 
-    &::after {
-      @extend %breadcrumb-arrow-right;
-    }
+        &::before {
+          display: inherit;
 
-    &::before {
-      display: none;
+          @include cads-breadcrumb-arrow-right;
+        }
+      }
     }
   }
 }
