@@ -1,3 +1,7 @@
+**New**
+
+- 🍞 Breadcrumbs: New layout - chevrons at the front for increased legibility, layout bugs fixed (NP-1425)
+
 **Bugfixes**
 
 - 🥾 Footer: Correct spelling of policy research
