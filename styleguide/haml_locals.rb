@@ -224,7 +224,7 @@
           { "url" => "/about-us/contact-us/contact-us/contact-us/", "label" => "Contact us" },
           { "url" => "/about-us/contact-us/contact-us/make-a-complaint-about-us/", "label" => "Complaints" },
           { "url" => "/about-us/how-citizens-advice-works/media/", "label" => "Media" },
-          { "url" => "/about-us/policy/", "label" => "Policy reseach" },
+          { "url" => "/about-us/policy/", "label" => "Policy research" },
           { "url" => "/about-us/support-us/", "label" => "Support us" },
           { "url" => "/about-us/support-us/volunteering/", "label" => "Volunteering" },
           { "url" => "/about-us/how-citizens-advice-works/job-and-voluntary-opportunities/", "label" => "Jobs" }
