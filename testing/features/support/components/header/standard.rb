@@ -12,10 +12,10 @@ module Header
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
     element :search_button, "form > button"
-    element :open_search_pane, "[title='Open search']"
+    element :open_search_pane, "[data-testid='expand-button']"
 
     def search_for(search_term)
-      open_search_pane.click if mobile_phone?
+      open_search_pane(wait: 1).click if mobile_phone?
       search_field.send_keys(search_term)
     end
 
