@@ -155,7 +155,7 @@ def pipeline() {
       parallel define_grid_tests()
     }
   }
-} //end pipeline
+} // end pipeline
 
 def slackNotifyReleaseOnly(Closure body) {
   if (!isRelease) {
@@ -215,10 +215,10 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
                 ], local_images) {
                 // Call closure
                 body()
-              }
+              } // end withForcedDockerUpdate
             } // end if
           } // end withEnv
-        } //end withDockerRegistry
+        } // end withDockerRegistry
       } // end stage
     } finally {
       cleanWs()
@@ -235,6 +235,12 @@ def define_grid_tests() {
       withTestingNode("Interim Stage: Test ${browser}", false) {
         try {
           sh "BROWSER=${browser} bin/docker/grid_tests"
+        } catch (Exception e) {
+          sh 'docker-compose logs --no-color'
+          currentBuild.result = 'FAILURE'
+          throw e
+        } finally {
+          // Archive artifacts from this test run in $browser/other
           archiveArtifacts(
             [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
               artifacts: "testing/artifacts/${browser}/other/screenshots/?*.png, " +
@@ -247,14 +253,10 @@ def define_grid_tests() {
               caseSensitive: false
             ]
           )
-        } catch (Exception e) {
-          sh 'docker-compose logs --no-color'
-          currentBuild.result = 'FAILURE'
-          throw e
-        }
-      } // end withCucumberNode
-    } // end browser grid test block
-  }
+        }  // end try/catch/finally
+      } // end withTestingNode
+    } // end grid_tests[browser] block
+  } // end each
 
   return grid_tests
 }
@@ -268,23 +270,30 @@ def define_regression_tests() {
     def stepName = "${browser} on ${config}"
     regression_tests[stepName] = {
       withTestingNode("Regression Test of ${browser} on ${config}", true) {
-        sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
-        // Archive artifacts from this test run in $browser/$config
-        archiveArtifacts(
-          [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
-            artifacts: "testing/artifacts/${browser}/${config}/screenshots/?*.png, " +
-                       "testing/artifacts/${browser}/${config}/reports/report.html, " +
-                       "testing/artifacts/${browser}/${config}/reports/?*.xml, " +
-                       "testing/artifacts/${browser}/${config}/reports/report.json, " +
-                       "testing/artifacts/${browser}/${config}/html_pages/?*.html, " +
-                       "testing/artifacts/${browser}/${config}/logs/?*.log",
-            allowEmptyArchive: true,
-            caseSensitive: false
-          ]
-        )
-      }
-    }
-  } // end regression test block
+        try {
+          sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
+        } catch (Exception e) {
+          sh 'docker-compose logs --no-color'
+          currentBuild.result = 'FAILURE'
+          throw e
+        } finally {
+          // Archive artifacts from this test run in $browser/$config
+          archiveArtifacts(
+            [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
+              artifacts: "testing/artifacts/${browser}/${config}/screenshots/?*.png, " +
+                         "testing/artifacts/${browser}/${config}/reports/report.html, " +
+                         "testing/artifacts/${browser}/${config}/reports/?*.xml, " +
+                         "testing/artifacts/${browser}/${config}/reports/report.json, " +
+                         "testing/artifacts/${browser}/${config}/html_pages/?*.html, " +
+                         "testing/artifacts/${browser}/${config}/logs/?*.log",
+              allowEmptyArchive: true,
+              caseSensitive: false
+            ]
+          )
+        } // end try/catch/finally
+      } // end withTestingNode
+    } // end regression_tests[stepName] block
+  } // end each
 
   return regression_tests
 }
