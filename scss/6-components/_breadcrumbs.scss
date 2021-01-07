@@ -1,4 +1,4 @@
-// can't extend a placeholder across selectors so use a mixin instead
+// can't extend a placeholder across selectors (media query) so use a mixin instead.
 @mixin cads-breadcrumb-arrow-right {
   color: $cads-language__input-border-colour;
   content: '\203A';
@@ -16,7 +16,7 @@
   margin-bottom: $cads-spacing-5;
 
   &__list {
-    margin: 0 0 0 (-$cads-spacing-3); // account for left margin of breadcrumb items
+    margin: 0 0 0 (-$cads-spacing-3); // account for left margin of breadcrumb__crumb
     padding: 0;
     display: flex;
     flex-wrap: wrap;
