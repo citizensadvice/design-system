@@ -14,13 +14,24 @@ Feature: Header component
       Given a Standard Header component is on the page
 
     @not_mobile
-    Scenario: Header has some quick links
+    Scenario: English Header has some quick links
       Then a link to change language is present
       And a login link is present
-      And a header logo is present
+      And a logo is present
 
-    Scenario: Header has a search option
-      Then I am able to search for "Anything"
+    @not_mobile
+    Scenario: Welsh Header has some quick links
+      Given the language is Welsh
+      Then a link to change language is present
+      And a login link is present
+      And a logo is present
+
+    Scenario: English Header has a search option
+      Then I am able to search in English
+
+    Scenario: Welsh Header has a search option
+      Given the language is Welsh
+      Then I am able to search in Welsh
 
     @not_mobile
     Scenario Outline: English Users can quickly navigate to various areas of the page

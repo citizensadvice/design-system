@@ -9,5 +9,5 @@ Feature: Error Summary component
 
     Scenario: Error Labels are informative and easy to understand for all types of user
       Then the component indicates there is a problem
-      And the component lists the issues in bullet point format
+      And the component shows the errors in a list format
       And there is an error for each bullet point

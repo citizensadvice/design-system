@@ -11,8 +11,13 @@ module Header
     element :login, "[data-testid='account-link']"
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
-    element :search_button, "[title='Submit search query']"
+    element :search_button, "form > button"
     element :open_search_pane, "[title='Open search']"
+
+    def search_for(search_term)
+      open_search_pane.click if mobile_phone?
+      search_field.send_keys(search_term)
+    end
 
     def tab_to(desired_area)
       tab_quantity_for_skip_link(desired_area).times do

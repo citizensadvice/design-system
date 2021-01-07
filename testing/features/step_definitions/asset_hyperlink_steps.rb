@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Given("an Asset Hyperlink component is on the page") do
-  @component = DesignSystem::AssetHyperlink.new
-  @component.load
+  @component = DesignSystem::AssetHyperlink.new.tap(&:load)
 end
 
 Then("a link to the PDF is present") do
@@ -10,7 +9,7 @@ Then("a link to the PDF is present") do
 end
 
 Then("the label includes a name at the beginning") do
-  expect(@component.download_link.text).to start_with("Test pdf")
+  expect(@component.download_link.text).to start_with("Test PDF")
 end
 
 Then("the label includes an icon") do

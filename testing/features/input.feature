@@ -1,8 +1,7 @@
-Feature: Input component
+Feature: Input components
 
-  The Input component represents a field for text input, the control associated
-  with this field is a text box that allows users to edit a single line of plain
-  text, providing means to submit data
+  The Input components provides the user with a way of submitting plain text.
+  They can be provided with varying levels of hints or labels
 
   Rule: Basic Input
     Background:
@@ -32,7 +31,16 @@ Feature: Input component
     Background:
       Given I have an Optional Input component on page
 
-    Scenario: Input can have an optional label
+    Scenario: English Input can have an optional label
+      When I type "Hello" into the text box
+      Then the text box has a value of "Hello"
+      And there is a label
+      And there is a hint
+      And there is an optional label
+      But there is no error message
+
+    Scenario: Welsh Input can have an optional label
+      Given the language is Welsh
       When I type "Hello" into the text box
       Then the text box has a value of "Hello"
       And there is a label
@@ -44,7 +52,16 @@ Feature: Input component
     Background:
       Given I have an Errored Input component on page
 
-    Scenario: An Input can show an error message
+    Scenario: English Input can show an error message
+      When I type "Hello" into the text box
+      Then the text box has a value of "Hello"
+      And there is a label
+      And there is a hint
+      And there is an optional label
+      And there is an error message
+
+    Scenario: Welsh Input can show an error message
+      Given the language is Welsh
       When I type "Hello" into the text box
       Then the text box has a value of "Hello"
       And there is a label

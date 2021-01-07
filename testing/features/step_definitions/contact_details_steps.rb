@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Given("a Contact Details component is on the page") do
-  @component = DesignSystem::ContactDetails.new
-  @component.load
+  @component = DesignSystem::ContactDetails.new.tap(&:load)
 end
 
 Then("there is at least 1 paragraph") do

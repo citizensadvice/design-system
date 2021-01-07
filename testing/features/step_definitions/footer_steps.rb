@@ -13,19 +13,15 @@ When("I report a problem with this page") do
 end
 
 Then("a report problem with this page link is present") do
-  expect(@component).to have_website_feedback
+  expect(@component).to have_website_feedback(text: I18n.t("cads.footer.website_feedback"))
 end
 
 Then("each header item has at least 1 link below it") do
   expect(@component.category_titles).to all have_links
 end
 
-Then("a footer logo is present") do
-  expect(@component).to have_logo
-end
-
 Then("a copyright notice is present") do
-  expect(@component).to have_copyright
+  expect(@component).to have_copyright(text: I18n.t("cads.shared.copyright"))
 end
 
 Then("a company info is present") do
