@@ -45,10 +45,12 @@ Feature: Targeted Content component
       And I close the targeted content
       Then I can no longer see additional information
 
+    @future_release @v4.0.0+
     Scenario: Content can be be auto-opened
       When I jump to the targeted content
       Then I can see additional information
 
+    @future_release @v4.0.0+
     Scenario: Content is not auto-opened, if previously interacted with
       When I expand the targeted content
       And I close the targeted content
