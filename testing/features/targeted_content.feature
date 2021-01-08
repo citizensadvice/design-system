@@ -8,7 +8,7 @@ Feature: Targeted Content component
       Given a Default Targeted Content component is on the page
 
     Scenario: Content has a clear title and expand button
-      Then a targeted content title and expand button are present
+      Then a targeted content title and expand/collapse button are present
 
     Scenario: Content can be expanded to reveal more information
       When I expand the targeted content
@@ -29,7 +29,7 @@ Feature: Targeted Content component
       Given an Anchored Targeted Content component is on the page
 
     Scenario: Content has a clear title and expand button
-      Then a targeted content title and expand button are present
+      Then a targeted content title and expand/collapse button are present
 
     Scenario: Content can be expanded to reveal more information
       When I expand the targeted content
@@ -45,14 +45,12 @@ Feature: Targeted Content component
       And I close the targeted content
       Then I can no longer see additional information
 
-    Scenario: Content can be be auto-scrolled to
+    Scenario: Content can be be auto-opened
       When I jump to the targeted content
-      Then the targeted content is scrolled into view
-      And I can see additional information
+      Then I can see additional information
 
-    Scenario: Content is not auto-opened when scrolled to, if previously interacted with
+    Scenario: Content is not auto-opened, if previously interacted with
       When I expand the targeted content
       And I close the targeted content
       And I jump to the targeted content
-      Then the targeted content is scrolled into view
-      But I can no longer see additional information
+      Then I can no longer see additional information

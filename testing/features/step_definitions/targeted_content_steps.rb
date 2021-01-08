@@ -8,26 +8,22 @@ Given("an Anchored Targeted Content component is on the page") do
   @component = TargetedContent::Anchored.new.tap(&:load)
 end
 
-When("I expand the targeted content") do
-  @component.expand.click
-end
-
-When("I collapse the targeted content") do
-  @component.collapse.click
+When("I expand/collapse the targeted content") do
+  @component.heading.expand_collapse.click
 end
 
 When("I close the targeted content") do
-  @component.close.click
+  @component.additional_information.close.click
 end
 
 When("I jump to the targeted content") do
-  @component.links.last.click
+  @component.jump_to_targeted_content.click
 end
 
-Then("a targeted content title and expand button are present") do
+Then("a targeted content title and expand\\/collapse button are present") do
   expect(@component).to have_heading
 
-  expect(@component).to have_expand
+  expect(@component.heading).to have_expand_collapse
 end
 
 Then("I can see additional information") do
