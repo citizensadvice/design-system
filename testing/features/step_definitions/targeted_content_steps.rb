@@ -20,10 +20,22 @@ When("I jump to the targeted content") do
   @component.jump_to_targeted_content.click
 end
 
-Then("a targeted content title and expand\\/collapse button are present") do
+Then("a targeted content title is present") do
   expect(@component).to have_heading
+end
 
+Then("the expand\\/collapse button will indicate it will expand") do
   expect(@component.heading).to have_expand_collapse
+
+  expect(@component.heading.expand_collapse["aria-label"])
+    .to end_with(I18n.t("cads.targeted_content.descriptive_label_show"))
+end
+
+Then("the expand\\/collapse button will indicate it will collapse") do
+  expect(@component.heading).to have_expand_collapse
+
+  expect(@component.heading.expand_collapse["aria-label"])
+    .to end_with(I18n.t("cads.targeted_content.descriptive_label_hide"))
 end
 
 Then("I can see additional information") do
@@ -34,6 +46,7 @@ Then("I can no longer see additional information") do
   expect(@component).not_to have_additional_information
 end
 
-Then("the targeted content is scrolled into view") do
-  :still_no_op_yet
+Then("I can see a close button") do
+  expect(@component.additional_information.close.text).
+    to eq(I18n.t("cads.targeted_content.close_label"))
 end

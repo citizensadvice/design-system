@@ -7,12 +7,31 @@ Feature: Targeted Content component
     Background:
       Given a Default Targeted Content component is on the page
 
-    Scenario: Content has a clear title and expand button
-      Then a targeted content title and expand/collapse button are present
+    @failing @missing_label_issue
+    Scenario: English Content has a clear title and expand button
+      Then a targeted content title is present
+      And the expand/collapse button will indicate it will expand
 
-    Scenario: Content can be expanded to reveal more information
+    @failing @missing_label_issue
+    Scenario: Welsh Content has a clear title and expand button
+      Given the language is Welsh
+      Then a targeted content title is present
+      And the expand/collapse button will indicate it will expand
+
+    @failing @missing_label_issue
+    Scenario: English Content can be expanded to reveal more information
       When I expand the targeted content
       Then I can see additional information
+      And the expand/collapse button will indicate it will collapse
+      And I can see a close button
+
+    @failing @missing_label_issue
+    Scenario: Welsh Content can be expanded to reveal more information
+      Given the language is Welsh
+      When I expand the targeted content
+      Then I can see additional information
+      And the expand/collapse button will indicate it will collapse
+      And I can see a close button
 
     Scenario: Content can be collapsed after being expanded
       When I expand the targeted content
@@ -28,12 +47,31 @@ Feature: Targeted Content component
     Background:
       Given an Anchored Targeted Content component is on the page
 
-    Scenario: Content has a clear title and expand button
-      Then a targeted content title and expand/collapse button are present
+    @failing @missing_label_issue
+    Scenario: English Content has a clear title and expand button
+      Then a targeted content title is present
+      And the expand/collapse button will indicate it will expand
 
-    Scenario: Content can be expanded to reveal more information
+    @failing @missing_label_issue
+    Scenario: Welsh Content has a clear title and expand button
+      Given the language is Welsh
+      Then a targeted content title is present
+      And the expand/collapse button will indicate it will expand
+
+    @failing @missing_label_issue
+    Scenario: English Content can be expanded to reveal more information
       When I expand the targeted content
       Then I can see additional information
+      And the expand/collapse button will indicate it will collapse
+      And I can see a close button
+
+    @failing @missing_label_issue
+    Scenario: Welsh Content can be expanded to reveal more information
+      Given the language is Welsh
+      When I expand the targeted content
+      Then I can see additional information
+      And the expand/collapse button will indicate it will collapse
+      And I can see a close button
 
     Scenario: Content can be collapsed after being expanded
       When I expand the targeted content
