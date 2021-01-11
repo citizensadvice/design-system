@@ -13,7 +13,7 @@ group :test do
   gem "dotenv"
   gem "faraday", "~> 1.3"
   gem "haml_lint"
-  gem "i18n-tasks", "~> 0.9.32"
+  gem "i18n-tasks", "~> 0.9.33"
   gem "rake"
   gem "retriable", "~> 3.1"
   gem "rspec"
