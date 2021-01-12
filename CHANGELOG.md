@@ -1,5 +1,6 @@
 **New**
 
+- ⚽️ Footer: Update copyright year in footer (NP-1338)
 - 🍞 Breadcrumbs: New layout - chevrons at the front for increased legibility, layout bugs fixed (NP-1425)
 
 **Bugfixes**
