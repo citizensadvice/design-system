@@ -47,6 +47,6 @@ Then("I can no longer see additional information") do
 end
 
 Then("I can see a close button") do
-  expect(@component.additional_information.close.text).
-    to eq(I18n.t("cads.targeted_content.close_label"))
+  expect(@component.additional_information.close.text)
+    .to eq(I18n.t("cads.targeted_content.close_label"))
 end
