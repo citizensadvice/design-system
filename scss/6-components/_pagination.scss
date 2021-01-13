@@ -2,6 +2,13 @@
 // Pagination
 // ============================================================================
 
+@mixin cads-paging-focus() {
+  outline: none;
+  color: $cads-language__focus-text-colour;
+  border-color: $cads-language__focus-border-colour;
+  background-color: $cads-language__focus-colour;
+}
+
 /** @define paging */
 .cads-paging {
   @include cads-reset-list-style();
@@ -24,10 +31,7 @@
   margin-bottom: $cads-spacing-2;
 
   &:focus {
-    outline: none;
-    color: $cads-language__focus-text-colour;
-    border-color: $cads-language__focus-border-colour;
-    background-color: $cads-language__focus-colour;
+    @include cads-paging-focus();
   }
 
   &:hover,
@@ -42,6 +46,10 @@
     color: $cads-palette__white;
     background-color: $cads-language__primary-button-colour;
     border-color: $cads-language__primary-button-colour;
+
+    &:focus {
+      @include cads-paging-focus();
+    }
 
     &:hover {
       border-color: $cads-language__primary-button-hover-colour;
