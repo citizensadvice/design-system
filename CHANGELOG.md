@@ -1,82 +1,44 @@
-## <sub>v4.0.0-alpha.5</sub>
+## <sub>v4.0.0</sub>
 
 #### _Jan. 14, 2021_
 
-**New**
-
-- ⚽️ Footer: Update copyright year in footer (NP-1338)
-- 🍞 Breadcrumbs: New layout - chevrons at the front for increased legibility, layout bugs fixed (NP-1425)
-
-**Bugfixes**
-
-- 🥾 Footer: Correct spelling of policy research
-## <sub>v4.0.0-alpha.4</sub>
-
-#### _Jan. 6, 2021_
-
-**New:**
-
-- 🎯 Targeted content: New adviser specific variant
-- 🗣️ Callouts: Support callouts within callouts
-
-**Bugfixes:**
-
-- ⬜ Tables: Give tables an explicit white background to allow them to be used against darker backgrounds
-
-## <sub>v4.0.0-alpha.3</sub>
-
-#### _Dec. 18, 2020_
-
-**Bugfixes**
-
-- 🌎: Navigation: Padding, spacing and mobile design improvements (NP-1026)
-
-**New**
-
-- 📛 Badges: New `cads-badge` element used in callouts and targeted content
-- 📋 Footer Feedback: add a class to allow selection of footer feedback link
-- 🔗 Header: Links in the header now accept a `current_site` boolean in the `link` object to render a span instead of a link
-
-**Docs**
-
-- 📇 Contact Details: documentation updated (NP-1028)
-
 **Breaking changes**
 
+- 💥 Remove related content styles from the design system (NP-1152)
 - 🗣️ Callouts: New badge and modifier classes
   - Modifier classes use BEM style, e.g. `cads-callout--adviser` vs. `cads-callout-adviser`
   - Variants now use new `cads-badge` element for labels
 - 🔗 Pagination links: Now have flex layout, fixes spacing between each item. All pagination list items require a `cads-paging__item` class.
 
-## <sub>v4.0.0-alpha.2</sub>
-
-#### _Dec. 14, 2020_
-
-**Bugfixes**
-
-- 🌎 Navigation: Fix visited link colour in global nav
-## <sub>v4.0.0-alpha.1</sub>
-
-#### _Dec. 11, 2020_
 
 **New**
 
+- 📛 Badges: New `cads-badge` element used in callouts and targeted content
+- 🍞 Breadcrumbs: New layout - chevrons at the front for increased legibility, layout bugs fixed (NP-1425)
+- 🗣️ Callouts: Support callouts within callouts
+- ⚽️ Footer: Update copyright year in footer (NP-1338)
+- 📋 Footer Feedback: add a class to allow selection of footer feedback link
+- 🔗 Header: Links in the header now accept a `current_site` boolean in the `link` object to render a span instead of a link
 - 🔗 Links: added external link styling. Links within cads-prose are styled automatically (NP-1382)
 - 🌎 Navigation: Header links are now added to the 'More' dropdown and no-js support (NP-1235)
-
-## <sub>v4.0.0-alpha.0</sub>
-
-#### _Dec. 7, 2020_
-
-**Breaking changes**
-
-- 💥 Remove related content styles from the design system (NP-1152)
+- 🎯 Targeted content: New adviser specific variant
 
 **Bugfixes**
 
+- 🥾 Footer: Correct spelling of policy research
+- 🌎 Navigation: Fix visited link colour in global nav
+- ⬜ Tables: Give tables an explicit white background to allow them to be used against darker backgrounds
+- 🌎: Navigation: Padding, spacing and mobile design improvements (NP-1026)
 - 🎯 Targeted content: Design updates to targeted content button styles
 - 🤕 Header: Search reveal button now has correct focus highlight. (NP-1330)
 - 🏈 Footer: Use the grid to control footer alignment. (NP-1318)
+
+
+**Docs**
+
+- 📇 Contact Details: documentation updated (NP-1028)
+
+
 ## <sub>v3.2.0</sub>
 
 #### _Dec. 3, 2020_
