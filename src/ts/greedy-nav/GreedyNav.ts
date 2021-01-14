@@ -625,15 +625,12 @@ export class GreedyNavMenu {
      * Remove when clicked outside dropdown
      */
     this.document.addEventListener('click', (event: MouseEvent) => {
-      const navDropdown = navWrapper.querySelector<HTMLElement>(
-        this.navDropdownSelector
-      );
       if (
         event.target &&
         !getClosest(<HTMLElement>event.target, `.${navDropdownClassName}`) &&
         navDropdownToggle &&
         event.target !== navDropdownToggle &&
-        navDropdown
+        navWrapper.classList.contains('is-open')
       ) {
         this.closeDropDown(navWrapper);
       }
