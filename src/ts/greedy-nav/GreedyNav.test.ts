@@ -286,7 +286,7 @@ describe('Greedy Nav', () => {
     });
 
     it('toggles the menu open', () => {
-      const event = new dom.window.FocusEvent('focus');
+      const event = new dom.window.KeyboardEvent('keyup', { key: 'Tab' });
       nav.navDropdownToggle!.dispatchEvent(event);
 
       expect(nav.navDropdown!.className).toContain('show');

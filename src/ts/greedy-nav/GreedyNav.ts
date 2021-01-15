@@ -567,7 +567,6 @@ export class GreedyNavMenu {
     }
 
     const lastItemCloseHandler = (event: FocusEvent) => {
-      console.log('closing from last item close handler');
       if (this.toggleWrapper === null) {
         return;
       }
@@ -588,15 +587,11 @@ export class GreedyNavMenu {
       }
     };
 
+    /* Open when tabbing into the toggle */
     if (navDropdownToggle) {
       navDropdownToggle.addEventListener('keyup', (event) => {
-        if (
-          !event.shiftKey &&
-          event.key === 'Tab' &&
-          document.activeElement === navDropdownToggle
-        ) {
+        if (!event.shiftKey && event.key === 'Tab') {
           this.openDropDown(navWrapper);
-        } else {
         }
       });
     }
