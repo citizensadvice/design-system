@@ -588,15 +588,18 @@ export class GreedyNavMenu {
       }
     };
 
-    navWrapper.addEventListener('keyup', (event) => {
-      if (event.key === 'Tab' && document.activeElement === navDropdownToggle) {
-        if (navWrapper.classList.contains('is-open')) {
-          this.closeDropDown(navWrapper);
-        } else {
+    if (navDropdownToggle) {
+      navDropdownToggle.addEventListener('keyup', (event) => {
+        if (
+          !event.shiftKey &&
+          event.key === 'Tab' &&
+          document.activeElement === navDropdownToggle
+        ) {
           this.openDropDown(navWrapper);
+        } else {
         }
-      }
-    });
+      });
+    }
 
     if (navDropdownToggle && this.toggleWrapper) {
       navDropdownToggle.addEventListener(
@@ -609,6 +612,8 @@ export class GreedyNavMenu {
                 `${this.navDropdownSelector} li:last-child a`
               )
               ?.removeEventListener(blurEventName, lastItemCloseHandler);
+
+            this.closeDropDown(navWrapper);
           } else {
             // tabbing forwards
             this.document
@@ -882,13 +887,14 @@ export class GreedyNavMenu {
       this.navDropdownToggleSelector
     );
 
+    console.log('open');
+
     if (navDropdown && navDropdownToggle) {
       navDropdown.classList.add('show');
       navDropdownToggle.classList.add('is-open');
       navWrapper.classList.add('is-open');
 
       navDropdown.setAttribute('aria-hidden', 'false');
-      updateLabel;
 
       updateLabel(
         navWrapper,
@@ -923,8 +929,6 @@ export class GreedyNavMenu {
         this.navDropdownToggleSelector,
         navDropdownLabelActive
       );
-
-      navDropdown.blur();
     }
   }
 }
