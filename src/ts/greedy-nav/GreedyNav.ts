@@ -882,8 +882,6 @@ export class GreedyNavMenu {
       this.navDropdownToggleSelector
     );
 
-    console.log('open');
-
     if (navDropdown && navDropdownToggle) {
       navDropdown.classList.add('show');
       navDropdownToggle.classList.add('is-open');

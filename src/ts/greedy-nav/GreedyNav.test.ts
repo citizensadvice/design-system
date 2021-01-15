@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
+import '@testing-library/jest-dom';
 import { JSDOM } from 'jsdom';
 import path from 'path';
 
@@ -310,6 +311,60 @@ describe('Greedy Nav', () => {
       expect(nav.navDropdown!.className).not.toContain('show');
       expect(nav.mainNavWrapper!.className).not.toContain('is-open');
       expect(nav.navDropdownToggle!.innerHTML).toContain('More');
+    });
+  });
+
+  describe('menu opening and closing', () => {
+    let dom: JSDOM;
+    let document: HTMLDocument;
+    let nav: GreedyNavMenu;
+
+    beforeEach(async () => {
+      dom = await JSDOM.fromFile(
+        path.join(__dirname, './__fixtures__/menu.html'),
+        { url: 'http://www.example.com/menu.html' }
+      );
+
+      document = dom.window.document;
+
+      nav = new GreedyNavMenu(defaultConfig, document);
+      nav.init();
+    });
+
+    afterEach(() => {
+      document.body.innerHTML = '';
+    });
+
+    describe('openDropDown', () => {
+      it('opens the dropdown menu', () => {
+        nav.openDropDown(nav.mainNavWrapper);
+
+        expect(nav.navDropdown.classList).toContain('show');
+      });
+
+      it('sets aria-hidden to false on the drop down', () => {
+        nav.openDropDown(nav.mainNavWrapper);
+
+        expect(nav.navDropdown!).toHaveAttribute('aria-hidden', 'false');
+      });
+    });
+
+    describe('closeDropDown', () => {
+      beforeEach(() => {
+        nav.openDropDown(nav.mainNavWrapper);
+      });
+
+      it('closes the dropdown menu', () => {
+        nav.closeDropDown(nav.mainNavWrapper);
+
+        expect(nav.navDropdown).not.toContain('show');
+      });
+
+      it('sets aria-hidden to true on the drop down', () => {
+        nav.closeDropDown(nav.mainNavWrapper);
+
+        expect(nav.navDropdown).toHaveAttribute('aria-hidden', 'true');
+      });
     });
   });
 });
