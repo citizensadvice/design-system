@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom';
+import { fireEvent, createEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import path from 'path';
 
@@ -287,8 +289,7 @@ describe('Greedy Nav', () => {
     });
 
     it('toggles the menu open', () => {
-      const event = new dom.window.KeyboardEvent('keyup', { key: 'Tab' });
-      nav.navDropdownToggle!.dispatchEvent(event);
+      fireEvent.keyUp(nav.navDropdownToggle, { key: 'Tab' });
 
       expect(nav.navDropdown!.className).toContain('show');
       expect(nav.mainNavWrapper!.className).toContain('is-open');
@@ -296,17 +297,8 @@ describe('Greedy Nav', () => {
     });
 
     it('when tabbing backwards through the dropdown menu', () => {
-      const siteMenuItem = document.querySelector<HTMLElement>('nav ul li')!;
-
-      const openEvent = new dom.window.MouseEvent('focus');
-
-      nav.navDropdownToggle!.dispatchEvent(openEvent);
-
-      const event = new dom.window.FocusEvent('blur', {
-        relatedTarget: siteMenuItem,
-      });
-
-      nav.navDropdownToggle!.dispatchEvent(event);
+      fireEvent.focus(nav.navDropdownToggle);
+      fireEvent.blur(nav.navDropdownToggle);
 
       expect(nav.navDropdown!.className).not.toContain('show');
       expect(nav.mainNavWrapper!.className).not.toContain('is-open');
@@ -337,7 +329,7 @@ describe('Greedy Nav', () => {
 
     describe('openDropDown', () => {
       it('opens the dropdown menu', () => {
-        nav.openDropDown(nav.mainNavWrapper);
+        userEvent.click(nav.navDropdownToggle);
 
         expect(nav.navDropdown.classList).toContain('show');
       });
@@ -351,17 +343,17 @@ describe('Greedy Nav', () => {
 
     describe('closeDropDown', () => {
       beforeEach(() => {
-        nav.openDropDown(nav.mainNavWrapper);
+        userEvent.click(nav.navDropdownToggle);
       });
 
       it('closes the dropdown menu', () => {
-        nav.closeDropDown(nav.mainNavWrapper);
+        userEvent.click(nav.navDropdownToggle);
 
         expect(nav.navDropdown).not.toContain('show');
       });
 
       it('sets aria-hidden to true on the drop down', () => {
-        nav.closeDropDown(nav.mainNavWrapper);
+        userEvent.click(nav.navDropdownToggle);
 
         expect(nav.navDropdown).toHaveAttribute('aria-hidden', 'true');
       });
