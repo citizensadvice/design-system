@@ -107,44 +107,6 @@ const parent = (element: Nullable<HTMLElement>, parentNode: Nullable<Node>) => {
 };
 
 /**
- * Toggle class on element
- * @param el
- * @param className
- */
-const toggleClass = (el: HTMLElement, className: string) => {
-  if (el.classList) {
-    el.classList.toggle(className);
-  } else {
-    const classes = el.className.split(' ');
-    const existingIndex = classes.indexOf(className);
-
-    if (existingIndex >= 0) classes.splice(existingIndex, 1);
-    else classes.push(className);
-
-    // eslint-disable-next-line no-param-reassign
-    el.className = classes.join(' ');
-  }
-};
-
-const removeClass = (el: HTMLElement, className: string) => {
-  if (el.classList) {
-    el.classList.remove(className);
-  } else {
-    // eslint-disable-next-line no-param-reassign
-    el.className = el.className.replace(new RegExp(`s?${className}s?`), '');
-  }
-};
-
-const addClass = (el: HTMLElement, className: string) => {
-  if (el.classList) {
-    el.classList.add(className);
-  } else {
-    // eslint-disable-next-line no-param-reassign
-    el.className = `${el.className} ${className}`;
-  }
-};
-
-/**
  * Show/hide toggle button
  */
 export const showToggle = (
@@ -587,57 +549,19 @@ export class GreedyNavMenu {
       },
       true
     );
-    // }
-    const {
-      navDropdownClassName,
-      navDropdownLabelActive,
-      navDropdownLabel,
-    } = this.settings;
+
+    const { navDropdownClassName } = this.settings;
 
     const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
       this.navDropdownToggleSelector
     );
 
     if (navDropdownToggle) {
-      // Toggle dropdown
-      navDropdownToggle.addEventListener('mousedown', (event) => {
-        const navDropdown = navWrapper.querySelector<HTMLElement>(
-          this.navDropdownSelector
-        );
-
-        if (navDropdown) {
-          event.stopPropagation();
-          toggleClass(navDropdown, 'show');
-
-          if (event.currentTarget) {
-            toggleClass(<HTMLElement>event.currentTarget, 'is-open');
-          }
-          toggleClass(navWrapper, 'is-open');
-
-          /**
-           * Toggle aria hidden for accessibility
-           */
-          if (navWrapper.classList.contains('is-open')) {
-            navDropdown.setAttribute('aria-hidden', 'true');
-
-            updateLabel(
-              navWrapper,
-              navDropdownLabelActive,
-              this.navDropdownToggleSelector,
-              this.settings.navDropdownLabelActive
-            );
-
-            navDropdown.blur();
-          } else {
-            navDropdown.setAttribute('aria-hidden', 'false');
-
-            updateLabel(
-              navWrapper,
-              navDropdownLabel,
-              this.navDropdownToggleSelector,
-              this.settings.navDropdownLabelActive
-            );
-          }
+      navDropdownToggle.addEventListener('mouseup', (event: MouseEvent) => {
+        if (navWrapper.classList.contains('is-open')) {
+          this.closeDropDown(navWrapper);
+        } else {
+          this.openDropDown(navWrapper);
         }
       });
     }
@@ -647,31 +571,15 @@ export class GreedyNavMenu {
         return;
       }
 
-      const navDropdown = navWrapper.querySelector<HTMLElement>(
-        this.navDropdownSelector
-      );
+      if (!parent(relatedTarget(event, document), this.toggleWrapper)) {
+        this.closeDropDown(navWrapper);
 
-      if (
-        !parent(relatedTarget(event, document), this.toggleWrapper) &&
-        navDropdown &&
-        navDropdownToggle
-      ) {
-        removeClass(navDropdown, 'show');
-        removeClass(navDropdownToggle, 'is-open');
-        removeClass(navWrapper, 'is-open');
-        updateLabel(
-          navWrapper,
-          navDropdownLabel,
-          this.navDropdownToggleSelector,
-          this.settings.navDropdownLabelActive
-        );
-
-        const navDropdownLink = navWrapper.querySelector<HTMLElement>(
+        const navLastDropdownLink = navWrapper.querySelector<HTMLElement>(
           `${this.navDropdownSelector} li:last-child a`
         );
 
-        if (navDropdownLink) {
-          navDropdownLink.removeEventListener(
+        if (navLastDropdownLink) {
+          navLastDropdownLink.removeEventListener(
             blurEventName,
             lastItemCloseHandler
           );
@@ -679,35 +587,11 @@ export class GreedyNavMenu {
       }
     };
 
+    /* Open when tabbing into the toggle */
     if (navDropdownToggle) {
-      navDropdownToggle.addEventListener('focus', (event: FocusEvent) => {
-        const navDropdown = navWrapper.querySelector<HTMLElement>(
-          this.navDropdownSelector
-        );
-
-        if (navDropdown) {
-          if (navWrapper.className.indexOf('is-open') === -1) {
-            addClass(navDropdown, 'show');
-            if (
-              event.currentTarget &&
-              event.currentTarget instanceof HTMLElement
-            ) {
-              addClass(event.currentTarget, 'is-open');
-            }
-            addClass(navWrapper, 'is-open');
-            updateLabel(
-              navWrapper,
-              navDropdownLabelActive,
-              this.navDropdownToggleSelector,
-              this.settings.navDropdownLabelActive
-            );
-
-            /**
-             * Toggle aria hidden for accessibility
-             */
-            navDropdown.setAttribute('aria-hidden', 'false');
-            navDropdown.blur();
-          }
+      navDropdownToggle.addEventListener('keyup', (event) => {
+        if (!event.shiftKey && event.key === 'Tab') {
+          this.openDropDown(navWrapper);
         }
       });
     }
@@ -724,28 +608,7 @@ export class GreedyNavMenu {
               )
               ?.removeEventListener(blurEventName, lastItemCloseHandler);
 
-            navWrapper
-              .querySelector<HTMLElement>(this.navDropdownSelector)
-              ?.classList.remove('show');
-
-            (<HTMLElement>e.currentTarget)?.classList.remove('is-open');
-
-            (<HTMLElement>e.currentTarget)?.classList.remove('is-open');
-            navWrapper.classList.remove('is-open');
-
-            updateLabel(
-              navWrapper,
-              this.settings.navDropdownLabel,
-              this.navDropdownToggleSelector,
-              this.settings.navDropdownLabelActive
-            );
-
-            /**
-             * Toggle aria hidden for accessibility
-             */
-            navWrapper
-              .querySelector<HTMLElement>(this.navDropdownSelector)
-              ?.setAttribute('aria-hidden', 'false');
+            this.closeDropDown(navWrapper);
           } else {
             // tabbing forwards
             this.document
@@ -762,25 +625,14 @@ export class GreedyNavMenu {
      * Remove when clicked outside dropdown
      */
     this.document.addEventListener('click', (event: MouseEvent) => {
-      const navDropdown = navWrapper.querySelector<HTMLElement>(
-        this.navDropdownSelector
-      );
       if (
         event.target &&
         !getClosest(<HTMLElement>event.target, `.${navDropdownClassName}`) &&
         navDropdownToggle &&
         event.target !== navDropdownToggle &&
-        navDropdown
+        navWrapper.classList.contains('is-open')
       ) {
-        navDropdown.classList.remove('show');
-        navDropdown.classList.remove('is-open');
-        navWrapper.classList.remove('is-open');
-        updateLabel(
-          navWrapper,
-          navDropdownLabel,
-          this.navDropdownToggleSelector,
-          this.settings.navDropdownLabelActive
-        );
+        this.closeDropDown(navWrapper);
       }
     });
 
@@ -791,17 +643,7 @@ export class GreedyNavMenu {
       const event = evt || window.event;
 
       if (event.keyCode === 27) {
-        const navDropdown = this.document.querySelector<HTMLElement>(
-          this.navDropdownSelector
-        );
-        if (navDropdown) {
-          navDropdown.classList.remove('show');
-          navDropdown.classList.remove('is-open');
-        }
-
-        if (this.mainNavWrapper) {
-          this.mainNavWrapper.classList.remove('is-open');
-        }
+        this.closeDropDown(navWrapper);
       }
     };
   }
@@ -1026,6 +868,60 @@ export class GreedyNavMenu {
     // Remove toggle
     if (this.toggleWrapper) {
       this.toggleWrapper.remove();
+    }
+  }
+
+  openDropDown(navWrapper: HTMLElement): void {
+    const { navDropdownLabelActive } = this.settings;
+
+    const navDropdown = navWrapper.querySelector<HTMLElement>(
+      this.navDropdownSelector
+    );
+
+    const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
+      this.navDropdownToggleSelector
+    );
+
+    if (navDropdown && navDropdownToggle) {
+      navDropdown.classList.add('show');
+      navDropdownToggle.classList.add('is-open');
+      navWrapper.classList.add('is-open');
+
+      navDropdown.setAttribute('aria-hidden', 'false');
+
+      updateLabel(
+        navWrapper,
+        navDropdownLabelActive,
+        this.navDropdownToggleSelector,
+        navDropdownLabelActive
+      );
+    }
+  }
+
+  closeDropDown(navWrapper: HTMLElement): void {
+    const { navDropdownLabel, navDropdownLabelActive } = this.settings;
+
+    const navDropdown = navWrapper.querySelector<HTMLElement>(
+      this.navDropdownSelector
+    );
+
+    const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
+      this.navDropdownToggleSelector
+    );
+
+    if (navDropdown && navDropdownToggle) {
+      navDropdown.classList.remove('show');
+      navDropdownToggle.classList.remove('is-open');
+      navWrapper.classList.remove('is-open');
+
+      navDropdown.setAttribute('aria-hidden', 'true');
+
+      updateLabel(
+        navWrapper,
+        navDropdownLabel,
+        this.navDropdownToggleSelector,
+        navDropdownLabelActive
+      );
     }
   }
 }

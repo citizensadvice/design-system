@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
+import '@testing-library/jest-dom';
+import { fireEvent, createEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import path from 'path';
 
@@ -286,8 +289,7 @@ describe('Greedy Nav', () => {
     });
 
     it('toggles the menu open', () => {
-      const event = new dom.window.FocusEvent('focus');
-      nav.navDropdownToggle!.dispatchEvent(event);
+      fireEvent.keyUp(nav.navDropdownToggle, { key: 'Tab' });
 
       expect(nav.navDropdown!.className).toContain('show');
       expect(nav.mainNavWrapper!.className).toContain('is-open');
@@ -295,21 +297,66 @@ describe('Greedy Nav', () => {
     });
 
     it('when tabbing backwards through the dropdown menu', () => {
-      const siteMenuItem = document.querySelector<HTMLElement>('nav ul li')!;
-
-      const openEvent = new dom.window.MouseEvent('focus');
-
-      nav.navDropdownToggle!.dispatchEvent(openEvent);
-
-      const event = new dom.window.FocusEvent('blur', {
-        relatedTarget: siteMenuItem,
-      });
-
-      nav.navDropdownToggle!.dispatchEvent(event);
+      fireEvent.focus(nav.navDropdownToggle);
+      fireEvent.blur(nav.navDropdownToggle);
 
       expect(nav.navDropdown!.className).not.toContain('show');
       expect(nav.mainNavWrapper!.className).not.toContain('is-open');
       expect(nav.navDropdownToggle!.innerHTML).toContain('More');
+    });
+  });
+
+  describe('menu opening and closing', () => {
+    let dom: JSDOM;
+    let document: HTMLDocument;
+    let nav: GreedyNavMenu;
+
+    beforeEach(async () => {
+      dom = await JSDOM.fromFile(
+        path.join(__dirname, './__fixtures__/menu.html'),
+        { url: 'http://www.example.com/menu.html' }
+      );
+
+      document = dom.window.document;
+
+      nav = new GreedyNavMenu(defaultConfig, document);
+      nav.init();
+    });
+
+    afterEach(() => {
+      document.body.innerHTML = '';
+    });
+
+    describe('openDropDown', () => {
+      it('opens the dropdown menu', () => {
+        userEvent.click(nav.navDropdownToggle);
+
+        expect(nav.navDropdown.classList).toContain('show');
+      });
+
+      it('sets aria-hidden to false on the drop down', () => {
+        nav.openDropDown(nav.mainNavWrapper);
+
+        expect(nav.navDropdown!).toHaveAttribute('aria-hidden', 'false');
+      });
+    });
+
+    describe('closeDropDown', () => {
+      beforeEach(() => {
+        userEvent.click(nav.navDropdownToggle);
+      });
+
+      it('closes the dropdown menu', () => {
+        userEvent.click(nav.navDropdownToggle);
+
+        expect(nav.navDropdown).not.toContain('show');
+      });
+
+      it('sets aria-hidden to true on the drop down', () => {
+        userEvent.click(nav.navDropdownToggle);
+
+        expect(nav.navDropdown).toHaveAttribute('aria-hidden', 'true');
+      });
     });
   });
 });
