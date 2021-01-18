@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/citizensadvice/ca_testing.git
-  revision: 6d1976f5fb1bfd2b251e75353aa3a39fb0d705da
-  tag: v0.2
+  revision: d3a47b54e57c07ea3088b37ecc64d0d763bee973
+  tag: v0.3
   specs:
-    ca_testing (0.2.0)
+    ca_testing (0.3)
       capybara (~> 3.8)
       selenium-webdriver (>= 4.0.0.alpha1, < 4.1)
 
