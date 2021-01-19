@@ -1,3 +1,7 @@
+## <sub>v4.0.1-alpha.0</sub>
+
+#### _Jan. 19, 2021_
+
 **Bugfixes**
 
 - 🔗 Pagination links: Apply focus state to active page
