@@ -126,3 +126,24 @@
     display: block;
   }
 }
+
+/* stylelint-disable no-descending-specificity */
+.no-js {
+  .cads-header__search-reveal {
+    @include cads-media-breakpoint-only(sm) {
+      display: none;
+    }
+  }
+
+  .cads-header__search-row {
+    @include cads-media-breakpoint-only(sm) {
+      display: block;
+    }
+  }
+  .cads-header__links {
+    @include cads-media-breakpoint-only(sm) {
+      display: block;
+      margin-top: $cads-spacing-2;
+    }
+  }
+}
