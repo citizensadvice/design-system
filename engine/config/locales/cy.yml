@@ -1,0 +1,36 @@
+cy:
+  design_system:
+    base_input_component:
+      optional: dewisol
+    callout_component:
+      example: Enghraifft
+      important: Pwysig
+      adviser: Cynghorydd
+    header_component:
+      logo_title: Hafan Cyngor ar Bopeth
+      search_mobile: Ymchwiliad agored
+      skip_to_content: Neidio i’r cynnwys
+      skip_to_nav: Neidio i’r llywio
+      skip_to_footer: Neidio i’r troedyn
+    footer_component:
+      logo_title: Hafan Cyngor ar Bopeth
+      navigation_title: Footer Navigation
+      website_feedback: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
+      copyright: Hawlfraint © 2020 Cyngor ar Bopeth. Cedwir pob hawl.
+      legal_summary: >
+        Cyngor ar Bopeth yn enw gweithredol ar Gymdeithas Genedlaethol Cyngor ar Bopeth.
+        Rhif elusen gofrestredig 279057. Rhif TAW 726 0202 76. Cwmni cyfyngedig drwy warant.
+        Rhif cofrestredig 0143694 Lloegr. Swyddfa gofrestredig:
+        Cyngor ar Bopeth, 3ydd Llawr Gogledd, 200 Aldersgate, Llundain, EC1A 4HD
+    page_review_component:
+      body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>
+    radio_group_component:
+      optional: dewisol
+    search_component:
+      input_aria_label: Chwiliwch trwy gynnwys y wefan
+      submit_title: Cyflwyno ymholiad chwilio
+      submit_label: Chwilio
+    targeted_content_component:
+      descriptive_label_show: show this section
+      descriptive_label_hide: hide this section
+      close_button_aria: Cau %{title}

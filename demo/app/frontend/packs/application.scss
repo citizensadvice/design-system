@@ -1,0 +1,63 @@
+@import '~@citizensadvice/design-system/scss/lib.scss';
+
+/**
+ * Design system overrides
+ *
+ * Temporary overrides mostly to support new SVG icon system introduced within the engine
+ * These should be merged upstream if the engine graduates past experimental stage.
+ */
+
+.cads-icon-svg {
+  fill: currentColor;
+}
+
+.cads-button__icon-left,
+.cads-button__icon-right {
+  position: relative;
+  top: 2px;
+}
+
+.cads-button__icon-left {
+  left: -2px;
+}
+
+.cads-button__icon-right {
+  margin-left: 3px;
+}
+
+/** @define asset-hyperlink; weak */
+.cads-asset-hyperlink {
+  &__type {
+    &::before {
+      content: '[';
+    }
+
+    &::after {
+      content: ']';
+    }
+  }
+
+  .cads-icon-svg {
+    position: relative;
+    top: 2px;
+    margin-right: 3px;
+  }
+}
+
+.cads-footer__feedback {
+  .cads-footer__feedback-icon svg {
+    position: relative;
+    top: 2px;
+    width: 12px;
+    height: auto;
+  }
+}
+
+.cads-footer__icon {
+  svg {
+    position: relative;
+    top: 2px;
+    width: 12px;
+    height: auto;
+  }
+}

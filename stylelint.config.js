@@ -1,7 +1,11 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
   plugins: ['stylelint-scss', 'stylelint-selector-bem-pattern'],
-  ignoreFiles: ['**/_normalize.scss', '**/_cads-iconfont.scss'],
+  ignoreFiles: [
+    '**/_normalize.scss',
+    '**/_cads-iconfont.scss',
+    'demo/**/*.scss',
+  ],
   rules: {
     // Disallow named colours, for colours we use sass variables
     'color-named': 'never',

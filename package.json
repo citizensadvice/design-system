@@ -121,7 +121,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/vendor/",
-      "/lib/"
+      "/lib/",
+      "/demo/"
     ]
   },
   "lint-staged": {

@@ -1,0 +1,4 @@
+.cads-callout{ class: "cads-callout-#{type}" }
+  - if type != "standard"
+    .cads-callout-label= t(".#{type}")
+  = body.html_safe

@@ -1,0 +1,5 @@
+%a.cads-asset-hyperlink{ href: uri }
+  = description
+  %span.cads-asset-hyperlink__type<
+    = render(DesignSystem::IconFileComponent.new)
+    = number_to_human_size(size)

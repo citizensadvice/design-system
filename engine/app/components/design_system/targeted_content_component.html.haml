@@ -1,0 +1,7 @@
+.cads-targeted-content{ class: ("js-cads-targeted-content" if is_toggleable),
+  data: { descriptive_label_show: t(".descriptive_label_show"),
+    descriptive_label_hide: t(".descriptive_label_hide"),
+    close_label: t(".close_label") } }
+  %h2.cads-targeted-content__title.js-cads-targeted-content__title{ id: "h-#{id}" }= title
+  .cads-targeted-content__content.cads-prose.js-cads-targeted-content__content{ id: "#{id}-content" }
+    = body.html_safe

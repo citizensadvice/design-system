@@ -13,3 +13,8 @@ vendor/
 # Ignore locale files from prettier
 # formatted by i18n-tasks
 /locales/
+
+# Ignore Rails engine dist files
+/demo/public/
+/demo/tests/
+/demo/tmp/

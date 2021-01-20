@@ -1,0 +1,10 @@
+= render(DesignSystem::FormFieldComponent.new(has_error: error?)) do
+  %label.cads-form-field__label{ id: "#{name}-label", for: "#{name}-input" }
+    = label
+    - if optional?
+      %span.cads-form-field__optional= t(".optional")
+  - if hint
+    %p.cads-form-field__hint= hint
+  - if error?
+    %p.cads-form-field__error-message= error_message
+  = content

@@ -1,0 +1,37 @@
+en:
+  design_system:
+    base_input_component:
+      optional: optional
+    callout_component:
+      example: Example
+      important: Important
+      adviser: Adviser
+    header_component:
+      logo_title: Citizens Advice homepage
+      search_mobile: Open search
+      skip_to_content: Skip to content
+      skip_to_nav: Skip to navigation
+      skip_to_footer: Skip to footer
+    footer_component:
+      logo_title: Citizens Advice homepage
+      navigation_title: Footer Navigation
+      website_feedback: Is there anything wrong with this page? Let us know
+      copyright: Copyright ©%{year} Citizens Advice. All rights reserved.
+      legal_summary: >
+        Citizens Advice is an operating name of the National Association of
+        Citizens Advice Bureaux. Registered charity number 279057. VAT number
+        726 0202 76. Company limited by guarantee. Registered number 01436945
+        England. Registered office: Citizens Advice, 3rd Floor North, 200
+        Aldersgate, London, EC1A 4HD
+    page_review_component:
+      body_html: Page last reviewed on <strong>%{date}</strong>
+    radio_group_component:
+      optional: optional
+    search_component:
+      input_aria_label: Search through site content
+      submit_title: Submit search query
+      submit_label: Search
+    targeted_content_component:
+      descriptive_label_show: show this section
+      descriptive_label_hide: hide this section
+      close_label: Close

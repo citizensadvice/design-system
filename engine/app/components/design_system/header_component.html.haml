@@ -1,0 +1,19 @@
+%header.cads-header
+  .cads-grid-container
+    .cads-grid-row
+      %nav.cads-skip-links
+        %a.cads-skip-links__link{ href: "#cads-navigation" }= t(".skip_to_nav")
+        %a.cads-skip-links__link{ href: "##{main_content_id}" }= t(".skip_to_content")
+        %a.cads-skip-links__link{ href: "#cads-footer" }= t(".skip_to_footer")
+      .cads-grid-col-md-6.cads-header__logo-row
+        %a.cads-logo{ href: homepage_url, title: t(".logo_title") }
+        %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t(".search_mobile"), "aria-expanded": "false" }
+      .cads-grid-col-md-6.cads-header__search-row
+        %ul.cads-header__links
+          - links&.each do |link|
+            %li.cads-header__links-item
+              %a.cads-header__hyperlink{ href: link[:url] }= link[:title]
+          - if sign_in_out
+            %li.cads-header__account-link
+              %a.cads-header__hyperlink{href: sign_in_out[:url], "data-testid": "account-link"}= sign_in_out[:title]
+        = render(DesignSystem::SearchComponent.new(action_url: search_action_url))

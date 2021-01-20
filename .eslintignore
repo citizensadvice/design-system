@@ -3,3 +3,4 @@ docs
 lib
 testing/visual-regression/backstop_data/html_report/
 vendor
+/demo/

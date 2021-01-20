@@ -22,3 +22,12 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'node_modules/**/*'
+    - 'demo/node_modules/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'engine/spec/**/*.rb'
+    - 'demo/spec/**/*.rb'

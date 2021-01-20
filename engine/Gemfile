@@ -1,0 +1,19 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+gemspec
+
+group :development, :test do
+  rails_version = (ENV["RAILS_VERSION"] || "6.0.3.4").to_s
+
+  gem "bootsnap", ">= 1.4.2", require: false
+  gem "puma", "~> 4.1"
+  gem "rails", rails_version == "master" ? { github: "rails/rails" } : rails_version
+  gem "webpacker", "~> 4.0"
+
+  gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v0.4.0"
+  gem "rspec-rails"
+end

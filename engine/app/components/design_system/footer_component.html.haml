@@ -1,0 +1,28 @@
+%footer#cads-footer.cads-footer
+  - if feedback_url
+    %p.cads-footer__feedback
+      %a.cads-footer__hyperlink{ href: feedback_url, target: "_blank", rel: "noopener" }
+        = t(".website_feedback")
+      %span.cads-footer__feedback-icon
+        = render(DesignSystem::IconExternalLinkComponent.new)
+  %nav.cads-grid-container{"aria-label": t(".navigation_title") }
+    .cads-grid-row
+      - %w[column_one column_two column_three column_four].each do |column|
+        - links_column = links[column.to_sym]
+        - if links_column
+          .cads-grid-col-md-3
+            %h2.cads-footer__section-title= links_column[:title]
+            - if links_column[:links]
+              %ul.cads-footer__links
+                - links_column[:links].each do |link|
+                  %li.cads-footer__link
+                    %a.cads-footer__hyperlink{ href: link[:url] }= link[:label]
+                    - if link[:external] == true
+                      %span.cads-footer__icon
+                        = render(DesignSystem::IconExternalLinkComponent.new)
+  .cads-footer__company-info
+    .cads-footer__logo
+      %a.cads-logo{ href: homepage_url, title: t(".logo_title") }
+    .cads-footer__meta
+      %p.cads-footer__meta-text= t(".copyright", year: Date.current.year)
+      %p.cads-footer__meta-text= t(".legal_summary")

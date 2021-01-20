@@ -1,0 +1,5 @@
+%form.cads-search{ action: action_url, role: "search" }
+  %input.cads-search__input.cads-input{ type: "search",
+    name: "q", value: input_value, "aria-label": t(".input_aria_label") }
+  %button.cads-search__button{ title: t(".submit_title") }
+    %span.cads-search__button-label= t(".submit_label")
