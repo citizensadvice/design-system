@@ -1,4 +1,4 @@
-## <sub>v4.0.1-alpha.1</sub>
+## <sub>v4.0.1</sub>
 
 #### _Jan. 21, 2021_
 
@@ -8,13 +8,6 @@
 **Bugfixes**
 - 🌎 Navigation: More / Close arrow correction
 - 🌎 Navigation: More dropdoen menu appears in device gesture control flow
-
-## <sub>v4.0.1-alpha.0</sub>
-
-#### _Jan. 19, 2021_
-
-**Bugfixes**
-
 - 🔗 Pagination links: Apply focus state to active page
 
 ## <sub>v4.0.0</sub>
