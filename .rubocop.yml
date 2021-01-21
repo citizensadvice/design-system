@@ -16,6 +16,7 @@ Style/MixinUsage:
 Metrics/MethodLength:
   Exclude:
     - 'scripts/haml.rb'
+    - 'testing/features/support/drivers/browserstack/base.rb'
 
 AllCops:
   Exclude:
