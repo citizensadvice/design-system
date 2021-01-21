@@ -37,12 +37,12 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: `${labelPrefix} (Print)`,
         url: storyUrlFor(componentId),
-        readySelector: '.cads-greedy-nav-has-dropdown',
         onReadyScript: 'onReadyEmulatePrint.js',
       },
       {
         label: `${labelPrefix}`,
         url: storyUrlFor(componentId),
+        readySelector: '.cads-greedy-nav-has-dropdown',
       },
     ];
   }
