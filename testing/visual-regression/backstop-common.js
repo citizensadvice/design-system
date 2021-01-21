@@ -284,6 +284,37 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor(`forms-radio-group--small`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
+      {
+        label: `Sample Page/Advice collection/Public (print)`,
+        url: storyUrlFor(
+          `sample-pages-advice-collection--advice-collection-public`
+        ),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        onReadyScript: 'onReadyEmulatePrint.js',
+      },
+      ,
+      {
+        label: `Sample Page/Advice collection/Adviser (print)`,
+        url: storyUrlFor(
+          `sample-pages-advice-collection--advice-collection-adviser`
+        ),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        onReadyScript: 'onReadyEmulatePrint.js',
+      },
+      ,
+      {
+        label: `Sample Page/Generic/Tables (print)`,
+        url: storyUrlFor(`sample-pages-generic--forms`),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        onReadyScript: 'onReadyEmulatePrint.js',
+      },
+      ,
+      {
+        label: `Sample Page/Generic/Forms (print)`,
+        url: storyUrlFor(`sample-pages-generic--tables`),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        onReadyScript: 'onReadyEmulatePrint.js',
+      },
     ],
     dockerCommandTemplate:
       'docker run --rm -i --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
