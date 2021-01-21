@@ -93,23 +93,26 @@ def pipeline() {
     }
   }
 
-  stage('Lint') {
-    withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
-      withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
-        sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
-        sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
-      }
-    }
-  }
+  stage('Lint and unit tests') {
+    parallel(
+      'Lint': {
+        withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
+          withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
+            sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
+            sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
+          }
+        }
+      },
+      'Unit test': {
+        withDockerSandbox([ images['ca-styleguide'] ]) {
+          withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
+            sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
+          }
+        }
 
-  stage('Unit test') {
-    withDockerSandbox([ images['ca-styleguide'] ]) {
-      withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
-        sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
+        step ([$class: 'JUnitResultArchiver', testResults: 'testing/visual-regression/backstop_data/ci_report/?*.xml', allowEmptyResults: true])
       }
-    }
-
-    step ([$class: 'JUnitResultArchiver', testResults: 'testing/visual-regression/backstop_data/ci_report/?*.xml', allowEmptyResults: true])
+    )
   }
 
   stage('Visual Regression Tests') {
@@ -156,6 +159,8 @@ def pipeline() {
     }
   }
 } // end pipeline
+
+
 
 def slackNotifyReleaseOnly(Closure body) {
   if (!isRelease) {
