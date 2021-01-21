@@ -27,7 +27,7 @@ USER 1000
 
 RUN npm ci --loglevel error && \
     bundle config --local path "vendor/bundle" && \
-    bundle config --local without test && \
+    bundle config --local with test && \
     bundle config && \
     bundle install && \
     gem cleanup
