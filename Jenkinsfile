@@ -96,7 +96,7 @@ def pipeline() {
   stage('Lint and unit tests') {
     parallel(
       'Lint': {
-        withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
+        withDockerSandbox([ images['ca-styleguide'] ]) {
           withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
             sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
             sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
