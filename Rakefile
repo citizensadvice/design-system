@@ -73,13 +73,13 @@ namespace :npm do
   end
 
   desc "Run jest tests in node"
-  task jest: :build do
+  task :jest do
     puts "Running jest tests"
     system("npm run jest") || raise
   end
 
   desc "Run linting jobs in node"
-  task lint: :build do
+  task :lint do
     puts "Running Node lint"
     system("npm run lint") || raise
   end
