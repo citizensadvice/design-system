@@ -76,6 +76,8 @@
   }
 }
 
+/** end **/
+
 /** @define breadcrumbs-wrapper; weak */
 .cads-breadcrumbs-wrapper {
   margin-bottom: $cads-spacing-5;
@@ -94,5 +96,16 @@
         padding-right: $gutter;
       }
     }
+  }
+}
+
+/* stylelint-disable plugin/selector-bem-pattern */
+@media print {
+  .cads-breadcrumbs {
+    display: none;
+  }
+
+  .cads-breadcrumbs-wrapper {
+    border: none;
   }
 }

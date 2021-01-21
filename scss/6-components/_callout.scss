@@ -62,3 +62,12 @@
     @extend %cads-h3;
   }
 }
+
+@media print {
+  .cads-callout {
+    background: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+}

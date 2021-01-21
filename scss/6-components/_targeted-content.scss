@@ -109,3 +109,20 @@
     display: block;
   }
 }
+
+/* stylelint-disable plugin/selector-bem-pattern */
+@media print {
+  .cads-targeted-content--toggleable .cads-targeted-content {
+    &__button svg {
+      display: none;
+    }
+
+    &__content {
+      display: block;
+      hr,
+      button {
+        display: none;
+      }
+    }
+  }
+}

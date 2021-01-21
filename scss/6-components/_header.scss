@@ -153,3 +153,12 @@
     }
   }
 }
+
+@media print {
+  .cads-header {
+    &__search-row,
+    &__search-reveal {
+      display: none !important;
+    }
+  }
+}
