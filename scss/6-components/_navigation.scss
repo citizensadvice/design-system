@@ -102,3 +102,9 @@
     }
   }
 }
+
+@media print {
+  .cads-navigation {
+    display: none;
+  }
+}

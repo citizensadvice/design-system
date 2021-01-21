@@ -21,3 +21,11 @@
   color: $cads-palette__white;
   padding: $cads-spacing-2;
 }
+
+@media print {
+  .cads-badge {
+    background: transparent !important;
+    color: $cads-language__text-colour;
+    padding: 0;
+  }
+}

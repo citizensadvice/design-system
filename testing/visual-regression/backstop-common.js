@@ -32,6 +32,25 @@ module.exports = function backstopCommon(baseUrl) {
     ];
   }
 
+  function buildSamplePageScenarios(labelPrefix, componentId) {
+    return [
+      {
+        label: `${labelPrefix} (Print)`,
+        url: storyUrlFor(componentId),
+        onReadyScript: 'onReadyEmulatePrint.js',
+        viewports: [{ label: 'print', width: 1024, height: 1024 }],
+        selectors: ['document'],
+        exlcudeFromA11yTest: true,
+      },
+      {
+        label: `${labelPrefix}`,
+        url: storyUrlFor(componentId),
+        readySelector: '.cads-greedy-nav-has-dropdown',
+        exlcudeFromA11yTest: true,
+      },
+    ];
+  }
+
   return {
     id: 'backstop_default',
     viewports: [
@@ -284,6 +303,22 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor(`forms-radio-group--small`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
+      ...buildSamplePageScenarios(
+        'Sample Page/Advice collection/Public',
+        'sample-pages-advice-collection--advice-collection-public'
+      ),
+      ...buildSamplePageScenarios(
+        'Sample Page/Advice collection/Adviser',
+        'sample-pages-advice-collection--advice-collection-adviser'
+      ),
+      ...buildSamplePageScenarios(
+        'Sample Page/Generic/Forms',
+        'sample-pages-generic--forms'
+      ),
+      ...buildSamplePageScenarios(
+        'Sample Page/Generic/Tables',
+        'sample-pages-generic--tables'
+      ),
     ],
     dockerCommandTemplate:
       'docker run --rm -i --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',

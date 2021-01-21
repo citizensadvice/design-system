@@ -1,21 +1,6 @@
+// component specific print styles should be in the component scss file, not here
+
 @media print {
-  // Components that are not shown when printing
-  .cads-breadcrumbs,
-  .cads-error-summary,
-  .cads-navigation,
-  .cads-success-message,
-  .cads-related-content {
-    display: none !important;
-  }
-
-  // Components that adapt for printing
-  .cads-callout {
-    background: transparent !important;
-    border-top: none !important;
-    border-right: none !important;
-    border-bottom: none !important;
-  }
-
   @page {
     /* stylelint-disable */
     size: A4; /* DIN A4 standard, Europe */
