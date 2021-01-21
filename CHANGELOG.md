@@ -1,3 +1,10 @@
+**New**
+- 👤 Header links: support for no javascript added
+
+**Bugfixes**
+- 🌎 Navigation: More / Close arrow correction
+- 🌎 Navigation: More dropdoen menu appears in device gesture control flow
+
 ## <sub>v4.0.1-alpha.0</sub>
 
 #### _Jan. 19, 2021_
