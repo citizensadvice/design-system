@@ -4,16 +4,52 @@
   .cads-error-summary,
   .cads-navigation,
   .cads-success-message,
-  .cads-related-content {
+  .cads-related-content,
+  .cads-skip-links {
     display: none !important;
   }
 
   // Components that adapt for printing
+  .cads-badge {
+    background: transparent !important;
+    color: $cads-language__text-colour;
+    padding: 0;
+  }
+
   .cads-callout {
     background: transparent !important;
     border-top: none !important;
     border-right: none !important;
     border-bottom: none !important;
+  }
+
+  .cads-header {
+    &__search-row,
+    &__search-reveal {
+      display: none !important;
+    }
+
+    .cads-logo {
+      content: '';
+    }
+  }
+
+  .cads-targeted-content--toggleable .cads-targeted-content {
+    &__button svg {
+      display: none;
+    }
+
+    &__content {
+      display: block;
+      hr,
+      button {
+        display: none;
+      }
+    }
+  }
+
+  .cads-breadcrumbs-wrapper {
+    border: none;
   }
 
   @page {

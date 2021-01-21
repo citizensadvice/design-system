@@ -39,75 +39,73 @@
   }
 }
 
-@media not print {
-  ///
-  // Modifier: Toggleabe
-  // Behaviour added when JavaScript is enabled
-  ///
-  .cads-targeted-content--toggleable {
-    .cads-targeted-content__title {
-      // Unset padding and border as we need
-      // to re-set them on the new button element
-      padding: 0;
-      border: none;
+///
+// Modifier: Toggleabe
+// Behaviour added when JavaScript is enabled
+///
+.cads-targeted-content--toggleable {
+  .cads-targeted-content__title {
+    // Unset padding and border as we need
+    // to re-set them on the new button element
+    padding: 0;
+    border: none;
+  }
+
+  .cads-targeted-content__button {
+    cursor: pointer;
+    color: inherit;
+    background: transparent;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $cads-spacing-3 $cads-spacing-4;
+    text-align: left;
+    border: $cads-border-width-small solid $cads-language__link-colour;
+
+    @include cads-media-breakpoint-down(sm) {
+      align-items: baseline;
     }
 
-    .cads-targeted-content__button {
-      cursor: pointer;
-      color: inherit;
-      background: transparent;
-      font-weight: inherit;
-      font-size: inherit;
-      line-height: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: $cads-spacing-3 $cads-spacing-4;
-      text-align: left;
-      border: $cads-border-width-small solid $cads-language__link-colour;
-
-      @include cads-media-breakpoint-down(sm) {
-        align-items: baseline;
-      }
-
-      &:hover {
-        background-color: $cads-language__hover-background-colour;
-      }
-
-      &:focus {
-        @include cads-interactive-focus();
-      }
+    &:hover {
+      background-color: $cads-language__hover-background-colour;
     }
 
-    .cads-targeted-content__icon {
-      height: 1em;
-      margin-left: 0.5em;
-      fill: currentColor;
-      flex: 0 0 1em;
-
-      @include cads-media-breakpoint-down(sm) {
-        position: relative;
-        top: 5px; // Optically align
-      }
-    }
-
-    .cads-targeted-content__content {
-      display: none;
+    &:focus {
+      @include cads-interactive-focus();
     }
   }
 
-  ///
-  // Modifier: Toggleable (Open)
-  // Behaviour added when JavaScript is enabled
-  ///
-  .cads-targeted-content--open {
-    .cads-targeted-content__icon-vert {
-      display: none;
-    }
+  .cads-targeted-content__icon {
+    height: 1em;
+    margin-left: 0.5em;
+    fill: currentColor;
+    flex: 0 0 1em;
 
-    .cads-targeted-content__content {
-      display: block;
+    @include cads-media-breakpoint-down(sm) {
+      position: relative;
+      top: 5px; // Optically align
     }
+  }
+
+  .cads-targeted-content__content {
+    display: none;
+  }
+}
+
+///
+// Modifier: Toggleable (Open)
+// Behaviour added when JavaScript is enabled
+///
+.cads-targeted-content--open {
+  .cads-targeted-content__icon-vert {
+    display: none;
+  }
+
+  .cads-targeted-content__content {
+    display: block;
   }
 }
