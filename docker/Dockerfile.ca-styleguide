@@ -6,7 +6,7 @@ ENV NODE_MAJOR_VERSION=14 \
     BUNDLE_JOBS=6 \
     BUNDLE_RETRY=3
 
-RUN apk add --no-cache build-base inotify-tools && \
+RUN apk add --no-cache build-base git jq curl inotify-tools && \
     gem install bundler -v $BUNDLER_VERSION && \
     # These next 2 lines essentially do a fancy form of apt-get clean (In alpine)
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
