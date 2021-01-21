@@ -38,6 +38,8 @@ module.exports = function backstopCommon(baseUrl) {
         label: `${labelPrefix} (Print)`,
         url: storyUrlFor(componentId),
         onReadyScript: 'onReadyEmulatePrint.js',
+        viewports: [{ label: 'print', width: 1024, height: 1024 }],
+        selectors: ['document'],
       },
       {
         label: `${labelPrefix}`,
