@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 import { Config, defaultConfig } from './Config';
 
-const supports = !!document.querySelector && !!window.addEventListener; // Feature test
+const root = window;
+
+const supports = !!document.querySelector && !!root.addEventListener; // Feature test
 
 /**
  * Provides backwards compatibility with IE 11.
@@ -315,7 +317,10 @@ export class GreedyNavMenu {
    */
   document: HTMLDocument;
 
-  constructor(config: Config = defaultConfig, document?: HTMLDocument) {
+  constructor(
+    config: Config = defaultConfig,
+    document: HTMLDocument = window.document
+  ) {
     this.settings = { ...defaultConfig, ...config };
     this.count = 0;
     this.breaks = [];
@@ -335,7 +340,7 @@ export class GreedyNavMenu {
     this.restWidth = 0;
     this.viewportWidth = 0;
 
-    this.document = document || window.document;
+    this.document = document;
   }
 
   init(): void {
