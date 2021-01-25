@@ -55,7 +55,7 @@
   font-display: block;
 }
 
-%cads-icon {
+@mixin cads-icon {
   font-family: 'cads' !important;
   speak: none;
   font-style: normal;
@@ -70,7 +70,7 @@
 
 [class^='cads-icon_']::before,
 [class*=' cads-icon_']::before {
-  @extend %cads-icon;
+  @include cads-icon;
 }
 
 .cads-icon_arrow-right::before {

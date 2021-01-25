@@ -57,6 +57,20 @@
   a[href^="https://"]:not([href*="citizensadvice.org.uk"])::after,
   a[href^="http://"]:not([href*="citizensadvice.org.uk"])::after
   {
-    @extend %cads-hyperlink--external-icon;
+    @media not print {
+      @include cads-hyperlink--external-icon;
+    }
+  }
+}
+
+@media print {
+  a[href]::after {
+    content: (' (' attr(href) ')');
+    display: inline;
+  }
+
+  a[href^='/']::after {
+    content: (' (https://www.citizensadvice.org.uk' attr(href) ')');
+    display: inline;
   }
 }

@@ -28,8 +28,8 @@ a,
   }
 }
 
-%cads-hyperlink--external-icon {
-  @extend %cads-icon;
+@mixin cads-hyperlink--external-icon {
+  @include cads-icon;
 
   display: inline-block;
   white-space: pre;
@@ -38,7 +38,7 @@ a,
 }
 
 .cads-hyperlink--external::after {
-  @extend %cads-hyperlink--external-icon;
+  @include cads-hyperlink--external-icon;
 }
 
 // Reset button styles when styled like a link link
