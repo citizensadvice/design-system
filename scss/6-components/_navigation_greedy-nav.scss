@@ -59,6 +59,28 @@
     &.show {
       visibility: visible;
     }
+
+    .cads-header__links-item,
+    .cads-header__account-link {
+      padding-left: 0;
+      margin-left: 0;
+      border-left: none; // only on .cads-header__account-link
+    }
+
+    .cads-linkbutton__regular {
+      @include cads-nav-link;
+
+      font-weight: bold;
+      text-align: left;
+      display: block;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      width: 100%;
+
+      &:focus {
+        @include cads-nav-link-focus;
+      }
+    }
   }
 
   &__dropdown-toggle {
@@ -132,5 +154,9 @@
   &__header-links,
   &__header-links li:first-child {
     margin-top: $cads-spacing-2;
+  }
+
+  .cads-header__links {
+    text-align: left;
   }
 }

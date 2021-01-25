@@ -3,7 +3,8 @@
  */
 a,
 .cads-hyperlink,
-.cads-linkbutton {
+.cads-linkbutton,
+.cads-linkbutton__regular {
   color: $cads-language__link-colour;
   text-decoration: underline;
 
@@ -41,12 +42,24 @@ a,
   @include cads-hyperlink--external-icon;
 }
 
-// Reset button styles when styled like a link link
-button.cads-linkbutton {
+// Reset button styles when styled like a link
+%cads-linkbutton-base {
   -webkit-appearance: none;
   border: none;
   background: transparent;
   padding: 0;
   box-shadow: none;
+}
+
+button.cads-linkbutton {
+  @extend %cads-linkbutton-base;
+
   font-weight: $cads-font-weight__bold;
+}
+
+button.cads-linkbutton__regular {
+  @extend %cads-linkbutton-base;
+
+  cursor: pointer;
+  font-weight: $cads-font-weight__regular;
 }

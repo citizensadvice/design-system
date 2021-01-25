@@ -123,7 +123,7 @@
       { "title" => "AdviserNet", "url" => "?advisernet" }, { "title" => "CABlink", "url" => "?CABlink" },
       { "title" => "BMIS", "url" => "?BMIS" }, { "title" => "Cymraeg", "url" => "?lang=cy" }
     ],
-    "sign_in_out" => { "title" => "Sign out", "url" => "/sign-out/out" },
+    "sign_in_out" => { "title" => "Sign out", "url" => "/sign-out/out", "form" => true },
     "search_action_url" => "/search",
     "homepage_url" => "/"
   },

@@ -15,7 +15,7 @@ Write button text in sentence case, describing the action it performs. E.g. “S
 export const buttonPrimaryHtml = `<button type="button" class="cads-button cads-button__primary">Primary button</button>`;
 export const buttonSecondaryHtml = `<button type="button" class="cads-button cads-button__secondary">Secondary button</button>`;
 export const buttonTertiaryHtml = `<button type="button" class="cads-button cads-button__tertiary">Tertiary button</button>`;
-export const buttonLinkHtml = `<button type="button" class="cads-linkbutton">Link button</button>`;
+export const buttonLinkHtml = `<button type="button" class="cads-linkbutton">Link button</button>\n<button type="button" class="cads-linkbutton__regular">Regular link button</button>`;
 
 Primary buttons should be used for the main action, such as submitting a form. Align the primary action button to the left edge of your form.
 
@@ -50,10 +50,21 @@ Tertiary buttons are used for turning something on or off instantly on a page �
   </Story>
 </Preview>
 
+Link buttons are styled to look like hyperpinks. Use these when you want a button to draw less attention, or when you would prefer to have a text styling but the action changes state such as deleting an item or logging out a user.
+
+<Preview>
+  <Story
+    name="LinkButton"
+    parameters={{ docs: { source: { code: buttonLinkHtml } } }}
+  >
+    {() => buttonLinkHtml}
+  </Story>
+</Preview>
+
 ## Using buttons with icons
 
-Icons can be placed next to the button label to clarify an action or call attention. Buttons can be used with either a left or right aligned icon.  
-The spacing between an icon and the button text should be 4px. Use the small icon (16px) within a button.  
+Icons can be placed next to the button label to clarify an action or call attention. Buttons can be used with either a left or right aligned icon.
+The spacing between an icon and the button text should be 4px. Use the small icon (16px) within a button.
 The icon must be the same color value as the text.
 
 <img src={buttonIconExample} style={{ width: '300px' }} />
@@ -77,5 +88,5 @@ In different contexts, you can use primary and secondary buttons side by side. Y
 Buttons have a clear `:focus` style when tabbing or focussing on the button
 When selecting a button, it will depress slightly to give users visual feedback that an action has taken place.
 
-Use `<input type=submit>` or `<button>` elements depending on if the button submits a form, or performs an interaction.  
+Use `<input type=submit>` or `<button>` elements depending on if the button submits a form, or performs an interaction.
 Do not use anchor tags with an empty href when you want a button `<a href=”#”>`. Read more about [why the empty href is a bad thing](https://adrianroselli.com/2016/01/links-buttons-submits-and-divs-oh-hell.html).
