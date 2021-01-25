@@ -101,11 +101,7 @@
 
 /* stylelint-disable plugin/selector-bem-pattern */
 @media print {
-  .cads-breadcrumbs {
-    display: none;
-  }
-
   .cads-breadcrumbs-wrapper {
-    border: none;
+    display: none;
   }
 }

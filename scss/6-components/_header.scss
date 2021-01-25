@@ -156,6 +156,8 @@
 
 @media print {
   .cads-header {
+    padding-bottom: 0;
+
     &__search-row,
     &__search-reveal {
       display: none !important;
