@@ -71,8 +71,9 @@
       @include cads-nav-link;
 
       font-weight: bold;
-      text-align: right;
+      text-align: left;
       display: block;
+      padding-left: 1rem;
       padding-right: 1rem;
       width: 100%;
 
@@ -153,5 +154,9 @@
   &__header-links,
   &__header-links li:first-child {
     margin-top: $cads-spacing-2;
+  }
+
+  .cads-header__links {
+    text-align: left;
   }
 }
