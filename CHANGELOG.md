@@ -2,6 +2,10 @@
 
 #### _Jan. 25, 2021_
 
+**Bugfixes**
+- 📰 Print styles updated
+
+
 ## <sub>v4.0.1</sub>
 
 #### _Jan. 21, 2021_
