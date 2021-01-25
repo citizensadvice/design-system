@@ -74,7 +74,7 @@
     }
 
     &::after {
-      @extend %cads-icon;
+      @include cads-icon;
 
       content: '\0044';
       display: inline-block;
