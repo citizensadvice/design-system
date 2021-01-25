@@ -30,7 +30,7 @@
           - if sign_in_out
             %li.cads-header__account-link
               - if sign_in_out["form"]
-                %form{method: "POST", action: sign_in_out["url"]}
+                %form.cads-header__account-form{method: "POST", action: sign_in_out["url"]}
                   %button.cads-linkbutton__regular= sign_in_out["title"]
               - else
                 %a.cads-header__hyperlink{href: sign_in_out["url"], "data-testid": "account-link"}= sign_in_out["title"]

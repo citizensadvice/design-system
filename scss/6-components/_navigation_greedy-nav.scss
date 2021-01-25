@@ -59,6 +59,27 @@
     &.show {
       visibility: visible;
     }
+
+    .cads-header__links-item,
+    .cads-header__account-link {
+      padding-left: 0;
+      margin-left: 0;
+      border-left: none; // only on .cads-header__account-link
+    }
+
+    .cads-linkbutton__regular {
+      @include cads-nav-link;
+
+      font-weight: bold;
+      text-align: right;
+      display: block;
+      padding-right: 1rem;
+      width: 100%;
+
+      &:focus {
+        @include cads-nav-link-focus;
+      }
+    }
   }
 
   &__dropdown-toggle {
