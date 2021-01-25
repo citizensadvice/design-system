@@ -105,20 +105,24 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Header',
         url: storyUrlFor('components-header--default'),
+        misMatchThreshold: 0.4,
       },
       {
         label: 'Components/Header',
         url: storyUrlFor('components-header--default'),
         clickSelector: '.js-cads-search-reveal',
         viewports: [{ label: 'small', width: 320, height: 480 }],
+        misMatchThreshold: 0.4,
       },
       {
         label: 'Components/Footer',
         url: storyUrlFor('components-footer--default'),
+        misMatchThreshold: 0.4,
       },
       {
         label: 'Components/Footer (minimal)',
         url: storyUrlFor('components-footer--minimal'),
+        misMatchThreshold: 0.4,
       },
       {
         label: 'Components/Targeted content',
