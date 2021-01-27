@@ -27,4 +27,3 @@ updates:
     labels:
       - 'npm dependencies'
     target-branch: 'master'
-
