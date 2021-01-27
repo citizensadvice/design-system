@@ -1,3 +1,7 @@
+## <sub>v4.0.2-alpha.1</sub>
+
+#### _Jan. 27, 2021_
+
 **Bugfixes**
 - 🌎 Navigation: tabbing off last item in the dropdown closes the dropdown
 
