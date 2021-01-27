@@ -603,19 +603,18 @@ export class GreedyNavMenu {
       navDropdownToggle.addEventListener(
         blurEventName,
         (e: FocusEvent): void => {
-          let lastItem: Nullable<HTMLElement> = null;
+          let lastItem: Nullable<HTMLElement> | undefined = null;
           const headerLinksInNav: Nullable<HTMLElement> = document.querySelector(
             `${this.navDropdownSelector} .js-cads-copy-into-nav`
           );
 
           if (headerLinksInNav?.offsetParent !== null) {
-            console.log('header links visible in nav', headerLinksInNav);
-            lastItem = headerLinksInNav!.querySelector(
+            lastItem = headerLinksInNav?.querySelector(
               '.js-cads-close-on-blur'
             );
           } else {
-            lastItem = document.querySelector(
-              `${this.navDropdownSelector} li:nth-last-child(2) a`
+            lastItem = this.navDropdown?.querySelector(
+              `li:nth-last-child(2) a`
             );
           }
 
