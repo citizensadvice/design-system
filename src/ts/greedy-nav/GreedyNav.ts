@@ -479,6 +479,14 @@ export class GreedyNavMenu {
 
     const headerLinks = document.querySelector('.js-cads-copy-into-nav');
     if (headerLinks) {
+      // prepare items that can close the more dropdown on blur
+      const closeNavOnBlur = headerLinks.lastElementChild?.querySelectorAll(
+        'a, button'
+      );
+      closeNavOnBlur?.forEach((el) =>
+        el.classList.add('js-cads-close-on-blur')
+      );
+
       const headerLinksClone = headerLinks.cloneNode(true);
       const headerLinksContainer = document.createElement('li');
       headerLinksContainer.className = 'cads-greedy-nav__header-links';
@@ -595,22 +603,30 @@ export class GreedyNavMenu {
       navDropdownToggle.addEventListener(
         blurEventName,
         (e: FocusEvent): void => {
+          let lastItem: Nullable<HTMLElement> = null;
+          const headerLinksInNav: Nullable<HTMLElement> = document.querySelector(
+            `${this.navDropdownSelector} .js-cads-copy-into-nav`
+          );
+
+          if (headerLinksInNav?.offsetParent !== null) {
+            console.log('header links visible in nav', headerLinksInNav);
+            lastItem = headerLinksInNav!.querySelector(
+              '.js-cads-close-on-blur'
+            );
+          } else {
+            lastItem = document.querySelector(
+              `${this.navDropdownSelector} li:nth-last-child(2) a`
+            );
+          }
+
           if (!parent(relatedTarget(e, this.document), this.toggleWrapper)) {
             // tabbing backwards
-            this.document
-              .querySelector<HTMLElement>(
-                `${this.navDropdownSelector} li:last-child a`
-              )
-              ?.removeEventListener(blurEventName, lastItemCloseHandler);
+            lastItem?.removeEventListener(blurEventName, lastItemCloseHandler);
 
             this.closeDropDown(navWrapper);
           } else {
             // tabbing forwards
-            this.document
-              .querySelector<HTMLElement>(
-                `${this.navDropdownSelector} li:last-child a`
-              )
-              ?.addEventListener(blurEventName, lastItemCloseHandler);
+            lastItem?.addEventListener(blurEventName, lastItemCloseHandler);
           }
         }
       );
