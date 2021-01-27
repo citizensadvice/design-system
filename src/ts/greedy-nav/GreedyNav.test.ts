@@ -277,7 +277,7 @@ describe('Greedy Nav', () => {
       nav = new GreedyNavMenu(defaultConfig, document);
       nav.init();
 
-      // Change the viewport to 500px.
+      // Change the viewport to 300px.
       global.innerWidth = 300;
 
       // Trigger the window resize event.
