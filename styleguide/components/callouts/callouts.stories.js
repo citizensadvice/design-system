@@ -6,6 +6,7 @@ import templateExample from './_example.html.haml';
 import templateImportant from './_important.html.haml';
 import templateAdviser from './_adviser.html.haml';
 import templateNested from './_nested.html.haml';
+import templateVariableHeadings from './_variable-heading-levels.haml';
 
 export default {
   title: 'Components/Callouts',
@@ -31,3 +32,10 @@ Adviser.parameters = { docs: { source: { code: templateAdviser.raw } } };
 export const Nested = (_, options) => translate(templateNested, options);
 Nested.storyName = 'Nested callouts';
 Nested.parameters = { docs: { source: { code: templateNested } } };
+
+export const VariableHeading = (_, options) =>
+  translate(templateVariableHeadings, options);
+VariableHeading.storyName = 'Variable heading levels';
+VariableHeading.parameters = {
+  docs: { source: { code: templateVariableHeadings } },
+};
