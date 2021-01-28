@@ -1,10 +1,12 @@
 **Bugfixes**
 
 - 🔗 Link Buttons: fixed a visual bug with focus styling
+- 🗣️ Callouts: add styles for variable heading levels
 
 **New**
 
 - 🎯 Targeted content: you can now specifiy the heading level of the title element
+
 ## <sub>v4.0.2-alpha.1</sub>
 
 #### _Jan. 27, 2021_
