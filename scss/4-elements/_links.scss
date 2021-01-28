@@ -49,6 +49,12 @@ a,
   background: transparent;
   padding: 0;
   box-shadow: none;
+  line-height: normal;
+  outline-offset: 1px;
+
+  &:focus {
+    margin-bottom: -2px; //account for bottom border
+  }
 }
 
 button.cads-linkbutton {
