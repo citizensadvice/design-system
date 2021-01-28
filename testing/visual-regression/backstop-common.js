@@ -99,6 +99,10 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('components-callouts--nested'),
       },
       {
+        label: 'Components/Callout (variable heading level)',
+        url: storyUrlFor('components-callouts--variable-heading'),
+      },
+      {
         label: `Components/Contact details`,
         url: storyUrlFor(`components-contact-details--contact-detail`),
       },
