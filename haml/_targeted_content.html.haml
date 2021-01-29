@@ -5,8 +5,8 @@
   title = targeted_content["title"].squish
   body = targeted_content["body"]
   # Allow control over heading level, default to h2
-  heading_level = targeted_content.fetch("heading_level", 2)
-  heading_tag = "h#{heading_level}"
+  heading_level = targeted_content.fetch("heading_level", 2).to_i
+  heading_tag = "h#{heading_level.clamp(1, 6)}"
   # Allow disabling toggleable behaviour (mostly for tests)
   is_toggleable = targeted_content.fetch("is_toggleable", true)
 
