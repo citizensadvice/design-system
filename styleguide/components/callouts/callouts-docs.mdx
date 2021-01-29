@@ -61,11 +61,11 @@ Callouts should come with a title that explains the subject of the information w
 
 ### Markup & Heading Levels
 
-The first `h2` and `h3` elements inside the callout will receive the correct title styles. All subsquent `h2` and `h3` headings inside the callout will receive the natural style for that heading.
+The first `h2`, `h3` or `h4` element inside the callout will receive the correct title styles. All subsquent `h2` and `h3` headings inside the callout will receive the natural style for that heading.
 
 #### In the Content Platform Rails App
 
-Note that there is code in the Content Platform app that ensure headings inside callouts are rendered with the correct heading level in order to comply with WCAG accessibility standards. This code will not demote a heading past an `h4` (ie no `h5` etc). These `h4`s will adopt the style of `h3` headings. No `h4` headings should be used in Contentful.
+Note that there is code in the Content Platform app that ensure headings inside callouts are rendered with the correct heading level in order to comply with WCAG accessibility standards. This code will not demote a heading past an `h4` (ie no `h5` etc). No `h4` headings should be used in Contentful.
 
 <Preview>
   <Story id="components-callouts--variable-heading" />
