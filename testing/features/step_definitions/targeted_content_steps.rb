@@ -28,14 +28,14 @@ Then("the expand\\/collapse button will indicate it will expand") do
   expect(@component.heading).to have_expand_collapse
 
   expect(@component.heading.expand_collapse["aria-label"])
-    .to end_with(I18n.t("cads.targeted_content.descriptive_label_show"))
+    .to start_with(I18n.t("cads.targeted_content.descriptive_label_show"))
 end
 
 Then("the expand\\/collapse button will indicate it will collapse") do
   expect(@component.heading).to have_expand_collapse
 
   expect(@component.heading.expand_collapse["aria-label"])
-    .to end_with(I18n.t("cads.targeted_content.descriptive_label_hide"))
+    .to start_with(I18n.t("cads.targeted_content.descriptive_label_hide"))
 end
 
 Then("I can see additional information") do
