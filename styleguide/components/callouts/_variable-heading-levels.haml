@@ -3,6 +3,7 @@
 - nested_body = capture_haml do
   %h4 This a nested callout title
   %p  Its heading has been automatically demoted to an h4 to comply with WCAG.
+  %h4 Another h4
   %p= lorem
   = render partial: "@citizensadvice/design-system/haml/contact_details", locals: {contact_details: contact_details}
 

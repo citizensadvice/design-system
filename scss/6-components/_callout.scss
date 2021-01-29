@@ -12,12 +12,13 @@
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
 
-  h2:first-of-type,
-  h3:first-of-type {
-    @extend %cads-h3;
+  h4 {
+    @extend %cads-h4;
   }
 
-  h4 {
+  h2:first-of-type,
+  h3:first-of-type,
+  h4:first-of-type {
     @extend %cads-h3;
   }
 

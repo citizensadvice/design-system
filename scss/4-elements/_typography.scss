@@ -65,7 +65,8 @@
 }
 
 h2,
-h3 {
+h3,
+h4 {
   @include cads-adjacent-heading-margin($cads-spacing-6);
 }
 
