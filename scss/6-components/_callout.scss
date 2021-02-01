@@ -4,6 +4,8 @@
 
 /** @define callout; weak **/
 .cads-callout {
+  @extend %cads-prose;
+
   position: relative;
   border-radius: $cads-border-radius;
   border: solid 0 $cads-language__brand-secondary;
@@ -11,20 +13,6 @@
   background-color: cads-colour-to-bg($cads-language__brand-secondary);
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
-
-  h4 {
-    @extend %cads-h4;
-  }
-
-  h2:first-of-type,
-  h3:first-of-type,
-  h4:first-of-type {
-    @extend %cads-h3;
-  }
-
-  p {
-    @extend %cads-paragraph;
-  }
 
   :last-child {
     margin-bottom: 0;

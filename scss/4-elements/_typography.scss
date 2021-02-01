@@ -42,11 +42,10 @@
   line-height: 1.5rem; // Line-height remains the same
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
-  margin: 0;
+  margin: 0 0 $cads-spacing-3 0;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
-    margin: 0;
   }
 }
 
