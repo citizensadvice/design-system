@@ -1,4 +1,3 @@
-@failing @NP-1560
 Feature: Targeted Content component
 
   The Targeted Content component allows content managers
