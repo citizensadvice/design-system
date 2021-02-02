@@ -9,8 +9,9 @@
           %th{ "scope": "col" }
             %span.cads-table__content= head
 
-      - table_data['rows'].each do |object|
+      - table_data['rows'].each do |row|
         %tr
-        - object.each do |row|
+        - table_data['header'].zip(row).each do |(header, cell)|
           %td
-            %span.cads-table__content= row
+            %span.cads-table__th-heading= header
+            %span.cads-table__content= cell
