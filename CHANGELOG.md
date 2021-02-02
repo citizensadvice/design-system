@@ -1,3 +1,7 @@
+## <sub>v4.0.2-alpha.2</sub>
+
+#### _Feb. 2, 2021_
+
 **Bugfixes**
 
 - 🔗 Link Buttons: fixed a visual bug with focus styling
