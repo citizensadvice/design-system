@@ -1,0 +1,16 @@
+- lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a urna nisl. Aenean euismod purus a magna vulputate, eget volutpat neque volutpat. Donec dapibus scelerisque diam eu scelerisque. "
+
+- nested_body = capture_haml do
+  %h4 This a nested callout title
+  %p  Its heading has been automatically demoted to an h4 to comply with WCAG.
+  %h4 Another h4
+  %p= lorem
+  = render partial: "@citizensadvice/design-system/haml/contact_details", locals: {contact_details: contact_details}
+
+- body = capture_haml do
+  %h3 This is a callout title
+  %p= lorem
+
+  = render partial: "@citizensadvice/design-system/haml/callout", locals: { notice: { 'type' => 'adviser', 'body' => nested_body } }
+
+= render partial: "@citizensadvice/design-system/haml/callout", locals: { notice: { 'type' => 'standard', 'body' => body } }

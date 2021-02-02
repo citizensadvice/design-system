@@ -20,6 +20,10 @@ table,
 
     margin-bottom: $cads-spacing-2;
     text-align: left;
+
+    @include cads-media-breakpoint-only(sm) {
+      margin-bottom: 0;
+    }
   }
 
   th,
@@ -76,6 +80,7 @@ table,
       display: block;
       flex: 0 0 calc(50% - #{$cads-spacing-2});
       margin-right: $cads-spacing-2;
+      margin-bottom: 0;
     }
 
     .cads-table__content {
