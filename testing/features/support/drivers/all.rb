@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "remote"
 require_relative "browserstack"
 require_relative "browserstack/base"
 require_relative "browserstack/android"
