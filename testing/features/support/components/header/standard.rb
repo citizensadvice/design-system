@@ -28,7 +28,7 @@ module Header
         # LH - Nov 2020
         fake_active_element = page.find("body")
         if safari?
-          fake_active_element.send_keys([:alt, :tab])
+          fake_active_element.send_keys(%i[alt tab])
           # This next line is ANOTHER hack that is needed because Safari is crap
           # and broken. The modifier key here (OPTION, but called :alt), is not
           # "un-depressed" after being used in the alt+tab call. This means that
