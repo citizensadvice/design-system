@@ -1,5 +1,11 @@
 **New**
-- 🧂 Tables: Responsive tables no longer require javascript! (NP-1430)
+
+- 🧂 Tables: Responsive tables no longer require javascript!
+
+**Bugfixes**
+
+- 🥖 Breadcrumbs: Layout adjustments when viewed on small screen
+
 ## <sub>v4.0.2-alpha.2</sub>
 
 #### _Feb. 2, 2021_
