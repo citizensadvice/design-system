@@ -1,3 +1,7 @@
+## <sub>v4.0.2-alpha.3</sub>
+
+#### _Feb. 3, 2021_
+
 **New**
 
 - 🧂 Tables: Responsive tables no longer require javascript!
