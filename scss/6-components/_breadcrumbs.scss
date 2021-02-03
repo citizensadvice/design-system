@@ -42,12 +42,16 @@
 
     // show only the second to last item in list - i.e. link to parent page.
     &__crumb:nth-last-child(2) {
-      display: block;
+      display: flex;
       margin-left: 0;
+
+      a {
+        display: block;
+      }
 
       &::before {
         content: '\2039';
-        margin: 0 $cads-spacing-3;
+        margin: 0 $cads-spacing-3 0 $cads-spacing-4;
         color: $cads-language__input-border-colour;
       }
     }
@@ -60,15 +64,18 @@
 .cads-breadcrumbs--no-collapse {
   @include cads-media-breakpoint-only(sm) {
     .cads-breadcrumbs__crumb {
-      display: inline;
+      display: flex;
 
       &:nth-last-child(2) {
-        display: inline;
         margin-left: 0;
+
+        a {
+          display: inline;
+        }
 
         &::before {
           display: inherit;
-
+          margin: 0 $cads-spacing-3;
           @include cads-breadcrumb-arrow-right;
         }
       }

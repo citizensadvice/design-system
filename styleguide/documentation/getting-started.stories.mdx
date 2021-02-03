@@ -41,7 +41,7 @@ prepend_view_path(Rails.root.join("node_modules"))
 Once you've done this you can reference them from your app as follows:
 
 ```haml
-= render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: { breadcrumbs: { "breadcrumb_links" => [{ "url" => "/benefits/", "title" => "Benefits" },{ "url" => "/benefits/", "title" => "A really quite long page title - it's almost too long" }, { "url" => "/benefits/benefits-introduction/", "title" => "Benefits - introduction"}, { "url" => "/benefits/benefits-introduction/what-benefits-can-i-get/", "title" => "Benefit calculators: what benefits can you get" }] } }
+= render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: { breadcrumbs: { "breadcrumb_links" => [{ "url" => "/benefits/", "title" => "Benefits" },{ "url" => "/benefits/", "title" => "Accessing UK benefits and services if you’re subject to immigration control" }, { "url" => "/benefits/benefits-introduction/", "title" => "Benefits - introduction"}, { "url" => "/benefits/benefits-introduction/what-benefits-can-i-get/", "title" => "Benefit calculators: what benefits can you get" }] } }
 ```
 
 Most components include sample code you can copy and paste. Look for the "Show code" button next to each story.
