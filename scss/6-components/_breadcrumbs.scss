@@ -64,10 +64,10 @@
 .cads-breadcrumbs--no-collapse {
   @include cads-media-breakpoint-only(sm) {
     .cads-breadcrumbs__crumb {
-      display: inline;
+      display: flex;
 
       &:nth-last-child(2) {
-        display: inline;
+        display: flex;
         margin-left: 0;
 
         a {
