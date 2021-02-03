@@ -11,7 +11,7 @@
 
       - table_data['rows'].each do |row|
         %tr
-        - table_data['header'].zip(row).each do |(header, cell)|
-          %td
-            %span.cads-table__th-heading= header
-            %span.cads-table__content= cell
+          - table_data['header'].zip(row).each do |(header, cell)|
+            %td
+              %span.cads-table__th-heading= header
+              %span.cads-table__content= cell
