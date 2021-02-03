@@ -26,9 +26,9 @@
   .cads-prose p + &,
   .cads-prose ul + &,
   .cads-prose img + &,
-  .cads-prose details + &,
   .cads-prose table + &,
-  .cads-prose .cads-callout + & {
+  .cads-prose .cads-callout + &,
+  .cads-prose .cads-targeted-content + & {
     margin-top: $m;
   }
 }

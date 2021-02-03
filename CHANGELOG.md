@@ -14,6 +14,7 @@
 
 - 🔗 Link Buttons: fixed a visual bug with focus styling
 - 🗣️ Callouts: add styles for variable heading levels
+- 🎯 Targeted content: applies adjacent header margin correctly
 
 **New**
 
