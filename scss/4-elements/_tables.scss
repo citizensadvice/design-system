@@ -59,6 +59,7 @@ table,
     }
 
     caption {
+      background-color: $cads-palette__white;
       border: solid $cads-border-width-small $cads-language__input-border-colour;
       border-top-left-radius: $cads-border-radius-large;
       border-top-right-radius: $cads-border-radius-large;
