@@ -191,6 +191,11 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-breadcrumbs'],
       },
       {
+        label: 'Components/Breadcrumbs/Long Titles',
+        url: storyUrlFor('components-breadcrumbs--breadcrumbs-long-titles'),
+        selectors: ['.cads-breadcrumbs'],
+      },
+      {
         label: 'Components/Notice banner',
         url: storyUrlFor('components-notice-banner--example'),
       },

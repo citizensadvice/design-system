@@ -4,6 +4,7 @@ import { translate } from '../../story-helpers';
 import templateDefault from './_default.html.haml';
 import templateNoCollapse from './_no-collapse.html.haml';
 import templateSiteWide from './_site_wide.html.haml';
+import templateLongTitles from './_long_titles.html.haml';
 
 <Meta
   title="Components/Breadcrumbs"
@@ -74,6 +75,19 @@ To prevent the default collapse behaviour on the small breakpoint, pass `"type" 
     parameters={{ docs: { source: { code: templateNoCollapse.raw } } }}
   >
     {(_, options) => translate(templateNoCollapse, options)}
+  </Story>
+</Preview>
+
+## Long page titles in breadcrumbs
+
+This story shows how longer breadcrumb titles are displayed.
+
+<Preview>
+  <Story
+    name="Breadcrumbs (Long Titles)"
+    parameters={{ docs: { source: { code: templateLongTitles.raw } } }}
+  >
+    {(_, options) => translate(templateLongTitles, options)}
   </Story>
 </Preview>
 
