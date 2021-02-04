@@ -2,46 +2,19 @@
 
 #### _Feb. 4, 2021_
 
-## <sub>v4.0.2-alpha.3</sub>
-
-#### _Feb. 3, 2021_
-
 **New**
 
+- 🎯 Targeted content: you can now specifiy the heading level of the title element
 - 🧂 Tables: Responsive tables no longer require javascript!
 
 **Bugfixes**
 
 - 🥖 Breadcrumbs: Layout adjustments when viewed on small screen
-
-## <sub>v4.0.2-alpha.2</sub>
-
-#### _Feb. 2, 2021_
-
-**Bugfixes**
-
 - 🔗 Link Buttons: fixed a visual bug with focus styling
 - 🗣️ Callouts: add styles for variable heading levels
 - 🎯 Targeted content: applies adjacent header margin correctly
-
-**New**
-
-- 🎯 Targeted content: you can now specifiy the heading level of the title element
-
-## <sub>v4.0.2-alpha.1</sub>
-
-#### _Jan. 27, 2021_
-
-**Bugfixes**
 - 🌎 Navigation: tabbing off last item in the dropdown closes the dropdown
-
-## <sub>v4.0.2-alpha.0</sub>
-
-#### _Jan. 25, 2021_
-
-**Bugfixes**
 - 📰 Print styles updated
-
 
 ## <sub>v4.0.1</sub>
 
