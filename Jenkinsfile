@@ -8,12 +8,8 @@ configurationTypes = [
   ['Windows_7_78', 'firefox'],
   ['OSX_Mojave_84', 'chrome'],
   ['OSX_Mojave_12', 'safari'],
-// These have been disabled (25/1/21) and will not be permissible
-// until two extra pieces of work have been done and BS licenses
-// switched over to new format
-// ETA - 2nd/3rd week February 2021 - LH
-//   ['iPhone11_13', 'ios'],
-//   ['iPhone8_12', 'ios'],
+  ['iPhone11_13', 'ios'],
+  ['iPhone8_12', 'ios'],
 ]
 
 cron_schedule = isRelease ? '0 2 * * *' : ''
