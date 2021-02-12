@@ -128,6 +128,20 @@ function initTargetedContentFor(el) {
     if (matchEl) {
       setState(matchEl, 'closed');
     }
+
+    const elTop = el.getBoundingClientRect().top;
+    // scroll back to top of targeted content if it's out of viewport
+    if (elTop < 0) {
+      const FAKE_MARGIN = 16;
+      const newScrollY = window.pageYOffset + elTop - FAKE_MARGIN;
+      const supportsSmoothScroll =
+        'scrollBehavior' in document.documentElement.style;
+      if (supportsSmoothScroll) {
+        window.scrollTo({ left: 0, top: newScrollY, behavior: 'smooth' });
+      } else {
+        window.scroll(0, newScrollY);
+      }
+    }
   });
 }
 
