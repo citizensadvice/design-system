@@ -135,7 +135,8 @@ function initTargetedContentFor(el) {
       const FAKE_MARGIN = 16;
       const newScrollY = window.pageYOffset + elTop - FAKE_MARGIN;
       const supportsSmoothScroll =
-        'scrollBehaviour' in document.documentElement.style;
+        'scrollBehavior' in document.documentElement.style;
+      console.log(supportsSmoothScroll);
       if (supportsSmoothScroll) {
         window.scrollTo({ left: 0, top: newScrollY, behavior: 'smooth' });
       } else {
