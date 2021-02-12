@@ -1,3 +1,11 @@
+## <sub>v4.0.3-alpha.0</sub>
+
+#### _Feb. 12, 2021_
+
+**Bugfixes**
+- 🎯 Targeted content: will now scroll back to targeted content on close
+- 🔗 Link Buttons: pointer is now displayed on hover
+
 ## <sub>v4.0.2</sub>
 
 #### _Feb. 4, 2021_
