@@ -130,7 +130,7 @@ function initTargetedContentFor(el) {
     }
 
     const elTop = el.getBoundingClientRect().top;
-    // scroll back top to of targeted content if it's out of viewport
+    // scroll back to top of targeted content if it's out of viewport
     if (elTop < 0) {
       const FAKE_MARGIN = 16;
       const newScrollY = window.pageYOffset + elTop - FAKE_MARGIN;
