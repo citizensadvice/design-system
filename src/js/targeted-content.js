@@ -124,10 +124,10 @@ function initTargetedContentFor(el) {
 
   const closeButtonEl = contentEl.querySelector('button');
   closeButtonEl.addEventListener('click', () => {
-    // const matchEl = closeButtonEl.closest(SELECTORS.el);
-    // if (matchEl) {
-    //   setState(matchEl, 'closed');
-    // }
+    const matchEl = closeButtonEl.closest(SELECTORS.el);
+    if (matchEl) {
+      setState(matchEl, 'closed');
+    }
 
     const elTop = el.getBoundingClientRect().top;
     // scroll back top to of targeted content if it's out of viewport
