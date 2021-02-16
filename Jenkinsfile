@@ -1,6 +1,13 @@
 deployBranches = ['master']
 isRelease = deployBranches.contains(env.BRANCH_NAME)
-
+proBrowserstackVaultSecrets = [
+  BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, PRO_BROWSERSTACK_USERNAME',
+  BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, PRO_BROWSERSTACK_ACCESS_KEY',
+]
+mobileBrowserstackVaultSecrets = [
+  BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, MOBILE_BROWSERSTACK_USERNAME',
+  BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, MOBILE_BROWSERSTACK_ACCESS_KEY',
+]
 configurationTypes = [
   ['Windows_10_85', 'chrome'],
   ['Windows_10_81', 'firefox'],
@@ -180,7 +187,7 @@ def slackNotifyReleaseOnly(Closure body) {
 
 // Grid and Regression Testing
 
-def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
+def withTestingNode(String description, Boolean useBrowserStack = false, Boolean isMobile = false, Closure body) {
   node('docker && awsaccess') {
     try {
       stage(description) {
@@ -196,14 +203,12 @@ def withTestingNode(String description, Boolean useBrowserStack, Closure body) {
                 local_images = [images['ruby']]
               }
               withForcedDockerUpdate([ruby_image], local_images) {
-                withVaultSecrets([
-                  BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, BROWSERSTACK_USERNAME',
-                  BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, BROWSERSTACK_ACCESS_KEY',
-                ])
-                {
-                  // Call closure
-                  body()
-                } // withVaultSecrets
+                // Call closure with correct type of browserstack details for remote testing
+                if (isMobile) {
+                  withVaultSecrets(mobileBrowserstackVaultSecrets) { body() }
+                } else {
+                  withVaultSecrets(proBrowserstackVaultSecrets) { body() }
+                }
               }
             } else {
               if (isRelease) {
@@ -272,8 +277,9 @@ def define_regression_tests() {
   configurationTypes.each {
     def (config, browser) = it
     def stepName = "${browser} on ${config}"
+    isMobile = (browser == "ios" || browser == "android")
     regression_tests[stepName] = {
-      withTestingNode("Regression Test of ${browser} on ${config}", true) {
+      withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
         try {
           sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
         } catch (Exception e) {
