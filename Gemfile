@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "actionview", "~> 6.0"
+gem "actionview", "~> 6.1"
 gem "haml", "~> 5.2"
 gem "rails-i18n", "~> 6.0"
 
