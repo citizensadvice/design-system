@@ -1,10 +1,33 @@
-import { release } from '../changelog';
+import { getItemsFor, prereleaseNotes, release } from '../changelog';
 import path from 'path';
+import fs from 'fs';
+import { advanceTo } from 'jest-date-mock';
+import marked from 'marked';
+
+const feb17 = 1613562880000;
 
 const withAlphaPath = path.join(
   __dirname,
   '__fixtures__',
   'with-alpha-releases.md'
+);
+
+const pendingRelease = path.join(
+  __dirname,
+  '__fixtures__',
+  'pending-release.md'
+);
+
+const pendingReleaseAlpha = path.join(
+  __dirname,
+  '__fixtures__',
+  'pending-release-after-alpha.md'
+);
+
+const pendingReleaseProd = path.join(
+  __dirname,
+  '__fixtures__',
+  'pending-release-after-production.md'
 );
 
 describe('pre-checks', () => {
@@ -43,5 +66,51 @@ describe('pre-checks', () => {
     expect(() => {
       release('v1.1.1', path.join(__dirname, 'DOES_NOT_EXIST'));
     }).toThrow();
+  });
+});
+
+describe('alpha release', () => {
+  it('adds version and date title to start of file', () => {
+    advanceTo(feb17);
+
+    const changelog = release(`v1.2.0-alpha.0`, pendingRelease);
+    expect(changelog).toEqual(fs.readFileSync(pendingReleaseAlpha).toString());
+  });
+});
+
+describe('production release', () => {
+  it('gets prerelease note tokens', () => {
+    const changelog = fs.readFileSync(pendingRelease);
+    const notes = prereleaseNotes(changelog);
+
+    // last expected item
+    expect(notes[notes.length - 1].raw).toContain(
+      '🥖 Breadcrumbs: Layout adjustments when viewed on small screen'
+    );
+  });
+
+  it('collects bugfixes from release notes', () => {
+    const changelog = fs.readFileSync(pendingRelease);
+    const notes = prereleaseNotes(changelog);
+
+    expect(getItemsFor('bugfixes', notes)).toEqual(
+      '- 🐛: a bugfix\n- 🎯 Targeted content: will now scroll back to targeted content on close\n- 🥖 Breadcrumbs: Layout adjustments when viewed on small screen\n\n'
+    );
+  });
+
+  it('collects new features from release notes', () => {
+    const changelog = fs.readFileSync(pendingRelease);
+    const notes = prereleaseNotes(changelog);
+
+    expect(getItemsFor('new', notes)).toEqual(
+      '- 🐠: Something new\n- 🎯 Targeted content: you can now specifiy the heading level of the title element\n\n'
+    );
+  });
+
+  it('combines alpha releases', () => {
+    advanceTo(feb17);
+
+    const changelog = release(`v1.1.1`, pendingRelease);
+    expect(changelog).toContain(fs.readFileSync(pendingReleaseProd).toString());
   });
 });

@@ -80,6 +80,7 @@
     "husky": "^5.1.3",
     "inquirer": "^8.0.0",
     "jest": "^26.4.2",
+    "jest-date-mock": "^1.0.8",
     "js-beautify": "^1.13.2",
     "jsdom": "^16.5.0",
     "lint-staged": "^10.5.4",
@@ -123,6 +124,9 @@
       "/node_modules/",
       "/vendor/",
       "/lib/"
+    ],
+    "setupFiles": [
+      "jest-date-mock"
     ]
   },
   "lint-staged": {
