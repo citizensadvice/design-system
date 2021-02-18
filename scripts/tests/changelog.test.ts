@@ -81,6 +81,8 @@ describe('alpha release', () => {
     const changelog = release(`v1.2.0-alpha.0`, pendingRelease);
     expect(changelog).toEqual(fs.readFileSync(pendingReleaseAlpha).toString());
   });
+
+  it('ensures there are some notes', () => {});
 });
 
 describe('production release', () => {

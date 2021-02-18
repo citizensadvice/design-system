@@ -30,10 +30,18 @@ export const prereleaseNotes = (changelog) => {
   return tokens.slice(0, previousFullReleaseIndex);
 };
 
+export const pastNotes = (changelog) => {
+  const tokens = marked.lexer(changelog.toString());
+
+  const previousFullReleaseIndex = tokens.findIndex(
+    (t) => t.type === 'heading' && t.depth === 2 && !/alpha/.test(t.text)
+  );
+
+  return tokens.slice(previousFullReleaseIndex);
+};
+
 /**
  * given a list of tokens, find all list items that appear under a heading.
- *
- * Valid headings are 'bugfix', 'new', 'breaking changes'
  */
 export const getItemsFor = (heading, tokens) => {
   let items = '';
@@ -77,15 +85,25 @@ export const findSubHeadings = (tokens) => {
   return [...headings];
 };
 
-const fullRelease = (version, tokens) => {
+const capitalise = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
+const fullRelease = (version, changelog) => {
+  const tokens = prereleaseNotes(changelog);
   const subHeadings = findSubHeadings(tokens);
 
-  return subHeadings.reduce((result, subHeading) => {
-    const items = getItemsFor(subHeading, tokens);
-    const title = subHeading.charAt(0).toUpperCase() + subHeading.slice(1);
+  const previousChangelog = pastNotes(changelog).reduce(
+    (acc, item) => acc + item.raw,
+    ''
+  );
 
-    return `${result}**${title}**\n\n${items}`;
-  }, preReleaseHeading(version));
+  return (
+    subHeadings.reduce((result, subHeading) => {
+      const items = getItemsFor(subHeading, tokens);
+      const title = capitalise(subHeading);
+
+      return `${result}**${title}**\n\n${items}`;
+    }, preReleaseHeading(version)) + previousChangelog
+  );
 };
 
 export const release = (version, changelogPath) => {
@@ -114,5 +132,5 @@ export const release = (version, changelogPath) => {
   if (semver.prerelease(version)) {
     return preRelease(version, changelog);
   }
-  return fullRelease(version, prereleaseNotes(changelog));
+  return fullRelease(version, changelog);
 };
