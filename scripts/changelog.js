@@ -68,6 +68,8 @@ const fullRelease = (version, tokens) => {
   const breakingItems = getItemsFor('breaking changes', tokens);
   const newItems = getItemsFor('new', tokens);
   const bugfixItems = getItemsFor('bugfixes', tokens);
+  const docItems = getItemsFor('docs', tokens);
+  const removalItems = getItemsFor('removals', tokens);
 
   let releaseNotes = preReleaseHeading(version);
 
@@ -79,6 +81,12 @@ const fullRelease = (version, tokens) => {
   }
   if (bugfixItems.length) {
     releaseNotes += `${'**Bugfixes**'}\n\n${bugfixItems}`;
+  }
+  if (docItems.length) {
+    releaseNotes += `${'**Docs**'}\n\n${docItems}`;
+  }
+  if (removalItems.length) {
+    releaseNotes += `${'**Removals**'}\n\n${removalItems}`;
   }
 
   return `${releaseNotes}`;
