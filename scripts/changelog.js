@@ -20,7 +20,7 @@ const preReleaseHeading = (version) =>
 const preRelease = (version, changelog) =>
   preReleaseHeading(version) + changelog.toString();
 
-export const prereleaseNotes = (changelog) => {
+const prereleaseNotes = (changelog) => {
   const tokens = marked.lexer(changelog.toString());
 
   const previousFullReleaseIndex = tokens.findIndex(
@@ -30,7 +30,7 @@ export const prereleaseNotes = (changelog) => {
   return tokens.slice(0, previousFullReleaseIndex);
 };
 
-export const pastNotes = (changelog) => {
+const pastNotes = (changelog) => {
   const tokens = marked.lexer(changelog.toString());
 
   const previousFullReleaseIndex = tokens.findIndex(
@@ -45,7 +45,7 @@ const pendingRelease = (tokens) => tokens[0].type !== 'heading';
 /**
  * given a list of tokens, find all list items that appear under a heading.
  */
-export const getItemsFor = (heading, tokens) => {
+const getItemsFor = (heading, tokens) => {
   let items = '';
 
   let i = 0;
@@ -74,7 +74,7 @@ export const getItemsFor = (heading, tokens) => {
   return items.length ? `${items}\n` : '';
 };
 
-export const findSubHeadings = (tokens) => {
+const findSubHeadings = (tokens) => {
   const headings = new Set();
   const regex = /\*\*([a-zA-Z ]+)\*\*/;
   // eslint-disable-next-line no-restricted-syntax
@@ -108,7 +108,7 @@ const fullRelease = (version, changelog) => {
   );
 };
 
-export const release = (version, changelogPath) => {
+const release = (version, changelogPath) => {
   if (!changelogPath) {
     // eslint-disable-next-line no-param-reassign
     changelogPath = path.join(process.cwd(), 'CHANGELOG.md');
@@ -139,4 +139,12 @@ export const release = (version, changelogPath) => {
     return preRelease(version, changelog);
   }
   return fullRelease(version, changelog);
+};
+
+module.exports = {
+  release,
+  findSubHeadings,
+  getItemsFor,
+  pastNotes,
+  prereleaseNotes,
 };

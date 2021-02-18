@@ -1,13 +1,12 @@
+import path from 'path';
+import fs from 'fs';
+import { advanceTo } from 'jest-date-mock';
 import {
   findSubHeadings,
   getItemsFor,
   prereleaseNotes,
   release,
 } from '../changelog';
-import path from 'path';
-import fs from 'fs';
-import { advanceTo } from 'jest-date-mock';
-import marked from 'marked';
 
 const feb17 = 1613562880000;
 
