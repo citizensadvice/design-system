@@ -64,32 +64,28 @@ export const getItemsFor = (heading, tokens) => {
   return items.length ? `${items}\n` : '';
 };
 
+export const findSubHeadings = (tokens) => {
+  const headings = new Set();
+  const regex = /\*\*([a-zA-Z ]+)\*\*/;
+  // eslint-disable-next-line no-restricted-syntax
+  for (const token of tokens) {
+    if (regex.test(token.raw)) {
+      headings.add(regex.exec(token.raw)[1].toLowerCase());
+    }
+  }
+
+  return [...headings];
+};
+
 const fullRelease = (version, tokens) => {
-  const breakingItems = getItemsFor('breaking changes', tokens);
-  const newItems = getItemsFor('new', tokens);
-  const bugfixItems = getItemsFor('bugfixes', tokens);
-  const docItems = getItemsFor('docs', tokens);
-  const removalItems = getItemsFor('removals', tokens);
+  const subHeadings = findSubHeadings(tokens);
 
-  let releaseNotes = preReleaseHeading(version);
+  return subHeadings.reduce((result, subHeading) => {
+    const items = getItemsFor(subHeading, tokens);
+    const title = subHeading.charAt(0).toUpperCase() + subHeading.slice(1);
 
-  if (breakingItems.length) {
-    releaseNotes += `${'**Breaking Changes**'}\n\n${breakingItems}`;
-  }
-  if (newItems.length) {
-    releaseNotes += `${'**New**'}\n\n${newItems}`;
-  }
-  if (bugfixItems.length) {
-    releaseNotes += `${'**Bugfixes**'}\n\n${bugfixItems}`;
-  }
-  if (docItems.length) {
-    releaseNotes += `${'**Docs**'}\n\n${docItems}`;
-  }
-  if (removalItems.length) {
-    releaseNotes += `${'**Removals**'}\n\n${removalItems}`;
-  }
-
-  return `${releaseNotes}`;
+    return `${result}**${title}**\n\n${items}`;
+  }, preReleaseHeading(version));
 };
 
 export const release = (version, changelogPath) => {

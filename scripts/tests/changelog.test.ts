@@ -1,4 +1,9 @@
-import { getItemsFor, prereleaseNotes, release } from '../changelog';
+import {
+  findSubHeadings,
+  getItemsFor,
+  prereleaseNotes,
+  release,
+} from '../changelog';
 import path from 'path';
 import fs from 'fs';
 import { advanceTo } from 'jest-date-mock';
@@ -79,6 +84,8 @@ describe('alpha release', () => {
 });
 
 describe('production release', () => {
+  beforeEach(() => advanceTo(feb17));
+
   it('gets prerelease note tokens', () => {
     const changelog = fs.readFileSync(pendingRelease);
     const notes = prereleaseNotes(changelog);
@@ -107,10 +114,18 @@ describe('production release', () => {
     );
   });
 
-  it('combines alpha releases', () => {
-    advanceTo(feb17);
-
+  it('combines alpha release notes', () => {
     const changelog = release(`v1.1.1`, pendingRelease);
     expect(changelog).toContain(fs.readFileSync(pendingReleaseProd).toString());
+  });
+});
+
+describe('utility functions', () => {
+  it('finds unique sub headings', () => {
+    const changelog = fs.readFileSync(pendingRelease);
+    const notes = prereleaseNotes(changelog);
+    const subHeadings = findSubHeadings(notes);
+
+    expect(subHeadings).toEqual(['new', 'bugfixes']);
   });
 });
