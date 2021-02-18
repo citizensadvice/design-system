@@ -40,6 +40,8 @@ export const pastNotes = (changelog) => {
   return tokens.slice(previousFullReleaseIndex);
 };
 
+const pendingRelease = (tokens) => tokens[0].type !== 'heading';
+
 /**
  * given a list of tokens, find all list items that appear under a heading.
  */
@@ -130,6 +132,10 @@ export const release = (version, changelogPath) => {
   );
 
   if (semver.prerelease(version)) {
+    assert.ok(
+      pendingRelease(tokens),
+      'There are no pending release notes. Did you update the change log?'
+    );
     return preRelease(version, changelog);
   }
   return fullRelease(version, changelog);

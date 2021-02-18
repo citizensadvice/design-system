@@ -38,7 +38,7 @@ const pendingReleaseProd = path.join(
 describe('pre-checks', () => {
   it('accepts a valid semver', () => {
     expect(() => {
-      release('v1.1.1-alpha.2', withAlphaPath);
+      release('v1.1.1-alpha.2', pendingRelease);
     }).not.toThrow();
   });
 
@@ -82,7 +82,11 @@ describe('alpha release', () => {
     expect(changelog).toEqual(fs.readFileSync(pendingReleaseAlpha).toString());
   });
 
-  it('ensures there are some notes', () => {});
+  it('bails if there is nothing to do', () => {
+    advanceTo(feb17);
+
+    expect(() => release(`v1.2.0-alpha.1`, pendingReleaseAlpha)).toThrow();
+  });
 });
 
 describe('production release', () => {
