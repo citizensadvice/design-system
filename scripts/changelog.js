@@ -7,20 +7,17 @@ const path = require('path');
 const marked = require('marked');
 const moment = require('moment');
 
-// TODO stronger check for version heading
+// TODO stronger check for version heading?
 const getPreviousVersion = (tokens) =>
   tokens.find((t) => /v\d+/.test(t.text)).tokens.find((t) => t.type === 'text')
     .text;
 
-const preReleaseHeading = (version) =>
+const releaseHeading = (version) =>
   `## <sub>${version}</sub>
 
 #### ${moment().format('_MMM. D, YYYY_')}\n\n`;
 
-const preRelease = (version, changelog) =>
-  preReleaseHeading(version) + changelog.toString();
-
-const prereleaseNotes = (changelog) => {
+const pendingReleaseNotes = (changelog) => {
   const tokens = marked.lexer(changelog.toString());
 
   const previousFullReleaseIndex = tokens.findIndex(
@@ -30,7 +27,7 @@ const prereleaseNotes = (changelog) => {
   return tokens.slice(0, previousFullReleaseIndex);
 };
 
-const pastNotes = (changelog) => {
+const pastReleaseNotes = (changelog) => {
   const tokens = marked.lexer(changelog.toString());
 
   const previousFullReleaseIndex = tokens.findIndex(
@@ -40,10 +37,11 @@ const pastNotes = (changelog) => {
   return tokens.slice(previousFullReleaseIndex);
 };
 
-const pendingRelease = (tokens) => tokens[0].type !== 'heading';
+const isPendingPreRelease = (tokens) => tokens[0].type !== 'heading';
 
 /**
- * given a list of tokens, find all list items that appear under a heading.
+ * Given a list of tokens and a heading, find all list items that appear
+ * under that heading.
  */
 const getItemsFor = (heading, tokens) => {
   let items = '';
@@ -89,11 +87,14 @@ const findSubHeadings = (tokens) => {
 
 const capitalise = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
+const preRelease = (version, changelog) =>
+  releaseHeading(version) + changelog.toString();
+
 const fullRelease = (version, changelog) => {
-  const tokens = prereleaseNotes(changelog);
+  const tokens = pendingReleaseNotes(changelog);
   const subHeadings = findSubHeadings(tokens);
 
-  const previousChangelog = pastNotes(changelog).reduce(
+  const previousChangelog = pastReleaseNotes(changelog).reduce(
     (acc, item) => acc + item.raw,
     ''
   );
@@ -104,7 +105,7 @@ const fullRelease = (version, changelog) => {
       const title = capitalise(subHeading);
 
       return `${result}**${title}**\n\n${items}`;
-    }, preReleaseHeading(version)) + previousChangelog
+    }, releaseHeading(version)) + previousChangelog
   );
 };
 
@@ -133,7 +134,7 @@ const release = (version, changelogPath) => {
 
   if (semver.prerelease(version)) {
     assert.ok(
-      pendingRelease(tokens),
+      isPendingPreRelease(tokens),
       'There are no pending release notes. Did you update the change log?'
     );
     return preRelease(version, changelog);
@@ -145,6 +146,6 @@ module.exports = {
   release,
   findSubHeadings,
   getItemsFor,
-  pastNotes,
-  prereleaseNotes,
+  pastReleaseNotes,
+  pendingReleaseNotes,
 };

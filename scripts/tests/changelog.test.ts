@@ -4,7 +4,7 @@ import { advanceTo } from 'jest-date-mock';
 import {
   findSubHeadings,
   getItemsFor,
-  prereleaseNotes,
+  pendingReleaseNotes,
   release,
 } from '../changelog';
 
@@ -93,7 +93,7 @@ describe('production release', () => {
 
   it('gets prerelease note tokens', () => {
     const changelog = fs.readFileSync(pendingRelease);
-    const notes = prereleaseNotes(changelog);
+    const notes = pendingReleaseNotes(changelog);
 
     // last expected item
     expect(notes[notes.length - 1].raw).toContain(
@@ -103,7 +103,7 @@ describe('production release', () => {
 
   it('collects bugfixes from release notes', () => {
     const changelog = fs.readFileSync(pendingRelease);
-    const notes = prereleaseNotes(changelog);
+    const notes = pendingReleaseNotes(changelog);
 
     expect(getItemsFor('bugfixes', notes)).toEqual(
       '- 🐛: a bugfix\n- 🎯 Targeted content: will now scroll back to targeted content on close\n- 🥖 Breadcrumbs: Layout adjustments when viewed on small screen\n\n'
@@ -112,7 +112,7 @@ describe('production release', () => {
 
   it('collects new features from release notes', () => {
     const changelog = fs.readFileSync(pendingRelease);
-    const notes = prereleaseNotes(changelog);
+    const notes = pendingReleaseNotes(changelog);
 
     expect(getItemsFor('new', notes)).toEqual(
       '- 🐠: Something new\n- 🎯 Targeted content: you can now specifiy the heading level of the title element\n\n'
@@ -128,7 +128,7 @@ describe('production release', () => {
 describe('utility functions', () => {
   it('finds unique sub headings', () => {
     const changelog = fs.readFileSync(pendingRelease);
-    const notes = prereleaseNotes(changelog);
+    const notes = pendingReleaseNotes(changelog);
     const subHeadings = findSubHeadings(notes);
 
     expect(subHeadings).toEqual(['new', 'bugfixes']);
