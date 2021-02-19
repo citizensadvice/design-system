@@ -52,9 +52,11 @@
 #### _Jan. 21, 2021_
 
 **New**
+
 - 👤 Header links: support for no javascript added
 
 **Bugfixes**
+
 - 🌎 Navigation: More / Close arrow correction
 - 🌎 Navigation: More dropdoen menu appears in device gesture control flow
 - 🔗 Pagination links: Apply focus state to active page
@@ -122,25 +124,30 @@
 #### _Nov. 26, 2020_
 
 **New**
+
 - Footer: links accept icon option, which is displayed after then link label
 ## <sub>v3.0.0</sub>
 #### _Nov. 23, 2020_
 
 **Breaking Changes**
+
 - Footer: links are no longer provided by default, see documentation for details
 - Header: Local options have changed, see documentation for details
 
 **New**
+
 - ⬆️ Footer: Supply feedback link and links using template locals (NP-662)
 - 🔗 Header: Add skip links, provide option to override main content anchor link (NP-1181)
 
 **Removals**
+
 - Remove OISC warnings from design-system (NP-1285)
 - Removed standalone `logo_clickable` component. Only used within header and footer
 - Removed standalone `website_feedack` component. Only ever used within footer
 details of local option structure.
 
 **Bugfixes**
+
 - Callout: Don't render empty `.cads-callout-label` for standard callouts (no label)
 - Footer: links are wrapped in a `nav` element and aria labelled as "Footer Navigation"
 - Footer: Fix spacing and responsive styling (NP-1033)
@@ -272,6 +279,7 @@ details of local option structure.
 ## <sub>v1.9.0</sub>
 
 #### _Sep. 7, 2020_
+
 * NP-744 Run Browser tests inside CI pipeline
 * NP-642 Header takes language switcher paramaters
 
