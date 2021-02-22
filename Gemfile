@@ -18,7 +18,7 @@ group :test do
   gem "retriable", "~> 3.1"
   gem "rspec"
   gem "rubocop-rake", require: false
-  gem "selenium-webdriver", "4.0.0.alpha6"
+  gem "selenium-webdriver", "4.0.0.beta1"
   gem "site_prism", "~> 3.7"
   gem "webdrivers"
 end
