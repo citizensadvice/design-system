@@ -19,4 +19,9 @@ World(
   Capybara::RSpecMatcherProxies
 )
 
+CaTesting.logger.level = :DEBUG
+CaTesting::Patches::Logger.new(AutomationLogger.logger).patch!
+CaTesting::Patches::Capybara.new.patch!
+CaTesting::Patches::SeleniumOptions.new(ENV["BROWSER"].to_sym).patch!
+
 Driver.new.register
