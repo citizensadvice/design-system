@@ -200,7 +200,7 @@ def withTestingNode(String description, Boolean useBrowserStack = false, Boolean
               }
               withForcedDockerUpdate([ruby_image], local_images) {
                 // Call closure with correct type of browserstack details for remote testing
-                sh "Inside withtestingNode --> isMobile = ${isMobile}"
+                sh "echo Inside withtestingNode --> isMobile = ${isMobile}"
                 if (isMobile) {
                   withVaultSecrets(mobileBrowserstackVaultSecrets) { body() }
                 } else {
@@ -278,7 +278,7 @@ def define_regression_tests() {
     regression_tests[stepName] = {
       withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
         try {
-          sh "Inside withtestingNode Invocation inside regression tests definition --> isMobile = ${isMobile}"
+          sh "echo Inside withtestingNode Invocation inside regression tests definition --> isMobile = ${isMobile}"
 //           sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
         } catch (Exception e) {
           sh 'docker-compose logs --no-color'
