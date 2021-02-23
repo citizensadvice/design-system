@@ -275,6 +275,9 @@ def define_regression_tests() {
     def (config, browser) = it
     def stepName = "${browser} on ${config}"
     isMobile = (browser == "ios" || browser == "android")
+    sh "echo BEFORE ANY RUNNING"
+    sh "echo isMobile = ${isMobile}"
+    sh "echo browser = ${browser}"
     regression_tests[stepName] = {
       withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
         try {
