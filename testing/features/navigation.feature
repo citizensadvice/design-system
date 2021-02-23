@@ -13,7 +13,7 @@ Feature: Navigation component
     Scenario: screen is too narrow to show all the links
         Given the navigation does not fit on the screen
         Then the dropdown toggle is present
-        And the dropdown menu is hidden
+        And the dropdown menu is not present
 
     Scenario: clicking the more button shows the dropdown menu
         Given the navigation does not fit on the screen
@@ -23,7 +23,7 @@ Feature: Navigation component
     Scenario: clicking the close button hides the dropdown menu
         Given the dropdown menu is already open 
         When I click the Close button
-        Then the dropdown menu is hidden
+        Then the dropdown menu is not present
 
     Scenario: tabbing onto the dropdown toggle opens the dropdown menu
         Given the navigation does not fit on the screen
@@ -37,16 +37,16 @@ Feature: Navigation component
         Given the dropdown menu is already open
         When I tab out of the dropdown menu
         Then the More button is present
-        And the dropdown menu is hidden
+        And the dropdown menu is not present
 
     Scenario: you can close the dropdown menu with 'Esc'
         Given the dropdown menu is already open
         When I press 'Escape'
-        Then the dropdown menu is hidden
+        Then the dropdown menu is not present
         And the More button is present
 
     Scenario: you can close the dropdown menu by clicking outside of it
         Given the dropdown menu is already open
         When I click outside of the menu
-        Then the dropdown menu is hidden
+        Then the dropdown menu is not present
         And the More button is present

@@ -25,7 +25,7 @@ Then("the dropdown toggle is present") do
   expect(@component).to have_button("More")
 end
 
-Then("the dropdown menu is hidden") do
+Then("the dropdown menu is not present") do
   expect(@component).to have_no_link("More from us")
 end
 
