@@ -17,12 +17,12 @@ Feature: Navigation component
 
     Scenario: clicking the more button shows the dropdown menu
         Given the navigation does not fit on the screen
-        When I click the More button
+        When I expand the dropdown menu
         Then the dropdown menu is present
 
     Scenario: clicking the close button hides the dropdown menu
         Given the dropdown menu is already open 
-        When I click the Close button
+        When I collapse the dropdown menu
         Then the dropdown menu is not present
 
     Scenario: tabbing onto the dropdown toggle opens the dropdown menu

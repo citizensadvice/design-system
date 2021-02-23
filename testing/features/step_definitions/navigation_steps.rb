@@ -45,11 +45,11 @@ Then("the dropdown menu has header links") do
   expect(@component).to have_button("Sign out")
 end
 
-When("I click the More button") do
+When("I expand the dropdown menu") do
   click_button("More")
 end
 
-When("I click the Close button") do
+When("I collapse the dropdown menu") do
   click_button("Close")
 end
 
