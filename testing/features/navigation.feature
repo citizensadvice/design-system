@@ -32,7 +32,7 @@ Feature: Navigation component
         Then the Close button is present
         And the dropdown menu is present
 
-    @failing
+    @failing @np-1755
     Scenario: tabbing out of the dropdown menu closes it
         Given the dropdown menu is already open
         When I tab out of the dropdown menu
