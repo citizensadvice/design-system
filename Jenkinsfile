@@ -183,7 +183,7 @@ def slackNotifyReleaseOnly(Closure body) {
 
 // Grid and Regression Testing
 
-def withTestingNode(String description, Boolean useBrowserStack = false, Boolean isMobile = false, browser, Closure body) {
+def withTestingNode(String description, Boolean useBrowserStack, Boolean isMobile, Closure body) {
   node('docker && awsaccess') {
     try {
       stage(description) {
@@ -239,7 +239,7 @@ def define_grid_tests() {
 
   ['chrome', 'firefox'].each { browser ->
     grid_tests[browser] = {
-      withTestingNode("Interim Stage: Test ${browser}", false) {
+      withTestingNode("Interim Stage: Test ${browser}", false, false) {
         try {
           sh "BROWSER=${browser} bin/docker/grid_tests"
         } catch (Exception e) {
@@ -277,7 +277,7 @@ def define_regression_tests() {
     def stepName = "${browser} on ${config}"
     def isMobile = (browser == "ios" || browser == "android")
     regression_tests[stepName] = {
-      withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile, browser) {
+      withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
         try {
           sh "echo Inside withtestingNode Invocation inside regression tests definition --> isMobile = ${isMobile}"
 //           sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
