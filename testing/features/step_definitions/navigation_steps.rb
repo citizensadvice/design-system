@@ -41,7 +41,7 @@ Then("the More button is present") do
   expect(@component).to have_button("More")
 end
 
-Then("the header links should be included in the dropdown menu") do
+Then("the dropdown menu has header links") do
   expect(@component).to have_button("Sign out")
 end
 
