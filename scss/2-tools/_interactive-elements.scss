@@ -19,7 +19,7 @@
 @mixin cads-nav-link-focus() {
   background-color: $cads-language__brand-primary-contrast;
   color: $cads-language__brand-primary;
-  border: $cads-border-width-medium solid $cads-palette__heritage-yellow;
+  border: $cads-border-width-medium solid $cads-palette__yellow;
   outline: none;
 }
 

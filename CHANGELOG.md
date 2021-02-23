@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- 🧭 Fixed border colour of active nav buttons
+
 ## <sub>v4.0.3-alpha.0</sub>
 
 #### _Feb. 12, 2021_
