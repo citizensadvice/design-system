@@ -183,7 +183,7 @@ def slackNotifyReleaseOnly(Closure body) {
 
 // Grid and Regression Testing
 
-def withTestingNode(String description, Boolean useBrowserStack = false, Boolean isMobile = false, Closure body) {
+def withTestingNode(String description, Boolean useBrowserStack = false, Boolean isMobile = false, browser, Closure body) {
   node('docker && awsaccess') {
     try {
       stage(description) {
@@ -201,6 +201,7 @@ def withTestingNode(String description, Boolean useBrowserStack = false, Boolean
               withForcedDockerUpdate([ruby_image], local_images) {
                 // Call closure with correct type of browserstack details for remote testing
                 sh "echo Inside withtestingNode --> isMobile = ${isMobile}"
+                sh "echo Inside withtestingNode --> browser = ${browser}"
                 if (isMobile) {
                   withVaultSecrets(mobileBrowserstackVaultSecrets) { body() }
                 } else {
@@ -274,12 +275,9 @@ def define_regression_tests() {
   configurationTypes.each {
     def (config, browser) = it
     def stepName = "${browser} on ${config}"
-    isMobile = (browser == "ios" || browser == "android")
-    sh "echo BEFORE ANY RUNNING"
-    sh "echo isMobile = ${isMobile}"
-    sh "echo browser = ${browser}"
+    def isMobile = (browser == "ios" || browser == "android")
     regression_tests[stepName] = {
-      withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
+      withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile, browser) {
         try {
           sh "echo Inside withtestingNode Invocation inside regression tests definition --> isMobile = ${isMobile}"
 //           sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
