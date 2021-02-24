@@ -4,6 +4,7 @@ module Navigation
   class Standard < ::Base
     set_url "/iframe.html?id=components-navigation--default-story&viewMode=story"
 
+    element :navigation, ".js-cads-greedy-nav"
     element :more_button, "button", { text: "More", wait: 2 }
     element :close_button, "button", text: "Close"
     element :last_link, "a", text: "More from us"
@@ -29,8 +30,7 @@ module Navigation
     end
 
     def click_outside
-      nav = find(".js-cads-greedy-nav")
-      nav.click(x: 0, y: 400)
+      navigation.click(x: 0, y: 400)
     end
   end
 end
