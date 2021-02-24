@@ -1,4 +1,3 @@
-@future_release @v4.0.0+
 Feature: Header component
 
   The Header component allows users to perform some quick tasks
