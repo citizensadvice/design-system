@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+# frozen_string_literal: true
 
-module Navigation
-  class WithHeader < ::Base
+
+module Navigation  
+  class WithHeader < Standard
     set_url "/iframe.html?id=sample-pages-advice-collection--advice-collection-public&viewMode=story"
-
-    element :navigation, ".js-cads-greedy-nav"
+    
+    element :button, "button"
   end
 end

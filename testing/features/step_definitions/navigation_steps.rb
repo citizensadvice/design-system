@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Given("the navigation is on the page") do
-  @component = Navigation::Default.new.tap(&:load)
+  @component = Navigation::Standard.new.tap(&:load)
 end
 
 Given("the navigation is on the page with header links") do
@@ -14,43 +14,43 @@ end
 
 Given("the dropdown menu is already open") do
   page.driver.browser.manage.window.resize_to(320, 568)
-  click_button("More")
+  @component.open_dropdown_menu
 end
 
 Then("the dropdown toggle is not present") do
-  expect(@component).to have_no_button("More")
+  expect(@component).to have_no_more_button
 end
 
 Then("the dropdown toggle is present") do
-  expect(@component).to have_button("More")
+  expect(@component).to have_more_button
 end
 
-Then("the dropdown menu is not present") do
-  expect(@component).to have_no_link("More from us")
+Then("the dropdown menu is closed") do
+  expect(@component).to have_no_last_link
 end
 
-Then("the dropdown menu is present") do
-  expect(@component).to have_link("More from us")
+Then("the dropdown menu is open") do
+  expect(@component).to have_last_link
 end
 
 Then("the Close button is present") do
-  expect(@component).to have_button("Close")
+  expect(@component).to have_close_button
 end
 
 Then("the More button is present") do
-  expect(@component).to have_button("More")
+  expect(@component).to have_more_button
 end
 
 Then("the dropdown menu has header links") do
-  expect(@component).to have_button("Sign out")
+  expect(@component).to have_sign_out
 end
 
-When("I expand the dropdown menu") do
-  click_button("More")
+When("I open the dropdown menu") do
+  @component.open_dropdown_menu
 end
 
-When("I collapse the dropdown menu") do
-  click_button("Close")
+When("I close the dropdown menu") do
+  @component.close_dropdown_menu
 end
 
 When("I tab onto the More button") do
