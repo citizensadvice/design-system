@@ -8,7 +8,7 @@ module Header
     include Helpers::Javascript
 
     element :change_language, "a", text: "Cymraeg"
-    element :login, "[data-testid='account-link']"
+    element :login, ".cads-header__account-link"
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
     element :search_button, "form > button"
