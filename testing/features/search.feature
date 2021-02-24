@@ -11,7 +11,6 @@ Feature: Search components
       Then the search field is clear
       And I am able to search in English
 
-    @failing @NP-1480
     Scenario: Welsh Search component is on the page without any term
       Given the language is Welsh
       Then the search field is clear
@@ -24,8 +23,7 @@ Feature: Search components
     Scenario: English Search component is on the page with a pre-defined term
       Then the search field has a pre-defined term
       And I am able to search in English
-
-    @failing @NP-1480
+      
     Scenario: Welsh Search component is on the page with a pre-defined term
       Given the language is Welsh
       Then the search field has a pre-defined term
