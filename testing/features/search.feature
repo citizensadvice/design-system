@@ -23,7 +23,7 @@ Feature: Search components
     Scenario: English Search component is on the page with a pre-defined term
       Then the search field has a pre-defined term
       And I am able to search in English
-      
+
     Scenario: Welsh Search component is on the page with a pre-defined term
       Given the language is Welsh
       Then the search field has a pre-defined term
