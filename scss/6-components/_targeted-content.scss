@@ -66,10 +66,6 @@
     text-align: left;
     border: $cads-border-width-small solid $cads-language__link-colour;
 
-    @include cads-media-breakpoint-down(sm) {
-      align-items: baseline;
-    }
-
     &:hover {
       background-color: $cads-language__hover-background-colour;
     }
@@ -84,11 +80,6 @@
     margin-left: 0.5em;
     fill: currentColor;
     flex: 0 0 1em;
-
-    @include cads-media-breakpoint-down(sm) {
-      position: relative;
-      top: 5px; // Optically align
-    }
   }
 
   .cads-targeted-content__content {
