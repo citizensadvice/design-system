@@ -1,4 +1,3 @@
-@future_release @v4.0.0+
 Feature: Callout components
 
   The Callout components notify users of important information
