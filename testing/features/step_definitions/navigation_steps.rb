@@ -54,15 +54,11 @@ When("I close the dropdown menu") do
 end
 
 When("I tab onto the More button") do
-  5.times do
-    @component.send_keys(:tab)
-  end
+  @component.tab_into_dropdown
 end
 
 When("I tab out of the dropdown menu") do
-  10.times do
-    @component.send_keys(:tab)
-  end
+  @component.tab_through_dropdown
 end
 
 When("I press 'Escape'") do
@@ -70,6 +66,5 @@ When("I press 'Escape'") do
 end
 
 When("I click outside of the menu") do
-  nav = find(".js-cads-greedy-nav")
-  nav.click(x: 0, y: 400)
+  @component.click_outside
 end
