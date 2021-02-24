@@ -1,6 +1,7 @@
 **Bugfixes**
 
 - 🧭 Fixed border colour of active nav buttons
+- 🎯 +/- icons are vertically centred
 
 ## <sub>v4.0.3-alpha.0</sub>
 
