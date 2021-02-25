@@ -1,6 +1,6 @@
 Feature: Navigation component
 
-  Rule: The greedy nav displays as many navigation links as fit on the viewport.  Any that don't fit are added into a expandable dropdown.
+  Rule: The greedy nav displays as many navigation links as fit on the viewport.  Any that don't fit are added into an expandable dropdown.
 
     Background:
       Given the navigation is on the page
