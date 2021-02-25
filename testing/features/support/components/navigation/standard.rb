@@ -9,14 +9,6 @@ module Navigation
     element :close_button, "button", { text: "Close", wait: 2 }
     element :last_link, "a", text: "More from us"
 
-    def open_dropdown_menu
-      more_button.click
-    end
-
-    def close_dropdown_menu
-      close_button.click
-    end
-
     def tab_into_dropdown
       5.times do
         send_keys(:tab)
@@ -29,7 +21,7 @@ module Navigation
       end
     end
 
-    def click_outside
+    def click_outside_navigation
       navigation.click(x: 0, y: 400)
     end
   end

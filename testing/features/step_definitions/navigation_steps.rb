@@ -14,7 +14,7 @@ end
 
 Given("the dropdown menu is already open") do
   page.driver.browser.manage.window.resize_to(320, 568)
-  @component.open_dropdown_menu
+  @component.more_button.click
 end
 
 Then("the dropdown toggle is not present") do
@@ -46,11 +46,11 @@ Then("the dropdown menu has header links") do
 end
 
 When("I open the dropdown menu") do
-  @component.open_dropdown_menu
+  @component.more_button.click
 end
 
 When("I close the dropdown menu") do
-  @component.close_dropdown_menu
+  @component.close_button.click
 end
 
 When("I tab onto the More button") do
@@ -66,5 +66,5 @@ When("I press 'Escape'") do
 end
 
 When("I click outside of the menu") do
-  @component.click_outside
+  @component.click_outside_navigation
 end
