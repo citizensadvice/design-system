@@ -153,9 +153,9 @@ def pipeline() {
     }
   }
 
-  if (!isRelease) {
-    stage('Regression Tests') {
-      parallel define_regression_tests()
+  if (isRelease) {
+    stage('Browserstack Tests') {
+      parallel define_browserstack_tests()
     }
   } else {
     stage('Grid Tests') {
@@ -181,7 +181,7 @@ def slackNotifyReleaseOnly(Closure body) {
   }
 }
 
-// Grid and Regression Testing
+// Grid and Browserstack Tests
 
 def withTestingNode(String description, Boolean useBrowserStack, Boolean isMobile, Closure body) {
   node('docker && awsaccess') {
@@ -266,15 +266,15 @@ def define_grid_tests() {
   return grid_tests
 }
 
-def define_regression_tests() {
-  regression_tests = [:]
-  regression_tests.failFast = false
+def define_browserstack_tests() {
+  browserstack_tests = [:]
+  browserstack_tests.failFast = false
 
   configurationTypes.each {
     def (config, browser) = it
     def stepName = "${browser} on ${config}"
     def isMobile = (browser == "ios" || browser == "android")
-    regression_tests[stepName] = {
+    browserstack_tests[stepName] = {
       withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
         try {
           sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
@@ -298,10 +298,10 @@ def define_regression_tests() {
           )
         } // end try/catch/finally
       } // end withTestingNode
-    } // end regression_tests[stepName] block
+    } // end browserstack_tests[stepName] block
   } // end each
 
-  return regression_tests
+  return browserstack_tests
 }
 
 def withForcedDockerUpdate(images = [], local_images = [], Closure body) {
