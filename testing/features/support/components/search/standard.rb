@@ -18,6 +18,7 @@ module Search
     private
 
     def clear_field
+      search_field.send_keys(%i[control end]) if firefox?
       search_field.send_keys(:end)
 
       if mobile_phone?
