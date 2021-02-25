@@ -100,58 +100,58 @@ def pipeline() {
     }
   }
 
-//   stage('Lint') {
-//     withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
-//       withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
-//         sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
-//         sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
-//       }
-//     }
-//   }
-//
-//   stage('Unit test') {
-//     withDockerSandbox([ images['ca-styleguide'] ]) {
-//       withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
-//         sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
-//       }
-//     }
-//
-//     step ([$class: 'JUnitResultArchiver', testResults: 'testing/visual-regression/backstop_data/ci_report/?*.xml', allowEmptyResults: true])
-//   }
-//
-//   stage('Visual Regression Tests') {
-//     withDockerSandbox(['backstopjs/backstopjs']) {
-//       try {
-//         sh './bin/jenkins/visual_regression'
-//       } catch (Exception e) {
-//         sh 'docker-compose logs --no-color'
-//         currentBuild.result = 'FAILURE'
-//         throw e
-//       } finally {
-//         sh './bin/jenkins/fix_visual_test_report'
-//         publishHTML([
-//           allowMissing: true,
-//           alwaysLinkToLastBuild: true,
-//           keepAll: true,
-//           reportDir: 'reports/html_report',
-//           reportFiles: 'index.html',
-//           reportName: 'BackstopJS Report',
-//         ])
-//       }
-//     }
-//   }
-//
-//   stage('Accessibility Tests') {
-//     withDockerSandbox([images['wcag'] ]) {
-//       try {
-//         sh './bin/docker/a11y-test'
-//       } catch (Exception e) {
-//         sh 'docker-compose logs --no-color'
-//         currentBuild.result = 'FAILURE'
-//         throw e
-//       }
-//     }
-//   }
+  stage('Lint') {
+    withDockerSandbox([ images['ca-styleguide'], images['ruby'] ]) {
+      withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
+        sh 'docker-compose run ruby-tests bundle exec rake ruby:lint'
+        sh 'docker-compose run ca-styleguide bundle exec rake npm:lint'
+      }
+    }
+  }
+
+  stage('Unit test') {
+    withDockerSandbox([ images['ca-styleguide'] ]) {
+      withEnv(['PRODUCTION=true', 'NODE_ENV=test']) {
+        sh 'docker-compose run ca-styleguide bundle exec rake npm:jest'
+      }
+    }
+
+    step ([$class: 'JUnitResultArchiver', testResults: 'testing/visual-regression/backstop_data/ci_report/?*.xml', allowEmptyResults: true])
+  }
+
+  stage('Visual Regression Tests') {
+    withDockerSandbox(['backstopjs/backstopjs']) {
+      try {
+        sh './bin/jenkins/visual_regression'
+      } catch (Exception e) {
+        sh 'docker-compose logs --no-color'
+        currentBuild.result = 'FAILURE'
+        throw e
+      } finally {
+        sh './bin/jenkins/fix_visual_test_report'
+        publishHTML([
+          allowMissing: true,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'reports/html_report',
+          reportFiles: 'index.html',
+          reportName: 'BackstopJS Report',
+        ])
+      }
+    }
+  }
+
+  stage('Accessibility Tests') {
+    withDockerSandbox([images['wcag'] ]) {
+      try {
+        sh './bin/docker/a11y-test'
+      } catch (Exception e) {
+        sh 'docker-compose logs --no-color'
+        currentBuild.result = 'FAILURE'
+        throw e
+      }
+    }
+  }
 
   if (!isRelease) {
     stage('Regression Tests') {
@@ -200,8 +200,6 @@ def withTestingNode(String description, Boolean useBrowserStack, Boolean isMobil
               }
               withForcedDockerUpdate([ruby_image], local_images) {
                 // Call closure with correct type of browserstack details for remote testing
-                sh "echo Inside withtestingNode --> isMobile = ${isMobile}"
-                sh "echo Inside withtestingNode --> browser = ${browser}"
                 if (isMobile) {
                   withVaultSecrets(mobileBrowserstackVaultSecrets) { body() }
                 } else {
@@ -279,8 +277,7 @@ def define_regression_tests() {
     regression_tests[stepName] = {
       withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
         try {
-          sh "echo Inside withtestingNode Invocation inside regression tests definition --> isMobile = ${isMobile}"
-//           sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
+          sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
         } catch (Exception e) {
           sh 'docker-compose logs --no-color'
           currentBuild.result = 'FAILURE'
