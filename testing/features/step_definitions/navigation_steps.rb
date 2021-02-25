@@ -9,11 +9,11 @@ Given("the navigation is on the page with header links") do
 end
 
 Given("the navigation does not fit on the screen") do
-  page.driver.browser.manage.window.resize_to(320, 568)
+  page.driver.browser.manage.window.resize_to(320, 568) unless mobile_phone?
 end
 
 Given("the dropdown menu is already open") do
-  page.driver.browser.manage.window.resize_to(320, 568)
+  page.driver.browser.manage.window.resize_to(320, 568) unless mobile_phone?
   @component.more_button.click
 end
 
