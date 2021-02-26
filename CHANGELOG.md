@@ -2,20 +2,10 @@
 
 #### _Feb. 26, 2021_
 
-## <sub>v4.0.3-alpha.1</sub>
-
-#### _Feb. 24, 2021_
-
 **Bugfixes**
 
 - 🧭 Fixed border colour of active nav buttons
 - 🎯 +/- icons are vertically centred
-
-## <sub>v4.0.3-alpha.0</sub>
-
-#### _Feb. 12, 2021_
-
-**Bugfixes**
 - 🎯 Targeted content: will now scroll back to targeted content on close
 - 🔗 Link Buttons: pointer is now displayed on hover
 
