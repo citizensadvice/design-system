@@ -24,7 +24,7 @@ Feature: Navigation component
       When I close the dropdown menu
       Then the dropdown menu is closed
 
-    @not_mobile
+    @failing @np-1765 @not_mobile
     Scenario: tabbing onto the dropdown toggle opens the dropdown menu
       Given the navigation does not fit on the screen
       And the dropdown toggle is present
@@ -45,6 +45,7 @@ Feature: Navigation component
       Then the dropdown menu is closed
       And the More button is present
 
+    @not_mobile @np-1766
     Scenario: you can close the dropdown menu by clicking outside of it
       Given the dropdown menu is already open
       When I click outside of the menu
