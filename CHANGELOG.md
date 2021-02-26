@@ -4,8 +4,8 @@
 
 **Bugfixes**
 
-- 🧭 Fixed border colour of active nav buttons
-- 🎯 +/- icons are vertically centred
+- 🧭 Navigation: Fixed border colour of active nav buttons
+- 🎯 Targeted content: +/- icons are vertically centred
 - 🎯 Targeted content: will now scroll back to targeted content on close
 - 🔗 Link Buttons: pointer is now displayed on hover
 
