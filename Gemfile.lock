@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: a66c3c7639f64d381a5ee8bd2bcf5ffb1a982c3a
-  tag: v1.2.0
+  revision: 4a5d9bf2acbe5ea5acfaf331a94ca0e41506121a
+  tag: v2.0.0
   specs:
-    citizens-advice-style (1.2.0)
+    citizens-advice-style (2.0.0)
       rubocop (~> 1.7.0)
 
 GEM
@@ -156,7 +156,7 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.3)
-    regexp_parser (2.0.3)
+    regexp_parser (2.1.1)
     retriable (3.1.2)
     rexml (3.2.4)
     rspec (3.10.0)
