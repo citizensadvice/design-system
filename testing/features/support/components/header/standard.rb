@@ -8,10 +8,10 @@ module Header
     include Helpers::Javascript
 
     element :change_language, "a", text: "Cymraeg"
-    element :login, ".cads-header__account-link"
+    element :login, "[data-testid='account-link']"
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
-    element :search_button, ".cads-search__button"
+    element :search_button, "[data-testid='search-button']"
     element :open_search_pane, "[data-testid='expand-button']"
 
     def search_for(search_term)
