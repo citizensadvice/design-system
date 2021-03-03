@@ -1,4 +1,3 @@
-@future_release @v4.0.0+
 Feature: Footer component
 
   The footer component shows users of the site useful links

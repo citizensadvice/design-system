@@ -11,7 +11,7 @@ module Header
     element :login, "[data-testid='account-link']"
     element :logo, ".cads-logo"
     element :search_field, "[type='search']"
-    element :search_button, "form > button"
+    element :search_button, "[data-testid='search-button']"
     element :open_search_pane, "[data-testid='expand-button']"
 
     def search_for(search_term)

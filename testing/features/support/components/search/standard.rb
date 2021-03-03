@@ -18,7 +18,7 @@ module Search
     private
 
     def clear_field
-      search_field.send_keys(:end)
+      search_field.send_keys(%i[end])
 
       if mobile_phone?
         current_text_length.times { search_field.send_keys(:backspace) }

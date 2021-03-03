@@ -1,4 +1,3 @@
-@future_release @v4.0.0+
 Feature: Page Review component
 
   The Page Review component reassures the public that the content
