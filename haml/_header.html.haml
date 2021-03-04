@@ -27,7 +27,7 @@
               - else
                 %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
 
-          - if sign_in_out
+          - if sign_in_out.present?
             %li.cads-header__account-link
               - if sign_in_out["form"]
                 %form.cads-header__account-form{method: "POST", action: sign_in_out["url"], "data-testid": "account-link"}
