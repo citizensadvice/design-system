@@ -55,3 +55,18 @@ Feature: Header component
         | navigation |
         | content    |
         | footer     |
+
+  Rule: A Standard Header (Mobile View)
+    Background:
+      Given a Standard Header component is on the page
+
+    @small_screen
+    Scenario: English Header has be expanded to show the full search bar
+      Then I am able to expand the search bar
+      And I am able to collapse the search bar
+
+    @small_screen
+    Scenario: Welsh Header has be expanded to show the full search bar
+      Given the language is Welsh
+      Then I am able to expand the search bar
+      And I am able to collapse the search bar
