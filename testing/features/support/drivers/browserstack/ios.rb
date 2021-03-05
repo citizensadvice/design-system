@@ -23,10 +23,10 @@ module Drivers
       private
 
       def appium_version
-        if ios12?
-          "1.18.0"
-        elsif ios13?
-          "1.17.0"
+        if ios13?
+          "1.20.2"
+        elsif ios12?
+          "1.19.1"
         else
           "1.16.0"
         end
