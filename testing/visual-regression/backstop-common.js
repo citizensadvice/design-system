@@ -40,13 +40,13 @@ module.exports = function backstopCommon(baseUrl) {
         onReadyScript: 'onReadyEmulatePrint.js',
         viewports: [{ label: 'print', width: 1024, height: 1024 }],
         selectors: ['document'],
-        exlcudeFromA11yTest: true,
+        excludeFromA11yTest: true,
       },
       {
         label: `${labelPrefix}`,
         url: storyUrlFor(componentId),
         readySelector: '.cads-greedy-nav-has-dropdown',
-        exlcudeFromA11yTest: true,
+        excludeFromA11yTest: true,
       },
     ];
   }
