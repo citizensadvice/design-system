@@ -31,6 +31,23 @@ module Helpers
       wait_for_new_url if firefox? && new_page
     end
 
+    def send_tabs(count) 
+      count.times do
+        if safari?
+          send_keys(%i[alt tab])
+          # In Safari the modifier key (OPTION, but called :alt), is not
+          # released after being used in the alt+tab call. This means that
+          # subsequent calls do things like alt+click which downloads a link.
+          #
+          # See: https://bugs.webkit.org/show_bug.cgi?id=219948
+          send_keys(:alt)
+        else
+          send_keys(:tab)
+        end
+        sleep 0.1
+      end
+    end
+
     def tab_quantity_for_skip_link(desired_area)
       case desired_area
       when :navigation; then 1
