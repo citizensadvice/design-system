@@ -2,8 +2,8 @@
 
 module Navigation
   class Standard < ::Base
-    include Helpers::Page 
-    
+    include Helpers::Page
+
     set_url "/iframe.html?id=components-navigation--default-story&viewMode=story"
 
     element :navigation, ".js-cads-greedy-nav"

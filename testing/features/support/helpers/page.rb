@@ -31,7 +31,7 @@ module Helpers
       wait_for_new_url if firefox? && new_page
     end
 
-    def send_tabs(count) 
+    def send_tabs(count)
       count.times do
         if safari?
           send_keys(%i[alt tab])
