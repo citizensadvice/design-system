@@ -40,6 +40,7 @@ module Helpers
           # subsequent calls do things like alt+click which downloads a link.
           #
           # See: https://bugs.webkit.org/show_bug.cgi?id=219948
+          # LH - Dec 2020
           send_keys(:alt)
         else
           send_keys(:tab)

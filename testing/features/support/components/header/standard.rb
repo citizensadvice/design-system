@@ -20,8 +20,7 @@ module Header
     end
 
     def tab_to(desired_area)
-      tab_count = tab_quantity_for_skip_link(desired_area)
-      send_tabs(tab_count)
+      send_tabs(tab_quantity_for_skip_link(desired_area))
     end
   end
 end
