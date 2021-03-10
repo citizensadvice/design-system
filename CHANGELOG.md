@@ -1,3 +1,8 @@
+**Chores**
+
+- 🗣️ Remove unused callout.js module
+- 🧂 Remove deprecated tables.js module
+
 ## <sub>v4.0.3</sub>
 
 #### _Feb. 26, 2021_
