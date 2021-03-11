@@ -9,10 +9,12 @@
   heading_tag = "h#{heading_level.clamp(1, 6)}"
   # Allow disabling toggleable behaviour (mostly for tests)
   is_toggleable = targeted_content.fetch("is_toggleable", true)
+  close_button = targeted_content.fetch("close_button", true)
 
   attributes = {
     class: [
       ("cads-targeted-content--adviser" if type == "adviser"),
+      ("cads-no-close" unless close_button),
       ("js-cads-targeted-content" if is_toggleable)
     ],
     data: {

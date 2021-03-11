@@ -1,3 +1,7 @@
+**New**
+
+- 🎯 Targeted content: Option to remove the close button.
+
 **Chores**
 
 - 🗣️ Remove unused callout.js module
