@@ -50,10 +50,6 @@ module Helpers
       "#{ENV['BASE_ARTIFACTS_PATH']}/screenshots/#{name_of_file(test_case)}.png"
     end
 
-    def html_file_path(test_case)
-      "#{ENV['BASE_ARTIFACTS_PATH']}/html_pages/#{name_of_file(test_case)}.html"
-    end
-
     def name_of_file(test_case)
       "#{timestamp}_#{test_case.feature_file_name}_#{test_case.name.gsub('/', 'or').gsub(' ', '_')}"
     end
