@@ -251,8 +251,6 @@ def define_grid_tests() {
               artifacts: "testing/artifacts/${browser}/other/screenshots/?*.png, " +
                          "testing/artifacts/${browser}/other/reports/report.html, " +
                          "testing/artifacts/${browser}/other/reports/?*.xml, " +
-                         "testing/artifacts/${browser}/other/reports/report.json, " +
-                         "testing/artifacts/${browser}/other/html_pages/?*.html, " +
                          "testing/artifacts/${browser}/other/logs/?*.log",
               allowEmptyArchive: true,
               caseSensitive: false
@@ -289,8 +287,6 @@ def define_browserstack_tests() {
               artifacts: "testing/artifacts/${browser}/${config}/screenshots/?*.png, " +
                          "testing/artifacts/${browser}/${config}/reports/report.html, " +
                          "testing/artifacts/${browser}/${config}/reports/?*.xml, " +
-                         "testing/artifacts/${browser}/${config}/reports/report.json, " +
-                         "testing/artifacts/${browser}/${config}/html_pages/?*.html, " +
                          "testing/artifacts/${browser}/${config}/logs/?*.log",
               allowEmptyArchive: true,
               caseSensitive: false
