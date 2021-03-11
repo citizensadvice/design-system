@@ -19,12 +19,6 @@ module Helpers
       attach(path, "image/png")
     end
 
-    def save_full_page_html(scenario)
-      file_path = html_file_path(scenario)
-      File.write(file_path, full_page_html)
-      attach(file_path, "text/html")
-    end
-
     def switch_to_newly_opened_window!(new_page: false)
       wait_for_second_window
       page.switch_to_window(second_window)
