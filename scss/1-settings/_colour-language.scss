@@ -8,7 +8,6 @@ $cads-language__link-colour: $cads-palette__heritage-blue !default;
 $cads-language__link-hover-colour: $cads-palette__heritage-blue-dark !default;
 $cads-language__link-visited-colour: $cads-palette__purple !default;
 $cads-language__link-active-colour: $cads-palette__dark-grey !default;
-$cads-language__link-hover-adviser-colour: $cads-palette__blue-adviser-dark !default;
 $cads-language__hover-background-colour: $cads-palette__blue-light !default;
 $cads-language__focus-colour: $cads-palette__yellow !default;
 $cads-language__focus-border-colour: $cads-palette__dark-grey !default;
@@ -23,6 +22,9 @@ $cads-language__secondary-button-hover-colour: $cads-language__hover-background-
 $cads-language__button-shadow-colour: $cads-palette__teal-dark !default;
 $cads-language__warning-colour: $cads-palette__red !default;
 $cads-language__success-colour: $cads-palette__green !default;
+
+// Navigation colours
+$cads-language__nav-hover-background-colour: $cads-palette__heritage-blue-dark !default;
 
 // Header colours
 $cads-header__background-colour: $cads-palette__white !default;
