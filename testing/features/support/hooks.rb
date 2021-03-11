@@ -19,7 +19,14 @@ end
 After do |test_case|
   if test_case.failed?
     save_full_page_screenshot(test_case) unless mobile_phone?
-
+    AutomationLogger.info("Scenario: #{test_case.name} - Status: FAILED")
+    AutomationLogger.error("ERROR: #{test_case.exception&.message}")
+    AutomationLogger.error("ERROR TYPE: #{test_case.exception.class}")
+    test_case.exception&.backtrace&.each&.with_index(1) do |backtrace_line, index|
+      AutomationLogger.error("BACKTRACE #{index}) #{backtrace_line}")
+    end
     CucumberResults.instance.status = "failed"
+  else
+    AutomationLogger.info("Scenario: #{test_case.name} - Status: #{test_case.status.upcase}")
   end
 end
