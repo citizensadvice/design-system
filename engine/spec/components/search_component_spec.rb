@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe DesignSystem::SearchComponent do
+  before { I18n.locale = :en }
+
   it "renders search form" do
     component = render_inline(
       DesignSystem::SearchComponent.new(action_url: "/search")
