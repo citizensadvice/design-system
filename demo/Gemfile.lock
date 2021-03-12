@@ -4,6 +4,7 @@ PATH
     design_system (0.1.0)
       haml (>= 5.1.0, < 6.0)
       rails (>= 6.0.0, < 7.0)
+      rails-i18n (>= 6.0.0, < 7.0)
       view_component (>= 2.0.0, < 3.0)
 
 GEM
@@ -142,6 +143,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails-i18n (6.0.0)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 7)
     railties (6.1.3)
       actionpack (= 6.1.3)
       activesupport (= 6.1.3)
@@ -172,7 +176,7 @@ GEM
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    view_component (2.24.0)
+    view_component (2.26.1)
       activesupport (>= 5.0.0, < 7.0)
     web-console (4.1.0)
       actionview (>= 6.0.0)

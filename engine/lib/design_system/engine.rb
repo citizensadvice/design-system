@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "haml"
+require "rails-i18n"
 require "active_support/core_ext"
 require "view_component/engine"
 
