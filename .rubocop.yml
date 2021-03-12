@@ -4,6 +4,13 @@ inherit_gem:
   citizens-advice-style:
     - default.yml
 
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'demo/node_modules/**/*'
+
 Style/ClassAndModuleChildren:
   Exclude:
     # Monkey patch for Firefox driver, should eventually be removed
@@ -17,12 +24,6 @@ Metrics/MethodLength:
   Exclude:
     - 'scripts/haml.rb'
     - 'testing/features/support/drivers/browserstack/base.rb'
-
-AllCops:
-  Exclude:
-    - 'vendor/**/*'
-    - 'node_modules/**/*'
-    - 'demo/node_modules/**/*'
 
 Metrics/BlockLength:
   Exclude:

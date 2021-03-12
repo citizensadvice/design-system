@@ -21,9 +21,7 @@ task generate_examples: :environment do
       output_path = Rails.application.root.join("../styleguide/examples/#{component_name}/#{example}.html")
 
       dirname = File.dirname(output_path)
-      unless File.directory?(dirname)
-        FileUtils.mkdir_p(dirname)
-      end
+      FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
 
       puts "Writing example to #{output_path}"
 

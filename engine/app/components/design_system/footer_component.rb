@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DesignSystem
-  class FooterComponent < ViewComponent::Base
+  class FooterComponent < ViewComponent::Base # rubocop:disable Metrics/ClassLength
     attr_reader :links, :feedback_url, :homepage_url
 
     def initialize(
@@ -19,8 +19,7 @@ module DesignSystem
 
     private
 
-    # rubocop:disable Metrics/MethodLength
-    def default_links
+    def default_links # rubocop:disable Metrics/MethodLength
       {
         column_one: {
           title: "Advice",
@@ -160,6 +159,5 @@ module DesignSystem
         }
       }
     end
-    # rubocop:enable Metrics/MethodLength
   end
 end

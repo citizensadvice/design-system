@@ -13,7 +13,7 @@ RSpec.describe DesignSystem::TargetedContentComponent do
         title: "Example targeted content",
         body: "<p>Some content</p>",
         type: (type unless type.nil?),
-        heading_level: (heading_level unless heading_level.nil?),
+        heading_level: (heading_level unless heading_level.nil?)
       )
     )
   end

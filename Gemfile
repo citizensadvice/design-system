@@ -6,8 +6,7 @@ gem "actionview", "~> 6.1"
 gem "haml", "~> 5.2"
 gem "rails-i18n", "~> 6.0"
 
-group :test do
-  gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v0.4"
+group :development, :test do
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.0.0"
   gem "cucumber", "5.0.0"
   gem "dotenv"
@@ -15,9 +14,13 @@ group :test do
   gem "haml_lint"
   gem "i18n-tasks", "~> 0.9.34"
   gem "rake"
-  gem "retriable", "~> 3.1"
   gem "rspec"
   gem "rubocop-rake", require: false
+end
+
+group :test do
+  gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v0.4"
+  gem "retriable", "~> 3.1"
   gem "selenium-webdriver", "4.0.0.alpha6"
   gem "site_prism", "~> 3.7"
   gem "webdrivers"
