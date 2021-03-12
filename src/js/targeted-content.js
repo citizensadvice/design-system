@@ -17,9 +17,11 @@ const SELECTORS = {
 };
 
 const CLASS_NAMES = {
+  noClose: 'cads-no-close',
   toggleable: 'cads-targeted-content--toggleable',
   open: 'cads-targeted-content--open',
   button: 'cads-targeted-content__button',
+  closeButton: 'cads-targeted-content__close-button',
   icon: 'cads-targeted-content__icon',
   iconVertLine: 'cads-targeted-content__icon-vert',
 };
@@ -103,7 +105,9 @@ function initTargetedContentFor(el) {
   const createCloseButton = () => {
     const ariaLabel = el.getAttribute('data-descriptive-label-hide');
     const closeButton = `<hr class="cads-separator" />
-        <button aria-label="${ariaLabel}" class="cads-linkbutton cads-targeted-content__close-button">
+        <button aria-label="${ariaLabel}" class="cads-linkbutton ${
+      CLASS_NAMES.closeButton
+    }">
           ${el.getAttribute('data-close-label')}
         </button>`;
 
@@ -112,9 +116,9 @@ function initTargetedContentFor(el) {
 
   el.classList.add(CLASS_NAMES.toggleable);
   createToggleButton();
-  createCloseButton();
 
-  const toggleButtonEl = el.querySelector('button');
+  const toggleButtonEl = el.querySelector(`.${CLASS_NAMES.button}`);
+
   toggleButtonEl.addEventListener('click', () => {
     const currentlyExpanded =
       toggleButtonEl.getAttribute('aria-expanded') === 'true' || false;
@@ -122,19 +126,26 @@ function initTargetedContentFor(el) {
     setState(el, currentlyExpanded ? 'closed' : 'open');
   });
 
-  const closeButtonEl = contentEl.querySelector('button');
-  closeButtonEl.addEventListener('click', () => {
-    const matchEl = closeButtonEl.closest(SELECTORS.el);
-    if (matchEl) {
-      setState(matchEl, 'closed');
-    }
+  if (!el.classList.contains(CLASS_NAMES.noClose)) {
+    createCloseButton();
+  }
 
-    const elTop = el.getBoundingClientRect().top;
-    // scroll back to top of targeted content if it's out of viewport
-    if (elTop < 0) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  });
+  const closeButtonEl = contentEl.querySelector(`.${CLASS_NAMES.closeButton}`);
+
+  if (closeButtonEl) {
+    closeButtonEl.addEventListener('click', () => {
+      const matchEl = closeButtonEl.closest(SELECTORS.el);
+      if (matchEl) {
+        setState(matchEl, 'closed');
+      }
+
+      const elTop = el.getBoundingClientRect().top;
+      // scroll back to top of targeted content if it's out of viewport
+      if (elTop < 0) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
 }
 
 export default function initTargetedContent() {
