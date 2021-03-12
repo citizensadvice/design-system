@@ -1,3 +1,7 @@
+## <sub>v4.0.4-alpha.0</sub>
+
+#### _Mar. 12, 2021_
+
 **New**
 
 - 🎯 Targeted content: Option to remove the close button.
