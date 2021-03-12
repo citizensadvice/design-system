@@ -107,6 +107,10 @@
       position: relative;
     }
 
+    &:hover {
+      cursor: pointer;
+    }
+
     &.is-open {
       &::after {
         transform: rotate(90deg);
