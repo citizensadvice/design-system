@@ -2,7 +2,7 @@
 
 module DesignSystem
   class TargetedContentComponentPreview < ViewComponent::Preview
-    def default # rubocop:disable Metrics/MethodLength
+    def default
       render(
         DesignSystem::TargetedContentComponent.new(
           id: "targeted-content-example",
@@ -22,7 +22,7 @@ module DesignSystem
       )
     end
 
-    def adviser # rubocop:disable Metrics/MethodLength
+    def adviser
       render(
         DesignSystem::TargetedContentComponent.new(
           type: "adviser",

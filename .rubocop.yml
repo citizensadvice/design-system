@@ -23,6 +23,7 @@ Style/MixinUsage:
 Metrics/MethodLength:
   Exclude:
     - 'scripts/haml.rb'
+    - 'engine/previews/**/*.rb'
     - 'testing/features/support/drivers/browserstack/base.rb'
 
 Metrics/BlockLength:
