@@ -31,6 +31,7 @@ cy:
       submit_title: Cyflwyno ymholiad chwilio
       submit_label: Chwilio
     targeted_content_component:
+      adviser: Cynghorydd
       descriptive_label_show: show this section
       descriptive_label_hide: hide this section
       close_button_aria: Cau %{title}

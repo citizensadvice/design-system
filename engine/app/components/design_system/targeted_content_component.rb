@@ -2,15 +2,24 @@
 
 module DesignSystem
   class TargetedContentComponent < ViewComponent::Base
-    attr_reader :id, :title, :body, :is_toggleable
+    attr_reader :type, :id, :title, :heading_level, :body
 
-    def initialize(id:, title:, body:, is_toggleable: true)
+    def initialize(id:, title:, body:, type: "public", heading_level: 2)
       super
 
+      @type = type
       @id = id
-      @title = title
+      @title = title.squish
+      @heading_level = heading_level.to_i.clamp(2, 4)
       @body = body
-      @is_toggleable = is_toggleable
+    end
+
+    def heading_attributes
+      {
+        class: %w[cads-targeted-content__title js-cads-targeted-content__title],
+        id: "h-#{id}",
+        data: { testid: "targeted-content-title" }
+      }
     end
   end
 end

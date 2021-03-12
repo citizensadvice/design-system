@@ -32,6 +32,7 @@ en:
       submit_title: Submit search query
       submit_label: Search
     targeted_content_component:
+      adviser: Adviser
       descriptive_label_show: show this section
       descriptive_label_hide: hide this section
       close_label: Close

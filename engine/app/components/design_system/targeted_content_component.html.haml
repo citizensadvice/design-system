@@ -1,7 +1,12 @@
-.cads-targeted-content{ class: ("js-cads-targeted-content" if is_toggleable),
+.cads-targeted-content.js-cads-targeted-content{ class: ("cads-targeted-content--adviser" if type == "adviser"),
   data: { descriptive_label_show: t(".descriptive_label_show"),
     descriptive_label_hide: t(".descriptive_label_hide"),
     close_label: t(".close_label") } }
-  %h2.cads-targeted-content__title.js-cads-targeted-content__title{ id: "h-#{id}" }= title
+  - haml_tag("h#{heading_level}", heading_attributes) do
+    .cads-targeted-content__title-text
+      - if type == "adviser"
+        .cads-targeted-content__badge
+          %span.cads-badge.cads-badge--adviser= t(".adviser")
+      = title
   .cads-targeted-content__content.cads-prose.js-cads-targeted-content__content{ id: "#{id}-content" }
     = body.html_safe
