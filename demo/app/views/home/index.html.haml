@@ -1,54 +1,10 @@
-= render(DesignSystem::HeaderComponent.new(links: [{ title: "Cymraeg", url: "?lang=cy" }],
-  sign_in_out: { title: "Sign in", url: "/sign-in" }))
-
 %main.cads-page-content
   .cads-grid-container
     .cads-grid-row
       .cads-grid-col-12
+        %h1.cads-page-title Engine demo app
+        .cads-prose
+          %ul
+            %li= link_to "Kitchen sink", kitchen_sink_path
+            %li= link_to "View Component previews", "/rails/view_components"
 
-        - notice_body = "<p>Example notice body. <a href='#'>Can contain links</a></p>"
-        = render(DesignSystem::NoticeBannerComponent.new(label: "Notice", body: notice_body))
-
-        - callout_body = "<h3>This is the callout title</h3><p>Example callout text</p>"
-        = render(DesignSystem::CalloutComponent.new(body: callout_body, type: "important"))
-
-        %p
-          = render(DesignSystem::AssetHyperlinkComponent.new(uri: "https://example.com",
-            description: "Test PDF",
-            size: 6_444_516))
-
-        %form
-          = render(DesignSystem::InputComponent.new(name: "example-input",
-              label: "Example input",
-              hint: "This is the hint for the input",
-              is_optional: true,
-              error_message: "This is an error message",
-              size: "16ch"))
-
-          = render(DesignSystem::RadioGroupComponent.new(name: "example-radio-group",
-              label: "Example radio group",
-              hint: "This is the hint for the radio group",
-              options: [{ value: "opt1", label: "Option 1" }, { value: "opt2", label: "Option 2" }],
-              is_small: true))
-
-          = render(DesignSystem::TextareaComponent.new(name: "example-textarea",
-              label: "Example textarea",
-              hint: "This is the hint for the textarea",
-              is_optional: true,
-              rows: 10))
-
-          %p
-            = render(DesignSystem::ButtonComponent.new) do |component|
-              - component.with(:icon_right) do
-                = render(DesignSystem::IconChevronComponent.new(variant: "right"))
-              Button label
-
-          %p
-            = render(DesignSystem::ButtonComponent.new(variant: "secondary")) do |component|
-              - component.with(:icon_left) do
-                = render(DesignSystem::IconChevronComponent.new(variant: "left"))
-              Button label
-
-        = render(DesignSystem::PageReviewComponent.new(page_review_date: 2.weeks.ago))
-
-= render(DesignSystem::FooterComponent.new(feedback_url: "http://example.com"))

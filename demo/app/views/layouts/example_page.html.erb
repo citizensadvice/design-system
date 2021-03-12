@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title %></title>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag "application", media: "all" %>
+  </head>
+  <body>
+    <%= render(DesignSystem::HeaderComponent.new(links: header_links)) %>
+    <%= yield %>
+    <%= render(DesignSystem::FooterComponent.new(feedback_url: "http://example.com")) %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>
