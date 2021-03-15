@@ -8,7 +8,7 @@ gem "rails-i18n", "~> 6.0"
 
 group :test do
   gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v0.4"
-  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.0.0"
+  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.1.0"
   gem "cucumber", "5.0.0"
   gem "dotenv"
   gem "faraday", "~> 1.3"
