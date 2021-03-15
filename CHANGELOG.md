@@ -2,6 +2,9 @@
 
 #### _Mar. 12, 2021_
 
+**Bugfixes**
+- 🍩 Settings: created additional colour variables to allow extra header theming
+
 ## <sub>v4.0.4-alpha.0</sub>
 
 #### _Mar. 12, 2021_
