@@ -9,11 +9,11 @@ GIT
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: 4a5d9bf2acbe5ea5acfaf331a94ca0e41506121a
-  tag: v2.0.0
+  revision: 1f1bb85b4ad28254583a184dddc6b47dfeb5da7b
+  tag: v2.1.0
   specs:
-    citizens-advice-style (2.0.0)
-      rubocop (~> 1.7.0)
+    citizens-advice-style (2.1.0)
+      rubocop (~> 1.11.0)
 
 GEM
   remote: https://rubygems.org/
@@ -172,15 +172,15 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.7.0)
+    rubocop (1.11.0)
       parallel (~> 1.10)
-      parser (>= 2.7.1.5)
+      parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
       rubocop-ast (>= 1.2.0, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 2.0)
+      unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.1)
       parser (>= 2.7.1.5)
     rubocop-rake (0.5.1)
