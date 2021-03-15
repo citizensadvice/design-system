@@ -80,10 +80,12 @@
     "husky": "^5.1.3",
     "inquirer": "^8.0.0",
     "jest": "^26.4.2",
+    "jest-date-mock": "^1.0.8",
     "js-beautify": "^1.13.2",
     "jsdom": "^16.5.0",
     "lint-staged": "^10.5.4",
     "markdown-loader": "^6.0.0",
+    "marked": "^2.0.0",
     "moment": "^2.27.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^8.1.0",
@@ -93,7 +95,7 @@
     "resolve-url-loader": "^3.1.1",
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
-    "semver": "^7.3.2",
+    "semver": "^7.3.4",
     "shell-loader": "^1.2.1",
     "simple-git": "^2.36.1",
     "stylelint": "^13.12.0",
@@ -122,6 +124,9 @@
       "/node_modules/",
       "/vendor/",
       "/lib/"
+    ],
+    "setupFiles": [
+      "jest-date-mock"
     ]
   },
   "lint-staged": {
