@@ -33,7 +33,7 @@ Then("I am able to search in English/Welsh") do
 end
 
 Then("I am able to expand the search bar") do
-  expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.search_mobile"))
+  expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.open_search"))
 
   @component.open_search_pane.click
 
@@ -41,7 +41,7 @@ Then("I am able to expand the search bar") do
 end
 
 Then("I am able to collapse the search bar") do
-  expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.search_mobile"))
+  expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.close_search"))
 
   @component.open_search_pane.click
 
