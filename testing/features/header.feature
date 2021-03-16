@@ -60,12 +60,12 @@ Feature: Header component
     Background:
       Given a Standard Header component is on the page
 
-    @small_screen @failing @NP-1885
+    @small_screen @future_release @v4.0.4
     Scenario: English Header has be expanded to show the full search bar
       Then I am able to expand the search bar
       And I am able to collapse the search bar
 
-    @small_screen @failing @NP-1885
+    @small_screen @future_release @v4.0.4
     Scenario: Welsh Header has be expanded to show the full search bar
       Given the language is Welsh
       Then I am able to expand the search bar
