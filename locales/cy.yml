@@ -13,7 +13,7 @@ cy:
     form:
       optional: dewisol
     header:
-      close_search: Close search in Welsh
+      close_search: Cau Chwilio
       open_search: Ymchwiliad agored
       skip_to_content: Neidio i’r cynnwys
       skip_to_footer: Neidio i’r troedyn
