@@ -15,9 +15,12 @@ const minimalHeaderHtml = `<header class='cads-header' data-testid="header">
       <div class='cads-grid-col-md-5 cads-header__logo-row'>
         <a class='cads-logo' href='root_path'
           title='Citizens Advice homepage'></a>
-        <button aria-expanded='false'
-          class='cads-header__search-reveal js-cads-search-reveal cads-icon_search'
-          title='Open search'></button>
+        <button aria-expanded="false" 
+          class="cads-header__search-reveal js-cads-search-reveal cads-icon_search" 
+          data-descriptive-label-hide="Close search" 
+          data-descriptive-label-show="Open search" 
+          data-testid="expand-button" 
+          title="Open search"></button>
       </div>
       <div class='cads-grid-col-md-7 cads-header__search-row'>
         ${searchFormHtml}
