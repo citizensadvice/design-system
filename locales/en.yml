@@ -13,7 +13,8 @@ en:
     form:
       optional: optional
     header:
-      search_mobile: Open search
+      open_search: Open search
+      close_search: Close search
       skip_to_content: Skip to content
       skip_to_footer: Skip to footer
       skip_to_navigation: Skip to navigation

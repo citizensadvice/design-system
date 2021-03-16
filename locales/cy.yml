@@ -13,7 +13,8 @@ cy:
     form:
       optional: dewisol
     header:
-      search_mobile: Ymchwiliad agored
+      open_search: Ymchwiliad agored
+      close_search: Close search in Welsh
       skip_to_content: Neidio i’r cynnwys
       skip_to_footer: Neidio i’r troedyn
       skip_to_navigation: Neidio i’r llywio

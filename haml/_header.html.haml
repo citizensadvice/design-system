@@ -3,6 +3,13 @@
   sign_in_out ||= {}
   main_content_anchor_link ||= "#cads-main-content"
   homepage_url ||= "/"
+  button_attr = {
+    class: %w[cads-header__search-reveal js-cads-search-reveal cads-icon_search],
+    title: t("cads.header.open_search"),
+    "data-testid": "expand-button",
+    "aria-expanded": "false",
+    data: { descriptive_label_show: t("cads.header.open_search"), descriptive_label_hide: t("cads.header.close_search") }
+  }
 
 %header.cads-header
   .cads-grid-container
@@ -16,7 +23,7 @@
           = t("cads.header.skip_to_footer")
       .cads-grid-col-md-2.cads-header__logo-row
         %a.cads-logo{ href: homepage_url, title: t("cads.shared.logo_title") }
-        %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ title: t("cads.header.search_mobile"), "data-testid": "expand-button", "aria-expanded": "false" }
+        %button{ button_attr }
       .cads-grid-col-md-10.cads-header__search-row
         %ul.cads-header__links.js-cads-copy-into-nav
           - links&.each do |link|
