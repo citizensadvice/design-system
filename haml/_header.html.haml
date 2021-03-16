@@ -6,9 +6,8 @@
   button_attr = {
     class: %w[cads-header__search-reveal js-cads-search-reveal cads-icon_search],
     title: t("cads.header.open_search"),
-    "data-testid": "expand-button",
     "aria-expanded": "false",
-    data: { descriptive_label_show: t("cads.header.open_search"), descriptive_label_hide: t("cads.header.close_search") }
+    data: { testid: "expand-button", descriptive_label_show: t("cads.header.open_search"), descriptive_label_hide: t("cads.header.close_search") }
   }
 
 %header.cads-header
