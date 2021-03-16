@@ -15,13 +15,17 @@ const initHeader = () => {
         controlButton.classList.remove(CLASS_NAMES.iconClose);
         controlButton.classList.add(CLASS_NAMES.iconSearch);
         controlButton.setAttribute('aria-expanded', 'false');
-        controlButton.title = 'Open search';
+        controlButton.title = controlButton.getAttribute(
+          'data-descriptive-label-show'
+        );
       } else {
         header.classList.add(CLASS_NAMES.showSearch);
         controlButton.classList.remove(CLASS_NAMES.iconSearch);
         controlButton.classList.add(CLASS_NAMES.iconClose);
         controlButton.setAttribute('aria-expanded', 'true');
-        controlButton.title = 'Close search';
+        controlButton.title = controlButton.getAttribute(
+          'data-descriptive-label-hide'
+        );
       }
     });
   }
