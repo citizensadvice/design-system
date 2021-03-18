@@ -62,7 +62,6 @@ export const getClosest = (
  */
 function debounce<Return>(func: () => Return, wait: number, immediate = false) {
   let timeout: Nullable<number>;
-  let finishedTimeout: number;
   return function debounced(this: Return, ...args: []) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this;
@@ -79,12 +78,6 @@ function debounce<Return>(func: () => Return, wait: number, immediate = false) {
 
     timeout = window.setTimeout(later, wait);
     if (callNow) func.apply(context, args);
-
-    // Safari requires this to correctly fire resize when leaving fullscreen mode.
-    window.clearTimeout(finishedTimeout);
-    finishedTimeout = window.setTimeout(() => {
-      func.apply(context, args);
-    }, 800);
   };
 }
 
@@ -424,11 +417,6 @@ export class GreedyNavMenu {
        * Event listeners
        */
       this.listeners(navWrapperElement);
-
-      /**
-       * Start first check
-       */
-      this.doesItFit(navWrapperElement, this.settings.throttleDelay);
     });
 
     /**
@@ -541,14 +529,24 @@ export class GreedyNavMenu {
    * Bind eventlisteners
    */
   listeners(navWrapper: HTMLElement): void {
-    window.addEventListener('resize', () => {
-      this.doesItFit(navWrapper, this.settings.throttleDelay);
-    });
+    const observer = new ResizeObserver(
+      debounce(() => {
+        this.doesItFit(navWrapper);
+      }, this.settings.throttleDelay)
+    );
+
+    const nav = document.querySelector('.js-cads-greedy-nav');
+
+    if (nav) {
+      // this will fire when observed - which is desirable. We
+      // use this to set up the initial state of the dropdown.
+      observer.observe(nav);
+    }
 
     window.addEventListener(
       'orientationchange',
       () => {
-        this.doesItFit(navWrapper, this.settings.throttleDelay);
+        this.doesItFit(navWrapper);
       },
       true
     );
@@ -755,14 +753,14 @@ export class GreedyNavMenu {
    * Move item to array
    * @param item
    */
-  doesItFit(_this: HTMLElement, throttleDelay: number): void {
+  doesItFit(_this: HTMLElement /* , throttleDelay: number */): void {
     /**
      * Check if it is the first run
      */
-    const currentInstance = _this.getAttribute('instance');
-    const firstRun = currentInstance === '0';
+    // const currentInstance = _this.getAttribute('instance');
+    // const firstRun = currentInstance === '0';
 
-    const delay = firstRun ? 0 : throttleDelay;
+    // const delay = firstRun ? 0 : throttleDelay;
 
     /**
      * Increase instance
@@ -772,71 +770,52 @@ export class GreedyNavMenu {
     /**
      * Debounced execution of the main logic
      */
-    debounce(() => {
-      /**
-       * Update width
-       */
+
+    /**
+     * Update width
+     */
+    Object.assign(this, calculateWidths(_this, this.settings.offsetPixels));
+
+    const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
+
+    if (!mainNav) {
+      throw new Error('main nav not found');
+    }
+
+    /**
+     * Keep executing until all menu items that are overflowing are moved
+     */
+    while (
+      (this.totalWidth <= this.restWidth && mainNav.children.length > 0) ||
+      (this.viewportWidth < this.settings.breakPoint &&
+        mainNav.children.length > 0)
+    ) {
+      // move item to dropdown
+      this.toDropdown(_this);
+      // recalculate widths
       Object.assign(this, calculateWidths(_this, this.settings.offsetPixels));
-
-      const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
-
-      if (!mainNav) {
-        throw new Error('main nav not found');
+      // update dropdownToggle label
+      if (this.viewportWidth < this.settings.breakPoint) {
+        updateLabel(
+          _this,
+          this.settings.navDropdownBreakpointLabel,
+          this.navDropdownToggleSelector,
+          this.settings.navDropdownLabelActive
+        );
       }
+    }
 
-      /**
-       * Keep executing until all menu items that are overflowing are moved
-       */
-      while (
-        (this.totalWidth <= this.restWidth && mainNav.children.length > 0) ||
-        (this.viewportWidth < this.settings.breakPoint &&
-          mainNav.children.length > 0)
-      ) {
-        // move item to dropdown
-        this.toDropdown(_this);
-        // recalculate widths
-        Object.assign(this, calculateWidths(_this, this.settings.offsetPixels));
-        // update dropdownToggle label
-        if (this.viewportWidth < this.settings.breakPoint) {
-          updateLabel(
-            _this,
-            this.settings.navDropdownBreakpointLabel,
-            this.navDropdownToggleSelector,
-            this.settings.navDropdownLabelActive
-          );
-        }
-      }
-
-      /**
-       * Keep executing until all menu items that are able to move back are moved
-       */
-      while (
-        this.totalWidth >= this.breaks[this.breaks.length - 1] &&
-        this.viewportWidth > this.settings.breakPoint
-      ) {
-        // move item to menu
-        this.toMenu(_this);
-        // update dropdownToggle label
-        if (this.viewportWidth > this.settings.breakPoint) {
-          updateLabel(
-            _this,
-            this.settings.navDropdownLabel,
-            this.navDropdownToggleSelector,
-            this.settings.navDropdownLabelActive
-          );
-        }
-      }
-
-      /**
-       * If there are no items in dropdown hide dropdown
-       */
-
-      const navDropdown = _this.querySelector<HTMLElement>(
-        this.navDropdownSelector
-      );
-      if (navDropdown && this.breaks.length < 1) {
-        navDropdown.classList.remove('show');
-        // show navDropdownLabel
+    /**
+     * Keep executing until all menu items that are able to move back are moved
+     */
+    while (
+      this.totalWidth >= this.breaks[this.breaks.length - 1] &&
+      this.viewportWidth > this.settings.breakPoint
+    ) {
+      // move item to menu
+      this.toMenu(_this);
+      // update dropdownToggle label
+      if (this.viewportWidth > this.settings.breakPoint) {
         updateLabel(
           _this,
           this.settings.navDropdownLabel,
@@ -844,28 +823,46 @@ export class GreedyNavMenu {
           this.settings.navDropdownLabelActive
         );
       }
+    }
 
-      /**
-       * If there are no items in menu
-       */
-      if (mainNav && mainNav.children.length < 1) {
-        // show navDropdownBreakpointLabel
-        _this.classList.add('is-empty');
-        updateLabel(
-          _this,
-          this.settings.navDropdownBreakpointLabel,
-          this.navDropdownToggleSelector,
-          this.settings.navDropdownLabelActive
-        );
-      } else {
-        _this.classList.remove('is-empty');
-      }
+    /**
+     * If there are no items in dropdown hide dropdown
+     */
 
-      /**
-       * Check if we need to show toggle menu button
-       */
-      showToggle(_this, this.navDropdownToggleSelector, this.breaks);
-    }, delay)();
+    const navDropdown = _this.querySelector<HTMLElement>(
+      this.navDropdownSelector
+    );
+    if (navDropdown && this.breaks.length < 1) {
+      navDropdown.classList.remove('show');
+      // show navDropdownLabel
+      updateLabel(
+        _this,
+        this.settings.navDropdownLabel,
+        this.navDropdownToggleSelector,
+        this.settings.navDropdownLabelActive
+      );
+    }
+
+    /**
+     * If there are no items in menu
+     */
+    if (mainNav && mainNav.children.length < 1) {
+      // show navDropdownBreakpointLabel
+      _this.classList.add('is-empty');
+      updateLabel(
+        _this,
+        this.settings.navDropdownBreakpointLabel,
+        this.navDropdownToggleSelector,
+        this.settings.navDropdownLabelActive
+      );
+    } else {
+      _this.classList.remove('is-empty');
+    }
+
+    /**
+     * Check if we need to show toggle menu button
+     */
+    showToggle(_this, this.navDropdownToggleSelector, this.breaks);
   }
 
   /**

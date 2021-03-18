@@ -74,7 +74,7 @@ const defaultConfig: Config = {
    * GreedyNav's calculations and puts the last nav item in the dropdown at lg.  This offset prevents
    * that from whilst maintainng the otherwise correct behaviour of GreedyNav.
    */
-  offsetPixels: -2,
+  offsetPixels: -10,
   count: true,
 
   // Callbacks
