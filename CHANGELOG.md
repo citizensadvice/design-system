@@ -1,16 +1,10 @@
+## <sub>v4.0.4</sub>
+#### _Mar. 18, 2021_
+
 **Bugfixes**
+
 - 👤 Header: open/close search button title is now translated correctly
-
-## <sub>v4.0.4-alpha.1</sub>
-
-#### _Mar. 12, 2021_
-
-**Bugfixes**
 - 🍩 Settings: created additional colour variables to allow extra header theming
-
-## <sub>v4.0.4-alpha.0</sub>
-
-#### _Mar. 12, 2021_
 
 **New**
 
