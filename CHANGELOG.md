@@ -1,3 +1,7 @@
+## <sub>v4.0.4</sub>
+
+#### _Mar. 18, 2021_
+
 **Bugfixes**
 - 👤 Header: open/close search button title is now translated correctly
 
