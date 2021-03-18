@@ -13,24 +13,22 @@ Feature: Header component
     Background:
       Given a Standard Header component is on the page
 
-    @not_mobile @future_release @4.1.0+
+    @not_mobile
     Scenario: English Header has some quick links
       Then a link to change language is present
       And a login link is present
       And a logo is present
 
-    @not_mobile @future_release @4.1.0+
+    @not_mobile
     Scenario: Welsh Header has some quick links
       Given the language is Welsh
       Then a link to change language is present
       And a login link is present
       And a logo is present
 
-    @future_release @4.1.0+
     Scenario: English Header has a search option
       Then I am able to search in English
 
-    @future_release @4.1.0+
     Scenario: Welsh Header has a search option
       Given the language is Welsh
       Then I am able to search in Welsh
@@ -60,13 +58,13 @@ Feature: Header component
     Background:
       Given a Standard Header component is on the page
 
-    @small_screen @future_release @v4.0.4
-    Scenario: English Header has be expanded to show the full search bar
+    @small_screen
+    Scenario: English Header can be expanded to show the full search bar
       Then I am able to expand the search bar
       And I am able to collapse the search bar
 
-    @small_screen @future_release @v4.0.4
-    Scenario: Welsh Header has be expanded to show the full search bar
+    @small_screen
+    Scenario: Welsh Header can be expanded to show the full search bar
       Given the language is Welsh
       Then I am able to expand the search bar
       And I am able to collapse the search bar
