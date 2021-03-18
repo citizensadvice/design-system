@@ -1,7 +1,6 @@
 Feature: Navigation component
 
   Rule: The greedy nav displays as many navigation links as fit on the viewport.  Any that don't fit are added into an expandable dropdown.
-
     Background:
       Given the navigation is on the page
 
@@ -20,15 +19,15 @@ Feature: Navigation component
       Then the dropdown menu is open
 
     Scenario: clicking the close button hides the dropdown menu
-      Given the dropdown menu is already open 
+      Given the dropdown menu is already open
       When I close the dropdown menu
       Then the dropdown menu is closed
 
-    @failing @np-1765 @not_mobile
+    @not_mobile
     Scenario: tabbing onto the dropdown toggle opens the dropdown menu
       Given the navigation does not fit on the screen
       And the dropdown toggle is present
-      When I tab onto the More button 
+      When I tab onto the More button
       Then the Close button is present
       And the dropdown menu is open
 
@@ -51,9 +50,8 @@ Feature: Navigation component
       When I click outside of the menu
       Then the dropdown menu is closed
       And the More button is present
-  
-  Rule: The greedy nav should display any header links when on a mobile view.
 
+  Rule: Mobile View
     Background:
       Given the navigation is on the page with header links
 
