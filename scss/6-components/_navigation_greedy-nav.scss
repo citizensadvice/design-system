@@ -130,7 +130,7 @@
     position: relative;
     visibility: hidden;
 
-    @include cads-media-breakpoint-up(md) {
+    @include cads-media-breakpoint-up(sm) {
       position: absolute;
       right: 0;
       height: 100%;
@@ -145,7 +145,7 @@
     visibility: hidden;
   }
 
-  &-has-dropdown {
+  &.cads-greedy-nav-has-dropdown {
     .cads-greedy-nav {
       &__dropdown {
         &-toggle {
