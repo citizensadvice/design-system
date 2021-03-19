@@ -34,7 +34,7 @@ class Driver
   def setup_site_prism
     SitePrism.configure do |config|
       config.log_path = "#{ENV['BASE_ARTIFACTS_PATH']}/logs/site_prism.log"
-      config.log_level = :INFO
+      config.log_level = log_level
 
       # This will be required until v4 of SitePrism is released
       require "site_prism/all_there"
@@ -43,7 +43,7 @@ class Driver
   end
 
   def setup_selenium_webdriver
-    Selenium::WebDriver.logger.level = :INFO
+    Selenium::WebDriver.logger.level = log_level
     Selenium::WebDriver.logger.output = "#{ENV['BASE_ARTIFACTS_PATH']}/logs/webdriver.log"
   end
 end

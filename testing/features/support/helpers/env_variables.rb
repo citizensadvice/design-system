@@ -95,5 +95,17 @@ module Helpers
     def ios11?
       browserstack? && browserstack_os_version == "11"
     end
+
+    def log_level
+      ENV.fetch("LOG_LEVEL", "INFO")
+    end
+
+    def log_location
+      ENV["LOG_LOCATION"]
+    end
+
+    def log_to_stdout?
+      log_location == "stdout"
+    end
   end
 end
