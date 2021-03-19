@@ -121,8 +121,12 @@ window.addEventListener('load', () => {
 Some components require polyfills for older browsers. Components which require polyfills note this in their documentation. The full list is:
 
 - Targeted content:
+
   - [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest)
   - [Scroll behaviour (Element.prototype.scrollIntoView) polyfill](https://github.com/wessberg/scroll-behavior-polyfill)
+
+- Navigation (specifically the greedynav behaviour):
+  - [ResizeObserver polyfill](https://www.npmjs.com/package/resize-observer-polyfill)
 
 We don't include the polyfills by default in order to avoid double bundling if you have your own.
 
