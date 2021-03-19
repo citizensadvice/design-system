@@ -103,9 +103,5 @@ module Helpers
     def log_location
       ENV["LOG_LOCATION"]
     end
-
-    def log_to_stdout?
-      log_location == "stdout"
-    end
   end
 end

@@ -24,11 +24,7 @@ class AutomationLogger
     end
 
     def log_name
-      if log_to_stdout?
-        $stdout
-      else
-        "#{ENV['BASE_ARTIFACTS_PATH']}/logs/#{log_location}.log"
-      end
+      Pathname.new("#{ENV['BASE_ARTIFACTS_PATH']}/logs") + log_location
     end
 
     def logs_to_keep
