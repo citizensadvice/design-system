@@ -6,6 +6,8 @@ import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import path from 'path';
 
+import ResizeObserver from './__mocks__/ResizeObserver';
+
 import {
   getClosest,
   showToggle,
@@ -17,6 +19,14 @@ import { defaultConfig } from './Config';
 const jsdomConfig = { url: 'http://public-website.test:3000' };
 
 describe('Greedy Nav', () => {
+  beforeAll(() => {
+    window.ResizeObserver = ResizeObserver;
+  });
+
+  afterAll(() => {
+    delete window.ResizeObserver;
+  });
+
   describe('getClosest', () => {
     let dom: JSDOM;
     let document: Document;
