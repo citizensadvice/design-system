@@ -62,22 +62,23 @@ export const getClosest = (
  */
 function debounce<Return>(func: () => Return, wait: number, immediate = false) {
   let timeout: Nullable<number>;
+
   return function debounced(this: Return, ...args: []) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this;
 
     const later = () => {
       timeout = null;
-      if (immediate) func.apply(context, args);
+      if (!immediate) func.apply(context, args);
     };
-    const callNow = immediate && timeout;
 
     if (timeout) {
       window.clearTimeout(timeout);
+    } else if (immediate) {
+      func.apply(context, args);
     }
 
     timeout = window.setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
   };
 }
 
@@ -258,7 +259,6 @@ const getChildrenWidth = (e: HTMLElement) => {
  */
 const calculateWidths = (_this: HTMLElement, offsetPixels: number) => {
   const totalWidth = getElementContentWidth(_this);
-  // Check if parent is the navwrapper before calculating its width
 
   const restWidth = getChildrenWidth(_this) + offsetPixels;
   const viewportWidth = viewportSize().width;
@@ -531,6 +531,7 @@ export class GreedyNavMenu {
   listeners(navWrapper: HTMLElement): void {
     const observer = new ResizeObserver(
       debounce(() => {
+        console.log('resized');
         this.doesItFit(navWrapper);
       }, this.settings.throttleDelay)
     );
@@ -659,6 +660,7 @@ export class GreedyNavMenu {
   /**
    * Move item to dropdown
    */
+
   toDropdown(navigation: HTMLElement): void {
     const navDropdown = navigation.querySelector<HTMLElement>(
       this.navDropdownSelector

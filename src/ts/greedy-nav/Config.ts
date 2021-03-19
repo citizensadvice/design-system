@@ -72,7 +72,7 @@ const defaultConfig: Config = {
   /* Offset pixels add a tolerance to when an item is removed from the nav and put in the dropdown.
    * Aligning the nav with the grid in NP-1026 makes the contents of the nav 2px too wide for
    * GreedyNav's calculations and puts the last nav item in the dropdown at lg.  This offset prevents
-   * that from whilst maintainng the otherwise correct behaviour of GreedyNav.
+   * that from occuring whilst maintainng the otherwise correct behaviour of GreedyNav.
    */
   offsetPixels: -10,
   count: true,
