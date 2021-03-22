@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- 🧭 GreedyNav: Fix greedy nav behaviour when resizing
+
 ## <sub>v4.0.4</sub>
 #### _Mar. 18, 2021_
 
