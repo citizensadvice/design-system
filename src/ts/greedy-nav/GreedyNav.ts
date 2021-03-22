@@ -69,7 +69,9 @@ function debounce<Return>(func: () => Return, wait: number, immediate = false) {
 
     const later = () => {
       timeout = null;
-      if (!immediate) func.apply(context, args);
+      if (!immediate) {
+        func.apply(context, args);
+      }
     };
 
     if (timeout) {
