@@ -146,12 +146,8 @@
   }
 
   &.cads-greedy-nav-has-dropdown {
-    .cads-greedy-nav {
-      &__dropdown {
-        &-toggle {
-          position: relative;
-        }
-      }
+    .cads-greedy-nav__dropdown-toggle {
+      position: relative;
     }
   }
 

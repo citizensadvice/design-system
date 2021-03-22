@@ -531,7 +531,6 @@ export class GreedyNavMenu {
   listeners(navWrapper: HTMLElement): void {
     const observer = new ResizeObserver(
       debounce(() => {
-        console.log('resized');
         this.doesItFit(navWrapper);
       }, this.settings.throttleDelay)
     );
@@ -755,15 +754,7 @@ export class GreedyNavMenu {
    * Move item to array
    * @param item
    */
-  doesItFit(_this: HTMLElement /* , throttleDelay: number */): void {
-    /**
-     * Check if it is the first run
-     */
-    // const currentInstance = _this.getAttribute('instance');
-    // const firstRun = currentInstance === '0';
-
-    // const delay = firstRun ? 0 : throttleDelay;
-
+  doesItFit(_this: HTMLElement): void {
     /**
      * Increase instance
      */
