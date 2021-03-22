@@ -3,6 +3,7 @@
 class AutomationLogger
   class << self
     extend Forwardable
+    include Helpers::EnvVariables
 
     def_delegators :logger, :debug, :info, :warn, :error, :fatal, :unknown
 
@@ -13,17 +14,17 @@ class AutomationLogger
     private
 
     def create_logger
-      logger = ::Logger.new(log_name, logs_to_keep, size_of_log)
-      logger.level = log_level
-      logger.formatter = proc do |severity, time, _, msg|
-        "#{time.strftime('%F %T')} - #{severity} - #{msg}\n"
+      ::Logger.new(log_name, logs_to_keep, size_of_log).tap do |logger|
+        logger.progname = "AutomationLogger"
+        logger.level = log_level
+        logger.formatter = proc do |severity, time, progname, msg|
+          "#{time.strftime('%F %T')} - #{severity} - #{progname} - #{msg}\n"
+        end
       end
-
-      logger
     end
 
     def log_name
-      "#{ENV['BASE_ARTIFACTS_PATH']}/logs/automation_logs.log"
+      Pathname.new("#{ENV['BASE_ARTIFACTS_PATH']}/logs") + log_location
     end
 
     def logs_to_keep
@@ -32,10 +33,6 @@ class AutomationLogger
 
     def size_of_log
       1_048_576
-    end
-
-    def log_level
-      ENV.fetch("LOG_LEVEL", "INFO")
     end
   end
 end
