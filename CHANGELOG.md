@@ -1,3 +1,7 @@
+**New**
+
+- 🔗 Links: Links and Link Buttons no longer has default browser outlines
+
 **Bugfixes**
 
 - 🧭 GreedyNav: Fix greedy nav behaviour when resizing
