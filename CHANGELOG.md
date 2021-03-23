@@ -1,6 +1,7 @@
 **New**
 
 - 🔗 Links: Links and Link Buttons no longer has default browser outlines
+- 🌠 Logo: Add a transparent bottom border to the logo link
 
 **Bugfixes**
 
