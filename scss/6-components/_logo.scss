@@ -4,7 +4,7 @@
   height: 100px;
   margin-right: 2rem; // Always leave a gap to anything after it
   display: inline-block;
-  background-color: transparent;
+  border-bottom: $cads-border-width-medium solid transparent;
   background-repeat: no-repeat;
 
   &:hover {

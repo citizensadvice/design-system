@@ -7,6 +7,7 @@ a,
 .cads-linkbutton__regular {
   color: $cads-language__link-colour;
   text-decoration: underline;
+  outline: none;
 
   &:visited {
     color: $cads-language__link-visited-colour;
@@ -51,7 +52,6 @@ a,
   padding: 0;
   box-shadow: none;
   line-height: normal;
-  outline-offset: 1px;
 
   &:focus {
     margin-bottom: -2px; //account for bottom border
