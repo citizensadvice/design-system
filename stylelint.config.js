@@ -52,7 +52,6 @@ module.exports = {
     'plugin/selector-bem-pattern': {
       preset: 'bem',
       presetOptions: { namespace: 'cads' },
-      implicitComponents: 'scss/6-components/*.scss',
     },
   },
 };
