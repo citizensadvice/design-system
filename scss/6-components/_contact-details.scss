@@ -1,0 +1,15 @@
+// ============================================================================
+// Contact details
+// ============================================================================
+// Uses weak BEM coventions as the contents is user supplied HTML.
+
+/* @define contact-details; weak */
+.cads-contact-details {
+  @extend %cads-prose;
+
+  margin-bottom: $cads-spacing-5;
+
+  p {
+    margin-bottom: 0;
+  }
+}
