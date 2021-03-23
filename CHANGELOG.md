@@ -1,6 +1,10 @@
+## <sub>v4.0.5-alpha.0</sub>
+
+#### _Mar. 23, 2021_
+
 **New**
 
-- 🔗 Links: Links and Link Buttons no longer has default browser outlines
+- 🔗 Links: Links and Link Buttons no longer have default browser outline
 - 🌠 Logo: Add a transparent bottom border to the logo link
 
 **Bugfixes**
