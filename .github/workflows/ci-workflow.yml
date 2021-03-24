@@ -29,6 +29,7 @@ jobs:
       APP_ENVIRONMENT: local
       BROWSER: chrome
       LOG_LOCATION: /dev/stdout
+      TESTING_BASE_URL: 'http://localhost:6006'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
