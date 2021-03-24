@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-      # Cache npm dependencies using https://github.com/bahmutov/npm-install
+      # Cache and install npm dependencies using https://github.com/bahmutov/npm-install
       - uses: bahmutov/npm-install@v1
       - run: npm test
 
@@ -30,6 +30,12 @@ jobs:
           bundler-cache: true
       - run: bundle exec rake ruby:lint
 
+  # Actions can run in parallel at the job or the workflow level.
+  # In order to run our build-dependent tests in parallel we need a way
+  # to build the docs and then "seed" each stage with a copy.
+  # We can do this using using artifacts along with a `needs` clause on each job
+  # See: https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#sharing-data-between-jobs
+  #      https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs
   build:
     runs-on: ubuntu-20.04
     steps:
@@ -60,13 +66,13 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-      # Cache npm dependencies using https://github.com/bahmutov/npm-install
+      # Cache and install npm dependencies using https://github.com/bahmutov/npm-install
       - uses: bahmutov/npm-install@v1
       - uses: actions/download-artifact@v2
         with:
           name: docs-build
       # Explicitly install testing dependencies
-      - run: npm ci
+      -  run: npm ci
         working-directory: ./testing
       - run: ruby -run -e httpd -- docs -p 6006 &
       - run: npx pa11y-ci --config=pa11yci.local.js
@@ -95,6 +101,9 @@ jobs:
             testing/visual-regression/backstop_data/bitmaps_test
           retention-days: 2
 
+  # The Ubuntu 20.04 virtual environment includes a copy of Chrome by default
+  # We can use this to run our selenium tests locally without needing selenium grid
+  # See: https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md#browsers-and-drivers
   selenium-tests:
     needs: build
     runs-on: ubuntu-20.04
