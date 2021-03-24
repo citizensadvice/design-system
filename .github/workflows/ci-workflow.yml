@@ -1,6 +1,14 @@
 name: Continuous Integration
 on: [push, pull_request]
 
+env:
+  # Share node version across jobs
+  # actions/setup-node doesn't currently look at any config files
+  # for now we do the simplest thing and set an environment variable.
+  # See https://github.com/actions/setup-node/pull/239
+  # Maybe we could use https://github.com/guardian/actions-setup-node directly in the meantime?
+  NODE_VERSION: '14'
+
 jobs:
   node-test:
     runs-on: ubuntu-20.04
@@ -8,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: ${{ env.NODE_VERSION }}
       # Cache npm dependencies using https://github.com/bahmutov/npm-install
       - uses: bahmutov/npm-install@v1
       - run: npm test
@@ -28,8 +36,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          # @TODO: Can we share this? Get it from .nvmrc?
-          node-version: '14'
+          node-version: ${{ env.NODE_VERSION }}
       # Cache npm dependencies using https://github.com/bahmutov/npm-install
       - uses: bahmutov/npm-install@v1
       - uses: ruby/setup-ruby@v1
@@ -52,7 +59,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: ${{ env.NODE_VERSION }}
       # Cache npm dependencies using https://github.com/bahmutov/npm-install
       - uses: bahmutov/npm-install@v1
       - uses: actions/download-artifact@v2
