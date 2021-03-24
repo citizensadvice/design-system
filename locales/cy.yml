@@ -3,10 +3,6 @@ cy:
   cads:
     breadcrumbs:
       home: Hafan
-    callout:
-      adviser: Cynghorydd
-      example: Enghraifft
-      important: Pwysig
     footer:
       navigation_title: Llywio Troedyn
       website_feedback: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
