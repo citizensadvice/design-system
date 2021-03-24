@@ -28,7 +28,7 @@ jobs:
       HEADLESS: true
       APP_ENVIRONMENT: local
       BROWSER: chrome
-      LOG_LOCATION: /dev/stdout
+      LOG_LOCATION: automation_logs.log
       TESTING_BASE_URL: 'http://localhost:6006'
     steps:
       - uses: actions/checkout@v2
@@ -49,3 +49,9 @@ jobs:
       - run: npx pa11y-ci --config=pa11yci.local.js
         working-directory: ./testing/wcag
       - run: bundle exec rake design_system:all
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: grid-artifacts
+          path: testing/artifacts
+          retention-days: 2
