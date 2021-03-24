@@ -72,7 +72,7 @@ jobs:
         with:
           name: docs-build
       # Explicitly install testing dependencies
-      -  run: npm ci
+      - run: npm ci
         working-directory: ./testing
       - run: ruby -run -e httpd -- docs -p 6006 &
       - run: npx pa11y-ci --config=pa11yci.local.js
