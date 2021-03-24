@@ -99,6 +99,7 @@
     "semver": "^7.3.5",
     "shell-loader": "^1.2.1",
     "simple-git": "^2.37.0",
+    "start-server-and-test": "^1.12.1",
     "stylelint": "^13.12.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^21.0.0",

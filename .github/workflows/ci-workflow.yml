@@ -24,12 +24,6 @@ jobs:
 
   build:
     runs-on: ubuntu-20.04
-    env:
-      HEADLESS: true
-      APP_ENVIRONMENT: local
-      BROWSER: chrome
-      LOG_LOCATION: automation_logs.log
-      TESTING_BASE_URL: 'http://localhost:6006'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -43,14 +37,56 @@ jobs:
           bundler-cache: true
       - run: npm run build --if-present
       - run: npm run docs:build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: docs-build
+          path: |
+            docs
+            lib
+          retention-days: 1
+
+  pa11y:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      # Cache npm dependencies using https://github.com/bahmutov/npm-install
+      - uses: bahmutov/npm-install@v1
+      - uses: actions/download-artifact@v2
+        with:
+          name: docs-build
+      # Explicitly install testing dependencies
       - run: npm ci
         working-directory: ./testing
-      - run: npm run docs:serve &
-      - run: npx pa11y-ci --config=pa11yci.local.js
+      - run: |
+          npx start-test 'http-server -p 6006 ../../docs' 6006 'pa11y-ci --config=pa11yci.local.js'
         working-directory: ./testing/wcag
-      - run: bundle exec rake design_system:all
+
+  selenium-tests:
+    needs: build
+    runs-on: ubuntu-20.04
+    env:
+      HEADLESS: true
+      APP_ENVIRONMENT: local
+      BROWSER: chrome
+      LOG_LOCATION: automation_logs.log
+      TESTING_BASE_URL: 'http://localhost:6006'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - uses: actions/download-artifact@v2
+        with:
+          name: docs-build
+      - run: |
+          ruby -run -e httpd -- docs -p 6006 &
+          ./scripts/wait-for localhost:6006 -- bundle exec rake design_system:all
       - uses: actions/upload-artifact@v2
-        if: always()
+        if: failure()
         with:
           name: grid-artifacts
           path: testing/artifacts
