@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/object/blank"
 require "ca_testing"
 require "capybara"
 require "capybara/dsl"
