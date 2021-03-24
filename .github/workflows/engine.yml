@@ -4,11 +4,10 @@ on: [push]
 jobs:
   ruby-test:
     runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: engine
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      # Cache and install npm dependencies using https://github.com/bahmutov/npm-install
-      - uses: bahmutov/npm-install@v1
-      - run: npm test
+      - uses: ruby/setup-ruby@v1
+      - run: bundle exec rake spec
