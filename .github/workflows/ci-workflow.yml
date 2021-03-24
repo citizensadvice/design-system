@@ -24,6 +24,10 @@ jobs:
 
   build:
     runs-on: ubuntu-20.04
+    env:
+      HEADLESS: true
+      APP_ENVIRONMENT: local
+      BROWSER: chrome
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -42,3 +46,4 @@ jobs:
       - run: npm run docs:serve &
       - run: npx pa11y-ci --config=pa11yci.local.js
         working-directory: ./testing/wcag
+      - run: bundle exec rake design_system:all
