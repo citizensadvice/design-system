@@ -28,6 +28,7 @@ jobs:
       HEADLESS: true
       APP_ENVIRONMENT: local
       BROWSER: chrome
+      LOG_LOCATION: /dev/stdout
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
