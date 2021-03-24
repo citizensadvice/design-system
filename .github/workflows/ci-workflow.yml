@@ -21,3 +21,19 @@ jobs:
         with:
           bundler-cache: true
       - run: bundle exec rake ruby:lint
+
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          # @TODO: Can we share this? Get it from .nvmrc?
+          node-version: '14'
+      # Cache npm dependencies using https://github.com/bahmutov/npm-install
+      - uses: bahmutov/npm-install@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: npm run build --if-present
+      - run: npm run docs:build
