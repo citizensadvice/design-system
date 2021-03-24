@@ -62,7 +62,7 @@ jobs:
       - run: npm ci
         working-directory: ./testing
       - run: |
-          npx start-test 'http-server -p 6006 ../../docs' 6006 'pa11y-ci --config=pa11yci.local.js'
+          npx start-server-and-test 'http-server -p 6006 ../../docs' 6006 'pa11y-ci --config=pa11yci.local.js'
         working-directory: ./testing/wcag
 
   selenium-tests:
@@ -84,7 +84,7 @@ jobs:
           name: docs-build
       - run: |
           ruby -run -e httpd -- docs -p 6006 &
-          ./scripts/wait-for localhost:6006 -- bundle exec rake design_system:all
+          ./bin/wait-for localhost:6006 -- bundle exec rake design_system:all
       - uses: actions/upload-artifact@v2
         if: failure()
         with:
