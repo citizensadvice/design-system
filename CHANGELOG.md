@@ -2,10 +2,6 @@
 
 #### _Mar. 26, 2021_
 
-## <sub>v4.0.5-alpha.0</sub>
-
-#### _Mar. 23, 2021_
-
 **New**
 
 - 🔗 Links: Links and Link Buttons no longer have default browser outline
