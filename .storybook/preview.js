@@ -2,6 +2,9 @@ import theme from './theme';
 
 import '../styleguide/styles.scss';
 
+// need to polyfill here, otherwise previews don't work (when viewing components discretely).
+import './polyfill';
+
 export const parameters = {
   docs: {
     theme: theme,
