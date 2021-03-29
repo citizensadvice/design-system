@@ -127,6 +127,7 @@ Some components require polyfills for older browsers. Components which require p
 
 - Navigation (specifically the greedynav behaviour):
   - [ResizeObserver polyfill](https://www.npmjs.com/package/resize-observer-polyfill)
+  - Note: this polyfill is not a global polyfill, you will need to assign it to window.ResizeObserver.
 
 We don't include the polyfills by default in order to avoid double bundling if you have your own.
 
