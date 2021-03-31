@@ -159,8 +159,11 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - run: bundle exec rake design_system:all
+      - run: echo $DOCKER_TAG
         env:
+          # Fake the DOCKER_TAG for browser stack builds
+          # @TODO: Refactor this to be less coupled to the build environment
+          DOCKER_TAG: ${{ format('design-system/PR-987_{0}', env.GITHUB_SHA) }}
           BROWSERSTACK: true
           HEADLESS: false
           GRID: false
