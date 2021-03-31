@@ -60,7 +60,7 @@ module Helpers
 
     def base_url
       if environment == :local
-        "http://ca-styleguide:6006"
+        ENV.fetch("TESTING_BASE_URL", "http://ca-styleguide:6006")
       else
         "https://citizensadvice.github.io/design-system"
       end
