@@ -163,7 +163,7 @@ jobs:
         env:
           # Fake the DOCKER_TAG for browser stack builds
           # @TODO: Refactor this to be less coupled to the build environment
-          DOCKER_TAG: ${{ format('design-system/PR-987_{0}', "${GITHUB_SHA}") }}
+          DOCKER_TAG: "design-system/PR-987_${GITHUB_SHA::8}"
           BROWSERSTACK: true
           HEADLESS: false
           GRID: false
