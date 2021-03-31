@@ -140,18 +140,20 @@ jobs:
             browser: 'chrome'
             browserstack_username: 'PRO_BROWSERSTACK_USERNAME'
             browserstack_access_key: 'PRO_BROWSERSTACK_ACCESS_KEY'
-    #          - config: 'Windows_10_81'
-    #            browser: 'firefox'
-    #          - config: 'Windows_7_80'
-    #            browser: 'chrome'
-    #          - config: 'Windows_7_78'
-    #            browser: 'firefox'
-    #          - config: 'OSX_Mojave_84'
-    #            browser: 'chrome'
-    #          - config: 'OSX_Mojave_12'
-    #            browser: 'safari'
-    #          - config: 'iPhone11_13'
-    #            browser: 'ios'
+          #          - config: 'Windows_10_81'
+          #            browser: 'firefox'
+          #          - config: 'Windows_7_80'
+          #            browser: 'chrome'
+          #          - config: 'Windows_7_78'
+          #            browser: 'firefox'
+          #          - config: 'OSX_Mojave_84'
+          #            browser: 'chrome'
+          #          - config: 'OSX_Mojave_12'
+          #            browser: 'safari'
+          - config: 'iPhone11_13'
+            browser: 'ios'
+            browserstack_username: 'MOBILE_BROWSERSTACK_USERNAME'
+            browserstack_access_key: 'MOBILE_BROWSERSTACK_ACCESS_KEY'
     #          - config: 'iPhone8_12'
     #            browser: 'ios'
     steps:
@@ -159,7 +161,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - run: echo $DOCKER_TAG
+      - run: bundle exec rake design_system:all
         env:
           # Fake the DOCKER_TAG for browser stack builds
           # @TODO: Refactor this to be less coupled to the build environment
