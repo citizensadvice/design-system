@@ -60,3 +60,9 @@ jobs:
           BROWSERSTACK_CONFIGURATION_OPTIONS: ${{ matrix.config }}
           BROWSERSTACK_USERNAME: ${{ secrets[matrix.browserstack_username] }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets[matrix.browserstack_access_key] }}
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: grid-artifacts
+          path: testing/artifacts
+          retention-days: 2
