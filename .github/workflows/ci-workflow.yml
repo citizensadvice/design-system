@@ -19,8 +19,8 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       # Cache and install npm dependencies using https://github.com/bahmutov/npm-install
       - uses: bahmutov/npm-install@v1
-      - run: npm test
       - run: npm run lint
+      - run: npm test
 
   ruby-lint:
     runs-on: ubuntu-20.04
