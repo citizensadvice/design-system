@@ -8,11 +8,7 @@ module Drivers
         include Helpers::Methods
 
         def build_name
-          if browserstack_build_name.present?
-            "Design System - #{browserstack_build_name} - #{base_url}"
-          else
-            "Design System - #{sha} - #{base_url}"
-          end
+          "Design System - #{identifier} - #{base_url}"
         end
 
         def session_name
@@ -20,6 +16,10 @@ module Drivers
         end
 
         private
+
+        def identifier
+          browserstack_build_name.present? ? browserstack_build_name : sha
+        end
 
         def sha
           @sha ||= `git rev-parse --short HEAD`.chomp
