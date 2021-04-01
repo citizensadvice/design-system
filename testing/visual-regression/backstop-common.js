@@ -1,4 +1,11 @@
 module.exports = function backstopCommon(baseUrl) {
+  const commonViewports = {
+    phone: { label: 'phone', width: 320, height: 480 },
+    small: { label: 'Small', width: 640, height: 960 },
+    medium: { label: 'Medium', width: 800, height: 600 },
+    large: { label: 'Large', width: 1024, height: 768 },
+  };
+
   function storyUrlFor(componentId) {
     return `${baseUrl}/iframe.html?id=${componentId}&viewMode=story`;
   }
@@ -53,12 +60,7 @@ module.exports = function backstopCommon(baseUrl) {
 
   return {
     id: 'backstop_default',
-    viewports: [
-      { label: 'phone', width: 320, height: 480 },
-      { label: 'Small', width: 640, height: 960 },
-      { label: 'Medium', width: 800, height: 600 },
-      { label: 'Large', width: 1024, height: 768 },
-    ],
+    viewports: Object.values(commonViewports),
     onReadyScript: 'onReady.js',
     scenarios: [
       ...buildButtonScenarios(
