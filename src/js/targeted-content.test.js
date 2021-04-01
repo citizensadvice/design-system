@@ -28,7 +28,7 @@ test('allow toggling targeted content', () => {
   const headingEl = screen.getByRole('heading');
   const buttonEl = getByRole(headingEl, 'button');
   const parentEl = headingEl.parentElement;
-  expect(parentEl).toHaveClass('cads-targeted-content--toggleablex');
+  expect(parentEl).toHaveClass('cads-targeted-content--toggleable');
 
   function expectOpen() {
     expect(parentEl).toHaveClass('cads-targeted-content--open');
