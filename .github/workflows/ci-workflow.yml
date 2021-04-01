@@ -115,7 +115,7 @@ jobs:
             testing/visual-regression/backstop_data/html_report
             testing/visual-regression/backstop_data/bitmaps_reference
             testing/visual-regression/backstop_data/bitmaps_test
-          retention-days: 2
+          retention-days: 3
 
   # The Ubuntu 20.04 virtual environment includes a copy of Chrome by default
   # We can use this to run our selenium tests locally without needing selenium grid
