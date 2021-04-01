@@ -4,6 +4,8 @@
 %nav{ class: "cads-breadcrumbs cads-breadcrumbs--#{type}", "aria-label": "breadcrumbs" }
   %ul.cads-breadcrumbs__list
     %li.cads-breadcrumbs__crumb
+      %a{ href: "#doesntexist" }
+        Wrong
       %a.cads-breadcrumb{ href: "/" }= t("cads.breadcrumbs.home")
     - breadcrumbs["breadcrumb_links"].each_with_index do |link, index|
       %li.cads-breadcrumbs__crumb
