@@ -334,6 +334,13 @@ module.exports = function backstopCommon(baseUrl) {
         'Sample Page/Generic/Tables',
         'sample-pages-generic--tables'
       ),
+      {
+        label: `Foundations/Colours`,
+        url: storyUrlFor('foundations-colours--page'),
+        viewports: [commonViewports.large],
+        selectors: ['document'],
+        excludeFromA11yTest: true,
+      },
     ],
     dockerCommandTemplate:
       'docker run --rm -i --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
