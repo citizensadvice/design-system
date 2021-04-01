@@ -1,3 +1,12 @@
+##
+# This workflow runs two main groups of jobs:
+#
+# 1. A set of parallel jobs to run node and ruby based tests,
+#    alongside a job to build the storybook docs and static assets.
+#
+# 2. A subsequent set of parallel jobs for pa11y, backstop, and selenium.
+#    These depend on the build job and are seeded with a copy of the docs.
+##
 name: Continuous Integration
 on: [push]
 
