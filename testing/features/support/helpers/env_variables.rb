@@ -78,12 +78,6 @@ module Helpers
       end
     end
 
-    # Example: design-system/master_ad4b223
-    # Example: design-system/PR-284_dbbb8b6
-    def docker_tag
-      ENV["DOCKER_TAG"]
-    end
-
     def browserstack_os
       ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[0]
     end
