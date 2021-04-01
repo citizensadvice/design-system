@@ -24,6 +24,8 @@
 
           %h2 Purchase details
 
+          %h6 No thanks
+
           = render partial: "@citizensadvice/design-system/haml/radio_group",
             locals: { radio: { "name" => "example-radio-group", "label" => "Have you paid for goods or services from this trader?", "options" => [{ "value" => "opt1", "label" => "Yes - If yes, answer the below questions" }, { "value" => "opt2", "label" => " No" }] } }
 

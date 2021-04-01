@@ -7,6 +7,8 @@ const initHeader = () => {
 
   const header = document.querySelector('.cads-header');
 
+  boo;
+
   if (header) {
     const controlButton = header.querySelector('.js-cads-search-reveal');
     controlButton.addEventListener('click', () => {
