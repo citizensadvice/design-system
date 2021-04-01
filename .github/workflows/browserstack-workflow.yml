@@ -1,0 +1,48 @@
+name: BrowserStack
+
+# BrowserStack tests are run against the deployed GitHub pages URL
+# The closest event we can use to trigger when these are updated is page_build.
+# on: [page_build]
+on: [push]
+
+jobs:
+  desktop-browsers:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - config: 'Windows_10_85'
+            browser: 'chrome'
+    #          - config: 'Windows_10_81'
+    #            browser: 'firefox'
+    #          - config: 'Windows_7_80'
+    #            browser: 'chrome'
+    #          - config: 'Windows_7_78'
+    #            browser: 'firefox'
+    #          - config: 'OSX_Mojave_84'
+    #            browser: 'chrome'
+    #          - config: 'OSX_Mojave_12'
+    #            browser: 'safari'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bundle exec rake design_system:all
+        env:
+          BROWSERSTACK: true
+          BROWSERSTACK_BUILD_NAME: ${{ format('Workflow run {0}', github.run_number) }}
+          HEADLESS: false
+          GRID: false
+          LOG_LOCATION: automation_logs.log
+          BROWSER: ${{ matrix.browser }}
+          BROWSERSTACK_CONFIGURATION_OPTIONS: ${{ matrix.config }}
+          BROWSERSTACK_USERNAME: ${{ secrets.PRO_BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.PRO_BROWSERSTACK_ACCESS_KEY }}
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: grid-artifacts
+          path: testing/artifacts
+          retention-days: 2

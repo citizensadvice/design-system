@@ -30,6 +30,10 @@ module Helpers
       ENV.fetch("BROWSERSTACK_DEBUG_MODE", "false")
     end
 
+    def browserstack_build_name
+      ENV.fetch("BROWSERSTACK_BUILD_NAME")
+    end
+
     def grid?
       ENV["GRID"] == "true"
     end
