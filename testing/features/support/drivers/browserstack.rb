@@ -3,7 +3,6 @@
 module Drivers
   class Browserstack
     include Helpers::EnvVariables
-    include Helpers::Faraday
 
     def register
       register_browser
@@ -54,6 +53,29 @@ module Drivers
 
     def register_exit_handler
       at_exit { update_browserstack_status }
+    end
+
+    def update_browserstack_status
+      cucumber_results_connection.put do |request|
+        request.headers["Content-Type"] = "application/json"
+        request.body = { status: status }.to_json
+      end
+    end
+
+    def cucumber_results_connection
+      @cucumber_results_connection ||= begin
+        ::Faraday.new(url: "https://api.browserstack.com/automate/sessions/#{id}.json").tap do |connection|
+          connection.basic_auth(browserstack_username, browserstack_api_key)
+        end
+      end
+    end
+
+    def id
+      ::CucumberResults.instance.session_id
+    end
+
+    def status
+      ::CucumberResults.instance.status
     end
   end
 end
