@@ -6,7 +6,7 @@ name: BrowserStack
 on: [push]
 
 jobs:
-  desktop-browsers:
+  browserstack:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
