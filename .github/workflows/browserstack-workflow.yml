@@ -57,4 +57,4 @@ jobs:
         with:
           name: grid-artifacts
           path: testing/artifacts
-          retention-days: 2
+          retention-days: 3
