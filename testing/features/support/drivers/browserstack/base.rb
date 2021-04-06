@@ -64,11 +64,15 @@ module Drivers
       end
 
       def build_name
-        PayloadValuesGenerator.build_name
+        "Design System - #{identifier} - #{base_url}"
       end
 
       def session_name
-        PayloadValuesGenerator.session_name
+        "SHA: #{sha} - CALLING_PROJECT: design-system"
+      end
+
+      def identifier
+        browserstack_build_name.present? ? browserstack_build_name : sha
       end
 
       def selenium_jar_version
