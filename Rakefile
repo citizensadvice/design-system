@@ -75,7 +75,7 @@ namespace :npm do
   desc "Run jest tests in node"
   task :jest do
     puts "Running jest tests"
-    system("npm run jest") || raise
+    system("npm test") || raise
   end
 
   desc "Run linting jobs in node"
