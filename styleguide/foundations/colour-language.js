@@ -19,7 +19,11 @@ export function swatchFor(key) {
 }
 
 function prepareForMarkdown(value) {
-  return value.replace('_', '\\_').replace('#', '\\#');
+  if (value) {
+    return value.replace('_', '\\_').replace('#', '\\#');
+  }
+
+  return '';
 }
 
 export function colourLanguageTable(mappings) {
