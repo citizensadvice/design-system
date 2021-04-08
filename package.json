@@ -68,7 +68,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "chalk": "^4.1.0",
-    "cssnano": "^4.1.10",
+    "cssnano": "^4.1.11",
     "eslint": "^7.23.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^8.1.0",
@@ -104,7 +104,7 @@
     "stylelint-scss": "^3.19.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "systemjs": "^6.8.3",
-    "typescript": "^4.2.3",
+    "typescript": "^4.2.4",
     "url-polyfill": "^1.1.11"
   },
   "browserslist": [
