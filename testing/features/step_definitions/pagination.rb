@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Given("an Example Pagination component is on the page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @component = Pagination::Example.new.tap(&:load)
 end
 
 Given("a Paging Info Pagination component is on the page") do
@@ -9,25 +9,31 @@ Given("a Paging Info Pagination component is on the page") do
 end
 
 Then("the current page is highlighted") do
-  pending # Write code here that turns the phrase above into concrete actions
+  if chrome?
+    expect(@component.current_page.native.css_value('background-color')).to eq("rgba(1, 129, 118, 1)")
+  else
+    expect(@component.current_page.native.css_value('background-color')).to eq("rgb(1, 129, 118)")
+  end
 end
 
-Then("there are numerical buttons to skip to the {int} previous pages") do |_int|
-  # Then('there are numerical buttons to skip to the {float} previous pages') do |float|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("there are numerical buttons to skip to the 2 previous pages") do
+  expect(@component).to have_link(@component.previous_page(1))
+  expect(@component).to have_link(@component.previous_page(2))
 end
 
-Then("there are numerical buttons to skip to the {int} next pages") do |_int|
-  # Then('there are numerical buttons to skip to the {float} next pages') do |float|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("there are numerical buttons to skip to the 2 next pages") do
+  expect(@component).to have_link(@component.next_page(1))
+  expect(@component).to have_link(@component.next_page(2))
 end
 
 Then("there are buttons to skip to the first and last page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@component).to have_link("First")
+  expect(@component).to have_link("Last")
 end
 
 Then("there are buttons to skip to the next and previous page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@component).to have_link("Previous")
+  expect(@component).to have_link("Next")
 end
 
 Then("the number of results is displayed") do
