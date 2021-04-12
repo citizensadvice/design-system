@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Pagination
-  class PagingInfor < ::Base
-    set_url "/iframe.html?id=forms-input--basic&viewMode=story"
+  class PagingInfo < ::Base
+    set_url "/iframe.html?id=components-pagination--paging-info&args=&viewMode=story"
 
-    element :paging_info, ".cads-paging-info"
+    element :number_of_results, ".cads-paging-info"
   end
 end

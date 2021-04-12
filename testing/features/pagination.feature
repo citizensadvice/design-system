@@ -19,4 +19,4 @@ Feature: Pagination
       Given a Paging Info Pagination component is on the page
 
     Scenario: Paging Info is present on the page
-      Then the number of pages is displayed
+      Then the number of results is displayed
