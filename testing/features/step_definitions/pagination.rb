@@ -9,7 +9,7 @@ Given("a Paging Info Pagination component is on the page") do
 end
 
 Then("the current page is highlighted") do
-  if chrome?
+  if chrome? || mobile_phone?
     expect(@component.current_page.native.css_value("background-color")).to eq("rgba(1, 129, 118, 1)")
   else
     expect(@component.current_page.native.css_value("background-color")).to eq("rgb(1, 129, 118)")
