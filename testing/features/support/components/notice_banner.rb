@@ -2,10 +2,9 @@
 
 module DesignSystem
   class NoticeBanner < ::Base
-
     set_url "/iframe.html?id=components-notice-banner--example&args=&viewMode=story"
 
-    element :title, ".cads-notice-banner__title"
-    element :text, ".cads-notice-banner p"
+    element :notice_banner_title, ".cads-notice-banner__title"
+    element :message, "p"
   end
 end

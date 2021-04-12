@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-Given('a Standard Notice Banner component is on the page') do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("a Standard Notice Banner component is on the page") do
+  @component = DesignSystem::NoticeBanner.new.tap(&:load)
 end
 
-
-Then('a notice banner title and message are present') do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("a notice banner title and message are present") do
+  expect(@component).to have_notice_banner_title
+  expect(@component).to have_message
 end
