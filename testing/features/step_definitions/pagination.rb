@@ -8,12 +8,8 @@ Given("a Paging Info Pagination component is on the page") do
   @component = Pagination::PagingInfo.new.tap(&:load)
 end
 
-Then("the current page is highlighted") do
-  if chrome? || mobile_phone?
-    expect(@component.current_page.native.css_value("background-color")).to eq("rgba(1, 129, 118, 1)")
-  else
-    expect(@component.current_page.native.css_value("background-color")).to eq("rgb(1, 129, 118)")
-  end
+Then("current page displayed") do
+  expect(@component).to have_current_page
 end
 
 Then("there are numerical buttons to skip to the 2 previous pages") do

@@ -4,7 +4,7 @@ module Pagination
   class Example < ::Base
     set_url "/iframe.html?id=components-pagination--example&args=&viewMode=story"
 
-    element :current_page, ".cads-paging__current a"
+    element :current_page, "[aria-current='page']"
 
     def current_page_number
       current_page.text.to_i

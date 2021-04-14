@@ -8,7 +8,7 @@ Feature: Pagination
       Given an Example Pagination component is on the page
 
     Scenario: All the pagination elements are present on the page
-      Then the current page is highlighted
+      Then current page displayed
       And there are numerical buttons to skip to the 2 previous pages
       And there are numerical buttons to skip to the 2 next pages
       And there are buttons to skip to the first and last page
