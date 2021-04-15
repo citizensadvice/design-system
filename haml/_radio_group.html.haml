@@ -14,6 +14,7 @@
         %input.cads-radio-group__input{ type: "radio",
           id: "#{radio['name']}-#{option['value']}",
           name: radio["name"],
-          value: option["value"] }
+          value: option["value"],
+          checked: option["checked"] ? true : false }
         %label.cads-radio-group__label{ for: "#{radio['name']}-#{option['value']}" }
           = option["label"]

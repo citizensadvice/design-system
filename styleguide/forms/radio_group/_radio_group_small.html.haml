@@ -1,8 +1,8 @@
 = render partial: "@citizensadvice/design-system/haml/radio_group",
-  locals: { radio: { "name" => "example-radio-group-small", "label" => "Example radio group", "options" => [{ "value" => "opt1", "label" => "Option 1" }, { "value" => "opt2", "label" => "Option 2" }], "small" => true } }
+  locals: { radio: { "name" => "example-radio-group-small", "label" => "Example radio group", "options" => [{ "value" => "opt1", "label" => "Option 1" }, { "value" => "opt2", "label" => "Option 2", "checked" => true }], "small" => true } }
 
 = render partial: "@citizensadvice/design-system/haml/radio_group",
-  locals: { radio: { "name" => "example-radio-group-small-with-hint", "label" => "Example radio group", "options" => [{ "value" => "opt1", "label" => "Option 1" }, { "value" => "opt2", "label" => "Option 2" }], "hint" => "This is the hint for the radio group", "small" => true } }
+  locals: { radio: { "name" => "example-radio-group-small-with-hint", "label" => "Example radio group", "options" => [{ "value" => "opt1", "label" => "Option 1" }, { "value" => "opt2", "label" => "Option 2", "checked" => true }], "hint" => "This is the hint for the radio group", "small" => true } }
 
 = render partial: "@citizensadvice/design-system/haml/radio_group",
-  locals: { radio: { "name" => "example-radio-group-small-with-error", "label" => "Example radio group", "options" => [{ "value" => "opt1", "label" => "Option 1" }, { "value" => "opt2", "label" => "Option 2" }], "error_message" => "This is an error messsage", "has_error" => true, "small" => true } }
+  locals: { radio: { "name" => "example-radio-group-small-with-error", "label" => "Example radio group", "options" => [{ "value" => "opt1", "label" => "Option 1" }, { "value" => "opt2", "label" => "Option 2",  "checked" => true }], "error_message" => "This is an error messsage", "has_error" => true, "small" => true } }

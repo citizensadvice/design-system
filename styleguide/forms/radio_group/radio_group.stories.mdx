@@ -111,16 +111,17 @@ The components we provide use wrap radio groups in a fieldset. In this context t
 
 The Haml partial takes a `radio` hash with the following properties:
 
-| properties      | Description                                                 |
-| --------------- | ----------------------------------------------------------- |
-| `name`          | Required, field name                                        |
-| `label`         | Required, label text                                        |
-| `options`       | Reqiuired, an array of hashes, each with the following:     |
-| `option[name]`  | &rarr; Required, name for the option                        |
-| `option[value]` | &rarr; Required, value for the option                       |
-| `hint`          | Optional, hint text                                         |
-| `optional`      | Optional, boolean flag to mark the field as optional        |
-| `error_message` | Optional, error message for the field                       |
-| `has_error`     | Optional, boolean flag to mark the field as having an error |
-| `inline`        | Optional, boolean flag to display radio buttons inline      |
-| `small`         | Optional, boolean flag to display radio in small style      |
+| properties        | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| `name`            | Required, field name                                         |
+| `label`           | Required, label text                                         |
+| `options`         | Reqiuired, an array of hashes, each with the following:      |
+| `option[name]`    | &rarr; Required, name for the option                         |
+| `option[value]`   | &rarr; Required, value for the option                        |
+| `option[checked]` | &rarr; optional, true if the option is checked, false if not |
+| `hint`            | Optional, hint text                                          |
+| `optional`        | Optional, boolean flag to mark the field as optional         |
+| `error_message`   | Optional, error message for the field                        |
+| `has_error`       | Optional, boolean flag to mark the field as having an error  |
+| `inline`          | Optional, boolean flag to display radio buttons inline       |
+| `small`           | Optional, boolean flag to display radio in small style       |

@@ -1,3 +1,10 @@
+**New**
+
+- 📻 Radio buttons: Radio button options now accepted a checked paramater
+
+**Bugfixes**
+
+- 📻 Radio buttons: Show the correct selected style
 ## <sub>v4.0.5</sub>
 
 #### _Mar. 26, 2021_
