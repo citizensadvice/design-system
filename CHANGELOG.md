@@ -1,3 +1,7 @@
+**New**
+
+- 📻 Radio buttons: Radio button options now accepted a checked paramater
+
 **Bugfixes**
 
 - 📻 Radio buttons: Show the correct selected style
