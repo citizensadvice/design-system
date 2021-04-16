@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Button components
 
   The Button components give the current site a variety of ways of

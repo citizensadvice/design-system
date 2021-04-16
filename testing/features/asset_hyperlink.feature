@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Asset Hyperlink component
 
   The Asset Hyperlink component allows content managers to provide an

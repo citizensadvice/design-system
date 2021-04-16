@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Breadcrumbs component
 
   The Breadcrumbs component allows users to see a navigable path to their

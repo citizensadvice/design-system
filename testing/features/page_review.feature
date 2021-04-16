@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Page Review component
 
   The Page Review component reassures the public that the content

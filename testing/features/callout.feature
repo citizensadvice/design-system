@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Callout components
 
   The Callout components notify users of important information

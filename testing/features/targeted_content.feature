@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Targeted Content component
 
   The Targeted Content component allows content managers

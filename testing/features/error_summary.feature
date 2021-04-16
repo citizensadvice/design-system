@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Error Summary component
 
   The Error Summary component shows users of the site when a form/input

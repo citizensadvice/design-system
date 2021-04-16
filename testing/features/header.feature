@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Header component
 
   The Header component allows users to perform some quick tasks

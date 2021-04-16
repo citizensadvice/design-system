@@ -58,6 +58,10 @@ module Helpers
       browserstack? && browserstack_os.start_with?("iPhone")
     end
 
+    def ipad?
+      browserstack? && browserstack_os.start_with?("iPad")
+    end
+
     def headless?
       ENV["HEADLESS"] == "true"
     end

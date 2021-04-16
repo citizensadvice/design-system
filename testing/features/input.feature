@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Input components
 
   The Input components provides the user with a way of submitting plain text.

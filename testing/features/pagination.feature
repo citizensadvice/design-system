@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Pagination
 
   The pagination helps users navigate through multiple pages.

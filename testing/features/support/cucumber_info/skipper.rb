@@ -14,6 +14,7 @@ module CucumberInfo
     def skip_scenario?
       return AutomationLogger.error("Scenario does NOT work on mobile phones") if not_mobile_check
       return AutomationLogger.error("Scenario does NOT work on iOS12") if not_ios12_check
+      return AutomationLogger.error("Scenario does NOT work on Tablets") if not_tablet_check
 
       false
     end
@@ -26,6 +27,10 @@ module CucumberInfo
 
     def not_ios12_check
       ios12? && tags.include?("@not_ios12")
+    end
+
+    def not_tablet_check
+      ipad? && tags.include?("@not_tablet")
     end
   end
 end

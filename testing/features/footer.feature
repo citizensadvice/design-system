@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Footer component
 
   The footer component shows users of the site useful links
