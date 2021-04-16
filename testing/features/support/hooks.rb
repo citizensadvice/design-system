@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 AfterConfiguration do
-  CucumberResults.instance.set_session_id
+  CucumberInfo.set_session_id
 end
 
 Before do |test_case|
@@ -26,7 +26,7 @@ After do |test_case|
     test_case.exception&.backtrace&.each&.with_index(1) do |backtrace_line, index|
       AutomationLogger.error("BACKTRACE #{index}) #{backtrace_line}")
     end
-    CucumberResults.instance.status = "failed"
+    CucumberInfo.scenario_result = "failed"
   else
     AutomationLogger.info("Scenario: #{test_case.name} - Status: #{test_case.status.upcase}")
   end

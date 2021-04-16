@@ -22,11 +22,11 @@ module Helpers
     end
 
     def id
-      ::CucumberResults.instance.session_id
+      ::CucumberInfo.session_id
     end
 
     def status
-      ::CucumberResults.instance.status
+      ::CucumberInfo.scenario_result
     end
   end
 end
