@@ -6,12 +6,12 @@ module CucumberInfo
       @tags = tags
     end
 
-    def advisernet?
-      @tags.include?("@advisernet")
+    def not_ios12?
+      @tags.include?("@not_ios12")
     end
 
-    def requires_regular_login?
-      @tags.include?("@requires_regular_login")
+    def not_mobile?
+      @tags.include?("@not_mobile")
     end
   end
 end

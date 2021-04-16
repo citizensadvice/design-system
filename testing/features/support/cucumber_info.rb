@@ -5,7 +5,7 @@ module CucumberInfo
     include Helpers::EnvVariables
     extend Forwardable
 
-    def_delegators :tags, :advisernet?, :requires_regular_login?
+    def_delegators :tags, :not_ios12?, :not_mobile?
 
     attr_reader :session_id, :test_case
     attr_writer :scenario_result

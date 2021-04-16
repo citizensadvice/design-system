@@ -12,35 +12,20 @@ module CucumberInfo
     end
 
     def skip_scenario?
-      return AutomationLogger.error("Scenario only works on chrome") if chrome_only_check
-      return AutomationLogger.error("Scenario does NOT work on chrome") if not_chrome_check
-      return AutomationLogger.error("Scenario does NOT work on safari") if not_safari_check
-      return AutomationLogger.error("Scenario does NOT work on browserstack") if not_browserstack_check
-      return AutomationLogger.error("Scenario requires a deployed environment") if not_local_check
+      return AutomationLogger.error("Scenario does NOT work on mobile phones") if not_mobile_check
+      return AutomationLogger.error("Scenario does NOT work on iOS12") if not_ios12_check
 
       false
     end
 
     private
 
-    def chrome_only_check
-      !chrome? && tags.include?("@chrome")
+    def not_mobile_check
+      device? && tags.include?("@not_mobile")
     end
 
-    def not_chrome_check
-      chrome? && tags.include?("@not_chrome")
-    end
-
-    def not_safari_check
-      safari? && tags.include?("@not_safari")
-    end
-
-    def not_browserstack_check
-      browserstack? && tags.include?("@not_browserstack")
-    end
-
-    def not_local_check
-      !base_url.include?(".content.citizensadvice.org.uk") && tags.include?("@not_local")
+    def not_ios12_check
+      ios12? && tags.include?("@not_ios12")
     end
   end
 end
