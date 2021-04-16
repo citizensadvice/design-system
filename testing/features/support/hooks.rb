@@ -8,8 +8,6 @@ Before do |test_case|
   CucumberInfo.test_case = test_case
   skip_this_scenario("Scenario is not permitted to run. See logs for details") if CucumberInfo.skip_scenario?
   I18n.locale = :en
-  skip_this_scenario("This does not work on mobile") if device? && test_case.source_tag_names.include?("@not_mobile")
-  skip_this_scenario("This does not work on iOS12") if ios12? && test_case.source_tag_names.include?("@not_ios12")
   resize_window unless device?
   resize_window(320) if test_case.source_tag_names.include?("@small_screen") && !device?
   AutomationLogger.info("Running Scenario: #{test_case.name}")

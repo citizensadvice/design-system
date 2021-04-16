@@ -54,6 +54,10 @@ module Helpers
       %w[android ios].include?(ENV["BROWSER"])
     end
 
+    def iphone?
+      browserstack? && browserstack_os.start_with?("iPhone")
+    end
+
     def headless?
       ENV["HEADLESS"] == "true"
     end

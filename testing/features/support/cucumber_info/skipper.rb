@@ -21,7 +21,7 @@ module CucumberInfo
     private
 
     def not_mobile_check
-      device? && tags.include?("@not_mobile")
+      iphone? && tags.include?("@not_mobile")
     end
 
     def not_ios12_check
