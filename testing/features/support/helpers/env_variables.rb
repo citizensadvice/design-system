@@ -50,7 +50,7 @@ module Helpers
       ENV["BROWSER"] == "safari"
     end
 
-    def mobile_phone?
+    def device?
       %w[android ios].include?(ENV["BROWSER"])
     end
 
