@@ -11,7 +11,7 @@ group :test do
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.1.0"
   gem "cucumber", "5.0.0"
   gem "dotenv"
-  gem "faraday", "~> 1.3"
+  gem "faraday", "~> 1.4"
   gem "haml_lint"
   gem "i18n-tasks", "~> 0.9.34"
   gem "rake"
