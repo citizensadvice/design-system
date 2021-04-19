@@ -36,6 +36,8 @@
             - if sign_in_out["form"]
               %form.cads-header__account-form{method: "POST", action: sign_in_out["url"], "data-testid": "account-link"}
                 %button.cads-linkbutton__regular= sign_in_out["title"]
+                - if respond_to? :form_authenticity_token
+                  %input{type: "hidden", name: "authenticity_token", value: form_authenticity_token}
             - else
               %a.cads-header__hyperlink{href: sign_in_out["url"], "data-testid": "account-link"}= sign_in_out["title"]
         .cads-header__search-form
