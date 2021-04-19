@@ -281,9 +281,29 @@ def define_browserstack_tests() {
           try {
             sh './bin/docker/browserstack_tests'
           } catch (Exception e) {
-            sh 'docker-compose logs --no-color'
-            currentBuild.result = 'FAILURE'
-            throw e
+            if (it.permissibleFail) {
+              catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                sh "exit 1"
+              }
+
+              withCredentials([string(credentialsId: params.slackCredentialsId, variable: 'SLACK_TOKEN')]) {
+                message = "${env.BUILD_TAG}\n"
+                message += "STAGE: ${BUILD_STAGE}\n"
+                message += "${sh(returnStdout: true, script: "git log -1 --pretty=format':%h %s (%an, %ar)'")}\n"
+                message += "${it.browser} ${it.config} was PERMITTED TO FAIL"
+
+                slackSend(
+                  token: SLACK_TOKEN,
+                  channel: params.slackChannel,
+                  color: 'warning',
+                  message: message
+                )
+              }
+            } else {
+              sh 'docker-compose logs --no-color'
+              currentBuild.result = 'FAILURE'
+              throw e
+            }
           } finally {
             // Archive artifacts from this test run in $browser/$config
             archiveArtifacts(
