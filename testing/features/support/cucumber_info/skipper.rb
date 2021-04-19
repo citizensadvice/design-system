@@ -30,7 +30,8 @@ module CucumberInfo
     end
 
     def not_tablet_check
-      ipad? && tags.include?("@not_tablet")
+      (ipad? && tags.include?("@not_tablet")) ||
+        (ipad? && tags.include?("@small_screen"))
     end
   end
 end
