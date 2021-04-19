@@ -16,6 +16,7 @@ configurationTypes = [
   ['OSX_Mojave_84', 'chrome'],
   ['OSX_Mojave_12', 'safari'],
   ['iPhone11_13', 'ios'],
+  ['iPad7th_13', 'ios'],
   ['iPhone8_12', 'ios'],
 ]
 
