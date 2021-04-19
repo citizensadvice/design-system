@@ -1,4 +1,3 @@
-@not_tablet
 Feature: Pagination
 
   The pagination helps users navigate through multiple pages.
@@ -8,7 +7,7 @@ Feature: Pagination
     Background:
       Given an Example Pagination component is on the page
 
-    Scenario: All the pagination elements are present on the page
+    Scenario: All of the pagination elements are present on the page
       Then current page displayed
       And there are numerical buttons to skip to the 2 previous pages
       And there are numerical buttons to skip to the 2 next pages
@@ -19,5 +18,5 @@ Feature: Pagination
     Background:
       Given a Paging Info Pagination component is on the page
 
-    Scenario: Paging Info is present on the page
+    Scenario: Number of results
       Then the number of results is displayed

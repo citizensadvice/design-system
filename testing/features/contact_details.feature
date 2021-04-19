@@ -1,4 +1,3 @@
-@not_tablet
 Feature: Contact Details component
 
   The Contact Details component provides users with full contact information
