@@ -4,14 +4,6 @@ module Helpers
   module Javascript
     include Helpers::EnvVariables
 
-    def height_of_page
-      session.execute_script("return document.body.scrollHeight")
-    end
-
-    def full_page_html
-      session.execute_script("return document.documentElement.outerHTML")
-    end
-
     def active_element
       session.evaluate_script("document.activeElement")
     end

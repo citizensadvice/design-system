@@ -50,8 +50,16 @@ module Helpers
       ENV["BROWSER"] == "safari"
     end
 
-    def mobile_phone?
+    def device?
       %w[android ios].include?(ENV["BROWSER"])
+    end
+
+    def iphone?
+      browserstack? && browserstack_os.start_with?("iPhone")
+    end
+
+    def ipad?
+      browserstack? && browserstack_os.start_with?("iPad")
     end
 
     def headless?

@@ -11,11 +11,10 @@ module Helpers
       Capybara.current_window.resize_to(desired_width, desired_height)
     end
 
-    def save_full_page_screenshot(scenario)
+    def save_window_screenshot(scenario)
       path = image_file_path(scenario)
-      resize_page_to_fullsize
       AutomationLogger.info("Taking a screenshot to #{path}")
-      save_image(path)
+      current_session.save_screenshot(path)
       attach(path, "image/png")
     end
 
@@ -47,16 +46,6 @@ module Helpers
     end
 
     private
-
-    def resize_page_to_fullsize
-      AutomationLogger.info("Resizing page to full page size.")
-      AutomationLogger.debug("Note that for HEADED chrome this won't work!") if chrome? && !headless?
-      resize_window(width(fallback: 1024), height_of_page + 150)
-    end
-
-    def save_image(path)
-      current_session.save_screenshot(path)
-    end
 
     def image_file_path(test_case)
       "#{ENV['BASE_ARTIFACTS_PATH']}/screenshots/#{name_of_file(test_case)}.png"

@@ -8,15 +8,16 @@ mobileBrowserstackVaultSecrets = [
   BROWSERSTACK_USERNAME: '/secret/devops/public-website/develop/env, MOBILE_BROWSERSTACK_USERNAME',
   BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, MOBILE_BROWSERSTACK_ACCESS_KEY',
 ]
-configurationTypes = [
-  ['Windows_10_85', 'chrome'],
-  ['Windows_10_81', 'firefox'],
-  ['Windows_7_80', 'chrome'],
-  ['Windows_7_78', 'firefox'],
-  ['OSX_Mojave_84', 'chrome'],
-  ['OSX_Mojave_12', 'safari'],
-  ['iPhone11_13', 'ios'],
-  ['iPhone8_12', 'ios'],
+browserStackTestingMatrix = [
+  [browser: 'chrome', config: 'Windows_10_85'],
+  [browser: 'chrome', config: 'Windows_7_80'],
+  [browser: 'chrome', config: 'OSX_Mojave_84'],
+  [browser: 'firefox', config: 'Windows_10_81'],
+  [browser: 'firefox', config: 'Windows_7_78'],
+  [browser: 'safari', config: 'OSX_Mojave_12'],
+  [browser: 'ios', config: 'iPhone11_13'],
+  [browser: 'ios', config: 'iPad7th_13'],
+  [browser: 'ios', config: 'iPhone8_12', permissibleFail: true],
 ]
 
 cron_schedule = isRelease ? '0 2 * * *' : ''
@@ -265,39 +266,63 @@ def define_grid_tests() {
 }
 
 def define_browserstack_tests() {
-  browserstack_tests = [:]
-  browserstack_tests.failFast = false
+  browserstackTestStages = [failFast: false]
 
-  configurationTypes.each {
-    def (config, browser) = it
-    def stepName = "${browser} on ${config}"
-    def isMobile = (browser == "ios" || browser == "android")
-    browserstack_tests[stepName] = {
-      withTestingNode("Regression Test of ${browser} on ${config}", true, isMobile) {
-        try {
-          sh "BROWSERSTACK_CONFIGURATION_OPTIONS=$config BROWSER=$browser ./bin/docker/browserstack_tests"
-        } catch (Exception e) {
-          sh 'docker-compose logs --no-color'
-          currentBuild.result = 'FAILURE'
-          throw e
-        } finally {
-          // Archive artifacts from this test run in $browser/$config
-          archiveArtifacts(
-            [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
-              artifacts: "testing/artifacts/${browser}/${config}/screenshots/?*.png, " +
-                         "testing/artifacts/${browser}/${config}/reports/report.html, " +
-                         "testing/artifacts/${browser}/${config}/reports/?*.xml, " +
-                         "testing/artifacts/${browser}/${config}/logs/?*.log",
-              allowEmptyArchive: true,
-              caseSensitive: false
-            ]
-          )
-        } // end try/catch/finally
-      } // end withTestingNode
+  browserStackTestingMatrix.each {
+    def stepName = "Running ${it.browser} on ${it.config}"
+    browserstackTestStages[stepName] = {
+      def isMobile = (it.browser == "ios" || it.browser == "android")
+      withEnv([
+        "BROWSER=${it.browser}",
+        "BROWSERSTACK_CONFIGURATION_OPTIONS=${it.config}",
+        'BROWSERSTACK=true'
+      ]) {
+        withTestingNode("Browser Tests for ${it.browser} on ${it.config}", true, isMobile) {
+          try {
+            sh './bin/docker/browserstack_tests'
+          } catch (Exception e) {
+            if (it.permissibleFail) {
+              catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                sh "exit 1"
+              }
+
+              withCredentials([string(credentialsId: params.slackCredentialsId, variable: 'SLACK_TOKEN')]) {
+                message = "${env.BUILD_TAG}\n"
+                message += "STAGE: ${BUILD_STAGE}\n"
+                message += "${sh(returnStdout: true, script: "git log -1 --pretty=format':%h %s (%an, %ar)'")}\n"
+                message += "${it.browser} ${it.config} was PERMITTED TO FAIL"
+
+                slackSend(
+                  token: SLACK_TOKEN,
+                  channel: params.slackChannel,
+                  color: 'warning',
+                  message: message
+                )
+              }
+            } else {
+              sh 'docker-compose logs --no-color'
+              currentBuild.result = 'FAILURE'
+              throw e
+            }
+          } finally {
+            // Archive artifacts from this test run in $browser/$config
+            archiveArtifacts(
+              [ // The ?* is to get around an annoying warning from the syntax highlighter which doesn't realise that /* in a string isn't the start comment token.
+                artifacts: "testing/artifacts/${it.browser}/${it.config}/screenshots/?*.png, " +
+                           "testing/artifacts/${it.browser}/${it.config}/reports/report.html, " +
+                           "testing/artifacts/${it.browser}/${it.config}/reports/?*.xml, " +
+                           "testing/artifacts/${it.browser}/${it.config}/logs/?*.log",
+                allowEmptyArchive: true,
+                caseSensitive: false
+              ]
+            )
+          } // end try/catch/finally
+        } // end withTestingNode
+      } // end withEnv
     } // end browserstack_tests[stepName] block
   } // end each
 
-  return browserstack_tests
+  return browserstackTestStages
 }
 
 def withForcedDockerUpdate(images = [], local_images = [], Closure body) {

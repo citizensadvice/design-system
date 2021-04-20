@@ -1,3 +1,4 @@
+@not_tablet
 Feature: Notice Banner
 
   The notification banner informs the user about something they need to know

@@ -1,4 +1,4 @@
-@future_release @v4.0.5+
+@future_release @v4.0.5+ @not_tablet
 Feature: Navigation component
 
   Rule: The greedy nav displays as many navigation links as fit on the viewport.  Any that don't fit are added into an expandable dropdown.

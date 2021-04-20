@@ -16,9 +16,7 @@ combinations are supported.
 - OSX Mojave (12) - We **don't** support Catalina (13), as it is too flaky (Big Sur will be supported).
 - Android Q (10)
 - Android Pie (9) - _NB: This one is likely not to work as intended, due to the hardware restrictions - Use at own risk_
-- iOS 13 - iPhone 11 Pro / iPhone 11 / iPhone XS / iPhone 8
-- iOS 12 - iPhone 8
-- iOS 11 - iPhone X / iPhone 8
+- iOS 11-14 - A variety of tablets and phones (See the driver class / browserstack docs for more info)
 
 ## Browsers
 
@@ -26,7 +24,7 @@ combinations are supported.
 - Firefox 62+ - With `geckodriver 0.26.0` and above
 - Edge 83+ - _NB: These are known as "Chrome" Edge in some locations_
 - Mac Safari 12 - **Always use OSX Mojave**
-- iOS Safari 11-13 - **Tied to iOS Versions**
+- iOS Safari 11-14 - **Tied to iOS Versions**
 - IE 11 - **See below for more detailed info**
 
 ### IE11
