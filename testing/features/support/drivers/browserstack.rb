@@ -71,11 +71,11 @@ module Drivers
     end
 
     def id
-      ::CucumberInfo.session_id
+      ::CucumberResults.instance.session_id
     end
 
     def status
-      ::CucumberInfo.scenario_result
+      ::CucumberResults.instance.status
     end
   end
 end
