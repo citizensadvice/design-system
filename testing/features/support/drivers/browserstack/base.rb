@@ -68,12 +68,12 @@ module Drivers
         "Design System - #{identifier} - #{base_url}"
       end
 
-      def session_name
-        "SHA: #{sha} - CALLING_PROJECT: design-system"
+      def identifier
+        browserstack_build_name || "Local machine run #{Time.now.strftime('%Y-%m-%d %H:%M:%S')}"
       end
 
-      def identifier
-        browserstack_build_name.present? ? browserstack_build_name : sha
+      def session_name
+        "SHA: #{sha} - CALLING_PROJECT: design-system"
       end
 
       def selenium_jar_version
