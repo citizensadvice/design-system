@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe DesignSystem::PageReviewComponent do
+RSpec.describe DesignSystem::PageReviewComponent, type: :component do
   before { I18n.locale = :en }
 
   subject(:component) do
