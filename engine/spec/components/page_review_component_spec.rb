@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe DesignSystem::PageReviewComponent, type: :component do
+RSpec.describe CitizensAdviceComponents::PageReviewComponent, type: :component do
   before { I18n.locale = :en }
 
   subject(:component) do
     render_inline(
-      DesignSystem::PageReviewComponent.new(
+      CitizensAdviceComponents::PageReviewComponent.new(
         page_review_date: Date.new(2020, 6, 12)
       )
     )

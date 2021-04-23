@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module DesignSystem
+module CitizensAdviceComponents
   class PaginationComponentPreview < ViewComponent::Preview
     # Using arguments allows us to have dynamic query parameters
     def with_dynamic_query_parameters(q: "debt and money", page: 1) # rubocop:disable Naming/MethodParameterName
-      subject = DesignSystem::PaginationComponent.new(
+      subject = CitizensAdviceComponents::PaginationComponent.new(
         current_params: { q: q, page: page },
         num_pages: 100,
         current_page: page.to_i
@@ -13,7 +13,7 @@ module DesignSystem
     end
 
     def with_first_page
-      subject = DesignSystem::PaginationComponent.new(
+      subject = CitizensAdviceComponents::PaginationComponent.new(
         current_params: { "q" => "debt and money" },
         num_pages: 100,
         current_page: 1
@@ -22,7 +22,7 @@ module DesignSystem
     end
 
     def with_second_page
-      subject = DesignSystem::PaginationComponent.new(
+      subject = CitizensAdviceComponents::PaginationComponent.new(
         current_params: { "q" => "debt and money" },
         num_pages: 100,
         current_page: 2
@@ -31,7 +31,7 @@ module DesignSystem
     end
 
     def with_tenth_page
-      subject = DesignSystem::PaginationComponent.new(
+      subject = CitizensAdviceComponents::PaginationComponent.new(
         current_params: { "q" => "debt and money" },
         num_pages: 100,
         current_page: 10
@@ -40,7 +40,7 @@ module DesignSystem
     end
 
     def with_last_page
-      subject = DesignSystem::PaginationComponent.new(
+      subject = CitizensAdviceComponents::PaginationComponent.new(
         current_params: { "q" => "debt and money" },
         num_pages: 100,
         current_page: 100

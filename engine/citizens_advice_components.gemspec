@@ -2,14 +2,14 @@
 
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "design_system/version"
+require "citizens_advice_components/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "design_system"
-  spec.version = DesignSystem::VERSION
+  spec.name = "citizens_advice_components"
+  spec.version = CitizensAdviceComponents::VERSION
   spec.authors = ["Citizens Advice"]
 
-  spec.summary = "Citizens Advice design system engine"
+  spec.summary = "Citizens Advice Design System components distributed as a Rails engine"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.7")
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

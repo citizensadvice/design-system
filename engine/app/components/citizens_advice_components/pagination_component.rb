@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DesignSystem
+module CitizensAdviceComponents
   class PaginationComponent < ViewComponent::Base
     def initialize(current_params:, num_pages:, current_page:)
       super

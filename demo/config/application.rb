@@ -24,6 +24,6 @@ Bundler.require(*Rails.groups)
 module Demo
   class Application < Rails::Application
     config.load_defaults 6.1
-    config.view_component.preview_paths << DesignSystem::Engine.root.join("previews")
+    config.view_component.preview_paths << CitizensAdviceComponents::Engine.root.join("previews")
   end
 end

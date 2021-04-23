@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DesignSystem
+module CitizensAdviceComponents
   class PageReviewComponent < ViewComponent::Base
     attr_reader :page_review_date
 

@@ -1,7 +1,7 @@
 PATH
   remote: ../engine
   specs:
-    design_system (0.1.0)
+    citizens_advice_components (0.1.0)
       haml (>= 5.1.0, < 6.0)
       rails (>= 6.0.0, < 7.0)
       rails-i18n (>= 6.0.0, < 7.0)
@@ -176,7 +176,7 @@ GEM
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    view_component (2.26.1)
+    view_component (2.30.0)
       activesupport (>= 5.0.0, < 7.0)
     web-console (4.1.0)
       actionview (>= 6.0.0)
@@ -198,7 +198,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  design_system!
+  citizens_advice_components!
   haml-rails
   htmlbeautifier (~> 1.3)
   listen (~> 3.2)

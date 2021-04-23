@@ -1,5 +1,5 @@
 en:
-  design_system:
+  citizens_advice_components:
     page_review_component:
       body_html: Page last reviewed on <strong>%{date}</strong>
     pagination_component:

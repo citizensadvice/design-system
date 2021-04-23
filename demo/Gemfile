@@ -10,7 +10,7 @@ gem "puma", "~> 4.1"
 gem "rails", "~> 6.1"
 gem "webpacker", "~> 5.0"
 
-gem "design_system", path: "../engine"
+gem "citizens_advice_components", path: "../engine"
 
 group :development do
   gem "byebug", platforms: %i[mri mingw x64_mingw]

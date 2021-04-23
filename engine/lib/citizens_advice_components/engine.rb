@@ -5,10 +5,10 @@ require "rails-i18n"
 require "active_support/core_ext"
 require "view_component/engine"
 
-module DesignSystem
+module CitizensAdviceComponents
   class Engine < ::Rails::Engine
-    isolate_namespace DesignSystem
+    isolate_namespace CitizensAdviceComponents
 
-    config.view_component.preview_paths << DesignSystem::Engine.root.join("previews")
+    config.view_component.preview_paths << CitizensAdviceComponents::Engine.root.join("previews")
   end
 end

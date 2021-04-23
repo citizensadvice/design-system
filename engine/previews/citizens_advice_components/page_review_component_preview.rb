@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module DesignSystem
+module CitizensAdviceComponents
   class PageReviewComponentPreview < ViewComponent::Preview
     def example
       render(
-        DesignSystem::PageReviewComponent.new(
+        CitizensAdviceComponents::PageReviewComponent.new(
           page_review_date: Date.new(2020, 6, 12)
         )
       )

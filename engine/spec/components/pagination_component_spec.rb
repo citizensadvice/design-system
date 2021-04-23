@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-RSpec.describe DesignSystem::PaginationComponent, type: :component do
+RSpec.describe CitizensAdviceComponents::PaginationComponent, type: :component do
   before { I18n.locale = :en }
 
   let(:subject) do
-    component = DesignSystem::PaginationComponent.new(
+    component = CitizensAdviceComponents::PaginationComponent.new(
       current_params: { "q" => "debt and money" },
       num_pages: 100,
       current_page: current_page
@@ -119,7 +119,7 @@ RSpec.describe DesignSystem::PaginationComponent, type: :component do
 
   context "when single page" do
     it "should not render" do
-      component = DesignSystem::PaginationComponent.new(
+      component = CitizensAdviceComponents::PaginationComponent.new(
         current_params: { "q" => "debt and money" },
         num_pages: 1,
         current_page: 1

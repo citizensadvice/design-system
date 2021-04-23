@@ -1,10 +1,33 @@
 # Rails Engine
 
-We provide an Rails engine within the project. It's currently in experimental status but can be can be installed directly from git by adding the following to your project Gemfile:
+We provide a Rails engine within the project. It's currently in experimental status.
+
+## Installing the engine
+
+The Rails engine can be installed as `citizens_advice_components`  by adding the following to your project Gemfile:
 
 ```
-gem "design_system", github: "citizensadvice/design-system", branch: "master", glob: "engine/*.gemspec"
+gem "citizens_advice_components", github: "citizensadvice/design-system", branch: "master", glob: "engine/*.gemspec"
 ```
+
+## Using components
+
+Components are distributed as [view components](https://viewcomponent.org/).
+
+Once installed you can call them within your application by passing the component to `render`.
+
+```rb
+render(
+  CitizensAdviceComponents::PaginationComponent.new(
+    current_params: { "q" => "debt and money" },
+    num_pages: 100,
+    current_page: 1
+  )
+)
+```
+
+For more details see [viewcomponent.org](https://viewcomponent.org/)
+
 
 ## Running engine tests
 
