@@ -4,7 +4,7 @@ We provide a Rails engine within the project. It's currently in experimental sta
 
 ## Installing the engine
 
-The Rails engine can be installed as `citizens_advice_components`  by adding the following to your project Gemfile:
+The Rails engine can be installed as `citizens_advice_components` by adding the following to your project Gemfile:
 
 ```
 gem "citizens_advice_components", github: "citizensadvice/design-system", branch: "master", glob: "engine/*.gemspec"
@@ -27,7 +27,6 @@ render(
 ```
 
 For more details see [viewcomponent.org](https://viewcomponent.org/)
-
 
 ## Running engine tests
 
