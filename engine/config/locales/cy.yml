@@ -1,0 +1,4 @@
+cy:
+  design_system:
+    page_review_component:
+      body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>

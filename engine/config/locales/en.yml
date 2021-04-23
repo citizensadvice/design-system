@@ -1,0 +1,4 @@
+en:
+  design_system:
+    page_review_component:
+      body_html: Page last reviewed on <strong>%{date}</strong>
