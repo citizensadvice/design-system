@@ -1,0 +1,9 @@
+!!!
+%html{ lang: I18n.locale }
+  %head{ profile: "http://www.w3.org/2005/10/profile" }
+    %meta{ content: "text/html; charset=UTF-8", "http-equiv": "Content-Type" }
+    %title Demo
+    = csp_meta_tag
+    = stylesheet_pack_tag "application", media: "all"
+  %body
+    #content= yield
