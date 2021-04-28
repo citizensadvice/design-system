@@ -8,13 +8,13 @@ This is app:
 
 ## Running the demo app
 
-Install dependencies:
+Run the setup script:
 
 ```shell
-bundle install && npm install
+./bin/setup
 ```
 
-Start rails:
+Start Rails:
 
 ```shell
 ./bin/rails s
