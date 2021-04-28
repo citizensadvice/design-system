@@ -25,7 +25,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency     "haml", [">= 5.1.0", "< 6.0"]
   spec.add_runtime_dependency     "rails", [">= 6.0.0", "< 7.0"]
-  spec.add_runtime_dependency     "rails-i18n", [">= 6.0.0", "< 7.0"]
   spec.add_runtime_dependency     "view_component", [">= 2.0.0", "< 3.0"]
 
   spec.add_development_dependency "rspec"

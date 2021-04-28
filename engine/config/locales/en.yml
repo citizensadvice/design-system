@@ -1,7 +1,5 @@
 en:
   citizens_advice_components:
-    page_review_component:
-      body_html: Page last reviewed on <strong>%{date}</strong>
     pagination_component:
       aria_label: Pagination navigation
       first_page_label: First
