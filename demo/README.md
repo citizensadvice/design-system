@@ -1,8 +1,10 @@
 # Rails engine demo app
 
-Companion demo app for the code in `engine/`.
+This is app:
 
-This is app is used by the engine specs as a test harness. It can also be ran as a standalone Rails app for viewing component previews and to experiment with components.
+- Is used by the engine specs as a test harness.
+- Acts as a reference implementation showing both how to configure the engine and how to load design system styles.
+- Can be ran as a standalone Rails app for viewing component previews and to experiment with components.
 
 ## Running the demo app
 
