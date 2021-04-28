@@ -233,7 +233,3 @@ To lint:
 
 - [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
 - [Figma API](https://blog.prototypr.io/design-tokens-with-figma-aef25c42430f)
-
-## Experimental: Rails Engine
-
-See the [Rails Engine docs](./contributing/rails-engine.md) for working with the experimental engine code.
