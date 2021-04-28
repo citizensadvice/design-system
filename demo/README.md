@@ -1,6 +1,6 @@
 # Rails engine demo app
 
-This is app:
+This app:
 
 - Is used by the engine specs as a test harness.
 - Acts as a reference implementation showing both how to configure the engine and how to load design system styles.
