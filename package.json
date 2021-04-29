@@ -122,7 +122,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/vendor/",
-      "/lib/"
+      "/lib/",
+      "/demo/config/webpack/"
     ],
     "setupFiles": [
       "jest-date-mock"
