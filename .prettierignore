@@ -17,3 +17,6 @@ vendor/
 
 # Ignore Rails demo app files
 /demo/public/
+
+# Ignore generated examples
+/styleguide/examples/
