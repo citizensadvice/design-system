@@ -2,8 +2,6 @@ import { Story, Preview } from '@storybook/addon-docs/blocks';
 
 # Pagination
 
-Pagination exists as a HTML and CSS only component so you will need to use the "show code" button on each story to view usage.
-
 ## Example
 
 <Preview>
@@ -23,3 +21,25 @@ Supplementary component used alongside pagination to show how many results have 
 <Preview>
   <Story id="components-pagination--paging-info" />
 </Preview>
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem you call the component from within a template using:
+
+```rb
+render(CitizensAdviceComponents::PaginationComponent.new(
+  current_params: request.query_parameters,
+  num_pages: 100,
+  current_page: 100
+))
+```
+
+The component assumes that you are using `page` as the query otherwise it will respect any other passed in from `current_params`.
+
+## Component properties
+
+| properties       | Description                                     |
+| ---------------- | ----------------------------------------------- |
+| `num_pages`      | Total number of pages of pagination to generate |
+| `current_page`   | The current page number                         |
+| `current_params` | Current request query parameters                |
