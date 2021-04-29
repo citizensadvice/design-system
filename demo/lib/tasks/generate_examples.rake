@@ -18,7 +18,9 @@ task generate_examples: :environment do
       component_name = preview.preview_name.split("/").last.chomp("_component")
       component_key = "#{component_name}/#{example}"
 
-      unless excludes.include?(component_key)
+      if excludes.include?(component_key)
+        puts "Skipping #{component_key}"
+      else
         @session.get "/rails/view_components/#{preview.preview_name}/#{example}"
         doc = Nokogiri::HTML.parse(@session.response.body)
 
