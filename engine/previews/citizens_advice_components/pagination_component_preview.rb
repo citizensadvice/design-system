@@ -30,6 +30,15 @@ module CitizensAdviceComponents
       render(subject)
     end
 
+    def with_fifth_page
+      subject = CitizensAdviceComponents::PaginationComponent.new(
+        current_params: { "q" => "debt and money" },
+        num_pages: 100,
+        current_page: 5
+      )
+      render(subject)
+    end
+
     def with_tenth_page
       subject = CitizensAdviceComponents::PaginationComponent.new(
         current_params: { "q" => "debt and money" },
