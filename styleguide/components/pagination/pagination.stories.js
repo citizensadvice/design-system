@@ -1,5 +1,5 @@
 import docs from './pagination-docs.mdx';
-import templateExample from '../../examples/pagination/with_first_page.html';
+import templateExample from '../../examples/pagination/with_fifth_page.html';
 import templatePagingInfo from './_paging-info.html';
 
 export default {
