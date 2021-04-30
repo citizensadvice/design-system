@@ -34,12 +34,11 @@ render(CitizensAdviceComponents::PaginationComponent.new(
 ))
 ```
 
-The component assumes that you are using `page` as the query otherwise it will respect any other passed in from `current_params`.
-
 ## Component arguments
 
-| Argument         | Description                                     |
-| ---------------- | ----------------------------------------------- |
-| `num_pages`      | Total number of pages of pagination to generate |
-| `current_page`   | The current page number                         |
-| `current_params` | Current request query parameters                |
+| Argument         | Description                                         |
+| ---------------- | --------------------------------------------------- |
+| `num_pages`      | Total number of pages of pagination to generate     |
+| `current_page`   | The current page number                             |
+| `current_params` | Current request query parameters                    |
+| `param_name`     | Optional. Pagination param name, defaults to `page` |

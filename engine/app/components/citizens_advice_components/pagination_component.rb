@@ -2,11 +2,12 @@
 
 module CitizensAdviceComponents
   class PaginationComponent < ViewComponent::Base
-    def initialize(current_params:, num_pages:, current_page:)
+    def initialize(current_params:, num_pages:, current_page:, param_name: nil)
       super
       @current_params = current_params
       @num_pages = num_pages
       @current_page = current_page
+      @param_name = param_name || :page
     end
 
     def render?
@@ -21,7 +22,7 @@ module CitizensAdviceComponents
     private
 
     def query_for(page_num)
-      "?#{@current_params.merge({ page: page_num }).to_query}"
+      "?#{@current_params.merge({ @param_name => page_num }).to_query}"
     end
 
     def first_page

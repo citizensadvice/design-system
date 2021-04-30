@@ -8,11 +8,16 @@ RSpec.describe CitizensAdviceComponents::PaginationComponent, type: :component d
   let(:subject) do
     component = CitizensAdviceComponents::PaginationComponent.new(
       current_params: { "q" => "debt and money" },
-      num_pages: 100,
-      current_page: current_page
+      num_pages: num_pages,
+      current_page: current_page,
+      param_name: param_name.presence
     )
     render_inline(component)
   end
+
+  let(:num_pages) { 100 }
+  let(:current_page) { 1 }
+  let(:param_name) { nil }
 
   let(:paging_controls) { subject.css("[data-testid='paging-control']") }
   let(:paging_labels) { paging_controls.map { |item| item.text.strip } }
@@ -118,15 +123,19 @@ RSpec.describe CitizensAdviceComponents::PaginationComponent, type: :component d
   end
 
   context "when single page" do
-    it "should not render" do
-      component = CitizensAdviceComponents::PaginationComponent.new(
-        current_params: { "q" => "debt and money" },
-        num_pages: 1,
-        current_page: 1
-      )
+    let(:current_page) { 1 }
+    let(:num_pages) { 1 }
 
-      subject = render_inline(component)
+    it "should not render" do
       expect(subject.at("nav")).to be nil
+    end
+  end
+
+  context "when custom param_name" do
+    let(:param_name) { :page_number }
+
+    it "generates valid query string" do
+      expect(paging_controls.first.attr("href")).to eq "?page_number=1&q=debt+and+money"
     end
   end
 end
