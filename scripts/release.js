@@ -1,5 +1,5 @@
 const simpleGit = require('simple-git');
-const fs = require('fs-extra');
+const fs = require('fs');
 const chalk = require('chalk');
 const path = require('path');
 const { prompt } = require('inquirer');
