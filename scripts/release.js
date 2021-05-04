@@ -1,12 +1,11 @@
 const simpleGit = require('simple-git');
-const fs = require('fs-extra');
+const fs = require('fs');
 const chalk = require('chalk');
 const path = require('path');
 const { prompt } = require('inquirer');
 const { execSync, spawnSync } = require('child_process');
 const semver = require('semver');
 const moment = require('moment');
-const { checkBuildOutput } = require('./check-size');
 const { checkRepoStatus, ok, error, showError } = require('./releaseHelpers');
 
 const log = console.log; // eslint-disable-line
@@ -123,7 +122,6 @@ prompt([
         }
 
         updateVersionNumber(newVersion);
-        checkBuildOutput(true);
 
         const changelogPath = path.join(PATH, 'CHANGELOG.md');
         const changelog = fs.readFileSync(changelogPath, 'utf8');
