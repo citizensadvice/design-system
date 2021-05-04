@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "backstopjs": "^5.3.2",
-    "pa11y-ci": "^2.4.0"
+    "pa11y-ci": "^2.4.1"
   },
   "author": "Marcelo Nicolosi <marcelo.nicolosi@citizensadvice.org.uk>",
   "license": "ISC"
