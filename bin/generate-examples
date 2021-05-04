@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+cd ./demo
+
+./bin/rails generate_examples
