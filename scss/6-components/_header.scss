@@ -93,6 +93,9 @@
   &__sign-out {
     margin-left: $cads-spacing-4;
     margin-bottom: cads-rem(14px);
+    background-color: $cads-header__sign-out-background-colour;
+    color: $cads-header__sign-out-colour;
+    border-color: $cads-header__sign-out-border-colour;
 
     @include cads-media-breakpoint-up(md) {
       margin-bottom: 0;

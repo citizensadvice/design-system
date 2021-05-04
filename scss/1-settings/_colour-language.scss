@@ -38,6 +38,10 @@ $cads-header__link-active-colour: $cads-language__link-active-colour !default;
 $cads-header__link-focus-highlight-colour: $cads-palette__black !default;
 $cads-header__link-focus-colour: $cads-language__focus-colour !default;
 
+$cads-header__sign-out-background-colour: $cads-language__brand-primary-contrast !default;
+$cads-header__sign-out-colour: $cads-language__primary-button-colour !default;
+$cads-header__sign-out-border-colour: $cads-language__primary-button-colour !default;
+
 // Footer colours
 $cads-footer__divider-colour: $cads-language__brand-primary !default;
 $cads-footer__background-colour: $cads-palette__blue-light !default;
