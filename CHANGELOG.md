@@ -1,6 +1,7 @@
 **Bugfixes**
 
 - 👤 Header: The sign out button now has the visual appearance of a button
+- 🗣️ Callouts: Rendered as sections with an aria-label if `title` is provided in the hash
 
 ## <sub>v4.0.6-alpha.0</sub>
 
