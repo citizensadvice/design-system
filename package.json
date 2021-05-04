@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "start": "npm run storybook",
-    "start:watch": "concurrently npm:storybook npm:watch-examples",
+    "start:watch": "npm-run-all -p --print-label storybook watch-examples",
     "storybook": "start-storybook -p 6006 -s styleguide",
     "watch-examples": "sane ./bin/generate-examples engine/previews --glob=\"**/*.rb\"",
     "release": "npm run lint && npm run build && node ./scripts/release",
@@ -69,7 +69,6 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "chalk": "^4.1.1",
-    "concurrently": "^6.0.2",
     "cssnano": "^4.1.11",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-base": "^14.2.0",
