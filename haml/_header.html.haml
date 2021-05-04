@@ -1,6 +1,7 @@
 :ruby
   links ||= []
   sign_in_out ||= {}
+  sign_out_with_button = sign_in_out["form"].present?
   main_content_anchor_link ||= "#cads-main-content"
   homepage_url ||= "/"
   button_attr = {
@@ -32,10 +33,10 @@
                   = link["title"]
               - else
                 %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
-          %li.cads-header__account-link
-            - if sign_in_out["form"]
+          %li{ class: (sign_out_with_button ? "cads-header__links-item--button" : "cads-header__account-link") }
+            - if sign_out_with_button
               %form.cads-header__account-form{method: "POST", action: sign_in_out["url"], "data-testid": "account-link"}
-                %button.cads-linkbutton__regular= sign_in_out["title"]
+                %button.cads-button__tertiary.cads-header__sign-out= sign_in_out["title"]
             - else
               %a.cads-header__hyperlink{href: sign_in_out["url"], "data-testid": "account-link"}= sign_in_out["title"]
         .cads-header__search-form

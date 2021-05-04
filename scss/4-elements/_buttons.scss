@@ -125,3 +125,16 @@ $button-shadow-size: 4px;
     transform: none;
   }
 }
+
+%cads-button__tertiary--dark {
+  background-color: $cads-language__brand-primary;
+  color: $cads-language__brand-primary-contrast;
+  border-color: $cads-language__brand-primary-contrast;
+
+  &:hover,
+  &:active {
+    background-color: $cads-language__tertiary-button-dark-hover-colour;
+    color: $cads-language__brand-primary-contrast;
+    border-color: $cads-language__brand-primary-contrast;
+  }
+}

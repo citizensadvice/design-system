@@ -79,8 +79,29 @@
       padding-left: $cads-spacing-4;
     }
 
+    .cads-header__links-item--button {
+      @include cads-media-breakpoint-up(md) {
+        margin-right: 0;
+      }
+    }
+
     @media print {
       display: none;
+    }
+  }
+
+  &__sign-out {
+    margin-left: $cads-spacing-4;
+    margin-bottom: cads-rem(14px);
+    background-color: $cads-header__sign-out-background-colour;
+    color: $cads-header__sign-out-colour;
+    border-color: $cads-header__sign-out-border-colour;
+
+    @include cads-media-breakpoint-up(md) {
+      margin-bottom: 0;
+      font-size: $cads-font-size;
+      line-height: 1.5;
+      padding: cads-rem(6px) $cads-spacing-3;
     }
   }
 
