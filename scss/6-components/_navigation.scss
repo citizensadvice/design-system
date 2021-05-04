@@ -89,6 +89,10 @@
   }
 }
 
+.cads-greedy-nav__dropdown .cads-header__sign-out {
+  @extend %cads-button__tertiary--dark;
+}
+
 .no-js {
   .cads-navigation {
     height: auto;
