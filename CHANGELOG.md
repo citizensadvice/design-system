@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- 👤 Header: The sign out button now has the visual appearance of a button
+
 ## <sub>v4.0.6-alpha.0</sub>
 
 #### _Apr. 20, 2021_

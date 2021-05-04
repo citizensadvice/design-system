@@ -16,11 +16,7 @@ Run `bundle exec rake check` to run linting and unit tests using the ruby and no
 
 ### Building
 
-Run `npm run build` and this will compile all the SCSS into the `lib` folder.
-
-#### Output checks
-
-The `check-size` script will check the current output and compare it to the last released build. It will flag up if the size has changed more than 10% either way. The script exports the functions so that you can run them individually in other node scripts. If you execute the script with the `-r` arg it will run and compare the build. If you supply a `-w` argument it will also store the results into `stats/size.json`. You should **only** do that if you are making a new release.
+Run `npm run build` and this will compile all the SCSS into the `lib` folder. The build step also runs `size-limit` and will fail the build if the output exeeds our thresholds.
 
 ## Testing
 

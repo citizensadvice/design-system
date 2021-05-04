@@ -3,7 +3,6 @@ assets/
 CHANGELOG.md
 docs/
 lib/
-stats/
 testing/artifacts/
 testing/visual-regression/backstop_data/
 testing/wcag/
