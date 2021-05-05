@@ -154,7 +154,7 @@ def pipeline() {
     }
   }
 
-  if (isRelease) {
+  if (true) {
     stage('Browserstack Tests') {
       parallel define_browserstack_tests()
     }
