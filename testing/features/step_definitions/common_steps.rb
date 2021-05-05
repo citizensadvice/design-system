@@ -32,7 +32,7 @@ Then("I am able to search in English/Welsh") do
   expect(@component.search_button["title"]).to eq(I18n.t("cads.search.submit_title"))
 end
 
-Then("I am able to expand the search bar") do
+Then("I can expand the search bar") do
   expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.open_search"))
 
   @component.open_search_pane.click
@@ -40,7 +40,7 @@ Then("I am able to expand the search bar") do
   expect(@component).to have_search_field
 end
 
-Then("I am able to collapse the search bar") do
+Then("I can collapse the search bar") do
   expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.close_search"))
 
   @component.open_search_pane.click

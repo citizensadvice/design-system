@@ -8,7 +8,7 @@ Given("a Paging Info Pagination component is on the page") do
   @component = Pagination::PagingInfo.new.tap(&:load)
 end
 
-Then("current page displayed") do
+Then("current page is displayed") do
   expect(@component).to have_current_page
 end
 
