@@ -59,11 +59,11 @@ Feature: Header component
   Rule: A Standard Header (Small Screen)
     @small_screen
     Scenario: English Header can be expanded to show the full search bar
-      Then I am able to expand the search bar
-      And I am able to collapse the search bar
+      Then I can expand the search bar
+      And I can collapse the search bar
 
     @small_screen
     Scenario: Welsh Header can be expanded to show the full search bar
       Given the language is Welsh
-      Then I am able to expand the search bar
-      And I am able to collapse the search bar
+      Then I can expand the search bar
+      And I can collapse the search bar
