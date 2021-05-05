@@ -54,7 +54,7 @@ module Drivers
             "seleniumVersion" => selenium_jar_version,
             "debug" => browserstack_debug_mode,
             "consoleLogs" => "verbose",
-            "networkLogs" => "false",
+            "networkLogs" => "true",
             "resolution" => "1920x1080"
           }
         }
