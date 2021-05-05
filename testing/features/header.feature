@@ -1,4 +1,3 @@
-@not_tablet
 Feature: Header component
 
   The Header component allows users to perform some quick tasks
@@ -35,7 +34,7 @@ Feature: Header component
       And a login link is present
       And a logo is present
 
-    @not_mobile
+    @not_mobile @not_tablet
     Scenario Outline: English Users can quickly navigate to various areas of the page
       Then I am able to skip to the <area> part of the page
 
@@ -45,7 +44,7 @@ Feature: Header component
         | content    |
         | footer     |
 
-    @not_mobile
+    @not_mobile @not_tablet
     Scenario Outline: Welsh Users can quickly navigate to various areas of the page
       Given the language is Welsh
       Then I am able to skip to the <area> part of the page
