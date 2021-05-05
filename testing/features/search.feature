@@ -1,4 +1,4 @@
-@failing @NP-1803 @not_tablet
+@failing @NP-1803
 Feature: Search components
 
   The Search component allows users to search for the desired term and consists
