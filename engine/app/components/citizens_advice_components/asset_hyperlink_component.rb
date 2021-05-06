@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class AssetHyperlinkComponent < ViewComponent::Base
+  class AssetHyperlinkComponent < BaseComponent
     attr_reader :href, :description, :size
 
     def initialize(href:, description:, size:)

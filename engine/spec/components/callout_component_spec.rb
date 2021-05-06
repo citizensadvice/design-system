@@ -21,15 +21,33 @@ RSpec.describe CitizensAdviceComponents::CalloutComponent, type: :component do
     expect(component.text).to include "Example content"
   end
 
-  context "when type is omitted" do
+  context "when missing type" do
     let(:type) { nil }
 
-    it "renders a standard callout" do
-      expect(component.at(".cads-callout").attr("class")).to include "cads-callout--standard"
+    context "non-production rails env" do
+      before do
+        allow(Rails.env).to receive(:production?).and_return(false)
+      end
+
+      it "raises an error with available options" do
+        expect do
+          CitizensAdviceComponents::CalloutComponent.new
+        end.to raise_error(CitizensAdviceComponents::FetchOrFallbackHelper::InvalidValueError)
+      end
     end
 
-    it "has no label" do
-      expect(component.at(".cads-badge")).to be_nil
+    context "production rails env" do
+      before do
+        allow(Rails.env).to receive(:production?).and_return(true)
+      end
+
+      it "renders a standard callout" do
+        expect(component.at(".cads-callout").attr("class")).to include "cads-callout--standard"
+      end
+
+      it "has no label" do
+        expect(component.at(".cads-badge")).to be_nil
+      end
     end
   end
 
@@ -100,7 +118,7 @@ RSpec.describe CitizensAdviceComponents::CalloutComponent, type: :component do
 
   context "when no content present" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::CalloutComponent.new)
+      render_inline(CitizensAdviceComponents::CalloutComponent.new(type: :standard))
     end
 
     it "does not render" do
