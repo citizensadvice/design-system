@@ -1,5 +1,9 @@
 en:
   citizens_advice_components:
+    callout_component:
+      adviser: Adviser
+      example: Example
+      important: Important
     pagination_component:
       aria_label: Pagination navigation
       first_page_label: First
