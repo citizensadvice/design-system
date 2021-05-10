@@ -27,7 +27,7 @@ Supplementary component used alongside pagination to show how many results have 
 If you are using the `citizens_advice_components` gem you call the component from within a template using:
 
 ```rb
-render(CitizensAdviceComponents::PaginationComponent.new(
+render(CitizensAdviceComponents::Pagination.new(
   current_params: request.query_parameters,
   num_pages: 100,
   current_page: 100

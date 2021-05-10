@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::BaseComponent, type: :component do
+RSpec.describe CitizensAdviceComponents::Base, type: :component do
   describe "#fetch_or_fallback" do
     let(:subject) { described_class.new }
     let(:allowed_values) { [1, 2, 3] }

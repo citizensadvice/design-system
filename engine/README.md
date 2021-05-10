@@ -9,7 +9,7 @@ The goal is to provide a set of [view components](https://viewcomponent.org/) fo
 The Rails engine can be installed as `citizens_advice_components` by adding the following to your project Gemfile:
 
 ```
-gem "citizens_advice_components", github: "citizensadvice/design-system", branch: "master", glob: "engine/*.gemspec"
+gem "citizens_advice_components", github: "citizensadvice/design-system", glob: "engine/*.gemspec"
 ```
 
 ## Using components
@@ -20,7 +20,7 @@ Once installed you can call them within your application by passing the componen
 
 ```rb
 render(
-  CitizensAdviceComponents::PaginationComponent.new(
+  CitizensAdviceComponents::Pagination.new(
     current_params: { "q" => "debt and money" },
     num_pages: 100,
     current_page: 1
