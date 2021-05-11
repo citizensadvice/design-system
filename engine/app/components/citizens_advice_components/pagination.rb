@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class PaginationComponent < BaseComponent
+  class Pagination < Base
     def initialize(current_params:, num_pages:, current_page:, param_name: nil)
       super
       @current_params = current_params

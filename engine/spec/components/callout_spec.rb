@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::CalloutComponent, type: :component do
+RSpec.describe CitizensAdviceComponents::Callout, type: :component do
   before { I18n.locale = :en }
 
   subject(:component) do
     render_inline(
-      CitizensAdviceComponents::CalloutComponent.new(
+      CitizensAdviceComponents::Callout.new(
         type: type.presence,
         title: title.presence
       )
@@ -31,7 +31,7 @@ RSpec.describe CitizensAdviceComponents::CalloutComponent, type: :component do
 
       it "raises an error with available options" do
         expect do
-          CitizensAdviceComponents::CalloutComponent.new
+          CitizensAdviceComponents::Callout.new
         end.to raise_error(CitizensAdviceComponents::FetchOrFallbackHelper::InvalidValueError)
       end
     end
@@ -118,7 +118,7 @@ RSpec.describe CitizensAdviceComponents::CalloutComponent, type: :component do
 
   context "when no content present" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::CalloutComponent.new(type: :standard))
+      render_inline(CitizensAdviceComponents::Callout.new(type: :standard))
     end
 
     it "does not render" do

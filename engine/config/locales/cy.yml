@@ -1,10 +1,10 @@
 cy:
   citizens_advice_components:
-    callout_component:
+    callout:
       adviser: Cynghorydd
       example: Enghraifft
       important: Pwysig
-    pagination_component:
+    pagination:
       aria_label: Llywio tudalen
       first_page_label: Cyntaf
       first_page_aria_label: Ewch i'r dudalen gyntaf

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::AssetHyperlinkComponent, type: :component do
+RSpec.describe CitizensAdviceComponents::AssetHyperlink, type: :component do
   subject(:component) do
     render_inline(
-      CitizensAdviceComponents::AssetHyperlinkComponent.new(
+      CitizensAdviceComponents::AssetHyperlink.new(
         href: "https://example.com",
         description: "Test PDF",
         size: 6_444_516

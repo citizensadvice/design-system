@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class AssetHyperlinkComponentPreview < ViewComponent::Preview
+  class AssetHyperlinkPreview < ViewComponent::Preview
     def example
       render(
-        CitizensAdviceComponents::AssetHyperlinkComponent.new(
+        CitizensAdviceComponents::AssetHyperlink.new(
           href: "https://example.com",
           description: "Test PDF",
           size: 6_444_516

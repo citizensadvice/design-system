@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class CalloutComponent < BaseComponent
+  class Callout < Base
     attr_reader :type, :title
 
     def initialize(type: nil, title: nil)
