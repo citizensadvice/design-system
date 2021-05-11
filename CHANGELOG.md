@@ -1,3 +1,5 @@
+**Bugfixes**
+- 🖨️ Print Styles: Link URLs now break
 ## <sub>v4.1.0-alpha.0</sub>
 
 #### _May. 6, 2021_

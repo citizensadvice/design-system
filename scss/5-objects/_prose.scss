@@ -72,5 +72,6 @@
   a[href^='/']::after {
     content: (' (https://www.citizensadvice.org.uk' attr(href) ')');
     display: inline;
+    word-break: break-all;
   }
 }
