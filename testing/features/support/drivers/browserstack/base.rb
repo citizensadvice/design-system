@@ -26,20 +26,19 @@ module Drivers
       end
 
       def standard_capabilities
-        standard_browserstack_capabilities.merge(standard_browser_capabilities)
+        standard_browserstack_capabilities.merge(browser_version)
       end
 
       def specific_browser_capabilities
         {}
       end
 
-      def standard_browser_capabilities
-        return {} if device?
-
-        {
-          "browserName" => browser,
-          "browserVersion" => browserstack_browser_version
-        }
+      def browser_version
+        if device?
+          {}
+        else
+          { "browserVersion" => browserstack_browser_version }
+        end
       end
 
       def standard_browserstack_capabilities
