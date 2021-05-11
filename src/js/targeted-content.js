@@ -48,13 +48,16 @@ function setState(el, state) {
 }
 
 function openByHash(hash) {
-  const targetEl = document.querySelector(hash);
-  if (targetEl) {
-    const matchEl = targetEl.closest(SELECTORS.el);
-    if (matchEl) {
-      setState(matchEl, 'open');
+  try {
+    const hashId = hash.replace(/^#/, '');
+    const targetEl = document.getElementById(hashId);
+    if (targetEl) {
+      const matchEl = targetEl.closest(SELECTORS.el);
+      if (matchEl) {
+        setState(matchEl, 'open');
+      }
     }
-  }
+  } catch (e) {} // eslint-disable-line no-empty
 }
 
 function initTargetedContentFor(el) {

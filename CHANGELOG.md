@@ -6,6 +6,7 @@
 
 - 👤 Header: The sign out button now has the visual appearance of a button
 - 🗣️ Callouts: Rendered as sections with an aria-label if `title` is provided in the hash
+- 🎯 Targeted content: Fix error thrown when anchoring to an ID starting with a number, e.g. #41za
 
 ## <sub>v4.0.6-alpha.0</sub>
 
