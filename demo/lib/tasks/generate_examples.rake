@@ -15,7 +15,7 @@ task generate_examples: :environment do
 
   ViewComponent::Preview.all.each do |preview|
     preview.examples.each do |example|
-      component_name = preview.preview_name.split("/").last.chomp("_component")
+      component_name = preview.preview_name.split("/").last
       component_key = "#{component_name}/#{example}"
 
       if excludes.include?(component_key)
