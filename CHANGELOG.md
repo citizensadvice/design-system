@@ -1,5 +1,9 @@
 **Bugfixes**
+
 - 🖨️ Print Styles: Link URLs now break
+- 🎯 Targeted content: Fix error thrown when anchoring to an ID starting with a number, e.g. #41za
+- 🎯 Targeted content: Fix title and border colours
+
 ## <sub>v4.1.0-alpha.0</sub>
 
 #### _May. 6, 2021_
@@ -8,7 +12,6 @@
 
 - 👤 Header: The sign out button now has the visual appearance of a button
 - 🗣️ Callouts: Rendered as sections with an aria-label if `title` is provided in the hash
-- 🎯 Targeted content: Fix error thrown when anchoring to an ID starting with a number, e.g. #41za
 
 ## <sub>v4.0.6-alpha.0</sub>
 
