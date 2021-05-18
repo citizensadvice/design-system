@@ -21,3 +21,7 @@ So that so that I can prevent errors and make manual changes after the process h
 As a user of the design system in a Citizens Advice product team
 I need to be aware of new design system releases and what has changed since the last release
 So that I have an up-to-date understanding of the Citizens Advice design system to apply to my work
+
+As a design system developer
+I need to be able to specify whether the release is a major, minor or patch release
+So that users of the design system know what types of changes are included in the release
