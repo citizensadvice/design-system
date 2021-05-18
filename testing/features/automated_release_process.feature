@@ -1,7 +1,7 @@
 Feature: Automated Release Process
 
-This is to automate the design system removing manual developer actions. 
-    
+This feature is to automate the design system release process, removing repeatable manual developer actions. 
+
 As a design system developer 
 I need to be able to specify that a design system release is Alpha or Public
 So that users understand that the design system is ready for either the public or develop environments
@@ -12,11 +12,8 @@ So that I am not reliant on 3rd party services to release updates automatically 
  
 As a design system developer 
 I need to be able to stop the automated design system release process
-So that so that I can... prevent errors / make manual changes after the process has started
+So that so that I can prevent errors and make manual changes after the process has started
  
-As a user of the design system [who?]
+As a user of the design system
 I need to be aware of new design system releases and any changes
 So that I have an up-to-date understanding of the Citizens Advice design system to apply to my work
-
-Test TesT
-Teotarjgnwprigj
