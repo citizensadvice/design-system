@@ -133,8 +133,8 @@ $button-shadow-size: 4px;
 
   &:hover,
   &:active {
-    background-color: $cads-language__tertiary-button-dark-hover-colour;
-    color: $cads-language__brand-primary-contrast;
-    border-color: $cads-language__brand-primary-contrast;
+    background-color: $cads-language__tertiary-button-dark-hover-background-colour;
+    color: $cads-language__tertiary-button-dark-hover-colour;
+    border-color: $cads-language__tertiary-button-dark-border-colour;
   }
 }

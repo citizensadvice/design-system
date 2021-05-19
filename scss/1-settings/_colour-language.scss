@@ -19,7 +19,10 @@ $cads-language__primary-button-colour: $cads-palette__teal !default;
 $cads-language__primary-button-text-colour: $cads-palette__white !default;
 $cads-language__primary-button-hover-colour: $cads-palette__teal-dark !default;
 $cads-language__secondary-button-hover-colour: $cads-language__hover-background-colour !default;
-$cads-language__tertiary-button-dark-hover-colour: $cads-palette__heritage-blue-dark !default;
+$cads-language__tertiary-button-dark-hover-background-colour: $cads-palette__heritage-blue-dark !default;
+$cads-language__tertiary-button-dark-hover-colour: $cads-language__brand-primary-contrast !default;
+$cads-language__tertiary-button-dark-border-colour: $cads-language__brand-primary-contrast !default;
+
 $cads-language__button-shadow-colour: $cads-palette__teal-dark !default;
 $cads-language__warning-colour: $cads-palette__red !default;
 $cads-language__success-colour: $cads-palette__green !default;
