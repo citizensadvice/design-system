@@ -9,6 +9,7 @@ updates:
       - 'ruby dependencies'
     open-pull-requests-limit: 10
     target-branch: 'master'
+
   - package-ecosystem: npm
     directory: '/'
     schedule:
@@ -18,6 +19,12 @@ updates:
     labels:
       - 'npm dependencies'
     target-branch: 'master'
+    ignored_updates:
+      - match:
+          # Requires webpack v5 but storybook bundles v4
+          dependency_name: 'sass-loader'
+          version_requirement: '11.x'
+
   - package-ecosystem: npm
     directory: '/testing'
     schedule:
