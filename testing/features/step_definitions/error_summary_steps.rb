@@ -11,7 +11,3 @@ end
 Then("the component shows the errors in a list format") do
   expect(@component).to have_errors
 end
-
-Then("there is an error for each bullet point") do
-  expect(@component.error_quantity).to eq(@component.errors.length)
-end

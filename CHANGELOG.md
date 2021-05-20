@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- ❗ Error summary: Removed technical language from example and docs
+
 ## <sub>v4.1.0</sub>
 
 #### _May. 20, 2021_
@@ -7,27 +11,14 @@
 - 🖨️ Print Styles: Link URLs now break
 - 🎯 Targeted content: Fix error thrown when anchoring to an ID starting with a number, e.g. #41za
 - 🎯 Targeted content: Fix title and border colours
-
-## <sub>v4.1.0-alpha.0</sub>
-
-#### _May. 6, 2021_
-
-**Bugfixes**
-
 - 👤 Header: The sign out button now has the visual appearance of a button
 - 🗣️ Callouts: Rendered as sections with an aria-label if `title` is provided in the hash
-
-## <sub>v4.0.6-alpha.0</sub>
-
-#### _Apr. 20, 2021_
+- 📻 Radio buttons: Show the correct selected style
 
 **New**
 
 - 📻 Radio buttons: Radio button options now accepted a checked paramater
 
-**Bugfixes**
-
-- 📻 Radio buttons: Show the correct selected style
 ## <sub>v4.0.5</sub>
 
 #### _Mar. 26, 2021_
