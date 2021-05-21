@@ -8,7 +8,7 @@ So that I can save time and improve the consistency of release artefacts and pro
 
 As a design system developer 
 I need to be able to specify that a design system release is "pre-release" or "stable release"
-So that users understand that the design system is ready for either the production or development environments
+So that users understand that the design system is ready for either the development or production environments
  
 As a design system developer 
 I need to have the option to release design system updates manually
@@ -16,7 +16,7 @@ So that I am not reliant on 3rd party services to release updates automatically 
  
 As a design system developer 
 I need to be able to stop the automated design system release process
-So that so that I can prevent errors and make manual changes after the process has started
+So that so that I can prevent a bad release from being published after the process has started
  
 As a user of the design system in a Citizens Advice product team
 I need to be aware of new design system releases and what has changed since the last release
