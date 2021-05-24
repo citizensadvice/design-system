@@ -139,7 +139,6 @@ $button-shadow-size: 4px;
   }
 
   &:focus {
-    outline: none;
     color: $cads-language__focus-text-colour;
     border-color: $cads-language__focus-border-colour;
     background-color: $cads-language__focus-colour;
