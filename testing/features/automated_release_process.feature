@@ -6,9 +6,9 @@ As a design system developer
 I need to be able to release updates to the design system using an automated process 
 So that I can save time and improve the consistency of release artefacts and processes
 
-As a design system developer 
-I need to be able to specify that a design system release is "pre-release" or "stable release"
-So that users understand that the design system is ready for either the development or production environments
+As a developer using the design system components
+I need to know whether a given release is "pre-release" or "stable"
+So that I know whether to use it in production-ready code
  
 As a design system developer 
 I need to have the option to release design system updates manually
