@@ -137,4 +137,11 @@ $button-shadow-size: 4px;
     color: $cads-language__tertiary-button-dark-hover-colour;
     border-color: $cads-language__tertiary-button-dark-hover-border-colour;
   }
+
+  &:focus {
+    color: $cads-language__focus-text-colour;
+    border-color: $cads-language__focus-border-colour;
+    background-color: $cads-language__focus-colour;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-language__focus-border-colour;
+  }
 }
