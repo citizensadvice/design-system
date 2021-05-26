@@ -8,6 +8,5 @@ Feature: Error Summary form
       Given an Example Error Summary form is on the page
 
     Scenario: Error Labels are informative and easy to understand for all types of user
-      Then the component indicates there is a problem
-      And the component shows the errors in a list format
-      And there is an error for each bullet point
+      Then the form indicates there is a problem
+      And the form shows the errors in a list format
