@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module DesignSystem
-  class ContactDetails < ::Base
+module ContactDetails
+  class Default < ::Base
     set_url "/iframe.html?id=components-contact-details--contact-details&viewMode=story"
 
     section :initial_form, ".cads-contact-details" do
