@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module DesignSystem
-  class AssetHyperlink < ::Base
+module AssetHyperlink
+  class Example < ::Base
     include Helpers::Javascript
 
     set_url "/iframe.html?id=components-asset-hyperlink--example&viewMode=story"

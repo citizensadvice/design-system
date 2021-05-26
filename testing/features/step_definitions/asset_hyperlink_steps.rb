@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Given("an Asset Hyperlink component is on the page") do
-  @component = DesignSystem::AssetHyperlink.new.tap(&:load)
+  @component = AssetHyperlink::Example.new.tap(&:load)
 end
 
 Then("a link to the PDF is present") do
