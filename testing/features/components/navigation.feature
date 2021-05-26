@@ -16,16 +16,12 @@ Feature: Navigation component
       Given a Default Navigation component is on the page
       And the navigation does not fit on the screen
 
-    Scenario: All navigation links are not shown
-      Then the dropdown toggle is present
-      And the dropdown menu is closed
+    Scenario: The default state is to hide some navigation links
+      Then the dropdown menu is closed
 
     Scenario: More/Less navigation links can be viewed by opening/closing the dropdown
-      When I open the dropdown menu
-      Then the dropdown menu is open
-      When I open the dropdown menu
-      And I close the dropdown menu
-      Then the dropdown menu is closed
+      Then I can open the dropdown menu
+      And I can close the dropdown menu
 
     @not_mobile @not_tablet
     Scenario: Tabbing into the dropdown toggle automatically opens the dropdown menu
@@ -37,21 +33,18 @@ Feature: Navigation component
     Scenario: Tabbing out of the dropdown menu automatically closes it
       When I open the dropdown menu
       And I tab out of the dropdown menu
-      Then the More button is present
-      And the dropdown menu is closed
+      Then the dropdown menu is closed
 
     Scenario: You can close the dropdown menu using your Keyboard
       When I open the dropdown menu
       And I press 'Escape'
       Then the dropdown menu is closed
-      And the More button is present
 
     @not_mobile @not_tablet @NP-1766
     Scenario: You can close the dropdown menu by clicking outside of it
       When I open the dropdown menu
       And I click outside of the menu
       Then the dropdown menu is closed
-      And the More button is present
 
   Rule: Default Navigation - logged in users on small screens
     Background:
