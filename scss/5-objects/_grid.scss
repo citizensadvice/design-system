@@ -1,5 +1,7 @@
 @use "sass:math";
 
+/* @use must be first, which conflicts with the import position rule */
+/* stylelint-disable no-invalid-position-at-import-rule */
 @import '../1-settings/breakpoints';
 @import '../1-settings/spacing-sizing';
 @import '../1-settings/grid';
