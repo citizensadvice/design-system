@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Callout
+module Callouts
   class Standard < ::Base
     include Helpers::Javascript
 

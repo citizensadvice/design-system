@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Button
+module Buttons
   class Primary < ::Base
     set_url "/iframe.html?id=components-buttons--primary&viewMode=story"
 
