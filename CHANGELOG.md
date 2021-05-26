@@ -1,6 +1,7 @@
 **Bugfixes**
 
 - ❗ Error summary: Removed technical language from example and docs
+- 🧂 Tables: Don't style plain `table` selector, always require `cads-table`
 
 ## <sub>v4.1.0</sub>
 
