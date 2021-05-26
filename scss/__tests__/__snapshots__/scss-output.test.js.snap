@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`grid styles match snapshot 1`] = `
-".cads-grid-container {
+"/* @use must be first, which conflicts with the import position rule */
+/* stylelint-disable no-invalid-position-at-import-rule */
+.cads-grid-container {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
