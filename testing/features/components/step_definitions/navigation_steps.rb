@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
-Given("the navigation is on the page") do
-  @component = Navigation::Standard.new.tap(&:load)
+Given("a Default Navigation component is on the page") do
+  if @logged_in
+    @component = Navigation::Header.new.tap(&:load)
+  else
+    @component = Navigation::Default.new.tap(&:load)
+  end
 end
 
-Given("the navigation is on the page with header links") do
-  @component = Navigation::WithHeader.new.tap(&:load)
+Given("a user is logged in") do
+  @logged_in = true
 end
 
 Given("the navigation does not fit on the screen") do
