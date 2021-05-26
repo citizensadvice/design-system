@@ -16,9 +16,28 @@ Given("the navigation does not fit on the screen") do
   page.driver.browser.manage.window.resize_to(320, 568) unless device?
 end
 
-Given("the dropdown menu is already open") do
-  page.driver.browser.manage.window.resize_to(320, 568) unless device?
+When("I open the dropdown menu") do
   @component.more_button.click
+end
+
+When("I close the dropdown menu") do
+  @component.close_button.click
+end
+
+When("I tab onto the More button") do
+  @component.tab_into_dropdown
+end
+
+When("I tab out of the dropdown menu") do
+  @component.tab_through_dropdown
+end
+
+When("I press 'Escape'") do
+  @component.send_keys(:escape)
+end
+
+When("I click outside of the menu") do
+  @component.click_outside_navigation
 end
 
 Then("the dropdown toggle is not present") do
@@ -47,28 +66,4 @@ end
 
 Then("the dropdown menu has header links") do
   expect(@component).to have_sign_out
-end
-
-When("I open the dropdown menu") do
-  @component.more_button.click
-end
-
-When("I close the dropdown menu") do
-  @component.close_button.click
-end
-
-When("I tab onto the More button") do
-  @component.tab_into_dropdown
-end
-
-When("I tab out of the dropdown menu") do
-  @component.tab_through_dropdown
-end
-
-When("I press 'Escape'") do
-  @component.send_keys(:escape)
-end
-
-When("I click outside of the menu") do
-  @component.click_outside_navigation
 end
