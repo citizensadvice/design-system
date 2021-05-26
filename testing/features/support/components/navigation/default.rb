@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Navigation
-  class Standard < ::Base
+  class Default < ::Base
     include Helpers::Page
 
     set_url "/iframe.html?id=components-navigation--default-story&viewMode=story"
