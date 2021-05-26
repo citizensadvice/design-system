@@ -4,7 +4,7 @@ Feature: Notice Banner
   about, usually related to the page content.
 
   Background:
-    Given a Standard Notice Banner component is on the page
+    Given an Example Notice Banner component is on the page
 
   Scenario: Notice Banner is present on the page
     Then a notice banner title and message are present

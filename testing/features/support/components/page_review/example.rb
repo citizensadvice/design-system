@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module PageReview
-  class Standard < ::Base
+  class Example < ::Base
     set_url "/iframe.html?id=components-page-review--example&viewMode=story"
 
     element :reviewed_on, ".cads-page-review"

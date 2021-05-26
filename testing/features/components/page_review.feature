@@ -3,9 +3,9 @@ Feature: Page Review component
   The Page Review component reassures the public that the content
   they are viewing is up to date
 
-  Rule: Standard Page Review text
+  Rule: Example Page Review
     Background:
-      Given a Standard Page Review component is on the page
+      Given an Example Page Review component is on the page
 
     Scenario: English Label includes the date
       Then the date that the page was last reviewed is present

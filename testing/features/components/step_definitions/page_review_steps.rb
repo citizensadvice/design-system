@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-Given("a Standard Page Review component is on the page") do
-  @component = PageReview::Standard.new.tap(&:load)
+Given("an Example Page Review component is on the page") do
+  @component = PageReview::Example.new.tap(&:load)
 end
 
 Then("the date that the page was last reviewed is present") do
