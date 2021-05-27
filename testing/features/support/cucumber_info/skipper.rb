@@ -15,6 +15,7 @@ module CucumberInfo
       return AutomationLogger.error("Scenario does NOT work on mobile phones") if not_mobile_check
       return AutomationLogger.error("Scenario does NOT work on iOS13") if not_ios13_check
       return AutomationLogger.error("Scenario does NOT work on iOS12") if not_ios12_check
+      return AutomationLogger.error("Scenario does NOT work on iOS12") if not_safari_check
       return AutomationLogger.error("Scenario does NOT work on Tablets") if not_tablet_check
 
       false
@@ -27,11 +28,15 @@ module CucumberInfo
     end
 
     def not_ios13_check
-      ios12? && tags.include?("@not_ios13")
+      ios13? && tags.include?("@not_ios13")
     end
 
     def not_ios12_check
       ios12? && tags.include?("@not_ios12")
+    end
+
+    def not_safari_check
+      safari? && tags.include?("@not_safari")
     end
 
     def not_tablet_check
