@@ -1,11 +1,19 @@
 # frozen_string_literal: true
 
 Given("the language is Welsh") do
-  @component.switch_language(:cy)
+  if @component
+    @component.switch_language(:cy)
+  else
+    @form.switch_language(:cy)
+  end
 end
 
 Given("the language is English") do
-  @component.switch_language(:en)
+  if @component
+    @component.switch_language(:en)
+  else
+    @form.switch_language(:en)
+  end
 end
 
 When("I am able to skip to the {skip-link-area} part of the page") do |area|
