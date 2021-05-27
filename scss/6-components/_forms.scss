@@ -1,3 +1,4 @@
+@use "sass:math";
 // ============================================================================
 // Forms
 // ============================================================================
@@ -193,7 +194,10 @@ $cads-small-radios-size: 24px;
   }
 }
 .cads-radio-group__input {
-  $input-offset: ($cads-interactive-target-size - $cads-radios-size) / 2;
+  $input-offset: math.div(
+    ($cads-interactive-target-size - $cads-radios-size),
+    2
+  );
 
   cursor: pointer;
   position: absolute;
@@ -262,7 +266,10 @@ $cads-small-radios-size: 24px;
 // Modifier: small
 //
 .cads-radio-group--small {
-  $input-offset: ($cads-interactive-target-size - $cads-small-radios-size) / 2;
+  $input-offset: math.div(
+    ($cads-interactive-target-size - $cads-small-radios-size),
+    2
+  );
   $label-offset: $cads-interactive-target-size - $input-offset;
 
   .cads-radio-group__item {
@@ -279,7 +286,7 @@ $cads-small-radios-size: 24px;
   //  ▲┆└─ Radio pseudo element, aligned with margin
   //  └─── Touch target (invisible input), shifted into the margin
   .cads-radio-group__input {
-    margin-left: $cads-small-radios-size / 3 * -1;
+    margin-left: math.div($cads-small-radios-size, 3) * -1;
   }
 
   .cads-radio-group__label {
