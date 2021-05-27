@@ -93,15 +93,15 @@ module Helpers
     end
 
     def ios13?
-      iphone? && browserstack? && browserstack_os_version == "13"
+      (iphone? || ipad?) && browserstack_os_version == "13"
     end
 
     def ios12?
-      iphone? && browserstack? && browserstack_os_version == "12"
+      (iphone? || ipad?) && browserstack_os_version == "12"
     end
 
     def ios11?
-      iphone? && browserstack? && browserstack_os_version == "11"
+      (iphone? || ipad?) && browserstack_os_version == "11"
     end
 
     def log_level
