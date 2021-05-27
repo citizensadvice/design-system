@@ -18,3 +18,26 @@ jobs:
           bundle update
           bundle install --jobs 4 --retry 3
       - run: bundle exec rake spec
+
+  demo-app:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: demo
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+          working-directory: demo
+      - run: |
+          bundle config path vendor/bundle
+          bundle update
+          bundle install --jobs 4 --retry 3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: demo
+      - run: ./bin/webpack
