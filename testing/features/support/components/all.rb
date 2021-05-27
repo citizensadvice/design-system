@@ -2,9 +2,9 @@
 
 require_relative "base"
 require_relative "breadcrumbs/default"
-require_relative "button/primary"
-require_relative "callout/standard"
+require_relative "buttons/primary"
+require_relative "callouts/standard"
 require_relative "input/basic"
 require_relative "search/standard"
 require_relative "targeted_content/default"
-require_relative "navigation/standard"
+require_relative "navigation/default"
