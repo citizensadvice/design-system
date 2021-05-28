@@ -1,3 +1,4 @@
+@not_ios13 @not_ios12 @not_safari
 Feature: Navigation component
 
   The greedy navigation displays as many navigation links that will fit on the viewport.
