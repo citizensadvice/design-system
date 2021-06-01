@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   class TargetedContent < Base
-    attr_reader :id, :type
+    attr_reader :id, :type, :heading_level
 
     # rubocop:disable Metrics/MethodLength, Metrics/ParameterLists
     def initialize(
@@ -21,7 +21,7 @@ module CitizensAdviceComponents
         given_value: type,
         fallback: :public
       )
-      @heading_level = heading_level || 2
+      @heading_level = (heading_level || 2).to_i.clamp(2, 6)
       @show_close_button = fetch_or_fallback_boolean(show_close_button, fallback: true)
       # Allow disabling toggleable behaviour (mostly for tests)
       @is_toggleable = fetch_or_fallback_boolean(is_toggleable, fallback: true)
@@ -57,10 +57,6 @@ module CitizensAdviceComponents
           close_label: t(".close_label")
         }
       }
-    end
-
-    def heading_level
-      @heading_level.to_i.clamp(1, 6)
     end
 
     def heading_attributes

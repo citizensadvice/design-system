@@ -2,12 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::Callout, type: :component do
   subject(:component) do
-    render_inline(
-      CitizensAdviceComponents::Callout.new(
-        type: type.presence,
-        title: title.presence
-      )
-    ) do
+    render_inline(described_class.new(type: type.presence, title: title.presence)) do
       "Example content"
     end
   end
@@ -40,11 +35,11 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       end
 
       it "renders a standard callout" do
-        expect(component.at(".cads-callout").attr("class")).to include "cads-callout--standard"
+        expect(component.at(".cads-callout--standard")).to be_present
       end
 
       it "has no label" do
-        expect(component.at(".cads-badge")).to be_nil
+        expect(component.at(".cads-badge")).not_to be_present
       end
     end
   end
@@ -53,18 +48,11 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     let(:type) { :example }
 
     it "renders an example callout" do
-      expect(component.at(".cads-callout").attr("class")).to include "cads-callout--example"
+      expect(component.at(".cads-callout--example")).to be_present
     end
 
-    it "has the correct label" do
-      expect(component.at(".cads-badge").text).to eq "Example"
-    end
-
-    context "when welsh language" do
-      before { I18n.locale = :cy }
-      it "has translated label" do
-        expect(component.at(".cads-badge").text).to eq "Enghraifft"
-      end
+    it "has expected badge" do
+      expect(component.at(".cads-badge--example")).to be_present
     end
   end
 
@@ -72,18 +60,11 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     let(:type) { :important }
 
     it "renders an important callout" do
-      expect(component.at(".cads-callout").attr("class")).to include "cads-callout--important"
+      expect(component.at(".cads-callout--important")).to be_present
     end
 
-    it "has the correct label" do
-      expect(component.at(".cads-badge").text).to eq "Important"
-    end
-
-    context "when welsh language" do
-      before { I18n.locale = :cy }
-      it "has translated label" do
-        expect(component.at(".cads-badge").text).to eq "Pwysig"
-      end
+    it "has expected badge" do
+      expect(component.at(".cads-badge--important")).to be_present
     end
   end
 
@@ -91,18 +72,11 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     let(:type) { :adviser }
 
     it "renders an adviser callout" do
-      expect(component.at(".cads-callout").attr("class")).to include "cads-callout--adviser"
+      expect(component.at(".cads-callout--adviser")).to be_present
     end
 
-    it "has the correct label" do
-      expect(component.at(".cads-badge").text).to eq "Adviser"
-    end
-
-    context "when welsh language" do
-      before { I18n.locale = :cy }
-      it "has translated label" do
-        expect(component.at(".cads-badge").text).to eq "Cynghorydd"
-      end
+    it "has expected badge" do
+      expect(component.at(".cads-badge--adviser")).to be_present
     end
   end
 
@@ -120,7 +94,7 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     end
 
     it "does not render" do
-      expect(component.at("section")).to be_nil
+      expect(component.at("section")).not_to be_present
     end
   end
 end
