@@ -18,16 +18,16 @@ export default {
   decorators: [decorateWithBehaviour],
 };
 
-export const Default = () => templateDefault
+export const Default = () => templateDefault;
 Default.parameters = { docs: { source: { code: templateDefault } } };
 
-export const Adviser = () => templateAdviser
+export const Adviser = () => templateAdviser;
 Adviser.parameters = { docs: { source: { code: templateAdviser } } };
 
-export const WithAnchor = () => templateAnchor
+export const WithAnchor = () => templateAnchor;
 WithAnchor.storyName = 'With anchor';
 WithAnchor.parameters = { docs: { source: { code: templateAnchor } } };
 
-export const Fallback = () => templateFallback
+export const Fallback = () => templateFallback;
 // Set the code sample to templateDefault as templateFallback is used to force the behaviour only
 Fallback.parameters = { docs: { source: { code: templateDefault } } };
