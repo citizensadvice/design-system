@@ -11,11 +11,12 @@
 %cads-list-item {
   padding: 0;
   font-size: 1.125rem;
-  line-height: 1.5rem;
+  line-height: 1.75rem;
   margin: 0 0 $cads-spacing-2 0;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
+    line-height: 1.625rem;
   }
 }
 
