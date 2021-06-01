@@ -1,0 +1,44 @@
+= render(CitizensAdviceComponents::TargetedContent.new(type: :adviser,
+  title: "Students or self-sufficient people",
+  id: "targeted-content-adviser")) do
+  %p Students and people who can support themselves without working (either with their own money, or with help from family or friends) can have a right to reside.
+  %p One condition of this type of right to reside is that they won’t be an ‘unreasonable burden on the social assistance system’ - either they’re unlikely to claim benefits or, if they do, they won’t need them for long.
+
+  -# @TODO: Replace with table component once available
+  .cads-table-container
+    %table.cads-table.cads-table__has-caption
+      %caption Post box collection times (Monday to Friday)
+      %tbody
+        %tr
+          %th{ scope: "col" }
+            %span.cads-table__content Your location
+          %th{ scope: "col" }
+            %span.cads-table__content Post box collection times
+        %tr
+          %td
+            %span.cads-table__th-heading Your location
+            %span.cads-table__content City or town
+          %td
+            %span.cads-table__th-heading Post box collection times
+            %span.cads-table__content 9am to 6.30pm
+        %tr
+          %td
+            %span.cads-table__th-heading Your location
+            %span.cads-table__content Areas with lots of businesses - known as commercial
+          %td
+            %span.cads-table__th-heading Post box collection times
+            %span.cads-table__content 9am to 7.30pm
+        %tr
+          %td
+            %span.cads-table__th-heading Your location
+            %span.cads-table__content Very rural areas - for example, where there aren't many people
+          %td
+            %span.cads-table__th-heading Post box collection times
+            %span.cads-table__content 9am to 4pm
+        %tr
+          %td
+            %span.cads-table__th-heading Your location
+            %span.cads-table__content Rest of the UK
+          %td
+            %span.cads-table__th-heading Post box collection times
+            %span.cads-table__content 9am to 5.30pm

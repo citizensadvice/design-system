@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-Given("a Default Targeted Content component is on the page") do
-  @component = TargetedContent::Default.new.tap(&:load)
-end
-
-Given("an Anchored Targeted Content component is on the page") do
+Given("an anchored targeted content component is on the page") do
   @component = TargetedContent::Anchored.new.tap(&:load)
 end
 
@@ -24,14 +20,14 @@ Then("a targeted content title is present") do
   expect(@component).to have_heading
 end
 
-Then("the expand\\/collapse button will indicate it will expand") do
+Then("the toggle button indicates it will expand") do
   expect(@component.heading).to have_expand_collapse
 
   expect(@component.heading.expand_collapse["aria-label"])
     .to start_with(I18n.t("cads.targeted_content.descriptive_label_show"))
 end
 
-Then("the expand\\/collapse button will indicate it will collapse") do
+Then("the toggle button indicates it will collapse") do
   expect(@component.heading).to have_expand_collapse
 
   expect(@component.heading.expand_collapse["aria-label"])

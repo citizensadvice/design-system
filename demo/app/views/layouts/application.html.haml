@@ -7,3 +7,4 @@
     = stylesheet_pack_tag "application", media: "all"
   %body
     #content= yield
+    = javascript_packs_with_chunks_tag "application"

@@ -1,4 +1,4 @@
 = tag.section(class: "cads-callout cads-callout--#{type}", "aria-label": title) do
   - if show_badge?
-    .cads-badge{ class: "cads-badge--#{type}" }= t(".#{type}")
+    = render(CitizensAdviceComponents::Badge.new(type: type))
   = content

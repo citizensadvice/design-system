@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
-  before { I18n.locale = :en }
-
   let(:subject) do
     component = CitizensAdviceComponents::Pagination.new(
       current_params: { "q" => "debt and money" },
