@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Callout, type: :component do
-  before { I18n.locale = :en }
-
   subject(:component) do
     render_inline(
       CitizensAdviceComponents::Callout.new(
