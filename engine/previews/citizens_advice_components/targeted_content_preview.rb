@@ -7,7 +7,5 @@ module CitizensAdviceComponents
     def anchor; end
 
     def adviser; end
-
-    def fallback; end
   end
 end

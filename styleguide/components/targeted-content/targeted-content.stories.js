@@ -3,8 +3,8 @@ import initTargetedContent from '../../../src/js/targeted-content';
 import docs from './targeted-content-docs.mdx';
 import templateDefault from '../../examples/targeted_content/default.html';
 import templateAnchor from '../../examples/targeted_content/anchor.html';
-import templateFallback from '../../examples/targeted_content/fallback.html';
 import templateAdviser from '../../examples/targeted_content/adviser.html';
+import templateFallback from '../../examples/targeted_content/fallback.html';
 
 function decorateWithBehaviour(Story) {
   setTimeout(() => initTargetedContent());

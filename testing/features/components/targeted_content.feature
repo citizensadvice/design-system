@@ -4,7 +4,7 @@ Feature: Targeted Content component
   to store important information behind an expandable bar
 
   Background:
-    Given a targeted content component is on the page
+    Given an anchored targeted content component is on the page
 
   Scenario: Targeted content has a clear title and expand button
     Then a targeted content title is present

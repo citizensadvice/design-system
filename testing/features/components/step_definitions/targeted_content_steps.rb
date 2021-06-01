@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given("a targeted content component is on the page") do
+Given("an anchored targeted content component is on the page") do
   @component = TargetedContent::Anchored.new.tap(&:load)
 end
 

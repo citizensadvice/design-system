@@ -2,34 +2,29 @@
 
 module CitizensAdviceComponents
   class TargetedContent < Base
-    attr_reader :id, :type, :heading_level
+    attr_reader :id, :type
 
-    # rubocop:disable Metrics/MethodLength, Metrics/ParameterLists
     def initialize(
       title:,
       id:,
       type: :public,
       heading_level: nil,
-      show_close_button: nil,
-      is_toggleable: nil
+      show_close_button: nil
     )
       super
       @title = title
       @id = id
-      @type = fetch_or_fallback(
-        allowed_values: %i[public adviser],
-        given_value: type,
-        fallback: :public
-      )
-      @heading_level = (heading_level || 2).to_i.clamp(2, 6)
+      @type = fetch_or_fallback(allowed_values: %i[public adviser], given_value: type, fallback: :public)
+      @heading_level = heading_level || 2
       @show_close_button = fetch_or_fallback_boolean(show_close_button, fallback: true)
-      # Allow disabling toggleable behaviour (mostly for tests)
-      @is_toggleable = fetch_or_fallback_boolean(is_toggleable, fallback: true)
     end
-    # rubocop:enable Metrics/MethodLength, Metrics/ParameterLists
 
     def title
       @title.squish
+    end
+
+    def heading_level
+      @heading_level.to_i.clamp(2, 6)
     end
 
     def adviser?
@@ -40,16 +35,11 @@ module CitizensAdviceComponents
       @show_close_button
     end
 
-    def toggleable?
-      @is_toggleable
-    end
-
     def attributes # rubocop:disable Metrics/MethodLength
       {
         class: [
           ("cads-targeted-content--adviser" if adviser?),
-          ("cads-no-close" unless show_close_button?),
-          ("js-cads-targeted-content" if toggleable?)
+          ("cads-no-close" unless show_close_button?)
         ],
         data: {
           descriptive_label_show: "#{t('.descriptive_label_show')}, #{title}",

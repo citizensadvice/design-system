@@ -60,6 +60,22 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
   context "when missing type" do
     let(:type) { nil }
 
+    context "non-production rails env" do
+      before do
+        allow(Rails.env).to receive(:production?).and_return(false)
+      end
+
+      it "raises an error with available options" do
+        expect do
+          described_class.new(
+            id: "targeted-content-example",
+            type: type,
+            title: "Example title"
+          )
+        end.to raise_error(CitizensAdviceComponents::FetchOrFallbackHelper::InvalidValueError)
+      end
+    end
+
     context "production rails env" do
       before do
         allow(Rails.env).to receive(:production?).and_return(true)
@@ -93,7 +109,7 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
     context "with heading_level over limit" do
       let(:heading_level) { 7 }
 
-      it "has heading clamped to minimum" do
+      it "has heading clamped to maximum" do
         expect(component.at("h6")).to be_present
       end
     end
