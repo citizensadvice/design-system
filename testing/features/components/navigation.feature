@@ -1,3 +1,4 @@
+# NB: Due to a Storybook issue, these tests won't run on Old Safari / iOS
 @not_ios13 @not_ios12 @not_safari
 Feature: Navigation component
 
