@@ -22,7 +22,7 @@
 
 %cads-list-ordered {
   padding: 0 0 0 $cads-spacing-5;
-  margin: 0 0 $cads-spacing-4 0;
+  margin: 0 0 $cads-spacing-5 0;
 
   li {
     @extend %cads-list-item;
@@ -31,7 +31,7 @@
 
 %cads-list-unordered {
   padding: 0 0 0 $cads-spacing-4;
-  margin: 0 0 $cads-spacing-4 0;
+  margin: 0 0 $cads-spacing-5 0;
   list-style-type: disc;
 
   li {
@@ -42,7 +42,7 @@
 %cads-list-unordered-inline {
   @include cads-reset-list-style();
 
-  margin-bottom: $cads-spacing-4;
+  margin-bottom: $cads-spacing-5;
 
   li {
     display: inline-block;
@@ -53,7 +53,7 @@
 %cads-list-no-bullet {
   @include cads-reset-list-style();
 
-  margin-bottom: $cads-spacing-4;
+  margin-bottom: $cads-spacing-5;
 
   li {
     @extend %cads-list-item;
