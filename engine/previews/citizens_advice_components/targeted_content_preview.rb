@@ -3,5 +3,7 @@
 module CitizensAdviceComponents
   class TargetedContentPreview < ViewComponent::Preview
     def default; end
+
+    def anchor; end
   end
 end

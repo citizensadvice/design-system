@@ -1,0 +1,24 @@
+- lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a urna nisl. Aenean euismod purus a magna vulputate, eget volutpat neque volutpat. Donec dapibus scelerisque diam eu scelerisque. Vestibulum laoreet magna sagittis felis pellentesque semper. Nullam porta, arcu rhoncus euismod porttitor, risus augue bibendum ipsum, eget tincidunt mi lectus eget eros. Donec nisl ipsum, facilisis vitae tortor maximus, venenatis mattis purus. Quisque fringilla gravida arcu, ut bibendum nibh malesuada at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+
+%main.cads-page-content
+  %h1.cads-page-title Open targeted content with anchor
+
+  .cads-prose
+    %p
+      %a{ href: "#h-targeted-content-234" } Jump to targeted content
+
+    %h2 Heading level 2
+
+    - 8.times do
+      %p= lorem
+
+    = render(CitizensAdviceComponents::TargetedContent.new(title: "If you are a citizen of a country outside the EU, EEA or Switzerland",
+      id: "targeted-content-234")) do
+      %p You should apply to the EU Settlement Scheme if both:
+      %ul
+        %li you’re in the UK by 31 December 2020
+        %li you have family in the UK from the EU, EEA or Switzerland
+      %p You need to apply to the scheme even if you have a permanent residence card as it will not be valid after 31 December 2020.
+
+    - 8.times do
+      %p= lorem
