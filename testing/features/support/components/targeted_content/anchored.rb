@@ -2,7 +2,7 @@
 
 module TargetedContent
   class Anchored < Default
-    set_url "/iframe.html?id=components-targeted-content--with-anchor&viewMode=story"
+    set_url "/rails/view_components/citizens_advice_components/targeted_content/anchor"
 
     element :jump_to_targeted_content, "a[href^='#']"
   end
