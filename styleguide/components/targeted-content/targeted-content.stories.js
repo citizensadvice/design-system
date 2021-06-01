@@ -1,4 +1,3 @@
-import { translate } from '../../story-helpers';
 import initTargetedContent from '../../../src/js/targeted-content';
 
 import docs from './targeted-content-docs.mdx';
