@@ -1,6 +1,6 @@
 %cads-h1 {
   font-size: 2.5rem;
-  line-height: 1.2em; // Line-height is variable
+  line-height: 1.75em;
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
   margin: 0 0 $cads-spacing-7 0;
@@ -13,39 +13,42 @@
 
 %cads-h2 {
   font-size: 2rem;
-  line-height: 1.25em; // Line-height is variable
+  line-height: 2.75rem;
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
   margin: 0 0 $cads-spacing-4 0;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1.5rem;
+    line-height: 2rem;
     margin: 0 0 $cads-spacing-3 0;
   }
 }
 
 %cads-h3 {
-  font-size: 1.4rem;
-  line-height: 1.25em; // Line-height is variable
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
   margin: 0 0 $cads-spacing-3 0;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1.25rem;
+    line-height: 1.75rem;
     margin: 0 0 $cads-spacing-3 0;
   }
 }
 
 %cads-h4 {
   font-size: 1.125rem;
-  line-height: 1.5rem; // Line-height remains the same
+  line-height: 1.625rem;
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
   margin: 0 0 $cads-spacing-3 0;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
+    line-height: 1.625rem;
   }
 }
 
@@ -53,7 +56,7 @@
   @include cads-typographic-scale-text();
 
   font-weight: $cads-font-weight__regular;
-  margin: 0 0 $cads-spacing-4 0;
+  margin: 0 0 $cads-spacing-5 0;
 }
 
 %cads-paragraph-small {
@@ -66,7 +69,7 @@
 h2,
 h3,
 h4 {
-  @include cads-adjacent-heading-margin($cads-spacing-6);
+  @include cads-adjacent-heading-margin($cads-spacing-7);
 }
 
 hr,
