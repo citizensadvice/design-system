@@ -21,7 +21,7 @@ module CitizensAdviceComponents
     end
 
     def render?
-      @type.present?
+      type.present?
     end
   end
 end
