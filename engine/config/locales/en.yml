@@ -1,6 +1,6 @@
 en:
   citizens_advice_components:
-    callout:
+    badge:
       adviser: Adviser
       example: Example
       important: Important
@@ -15,3 +15,7 @@ en:
       previous_page_label: Previous
       previous_page_aria_label: Go to previous page
       go_to_page: 'Go to page %{page}'
+    targeted_content:
+      close_label: Close
+      descriptive_label_hide: hide this section
+      descriptive_label_show: show this section
