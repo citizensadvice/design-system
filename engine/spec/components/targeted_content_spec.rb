@@ -113,6 +113,14 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
         expect(component.at("h6")).to be_present
       end
     end
+
+    context "with invalid heading_level" do
+      let(:heading_level) { "not_a_heading_level" }
+
+      it "has heading set to default" do
+        expect(component.at("h2")).to be_present
+      end
+    end
   end
 
   context "when no content present" do
