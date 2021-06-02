@@ -4,6 +4,7 @@
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
   margin: 0 0 $cads-spacing-7 0;
+  letter-spacing: -0.3px;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 2rem;
@@ -18,11 +19,11 @@
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
   margin: 0 0 $cads-spacing-4 0;
+  letter-spacing: -0.3px;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1.5rem;
     line-height: 2rem;
-    margin: 0 0 $cads-spacing-3 0;
   }
 }
 
@@ -32,6 +33,7 @@
   font-weight: $cads-font-weight__bold;
   color: $cads-font-colour__headings;
   margin: 0 0 $cads-spacing-4 0;
+  letter-spacing: -0.3px;
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1.25rem;
@@ -63,7 +65,7 @@
   @include cads-typographic-scale-text-small();
 
   font-weight: $cads-font-weight__regular;
-  margin: 0 0 $cads-spacing-3 0;
+  margin: 0 0 $cads-spacing-5 0;
 }
 
 h2,
