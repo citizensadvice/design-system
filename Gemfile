@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+ruby "2.7.3"
+
 gem "actionview", "~> 6.1"
 gem "haml", "~> 5.2"
 gem "rails-i18n", "~> 6.0"
