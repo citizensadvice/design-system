@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom';
