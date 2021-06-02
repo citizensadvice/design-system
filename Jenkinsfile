@@ -9,11 +9,11 @@ mobileBrowserstackVaultSecrets = [
   BROWSERSTACK_ACCESS_KEY: '/secret/devops/public-website/develop/env, MOBILE_BROWSERSTACK_ACCESS_KEY',
 ]
 browserStackTestingMatrix = [
-  [browser: 'chrome', config: 'Windows_10_85'],
-  [browser: 'chrome', config: 'Windows_7_80'],
-  [browser: 'chrome', config: 'OSX_Mojave_84'],
-  [browser: 'firefox', config: 'Windows_10_81'],
-  [browser: 'firefox', config: 'Windows_7_78'],
+  [browser: 'chrome', config: 'Windows_10_89'],
+  [browser: 'chrome', config: 'Windows_7_83'],
+  [browser: 'chrome', config: 'OSX_Mojave_87'],
+  [browser: 'firefox', config: 'Windows_10_88'],
+  [browser: 'firefox', config: 'Windows_7_83'],
   [browser: 'safari', config: 'OSX_Mojave_12'],
   [browser: 'ios', config: 'iPhone11_13'],
   [browser: 'ios', config: 'iPad7th_13'],
