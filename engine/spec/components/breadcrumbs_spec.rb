@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-RSpec.shared_examples "breadcrumbs" do 
+
+RSpec.shared_examples "breadcrumbs" do
   it "renders the correct number of breadcrumbs" do
     expect(component.css("li").length).to eq 3
   end
@@ -12,7 +13,6 @@ RSpec.shared_examples "breadcrumbs" do
     expect(component.css("span").attribute("aria-current").value).to eq "location"
   end
 end
-
 
 RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   subject(:component) do
@@ -74,7 +74,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   end
 
   context "links are passed with the old style hash format" do
-    let(:links) do  
+    let(:links) do
       [
         {
           "title" => "Home",
@@ -89,7 +89,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
         }
       ]
     end
-    
+
     it_behaves_like "breadcrumbs"
   end
 end
