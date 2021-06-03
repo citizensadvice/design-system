@@ -8,7 +8,7 @@
     - breadcrumbs["breadcrumb_links"].each_with_index do |link, index|
       %li.cads-breadcrumbs__crumb
         - if index == breadcrumbs["breadcrumb_links"].size - 1
-          %span.cads-breadcrumb
+          %span.cads-breadcrumb{ aria: { current: "location" } }
             = link["title"]
         - else
           %a.cads-breadcrumb{ href: link["url"] }

@@ -95,7 +95,40 @@ This story shows how longer breadcrumb titles are displayed.
 
 When shown in a search result, the breadcumbs do not show the home page and do not have a horizontal rule underneath.
 
-## Haml template options
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+
+```rb
+= render(
+  CitizensAdviceComponents::Breadcrumbs.new(
+    type: :collapse,
+    links: [
+      {
+        title: "Home",
+        url: "/"
+      },
+      {
+        title: "Immigration",
+        url: "/immigration"
+      },
+      {
+        title: "Staying in the UK"
+      }
+    ])
+)
+```
+
+### View Component Options
+
+| Property      | Description                                             |
+| ------------- | ------------------------------------------------------- |
+| `type`        | Optional, one of: `:collapse` (default), `:no_collapse` |
+| `links`       | Required, an array of hashes, each with the following:  |
+| `link[url]`   | &rarr; Required, url for the breadcrumb link            |
+| `link[title]` | &rarr; Required, title for the breadcrumb link          |
+
+### Haml template options
 
 The Haml partial takes a `breadcrumb` hash, which has the following properties:
 
