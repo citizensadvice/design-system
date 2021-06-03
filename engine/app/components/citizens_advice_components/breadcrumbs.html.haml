@@ -1,6 +1,6 @@
-%nav{ class: "cads-breadcrumbs cads-breadcrumbs--#{@type.to_s.dasherize}", "aria-label": "breadcrumbs" }
+%nav{ class: "cads-breadcrumbs cads-breadcrumbs--#{type.to_s.dasherize}", "aria-label": "breadcrumbs" }
   %ul.cads-breadcrumbs__list
-    - @links.each_with_index do |link, index|
+    - links.each_with_index do |link, index|
       %li.cads-breadcrumbs__crumb
         - if index == links.size - 1
           %span.cads-breadcrumb{ aria: { current: "location" } }

@@ -54,8 +54,7 @@ module CitizensAdviceComponents
               url: "/"
             },
             {
-              title: '
-              My Grandmother Asked Me to Tell You She’s Sorry',
+              title: "My Grandmother Asked Me to Tell You She’s Sorry",
               url: "/immigration"
             },
             {

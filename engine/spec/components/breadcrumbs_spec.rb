@@ -1,9 +1,23 @@
 # frozen_string_literal: true
+RSpec.shared_examples "breadcrumbs" do 
+  it "renders the correct number of breadcrumbs" do
+    expect(component.css("li").length).to eq 3
+  end
+
+  it "renders the current page as a span" do
+    expect(component.css("span").text.strip).to eq "Staying in the UK"
+  end
+
+  it "renders the current page with an aria-current of 'location'" do
+    expect(component.css("span").attribute("aria-current").value).to eq "location"
+  end
+end
+
 
 RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   subject(:component) do
     render_inline(
-      described_class.new(
+      CitizensAdviceComponents::Breadcrumbs.new(
         type: type.presence,
         links: links.presence
       )
@@ -27,17 +41,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     ]
   end
 
-  it "renders the correct number of breadcrumbs" do
-    expect(component.css("li").length).to eq 3
-  end
-
-  it "renders the current page as a span" do
-    expect(component.css("span").text.strip).to eq "Staying in the UK"
-  end
-
-  it "renders the current page with an aria-current of 'location'" do
-    expect(component.css("span").attribute("aria-current").value).to eq "location"
-  end
+  it_behaves_like "breadcrumbs"
 
   context "no_collapse type is provided" do
     let(:type) { :no_collapse }
@@ -67,5 +71,25 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
         expect(component.css(".cads-breadcrumbs--collapse")).to be_present
       end
     end
+  end
+
+  context "links are passed with the old style hash format" do
+    let(:links) do  
+      [
+        {
+          "title" => "Home",
+          "url" => "/"
+        },
+        {
+          "title" => "Immigration",
+          "url" => "/immigration"
+        },
+        {
+          "title" => "Staying in the UK"
+        }
+      ]
+    end
+    
+    it_behaves_like "breadcrumbs"
   end
 end
