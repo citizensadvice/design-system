@@ -16,8 +16,7 @@ module CitizensAdviceComponents
               url: '/immigration'
             },
             {
-              title: 'Staying in the UK',
-              url: '/immigration/staying-in-the-uk'
+              title: 'Staying in the UK'
             }
           ]
         )
@@ -38,8 +37,7 @@ module CitizensAdviceComponents
               url: '/immigration'
             },
             {
-              title: 'Staying in the UK',
-              url: '/immigration/staying-in-the-uk'
+              title: 'Staying in the UK'
             }
           ]
         )
@@ -69,8 +67,7 @@ module CitizensAdviceComponents
               url: '/'
             },
             {
-              title: 'Eleanor Oliphant is Completely Fine',
-              url: '/'
+              title: 'Eleanor Oliphant is Completely Fine'
             }
           ]
         )
