@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 /* eslint-env jest */
 import { screen, getByRole } from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';

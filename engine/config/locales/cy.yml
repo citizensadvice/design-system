@@ -1,6 +1,6 @@
 cy:
   citizens_advice_components:
-    callout:
+    badge:
       adviser: Cynghorydd
       example: Enghraifft
       important: Pwysig
@@ -15,3 +15,7 @@ cy:
       previous_page_label: Blaenorol
       previous_page_aria_label: Ewch i'r dudalen flaenorol
       go_to_page: 'Ewch i dudalen %{page}'
+    targeted_content:
+      close_label: Cau
+      descriptive_label_hide: cuddio’r adran hon
+      descriptive_label_show: dangos yr adran hon

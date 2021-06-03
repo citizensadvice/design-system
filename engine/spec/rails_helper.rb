@@ -14,6 +14,13 @@ require "view_component/test_helpers"
 
 RSpec.configure do |config|
   config.include ViewComponent::TestHelpers, type: :component
+
+  # Explicitly set locale before each component spec,
+  # to avoid leaking locale state between test runs.
+  config.before(type: :component) do
+    I18n.locale = :en
+  end
+
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 end

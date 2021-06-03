@@ -36,5 +36,13 @@ module CitizensAdviceComponents
         fallback
       end
     end
+
+    def fetch_or_fallback_boolean(given_value, fallback: false)
+      if [true, false].include?(given_value)
+        given_value
+      else
+        fallback
+      end
+    end
   end
 end

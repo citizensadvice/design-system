@@ -1,6 +1,6 @@
 {
   "name": "@citizensadvice/design-system",
-  "version": "4.1.0",
+  "version": "4.1.1-alpha.0",
   "description": "Citizens Advice Design System",
   "repository": "https://github.com/citizensadvice/design-system",
   "author": "Citizens Advice",
@@ -78,7 +78,7 @@
     "http-server": "^0.12.3",
     "husky": "^6.0.0",
     "inquirer": "^8.0.0",
-    "jest": "^26.6.3",
+    "jest": "^27.0.3",
     "jest-date-mock": "^1.0.8",
     "js-beautify": "^1.13.13",
     "jsdom": "^16.5.3",

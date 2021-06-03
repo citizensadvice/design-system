@@ -47,19 +47,6 @@ If JavaScript either fails or is disabled in the users browser the fallback is t
   <Story id="components-targeted-content--adviser" />
 </Preview>
 
-## Haml template options
-
-The Haml partial takes a `targeted_content` hash with the following properties:
-
-| properties      | Description                                                              |
-| --------------- | ------------------------------------------------------------------------ |
-| `id`            | Required, unique ID                                                      |
-| `title`         | Required, title string                                                   |
-| `body`          | Required, body HTML                                                      |
-| `type`          | Optional, one of `public` or `adviser`. Defaults to `public`             |
-| `heading_level` | Optional, sets the heading level of the title. Defaults to `2`           |
-| `close_button`  | Optional, include close button at the end of content. Defaults to `true` |
-
 ## JavaScript behaviour
 
 Targeted content requires some additional JavaScript behaviour which can be initialised with:
@@ -70,3 +57,38 @@ initTargetedContent();
 ```
 
 **Note**: If you are supporting IE 11 or earlier make sure you include an [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest).
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem you call the component from within a template using:
+
+```rb
+= render(CitizensAdviceComponents::TargetedContent.new(title: "Your title",
+  id: "targeted-content-example-id")) do
+  %p Your HTML content
+```
+
+### Component arguments
+
+The component accepts a [`content` block](https://viewcomponent.org/guide/#implementation) for the main contents along with the following arguments:
+
+| Argument        | Description                                                              |
+| --------------- | ------------------------------------------------------------------------ |
+| `id`            | Required, unique ID                                                      |
+| `title`         | Required, title string                                                   |
+| `type`          | Optional, one of `public` or `adviser`. Defaults to `public`             |
+| `heading_level` | Optional, sets the heading level of the title. Defaults to `2`           |
+| `close_button`  | Optional, include close button at the end of content. Defaults to `true` |
+
+### Haml template options
+
+The haml partial takes a `targeted_content` hash with the following properties:
+
+| properties      | Description                                                              |
+| --------------- | ------------------------------------------------------------------------ |
+| `id`            | Required, unique ID                                                      |
+| `title`         | Required, title string                                                   |
+| `body`          | Required, body HTML                                                      |
+| `type`          | Optional, one of `public` or `adviser`. Defaults to `public`             |
+| `heading_level` | Optional, sets the heading level of the title. Defaults to `2`           |
+| `close_button`  | Optional, include close button at the end of content. Defaults to `true` |
