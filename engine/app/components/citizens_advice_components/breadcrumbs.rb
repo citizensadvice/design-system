@@ -11,6 +11,10 @@ module CitizensAdviceComponents
             link.symbolize_keys!
         end
       end
+
+      def render?
+        links.present?
+      end
     end
   end
   
