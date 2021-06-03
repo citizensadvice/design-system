@@ -11,7 +11,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   end
 
   let(:type) { :collapse }
-  let(:links) { 
+  let(:links) do
     [
       {
         title: "Home",
@@ -25,7 +25,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
         title: "Staying in the UK"
       }
     ]
-  }
+  end
 
   it "renders the correct number of breadcrumbs" do
     expect(component.css("li").length).to eq 3
@@ -43,15 +43,15 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     let(:type) { :no_collapse }
 
     it "renders the the non-collapsible version" do
-      expect(component.css('.cads-breadcrumbs--no-collapse')).to be_present
+      expect(component.css(".cads-breadcrumbs--no-collapse")).to be_present
     end
   end
 
-  context "no links are provided" do 
+  context "no links are provided" do
     let(:links) { nil }
 
     it "does not render" do
-      expect(component.css('.cads-breadcrumbs')).to_not be_present
+      expect(component.css(".cads-breadcrumbs")).to_not be_present
     end
   end
 
@@ -63,9 +63,9 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
         allow(Rails.env).to receive(:production?).and_return(true)
       end
 
-      it "renders collapsible version by default" do 
-        expect(component.css('.cads-breadcrumbs--collapse')).to be_present
-      end    
+      it "renders collapsible version by default" do
+        expect(component.css(".cads-breadcrumbs--collapse")).to be_present
+      end
     end
   end
 end

@@ -8,15 +8,15 @@ module CitizensAdviceComponents
           type: :collapse,
           links: [
             {
-              title: 'Home',
-              url: '/'
+              title: "Home",
+              url: "/"
             },
             {
-              title: 'Immigration',
-              url: '/immigration'
+              title: "Immigration",
+              url: "/immigration"
             },
             {
-              title: 'Staying in the UK'
+              title: "Staying in the UK"
             }
           ]
         )
@@ -29,15 +29,15 @@ module CitizensAdviceComponents
           type: :no_collapse,
           links: [
             {
-              title: 'Home',
-              url: '/'
+              title: "Home",
+              url: "/"
             },
             {
-              title: 'Immigration',
-              url: '/immigration'
+              title: "Immigration",
+              url: "/immigration"
             },
             {
-              title: 'Staying in the UK'
+              title: "Staying in the UK"
             }
           ]
         )
@@ -50,24 +50,24 @@ module CitizensAdviceComponents
           type: :collapse,
           links: [
             {
-              title: 'Home',
-              url: '/'
+              title: "Home",
+              url: "/"
             },
             {
               title: '
               My Grandmother Asked Me to Tell You She’s Sorry',
-              url: '/immigration'
+              url: "/immigration"
             },
             {
-              title: 'The Curious Incident of the Dog in the Night-Time',
-              url: '/immigration/staying-in-the-uk'
+              title: "The Curious Incident of the Dog in the Night-Time",
+              url: "/immigration/staying-in-the-uk"
             },
             {
-              title:  'Fried Green Tomatoes at the Whistle Stop Cafe',
-              url: '/'
+              title: "Fried Green Tomatoes at the Whistle Stop Cafe",
+              url: "/"
             },
             {
-              title: 'Eleanor Oliphant is Completely Fine'
+              title: "Eleanor Oliphant is Completely Fine"
             }
           ]
         )
