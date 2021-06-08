@@ -3,6 +3,9 @@ Feature: Input forms
   The Input forms provide the user with a way of submitting plain text.
   They can be provided with varying levels of hints or labels
 
+  Scenario: Inputs can be of a variety of widths
+    Then I am able to use Inputs of a variety of widths
+
   Rule: Basic Input
     Background:
       Given I have a Basic Input form on page

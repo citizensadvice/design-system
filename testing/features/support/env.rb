@@ -9,6 +9,7 @@ require_relative "automation_logger"
 require_relative "driver"
 require_relative "drivers/all"
 require_relative "components/all"
+require_relative "forms/all"
 
 World(
   Helpers::Page,
