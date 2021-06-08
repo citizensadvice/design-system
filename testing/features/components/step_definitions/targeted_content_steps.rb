@@ -1,7 +1,19 @@
 # frozen_string_literal: true
 
+Given("a default targeted content component is on the page") do
+  @component = TargetedContent::Default.new.tap(&:load)
+end
+
+Given("an adviser targeted content component is on the page") do
+  @component = TargetedContent::Adviser.new.tap(&:load)
+end
+
 Given("an anchored targeted content component is on the page") do
   @component = TargetedContent::Anchored.new.tap(&:load)
+end
+
+Given("a fallback targeted content component is on the page") do
+  @component = TargetedContent::Fallback.new.tap(&:load)
 end
 
 When("I expand/collapse the targeted content") do
@@ -45,4 +57,14 @@ end
 Then("I can see a close button") do
   expect(@component.additional_information.close.text)
     .to eq(I18n.t("cads.targeted_content.close_label"))
+end
+
+Then("an Adviser label is present in the expandable pane") do
+  expect(@component.label.text).to eq("Adviser")
+end
+
+Then("I cannot close or collapse the content") do
+  expect(@component.heading).not_to have_expand_collapse
+
+  expect(@component.additional_information).not_to have_close
 end
