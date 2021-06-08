@@ -30,7 +30,7 @@ Feature: Targeted Content component
   Rule: Adviser Targeted Content
     Scenario: Adviser targeted content contains an adviser label
       Given an adviser targeted content component is on the page
-      And an "Adviser" label is present above the title
+      And an Adviser label is present in the expandable pane
 
   Rule: Anchored Targeted Content
     Scenario: Targeted content can be be auto-opened

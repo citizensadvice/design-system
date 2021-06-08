@@ -22,6 +22,10 @@ Then("a callout title and message are present") do
   expect(@component).to have_message
 end
 
-Then("no label is present above the title") do
+Then("no label is present above the callout title") do
   expect(@component).not_to have_label
+end
+
+Then("a/an {string} label is present above the callout title") do |label|
+  expect(@component.label.text).to eq(I18n.t("cads.callout.#{label.downcase}"))
 end

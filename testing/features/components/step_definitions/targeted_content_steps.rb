@@ -59,6 +59,10 @@ Then("I can see a close button") do
     .to eq(I18n.t("cads.targeted_content.close_label"))
 end
 
+Then("an Adviser label is present in the expandable pane") do
+  expect(@component.label.text).to eq("Adviser")
+end
+
 Then("I cannot close or collapse the content") do
   expect(@component.heading).not_to have_expand_collapse
 
