@@ -58,3 +58,9 @@ Then("I can see a close button") do
   expect(@component.additional_information.close.text)
     .to eq(I18n.t("cads.targeted_content.close_label"))
 end
+
+Then("I cannot close or collapse the content") do
+  expect(@component.heading).not_to have_expand_collapse
+
+  expect(@component.additional_information).not_to have_close
+end

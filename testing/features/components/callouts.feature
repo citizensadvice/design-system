@@ -9,12 +9,12 @@ Feature: Callout components
 
     Scenario: English Callout contains a title and message
       Then a callout title and message are present
-      But no label is present above the callout title
+      But no label is present above the title
 
     Scenario: Welsh Callout contains a title and message
       Given the language is Welsh
       Then a callout title and message are present
-      But no label is present above the callout title
+      But no label is present above the title
 
   Rule: Example Callout
     Background:
@@ -22,12 +22,12 @@ Feature: Callout components
 
     Scenario: English Callout contains a title, message and warning
       Then a callout title and message are present
-      And an "Example" label is present above the callout title
+      And an "Example" label is present above the title
 
     Scenario: Welsh Callout contains a title, message and warning
       Given the language is Welsh
       Then a callout title and message are present
-      And an "Example" label is present above the callout title
+      And an "Example" label is present above the title
 
   Rule: Important Callout
     Background:
@@ -35,12 +35,12 @@ Feature: Callout components
 
     Scenario: English Callout contains a title, message and warning
       Then a callout title and message are present
-      And an "Important" label is present above the callout title
+      And an "Important" label is present above the title
 
     Scenario: Welsh Callout contains a title, message and warning
       Given the language is Welsh
       Then a callout title and message are present
-      And an "Important" label is present above the callout title
+      And an "Important" label is present above the title
 
   Rule: Adviser Callout
     Background:
@@ -48,9 +48,9 @@ Feature: Callout components
 
     Scenario: English Callout contains a title, message and an adviser label
       Then a callout title and message are present
-      And an "Adviser" label is present above the callout title
+      And an "Adviser" label is present above the title
 
     Scenario: Welsh Callout contains a title, message and an adviser label
       Given the language is Welsh
       Then a callout title and message are present
-      And an "Adviser" label is present above the callout title
+      And an "Adviser" label is present above the title

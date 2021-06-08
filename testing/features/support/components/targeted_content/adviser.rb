@@ -2,10 +2,8 @@
 
 module TargetedContent
   class Adviser < Default
-    set_url "/iframe.html?id=components-targeted-content--with-adviser&viewMode=story"
+    set_url "/iframe.html?id=components-targeted-content--adviser&viewMode=story"
 
-    def adviser_badge
-      before_content(".cads-badge--adviser").delete('\\"')
-    end
+    element :label, ".cads-badge"
   end
 end

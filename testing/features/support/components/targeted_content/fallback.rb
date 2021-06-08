@@ -2,6 +2,6 @@
 
 module TargetedContent
   class Fallback < Default
-    set_url "/iframe.html?id=components-targeted-content--with-fallback&viewMode=story"
+    set_url "/iframe.html?id=components-targeted-content--fallback&viewMode=story"
   end
 end

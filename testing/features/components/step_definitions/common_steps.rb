@@ -55,3 +55,7 @@ Then("I can collapse the search bar") do
 
   expect(@component).not_to have_search_field
 end
+
+Then("a/an {string} label is present above the title") do |label|
+  expect(@component.label.text).to eq(I18n.t("cads.callout.#{label.downcase}"))
+end
