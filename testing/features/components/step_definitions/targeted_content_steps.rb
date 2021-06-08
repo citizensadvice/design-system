@@ -1,7 +1,19 @@
 # frozen_string_literal: true
 
+Given("a default targeted content component is on the page") do
+  @component = TargetedContent::Default.new.tap(&:load)
+end
+
+Given("an adviser targeted content component is on the page") do
+  @component = TargetedContent::Adviser.new.tap(&:load)
+end
+
 Given("an anchored targeted content component is on the page") do
   @component = TargetedContent::Anchored.new.tap(&:load)
+end
+
+Given("a fallback targeted content component is on the page") do
+  @component = TargetedContent::Fallback.new.tap(&:load)
 end
 
 When("I expand/collapse the targeted content") do
