@@ -56,10 +56,6 @@ Feature: Callout components
       And an "Adviser" label is present above the callout title
 
   Rule: Nested Callouts
-    Background:
-      Given a Nested Callout component is on the page
-
     Scenario: Callouts are not altered when nested
-      Then the outer callout is rendered correctly
-      And the inner callout is rendered correctly
-      
+      Given a Nested Callout component is on the page
+      Then both callouts are rendered correctly
