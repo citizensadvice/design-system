@@ -57,5 +57,10 @@ Feature: Callout components
 
   Rule: Nested Callouts
     Scenario: Callouts are not altered when nested
-      Given a Nested Callout component is on the page
+      Given there are Nested Callout components on the page
       Then both callouts are rendered correctly
+
+    Scenario: Callouts must not break WCAG heading guidelines
+      Given there are Nested Callout components on the page with varying heading levels
+      Then the outer callout is unaltered
+      But the inner callout only has headings at a lower level than the outer callout

@@ -16,8 +16,12 @@ Given("an Adviser Callout component is on the page") do
   @component = Callouts::Adviser.new.tap(&:load)
 end
 
-Given("a Nested Callout component is on the page") do
+Given("there are Nested Callout components on the page") do
   @component = Callouts::Nested.new.tap(&:load)
+end
+
+Given("there are Nested Callout components on the page with varying heading levels") do
+  @component = Callouts::VariableHeadingLevels.new.tap(&:load)
 end
 
 Then("a callout title and message are present") do
@@ -36,4 +40,20 @@ end
 
 Then("both callouts are rendered correctly") do
   expect(@component.outer_standard).to be_all_there(recursion: :one)
+end
+
+Then("the outer callout is unaltered") do
+  expect(@component.outer_standard).to be_all_there
+end
+
+Then("the inner callout only has headings at a lower level than the outer callout") do
+  inner_callout = @component.outer_standard.inner_adviser
+
+  expect(inner_callout).to be_all_there
+
+  expect(inner_callout).not_to have_h2
+
+  expect(inner_callout).not_to have_h3
+
+  expect(inner_callout).to have_h4
 end
