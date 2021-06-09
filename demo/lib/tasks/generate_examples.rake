@@ -26,13 +26,18 @@ task generate_examples: :environment do
 
         component_html = doc.css("#content").inner_html
 
-        output_path = Rails.application.root.join("../styleguide/examples/#{component_key}.html")
+        output_paths = [
+          Rails.application.root.join("../styleguide/examples/#{component_key}.html"),
+          Rails.application.root.join("../../cads/examples/#{component_key}.html")
+        ]
 
-        FileUtils.mkdir_p(output_path.dirname)
+        output_paths.each do |output_path| 
+          FileUtils.mkdir_p(output_path.dirname)
 
-        puts "Writing example to #{output_path}"
+          puts "Writing example to #{output_path}"
 
-        File.write output_path, HtmlBeautifier.beautify(component_html.to_s.strip)
+          File.write output_path, HtmlBeautifier.beautify(component_html.to_s.strip)
+        end
       end
     end
   end
