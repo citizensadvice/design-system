@@ -26,3 +26,10 @@ Feature: Button components
 
     Scenario: Ensure button is of correct type
       Then the Tertiary button acts as a button
+
+  Rule: Link Buttons
+    Background:
+      Given the Link Button components are on the page
+
+    Scenario: Ensure buttons are of correct type
+      Then the Link buttons act as buttons
