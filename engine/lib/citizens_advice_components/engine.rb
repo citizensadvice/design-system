@@ -3,16 +3,16 @@
 require "haml"
 require "active_support/core_ext"
 require "view_component/engine"
+require "rails/engine"
 
 module CitizensAdviceComponents
   class Engine < ::Rails::Engine
     isolate_namespace CitizensAdviceComponents
 
     config.view_component.preview_paths << CitizensAdviceComponents::Engine.root.join("previews")
-    config.load_paths = %W[
-      #{CitizensAdviceComponents::Engine.root.join("previews")}
-      #{CitizensAdviceComponents::Engine.root.join("app/components")}
-      #{CitizensAdviceComponents::Engine.root.join("app/lib")}
+    config.autoload_paths = %W[
+      #{root.join("app/components")}
+      #{root.join("app/lib")}
     ] 
   end
 end
