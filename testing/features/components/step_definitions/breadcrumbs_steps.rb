@@ -25,5 +25,7 @@ Then("the final breadcrumb isn't a link") do
 end
 
 Then("the only breadcrumb is a link") do
-  expect(@component.breadcrumbs.last).to have_link
+  expect(@component.breadcrumbs.length).to eq(1)
+
+  expect(@component.breadcrumbs.first).to have_link
 end
