@@ -4,7 +4,7 @@ Feature: Breadcrumbs component
   previous content pages they have traversed through
 
   Rule: Default Breadcrumb
-    This collapses down when viewing on small screen sizes (Mobile's e.t.c.)
+    This collapses down when viewing on small screen sizes (mobiles etc)
     This is the same as the Long Titles Breadcrumb component
     Background:
       Given a Default Breadcrumbs component is on the page
