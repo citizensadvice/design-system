@@ -54,3 +54,8 @@ Feature: Callout components
       Given the language is Welsh
       Then a callout title and message are present
       And an "Adviser" label is present above the callout title
+
+  Rule: Nested Callouts
+    Scenario: Callouts are not altered when nested
+      Given there are Nested Callout components on the page
+      Then both callouts are rendered correctly

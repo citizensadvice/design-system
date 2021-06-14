@@ -143,7 +143,6 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       HEADLESS: true
-      APP_ENVIRONMENT: local
       BROWSER: chrome
       LOG_LOCATION: automation_logs.log
       TESTING_BASE_URL: 'http://localhost:6006'
