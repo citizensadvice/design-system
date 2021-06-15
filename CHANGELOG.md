@@ -1,3 +1,8 @@
+**Bugfixes**
+
+- 🥖 Breadcrumbs: Hard coded 'Home' link has been removed (you must now specify it yourself)
+
+
 ## <sub>v4.1.1-alpha.1</sub>
 
 #### _Jun. 10, 2021_
