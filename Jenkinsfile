@@ -275,7 +275,8 @@ def define_browserstack_tests() {
       withEnv([
         "BROWSER=${it.browser}",
         "BROWSERSTACK_CONFIGURATION_OPTIONS=${it.config}",
-        'BROWSERSTACK=true'
+        'BROWSERSTACK=true',
+        "BROWSERSTACK_BUILD_NAME=Design system (Jenkins) ${env.BRANCH_NAME}_${getSha()}"
       ]) {
         withTestingNode("Browser Tests for ${it.browser} on ${it.config}", true, isMobile) {
           try {

@@ -60,6 +60,7 @@ services:
       - BROWSERSTACK_USERNAME
       - BROWSERSTACK_ACCESS_KEY
       - BROWSERSTACK_CONFIGURATION_OPTIONS
+      - BROWSERSTACK_BUILD_NAME
       - DOCKER_TAG
     # Every key set in here should NOT be in the list above
     # Any key in this file that also exists in the list above will be overwritten
