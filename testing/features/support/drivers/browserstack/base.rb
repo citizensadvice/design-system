@@ -64,11 +64,15 @@ module Drivers
       end
 
       def build_name
-        PayloadValuesGenerator.build_name
+        "Design System - #{identifier} - #{base_url}"
+      end
+
+      def identifier
+        browserstack_build_name || "Local machine run #{Time.now.strftime('%Y-%m-%d %H:%M:%S')}"
       end
 
       def session_name
-        PayloadValuesGenerator.session_name
+        "SHA: #{sha} - CALLING_PROJECT: design-system"
       end
 
       def selenium_jar_version

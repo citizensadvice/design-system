@@ -26,6 +26,10 @@ module Helpers
       ENV.fetch("BROWSERSTACK_DEBUG_MODE", "false")
     end
 
+    def browserstack_build_name
+      ENV.fetch("BROWSERSTACK_BUILD_NAME")
+    end
+
     def grid?
       ENV["GRID"] == "true"
     end
@@ -66,12 +70,6 @@ module Helpers
       ENV.fetch("TESTING_BASE_URL")
     end
 
-    # Example: design-system/master_ad4b223
-    # Example: design-system/PR-284_dbbb8b6
-    def docker_tag
-      ENV["DOCKER_TAG"]
-    end
-
     def browserstack_os
       ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[0]
     end
@@ -102,6 +100,10 @@ module Helpers
 
     def log_location
       ENV["LOG_LOCATION"]
+    end
+
+    def sha
+      @sha ||= `git rev-parse --short HEAD`.chomp
     end
   end
 end
