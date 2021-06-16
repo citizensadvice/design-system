@@ -12,6 +12,6 @@ RSpec.describe CitizensAdviceComponents::AssetHyperlink, type: :component do
   end
 
   it "renders link with text" do
-    expect(component.at("a").text.strip.strip.tr("\n", " ")).to eq "Test PDF  6.15 MB"
+    expect(component.at("a").text.strip.strip.tr("\n", " ")).to eq "Test PDF  6.4 MB"
   end
 end

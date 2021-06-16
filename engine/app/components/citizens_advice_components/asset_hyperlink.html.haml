@@ -2,4 +2,4 @@
   = description
   %span.cads-asset-type<
     %span.cads-icon_file
-    \ #{number_to_human_size(size)}
+    \ #{number_to_human(size, precision: 2, units: { unit: 'B', thousand: 'KB', million: 'MB' })}
