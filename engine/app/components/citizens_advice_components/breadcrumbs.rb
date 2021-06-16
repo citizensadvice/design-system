@@ -19,5 +19,13 @@ module CitizensAdviceComponents
     def links
       @links.map(&:symbolize_keys)
     end
+
+    def full_width?
+      @full_width
+    end
+
+    def current_page?
+      @current_page
+    end
   end
 end
