@@ -12,7 +12,6 @@ Before do |test_case|
   resize_window(320) if test_case.source_tag_names.include?("@small_screen") && !device?
   AutomationLogger.info("Running Scenario: #{test_case.name}")
   AutomationLogger.debug("BROWSERSTACK_CONFIGURATION_OPTIONS = #{ENV['BROWSERSTACK_CONFIGURATION_OPTIONS']}")
-  AutomationLogger.debug("DOCKER_TAG = #{ENV['DOCKER_TAG']}")
 end
 
 After do |test_case|
