@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -ex
-
-docker-compose up -d hub node-chrome node-firefox && docker-compose run cucumber ./bin/docker/waiter && docker-compose run cucumber $@

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -ex
-
-docker-compose run browserstack-cucumber bundle exec rake design_system:all $@

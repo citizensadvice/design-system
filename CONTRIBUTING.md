@@ -44,8 +44,6 @@ This will install the visual regression testing tools. These are installed under
 npm run vr-test:test
 ```
 
-If you are running the tests in ci, or prefer not to have a browser showing the results opened at the end of the test-run then you can use `npm run vt-test:ci`. This will run both the design-system and backstop within docker using docker-compose. You may need to install `docker-compose` for this functionality to be available.
-
 You can also choose to run the tests without starting up the design-system server with:
 
 ```
@@ -211,19 +209,6 @@ What are the different layers?
 5. Objects – class-based selectors which define undecorated design patterns, for example media object known from OOCSS
 6. Components – specific UI components. This is where the majority of our work takes place and our UI components are often composed of Objects and Components
 7. Utilities – utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
-
-### Running the app in Docker
-
-Ensure that you have Docker for Mac installed.
-
-Then simply run:
-`./bin/docker/start`
-
-If you update the Gems or node modules run:
-`./bin/docker/reset`
-
-To lint:
-`./bin/docker/lint`
 
 ## Useful links
 

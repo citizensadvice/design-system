@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -e
-
-COMPOSE_FILES=(-f docker-compose.yml)

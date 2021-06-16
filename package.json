@@ -39,7 +39,6 @@
     "test:watch": "jest --watch --notify",
     "vr-test:install": "cd testing && npm install",
     "vr-test:test": "node scripts/vr-test.js",
-    "vr-test:ci": "./bin/jenkins/visual_regression && docker-compose down",
     "vr-test:standalone": "cd testing/visual-regression && npx backstop test --docker --config=backstop-config.js",
     "vr-test:reference": "cd testing/visual-regression && npx backstop reference --docker --config=backstop-config.js",
     "vr-test:approve": "cd testing/visual-regression && npx backstop approve --config=backstop-config.js",

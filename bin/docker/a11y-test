@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -e
-
-# run wcag tests
-docker-compose run wcag-tests
