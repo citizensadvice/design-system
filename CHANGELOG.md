@@ -1,25 +1,11 @@
-## <sub>v4.1.1-alpha.2</sub>
+## <sub>v4.1.1</sub>
 
-#### _Jun. 15, 2021_
+#### _Jun. 16, 2021_
 
 **Bugfixes**
 
 - 🥖 Breadcrumbs: Hard coded 'Home' link has been removed (you must now specify it yourself)
-
-
-## <sub>v4.1.1-alpha.1</sub>
-
-#### _Jun. 10, 2021_
-**Bugfixes**
-
 - 📃 Typography: spacing and sizing updates
-
-## <sub>v4.1.1-alpha.0</sub>
-
-#### _Jun. 3, 2021_
-
-**Bugfixes**
-
 - ❗ Error summary: Removed technical language from example and docs
 - 🧂 Tables: Don't style plain `table` selector, always require `cads-table`
 
