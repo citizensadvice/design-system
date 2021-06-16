@@ -1,10 +1,7 @@
 Feature: Input forms
 
   The Input forms provide the user with a way of submitting plain text.
-  They can be provided with varying levels of hints or labels
-
-  Scenario: Inputs can be of a variety of widths
-    Then I am able to use Inputs of a variety of widths
+  They can be provided with varying levels of hints, widths and/or labels
 
   Rule: Basic Input
     Background:

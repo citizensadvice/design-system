@@ -51,10 +51,3 @@ end
 Then("the text box has a value of {string}") do |text|
   expect(@form.input.value).to eq(text)
 end
-
-Then("I am able to use Inputs of a variety of widths") do
-  @form = Input::FixedWidths.new.tap(&:load)
-  input_types = @form.inputs.map { |input| input["class"] }
-
-  expect(input_types).to be_uniq
-end
