@@ -9,7 +9,7 @@ RSpec.shared_examples "breadcrumbs" do
     expect(component.css("span").text.strip).to eq "Staying in the UK"
   end
 
-  it "renders the current page with an aria-current of 'location'" do
+  it "renders the current page with an aria-current of 'location' by default" do
     expect(component.css("span").attribute("aria-current").value).to eq "location"
   end
 end
@@ -19,7 +19,8 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     render_inline(
       CitizensAdviceComponents::Breadcrumbs.new(
         type: type.presence,
-        links: links.presence
+        links: links.presence,
+        current_page: true
       )
     )
   end
@@ -36,7 +37,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
         url: "/immigration"
       },
       {
-        title: "Staying in the UK"
+        title: "Staying in the UK",
       }
     ]
   end
@@ -70,6 +71,14 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       it "renders collapsible version by default" do
         expect(component.css(".cads-breadcrumbs--collapse")).to be_present
       end
+    end
+  end
+
+  context "when not rendered on the current page" do
+    let(:current_page) { false }
+
+    it "does not add the aria-location attribute" do
+      expect(component.css("span").attribute("aria-location")).to eq nil
     end
   end
 
