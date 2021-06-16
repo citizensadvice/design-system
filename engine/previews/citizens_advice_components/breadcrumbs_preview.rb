@@ -92,7 +92,7 @@ module CitizensAdviceComponents
             }
           ]
         )
-      ) 
+      )
     end
 
     def not_on_current_page
@@ -114,7 +114,7 @@ module CitizensAdviceComponents
             }
           ]
         )
-      ) 
+      )
     end
   end
 end

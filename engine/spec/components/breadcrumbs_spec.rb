@@ -40,7 +40,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
         url: "/immigration"
       },
       {
-        title: "Staying in the UK",
+        title: "Staying in the UK"
       }
     ]
   end

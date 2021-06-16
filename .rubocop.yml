@@ -21,6 +21,7 @@ Style/MixinUsage:
     - 'scripts/haml.rb'
 
 Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']
   Exclude:
     - 'scripts/haml.rb'
     - 'engine/previews/**/*.rb'
@@ -33,3 +34,6 @@ Metrics/BlockLength:
     - 'spec/**/*.rb'
     - 'engine/spec/**/*.rb'
     - 'demo/spec/**/*.rb'
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash']
