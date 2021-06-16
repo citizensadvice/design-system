@@ -9,7 +9,7 @@ module CitizensAdviceComponents
       @links = links
       @type = fetch_or_fallback(allowed_values: %i[collapse no_collapse], given_value: type, fallback: :collapse)
       @current_page = fetch_or_fallback_boolean(current_page, fallback: true)
-      @full_width = fetch_or_fallback_boolean(current_page, fallback: true)
+      @full_width = fetch_or_fallback_boolean(full_width, fallback: true)
     end
 
     def render?
