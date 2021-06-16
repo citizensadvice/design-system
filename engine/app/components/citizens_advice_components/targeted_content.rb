@@ -35,7 +35,7 @@ module CitizensAdviceComponents
       @show_close_button
     end
 
-    def attributes # rubocop:disable Metrics/MethodLength
+    def attributes
       {
         class: [
           ("cads-targeted-content--adviser" if adviser?),

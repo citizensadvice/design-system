@@ -56,6 +56,8 @@ Make sure your breadcrumb items reflect the page titles exactly for screen reade
 When breadcrumbs are displayed across the top of site content they must be wrapped in a `.cads-breadcrumb-wrapper`, this
 will correctly style and align the breadcrubs with site content. See sample pages for details.
 
+NB: If you are using the `ViewComponent` version of the breadcrumbs, they will be wrapped for you by default. You can pass `full_width: false` if you don't want those crumbs wrapped.
+
 <Preview>
   <Story
     name="Breadcrumbs (site wide)"
@@ -121,12 +123,14 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 ### View Component Options
 
-| Property      | Description                                             |
-| ------------- | ------------------------------------------------------- |
-| `type`        | Optional, one of: `:collapse` (default), `:no_collapse` |
-| `links`       | Required, an array of hashes, each with the following:  |
-| `link[url]`   | &rarr; Required, url for the breadcrumb link            |
-| `link[title]` | &rarr; Required, title for the breadcrumb link          |
+| Property       | Description                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| `links`        | Required, an array of hashes, each with the following:                                            |
+| `link[url]`    | &rarr; Required, url for the breadcrumb link                                                      |
+| `link[title]`  | &rarr; Required, title for the breadcrumb link                                                    |
+| `type`         | Optional, one of: `:collapse` (default), `:no_collapse`                                           |
+| `current_page` | Optional, will render `aria-location=current` on last crumb if true. Defaults to true.            |
+| `full_width`   | Optional, will wrap breadcrumbs in the `.cads-breadcrumbs-wrapper` div if true. Defaults to true. |
 
 ### Haml template options
 

@@ -9,8 +9,12 @@ RSpec.shared_examples "breadcrumbs" do
     expect(component.css("span").text.strip).to eq "Staying in the UK"
   end
 
-  it "renders the current page with an aria-current of 'location'" do
+  it "renders the current page with an aria-current of 'location' by default" do
     expect(component.css("span").attribute("aria-current").value).to eq "location"
+  end
+
+  it "renders the breadcrumbs in full width mode by default" do
+    expect(component.css(".cads-breadcrumbs-wrapper")).to be_present
   end
 end
 
@@ -70,6 +74,22 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       it "renders collapsible version by default" do
         expect(component.css(".cads-breadcrumbs--collapse")).to be_present
       end
+    end
+  end
+
+  context "when not rendered on the current page" do
+    let(:current_page) { false }
+
+    it "does not add the aria-location attribute" do
+      expect(component.css("span").attribute("aria-location")).to eq nil
+    end
+  end
+
+  context "when not in full width mode" do
+    let(:full_width) { false }
+
+    it "does not wrap the component in the full width wrapper" do
+      expect(component.css(".cads-breadcrumb-wrapper")).to be_empty
     end
   end
 

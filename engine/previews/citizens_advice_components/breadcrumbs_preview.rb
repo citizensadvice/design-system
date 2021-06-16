@@ -72,5 +72,49 @@ module CitizensAdviceComponents
         )
       )
     end
+
+    def not_full_width
+      render(
+        CitizensAdviceComponents::Breadcrumbs.new(
+          type: :no_collapse,
+          full_width: false,
+          links: [
+            {
+              title: "Home",
+              url: "/"
+            },
+            {
+              title: "Immigration",
+              url: "/immigration"
+            },
+            {
+              title: "Staying in the UK"
+            }
+          ]
+        )
+      )
+    end
+
+    def not_on_current_page
+      render(
+        CitizensAdviceComponents::Breadcrumbs.new(
+          type: :no_collapse,
+          current_page: false,
+          links: [
+            {
+              title: "Home",
+              url: "/"
+            },
+            {
+              title: "Immigration",
+              url: "/immigration"
+            },
+            {
+              title: "Staying in the UK"
+            }
+          ]
+        )
+      )
+    end
   end
 end
