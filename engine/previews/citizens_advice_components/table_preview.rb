@@ -50,7 +50,7 @@ module CitizensAdviceComponents
       render(CitizensAdviceComponents::Table.new(header: header, rows: rows))
     end
 
-    def long_content
+    def long_table
       caption = "Client under pension age"
       header = [
         "Rate",
@@ -123,7 +123,9 @@ module CitizensAdviceComponents
         ]
       ]
 
-      render(CitizensAdviceComponents::Table.new(header: header, rows: rows, caption: caption))
+      subject = CitizensAdviceComponents::Table.new(header: header, rows: rows, caption: caption)
+
+      render_with_template(locals: { subject: subject })
     end
 
   end
