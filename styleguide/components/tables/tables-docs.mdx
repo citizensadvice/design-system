@@ -2,8 +2,22 @@ import { Story, Preview } from '@storybook/addon-docs/blocks';
 
 # Tables
 
+## Default
+
 <Preview>
-  <Story id="components-tables--table" />
+  <Story id="components-tables--example" />
+</Preview>
+
+## Long / Wide Tables
+
+<Preview>
+  <Story id="components-tables--long" />
+</Preview>
+
+## No caption
+
+<Preview>
+  <Story id="components-tables--no-caption" />
 </Preview>
 
 ## Using with Rails
@@ -44,7 +58,7 @@ Note the options for the haml template and view component are the same.
 
 ## Haml template and View component options
 
-The Haml partial takes a `table_data` hash with the following properties:
+The Haml partial takes a `table_data` hash with the properties in the table below. If you are using the view component, these are passed into the `.new()` method as parameters:
 
 | Property   | Description                                     |
 | ---------- | ----------------------------------------------- |
