@@ -1,3 +1,4 @@
+@future_release @v4_1_2
 Feature: Breadcrumbs component
 
   The Breadcrumbs component allows users to see a navigable path to their
