@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/citizensadvice/ca_testing.git
-  revision: 72377b46308d5339ee544eadc29b1de036e77516
-  tag: v1.0
+  revision: 15203c5e34bf06f669b8f5a033cf8e9e4075bc48
+  tag: v1.1
   specs:
-    ca_testing (1.0)
+    ca_testing (1.1)
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
@@ -48,7 +48,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     crass (1.0.6)
     cucumber (6.1.0)
       builder (~> 3.2, >= 3.2.4)
@@ -121,7 +121,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    loofah (2.9.1)
+    loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     method_source (1.0.0)
@@ -134,7 +134,7 @@ GEM
     minitest (5.14.4)
     multi_test (0.1.2)
     multipart-post (2.1.1)
-    nokogiri (1.11.6)
+    nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     parallel (1.20.1)

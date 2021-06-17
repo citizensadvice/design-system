@@ -9,7 +9,7 @@ gem "haml", "~> 5.2"
 gem "rails-i18n", "~> 6.0"
 
 group :test do
-  gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v1.0"
+  gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v1.1"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.1.0"
   gem "cucumber", "~> 6.1"
   gem "dotenv"
