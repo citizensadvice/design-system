@@ -71,11 +71,15 @@ module Drivers
       end
 
       def identifier
-        browserstack_build_name || "Local machine run #{Time.now.strftime('%Y-%m-%d %H:%M:%S')}"
+        browserstack_build_name || "Local machine run #{Time.now.month}"
       end
 
       def session_name
-        "SHA: #{sha} - CALLING_PROJECT: design-system"
+        "SHA: #{sha}"
+      end
+
+      def sha
+        `git rev-parse --short HEAD`.chomp
       end
 
       def selenium_jar_version

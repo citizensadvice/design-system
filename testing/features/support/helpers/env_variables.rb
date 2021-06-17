@@ -101,9 +101,5 @@ module Helpers
     def log_location
       ENV["LOG_LOCATION"]
     end
-
-    def sha
-      @sha ||= `git rev-parse --short HEAD`.chomp
-    end
   end
 end
