@@ -1,15 +1,4 @@
-import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
-import { translate } from '../../story-helpers';
-
-import templateDefault from './_default.html.haml';
-import templateNoCollapse from './_no-collapse.html.haml';
-import templateSiteWide from './_site_wide.html.haml';
-import templateLongTitles from './_long_titles.html.haml';
-
-<Meta
-  title="Components/Breadcrumbs"
-  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
-/>
+import { Story, Preview } from '@storybook/addon-docs/blocks';
 
 # Breadcrumbs
 
@@ -29,15 +18,6 @@ Breadcrumbs should be placed on the top left of each page and below "Global Navi
 
 On the small breakpoint, breadcrumbs show the previous parent level as a link by default. You can explicity set this behaviour by passing in
 `collaspe` as the type.
-
-<Preview>
-  <Story
-    name="Breadcrumbs (default)"
-    parameters={{ docs: { source: { code: templateDefault.raw } } }}
-  >
-    {(_, options) => translate(templateDefault, options)}
-  </Story>
-</Preview>
 
 > Note: the breadcrumbs component on the small breakpoint is currently experimental because more research is needed to validate it.
 
@@ -59,12 +39,7 @@ will correctly style and align the breadcrubs with site content. See sample page
 NB: If you are using the `ViewComponent` version of the breadcrumbs, they will be wrapped for you by default. You can pass `full_width: false` if you don't want those crumbs wrapped.
 
 <Preview>
-  <Story
-    name="Breadcrumbs (site wide)"
-    parameters={{ docs: { source: { code: templateSiteWide.raw } } }}
-  >
-    {(_, options) => translate(templateSiteWide, options)}
-  </Story>
+  <Story id="components-breadcrumbs--collapsing" />
 </Preview>
 
 ## Variation – No collapse
@@ -72,12 +47,7 @@ NB: If you are using the `ViewComponent` version of the breadcrumbs, they will b
 To prevent the default collapse behaviour on the small breakpoint, pass `"type" => "no-collapse"`. For example: in search results.
 
 <Preview>
-  <Story
-    name="Breadcrumbs (No collapse)"
-    parameters={{ docs: { source: { code: templateNoCollapse.raw } } }}
-  >
-    {(_, options) => translate(templateNoCollapse, options)}
-  </Story>
+  <Story id="components-breadcrumbs--not-collapsing" />
 </Preview>
 
 ## Long page titles in breadcrumbs
@@ -85,17 +55,34 @@ To prevent the default collapse behaviour on the small breakpoint, pass `"type" 
 This story shows how longer breadcrumb titles are displayed.
 
 <Preview>
-  <Story
-    name="Breadcrumbs (Long Titles)"
-    parameters={{ docs: { source: { code: templateLongTitles.raw } } }}
-  >
-    {(_, options) => translate(templateLongTitles, options)}
-  </Story>
+  <Story id="components-breadcrumbs--long" />
 </Preview>
 
-## In a search result
+## Not full width
 
-When shown in a search result, the breadcumbs do not show the home page and do not have a horizontal rule underneath.
+When shown somewhere where they should not be full width, as in a search result, you can pass in `full_width: false`. This will prevent the default wrapping behaviour mentioned above.
+
+<Preview>
+  <Story id="components-breadcrumbs--not-full-width" />
+</Preview>
+
+## Not indicating the current Page (View component only)
+
+If you do not want the last crumb to indicate the current page (for screen readers etc), you can pass in `current_page: false`.
+
+```rb
+= render(
+  CitizensAdviceComponents::Breadcrumbs.new(
+    type: :collapse,
+    links: ...,
+    current_page: false
+  )
+)
+```
+
+<Preview>
+  <Story id="components-breadcrumbs--not-on-current-page" />
+</Preview>
 
 ## Using with Rails
 
@@ -142,7 +129,3 @@ The Haml partial takes a `breadcrumb` hash, which has the following properties:
 | `breadcrumb_links` | Required, an array of hashes, each with the following: |
 | `link[url]`        | &rarr; Required, url for the breadcrumb link           |
 | `link[title]`      | &rarr; Required, title for the breadcrumb link         |
-
-For example:
-
-<Source dark="true" language="haml" code={templateNoCollapse.raw} />
