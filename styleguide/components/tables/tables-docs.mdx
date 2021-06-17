@@ -2,13 +2,63 @@ import { Story, Preview } from '@storybook/addon-docs/blocks';
 
 # Tables
 
+## Default
+
 <Preview>
-  <Story id="components-tables--table" />
+  <Story id="components-tables--example" />
 </Preview>
 
-## Haml template options
+## Long / Wide Tables
 
-The Haml partial takes a `table_data` hash with the following properties:
+<Preview>
+  <Story id="components-tables--long" />
+</Preview>
+
+## No caption
+
+<Preview>
+  <Story id="components-tables--no-caption" />
+</Preview>
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template following the example below.
+
+Note the options for the haml template and view component are the same.
+
+```rb
+= render(
+  CitizensAdviceComponents::Table.new(
+    header:  [
+      "Your location",
+      "Post box collection times"
+    ],
+    rows: [
+      [
+        "City or town",
+        "9am to 6.30pm"
+      ],
+      [
+        "Areas with lots of businesses - known as commercial",
+        "9am to 7.30pm"
+      ],
+      [
+        "Very rural areas - for example, where there aren't many people",
+        "9am to 4pm"
+      ],
+      [
+        "Rest of the UK",
+        "9am to 5.30pm"
+      ]
+    ],
+    caption: "My great table about stuff"
+  )
+)
+```
+
+## Haml template and View component options
+
+The Haml partial takes a `table_data` hash with the properties in the table below. If you are using the view component, these are passed into the `.new()` method as parameters:
 
 | Property   | Description                                     |
 | ---------- | ----------------------------------------------- |

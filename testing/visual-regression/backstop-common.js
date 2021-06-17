@@ -231,7 +231,15 @@ module.exports = function backstopCommon(baseUrl) {
       },
       {
         label: 'Components/Tables',
-        url: storyUrlFor('components-tables--table'),
+        url: storyUrlFor('components-tables--example'),
+      },
+      {
+        label: 'Components/Tables',
+        url: storyUrlFor('components-tables--long-table'),
+      },
+      {
+        label: 'Components/Tables',
+        url: storyUrlFor('components-tables--no-caption'),
       },
 
       // Forms
