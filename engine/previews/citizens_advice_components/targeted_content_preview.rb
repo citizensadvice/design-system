@@ -12,7 +12,7 @@ module CitizensAdviceComponents
         "Your location",
         "Post box collection times"
       ]
-      
+
       rows = [
         [
           "City or town",
