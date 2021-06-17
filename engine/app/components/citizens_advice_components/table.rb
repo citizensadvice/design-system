@@ -11,10 +11,6 @@ module CitizensAdviceComponents
       @caption = caption
     end
 
-    def render?
-      @rows.present?
-    end
-
     def caption?
       @caption.present?
     end
