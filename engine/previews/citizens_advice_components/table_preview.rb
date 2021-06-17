@@ -127,6 +127,5 @@ module CitizensAdviceComponents
 
       render_with_template(locals: { subject: subject })
     end
-
   end
 end

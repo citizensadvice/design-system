@@ -1,22 +1,24 @@
+# frozen_string_literal: true
+
 RSpec.describe CitizensAdviceComponents::Table, type: :component do
-  subject(:component) do 
+  subject(:component) do
     render_inline(
       CitizensAdviceComponents::Table.new(
-        header: header, 
-        rows: rows, 
+        header: header,
+        rows: rows,
         caption: caption.presence
       )
     )
   end
 
-  let(:header) { 
+  let(:header) do
     [
       "Your location",
       "Post box collection times"
     ]
-  }
+  end
 
-  let(:rows) {
+  let(:rows) do
     [
       [
         "City or town",
@@ -35,7 +37,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
         "9am to 5.30pm"
       ]
     ]
-  }
+  end
 
   let(:caption) { "I am a nice table" }
 

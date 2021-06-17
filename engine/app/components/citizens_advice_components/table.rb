@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   class Table < Base
-    attr_reader :header, :rows, :caption 
+    attr_reader :header, :rows, :caption
 
     def initialize(header:, rows:, caption: nil)
       super
