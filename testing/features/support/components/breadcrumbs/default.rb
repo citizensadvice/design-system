@@ -2,7 +2,7 @@
 
 module Breadcrumbs
   class Default < ::Base
-    set_url "/iframe.html?id=components-breadcrumbs--breadcrumbs-default&viewMode=story"
+    set_url "/iframe.html?id=components-breadcrumbs--collapsing&viewMode=story"
 
     elements :breadcrumbs, ".cads-breadcrumbs li"
 

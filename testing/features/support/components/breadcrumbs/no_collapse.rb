@@ -2,6 +2,6 @@
 
 module Breadcrumbs
   class NoCollapse < Default
-    set_url "/iframe.html?id=components-breadcrumbs--breadcrumbs-no-collapse&viewMode=story"
+    set_url "/iframe.html?id=components-breadcrumbs--not-collapsing&viewMode=story"
   end
 end

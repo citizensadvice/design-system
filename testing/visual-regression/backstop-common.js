@@ -178,23 +178,23 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-search'],
       },
       {
-        label: 'Components/Breadcrumbs/SiteWide',
-        url: storyUrlFor('components-breadcrumbs--breadcrumbs-site-wide'),
+        label: 'Components/Breadcrumbs/Collapsing',
+        url: storyUrlFor('components-breadcrumbs--collapsing'),
         selectors: ['.cads-breadcrumbs-wrapper'],
       },
       {
-        label: 'Components/Breadcrumbs/Default',
-        url: storyUrlFor('components-breadcrumbs--breadcrumbs-default'),
-        selectors: ['.cads-breadcrumbs'],
+        label: 'Components/Breadcrumbs/Long',
+        url: storyUrlFor('components-breadcrumbs--long'),
+        selectors: ['.cads-breadcrumbs-wrapper'],
       },
       {
         label: 'Components/Breadcrumbs/No Collapse',
-        url: storyUrlFor('components-breadcrumbs--breadcrumbs-no-collapse'),
-        selectors: ['.cads-breadcrumbs'],
+        url: storyUrlFor('components-breadcrumbs--not-collapsing'),
+        selectors: ['.cads-breadcrumbs-wrapper'],
       },
       {
-        label: 'Components/Breadcrumbs/Long Titles',
-        url: storyUrlFor('components-breadcrumbs--breadcrumbs-long-titles'),
+        label: 'Components/Breadcrumbs/Not Full Width',
+        url: storyUrlFor('components-breadcrumbs--not-full-width'),
         selectors: ['.cads-breadcrumbs'],
       },
       {
