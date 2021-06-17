@@ -1,0 +1,16 @@
+.cads-table-container
+  %table.cads-table{ class: ("cads-table__has-caption" if caption?) }
+    - if caption?
+      %caption= caption
+    %tbody
+      %tr
+        - header.each do |head|
+          %th{ scope: "col" }
+            %span.cads-table__content= head
+
+      - rows.each do |row|
+        %tr
+          - header.zip(row).each do |(header, cell)|
+            %td
+              %span.cads-table__th-heading= header
+              %span.cads-table__content= cell
