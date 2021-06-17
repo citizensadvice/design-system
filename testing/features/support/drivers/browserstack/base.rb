@@ -3,7 +3,6 @@
 module Drivers
   class Browserstack
     class Base
-      include Helpers::Drivers
       include Helpers::EnvVariables
 
       def register
@@ -57,6 +56,10 @@ module Drivers
             "resolution" => "1920x1080"
           }
         }
+      end
+
+      def options
+        CaTesting::Drivers::V4::Options.for(browser)
       end
 
       def browserstack_hub_url
