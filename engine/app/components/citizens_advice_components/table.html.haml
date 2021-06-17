@@ -1,5 +1,5 @@
 .cads-table-container
-  %table.cads-table{ class: ("cads-table__has-caption" if caption?) }
+  %table.cads-table{ class: ("cads-table--captioned" if caption?) }
     - if caption?
       %caption= caption
     %tbody
