@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/citizensadvice/ca_testing.git
-  revision: 15203c5e34bf06f669b8f5a033cf8e9e4075bc48
-  tag: v1.1
+  revision: 7af9d127c018b3a11b399ff7bb8cdeca56b65695
+  tag: v2.0
   specs:
-    ca_testing (1.1)
+    ca_testing (2.0)
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
@@ -98,7 +98,7 @@ GEM
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
-    ffi (1.15.1)
+    ffi (1.15.3)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
