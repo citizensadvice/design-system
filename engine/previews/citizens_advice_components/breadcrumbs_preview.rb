@@ -80,10 +80,6 @@ module CitizensAdviceComponents
           full_width: false,
           links: [
             {
-              title: "Home",
-              url: "/"
-            },
-            {
               title: "Immigration",
               url: "/immigration"
             },
