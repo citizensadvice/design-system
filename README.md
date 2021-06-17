@@ -1,5 +1,7 @@
 # Design system
 
+[![Continuous Integration](https://github.com/citizensadvice/design-system/actions/workflows/ci-workflow.yml/badge.svg)](https://github.com/citizensadvice/design-system/actions/workflows/ci-workflow.yml) [![BrowserStack](https://github.com/citizensadvice/design-system/actions/workflows/browserstack-workflow.yml/badge.svg?event=page_build)](https://github.com/citizensadvice/design-system/actions/workflows/browserstack-workflow.yml)
+
 New Platform Design System. The styleguide is hosted here: https://citizensadvice.github.io/design-system/
 
 ## Getting started
