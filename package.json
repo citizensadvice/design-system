@@ -135,7 +135,8 @@
       "/node_modules/",
       "/vendor/",
       "/lib/",
-      "/demo/config/webpack/"
+      "/demo/config/webpack/",
+      "/engine/spec/"
     ],
     "setupFiles": [
       "jest-date-mock"
