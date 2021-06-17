@@ -4,14 +4,7 @@ module Drivers
   class Browserstack
     class Android < Base
       def specific_browser_capabilities
-        {
-          "bstack:options" => {
-            "osVersion" => "10.0",
-            "deviceName" => "Samsung Galaxy S20",
-            "realMobile" => "true",
-            "appiumVersion" => "1.17.0"
-          }
-        }
+        CaTesting::Drivers::V4::Browserstack::Android.new.capabilities
       end
     end
   end

@@ -21,27 +21,11 @@ module Drivers
         # of all the devices that work at any time
         #
         # LH - April 2021
-        {
-          "bstack:options" => {
-            "deviceName" => browserstack_os,
-            "realMobile" => "true",
-            "appiumVersion" => appium_version
-          }
-        }
-      end
-
-      private
-
-      alias ios_version browserstack_os_version
-
-      def appium_version
-        case ios_version
-        when "14"; then "1.20.3"
-        when "13"; then "1.20.2"
-        when "12"; then "1.19.1"
-        when "11"; then "1.16.0"
-        else raise "Your iOS Version is too low. Please don't use lower than iOS11."
-        end
+        #
+        initial_caps = CaTesting::Drivers::V4::Browserstack::Ios.new(ios_version).capabilities
+        # Fix the below line in the gem proper
+        initial_caps["bstack:options"]["deviceName"] = browserstack_os
+        initial_caps
       end
     end
   end
