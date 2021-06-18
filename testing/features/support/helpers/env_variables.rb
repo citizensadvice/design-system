@@ -27,7 +27,7 @@ module Helpers
     end
 
     def browserstack_build_name
-      ENV.fetch("BROWSERSTACK_BUILD_NAME")
+      ENV["BROWSERSTACK_BUILD_NAME"]
     end
 
     def grid?
