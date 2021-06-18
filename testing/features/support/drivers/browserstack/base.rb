@@ -3,7 +3,6 @@
 module Drivers
   class Browserstack
     class Base
-      include Helpers::Drivers
       include Helpers::EnvVariables
 
       def register
@@ -59,6 +58,10 @@ module Drivers
         }
       end
 
+      def options
+        CaTesting::Drivers::V4::Options.for(browser)
+      end
+
       def browserstack_hub_url
         "https://#{browserstack_username}:#{browserstack_api_key}@hub-cloud.browserstack.com/wd/hub"
       end
@@ -68,11 +71,15 @@ module Drivers
       end
 
       def identifier
-        browserstack_build_name || "Local machine run #{Time.now.strftime('%Y-%m-%d %H:%M:%S')}"
+        browserstack_build_name || "Local machine run #{Time.now.month}"
       end
 
       def session_name
-        "SHA: #{sha} - CALLING_PROJECT: design-system"
+        "SHA: #{sha}"
+      end
+
+      def sha
+        `git rev-parse --short HEAD`.chomp
       end
 
       def selenium_jar_version
