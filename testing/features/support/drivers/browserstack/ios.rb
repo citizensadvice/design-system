@@ -23,7 +23,7 @@ module Drivers
         # LH - April 2021
         #
         initial_caps = CaTesting::Drivers::V4::Browserstack::Ios.new(ios_version).capabilities
-        # Fix the below line in the gem proper
+        # This can be fixed up with v2.0.1 of the gem
         initial_caps["bstack:options"]["deviceName"] = browserstack_os
         initial_caps
       end
