@@ -11,5 +11,7 @@ module CitizensAdviceComponents
     def adviser; end
 
     def nested; end
+
+    def variable_heading_levels; end
   end
 end

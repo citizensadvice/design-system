@@ -10,7 +10,7 @@ module Callouts
 
       section :inner_adviser, ".cads-callout--adviser" do
         element :label, ".cads-badge"
-        element :heading, "h3"
+        element :heading, "h4"
         element :message, "p"
       end
     end

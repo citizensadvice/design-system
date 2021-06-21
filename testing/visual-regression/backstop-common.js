@@ -106,7 +106,7 @@ module.exports = function backstopCommon(baseUrl) {
       },
       {
         label: `Components/Contact details`,
-        url: storyUrlFor(`components-contact-details--contact-detail`),
+        url: storyUrlFor(`components-contact-details--example`),
       },
       {
         label: 'Components/Header',
