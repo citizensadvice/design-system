@@ -7,27 +7,33 @@ module CitizensAdviceComponents
 
     # If custom_account_link then a block will be rendered
     # allowing custom HTML to be provided, otherwise the
-    # component expects a account_link(title: "", url: "#") slot
-    renders_one :account_link, "HeaderLink"
+    # component expects an account_link slot
     renders_one :custom_account_link
+    renders_one :account_link, -> (title:, url:) do
+      link_to(title, url, class: "cads-header__hyperlink", "data-testid": "account-link")
+    end
 
     renders_one :search_form, "HeaderSearch"
 
-    attr_reader :homepage_url
-
-    def initialize(homepage_url: nil)
-      super
-      @homepage_url = homepage_url || "/"
+    renders_one :logo, -> (title:, url:) do
+      link_to url, class: "cads-logo" do
+        content_tag :span, title, class: "cads-sr-only"
+      end
     end
 
-    def toggle_button_attributes
-      {
-        title: t("citizens_advice_components.header.open_search"),
+    def render?
+      logo.present?
+    end
+
+    def toggle_button
+      tag.button(
+        class: "cads-header__search-reveal js-cads-search-reveal cads-icon_search",
+        title: t(".open_search"),
         "aria-expanded": "false",
         "data-testid": "expand-button",
-        "data-descriptive-label-show": t("citizens_advice_components.header.open_search"),
-        "data-descriptive-label-hide": t("citizens_advice_components.header.close_search")
-      }
+        "data-descriptive-label-show": t(".open_search"),
+        "data-descriptive-label-hide": t(".close_search")
+      )
     end
 
     class HeaderLink < ViewComponent::Base
