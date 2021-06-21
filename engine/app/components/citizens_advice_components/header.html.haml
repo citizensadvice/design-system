@@ -1,0 +1,43 @@
+%header.cads-header
+  .cads-grid-container
+    .cads-grid-row
+      - if skip_links.present?
+        %nav.cads-skip-links
+          - skip_links.each do |link|
+            = link_to(link.title, link.url, class: "cads-skip-links__link")
+
+      .cads-grid-col-md-2.cads-header__logo-row
+        %a.cads-logo{ href: homepage_url, title: t("citizens_advice_components.shared.logo_title") }
+        %button.cads-header__search-reveal.js-cads-search-reveal.cads-icon_search{ toggle_button_attributes }
+      .cads-grid-col-md-10.cads-header__search-row
+        %ul.cads-header__links.js-cads-copy-into-nav
+          - links.each do |link|
+            %li.cads-header__links-item
+              - if link.current_site?
+                %span.cads-header__text= link.title
+              - else
+                = link_to(link.title, link.url, class: "cads-header__hyperlink")
+          - if render_account_link?
+            %li.cads-header__account-link
+              - if custom_account_link.present?
+                = custom_account_link
+              - else
+                = link_to(account_link.title, account_link.url,
+                  class: "cads-header__hyperlink",
+                  "data-testid": "account-link")
+
+        - if search_form.present?
+          .cads-header__search-form
+            = form_tag(search_form.search_action_url,
+              method: :get,
+              role: "search",
+              class: "cads-search cads-search--icon-only") do
+              = search_field_tag(search_form.search_param.to_sym, nil,
+                id: "search-query",
+                "aria-label": t("citizens_advice_components.search.input_aria_label"),
+                class: "cads-search__input cads-input")
+              = button_tag(t("citizens_advice_components.search.submit_title"),
+                name: nil,
+                "data-testid": "search-button",
+                class: "cads-search__button") do
+                %span.cads-search__button-label= t("citizens_advice_components.search.submit_label")
