@@ -8,7 +8,10 @@
 #    These depend on the build job and are seeded with a copy of the docs.
 ##
 name: Continuous Integration
-on: [push]
+on:
+  push:
+  schedule:
+    - cron: '0 2 * * *'
 
 env:
   # Share node version across jobs
