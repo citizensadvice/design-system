@@ -17,7 +17,8 @@
                 %span.cads-header__text= link.title
               - else
                 = link_to(link.title, link.url, class: "cads-header__hyperlink")
-          - if render_account_link?
+
+          - if custom_account_link.present? || account_link.present?
             %li.cads-header__account-link
               - if custom_account_link.present?
                 = custom_account_link

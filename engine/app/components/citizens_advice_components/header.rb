@@ -20,10 +20,6 @@ module CitizensAdviceComponents
       @homepage_url = homepage_url || "/"
     end
 
-    def render_account_link?
-      :custom_account_link.present? || :account_link.present?
-    end
-
     def toggle_button_attributes
       {
         title: t("citizens_advice_components.header.open_search"),
