@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "haml"
+require "haml-rails"
 require "active_support/core_ext"
 require "view_component/engine"
 
