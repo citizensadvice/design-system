@@ -9,17 +9,17 @@ module CitizensAdviceComponents
     # allowing custom HTML to be provided, otherwise the
     # component expects an account_link slot
     renders_one :custom_account_link
-    renders_one :account_link, -> (title:, url:) do
+    renders_one :account_link, lambda { |title:, url:|
       link_to(title, url, class: "cads-header__hyperlink", "data-testid": "account-link")
-    end
+    }
 
     renders_one :search_form, "HeaderSearch"
 
-    renders_one :logo, -> (title:, url:) do
+    renders_one :logo, lambda { |title:, url:|
       link_to url, class: "cads-logo" do
         content_tag :span, title, class: "cads-sr-only"
       end
-    end
+    }
 
     def render?
       logo.present?
