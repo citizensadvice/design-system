@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
-import templateBasic from './_basic-grid.html.haml';
-import templateMultiColumn from './_multi-column-grid.html.haml';
-import templateResponsive from './_responsive-grid.html.haml';
+import templateBasic from './basic-grid.html';
+import templateMultiColumn from './multi-column-grid.html';
+import templateResponsive from './responsive-grid.html';
 
 <Meta
   title="Foundations/Grid"
@@ -23,14 +23,14 @@ Grids are made up of three parts:
     name="Basic grid"
     parameters={{
       layout: 'fullscreen',
-      docs: { source: { code: templateBasic.raw } },
+      docs: { source: { code: templateBasic } },
     }}
   >
     {() => templateBasic}
   </Story>
 </Canvas>
 
-<Source dark="true" language="haml" code={templateBasic.raw} />
+<Source dark="true" language="haml" code={templateBasic} />
 
 ## Multi-column grids
 
@@ -41,14 +41,14 @@ Grids are **12** columns by default (although this can be configured by overridi
     name="Multi-column grid"
     parameters={{
       layout: 'fullscreen',
-      docs: { source: { code: templateMultiColumn.raw } },
+      docs: { source: { code: templateMultiColumn } },
     }}
   >
     {() => templateMultiColumn}
   </Story>
 </Canvas>
 
-<Source dark="true" language="haml" code={templateMultiColumn.raw} />
+<Source dark="true" language="haml" code={templateMultiColumn} />
 
 ## Responsive grids
 
@@ -61,11 +61,11 @@ The following example has a column which is 10 columns at large breakpoints, 8 a
     name="Responsive grid columns"
     parameters={{
       layout: 'fullscreen',
-      docs: { source: { code: templateResponsive.raw } },
+      docs: { source: { code: templateResponsive } },
     }}
   >
     {() => templateResponsive}
   </Story>
 </Canvas>
 
-<Source dark="true" language="haml" code={templateResponsive.raw} />
+<Source dark="true" language="haml" code={templateResponsive} />

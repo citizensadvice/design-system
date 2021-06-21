@@ -1,9 +1,9 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import noBulletHtml from './plain-list.html';
+import olHtml from './ordered-list.html';
+import ulHtml from './unordered-list.html';
 
-<Meta
-  title="Foundations/Typography"
-  decorators={[(Story) => `<div>${Story()}</div>`]}
-/>
+<Meta title="Foundations/Typography" />
 
 # Typography
 
@@ -202,8 +202,6 @@ export const externalLinkHTML = `
 
 Unordered lists should be used to show collections of items where their order does not have meaning, for example the criteria for claiming a particular benefit.
 
-import ulHtml from './_unordered-list.html.haml';
-
 <Preview>
   <Story
     name="Unordered List"
@@ -226,8 +224,6 @@ You can extend the following placeholder to achieve the correct unordered list s
 #### Plain
 
 In some situations, you will want the styles of an unordered list without the bullet points - for example to present a list of links on a summary page.
-
-import noBulletHtml from './_plain-list.html.haml';
 
 <Preview>
   <Story
@@ -252,8 +248,6 @@ You can extend the following placeholder to achieve the correct plain list styli
 ### Ordered lists
 
 Ordered lists should be used to show collections of items where the order does have meaning, for example the steps in a process.
-
-import olHtml from './_ordered-list.html.haml';
 
 <Preview>
   <Story
