@@ -1,10 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import { translate } from '../../story-helpers';
-
-<Meta
-  title="Forms/Error summary"
-  decorators={[(Story) => `<div style="max-width: 800px">${Story()}</div>`]}
-/>
+import { Story, Preview } from '@storybook/addon-docs/blocks';
 
 # Error summary
 
@@ -21,15 +15,8 @@ They’re important because they help users quickly work out what they need to c
 The error summary contains a title and a list of errors. The list contains anchor page links that will take users to the answer or field they relate to.
 Always show an error summary when there is a validation error, even if there’s only one.
 
-import templateExample from './_example.html.haml';
-
 <Preview>
-  <Story
-    name="Example"
-    parameters={{ docs: { source: { code: templateExample.raw } } }}
-  >
-    {(_, options) => translate(templateExample, options)}
-  </Story>
+  <Story id="forms-error-summary--example" />
 </Preview>
 
 ## How to write error messages
