@@ -1,0 +1,2 @@
+- %w[2ch 4ch 8ch 16ch].each do |width|
+  = render CitizensAdviceComponents::Input.new(name: "example-input-fixed-width", label: "Example input", hint: "This input is #{width} wide", width: width)
