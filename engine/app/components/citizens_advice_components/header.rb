@@ -3,7 +3,7 @@
 module CitizensAdviceComponents
   class Header < Base
     renders_many :skip_links, "HeaderLink"
-    renders_many :links, "HeaderLink"
+    renders_many :header_links, "HeaderLink"
 
     # Renders a block if provided to allow passing custom HTML,
     # otherwise renders a link based on title and url arguments.
@@ -44,6 +44,14 @@ module CitizensAdviceComponents
         @title = title
         @url = url
         @current_site = current_site
+      end
+
+      def call
+        if current_site?
+          content_tag :span, title, class: "cads-header__text"
+        else
+          link_to title, url, class: "cads-header__hyperlink"
+        end
       end
 
       def current_site?

@@ -13,8 +13,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
 
   context "with logo" do
     subject(:component) do
-      render_inline(described_class.new) do |header|
-        header.logo(title: "Logo title", url: "/homepage")
+      render_inline(described_class.new) do |c|
+        c.logo(title: "Logo title", url: "/homepage")
       end
     end
 
@@ -31,9 +31,9 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     let(:skip_links) { [{ title: "Skip to main content", url: "#content" }] }
 
     subject(:component) do
-      render_inline(described_class.new) do |header|
-        header.logo(title: "Logo title", url: "/")
-        header.skip_links(skip_links)
+      render_inline(described_class.new) do |c|
+        c.logo(title: "Logo title", url: "/")
+        c.skip_links(skip_links)
       end
     end
 

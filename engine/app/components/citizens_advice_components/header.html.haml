@@ -12,16 +12,11 @@
 
       .cads-grid-col-md-10.cads-header__search-row
         %ul.cads-header__links.js-cads-copy-into-nav
-          - links.each do |link|
-            %li.cads-header__links-item
-              - if link.current_site?
-                %span.cads-header__text= link.title
-              - else
-                = link_to link.title, link.url, class: "cads-header__hyperlink"
+          - header_links.each do |link|
+            %li.cads-header__links-item= link
 
           - if account_link.present?
-            %li.cads-header__account-link
-              = account_link
+            %li.cads-header__account-link= account_link
 
         - if search_form.present?
           .cads-header__search-form
