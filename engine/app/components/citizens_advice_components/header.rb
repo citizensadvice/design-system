@@ -5,11 +5,11 @@ module CitizensAdviceComponents
     renders_many :skip_links, "HeaderLink"
     renders_many :links, "HeaderLink"
 
-    # If custom_account_link then a block will be rendered
-    # allowing custom HTML to be provided, otherwise the
-    # component expects an account_link slot
-    renders_one :custom_account_link
-    renders_one :account_link, lambda { |title:, url:|
+    # Renders a block if provided to allow passing custom HTML,
+    # otherwise renders a link based on title and url arguments.
+    renders_one :account_link, lambda { |title: nil, url: nil, &block|
+      return block.call if block
+
       link_to(title, url, class: "cads-header__hyperlink", "data-testid": "account-link")
     }
 

@@ -19,10 +19,7 @@
               - else
                 = link_to link.title, link.url, class: "cads-header__hyperlink"
 
-          - if custom_account_link.present?
-            %li.cads-header__account-link
-              = custom_account_link
-          - elsif account_link.present?
+          - if account_link.present?
             %li.cads-header__account-link
               = account_link
 

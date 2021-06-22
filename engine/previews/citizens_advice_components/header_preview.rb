@@ -33,7 +33,7 @@ module CitizensAdviceComponents
         component.logo(title: "Citizens Advice homepage", url: "/")
         component.skip_links(skip_links)
         component.links(links)
-        component.custom_account_link do
+        component.account_link do
           "Custom account link HTML"
         end
         component.search_form(search_action_url: "/search")
