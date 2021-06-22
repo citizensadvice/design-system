@@ -81,7 +81,7 @@ module CitizensAdviceComponents
         { title: "Law and courts", url: "#" },
         { title: "Immigration", url: "#" },
         { title: "Health", url: "#" },
-        { title: "More from us", url: "#" },
+        { title: "More from us", url: "#" }
       ]
     end
   end
