@@ -36,7 +36,7 @@ module CitizensAdviceComponents
       )
     end
 
-    class SkipLink < ViewComponent::Base
+    class SkipLink < Base
       attr_reader :title, :url
 
       def initialize(title:, url:)
@@ -50,7 +50,7 @@ module CitizensAdviceComponents
       end
     end
 
-    class HeaderLink < ViewComponent::Base
+    class HeaderLink < Base
       attr_reader :title, :url
 
       def initialize(title:, url:, current_site: false)
