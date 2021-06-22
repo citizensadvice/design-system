@@ -5,7 +5,7 @@ module CitizensAdviceComponents
 
     attr_reader :name, :label, :error_message, :hint, :width, :value
 
-    def initialize(name:, label:, type: "text", error_message: nil, hint: nil, optional: false, width: nil, value: nil, additional_attrs: nil)
+    def initialize(name:, label:, type: "text", error_message: nil, hint: nil, optional: false, width: nil, value: nil, additional_attributes: nil)
       super
       @name = name
       @label = label
@@ -19,11 +19,11 @@ module CitizensAdviceComponents
         fallback: nil
       )
       @value = value
-      @additional_attrs = additional_attrs
+      @additional_attributes = additional_attributes
     end
 
     def allowed_width_values
-      %i[2ch 4ch 8ch 16ch] << nil
+      %w[2ch 4ch 8ch 16ch] << nil
     end
 
     def optional?
@@ -50,7 +50,7 @@ module CitizensAdviceComponents
       "#{name}-input"
     end
 
-    def base_input_attrs
+    def base_input_attributes
       {
         type: @type,
         id: input_id, 
@@ -60,11 +60,11 @@ module CitizensAdviceComponents
       }
     end
 
-    def input_attrs
-      if @additional_attrs.present?
-        base_input_attrs.merge @additional_attrs
+    def input_attributes
+      if @additional_attributes.present?
+        base_input_attributes.merge @additional_attributes
       else
-        base_input_attrs
+        base_input_attributes
       end
     end
   end

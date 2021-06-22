@@ -15,7 +15,24 @@ module CitizensAdviceComponents
     end
 
     def input_error
-      render CitizensAdviceComponents::Input.new(name: "example-input-error", label: "Example input", error_message: "Enter your full name")
+      render CitizensAdviceComponents::Input.new(name: "example-input-error", label: "Email address", value: "helloexample.com", error_message: "Enter a valid email address, like name@example.com")
+    end
+
+    def input_fixed_width
+      render CitizensAdviceComponents::Input.new(name: "example-input-fixed-width", label: "Example input", hint: "This input is 4ch wide", width: "4ch")
+    end
+
+    def input_type
+      render CitizensAdviceComponents::Input.new(name: "example-input-password", label: "Example input", hint: "This input has type 'password'", value: "It's a secret", type: "password")
+    end
+
+    def input_additional_attributes
+      additional_attributes = {
+        autocomplete: "name",
+        "data-testid": "my great input"
+      }
+
+      render CitizensAdviceComponents::Input.new(name: "example-input-attrs", label: "Example input", hint: "This input has the additional attributes (autocomplete and data-testid)", additional_attributes: additional_attributes)
     end
   end
 end
