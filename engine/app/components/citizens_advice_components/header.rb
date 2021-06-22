@@ -25,7 +25,7 @@ module CitizensAdviceComponents
       logo.present?
     end
 
-    def toggle_button
+    def search_form_toggle_button
       tag.button(
         class: "cads-header__search-reveal js-cads-search-reveal cads-icon_search",
         title: t(".open_search"),
