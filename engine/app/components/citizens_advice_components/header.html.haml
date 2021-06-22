@@ -3,8 +3,8 @@
     .cads-grid-row
       - if skip_links.present?
         %nav.cads-skip-links
-          - skip_links.each do |link|
-            = link_to link.title, link.url, class: "cads-skip-links__link"
+          - skip_links.each do |skip_link|
+            = skip_link
 
       .cads-grid-col-md-2.cads-header__logo-row
         = logo
@@ -12,11 +12,13 @@
 
       .cads-grid-col-md-10.cads-header__search-row
         %ul.cads-header__links.js-cads-copy-into-nav
-          - header_links.each do |link|
-            %li.cads-header__links-item= link
+          - header_links.each do |header_link|
+            %li.cads-header__links-item
+              = header_link
 
           - if account_link.present?
-            %li.cads-header__account-link= account_link
+            %li.cads-header__account-link
+              = account_link
 
         - if search_form.present?
           .cads-header__search-form
