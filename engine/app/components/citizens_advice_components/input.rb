@@ -33,7 +33,7 @@ module CitizensAdviceComponents
     end
 
     def allowed_width_values
-      %w[2ch 4ch 8ch 16ch] << nil
+      %i[two_chars four_chars eight_chars sixteen_chars] << nil
     end
 
     def allowed_type_values
@@ -79,6 +79,11 @@ module CitizensAdviceComponents
       @width.present?
     end
 
+    def width_class 
+      return unless width?
+      "cads-input--#{width.to_s.dasherize}"
+    end
+
     def label_id
       "#{name}-label"
     end
@@ -99,7 +104,7 @@ module CitizensAdviceComponents
         value: value,
         required: required?,
         "aria-invalid": error?,
-        class: ("cads-input--#{width}" if width?),
+        class: width_class,
         "aria-describedby": (error_id.to_s if error?)
       }
     end

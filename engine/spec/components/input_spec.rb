@@ -114,10 +114,10 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   context "when a valid width is specified" do
-    let(:width) { "4ch" }
+    let(:width) { :four_chars }
 
     it "renders the input at the correct width" do
-      expect(subject.css(".cads-input--4ch")).to be_present
+      expect(subject.css(".cads-input--four-chars")).to be_present
     end
   end
 
