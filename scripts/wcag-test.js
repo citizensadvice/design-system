@@ -19,9 +19,7 @@ const storyBook = exec(
 );
 
 const runWcagTests = () => {
-  const pa11y = exec(
-    'cd testing/wcag && npx pa11y-ci --config pa11yci.local.js'
-  );
+  const pa11y = exec('cd testing/wcag && npx pa11y-ci --config pa11yci.js');
 
   pa11y.stdout.on('data', (data) => console.log(data));
 
