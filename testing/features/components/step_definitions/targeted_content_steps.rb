@@ -36,14 +36,14 @@ Then("the toggle button indicates it will expand") do
   expect(@component.heading).to have_expand_collapse
 
   expect(@component.heading.expand_collapse["aria-label"])
-    .to start_with(I18n.t("cads.targeted_content.descriptive_label_show"))
+    .to start_with("show this section")
 end
 
 Then("the toggle button indicates it will collapse") do
   expect(@component.heading).to have_expand_collapse
 
   expect(@component.heading.expand_collapse["aria-label"])
-    .to start_with(I18n.t("cads.targeted_content.descriptive_label_hide"))
+    .to start_with("hide this section")
 end
 
 Then("I can see additional information") do
@@ -56,7 +56,7 @@ end
 
 Then("I can see a close button") do
   expect(@component.additional_information.close.text)
-    .to eq(I18n.t("cads.targeted_content.close_label"))
+    .to eq("Close")
 end
 
 Then("an Adviser label is present in the expandable pane") do
