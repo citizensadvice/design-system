@@ -48,8 +48,6 @@ module CitizensAdviceComponents
         month
         number
         password
-        range
-        reset
         search
         tel
         text
@@ -64,7 +62,7 @@ module CitizensAdviceComponents
     end
 
     def required?
-      !@optional
+      !optional?
     end
 
     def error?

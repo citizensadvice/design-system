@@ -10,5 +10,9 @@ module CitizensAdviceComponents
     def error?
       @error
     end
+
+    def render?
+      content.present?
+    end
   end
 end
