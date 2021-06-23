@@ -2,13 +2,10 @@ const childProcess = require('child_process');
 const chalk = require('chalk');
 
 const { log, error } = console;
-const ci = process.argv.some((arg) => arg === '--ci');
 
 const baseCommand =
   'cd ../testing/visual-regression && npx backstop test --docker';
-const command = ci
-  ? `${baseCommand} --config=backstop-config-ci.js`
-  : `${baseCommand} --config=backstop-config.js`;
+const command = `${baseCommand} --config=backstop-config.js`;
 
 const boldLog = [/report \| \d+/];
 const errorLog = [
