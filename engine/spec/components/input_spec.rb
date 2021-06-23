@@ -6,11 +6,13 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
       name: name.presence,
       label: label.presence,
       type: type.presence,
-      error_message: error_message.presence,
-      optional: optional.presence,
-      hint: hint.presence,
-      additional_attributes: additional_attributes.presence,
-      width: width.presence
+      options: {
+        error_message: error_message.presence,
+        optional: optional.presence,
+        hint: hint.presence,
+        additional_attributes: additional_attributes.presence,
+        width: width.presence
+      }
     )
   end
 

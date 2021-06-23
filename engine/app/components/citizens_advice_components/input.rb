@@ -16,16 +16,16 @@ module CitizensAdviceComponents
     def set_options(options)
       return unless options.present?
 
-      @error_message = options.dig(:error_message)
-      @hint = options.dig(:hint)
-      @optional = fetch_or_fallback_boolean(options.dig(:optional), fallback: false)
+      @error_message = options[:error_message]
+      @hint = options[:hint]
+      @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
       @width = fetch_or_fallback(
         allowed_values: allowed_width_values,
-        given_value: options.dig(:width),
+        given_value: options[:width],
         fallback: nil
       )
-      @value = options.dig(:value)
-      @additional_attributes = options.dig(:additional_attributes)
+      @value = options[:value]
+      @additional_attributes = options[:additional_attributes]
     end
 
     def allowed_width_values
