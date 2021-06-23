@@ -126,6 +126,7 @@
 //
 // Modifier: ~2 characters wide
 //
+.cads-input--two-chars,
 .cads-input--2ch {
   max-width: cads-character-width(2);
 }
@@ -133,6 +134,7 @@
 //
 // Modifier: ~4 characters wide
 //
+.cads-input--four-chars,
 .cads-input--4ch {
   max-width: cads-character-width(4);
 }
@@ -140,6 +142,7 @@
 //
 // Modifier: ~8 characters wide
 //
+.cads-input--eight-chars,
 .cads-input--8ch {
   max-width: cads-character-width(8);
 }
@@ -147,6 +150,7 @@
 //
 // Modifier: ~16 characters wide
 //
+.cads-input--sixteen-chars,
 .cads-input--16ch {
   max-width: cads-character-width(16);
 }
