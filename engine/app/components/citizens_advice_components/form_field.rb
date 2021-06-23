@@ -2,13 +2,13 @@
 
 module CitizensAdviceComponents
   class FormField < Base
-    
-    def initialize(has_error: false)
-      @has_error = fetch_or_fallback_boolean(has_error, fallback: false)
+    def initialize(error: false)
+      super
+      @error = fetch_or_fallback_boolean(error, fallback: false)
     end
 
-    def has_error?
-      @has_error
+    def error?
+      @error
     end
   end
 end

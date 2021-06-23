@@ -2,24 +2,30 @@
 
 module CitizensAdviceComponents
   class Input < Base
-
     attr_reader :name, :label, :error_message, :hint, :width, :value
 
-    def initialize(name:, label:, type:, error_message: nil, hint: nil, optional: false, width: nil, value: nil, additional_attributes: nil)
+    def initialize(name:, label:, type:, options: nil)
       super
       @name = name
       @label = label
       @type = type
-      @error_message = error_message
-      @hint = hint
-      @optional = fetch_or_fallback_boolean(optional, fallback: false)
+
+      set_options(options)
+    end
+
+    def set_options(options)
+      return unless options.present?
+
+      @error_message = options.dig(:error_message)
+      @hint = options.dig(:hint)
+      @optional = fetch_or_fallback_boolean(options.dig(:optional), fallback: false)
       @width = fetch_or_fallback(
         allowed_values: allowed_width_values,
-        given_value: width,
+        given_value: options.dig(:width),
         fallback: nil
       )
-      @value = value
-      @additional_attributes = additional_attributes
+      @value = options.dig(:value)
+      @additional_attributes = options.dig(:additional_attributes)
     end
 
     def allowed_width_values
@@ -34,15 +40,15 @@ module CitizensAdviceComponents
       !@optional
     end
 
-    def has_error?
+    def error?
       @error_message.present?
     end
 
-    def has_hint?
+    def hint?
       @hint.present?
     end
 
-    def has_width?
+    def width?
       @width.present?
     end
 
@@ -61,13 +67,13 @@ module CitizensAdviceComponents
     def base_input_attributes
       {
         type: @type,
-        id: input_id, 
+        id: input_id,
         name: name,
         value: value,
         required: required?,
-        "aria-invalid": has_error?,
-        class: ("cads-input--#{width}" if has_width?),
-        "aria-describedby": ("#{error_id}" if has_error?)
+        "aria-invalid": error?,
+        class: ("cads-input--#{width}" if width?),
+        "aria-describedby": (error_id.to_s if error?)
       }
     end
 

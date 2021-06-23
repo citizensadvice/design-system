@@ -3,7 +3,7 @@
 RSpec.describe CitizensAdviceComponents::Input, type: :component do
   let(:subject) do
     render_inline CitizensAdviceComponents::Input.new(
-      name: name.presence, 
+      name: name.presence,
       label: label.presence,
       type: type.presence,
       error_message: error_message.presence,
@@ -23,7 +23,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   let(:additional_attributes) { nil }
   let(:width) { nil }
 
-  context "by default" do 
+  context "by default" do
     it "renders the label" do
       expect(subject.text.strip).to include("Example input")
     end
@@ -32,7 +32,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
       expect(subject.css("label").attribute("for").value).to eq("example-input-input")
     end
 
-    it "renders an input" do 
+    it "renders an input" do
       expect(subject.css("input")).to be_present
     end
 
@@ -53,8 +53,8 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
   end
 
-  context "when an error is present" do 
-    let(:error_message) { "Enter your name" } 
+  context "when an error is present" do
+    let(:error_message) { "Enter your name" }
 
     it "renders the error message" do
       expect(subject.text.strip).to include "Enter your name"
@@ -76,7 +76,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
       expect(subject.text).to include("Optional")
     end
 
-    it "does not add required to the input" do 
+    it "does not add required to the input" do
       expect(subject.css("input").attribute("required")).to_not be_present
     end
   end
@@ -89,7 +89,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
   end
 
-  context "when a type is specified" do 
+  context "when a type is specified" do
     let(:type) { "email" }
 
     it "renders the correct type of input" do
@@ -98,7 +98,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   context "when additional attributes are specified" do
-    let(:additional_attributes) do 
+    let(:additional_attributes) do
       {
         autocomplete: "name",
         "data-foo": "bar"
@@ -111,16 +111,16 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
   end
 
-  context "when a valid width is specified" do 
-    let(:width) { "4ch"}
+  context "when a valid width is specified" do
+    let(:width) { "4ch" }
 
-    it "renders the input at the correct width" do 
+    it "renders the input at the correct width" do
       expect(subject.css(".cads-input--4ch")).to be_present
     end
   end
 
   context "when an invalid width is specified" do
-    let (:width) { "banana" } 
+    let(:width) { "banana" }
 
     context "production rails env" do
       before do
