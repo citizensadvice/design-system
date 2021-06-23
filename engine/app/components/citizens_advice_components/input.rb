@@ -5,7 +5,7 @@ module CitizensAdviceComponents
 
     attr_reader :name, :label, :error_message, :hint, :width, :value
 
-    def initialize(name:, label:, type: "text", error_message: nil, hint: nil, optional: false, width: nil, value: nil, additional_attributes: nil)
+    def initialize(name:, label:, type:, error_message: nil, hint: nil, optional: false, width: nil, value: nil, additional_attributes: nil)
       super
       @name = name
       @label = label
@@ -30,6 +30,10 @@ module CitizensAdviceComponents
       @optional
     end
 
+    def required?
+      !@optional
+    end
+
     def has_error?
       @error_message.present?
     end
@@ -50,13 +54,20 @@ module CitizensAdviceComponents
       "#{name}-input"
     end
 
+    def error_id
+      "#{name}-error"
+    end
+
     def base_input_attributes
       {
         type: @type,
         id: input_id, 
         name: name,
         value: value,
-        class: ("cads-input--#{width}" if has_width?)
+        required: required?,
+        "aria-invalid": has_error?,
+        class: ("cads-input--#{width}" if has_width?),
+        "aria-describedby": ("#{error_id}" if has_error?)
       }
     end
 
