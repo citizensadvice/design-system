@@ -55,7 +55,7 @@ module CitizensAdviceComponents
         CitizensAdviceComponents::Input.new(
           name: "example-input-password",
           label: "Example input",
-          type: "password",
+          type: :password,
           options: {
             value: "It's a secret",
             hint: "This input has type 'password'"

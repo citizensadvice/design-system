@@ -8,7 +8,11 @@ module CitizensAdviceComponents
       super
       @name = name
       @label = label
-      @type = type
+      @type = fetch_or_fallback(
+        allowed_values: allowed_type_values,
+        given_value: type.to_sym,
+        fallback: :text
+      )
 
       set_options(options)
     end
@@ -30,6 +34,29 @@ module CitizensAdviceComponents
 
     def allowed_width_values
       %w[2ch 4ch 8ch 16ch] << nil
+    end
+
+    def allowed_type_values
+      %i[
+        color
+        date
+        datetime_local
+        email
+        file
+        hidden
+        image
+        month
+        number
+        password
+        range
+        reset
+        search
+        tel
+        text
+        time
+        url
+        week
+      ]
     end
 
     def optional?
@@ -66,7 +93,7 @@ module CitizensAdviceComponents
 
     def base_input_attributes
       {
-        type: @type,
+        type: @type.to_s.dasherize,
         id: input_id,
         name: name,
         value: value,
