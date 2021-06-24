@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class InputPreview < ViewComponent::Preview
-    def input_basic
+  class TextInputPreview < ViewComponent::Preview
+    def text_input_basic
       render(
-        CitizensAdviceComponents::Input.new(name: "example-input-basic", label: "Example input", type: :text)
+        CitizensAdviceComponents::TextInput.new(name: "example-input-basic", label: "Example input", type: :text)
       )
     end
 
-    def input_with_hint
+    def text_input_with_hint
       render(
-        CitizensAdviceComponents::Input.new(
+        CitizensAdviceComponents::TextInput.new(
           name: "example-input-with-hint",
           label: "Example input with hint",
           type: :text,
@@ -21,9 +21,9 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_optional
+    def text_input_optional
       render(
-        CitizensAdviceComponents::Input.new(
+        CitizensAdviceComponents::TextInput.new(
           name: "example-input-optional",
           label: "Example input",
           type: :text,
@@ -34,9 +34,9 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_error
+    def text_input_error
       render(
-        CitizensAdviceComponents::Input.new(
+        CitizensAdviceComponents::TextInput.new(
           name: "example-input-error",
           label: "Email address",
           type: :text,
@@ -48,11 +48,11 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_fixed_widths; end
+    def text_input_fixed_widths; end
 
-    def input_type
+    def text_input_type
       render(
-        CitizensAdviceComponents::Input.new(
+        CitizensAdviceComponents::TextInput.new(
           name: "example-input-password",
           label: "Example input",
           type: :password,
@@ -64,14 +64,14 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_additional_attributes
+    def text_input_additional_attributes
       additional_attributes = {
         autocomplete: "name",
         "data-testid": "my great input"
       }
 
       render(
-        CitizensAdviceComponents::Input.new(
+        CitizensAdviceComponents::TextInput.new(
           name: "example-input-attrs",
           label: "Example input",
           type: :text,

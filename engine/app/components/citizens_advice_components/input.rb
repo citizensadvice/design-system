@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   class Input < Base
-    attr_reader :name, :label, :error_message, :hint, :width, :value
+    attr_reader :name, :label, :error_message, :hint, :value
 
     def initialize(name:, label:, type:, options: nil)
       super
@@ -23,18 +23,11 @@ module CitizensAdviceComponents
       @error_message = options[:error_message]
       @hint = options[:hint]
       @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
-      @width = fetch_or_fallback(
-        allowed_values: allowed_width_values,
-        given_value: options[:width],
-        fallback: nil
-      )
+
       @value = options[:value]
       @additional_attributes = options[:additional_attributes]
     end
 
-    def allowed_width_values
-      %i[two_chars four_chars eight_chars sixteen_chars] << nil
-    end
 
     def allowed_type_values
       %i[
@@ -102,7 +95,6 @@ module CitizensAdviceComponents
         value: value,
         required: required?,
         "aria-invalid": error?,
-        class: width_class,
         "aria-describedby": (error_id.to_s if error?)
       }
     end

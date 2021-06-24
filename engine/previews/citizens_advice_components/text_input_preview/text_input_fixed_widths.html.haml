@@ -1,0 +1,2 @@
+- %i[two_chars four_chars eight_chars sixteen_chars].each do |width|
+  = render CitizensAdviceComponents::TextInput.new(width: width, name: "example-input-fixed-width", label: "Example input", type: "text", options: { hint: "This input is #{width} wide" })
