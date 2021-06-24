@@ -11,19 +11,17 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
         optional: optional.presence,
         hint: hint.presence,
         additional_attributes: additional_attributes.presence,
-        width: width.presence
       }
     )
   end
 
   let(:name) { "example-input" }
   let(:label) { "Example input" }
-  let(:type) { "text" }
+  let(:type) { :text }
   let(:error_message) { nil }
   let(:optional) { false }
   let(:hint) { nil }
   let(:additional_attributes) { nil }
-  let(:width) { nil }
 
   context "by default" do
     it "renders the label" do
@@ -92,7 +90,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   context "when a type is specified" do
-    let(:type) { "email" }
+    let(:type) { :email }
 
     it "renders the correct type of input" do
       expect(subject.css("input").attribute("type").value).to eq("email")
@@ -110,28 +108,6 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     it "adds the attributes to the input" do
       expect(subject.css("input").attribute("autocomplete").value).to eq("name")
       expect(subject.css("input").attribute("data-foo").value).to eq("bar")
-    end
-  end
-
-  context "when a valid width is specified" do
-    let(:width) { :four_chars }
-
-    it "renders the input at the correct width" do
-      expect(subject.css(".cads-input--four-chars")).to be_present
-    end
-  end
-
-  context "when an invalid width is specified" do
-    let(:width) { "banana" }
-
-    context "production rails env" do
-      before do
-        allow(Rails.env).to receive(:production?).and_return(true)
-      end
-
-      it "renders a full width version" do
-        expect(subject.css("input").attribute("class").value).to eq("cads-input")
-      end
     end
   end
 end

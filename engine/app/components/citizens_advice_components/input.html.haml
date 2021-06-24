@@ -8,4 +8,7 @@
   - if error?
     %p.cads-form-field__error-message{ id: error_id, data: { testid: "error-message" } }
       = error_message
-  = content
+  - if content.present?
+    = content
+  - else
+    %input.cads-input{ input_attributes }
