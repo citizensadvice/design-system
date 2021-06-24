@@ -16,7 +16,7 @@ module CitizensAdviceComponents
     end
 
     def allowed_width_values
-      %i[two_chars four_chars eight_chars sixteen_chars] << nil
+      [nil, :two_chars, :four_chars, :eight_chars, :sixteen_chars]
     end
 
     def allowed_type_values

@@ -65,16 +65,6 @@ module CitizensAdviceComponents
       @hint.present?
     end
 
-    def width?
-      @width.present?
-    end
-
-    def width_class
-      return unless width?
-
-      "cads-input--#{width.to_s.dasherize}"
-    end
-
     def label_id
       "#{name}-label"
     end
