@@ -1,20 +1,23 @@
+---
 cy:
   citizens_advice_components:
     badge:
       adviser: Cynghorydd
       example: Enghraifft
       important: Pwysig
+    input:
+      optional: dewisol
     pagination:
       aria_label: Llywio tudalen
-      first_page_label: Cyntaf
       first_page_aria_label: Ewch i'r dudalen gyntaf
-      last_page_label: Diwethaf
+      first_page_label: Cyntaf
+      go_to_page: Ewch i dudalen %{page}
       last_page_aria_label: Ewch i'r dudalen olaf
-      next_page_label: Nesaf
+      last_page_label: Diwethaf
       next_page_aria_label: Ewch i'r dudalen nesaf
-      previous_page_label: Blaenorol
+      next_page_label: Nesaf
       previous_page_aria_label: Ewch i'r dudalen flaenorol
-      go_to_page: 'Ewch i dudalen %{page}'
+      previous_page_label: Blaenorol
     targeted_content:
       close_label: Cau
       descriptive_label_hide: cuddio’r adran hon

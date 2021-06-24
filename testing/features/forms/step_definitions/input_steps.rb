@@ -29,7 +29,7 @@ Then("there is no hint") do
 end
 
 Then("there is an optional label") do
-  expect(@form).to have_optional_label(text: I18n.t("cads.form.optional"))
+  expect(@form).to have_optional_label
 end
 
 Then("there is no optional label") do

@@ -1,20 +1,23 @@
+---
 en:
   citizens_advice_components:
     badge:
       adviser: Adviser
       example: Example
       important: Important
+    input:
+      optional: optional
     pagination:
       aria_label: Pagination navigation
-      first_page_label: First
       first_page_aria_label: Go to first page
-      last_page_label: Last
+      first_page_label: First
+      go_to_page: Go to page %{page}
       last_page_aria_label: Go to last page
-      next_page_label: Next
+      last_page_label: Last
       next_page_aria_label: Go to next page
-      previous_page_label: Previous
+      next_page_label: Next
       previous_page_aria_label: Go to previous page
-      go_to_page: 'Go to page %{page}'
+      previous_page_label: Previous
     targeted_content:
       close_label: Close
       descriptive_label_hide: hide this section
