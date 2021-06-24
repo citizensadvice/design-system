@@ -8,7 +8,7 @@ en:
     footer:
       navigation_title: Footer Navigation
       website_feedback: Is there anything wrong with this page? Let us know
-    form: 
+    form:
       optional: optional
     header:
       close_search: Close search

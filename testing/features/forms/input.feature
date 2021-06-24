@@ -35,7 +35,6 @@ Feature: Input forms
       When I type "Hello" into the text box
       Then the text box has a value of "Hello"
       And there is a label
-      And there is a hint
       And there is an optional label
       But there is no error message
 
@@ -47,15 +46,5 @@ Feature: Input forms
       When I type "Hello" into the text box
       Then the text box has a value of "Hello"
       And there is a label
-      And there is a hint
-      And there is an optional label
-      And there is an error message
-
-    Scenario: Welsh Input can show an error message
-      Given the language is Welsh
-      When I type "Hello" into the text box
-      Then the text box has a value of "Hello"
-      And there is a label
-      And there is a hint
       And there is an optional label
       And there is an error message
