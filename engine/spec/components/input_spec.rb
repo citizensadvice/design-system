@@ -79,6 +79,16 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     it "does not add required to the input" do
       expect(subject.css("input").attribute("required")).to_not be_present
     end
+
+    context "when in Cymraeg" do
+      before do
+        I18n.locale = :cy
+      end
+
+      it "renders optional in Welsh" do
+        expect(subject.text).to include("Dewisol")
+      end
+    end
   end
 
   context "when there is hint text" do

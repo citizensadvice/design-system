@@ -4,6 +4,8 @@ en:
       adviser: Adviser
       example: Example
       important: Important
+    input:
+      optional: Optional
     pagination:
       aria_label: Pagination navigation
       first_page_label: First

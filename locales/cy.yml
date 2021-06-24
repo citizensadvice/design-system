@@ -8,8 +8,6 @@ cy:
     footer:
       navigation_title: Llywio Troedyn
       website_feedback: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
-    form:
-      optional: dewisol
     header:
       close_search: Cau Chwilio
       open_search: Ymchwiliad agored

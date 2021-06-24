@@ -39,15 +39,6 @@ Feature: Input forms
       And there is an optional label
       But there is no error message
 
-    Scenario: Welsh Input can have an optional label
-      Given the language is Welsh
-      When I type "Hello" into the text box
-      Then the text box has a value of "Hello"
-      And there is a label
-      And there is a hint
-      And there is an optional label
-      But there is no error message
-
   Rule: Errored Input
     Background:
       Given I have an Errored Input form on page
