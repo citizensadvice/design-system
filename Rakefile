@@ -57,7 +57,7 @@ namespace :ruby do
   desc "Haml Linting"
   task :haml_lint do
     puts "Running haml-lint"
-    system("bundle exec haml-lint haml styleguide") || raise
+    system("bundle exec haml-lint") || raise
   end
 
   desc "i18n-tasks health"
