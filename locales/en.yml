@@ -9,7 +9,7 @@ en:
       navigation_title: Footer Navigation
       website_feedback: Is there anything wrong with this page? Let us know
     form: 
-      optional: Optional
+      optional: optional
     header:
       close_search: Close search
       open_search: Open search

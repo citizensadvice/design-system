@@ -5,7 +5,7 @@ en:
       example: Example
       important: Important
     input:
-      optional: Optional
+      optional: optional
     pagination:
       aria_label: Pagination navigation
       first_page_label: First

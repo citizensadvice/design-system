@@ -5,7 +5,7 @@ cy:
       example: Enghraifft
       important: Pwysig
     input:
-      optional: Dewisol
+      optional: dewisol
     pagination:
       aria_label: Llywio tudalen
       first_page_label: Cyntaf
