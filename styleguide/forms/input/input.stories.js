@@ -1,12 +1,12 @@
 import docs from './input-docs.mdx';
 
-import templateInput from '../../examples/input/input_basic.html';
-import templateInputWithHint from '../../examples/input/input_with_hint.html';
-import templateInputOptional from '../../examples/input/input_optional.html';
-import templateInputWithError from '../../examples/input/input_error.html';
-import templateInputFixedWidths from '../../examples/input/input_fixed_widths.html';
-import templateInputAdditionalAttributes from '../../examples/input/input_additional_attributes.html';
-import templateInputType from '../../examples/input/input_type.html';
+import templateInput from '../../examples/text_input/text_input_basic.html';
+import templateInputWithHint from '../../examples/text_input/text_input_with_hint.html';
+import templateInputOptional from '../../examples/text_input/text_input_optional.html';
+import templateInputWithError from '../../examples/text_input/text_input_error.html';
+import templateInputFixedWidths from '../../examples/text_input/text_input_fixed_widths.html';
+import templateInputAdditionalAttributes from '../../examples/text_input/text_input_additional_attributes.html';
+import templateInputType from '../../examples/text_input/text_input_type.html';
 
 export default {
   title: 'Forms/Input',
