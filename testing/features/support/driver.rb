@@ -10,9 +10,7 @@ class Driver
   end
 
   def register
-    if grid?
-      ::CaTesting::Drivers::Remote.new(browser).register
-    elsif browserstack?
+    if browserstack?
       Drivers::Browserstack.new.register
     else
       ::CaTesting::Drivers::Local.new(browser).register

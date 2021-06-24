@@ -6,10 +6,6 @@ module Helpers
       ENV.fetch("BROWSER", "chrome").to_sym
     end
 
-    def hub_url
-      ENV["HUB_URL"]
-    end
-
     def browserstack?
       ENV["BROWSERSTACK"] == "true"
     end
@@ -28,10 +24,6 @@ module Helpers
 
     def browserstack_build_name
       ENV["BROWSERSTACK_BUILD_NAME"]
-    end
-
-    def grid?
-      ENV["GRID"] == "true"
     end
 
     def internet_explorer?
