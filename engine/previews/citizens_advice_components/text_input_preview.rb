@@ -41,7 +41,6 @@ module CitizensAdviceComponents
           label: "Email address",
           type: :text,
           options: {
-            value: "helloexample.com",
             error_message: "Enter a valid email address, like name@example.com"
           }
         )
