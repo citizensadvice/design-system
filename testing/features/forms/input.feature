@@ -46,5 +46,4 @@ Feature: Input forms
       When I type "Hello" into the text box
       Then the text box has a value of "Hello"
       And there is a label
-      And there is an optional label
       And there is an error message
