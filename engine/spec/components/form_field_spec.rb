@@ -3,8 +3,8 @@
 RSpec.describe CitizensAdviceComponents::FormField, type: :component do
   let(:subject) do
     render_inline(CitizensAdviceComponents::FormField.new(error: error.presence)) do
-        "Fake input"
-      end
+      "Fake input"
+    end
   end
 
   let(:error) { false }

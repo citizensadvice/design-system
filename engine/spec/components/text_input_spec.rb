@@ -15,7 +15,6 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
   let(:type) { :text }
   let(:width) { nil }
 
-
   RSpec.shared_examples "text input" do
     it "renders a text input" do
       expect(subject.css("input").attribute("type").value).to eq("text")
@@ -29,7 +28,6 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
   context "by default" do
     it_behaves_like "text input"
   end
-
 
   context "when a valid width is specified" do
     let(:width) { :four_chars }
@@ -48,21 +46,18 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
       end
 
       it_behaves_like "text input"
-
     end
   end
 
-
-  context "when an invalid type is specified" do 
+  context "when an invalid type is specified" do
     let(:type) { :date }
-    
+
     context "production rails env" do
       before do
         allow(Rails.env).to receive(:production?).and_return(true)
       end
 
       it_behaves_like "text input"
-
     end
   end
 end

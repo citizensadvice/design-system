@@ -10,7 +10,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
         error_message: error_message.presence,
         optional: optional.presence,
         hint: hint.presence,
-        additional_attributes: additional_attributes.presence,
+        additional_attributes: additional_attributes.presence
       }
     )
   end

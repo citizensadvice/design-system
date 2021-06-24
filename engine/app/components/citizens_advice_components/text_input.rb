@@ -10,11 +10,10 @@ module CitizensAdviceComponents
         given_value: width,
         fallback: nil
       )
-      args[:options].merge(width: @width) if args[:options]
+      args[:options]&.merge(width: @width)
       @base_input_args = args
       super(@base_input_args)
     end
-
 
     def allowed_width_values
       %i[two_chars four_chars eight_chars sixteen_chars] << nil
@@ -36,7 +35,7 @@ module CitizensAdviceComponents
       @width.present?
     end
 
-    def width_class 
+    def width_class
       "cads-input--#{@width.to_s.dasherize}"
     end
 

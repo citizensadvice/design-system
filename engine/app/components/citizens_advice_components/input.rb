@@ -28,7 +28,6 @@ module CitizensAdviceComponents
       @additional_attributes = options[:additional_attributes]
     end
 
-
     def allowed_type_values
       %i[
         color
@@ -70,8 +69,9 @@ module CitizensAdviceComponents
       @width.present?
     end
 
-    def width_class 
+    def width_class
       return unless width?
+
       "cads-input--#{width.to_s.dasherize}"
     end
 
