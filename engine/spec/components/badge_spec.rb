@@ -12,24 +12,8 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
   context "when missing type" do
     let(:type) { nil }
 
-    context "non-production rails env" do
-      before do
-        allow(Rails.env).to receive(:production?).and_return(false)
-      end
-
-      it "raises an error with available options" do
-        expect do
-          described_class.new(type: type)
-        end.to raise_error(CitizensAdviceComponents::FetchOrFallbackHelper::InvalidValueError)
-      end
-    end
-
-    context "production rails env" do
-      before do
-        allow(Rails.env).to receive(:production?).and_return(true)
-      end
-
-      it "does not render" do
+    it "does not render when type is missing" do
+      without_fetch_or_fallback_raises do
         expect(component.at(".cads-badge")).not_to be_present
       end
     end

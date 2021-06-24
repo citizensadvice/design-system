@@ -16,13 +16,15 @@
 # fetch_or_fallback([1,2,3], nil, 2) => 2
 module CitizensAdviceComponents
   module FetchOrFallbackHelper
+    mattr_accessor :fallback_raises, default: true
+
     InvalidValueError = Class.new(StandardError)
 
     def fetch_or_fallback(allowed_values:, given_value:, fallback: nil) # rubocop:disable Metrics/MethodLength
       if allowed_values.include?(given_value)
         given_value
       else
-        unless Rails.env.production?
+        if fallback_raises && !Rails.env.production?
           raise InvalidValueError, <<~MSG
             fetch_or_fallback was called with an invalid value.
 
