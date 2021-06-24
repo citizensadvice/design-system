@@ -60,28 +60,11 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
   context "when missing type" do
     let(:type) { nil }
 
-    context "non-production rails env" do
-      before do
-        allow(Rails.env).to receive(:production?).and_return(false)
+    it "renders public targeted content" do
+      without_fetch_or_fallback_raises do
+        expect(component.at(".cads-targeted-content")).to be_present
+        expect(component.at(".cads-badge")).not_to be_present
       end
-
-      it "raises an error with available options" do
-        expect do
-          described_class.new(
-            id: "targeted-content-example",
-            type: type,
-            title: "Example title"
-          )
-        end.to raise_error(CitizensAdviceComponents::FetchOrFallbackHelper::InvalidValueError)
-      end
-    end
-
-    context "production rails env" do
-      before do
-        allow(Rails.env).to receive(:production?).and_return(true)
-      end
-
-      it_behaves_like "public_targeted_content"
     end
   end
 

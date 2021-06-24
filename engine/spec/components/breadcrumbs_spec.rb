@@ -66,12 +66,8 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "no type is provided" do
     let(:type) { nil }
 
-    context "production rails env" do
-      before do
-        allow(Rails.env).to receive(:production?).and_return(true)
-      end
-
-      it "renders collapsible version by default" do
+    it "renders collapsible version by default" do
+      without_fetch_or_fallback_raises do
         expect(component.css(".cads-breadcrumbs--collapse")).to be_present
       end
     end
