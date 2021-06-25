@@ -18,6 +18,10 @@ en:
       next_page_label: Next
       previous_page_aria_label: Go to previous page
       previous_page_label: Previous
+    search:
+      input_aria_label: Search through site content
+      submit_label: Search
+      submit_title: Submit search query
     targeted_content:
       close_label: Close
       descriptive_label_hide: hide this section
