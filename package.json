@@ -22,7 +22,6 @@
     "watch-examples": "sane ./bin/generate-examples engine/previews --glob=\"**/*.rb\"",
     "release": "npm run lint && npm run build && node ./scripts/release",
     "prepublishOnly": "npm run lint && npm run build && node ./scripts/publish",
-    "pre-commit": "lint-staged",
     "size-limit": "size-limit",
     "clean": "rm -fr ./lib",
     "build:js": "babel src/js -d lib --ignore src/js/**/*.test.js",
@@ -75,13 +74,11 @@
     "eslint-plugin-import": "^2.23.2",
     "git-state": "^4.1.0",
     "http-server": "^0.12.3",
-    "husky": "^6.0.0",
     "inquirer": "^8.1.1",
     "jest": "^27.0.4",
     "jest-date-mock": "^1.0.8",
     "js-beautify": "^1.14.0",
     "jsdom": "^16.5.3",
-    "lint-staged": "^11.0.0",
     "markdown-loader": "^6.0.0",
     "marked": "^2.1.0",
     "moment": "^2.29.1",
@@ -141,15 +138,5 @@
     "setupFiles": [
       "jest-date-mock"
     ]
-  },
-  "lint-staged": {
-    "*.scss": [
-      "stylelint"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pre-commit"
-    }
   }
 }
