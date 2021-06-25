@@ -21,7 +21,7 @@ RSpec.describe CitizensAdviceComponents::NoticeBanner, type: :component do
     end
 
     it "does not render" do
-      expect(component.at('.cads-notice-banner')).to_not be_present
+      expect(component.at(".cads-notice-banner")).to_not be_present
     end
   end
 end
