@@ -102,5 +102,37 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       end
     end
 
+    context "with search form" do
+      subject(:component) do
+        render_inline(described_class.new) do |c|
+          c.logo(title: "Logo title", url: "/")
+          c.search_form(search_action_url: "/search")
+        end
+      end
+
+      it "renders search form" do
+        expect(component.at("form[role=search]").attr("action")).to eq "/search"
+      end
+
+      it "has descriptive label" do
+        expect(component.at("input[type=search]").attr("aria-label")).to eq "Search through site content"
+      end
+
+      it "renders search toggle" do
+        expect(component.at("button[title='Open search']")).to be_present
+      end
+
+      context "when welsh language" do
+        before { I18n.locale = :cy }
+
+        it "has translated descriptive label" do
+          expect(component.at("input[type=search]").attr("aria-label")).to eq "Chwiliwch trwy gynnwys y wefan"
+        end
+
+        it "has translated search label" do
+          expect(component.at("button[title='Ymchwiliad agored']")).to be_present
+        end
+      end
+    end
   end
 end
