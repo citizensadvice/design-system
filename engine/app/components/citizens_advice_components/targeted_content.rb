@@ -42,9 +42,9 @@ module CitizensAdviceComponents
           ("cads-no-close" unless show_close_button?)
         ],
         data: {
-          descriptive_label_show: "#{t('.descriptive_label_show')}, #{title}",
-          descriptive_label_hide: "#{t('.descriptive_label_hide')}, #{title}",
-          close_label: t(".close_label")
+          descriptive_label_show: "#{t('citizens_advice_components.targeted_content.descriptive_label_show')}, #{title}",
+          descriptive_label_hide: "#{t('citizens_advice_components.targeted_content.descriptive_label_hide')}, #{title}",
+          close_label: t("citizens_advice_components.targeted_content.close_label")
         }
       }
     end
