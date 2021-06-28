@@ -45,4 +45,29 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       expect(links).to eq skip_links
     end
   end
+
+  context "with header links" do
+    let(:header_links) do
+      [
+        { title: "Public site", url: "/", current_site: true },
+        { title: "Intranet", url: "/intranet" },
+        { title: "Cymraeg", url: "?lang=cy" }
+      ]
+    end
+
+    subject(:component) do
+      render_inline(described_class.new) do |c|
+        c.logo(title: "Logo title", url: "/")
+        c.header_links(header_links)
+      end
+    end
+
+    it "renders header links" do
+      expect(component.css(".cads-header__links li").size).to be 3
+    end
+
+    it "renders current site as a span" do
+      expect(component.css(".cads-header__links span").text).to eq "Public site"
+    end
+  end
 end
