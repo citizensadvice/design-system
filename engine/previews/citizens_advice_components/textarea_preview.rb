@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class TextInputPreview < ViewComponent::Preview
-    def text_input_basic
+  class TextareaPreview < ViewComponent::Preview
+    def basic
       render(
-        CitizensAdviceComponents::TextInput.new(name: "example-input-basic", label: "Example input")
+        CitizensAdviceComponents::Textarea.new(name: "example-input-basic", label: "Example input")
       )
     end
 
-    def text_input_with_hint
+    def hint
       render(
-        CitizensAdviceComponents::TextInput.new(
+        CitizensAdviceComponents::Textarea.new(
           name: "example-input-with-hint",
           label: "Example input with hint",
           type: :text,
@@ -21,9 +21,9 @@ module CitizensAdviceComponents
       )
     end
 
-    def text_input_optional
+    def optional
       render(
-        CitizensAdviceComponents::TextInput.new(
+        CitizensAdviceComponents::Textarea.new(
           name: "example-input-optional",
           label: "Example input",
           type: :text,
@@ -34,9 +34,9 @@ module CitizensAdviceComponents
       )
     end
 
-    def text_input_error
+    def error
       render(
-        CitizensAdviceComponents::TextInput.new(
+        CitizensAdviceComponents::Textarea.new(
           name: "example-input-error",
           label: "Email address",
           type: :text,
@@ -47,35 +47,18 @@ module CitizensAdviceComponents
       )
     end
 
-    def text_input_fixed_widths; end
-
-    def text_input_type
-      render(
-        CitizensAdviceComponents::TextInput.new(
-          name: "example-input-password",
-          label: "Example input",
-          type: :password,
-          options: {
-            value: "It's a secret",
-            hint: "This input has type 'password'"
-          }
-        )
-      )
-    end
-
-    def text_input_additional_attributes
+    def additional_attributes
       additional_attributes = {
-        autocomplete: "name",
-        "data-testid": "my great input"
+        spellcheck: true
       }
 
       render(
-        CitizensAdviceComponents::TextInput.new(
+        CitizensAdviceComponents::Textarea.new(
           name: "example-input-attrs",
           label: "Example input",
           type: :text,
           options: {
-            hint: "This input has the additional attributes (autocomplete and data-testid)",
+            hint: "This input has additional attributes (spellcheck)",
             additional_attributes: additional_attributes
           }
         )
