@@ -56,7 +56,6 @@ module CitizensAdviceComponents
         c.header_links(links)
         c.account_link(title: "Sign in", url: "#")
         c.search_form(search_action_url: "/search")
-        c.navigation(links: navigation_links)
       end
     end
 

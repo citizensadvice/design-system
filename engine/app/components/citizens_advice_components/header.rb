@@ -21,8 +21,6 @@ module CitizensAdviceComponents
 
     renders_one :search_form, "HeaderSearch"
 
-    renders_one :navigation, CitizensAdviceComponents::Navigation
-
     def render?
       logo.present?
     end
