@@ -4,7 +4,7 @@ module CitizensAdviceComponents
   class TextInputPreview < ViewComponent::Preview
     def text_input_basic
       render(
-        CitizensAdviceComponents::TextInput.new(name: "example-input-basic", label: "Example input")
+        CitizensAdviceComponents::TextInput.new(name: "example-input-basic", label: "Example input", type: :text)
       )
     end
 
