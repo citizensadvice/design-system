@@ -80,6 +80,7 @@
       padding-left: $cads-spacing-4;
     }
 
+    .cads-header__account-block,
     .cads-header__links-item--button {
       @include cads-media-breakpoint-up(md) {
         margin-right: 0;

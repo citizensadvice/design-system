@@ -8,9 +8,15 @@ module CitizensAdviceComponents
     # Renders a block if provided to allow passing custom HTML,
     # otherwise renders a link based on title and url arguments.
     renders_one :account_link, lambda { |title: nil, url: nil, &block|
-      return block.call if block
-
-      link_to(title, url, class: "cads-header__hyperlink")
+      if block
+        tag.li(class: "cads-header__account-block", "data-testid": "account-link") do
+          block.call
+        end
+      else
+        tag.li(class: "cads-header__account-link", "data-testid": "account-link") do
+          link_to(title, url, class: "cads-header__hyperlink")
+        end
+      end
     }
 
     renders_one :logo, lambda { |title:, url:|

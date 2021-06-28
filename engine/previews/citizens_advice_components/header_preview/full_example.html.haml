@@ -1,0 +1,8 @@
+= render CitizensAdviceComponents::Header.new do |c|
+  = c.logo(title: "Citizens Advice homepage", url: "/")
+  = c.skip_links(skip_links)
+  = c.header_links(header_links)
+  = c.account_link do
+    = form_tag("/sign-out/out") do
+      = button_tag("Sign out", class: "cads-button__tertiary cads-header__sign-out")
+  -# = c.search_form(search_action_url: "/search")
