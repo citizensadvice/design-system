@@ -1,0 +1,16 @@
+# i18n-tasks finds and manages missing and unused translations: https://github.com/glebm/i18n-tasks
+base_locale: en
+
+# Read and write translations.
+data:
+  yaml:
+    write:
+      # do not wrap lines at 80 characters
+      line_width: -1
+
+# Find translate calls
+search:
+  relative_paths: &relative_paths
+    - 'app/components'
+  paths: *relative_paths
+  relative_roots: *relative_paths

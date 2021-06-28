@@ -30,8 +30,8 @@ module CitizensAdviceComponents
 
       PaginationLink.new(
         href: query_for(1),
-        label: t(".first_page_label"),
-        aria_label: t(".first_page_aria_label")
+        label: t("citizens_advice_components.pagination.first_page_label"),
+        aria_label: t("citizens_advice_components.pagination.first_page_aria_label")
       )
     end
 
@@ -40,8 +40,8 @@ module CitizensAdviceComponents
 
       PaginationLink.new(
         href: query_for(@current_page - 1),
-        label: t(".previous_page_label"),
-        aria_label: t(".previous_page_aria_label")
+        label: t("citizens_advice_components.pagination.previous_page_label"),
+        aria_label: t("citizens_advice_components.pagination.previous_page_aria_label")
       )
     end
 
@@ -50,7 +50,7 @@ module CitizensAdviceComponents
         PaginationLink.new(
           href: query_for(num),
           label: num,
-          aria_label: t(".go_to_page", page: num),
+          aria_label: t("citizens_advice_components.pagination.go_to_page", page: num),
           current: num == @current_page
         )
       end
@@ -61,8 +61,8 @@ module CitizensAdviceComponents
 
       PaginationLink.new(
         href: query_for(@current_page + 1),
-        label: t(".next_page_label"),
-        aria_label: t(".next_page_aria_label")
+        label: t("citizens_advice_components.pagination.next_page_label"),
+        aria_label: t("citizens_advice_components.pagination.next_page_aria_label")
       )
     end
 
@@ -71,8 +71,8 @@ module CitizensAdviceComponents
 
       PaginationLink.new(
         href: query_for(@num_pages),
-        label: t(".last_page_label"),
-        aria_label: t(".last_page_aria_label")
+        label: t("citizens_advice_components.pagination.last_page_label"),
+        aria_label: t("citizens_advice_components.pagination.last_page_aria_label")
       )
     end
 

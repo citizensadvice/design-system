@@ -98,28 +98,6 @@ For more advanced details see the [BackstopJS Github's page](https://github.com/
 npm run wcag-test
 ```
 
-## Working with locale files
-
-English and Welsh locale files can be found under `locales/`.
-
-We use the [i18n-tasks](https://github.com/glebm/i18n-tasks) gem to help manage locale entries.
-
-You can run the following rake task to peform a health check on locale files.
-
-```
-bundle exec rake ruby:i18n_tasks
-```
-
-To auto-format locale files you can run the following:
-
-```
-bundle exec i18n-tasks normalize
-```
-
-_Note_: We disable prettier for locale files as it conflicts with `i18n-tasks normalize`.
-
-Run `bundle exec i18n-tasks --help` or [view the usage documentation](https://github.com/glebm/i18n-tasks#usage) for a full list of available tasks.
-
 ## Release process
 
 Releasing a new npm package version is a three step process.

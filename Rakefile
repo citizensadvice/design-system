@@ -45,7 +45,7 @@ end
 namespace :ruby do
   desc "Lint ruby files"
   task :lint do
-    collect_task_errors(%w[ruby:rubocop ruby:haml_lint ruby:i18n_tasks])
+    collect_task_errors(%w[ruby:rubocop ruby:haml_lint])
   end
 
   desc "Rubocop Linting"
@@ -58,11 +58,6 @@ namespace :ruby do
   task :haml_lint do
     puts "Running haml-lint"
     system("bundle exec haml-lint") || raise
-  end
-
-  desc "i18n-tasks health"
-  task :i18n_tasks do
-    system("bundle exec i18n-tasks health") || raise
   end
 end
 
