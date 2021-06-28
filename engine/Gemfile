@@ -6,5 +6,7 @@ gemspec
 
 group :development, :test do
   gem "pry", "~> 0.14.1"
+  gem "rspec"
+  gem "rspec-rails"
   gem "rspec-snapshot", "~> 0.1.2"
 end
