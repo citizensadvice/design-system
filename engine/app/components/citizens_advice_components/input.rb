@@ -10,7 +10,7 @@ module CitizensAdviceComponents
       @label = label
       @type = fetch_or_fallback(
         allowed_values: allowed_type_values,
-        given_value: type.to_sym,
+        given_value: type.presence,
         fallback: :text
       )
 
@@ -29,23 +29,24 @@ module CitizensAdviceComponents
     end
 
     def allowed_type_values
-      %i[
-        color
-        date
-        datetime_local
-        email
-        file
-        hidden
-        image
-        month
-        number
-        password
-        search
-        tel
-        text
-        time
-        url
-        week
+      [
+        :color,
+        :date,
+        :datetime_local,
+        :email,
+        :file,
+        :hidden,
+        :image,
+        :month,
+        :number,
+        :password,
+        :search,
+        :tel,
+        :text,
+        :time,
+        :url,
+        :week,
+        nil
       ]
     end
 
@@ -79,7 +80,7 @@ module CitizensAdviceComponents
 
     def base_input_attributes
       {
-        type: @type.to_s.dasherize,
+        type: (@type.to_s.dasherize if @type.present?),
         id: input_id,
         name: name,
         value: value,
