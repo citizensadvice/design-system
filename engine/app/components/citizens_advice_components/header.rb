@@ -10,7 +10,7 @@ module CitizensAdviceComponents
     renders_one :account_link, lambda { |title: nil, url: nil, &block|
       return block.call if block
 
-      link_to(title, url, class: "cads-header__hyperlink", "data-testid": "account-link")
+      link_to(title, url, class: "cads-header__hyperlink")
     }
 
     renders_one :logo, lambda { |title:, url:|

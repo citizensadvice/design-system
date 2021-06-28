@@ -70,4 +70,37 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       expect(component.css(".cads-header__links span").text).to eq "Public site"
     end
   end
+
+  context "with account link" do
+    context "with plain link" do
+      subject(:component) do
+        render_inline(described_class.new) do |c|
+          c.logo(title: "Logo title", url: "/")
+          c.account_link(title: "Sign out", url: "/sign-out")
+        end
+      end
+
+      it "renders account link" do
+        account_link = component.at("[data-testid=account-link] a")
+        expect(account_link.attr("href")).to eq "/sign-out"
+        expect(account_link.text.strip).to eq "Sign out"
+      end
+    end
+
+    context "with custom block" do
+      subject(:component) do
+        render_inline(described_class.new) do |c|
+          c.logo(title: "Logo title", url: "/")
+          c.account_link do
+            "Custom account link HTML"
+          end
+        end
+      end
+
+      it "renders custom block" do
+        expect(component.at("[data-testid=account-link]").text).to include "Custom account link HTML"
+      end
+    end
+
+  end
 end
