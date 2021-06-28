@@ -2,13 +2,13 @@
 
 module CitizensAdviceComponents
   class InputPreview < ViewComponent::Preview
-    def input_basic
+    def basic
       render(
         CitizensAdviceComponents::Input.new(name: "example-input-basic", label: "Example input", type: :text)
       )
     end
 
-    def input_with_hint
+    def hint
       render(
         CitizensAdviceComponents::Input.new(
           name: "example-input-with-hint",
@@ -21,7 +21,7 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_optional
+    def optional
       render(
         CitizensAdviceComponents::Input.new(
           name: "example-input-optional",
@@ -34,7 +34,7 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_error
+    def error
       render(
         CitizensAdviceComponents::Input.new(
           name: "example-input-error",
@@ -48,7 +48,7 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_type
+    def type
       render(
         CitizensAdviceComponents::Input.new(
           name: "example-input-password",
@@ -62,7 +62,7 @@ module CitizensAdviceComponents
       )
     end
 
-    def input_additional_attributes
+    def additional_attributes
       additional_attributes = {
         autocomplete: "name",
         "data-testid": "my great input"
