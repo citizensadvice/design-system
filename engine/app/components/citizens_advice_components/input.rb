@@ -10,7 +10,7 @@ module CitizensAdviceComponents
       @label = label
       @type = fetch_or_fallback(
         allowed_values: allowed_type_values,
-        given_value: type.present? ? type.to_sym : nil,
+        given_value: type.presence,
         fallback: :text
       )
 
