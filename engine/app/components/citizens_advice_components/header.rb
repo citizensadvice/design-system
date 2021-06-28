@@ -25,17 +25,6 @@ module CitizensAdviceComponents
       logo.present?
     end
 
-    def search_form_toggle_button
-      tag.button(
-        class: "cads-header__search-reveal js-cads-search-reveal cads-icon_search",
-        title: t("citizens_advice_components.header.open_search"),
-        "aria-expanded": "false",
-        "data-testid": "expand-button",
-        "data-descriptive-label-show": t("citizens_advice_components.header.open_search"),
-        "data-descriptive-label-hide": t("citizens_advice_components.header.close_search")
-      )
-    end
-
     class SkipLink < Base
       attr_reader :title, :url
 
