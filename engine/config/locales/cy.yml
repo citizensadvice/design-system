@@ -5,14 +5,14 @@ cy:
       adviser: Cynghorydd
       example: Enghraifft
       important: Pwysig
-    input:
-      optional: dewisol
     header:
       close_search: Cau Chwilio
       open_search: Ymchwiliad agored
       skip_to_content: Neidio i’r cynnwys
       skip_to_footer: Neidio i’r troedyn
       skip_to_navigation: Neidio i’r llywio
+    input:
+      optional: dewisol
     page_review:
       body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>
     pagination:
