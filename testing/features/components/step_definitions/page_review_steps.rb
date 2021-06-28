@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given("an Example Page Review component is on the page") do
+Given("a page review component is on the page") do
   @component = PageReview::Example.new.tap(&:load)
 end
 

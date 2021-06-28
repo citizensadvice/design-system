@@ -7,6 +7,8 @@ cy:
       important: Pwysig
     input:
       optional: dewisol
+    page_review:
+      body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>
     pagination:
       aria_label: Llywio tudalen
       first_page_aria_label: Ewch i'r dudalen gyntaf
