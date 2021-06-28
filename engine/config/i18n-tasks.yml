@@ -11,6 +11,6 @@ data:
 # Find translate calls
 search:
   relative_paths: &relative_paths
-    - "app/components"
+    - 'app/components'
   paths: *relative_paths
   relative_roots: *relative_paths
