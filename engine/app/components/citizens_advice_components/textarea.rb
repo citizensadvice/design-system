@@ -12,8 +12,8 @@ module CitizensAdviceComponents
       super(@base_input_args)
     end
 
-    def format_rows(rows) 
-      rows.to_i == 0 ? DEFAULT_ROWS : rows
+    def format_rows(rows)
+      rows.to_i.zero? ? DEFAULT_ROWS : rows
     end
 
     def base_input_attributes

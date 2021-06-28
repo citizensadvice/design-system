@@ -5,7 +5,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     render_inline CitizensAdviceComponents::Textarea.new(
       name: name.presence,
       label: label.presence,
-      type: type.presence,
+      type: type.presence
     )
   end
 
@@ -63,8 +63,8 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
 
     let(:rows) { "banana" }
 
-    it "renders the default number of rows" do 
-        expect(subject.css("textarea").attribute("rows").value).to eq("8")
+    it "renders the default number of rows" do
+      expect(subject.css("textarea").attribute("rows").value).to eq("8")
     end
   end
 end
