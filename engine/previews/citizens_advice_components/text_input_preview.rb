@@ -2,13 +2,13 @@
 
 module CitizensAdviceComponents
   class TextInputPreview < ViewComponent::Preview
-    def text_input_basic
+    def basic
       render(
         CitizensAdviceComponents::TextInput.new(name: "example-input-basic", label: "Example input", type: :text)
       )
     end
 
-    def text_input_with_hint
+    def hint
       render(
         CitizensAdviceComponents::TextInput.new(
           name: "example-input-with-hint",
@@ -21,7 +21,7 @@ module CitizensAdviceComponents
       )
     end
 
-    def text_input_optional
+    def optional
       render(
         CitizensAdviceComponents::TextInput.new(
           name: "example-input-optional",
@@ -34,7 +34,7 @@ module CitizensAdviceComponents
       )
     end
 
-    def text_input_error
+    def error
       render(
         CitizensAdviceComponents::TextInput.new(
           name: "example-input-error",
@@ -47,9 +47,9 @@ module CitizensAdviceComponents
       )
     end
 
-    def text_input_fixed_widths; end
+    def fixed_widths; end
 
-    def text_input_type
+    def type
       render(
         CitizensAdviceComponents::TextInput.new(
           name: "example-input-password",
@@ -63,7 +63,7 @@ module CitizensAdviceComponents
       )
     end
 
-    def text_input_additional_attributes
+    def additional_attributes
       additional_attributes = {
         autocomplete: "name",
         "data-testid": "my great input"
