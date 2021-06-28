@@ -1,3 +1,13 @@
+## <sub>v4.1.2-alpha.0</sub>
+
+#### _Jun. 28, 2021_
+
+- New ViewComponents for the design system engine:
+  - `TextInput`
+  - `Input`
+  - `FormField`
+  - `Table`
+
 ## <sub>v4.1.1</sub>
 
 #### _Jun. 17, 2021_
