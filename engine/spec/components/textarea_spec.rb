@@ -4,7 +4,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
   let(:subject) do
     render_inline CitizensAdviceComponents::Textarea.new(
       name: name.presence,
-      label: label.presence, 
+      label: label.presence,
       type: type.presence
     )
   end
@@ -39,7 +39,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     let(:subject) do
       render_inline CitizensAdviceComponents::Textarea.new(
         name: name.presence,
-        label: label.presence, 
+        label: label.presence,
         type: type.presence,
         rows: rows.presence
       )
