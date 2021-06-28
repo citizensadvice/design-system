@@ -14,11 +14,11 @@ Feature: Header component
 
   Rule: A Standard Header (Screen size agnostic)
     Scenario: English Header has a search option
-      Then I am able to search in English
+      Then I am able to search
 
     Scenario: Welsh Header has a search option
       Given the language is Welsh
-      Then I am able to search in Welsh
+      Then I am able to search
 
   Rule: A Standard Header (Large Screen)
     @not_mobile

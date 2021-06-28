@@ -1,7 +1,6 @@
-import { translate } from '../../story-helpers';
 import docs from './search-docs.mdx';
-import templateDefault from './_search.html.haml';
-import templateWithValue from './_search-with-value.html.haml';
+import templateDefault from '../../examples/search/example.html';
+import templateWithValue from '../../examples/search/with_value.html';
 
 export default {
   title: 'Components/Search',
@@ -9,13 +8,12 @@ export default {
   decorators: [(Story) => `<div style="max-width: 800px">${Story()}</div>`],
 };
 
-export const Search = (_, options) => translate(templateDefault, options);
-templateDefault.parameters = {
-  docs: { source: { code: templateDefault.toString() } },
+export const Search = () => templateDefault;
+Search.parameters = {
+  docs: { source: { code: templateDefault } },
 };
 
-export const SearchWithValue = (_, options) =>
-  translate(templateWithValue, options);
+export const SearchWithValue = () => templateWithValue;
 SearchWithValue.parameters = {
-  docs: { source: { code: templateWithValue.toString() } },
+  docs: { source: { code: templateWithValue } },
 };

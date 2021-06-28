@@ -28,7 +28,7 @@ Then("a logo is present") do
   expect(@component.logo["href"]).not_to be_blank
 end
 
-Then("I am able to search in English/Welsh") do
+Then("I am able to search") do
   @component.search_for("Anything")
 
   expect(@component.search_field.value).to eq("Anything")
