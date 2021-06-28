@@ -7,6 +7,8 @@ en:
       important: Important
     input:
       optional: optional
+    page_review:
+      body_html: Page last reviewed on <strong>%{date}</strong>
     pagination:
       aria_label: Pagination navigation
       first_page_aria_label: Go to first page
