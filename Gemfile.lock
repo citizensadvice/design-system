@@ -102,7 +102,7 @@ GEM
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.37.0)
+    haml_lint (0.37.1)
       haml (>= 4.0, < 5.3)
       parallel (~> 1.10)
       rainbow
