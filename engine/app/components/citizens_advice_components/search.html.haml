@@ -1,7 +1,7 @@
 .cads-search
-  %input.cads-search__input.cads-input{ type: "search",
-    name: param_name,
-    "aria-label": t(".input_aria_label"),
-    value: value.presence }
-  %button.cads-search__button{ type: "submit", title: t(".submit_title") }
+  = search_field_tag(param_name,
+    value.presence,
+    class: "cads-search__input cads-input",
+    "aria-label": t(".input_aria_label"))
+  %button.cads-search__button{ type: "submit", title: t(".submit_title"), "data-testid": "search-form-search-button" }
     %span.cads-search__button-label= t(".submit_label")
