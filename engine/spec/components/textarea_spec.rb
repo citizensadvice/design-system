@@ -5,7 +5,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     render_inline CitizensAdviceComponents::Textarea.new(
       name: name.presence,
       label: label.presence,
-      type: type.presence
+      type: type.presence,
     )
   end
 
@@ -53,14 +53,18 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
   end
 
   context "when an invalid number of rows is specified" do
+    let(:subject) do
+      render_inline CitizensAdviceComponents::Textarea.new(
+        name: name.presence,
+        label: label.presence,
+        rows: rows.presence
+      )
+    end
+
     let(:rows) { "banana" }
 
-    context "production rails env" do
-      before do
-        allow(Rails.env).to receive(:production?).and_return(true)
-      end
-
-      it_behaves_like "textarea"
+    it "renders the default number of rows" do 
+        expect(subject.css("textarea").attribute("rows").value).to eq("8")
     end
   end
 end
