@@ -12,6 +12,7 @@ vendor/
 # Ignore locale files from prettier
 # formatted by i18n-tasks
 /locales/
+/engine/config/locales/
 /demo/config/locales/
 
 # Ignore Rails demo app files
