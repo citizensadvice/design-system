@@ -9,7 +9,7 @@ Given("the Minimal Footer component is on the page") do
 end
 
 Then("a report problem with this page link is present") do
-  expect(@component).to have_website_feedback(text: I18n.t("cads.footer.website_feedback"))
+  expect(@component.website_feedback.text).to start_with("Is there anything wrong with this page?")
 end
 
 Then("each header item has at least 1 link below it") do
@@ -17,7 +17,7 @@ Then("each header item has at least 1 link below it") do
 end
 
 Then("a copyright notice is present") do
-  expect(@component).to have_copyright(text: I18n.t("cads.shared.copyright"))
+  expect(@component.copyright.text).to start_with("Copyright ©2021 Citizens Advice")
 end
 
 Then("a company info is present") do
