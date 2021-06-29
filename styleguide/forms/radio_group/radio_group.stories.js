@@ -7,6 +7,7 @@ import templateInputWithError from '../../examples/radio_group/error.html';
 import templateInputAdditionalAttributes from '../../examples/radio_group/additional_attributes.html';
 import templateInline from '../../examples/radio_group/inline.html';
 import templateSmall from '../../examples/radio_group/small.html';
+import templateLong from '../../examples/radio_group/long.html';
 
 export default {
   title: 'Forms/Radio Group',
@@ -36,10 +37,15 @@ Attributes.parameters = {
 
 export const Inline = () => templateInline;
 Inline.parameters = {
-  docs: { source: { code: templateInputAdditionalAttributes } },
+  docs: { source: { code: templateInline } },
 };
 
 export const Small = () => templateSmall;
 Small.parameters = {
-  docs: { source: { code: templateInputAdditionalAttributes } },
+  docs: { source: { code: templateSmall } },
+};
+
+export const WithLongOptions = () => templateLong;
+WithLongOptions.parameters = {
+  docs: { source: { code: templateLong } },
 };
