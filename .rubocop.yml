@@ -33,6 +33,7 @@ Metrics/BlockLength:
     - '**/*.rake'
     - 'spec/**/*.rb'
     - 'engine/spec/**/*.rb'
+    - 'engine/previews/**/*.rb'
     - 'demo/spec/**/*.rb'
 
 Metrics/ClassLength:
