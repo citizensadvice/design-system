@@ -101,7 +101,7 @@ module CitizensAdviceComponents
     def long_radios
       [
         { label: "This option is pretty long and will probably wrap over multiple lines", value: "1" },
-        { label: "This option is also pretty long, too long even, and will almost definitely wrap over multiple lines", value: "2"}
+        { label: "This option is also pretty long, too long even, and will almost definitely wrap over multiple lines", value: "2" }
       ]
     end
 
