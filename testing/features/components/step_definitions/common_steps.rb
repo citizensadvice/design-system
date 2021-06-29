@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-When("I am able to skip to the {skip-link-area} part of the page") do |area|
+When("I am able to skip to the {skip-link-area} part of the page labelled {string}" ) do |area, description|
   @component.tab_to(area)
 
-  expect(@component.active_element.text).to eq(I18n.t("cads.header.skip_to_#{area}"))
+  expect(@component.active_element.text).to eq(description)
 end
 
 Then("a logo is present") do
-  expect(@component.logo["title"]).to eq(I18n.t("cads.shared.logo_title"))
+  expect(@component.logo["title"]).to eq("Citizens Advice homepage")
 
   expect(@component.logo["href"]).not_to be_blank
 end
@@ -17,15 +17,15 @@ Then("I am able to search") do
 
   expect(@component.search_field.value).to eq("Anything")
 
-  expect(@component.search_field["aria-label"]).to eq(I18n.t("cads.search.input_aria_label"))
+  expect(@component.search_field["aria-label"]).to eq("Search through site content")
 
-  expect(@component.search_button.text).to eq(I18n.t("cads.search.submit_label"))
+  expect(@component.search_button.text).to eq("Search")
 
-  expect(@component.search_button["title"]).to eq(I18n.t("cads.search.submit_title"))
+  expect(@component.search_button["title"]).to eq("Submit search query")
 end
 
 Then("I can expand the search bar") do
-  expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.open_search"))
+  expect(@component.open_search_pane["title"]).to eq("Open search")
 
   @component.open_search_pane.click
 
@@ -33,7 +33,7 @@ Then("I can expand the search bar") do
 end
 
 Then("I can collapse the search bar") do
-  expect(@component.open_search_pane["title"]).to eq(I18n.t("cads.header.close_search"))
+  expect(@component.open_search_pane["title"]).to eq("Close search")
 
   @component.open_search_pane.click
 

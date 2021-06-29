@@ -25,13 +25,13 @@ Feature: Header component
 
     @not_mobile @not_tablet
     Scenario Outline: Users can quickly navigate to various areas of the page
-      Then I am able to skip to the <area> part of the page
+      Then I am able to skip to the <area> part of the page labelled "<description>"
 
       Examples:
-        | area       |
-        | navigation |
-        | content    |
-        | footer     |
+        | area       | description
+        | navigation | Skip to navigation
+        | content    | Skip to content
+        | footer     | Skip to footer
 
   Rule: A Standard Header (Small Screen)
     @small_screen
