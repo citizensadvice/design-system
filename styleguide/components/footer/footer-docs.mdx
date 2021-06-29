@@ -1,33 +1,18 @@
-import { Meta, Source, Story, Preview } from '@storybook/addon-docs/blocks';
-import { translate } from '../../story-helpers';
-
-import templateDefault from './_default.html.haml';
-import templateMinimal from './_minimal.html.haml';
-import linksVariable from '!!raw-loader!./links_example.rb';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Footer" />
 
 # Footer
 
-<Preview>
-  <Story
-    name="Default"
-    parameters={{ docs: { source: { code: templateDefault.raw } } }}
-  >
-    {(_, options) => translate(templateDefault, options)}
-  </Story>
-</Preview>
+<Canvas>
+  <Story id="components-footer--default" />
+</Canvas>
 
 ## Minimal Footer
 
-<Preview>
-  <Story
-    name="Minimal"
-    parameters={{ docs: { source: { code: templateMinimal.raw } } }}
-  >
-    {(_, options) => translate(templateMinimal, options)}
-  </Story>
-</Preview>
+<Canvas>
+  <Story id="components-footer--minimal" />
+</Canvas>
 
 ## Haml template options
 
@@ -42,9 +27,3 @@ The Haml partial the following locals:
 | `links[label] ` | &rarr; Required, title for the sign in link                |
 | `links[icon] `  | &rarr; Optional, display an icon next to the link          |
 | `homepage_url`  | Optional, defaults to `/`                                  |
-
-### links
-
-There are four slots for links to be placed within, they are defined using the following structure:
-
-<Source dark="true" language="ruby" code={linksVariable} />
