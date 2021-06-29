@@ -6,9 +6,5 @@ module PageReview
 
     element :reviewed_on, ".cads-page-review"
     element :bold_date, "strong"
-
-    def localised_reviewed_on_prefix
-      I18n.t("cads.page_review.body_html").split("<strong>").first
-    end
   end
 end
