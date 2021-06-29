@@ -10,7 +10,7 @@
     %nav{ "aria-label": t(".navigation_title")  }
       .cads-grid-row
         - columns_to_show.each do |column|
-          .cads-grid-col-md-3
+          .cads-grid-col-md-3{ "data-testid": "footer-column" }
             %h2.cads-footer__section-title= column.title
             %ul.cads-footer__links
               - column.links.each do |link|
