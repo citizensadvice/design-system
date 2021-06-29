@@ -14,7 +14,7 @@ module CitizensAdviceComponents
     def error
       render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons",
+        name: "radio-buttons-error",
         options: {
           error_message: "Select an option"
         }
@@ -26,7 +26,7 @@ module CitizensAdviceComponents
     def optional
       render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons",
+        name: "radio-buttons-optional",
         options: {
           optional: true
         }
@@ -38,7 +38,7 @@ module CitizensAdviceComponents
     def hint
       render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons",
+        name: "radio-buttons-hint",
         options: {
           hint: "This is the hint text"
         }
@@ -50,7 +50,7 @@ module CitizensAdviceComponents
     def small
       render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons",
+        name: "radio-buttons-small",
         options: {
           size: :small
         }
@@ -62,7 +62,7 @@ module CitizensAdviceComponents
     def inline
       render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons",
+        name: "radio-buttons-inline",
         options: {
           layout: :inline
         }
@@ -74,7 +74,7 @@ module CitizensAdviceComponents
     def long
       render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons"
+        name: "radio-buttons-long"
       ) do |c|
         c.radio_buttons(long_radios)
       end
@@ -83,7 +83,7 @@ module CitizensAdviceComponents
     def additional_attributes
       render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons"
+        name: "radio-buttons-attrs"
       ) do |c|
         c.radio_buttons(additional_attribute_radios)
       end
@@ -93,23 +93,22 @@ module CitizensAdviceComponents
 
     def radios
       [
-        { label: "Option 1", value: "1", name: "radio-group" },
-        { label: "Option 2", value: "2", name: "radio-group" }
+        { label: "Option 1", value: "1" },
+        { label: "Option 2", value: "2" }
       ]
     end
 
     def long_radios
       [
-        { label: "This option is pretty long and will probably wrap over multiple lines", value: "1", name: "radio-group" },
-        { label: "This option is also pretty long, too long even, and will almost definitely wrap over multiple lines", value: "2",
-          name: "radio-group" }
+        { label: "This option is pretty long and will probably wrap over multiple lines", value: "1" },
+        { label: "This option is also pretty long, too long even, and will almost definitely wrap over multiple lines", value: "2"}
       ]
     end
 
     def additional_attribute_radios
       [
-        { label: "Option 1", value: "1", name: "radio-group", "data-testid": "first-input" },
-        { label: "Option 2", value: "2", name: "radio-group", "data-testid": "second-input" }
+        { label: "Option 1", value: "1", "data-testid": "first-input" },
+        { label: "Option 2", value: "2", "data-testid": "second-input" }
       ]
     end
   end

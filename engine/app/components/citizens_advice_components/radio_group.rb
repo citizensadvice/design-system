@@ -70,7 +70,6 @@ module CitizensAdviceComponents
 
       def attributes(name)
         attrs = base_attributes(name)
-
         return attrs unless @additional_attributes.present?
 
         attrs.merge(@additional_attributes)
