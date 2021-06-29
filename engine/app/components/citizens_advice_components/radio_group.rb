@@ -24,6 +24,10 @@ module CitizensAdviceComponents
       @layout = fetch_or_fallback(given_value: options[:layout], allowed_values: [nil, :list, :inline], fallback: :list)
     end
 
+    def render?
+      radio_buttons.present?
+    end
+
     def error?
       @error_message.present?
     end
