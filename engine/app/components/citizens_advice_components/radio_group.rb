@@ -56,35 +56,35 @@ module CitizensAdviceComponents
     class RadioButton < Base
       attr_reader :label
 
-      def initialize(label:, value:, name:, checked: false, **additional_attributes)
+      def initialize(label:, value:, checked: false, **additional_attributes)
         super
         @label = label
         @value = value
-        @name = name
         @checked = fetch_or_fallback_boolean(checked, fallback: false)
         @additional_attributes = additional_attributes
       end
 
-      def attributes
-        return base_attributes unless @additional_attributes.present?
+      def attributes(name)
 
-        base_attributes.merge(@additional_attributes)
+        attrs = base_attributes(name)
+
+        return attrs unless @additional_attributes.present?
+
+        attrs.merge(@additional_attributes)
       end
 
-      def base_attributes
+      def base_attributes(name)
         {
           type: "radio",
-          id: format_button_id,
-          name: @name,
+          id: format_button_id(name),
+          name: name,
           value: @value,
           checked: @checked
         }
       end
 
-      private
-
-      def format_button_id
-        "#{@name}-#{@value}"
+      def format_button_id(name)
+        "#{name}-#{@value}"
       end
     end
   end

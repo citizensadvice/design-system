@@ -72,16 +72,12 @@ module CitizensAdviceComponents
     end
 
     def long
-      subject = CitizensAdviceComponents::RadioGroup.new(
+      render CitizensAdviceComponents::RadioGroup.new(
         legend: "Example radio group",
-        name: "radio-buttons",
-        options: {
-          optional: true
-        }
+        name: "radio-buttons"
       ) do |c|
         c.radio_buttons(long_radios)
       end
-      render_with_template(locals: { subject: subject })
     end
 
     def additional_attributes
@@ -104,8 +100,8 @@ module CitizensAdviceComponents
 
     def long_radios
       [
-        { label: "Option 1", value: "1", name: "radio-group" },
-        { label: "Option 2", value: "2", name: "radio-group" }
+        { label: "This option is pretty long and will probably wrap over multiple lines", value: "1", name: "radio-group" },
+        { label: "This option is also pretty long, too long even, and will almost definitely wrap over multiple lines", value: "2", name: "radio-group" }
       ]
     end
 

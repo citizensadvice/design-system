@@ -11,6 +11,6 @@
       %p.cads-form-field__error-message= error_message
     - radio_buttons.each do |radio|
       .cads-radio-group__item
-        %input.cads-radio-group__input{ radio.attributes }
-        %label.cads-radio-group__label{ for: radio.attributes[:id] }
+        %input.cads-radio-group__input{ radio.attributes(name) }
+        %label.cads-radio-group__label{ for: radio.attributes(name)[:id] }
           = radio.label
