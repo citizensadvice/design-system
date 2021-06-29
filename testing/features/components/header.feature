@@ -13,25 +13,20 @@ Feature: Header component
     Given a Standard Header component is on the page
 
   Rule: A Standard Header (Screen size agnostic)
-    Scenario: Header has a search option
+    Scenario: English Header has a search option
       Then I am able to search
 
   Rule: A Standard Header (Large Screen)
     @not_mobile
-    Scenario: Header has some quick links
+    Scenario: English Header has some quick links
       Then a link to change language is present
       And a login link is present
       And a logo is present
 
     @not_mobile @not_tablet
-    Scenario Outline: Users can quickly navigate to various areas of the page
-      Then I am able to skip to the <area> part of the page labelled "<description>"
-
-      Examples:
-        | area       | description
-        | navigation | Skip to navigation
-        | content    | Skip to content
-        | footer     | Skip to footer
+    Scenario: Users can quickly navigate to various areas of the page
+      Then I am able to tab through skip links
+        | Skip to navigation | Skip to content | Skip to footer |
 
   Rule: A Standard Header (Small Screen)
     @small_screen

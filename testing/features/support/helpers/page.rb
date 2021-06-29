@@ -36,15 +36,6 @@ module Helpers
       end
     end
 
-    def tab_quantity_for_skip_link(desired_area)
-      case desired_area
-      when :navigation; then 1
-      when :content;    then 2
-      when :footer;     then 3
-      else raise "Invalid Input argument for tabbing!"
-      end
-    end
-
     private
 
     def image_file_path(test_case)
