@@ -69,7 +69,6 @@ module CitizensAdviceComponents
       end
 
       def attributes(name)
-
         attrs = base_attributes(name)
 
         return attrs unless @additional_attributes.present?

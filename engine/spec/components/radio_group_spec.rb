@@ -5,12 +5,12 @@
 # invalid params - size, layout, optional
 
 RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
-  let(:radios) {
+  let(:radios) do
     [
       { label: "Option 1", value: "1", name: "radio-group" },
       { label: "Option 2", value: "2", name: "radio-group" }
     ]
-  }
+  end
 
   let(:subject) do
     render_inline CitizensAdviceComponents::RadioGroup.new(
@@ -58,7 +58,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
         c.radio_buttons(nil)
       end
     end
-  
+
     let(:name) { "radio-buttons" }
     let(:legend) { "Radio button group field" }
 
@@ -83,7 +83,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
         c.radio_buttons(radios)
       end
     end
-  
+
     let(:name) { "radio-buttons" }
     let(:legend) { "Radio button group field" }
     let(:error_message) { "This is the error message" }
@@ -122,30 +122,30 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
     end
 
-    context "when invalid optional parameter is passed" do 
+    context "when invalid optional parameter is passed" do
       let(:optional) { "bananas" }
 
-      it "renders a required input" do 
+      it "renders a required input" do
         without_fetch_or_fallback_raises do
           expect(subject.text.strip).to_not include "Optional"
         end
       end
     end
 
-    context "when invalid size parameter is passed" do 
+    context "when invalid size parameter is passed" do
       let(:size) { :bananas }
 
-      it "renders a normal size input" do 
+      it "renders a normal size input" do
         without_fetch_or_fallback_raises do
           expect(subject.css(".cads-from-group--small")).to_not be_present
         end
       end
     end
 
-    context "when invalid layout parameter is passed" do 
+    context "when invalid layout parameter is passed" do
       let(:layout) { :bananas }
 
-      it "renders the radio buttons in list layout" do 
+      it "renders the radio buttons in list layout" do
         without_fetch_or_fallback_raises do
           expect(subject.css(".cads-from-group--inline")).to_not be_present
         end
@@ -154,15 +154,15 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
   end
 
   context "when there are additional parameters on the radio buttons" do
-    let(:radios) {
+    let(:radios) do
       [
         { label: "Option 1", value: "1", name: "radio-group", "data-jackie": "weaver", "data-fruit": "bananas" }
       ]
-    }
+    end
 
     it "adds the attributes to the radio buttons" do
-      expect(subject.css('input').attribute("data-jackie").value).to eq "weaver"
-      expect(subject.css('input').attribute("data-fruit").value).to eq "bananas"
+      expect(subject.css("input").attribute("data-jackie").value).to eq "weaver"
+      expect(subject.css("input").attribute("data-fruit").value).to eq "bananas"
     end
   end
 end
