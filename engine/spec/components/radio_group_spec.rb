@@ -127,7 +127,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
       it "renders a required input" do
         without_fetch_or_fallback_raises do
-          expect(subject.text.strip).to_not include "Optional"
+          expect(subject.text.strip).to_not include "optional"
         end
       end
     end
