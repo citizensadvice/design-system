@@ -14,6 +14,81 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
   <Story id="components-footer--minimal" />
 </Canvas>
 
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+
+```rb
+render CitizensAdviceComponents::Footer.new(
+  feedback_url: "https://www.research.net/r/J8PLH2H"
+) do |c|
+  c.column(
+    title: "Advice",
+    links: [
+      { url: "#", label: "Link 1" },
+      { url: "#", label: "Link 2" },
+      { url: "#", label: "Link 3" }
+    ]
+  )
+  c.column(
+    title: "Resources and tools",
+    links: [
+      { url: "#", label: "Link 1" },
+      { url: "#", label: "Link 2" },
+      { url: "#", label: "Link 3" }
+    ]
+  )
+  c.column(
+    title: "More from us",
+    links: [
+      { url: "#", label: "Link 1" },
+      { url: "#", label: "Link 2" },
+      { url: "#", label: "Link 3" }
+    ]
+  )
+  c.column(
+    title: "About Citizens Advice",
+    links: [
+      { url: "#", label: "Link 1" },
+      { url: "#", label: "Link 2" },
+      { url: "#", label: "Link 3" }
+    ]
+  )
+end
+```
+
+### View Component Options
+
+The constructor accepts the following properties
+
+| Property       | Description                                                |
+| -------------- | ---------------------------------------------------------- |
+| `feedback_url` | If present, a link to this feedback form will be displayed |
+| `homepage_url` | Optional, defaults to `/`                                  |
+
+#### Column slots
+
+As well as the main properties the component also accepts up to four `column` slots.
+These can either be passed on at a time like in the example above, or by iterating through an array e.g.
+
+```rb
+render CitizensAdviceComponents::Footer.new do |c|
+  my_columns.each do |column|
+    c.column(column)
+  end
+end
+```
+
+Each slot accepts the following named arguments:
+
+| Property      | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| `title`       | Required, title for the column                         |
+| `links`       | Required, an array of hashes, each with the following: |
+| `link[url]`   | &rarr; Required, url for the link                      |
+| `link[title]` | &rarr; Required, title for the link                    |
+| `link[icon]`  | &rarr; Optional, icon name e.g. `external-link`        |
+
 ## Haml template options
 
 The Haml partial the following locals:
@@ -23,7 +98,7 @@ The Haml partial the following locals:
 | `root_path`     | Required, root path for the logo home link                 |
 | `feedback_url`  | If present, a link to this feedback form will be displayed |
 | `links`         | Main content for the footer (see links above)              |
-| `links[url]`    | &rarr; Required, url for the sign in link                  |
-| `links[label] ` | &rarr; Required, title for the sign in link                |
+| `links[url]`    | &rarr; Required, url for the link                          |
+| `links[label] ` | &rarr; Required, title for the link                        |
 | `links[icon] `  | &rarr; Optional, display an icon next to the link          |
 | `homepage_url`  | Optional, defaults to `/`                                  |
