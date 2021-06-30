@@ -81,7 +81,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       end
 
       it "renders account link" do
-        account_link = component.at("[data-testid=account-link] a")
+        account_link = component.at("a[data-testid=account-link]")
         expect(account_link.attr("href")).to eq "/sign-out"
         expect(account_link.text.strip).to eq "Sign out"
       end

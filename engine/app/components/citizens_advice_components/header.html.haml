@@ -19,8 +19,10 @@
       .cads-grid-col-md-10.cads-header__search-row
         %ul.cads-header__links.js-cads-copy-into-nav
           - header_links.each do |header_link|
-            %li.cads-header__links-item
-              = header_link
+            %li.cads-header__links-item= header_link
+
+          - if account_link.present?
+            %li.cads-header__links-item= account_link
 
         - if search_form.present?
           .cads-header__search-form
