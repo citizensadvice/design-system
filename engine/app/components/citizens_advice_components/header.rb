@@ -8,9 +8,7 @@ module CitizensAdviceComponents
     renders_one :account_link, "AccountLink"
 
     renders_one :logo, lambda { |title:, url:|
-      link_to url, class: "cads-logo" do
-        content_tag :span, title, class: "cads-sr-only"
-      end
+      link_to("", url, title: title, class: "cads-logo")
     }
 
     renders_one :search_form, "HeaderSearch"
