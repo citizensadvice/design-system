@@ -1,9 +1,7 @@
-import { Meta, Source, Story, Preview } from '@storybook/addon-docs/blocks';
-import { translate } from '../../story-helpers';
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 
 import initHeader from '../../../src/js/header';
-import templateDefault from './_default.html.haml';
-import linksVariable from '!!raw-loader!./links_example.rb';
+import templateDefault from './../../examples/header/full_example.html';
 
 <Meta
   title="Components/Header"
@@ -20,9 +18,9 @@ import linksVariable from '!!raw-loader!./links_example.rb';
 <Preview>
   <Story
     name="Default"
-    parameters={{ docs: { source: { code: templateDefault.raw } } }}
+    parameters={{ docs: { source: { code: templateDefault } } }}
   >
-    {(_, options) => translate(templateDefault, options)}
+    {() => templateDefault}
   </Story>
 </Preview>
 
@@ -51,8 +49,6 @@ The links variable allows you to insert links to the left of the `sign_in_out` l
 | `title`        | Required, the text to display                                                    |
 | `url`          | Required, the url of the link                                                    |
 | `current_site` | Optional, a boolean used to render a span for the current site instead of a link |
-
-<Source language="ruby" dark="true" code={linksVariable} />
 
 ## Skip links
 
