@@ -22,13 +22,13 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
 
     it "renders a logo" do
       expect(logo).to be_present
-      expect(logo.text.strip).to eq "Logo title"
+      expect(logo.attr("title")).to eq "Logo title"
       expect(logo.attr("href")).to eq "/homepage"
     end
   end
 
   context "with skip links" do
-    let(:skip_links) { [{ title: "Skip to main content", url: "#content" }] }
+    let(:skip_links) { [{ title: "Skip to content", url: "#content" }] }
 
     subject(:component) do
       render_inline(described_class.new) do |c|

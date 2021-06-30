@@ -61,7 +61,7 @@ module CitizensAdviceComponents
       [
         { title: "Public site", url: "/", current_site: true },
         { title: "AdviserNet", url: "?advisernet" },
-        { title: "CABLink", url: "?CABLink" },
+        { title: "CABlink", url: "?CABlink" },
         { title: "BMIS", url: "?BMIS" },
         { title: "Cymraeg", url: "?lang=cy" }
       ]
@@ -70,7 +70,7 @@ module CitizensAdviceComponents
     def skip_links
       [
         { title: "Skip to navigation", url: "#cads-navigation" },
-        { title: "Skip to main content", url: "#cads-main-content" },
+        { title: "Skip to content", url: "#cads-main-content" },
         { title: "Skip to footer", url: "#cads-footer" }
       ]
     end
