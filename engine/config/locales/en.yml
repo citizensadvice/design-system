@@ -11,6 +11,9 @@ en:
       logo_title: Citizens Advice homepage
       navigation_title: Footer Navigation
       website_feedback: Is there anything wrong with this page? Let us know
+    header:
+      close_search: Close search
+      open_search: Open search
     input:
       optional: optional
     page_review:

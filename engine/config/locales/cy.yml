@@ -11,6 +11,9 @@ cy:
       logo_title: Hafan Cyngor ar Bopeth
       navigation_title: Llywio Troedyn
       website_feedback: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
+    header:
+      close_search: Cau Chwilio
+      open_search: Ymchwiliad agored
     input:
       optional: dewisol
     page_review:
