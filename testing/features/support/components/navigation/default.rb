@@ -4,7 +4,7 @@ module Navigation
   class Default < ::Base
     include Helpers::Page
 
-    set_url "/iframe.html?id=components-navigation--default-story&viewMode=story"
+    set_url "/iframe.html?id=components-navigation--default&viewMode=story"
 
     element :navigation, ".js-cads-greedy-nav"
     element :more_button, "button", { text: "More", wait: 2 }
