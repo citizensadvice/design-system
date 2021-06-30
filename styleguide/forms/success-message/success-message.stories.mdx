@@ -1,20 +1,32 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import { translate } from '../../story-helpers';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import templateExample from '../../examples/success_message/example.html';
 
 <Meta title="Forms/Success message" />
 
 # Error summary
 
-import templateExample from './_example.html.haml';
-
-<Preview>
+<Canvas>
   <Story
     name="Example"
-    parameters={{ docs: { source: { code: templateExample.raw } } }}
+    parameters={{ docs: { source: { code: templateExample } } }}
   >
-    {(_, options) => translate(templateExample, options)}
+    {() => templateExample}
   </Story>
-</Preview>
+</Canvas>
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+
+```rb
+render(CitizensAdviceComponents::SuccessMessage.new(message: "Thank you for your feedback"))
+```
+
+### View Component Options
+
+| Property          | Description              |
+| ----------------- | ------------------------ |
+| `success_message` | Required. Message string |
 
 ## Haml template options
 
