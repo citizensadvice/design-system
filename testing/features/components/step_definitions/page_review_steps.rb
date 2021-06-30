@@ -5,7 +5,7 @@ Given("a page review component is on the page") do
 end
 
 Then("the date that the page was last reviewed is present") do
-  expect(@component.reviewed_on.text).to start_with(@component.localised_reviewed_on_prefix)
+  expect(@component.reviewed_on.text).to start_with("Page last reviewed on")
 end
 
 Then("the date is bold") do

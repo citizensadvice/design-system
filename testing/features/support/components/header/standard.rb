@@ -18,9 +18,5 @@ module Header
       open_search_pane(wait: 1).click if iphone?
       search_field.send_keys(search_term)
     end
-
-    def tab_to(desired_area)
-      send_tabs(tab_quantity_for_skip_link(desired_area))
-    end
   end
 end
