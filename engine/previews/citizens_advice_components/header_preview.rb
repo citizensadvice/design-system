@@ -12,6 +12,25 @@ module CitizensAdviceComponents
       )
     end
 
+    def with_links
+      render CitizensAdviceComponents::Header.new do |c|
+        c.logo(title: "Citizens Advice homepage", url: "/")
+        c.skip_links(skip_links)
+        c.header_links(header_links)
+        c.search_form(search_action_url: "/search")
+        c.account_link(title: "Sign in", url: "/sign-in")
+      end
+    end
+
+    def minimal
+      render CitizensAdviceComponents::Header.new do |c|
+        c.logo(title: "Citizens Advice homepage", url: "/")
+        c.skip_links(skip_links)
+        c.header_links([{ title: "Cymraeg", url: "?lang=cy" }])
+        c.search_form(search_action_url: "/search")
+      end
+    end
+
     private
 
     def navigation_links
@@ -33,7 +52,7 @@ module CitizensAdviceComponents
       [
         { title: "Public site", url: "/", current_site: true },
         { title: "AdviserNet", url: "?advisernet" },
-        { title: "CABlink", url: "?CABlink" },
+        { title: "CABLink", url: "?CABLink" },
         { title: "BMIS", url: "?BMIS" },
         { title: "Cymraeg", url: "?lang=cy" }
       ]
