@@ -2,26 +2,8 @@
 
 module CitizensAdviceComponents
   class HeaderPreview < ViewComponent::Preview
+
     def full_example
-      render_with_template(
-        locals: {
-          skip_links: skip_links,
-          header_links: header_links
-        }
-      )
-    end
-
-    def with_navigation
-      render_with_template(
-        locals: {
-          skip_links: skip_links,
-          header_links: header_links,
-          navigation_links: navigation_links
-        }
-      )
-    end
-
-    def with_links
       render CitizensAdviceComponents::Header.new do |c|
         c.logo(title: "Citizens Advice homepage", url: "/")
         c.skip_links(skip_links)
@@ -38,6 +20,25 @@ module CitizensAdviceComponents
         c.header_links([{ title: "Cymraeg", url: "?lang=cy" }])
         c.search_form(search_action_url: "/search")
       end
+    end
+
+    def with_custom_account_link
+      render_with_template(
+        locals: {
+          skip_links: skip_links,
+          header_links: header_links
+        }
+      )
+    end
+
+    def with_navigation
+      render_with_template(
+        locals: {
+          skip_links: skip_links,
+          header_links: header_links,
+          navigation_links: navigation_links
+        }
+      )
     end
 
     private

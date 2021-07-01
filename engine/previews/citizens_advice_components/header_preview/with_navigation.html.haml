@@ -4,7 +4,5 @@
     c.skip_links(skip_links)
     c.header_links(header_links)
     c.search_form(search_action_url: "/search")
-  - c.account_link do
-    = form_tag("/sign-out/out", authenticity_token: false) do
-      = button_tag("Sign out")
+  - c.account_link(title: "Sign in", url: "/sign-in")
 = render CitizensAdviceComponents::Navigation.new(links: navigation_links)
