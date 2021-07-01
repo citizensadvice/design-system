@@ -17,6 +17,31 @@ module CitizensAdviceComponents
       logo.present?
     end
 
+    def skip_links_to_show
+      if skip_links.present?
+        skip_links
+      else
+        default_skip_links
+      end
+    end
+
+    def default_skip_links
+      [
+        SkipLink.new(
+          title: t("citizens_advice_components.header.skip_to_navigation"),
+          url: "#cads-navigation"
+        ),
+        SkipLink.new(
+          title: t("citizens_advice_components.header.skip_to_content"),
+          url: "#cads-main-content"
+        ),
+        SkipLink.new(
+          title: t("citizens_advice_components.header.skip_to_footer"),
+          url: "#cads-footer"
+        )
+      ]
+    end
+
     class SkipLink < Base
       attr_reader :title, :url
 

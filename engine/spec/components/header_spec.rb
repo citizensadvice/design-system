@@ -46,6 +46,26 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     end
   end
 
+  context "with default skip links" do
+    subject(:component) do
+      render_inline(described_class.new) do |c|
+        c.logo(title: "Logo title", url: "/")
+      end
+    end
+
+    it "renders default skip links" do
+      links = subject.css(".cads-skip-links a").map do |item|
+        { url: item.attr("href"), title: item.text.strip }
+      end
+
+      expect(links).to eq [
+        { title: "Skip to navigation", url: "#cads-navigation" },
+        { title: "Skip to content", url: "#cads-main-content" },
+        { title: "Skip to footer", url: "#cads-footer" }
+      ]
+    end
+  end
+
   context "with header links" do
     let(:header_links) do
       [
