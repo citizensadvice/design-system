@@ -1,10 +1,10 @@
 %header.cads-header
   .cads-grid-container
     .cads-grid-row
-      - if skip_links.present?
+      - if skip_links_to_show.present?
         %nav.cads-skip-links
-          - skip_links.each do |skip_link|
-            = skip_link
+          - skip_links_to_show.map do |skip_link|
+            = render skip_link
 
       .cads-grid-col-md-2.cads-header__logo-row
         = logo

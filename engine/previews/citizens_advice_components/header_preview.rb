@@ -2,7 +2,6 @@
 
 module CitizensAdviceComponents
   class HeaderPreview < ViewComponent::Preview
-
     def full_example
       render CitizensAdviceComponents::Header.new do |c|
         c.logo(title: "Citizens Advice homepage", url: "/")
@@ -16,7 +15,6 @@ module CitizensAdviceComponents
     def minimal
       render CitizensAdviceComponents::Header.new do |c|
         c.logo(title: "Citizens Advice homepage", url: "/")
-        c.skip_links(skip_links)
         c.header_links([{ title: "Cymraeg", url: "?lang=cy" }])
         c.search_form(search_action_url: "/search")
       end
