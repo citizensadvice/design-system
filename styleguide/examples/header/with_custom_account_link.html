@@ -18,7 +18,11 @@
           <li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?BMIS">BMIS</a></li>
           <li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?lang=cy">Cymraeg</a></li>
           <li class="cads-header__links-item">
-            <div class="cads-header__account-link"><a data-testid="account-link" href="/sign-in">Sign in</a></div>
+            <div class="cads-header__account-form" data-testid="account-link">
+              <form action="/sign-out/out" accept-charset="UTF-8" method="post">
+                <button name="button" type="submit">Sign out</button>
+              </form>
+            </div>
           </li>
         </ul>
         <div class="cads-header__search-form">
@@ -32,39 +36,3 @@
     </div>
   </div>
 </header>
-<div class="cads-navigation-full-width-wrapper">
-  <nav class="cads-navigation js-cads-greedy-nav" id="cads-navigation">
-    <ul class="cads-navigation__list">
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/benefits/">Benefits</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/work/">Work</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/debt-and-money/">Debt and money</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/consumer/">Consumer</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/housing/">Housing</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/family/">Family</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/law-and-courts/">Law and courts</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/immigration/">Immigration</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/health/">Health</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/more">More from us</a>
-      </li>
-    </ul>
-  </nav>
-</div>
