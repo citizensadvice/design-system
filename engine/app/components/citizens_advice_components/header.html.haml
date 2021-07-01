@@ -4,7 +4,7 @@
       - if skip_links_to_show.present?
         %nav.cads-skip-links
           - skip_links_to_show.map do |skip_link|
-            = render skip_link
+            = link_to skip_link.title, skip_link.url, class: "cads-skip-links__link"
 
       .cads-grid-col-md-2.cads-header__logo-row
         = logo
