@@ -32,15 +32,13 @@
                 %span.cads-header__text
                   = link["title"]
               - else
-                %a{ href: link["url"] }= link["title"]
-          %li.cads-header__links-item
+                %a.cads-header__hyperlink{ href: link["url"] }= link["title"]
+          %li{ class: (sign_out_with_button ? "cads-header__links-item--button" : "cads-header__account-link") }
             - if sign_out_with_button
-              .cads-header__account-form{ "data-testid": "account-link" }
-                %form{ method: "POST", action: sign_in_out["url"] }
-                  %button= sign_in_out["title"]
+              %form.cads-header__account-form{method: "POST", action: sign_in_out["url"], "data-testid": "account-link"}
+                %button.cads-button__tertiary.cads-header__sign-out= sign_in_out["title"]
             - else
-              .cads-header__account-link
-                %a{ href: sign_in_out["url"], "data-testid": "account-link" }= sign_in_out["title"]
+              %a.cads-header__hyperlink{href: sign_in_out["url"], "data-testid": "account-link"}= sign_in_out["title"]
         .cads-header__search-form
           %form.cads-search.cads-search--icon-only{ action: search_action_url, role: "search" }
             %input.cads-search__input.cads-input{ type: "search", name: "q", "aria-label": t("cads.search.input_aria_label") }
