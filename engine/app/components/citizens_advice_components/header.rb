@@ -7,7 +7,7 @@ module CitizensAdviceComponents
 
     renders_one :account_link, "AccountLink"
 
-    renders_one :logo, lambda { |title:, url:|
+    renders_one :logo, lambda { |title:, url: "/"|
       link_to("", url, title: title, class: "cads-logo")
     }
 
@@ -18,11 +18,7 @@ module CitizensAdviceComponents
     end
 
     def skip_links_to_show
-      if skip_links.present?
-        skip_links
-      else
-        default_skip_links
-      end
+      skip_links.presence || default_skip_links
     end
 
     def default_skip_links
@@ -42,17 +38,12 @@ module CitizensAdviceComponents
       ]
     end
 
-    class SkipLink < Base
+    class SkipLink
       attr_reader :title, :url
 
       def initialize(title:, url:)
-        super
         @title = title
         @url = url
-      end
-
-      def call
-        link_to title, url, class: "cads-skip-links__link"
       end
     end
 
@@ -104,14 +95,10 @@ module CitizensAdviceComponents
     class HeaderSearch < Base
       attr_reader :search_action_url, :search_param
 
-      def initialize(search_action_url:, search_param: :q)
+      def initialize(search_action_url:, search_param: nil)
         super
         @search_action_url = search_action_url
-        @search_param = search_param
-      end
-
-      def render?
-        search_action_url.present?
+        @search_param = search_param || :q
       end
     end
   end
