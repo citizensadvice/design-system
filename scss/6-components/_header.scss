@@ -66,11 +66,9 @@
     margin-bottom: $cads-spacing-4;
     text-align: right;
 
-    .cads-header__account-link,
     .cads-header__links-item {
       font-size: 1rem;
       line-height: 1.5rem;
-      margin-bottom: $cads-spacing-2;
       margin-right: 0;
       margin-left: $cads-spacing-4;
     }
@@ -92,7 +90,6 @@
   }
 
   &__sign-out {
-    margin-left: $cads-spacing-4;
     margin-bottom: cads-rem(14px);
     background-color: $cads-header__sign-out-background-colour;
     color: $cads-header__sign-out-colour;
