@@ -75,23 +75,11 @@
     font-weight: $cads-font-weight__bold;
   }
 
-  .cads-header__links-item a {
-    @include cads-nav-link();
+  .cads-header__hyperlink {
+    @include cads-nav-link;
 
     display: block;
     padding: $cads-spacing-3 $cads-spacing-4;
-  }
-
-  .cads-header__account-form {
-    margin-left: $cads-spacing-4;
-    margin-bottom: $cads-spacing-3;
-  }
-
-  button,
-  .cads-header__sign-out {
-    @extend %cads-button__tertiary--dark;
-
-    margin-bottom: 0;
   }
 }
 
@@ -99,6 +87,10 @@
   @include cads-media-breakpoint-up(md) {
     display: none;
   }
+}
+
+.cads-greedy-nav__dropdown .cads-header__sign-out {
+  @extend %cads-button__tertiary--dark;
 }
 
 .no-js {

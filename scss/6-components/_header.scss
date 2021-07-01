@@ -2,10 +2,33 @@
 // Header
 // ============================================================================
 
-/** @define header; weak */
+/** @define header */
 .cads-header {
   background-color: $cads-header__background-colour;
   padding: $cads-spacing-4 0;
+
+  &__hyperlink {
+    color: $cads-header__link-colour;
+
+    &:hover {
+      color: $cads-header__link-hover-colour;
+      background-color: $cads-header__hover-background-colour;
+    }
+
+    &:active {
+      color: $cads-header__link-active-colour;
+    }
+
+    &:focus {
+      color: $cads-palette__black;
+      background-color: $cads-header__link-focus-colour;
+      border-bottom: 2px solid $cads-header__link-focus-highlight-colour;
+    }
+
+    &:visited {
+      color: $cads-header__link-visited-colour;
+    }
+  }
 
   &__text {
     color: $cads-language__secondary-text-colour;
@@ -43,9 +66,11 @@
     margin-bottom: $cads-spacing-4;
     text-align: right;
 
+    .cads-header__account-link,
     .cads-header__links-item {
       font-size: 1rem;
       line-height: 1.5rem;
+      margin-bottom: $cads-spacing-2;
       margin-right: 0;
       margin-left: $cads-spacing-4;
     }
@@ -61,46 +86,23 @@
       }
     }
 
-    a {
-      color: $cads-header__link-colour;
-      margin-bottom: $cads-spacing-2;
-
-      &:hover {
-        color: $cads-header__link-hover-colour;
-        background-color: $cads-header__hover-background-colour;
-      }
-
-      &:active {
-        color: $cads-header__link-active-colour;
-      }
-
-      &:focus {
-        color: $cads-palette__black;
-        background-color: $cads-header__link-focus-colour;
-        border-bottom: 2px solid $cads-header__link-focus-highlight-colour;
-      }
-
-      &:visited {
-        color: $cads-header__link-visited-colour;
-      }
-    }
-
-    button {
-      margin-bottom: cads-rem(14px);
-      background-color: $cads-header__sign-out-background-colour;
-      color: $cads-header__sign-out-colour;
-      border-color: $cads-header__sign-out-border-colour;
-
-      @include cads-media-breakpoint-up(md) {
-        margin-bottom: 0;
-        font-size: $cads-font-size;
-        line-height: 1.5;
-        padding: cads-rem(6px) $cads-spacing-3;
-      }
-    }
-
     @media print {
       display: none;
+    }
+  }
+
+  &__sign-out {
+    margin-left: $cads-spacing-4;
+    margin-bottom: cads-rem(14px);
+    background-color: $cads-header__sign-out-background-colour;
+    color: $cads-header__sign-out-colour;
+    border-color: $cads-header__sign-out-border-colour;
+
+    @include cads-media-breakpoint-up(md) {
+      margin-bottom: 0;
+      font-size: $cads-font-size;
+      line-height: 1.5;
+      padding: cads-rem(6px) $cads-spacing-3;
     }
   }
 
