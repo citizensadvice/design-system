@@ -215,6 +215,7 @@ DEPENDENCIES
   citizens_advice_components!
   i18n-tasks
   pry (~> 0.14.1)
+  rails (~> 6.1)
   rspec
   rspec-rails
   rspec-snapshot (~> 0.1.2)
