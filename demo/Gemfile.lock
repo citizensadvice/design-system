@@ -201,7 +201,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   citizens_advice_components!
-  haml-rails
   htmlbeautifier (~> 1.3)
   listen (~> 3.2)
   pry
