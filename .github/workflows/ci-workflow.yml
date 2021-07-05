@@ -44,30 +44,6 @@ jobs:
       - run: bundle exec rubocop --format github
       - run: bundle exec haml-lint
 
-  engine:
-    runs-on: ubuntu-20.04
-    defaults:
-      run:
-        working-directory: engine
-    strategy:
-      fail-fast: false
-      matrix:
-        rails_version: ['6.1', 'main']
-        ruby_version: ['2.7', '3.0']
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby_version }}
-          working-directory: engine
-      - run: |
-          bundle config path vendor/bundle
-          bundle update
-          bundle install --jobs 4 --retry 3
-          bundle exec rake spec
-        env:
-          RAILS_VERSION: ${{ matrix.rails_version }}
-
   # Actions can run in parallel at the job or the workflow level.
   # In order to run our build-dependent tests in parallel we need a way
   # to build the docs and then "seed" each stage with a copy.
@@ -85,7 +61,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - run: npm run build --if-present
+      - run: npm run build
       - run: npm run docs:build
       - uses: actions/upload-artifact@v2
         with:
@@ -174,8 +150,32 @@ jobs:
           path: testing/artifacts
           retention-days: 3
 
+  engine:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: engine
+    strategy:
+      fail-fast: false
+      matrix:
+        rails_version: ['6.1', 'main']
+        ruby_version: ['2.7', '3.0']
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+          working-directory: engine
+      - run: |
+          bundle config path vendor/bundle
+          bundle update
+          bundle install --jobs 4 --retry 3
+          bundle exec rake spec
+        env:
+          RAILS_VERSION: ${{ matrix.rails_version }}
+
   demo-app:
-    needs: build
+    needs: [build, engine]
     runs-on: ubuntu-20.04
     defaults:
       run:
