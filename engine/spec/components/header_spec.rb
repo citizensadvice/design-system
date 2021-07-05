@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Header, type: :component do
-  context "with no slots" do
+  describe "no slots" do
     subject(:component) do
       render_inline(described_class.new)
     end
 
-    it "does not render" do
+    it "does not render without any slots" do
       expect(component.at("header")).not_to be_present
     end
   end
 
-  context "with logo" do
+  describe "logo slot" do
     subject(:component) do
       render_inline(described_class.new) do |c|
         c.logo(title: "Logo title", url: "/homepage")
@@ -27,7 +27,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     end
   end
 
-  context "with skip links" do
+  describe "skip_links slot" do
     let(:skip_links) { [{ title: "Skip to content", url: "#content" }] }
 
     subject(:component) do
@@ -44,41 +44,37 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
 
       expect(links).to eq skip_links
     end
+
+    context "with default skip_links" do
+      subject(:component) do
+        render_inline(described_class.new) do |c|
+          c.logo(title: "Logo title", url: "/")
+        end
+      end
+
+      it "renders default skip links" do
+        links = subject.css(".cads-skip-links a").map do |item|
+          { url: item.attr("href"), title: item.text.strip }
+        end
+
+        expect(links).to eq [
+          { title: "Skip to navigation", url: "#cads-navigation" },
+          { title: "Skip to content", url: "#cads-main-content" },
+          { title: "Skip to footer", url: "#cads-footer" }
+        ]
+      end
+    end
   end
 
-  context "with default skip links" do
+  describe "header_links slot" do
     subject(:component) do
       render_inline(described_class.new) do |c|
         c.logo(title: "Logo title", url: "/")
-      end
-    end
-
-    it "renders default skip links" do
-      links = subject.css(".cads-skip-links a").map do |item|
-        { url: item.attr("href"), title: item.text.strip }
-      end
-
-      expect(links).to eq [
-        { title: "Skip to navigation", url: "#cads-navigation" },
-        { title: "Skip to content", url: "#cads-main-content" },
-        { title: "Skip to footer", url: "#cads-footer" }
-      ]
-    end
-  end
-
-  context "with header links" do
-    let(:header_links) do
-      [
-        { title: "Public site", url: "/", current_site: true },
-        { title: "Intranet", url: "/intranet" },
-        { title: "Cymraeg", url: "?lang=cy" }
-      ]
-    end
-
-    subject(:component) do
-      render_inline(described_class.new) do |c|
-        c.logo(title: "Logo title", url: "/")
-        c.header_links(header_links)
+        c.header_links([
+          { title: "Public site", url: "/", current_site: true },
+          { title: "Intranet", url: "/intranet" },
+          { title: "Cymraeg", url: "?lang=cy" }
+        ])
       end
     end
 
@@ -91,7 +87,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     end
   end
 
-  context "with account link" do
+  describe "account_link slot" do
     context "with plain link" do
       subject(:component) do
         render_inline(described_class.new) do |c|
@@ -121,37 +117,37 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
         expect(component.at("[data-testid=account-link]").text).to include "Custom account link HTML"
       end
     end
+  end
 
-    context "with search form" do
-      subject(:component) do
-        render_inline(described_class.new) do |c|
-          c.logo(title: "Logo title", url: "/")
-          c.search_form(search_action_url: "/search")
-        end
+  describe "search_form slot" do
+    subject(:component) do
+      render_inline(described_class.new) do |c|
+        c.logo(title: "Logo title", url: "/")
+        c.search_form(search_action_url: "/search")
+      end
+    end
+
+    it "renders search form" do
+      expect(component.at("form[role=search]").attr("action")).to eq "/search"
+    end
+
+    it "has descriptive label" do
+      expect(component.at("input[type=search]").attr("aria-label")).to eq "Search through site content"
+    end
+
+    it "renders search toggle" do
+      expect(component.at("button[title='Open search']")).to be_present
+    end
+
+    context "when welsh language" do
+      before { I18n.locale = :cy }
+
+      it "has translated descriptive label" do
+        expect(component.at("input[type=search]").attr("aria-label")).to eq "Chwiliwch trwy gynnwys y wefan"
       end
 
-      it "renders search form" do
-        expect(component.at("form[role=search]").attr("action")).to eq "/search"
-      end
-
-      it "has descriptive label" do
-        expect(component.at("input[type=search]").attr("aria-label")).to eq "Search through site content"
-      end
-
-      it "renders search toggle" do
-        expect(component.at("button[title='Open search']")).to be_present
-      end
-
-      context "when welsh language" do
-        before { I18n.locale = :cy }
-
-        it "has translated descriptive label" do
-          expect(component.at("input[type=search]").attr("aria-label")).to eq "Chwiliwch trwy gynnwys y wefan"
-        end
-
-        it "has translated search label" do
-          expect(component.at("button[title='Ymchwiliad agored']")).to be_present
-        end
+      it "has translated search label" do
+        expect(component.at("button[title='Ymchwiliad agored']")).to be_present
       end
     end
   end
