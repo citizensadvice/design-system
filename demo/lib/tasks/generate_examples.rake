@@ -31,12 +31,12 @@ task generate_examples: :environment do
     end
   end
 
-  %w[advice-collection forms].each do |slug|
-    @session.get "/pages/#{slug}"
+  HighVoltage.page_ids.each.each do |slug|
+    @session.get "/#{slug}"
     doc = Nokogiri::HTML.parse(@session.response.body)
     content = doc.css("#content").inner_html
     html = HtmlBeautifier.beautify(content.to_s.strip)
-    output_path = Rails.application.root.join("../styleguide/sample_pages/#{slug}.html")
+    output_path = Rails.application.root.join("../styleguide/examples/sample_pages/#{slug}.html")
     FileUtils.mkdir_p(output_path.dirname)
     puts "Writing sample page to #{output_path}"
     File.write output_path, html
