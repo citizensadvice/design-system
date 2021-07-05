@@ -8,6 +8,8 @@
   padding: $cads-spacing-4 0;
 
   &__hyperlink {
+    display: inline-block;
+    margin-bottom: $cads-spacing-2;
     color: $cads-header__link-colour;
 
     &:hover {
