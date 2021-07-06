@@ -15,7 +15,7 @@
             %ul.cads-footer__links
               - column.links.each do |link|
                 %li.cads-footer__link
-                  = link_to link[:label], link[:url], class: "cads-footer__hyperlink"
+                  = link_to link[:title], link[:url], class: "cads-footer__hyperlink"
                   - if link[:icon].present?
                     = tag.span(class: "cads-footer__icon cads-icon_#{link[:icon]}")
     .cads-footer__company-info
