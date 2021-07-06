@@ -94,7 +94,6 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    htmlbeautifier (1.3.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     listen (3.5.1)
@@ -178,8 +177,9 @@ GEM
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    view_component (2.34.0)
-      activesupport (>= 5.0.0, < 7.0)
+    view_component (2.35.0)
+      activesupport (>= 5.0.0, < 8.0)
+      method_source (~> 1.0)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -202,7 +202,6 @@ DEPENDENCIES
   byebug
   citizens_advice_components!
   haml-rails
-  htmlbeautifier (~> 1.3)
   listen (~> 3.2)
   pry
   puma (~> 5.3)
@@ -217,4 +216,4 @@ RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
-   2.1.4
+   2.2.19
