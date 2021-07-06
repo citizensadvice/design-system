@@ -1,22 +1,6 @@
 # Contributing
 
-## Getting started
-
-Use node v14 to build the repo. There is a `.nvmrc` file supplied, if you have nvm installed just run `nvm use` to switch to node 14.
-
-You'll need to have Ruby `2.6.5` and Bundler installed to build the haml templates. There is a `.ruby-version` file supplied,
-if you are using rvm it will automatically switch you to `2.6.5` or advise you to install it by doing `rvm install 2.6.5`.
-To install Bundler run `gem install bundler -v '2.1.4'`. After you've got those sorted a quick `bundle` will get the required gems (ruby libraries) in place.
-
-Finally run `npm install`.
-
-### Running local tests
-
-Run `bundle exec rake check` to run linting and unit tests using the ruby and node contexts installed directly in your machine. This will also ensure you have the most recent set of node_modules installed and all the compiled files are rebuilt.
-
-### Building
-
-Run `npm run build` and this will compile all the SCSS into the `lib` folder. The build step also runs `size-limit` and will fail the build if the output exeeds our thresholds.
+- [Getting started](./contributing/getting-started.md)
 
 ## Testing
 
