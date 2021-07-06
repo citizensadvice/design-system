@@ -124,10 +124,6 @@ Once the release tag has been push to GitHub in step 2, you must:
 - copy the contents of the changelog comments for the relase into the release notes section
 - publish the release
 
-## Assets
-
-Any icons/etc should be inlined into the class that needs to use them to avoid url issues on deployment. The original assets should be stored in the `assets` folder for reference.
-
 ## Styleguide
 
 The styleguide is automatically hosted in [Github pages](https://citizensadvice.github.io/design-system-testing/), based on the content of the `docs` folder.
@@ -143,22 +139,6 @@ The styleguide runs on http://localhost:6006. The documentation is generated usi
 The static version of the styleguide is build into `docs` using `npm run docs:build`, which then gets automatically hosted into Github pages. You can serve the generated files from `docs` by running `npm run docs:serve`.
 
 Currently there is no automated process to rebuild the contents of the `docs` folder, so you need to remember to do that whenever you make a release (currently that is merging into `master`).
-
-## Structure
-
-## IDE setup
-
-If you are using VSCode here is a list of useful plugins that can help with this repo:
-
-- Auto Close Tag
-- Bracket Pair Colorizer
-- EditorConfig for VS Code
-- ESLint
-- GitLens
-- Node Debug
-- npm Intellisense
-- Prettier
-- stylelint
 
 ### ITCSS
 
