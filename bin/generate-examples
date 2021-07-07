@@ -1,7 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
-cd ./demo
+cd "$(dirname "$0")/.."
 
+echo "\n== Generating examples ==\n"
+pushd demo
 ./bin/rails generate_examples
+popd
+
+echo "\n== Formatting examples with prettier ==\n"
+npx prettier --write ./styleguide/examples/

@@ -30,9 +30,9 @@ task generate_examples: :environment do
 
         FileUtils.mkdir_p(output_path.dirname)
 
-        puts "Writing example to #{output_path}"
+        puts "Generated #{component_key}"
 
-        File.write output_path, HtmlBeautifier.beautify(component_html.to_s.strip)
+        File.write output_path, component_html.to_s.strip
       end
     end
   end
