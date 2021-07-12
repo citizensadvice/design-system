@@ -13,7 +13,7 @@ group :test do
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.1.0"
   gem "cucumber", "~> 6.1"
   gem "dotenv"
-  gem "faraday", "~> 1.4"
+  gem "faraday", "~> 1.5"
   gem "haml_lint"
   gem "rake"
   gem "retriable", "~> 3.1"
