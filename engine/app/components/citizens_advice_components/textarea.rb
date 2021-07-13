@@ -9,7 +9,7 @@ module CitizensAdviceComponents
     def initialize(rows: DEFAULT_ROWS, **args)
       @rows = format_rows(rows)
       @base_input_args = args.merge(type: nil)
-      super(@base_input_args)
+      super(**@base_input_args)
     end
 
     def format_rows(rows)
