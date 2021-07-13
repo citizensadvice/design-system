@@ -80,9 +80,9 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       {
         title: "Example column #{index + 1}",
         links: [
-          { url: "#", label: "Link 1" },
-          { url: "#", label: "Link 2" },
-          { url: "#", label: "Link 3" }
+          { url: "#", title: "Link 1" },
+          { url: "#", title: "Link 2" },
+          { url: "#", title: "Link 3" }
         ]
       }
     end
