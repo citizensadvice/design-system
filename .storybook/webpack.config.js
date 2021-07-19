@@ -10,10 +10,6 @@ module.exports = async ({ config, mode }) => {
       use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
     },
     {
-      test: /\.md$/,
-      use: ['markdown-loader'],
-    },
-    {
       test: /\.haml$/,
       use: [
         {

@@ -1,13 +1,18 @@
+# Ignore vendor files
 .storybook/vendor/
+vendor/
+
+# Ignore generated files
 assets/
 CHANGELOG.md
 docs/
 lib/
+
+# Ignore testing artifacts
 testing/artifacts/
 testing/visual-regression/backstop_data/
 testing/wcag/
 testing/cucumber.yml
-vendor/
 
 # Ignore locale files from prettier
 # formatted by i18n-tasks
@@ -17,6 +22,3 @@ vendor/
 
 # Ignore Rails demo app files
 /demo/public/
-
-# Ignore generated examples
-/styleguide/examples/
