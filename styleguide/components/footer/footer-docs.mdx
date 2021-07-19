@@ -25,33 +25,33 @@ render CitizensAdviceComponents::Footer.new(
   c.column(
     title: "Advice",
     links: [
-      { url: "#", label: "Link 1" },
-      { url: "#", label: "Link 2" },
-      { url: "#", label: "Link 3" }
+      { url: "#", title: "Link 1" },
+      { url: "#", title: "Link 2" },
+      { url: "#", title: "Link 3" }
     ]
   )
   c.column(
     title: "Resources and tools",
     links: [
-      { url: "#", label: "Link 1" },
-      { url: "#", label: "Link 2" },
-      { url: "#", label: "Link 3" }
+      { url: "#", title: "Link 1" },
+      { url: "#", title: "Link 2" },
+      { url: "#", title: "Link 3" }
     ]
   )
   c.column(
     title: "More from us",
     links: [
-      { url: "#", label: "Link 1" },
-      { url: "#", label: "Link 2" },
-      { url: "#", label: "Link 3" }
+      { url: "#", title: "Link 1" },
+      { url: "#", title: "Link 2" },
+      { url: "#", title: "Link 3" }
     ]
   )
   c.column(
     title: "About Citizens Advice",
     links: [
-      { url: "#", label: "Link 1" },
-      { url: "#", label: "Link 2" },
-      { url: "#", label: "Link 3" }
+      { url: "#", title: "Link 1" },
+      { url: "#", title: "Link 2" },
+      { url: "#", title: "Link 3" }
     ]
   )
 end
@@ -93,12 +93,12 @@ Each slot accepts the following named arguments:
 
 The Haml partial the following locals:
 
-| Property        | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| `root_path`     | Required, root path for the logo home link                 |
-| `feedback_url`  | If present, a link to this feedback form will be displayed |
-| `links`         | Main content for the footer (see links above)              |
-| `links[url]`    | &rarr; Required, url for the link                          |
-| `links[label] ` | &rarr; Required, title for the link                        |
-| `links[icon] `  | &rarr; Optional, display an icon next to the link          |
-| `homepage_url`  | Optional, defaults to `/`                                  |
+| Property         | Description                                                |
+| ---------------- | ---------------------------------------------------------- |
+| `root_path`      | Required, root path for the logo home link                 |
+| `feedback_url`   | If present, a link to this feedback form will be displayed |
+| `links`          | Main content for the footer (see links above)              |
+| `links[:url]`    | &rarr; Required, url for the link                          |
+| `links[:title] ` | &rarr; Required, title for the link                        |
+| `links[:icon] `  | &rarr; Optional, display an icon next to the link          |
+| `homepage_url`   | Optional, defaults to `/`                                  |
