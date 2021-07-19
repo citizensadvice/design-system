@@ -1,3 +1,7 @@
+## <sub>v4.2.0-alpha.0</sub>
+
+#### _Jul. 19, 2021_
+
 **New**
 
 - 👤 Header: Adjusted header link classes in preparation for view component move
