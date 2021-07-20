@@ -9,9 +9,9 @@
 
   &__hyperlink {
     display: inline-block;
-    margin-bottom: calc($cads-spacing-2 - $cads-border-width-medium);
+    margin-bottom: cads-rem-to-px($cads-spacing-2) - 2px;
     color: $cads-header__link-colour;
-    border-bottom: $cads-border-width-medium solid transparent;
+    border-bottom: 2px solid transparent;
 
     &:hover {
       color: $cads-header__link-hover-colour;
