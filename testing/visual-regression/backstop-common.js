@@ -114,6 +114,13 @@ module.exports = function backstopCommon(baseUrl) {
         misMatchThreshold: 0.4,
       },
       {
+        label: 'Components/Header (link focus)',
+        url: storyUrlFor('components-header--default'),
+        misMatchThreshold: 0.4,
+        focusSelector: 'ul li:nth-child(2) a',
+        viewports: [{ label: 'desktop', width: 800, height: 200 }],
+      },
+      {
         label: 'Components/Header',
         url: storyUrlFor('components-header--default'),
         clickSelector: '.js-cads-search-reveal',
