@@ -9,7 +9,7 @@
 
   &__hyperlink {
     display: inline-block;
-    margin-bottom: calc(cads-px($cads-spacing-2) - $cads-border-width-medium);
+    margin-bottom: calc($cads-spacing-2 - $cads-border-width-medium);
     color: $cads-header__link-colour;
     border-bottom: $cads-border-width-medium solid transparent;
 
