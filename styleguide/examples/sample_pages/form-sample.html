@@ -43,8 +43,25 @@
             <a class="cads-header__hyperlink" href="?lang=cy">Cymraeg</a>
           </li>
           <li class="cads-header__links-item">
-            <div class="cads-header__account-link">
-              <a data-testid="account-link" href="/sign-in">Sign in</a>
+            <div class="cads-header__account-form" data-testid="account-link">
+              <form
+                class="cads-header__account-form"
+                action="/sign-out"
+                accept-charset="UTF-8"
+                method="post"
+              >
+                <button
+                  name="button"
+                  type="submit"
+                  class="
+                    cads-button__tertiary
+                    cads-header__sign-out
+                    js-cads-close-on-blur
+                  "
+                >
+                  Sign out
+                </button>
+              </form>
             </div>
           </li>
         </ul>
