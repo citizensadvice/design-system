@@ -327,20 +327,12 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       ...buildSamplePageScenarios(
-        'Sample Page/Advice collection/Public',
-        'sample-pages-advice-collection--advice-collection-public'
+        'Sample Page/Content page',
+        'sample-pages-examples--content-page'
       ),
       ...buildSamplePageScenarios(
-        'Sample Page/Advice collection/Adviser',
-        'sample-pages-advice-collection--advice-collection-adviser'
-      ),
-      ...buildSamplePageScenarios(
-        'Sample Page/Generic/Forms',
-        'sample-pages-generic--forms'
-      ),
-      ...buildSamplePageScenarios(
-        'Sample Page/Generic/Tables',
-        'sample-pages-generic--tables'
+        'Sample Page/Form page',
+        'sample-pages-examples--form-page'
       ),
       {
         label: `Foundations/Colours`,
