@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::NoticeBanner, type: :component do
   subject(:component) do
-    render_inline(CitizensAdviceComponents::NoticeBanner.new(label: "Example label")) do
+    render_inline(described_class.new(label: "Example label")) do
       "Example content"
     end
   end
@@ -17,11 +17,11 @@ RSpec.describe CitizensAdviceComponents::NoticeBanner, type: :component do
 
   context "when no content present" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::NoticeBanner.new(label: "Example label"))
+      render_inline(described_class.new(label: "Example label"))
     end
 
     it "does not render" do
-      expect(component.at(".cads-notice-banner")).to_not be_present
+      expect(component.at(".cads-notice-banner")).not_to be_present
     end
   end
 end

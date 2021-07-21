@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
   let(:subject) do
-    render_inline CitizensAdviceComponents::Textarea.new(
+    render_inline described_class.new(
       name: name.presence,
       label: label.presence,
       type: type.presence
@@ -37,7 +37,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
 
   context "when a valid number of rows is specified" do
     let(:subject) do
-      render_inline CitizensAdviceComponents::Textarea.new(
+      render_inline described_class.new(
         name: name.presence,
         label: label.presence,
         type: type.presence,
@@ -54,7 +54,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
 
   context "when an invalid number of rows is specified" do
     let(:subject) do
-      render_inline CitizensAdviceComponents::Textarea.new(
+      render_inline described_class.new(
         name: name.presence,
         label: label.presence,
         rows: rows.presence

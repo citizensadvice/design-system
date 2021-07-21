@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::SuccessMessage, type: :component do
   subject(:component) do
-    rendered = render_inline(CitizensAdviceComponents::SuccessMessage.new(message: message))
+    rendered = render_inline(described_class.new(message: message))
     rendered.at(".cads-success-message")
   end
 
@@ -20,7 +20,7 @@ RSpec.describe CitizensAdviceComponents::SuccessMessage, type: :component do
     let(:message) { nil }
 
     it "does not render" do
-      expect(component).to_not be_present
+      expect(component).not_to be_present
     end
   end
 end

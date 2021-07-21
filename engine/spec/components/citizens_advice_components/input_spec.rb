@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::Input, type: :component do
   let(:subject) do
-    render_inline CitizensAdviceComponents::Input.new(
+    render_inline described_class.new(
       name: name.presence,
       label: label.presence,
       type: type.presence,
@@ -77,7 +77,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
 
     it "does not add required to the input" do
-      expect(subject.css("input").attribute("required")).to_not be_present
+      expect(subject.css("input").attribute("required")).not_to be_present
     end
 
     context "when in Cymraeg" do

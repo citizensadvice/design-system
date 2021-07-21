@@ -21,7 +21,7 @@ end
 RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   subject(:component) do
     render_inline(
-      CitizensAdviceComponents::Breadcrumbs.new(
+      described_class.new(
         type: type.presence,
         links: links.presence
       )
@@ -59,7 +59,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     let(:links) { nil }
 
     it "does not render" do
-      expect(component.css(".cads-breadcrumbs")).to_not be_present
+      expect(component.css(".cads-breadcrumbs")).not_to be_present
     end
   end
 

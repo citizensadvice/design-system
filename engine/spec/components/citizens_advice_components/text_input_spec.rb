@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
   let(:subject) do
-    render_inline CitizensAdviceComponents::TextInput.new(
+    render_inline described_class.new(
       name: name.presence,
       label: label.presence,
       type: type.presence,

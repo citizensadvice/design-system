@@ -12,13 +12,13 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
   end
 
   describe "logo slot" do
-    subject(:component) do
+    subject(:logo) { component.at(".cads-logo") }
+
+    let(:component) do
       render_inline(described_class.new) do |c|
         c.logo(title: "Logo title", url: "/homepage")
       end
     end
-
-    subject(:logo) { component.at(".cads-logo") }
 
     it "renders a logo" do
       expect(logo).to be_present
@@ -28,14 +28,14 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
   end
 
   describe "skip_links slot" do
-    let(:skip_links) { [{ title: "Skip to content", url: "#content" }] }
-
     subject(:component) do
       render_inline(described_class.new) do |c|
         c.logo(title: "Logo title", url: "/")
         c.skip_links(skip_links)
       end
     end
+
+    let(:skip_links) { [{ title: "Skip to content", url: "#content" }] }
 
     it "renders skip links" do
       links = subject.css(".cads-skip-links a").map do |item|

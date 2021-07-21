@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component do
+  subject { test_class.new }
+
   let(:test_class) do
     Class.new do
       include CitizensAdviceComponents::FetchOrFallbackHelper
     end
   end
-
-  subject { test_class.new }
 
   it "fetches value when in allowed_values" do
     expect(

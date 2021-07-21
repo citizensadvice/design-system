@@ -3,7 +3,7 @@
 RSpec.describe CitizensAdviceComponents::Table, type: :component do
   subject(:component) do
     render_inline(
-      CitizensAdviceComponents::Table.new(
+      described_class.new(
         header: header,
         rows: rows,
         caption: caption.presence

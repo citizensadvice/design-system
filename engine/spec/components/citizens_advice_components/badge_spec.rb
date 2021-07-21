@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Badge, type: :component do
-  subject(:component) do
-    render_inline(described_class.new(type: type.presence))
-  end
-
   subject(:badge) { component.at(".cads-badge--#{type}") }
 
+  let(:component) do
+    render_inline(described_class.new(type: type.presence))
+  end
   let(:type) { :adviser }
 
   context "when missing type" do
@@ -28,6 +27,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
     context "when welsh language" do
       before { I18n.locale = :cy }
+
       it "has translated label" do
         expect(badge.text).to eq "Enghraifft"
       end
@@ -43,6 +43,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
     context "when welsh language" do
       before { I18n.locale = :cy }
+
       it "has translated label" do
         expect(badge.text).to eq "Pwysig"
       end
@@ -58,6 +59,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
     context "when welsh language" do
       before { I18n.locale = :cy }
+
       it "has translated label" do
         expect(badge.text).to eq "Cynghorydd"
       end

@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   subject(:component) do
-    render_inline(CitizensAdviceComponents::Footer.new(feedback_url: feedback_url)) do |c|
+    render_inline(described_class.new(feedback_url: feedback_url)) do |c|
       columns.each do |column|
         c.column(column)
       end
@@ -14,6 +14,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
   context "feedback URL" do
     let(:subject) { component.at("a[href='#{feedback_url}']") }
+
     it { is_expected.to be_present }
   end
 
@@ -48,11 +49,13 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
   context "logo" do
     let(:subject) { component.at(".cads-logo") }
+
     it { is_expected.to be_present }
   end
 
   context "copyright notice" do
     let(:subject) { component.at("[data-testid='copyright']").text }
+
     it { is_expected.to include "Copyright" }
 
     context "when welsh language" do
@@ -64,6 +67,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
   context "legal summary" do
     let(:subject) { component.at("[data-testid='legal-summary']").text }
+
     it { is_expected.to include "Citizens Advice is an operating name of" }
 
     context "when welsh language" do

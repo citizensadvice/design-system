@@ -71,7 +71,7 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
 
   context "when no content present" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::Callout.new(type: :standard))
+      render_inline(described_class.new(type: :standard))
     end
 
     it "does not render" do

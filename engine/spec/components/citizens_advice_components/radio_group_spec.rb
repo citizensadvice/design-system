@@ -13,7 +13,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
   end
 
   let(:subject) do
-    render_inline CitizensAdviceComponents::RadioGroup.new(
+    render_inline described_class.new(
       legend: legend.presence,
       name: name.presence
     ) do |c|
@@ -51,7 +51,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
   context "when there are no radio buttons" do
     let(:subject) do
-      render_inline CitizensAdviceComponents::RadioGroup.new(
+      render_inline described_class.new(
         legend: legend.presence,
         name: name.presence
       ) do |c|
@@ -63,13 +63,13 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     let(:legend) { "Radio button group field" }
 
     it "does not render" do
-      expect(subject.css(".cads-form-field")).to_not be_present
+      expect(subject.css(".cads-form-field")).not_to be_present
     end
   end
 
   context "when there are optional parameters" do
     let(:subject) do
-      render_inline CitizensAdviceComponents::RadioGroup.new(
+      render_inline described_class.new(
         legend: legend.presence,
         name: name.presence,
         options: {
@@ -127,7 +127,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
       it "renders a required input" do
         without_fetch_or_fallback_raises do
-          expect(subject.text.strip).to_not include "optional"
+          expect(subject.text.strip).not_to include "optional"
         end
       end
     end
@@ -137,7 +137,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
       it "renders a normal size input" do
         without_fetch_or_fallback_raises do
-          expect(subject.css(".cads-from-group--small")).to_not be_present
+          expect(subject.css(".cads-from-group--small")).not_to be_present
         end
       end
     end
@@ -147,7 +147,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
       it "renders the radio buttons in list layout" do
         without_fetch_or_fallback_raises do
-          expect(subject.css(".cads-from-group--inline")).to_not be_present
+          expect(subject.css(".cads-from-group--inline")).not_to be_present
         end
       end
     end

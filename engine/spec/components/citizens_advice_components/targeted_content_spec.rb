@@ -23,6 +23,7 @@ RSpec.shared_examples "adviser_targeted_content" do
 
   context "when welsh language" do
     before { I18n.locale = :cy }
+
     it "has translated label" do
       expect(badge.text).to eq "Cynghorydd"
     end

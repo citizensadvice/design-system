@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::Navigation, type: :component do
   subject(:component) do
-    render_inline(CitizensAdviceComponents::Navigation.new(links: links))
+    render_inline(described_class.new(links: links))
   end
 
   let(:links) do
@@ -29,7 +29,7 @@ RSpec.describe CitizensAdviceComponents::Navigation, type: :component do
     let(:links) { nil }
 
     it "does not render" do
-      expect(component.at(".cads-navigation")).to_not be_present
+      expect(component.at(".cads-navigation")).not_to be_present
     end
   end
 end

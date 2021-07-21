@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
   let(:subject) do
-    component = CitizensAdviceComponents::Pagination.new(
+    component = described_class.new(
       current_params: { "q" => "debt and money" },
       num_pages: num_pages,
       current_page: current_page,
@@ -100,6 +100,7 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
 
   context "when welsh language" do
     before { I18n.locale = :cy }
+
     let(:current_page) { 10 }
 
     it "has translated labels" do
@@ -122,7 +123,7 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
     let(:current_page) { 1 }
     let(:num_pages) { 1 }
 
-    it "should not render" do
+    it "does not render" do
       expect(subject.at("nav")).to be nil
     end
   end
