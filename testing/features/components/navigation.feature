@@ -13,10 +13,10 @@ Feature: Navigation component
     Scenario: All navigation links are shown
       Then the dropdown toggle is not present
 
+  @small_screen
   Rule: Default Navigation - small screens
     Background:
       Given a Default Navigation component is on the page
-      And the navigation does not fit on the screen
 
     Scenario: The default state is to hide some navigation links
       Then the dropdown menu is closed
@@ -48,12 +48,10 @@ Feature: Navigation component
       And I click outside of the menu
       Then the dropdown menu is closed
 
+  @small_screen
   Rule: Default Navigation - logged in users on small screens
-    Background:
+    Scenario: Header links are displayed in the dropdown nav on mobiles
       Given a user is logged in
       And a Default Navigation component is on the page
-      And the navigation does not fit on the screen
-
-    Scenario: Header links are displayed in the dropdown nav on mobiles
       When I open the dropdown menu
       Then the dropdown menu has header links

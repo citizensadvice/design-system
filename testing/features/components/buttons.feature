@@ -7,29 +7,21 @@ Feature: Button components
   dependent on each browser, we will validate them with some rigorous VRT tests
 
   Rule: Primary Button
-    Background:
-      Given the Primary Button component is on the page
-
     Scenario: Ensure button is of correct type
+      Given the Primary Button component is on the page
       Then the Primary button acts as a button
 
   Rule: Secondary Button
-    Background:
-      Given the Secondary Button component is on the page
-
     Scenario: Ensure button is of correct type
+      Given the Secondary Button component is on the page
       Then the Secondary button acts as a button
 
   Rule: Tertiary Button
-    Background:
-      Given the Tertiary Button component is on the page
-
     Scenario: Ensure button is of correct type
+      Given the Tertiary Button component is on the page
       Then the Tertiary button acts as a button
 
   Rule: Link Buttons
-    Background:
-      Given the Link Button components are on the page
-
     Scenario: Ensure buttons are of correct type
+      Given the Link Button components are on the page
       Then the Link buttons act as buttons
