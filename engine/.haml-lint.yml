@@ -1,0 +1,15 @@
+linters:
+  LineLength:
+    enabled: false
+
+  ClassesBeforeIds:
+    EnforcedStyle: 'id'
+
+  SpaceInsideHashAttributes:
+    enabled: false
+
+  UnnecessaryStringOutput:
+    enabled: false
+
+  RuboCop:
+    enabled: true

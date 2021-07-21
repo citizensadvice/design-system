@@ -8,13 +8,6 @@ AllCops:
   SuggestExtensions: false
   Exclude:
     - 'vendor/**/*'
-    - 'node_modules/**/*'
-    - 'demo/node_modules/**/*'
-
-Style/ClassAndModuleChildren:
-  Exclude:
-    # Monkey patch for Firefox driver, should eventually be removed
-    - 'testing/features/support/core_ext/capybara/selenium/driver/firefox_driver.rb'
 
 Metrics/MethodLength:
   CountAsOne: ['array', 'hash']
