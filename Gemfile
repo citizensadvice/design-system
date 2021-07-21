@@ -11,7 +11,7 @@ gem "rails-i18n", "~> 6.0"
 group :test do
   gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v2.0.1"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.1.0"
-  gem "cucumber", "~> 6.1"
+  gem "cucumber", "~> 7.0"
   gem "dotenv"
   gem "faraday", "~> 1.4"
   gem "haml_lint"
