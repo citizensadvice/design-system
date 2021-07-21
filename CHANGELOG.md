@@ -1,3 +1,7 @@
+## <sub>v4.2.0-alpha.1</sub>
+
+#### _Jul. 21, 2021_
+
 **Bugfixes**
 
 - 👤 Header: Focussing on header link no longer makes search box jump
