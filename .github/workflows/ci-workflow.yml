@@ -168,16 +168,20 @@ jobs:
           retention-days: 3
 
   demo-app:
-    needs: build
     runs-on: ubuntu-20.04
-    defaults:
-      run:
-        working-directory: demo
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/setup-node@v2
         with:
-          name: docs-build
+          node-version: ${{ env.NODE_VERSION }}
+
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+
+      # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -186,10 +190,29 @@ jobs:
           bundle config path vendor/bundle
           bundle update
           bundle install --jobs 4 --retry 3
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+        working-directory: demo
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: demo
-      - run: ./bin/webpack
+
+      # Run a webpack build as a smoke test
+      - run: ./bin/rails webpacker:compile
+        working-directory: demo
+
+      # Explicitly install testing dependencies
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: testing
+        env:
+          # Skip the pa11y chromium download,
+          # we only want the backstop docker command
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+
+      - run: ./bin/rails s &
+        working-directory: demo
+
+      - run: ./bin/wait-for localhost:6006
+        working-directory: demo
+
+      - run: npx backstop test --docker --config=backstop-config-demo-app-actions.js
+        working-directory: ./testing/visual-regression
