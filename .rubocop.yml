@@ -16,14 +16,9 @@ Style/ClassAndModuleChildren:
     # Monkey patch for Firefox driver, should eventually be removed
     - 'testing/features/support/core_ext/capybara/selenium/driver/firefox_driver.rb'
 
-Style/MixinUsage:
-  Exclude:
-    - 'scripts/haml.rb'
-
 Metrics/MethodLength:
   CountAsOne: ['array', 'hash']
   Exclude:
-    - 'scripts/haml.rb'
     - 'engine/previews/**/*.rb'
     - 'testing/features/support/drivers/browserstack/base.rb'
 
