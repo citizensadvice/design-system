@@ -9,11 +9,7 @@ module CitizensAdviceComponents
     end
 
     def call
-      content_tag(
-        :p,
-        t("citizens_advice_components.page_review.body_html", date: formatted_date),
-        class: "cads-page-review"
-      )
+      tag.p(t("citizens_advice_components.page_review.body_html", date: formatted_date), class: "cads-page-review")
     end
 
     def formatted_date

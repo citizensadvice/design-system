@@ -10,7 +10,6 @@ group :test do
   gem "cucumber", "~> 6.1"
   gem "dotenv"
   gem "faraday", "~> 1.5"
-  gem "haml_lint"
   gem "rake"
   gem "retriable", "~> 3.1"
   gem "rspec"

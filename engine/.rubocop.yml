@@ -1,0 +1,28 @@
+inherit_gem:
+  citizens-advice-style:
+    - default.yml
+    - default-rails.yml
+
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - 'vendor/**/*'
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']
+  Exclude:
+    - 'previews/**/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'previews/**/*.rb'
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash']
+
+# @FIXME
+Rails/I18nLocaleAssignment:
+  Exclude:
+    - 'spec/**/*.rb'

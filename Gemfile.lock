@@ -88,15 +88,6 @@ GEM
     faraday-net_http_persistent (1.1.0)
     faraday-patron (1.0.0)
     ffi (1.15.3)
-    haml (5.2.1)
-      temple (>= 0.8.0)
-      tilt
-    haml_lint (0.37.1)
-      haml (>= 4.0, < 5.3)
-      parallel (~> 1.10)
-      rainbow
-      rubocop (>= 0.50.0)
-      sysexits (~> 1.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     middleware (0.1.0)
@@ -169,11 +160,8 @@ GEM
     site_prism-all_there (0.3.2)
     sys-uname (1.2.2)
       ffi (~> 1.1)
-    sysexits (1.2.0)
-    temple (0.8.2)
     thor (1.1.0)
     thread_safe (0.3.6)
-    tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -195,7 +183,6 @@ DEPENDENCIES
   cucumber (~> 6.1)
   dotenv
   faraday (~> 1.5)
-  haml_lint
   rake
   retriable (~> 3.1)
   rspec

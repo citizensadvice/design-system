@@ -3,7 +3,7 @@
 module CitizensAdviceComponents
   class ContactDetails < Base
     def call
-      content_tag(:div, content, class: "cads-contact-details")
+      tag.div(content, class: "cads-contact-details")
     end
 
     def render?
