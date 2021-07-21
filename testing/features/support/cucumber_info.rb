@@ -51,10 +51,6 @@ module CucumberInfo
       )
     end
 
-    def api_test?
-      test_case.feature_file_path.include?("features/api")
-    end
-
     private
 
     def tag_array
