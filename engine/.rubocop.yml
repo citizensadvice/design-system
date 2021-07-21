@@ -21,3 +21,8 @@ Metrics/BlockLength:
 
 Metrics/ClassLength:
   CountAsOne: ['array', 'hash']
+
+# @FIXME
+Rails/I18nLocaleAssignment:
+  Exclude:
+    - 'spec/**/*.rb'
