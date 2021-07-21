@@ -4,7 +4,7 @@ module Header
   class Standard < ::Base
     set_url "/iframe.html?id=components-header--default&viewMode=story"
 
-    include Helpers::Page
+    include Helpers::BrowserWindow
     include Helpers::Javascript
 
     element :change_language, "a", text: "Cymraeg"

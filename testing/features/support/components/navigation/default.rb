@@ -2,7 +2,7 @@
 
 module Navigation
   class Default < ::Base
-    include Helpers::Page
+    include Helpers::BrowserWindow
 
     set_url "/iframe.html?id=components-navigation--default&viewMode=story"
 

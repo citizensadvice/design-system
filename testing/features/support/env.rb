@@ -12,10 +12,9 @@ require_relative "components/all"
 require_relative "forms/all"
 
 World(
-  Helpers::Page,
-  Helpers::Methods,
-  Helpers::Regex,
+  Helpers::BrowserWindow,
   Helpers::EnvVariables,
+  Helpers::Regex,
   Capybara::RSpecMatcherProxies
 )
 
