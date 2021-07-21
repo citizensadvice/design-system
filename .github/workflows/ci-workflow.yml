@@ -208,7 +208,7 @@ jobs:
           # we only want the backstop docker command
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
 
-      - run: ./bin/rails s &
+      - run: ./bin/rails s -d
         working-directory: demo
 
       - run: npx backstop test --docker --config=backstop-config-demo-app-actions.js
