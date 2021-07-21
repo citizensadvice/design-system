@@ -16,6 +16,12 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (6.1.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
@@ -29,6 +35,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    concurrent-ruby (1.1.9)
     cucumber (7.0.0)
       builder (~> 3.2, >= 3.2.4)
       cucumber-core (~> 10.0, >= 10.0.1)
@@ -89,10 +96,13 @@ GEM
       rainbow
       rubocop (>= 0.50.0)
       sysexits (~> 1.1)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0704)
     mini_mime (1.1.0)
+    minitest (5.14.4)
     multi_test (0.1.2)
     multipart-post (2.1.1)
     nokogiri (1.11.7-x86_64-linux)
@@ -153,6 +163,8 @@ GEM
     sysexits (1.2.0)
     temple (0.8.2)
     tilt (2.0.10)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
     webdrivers (4.6.0)
       nokogiri (~> 1.6)
@@ -161,11 +173,13 @@ GEM
     websocket (1.2.9)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activesupport
   ca_testing!
   citizens-advice-style!
   cucumber (~> 7.0)

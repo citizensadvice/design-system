@@ -5,6 +5,7 @@ source "https://rubygems.org"
 ruby "2.7.3"
 
 group :test do
+  gem "activesupport"
   gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v2.0.1"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.1.0"
   gem "cucumber", "~> 7.0"
