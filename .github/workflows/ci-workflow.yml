@@ -211,7 +211,7 @@ jobs:
       - run: ./bin/rails s &
         working-directory: demo
 
-      - run: ./bin/wait-for localhost:6006
+      - run: ./bin/wait-for localhost:3000
         working-directory: demo
 
       - run: npx backstop test --docker --config=backstop-config-demo-app-actions.js
