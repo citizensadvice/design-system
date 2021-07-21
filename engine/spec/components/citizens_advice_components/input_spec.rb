@@ -23,7 +23,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   let(:hint) { nil }
   let(:additional_attributes) { nil }
 
-  context "by default" do
+  describe "by default" do
     it "renders the label" do
       expect(subject.text.strip).to include("Example input")
     end

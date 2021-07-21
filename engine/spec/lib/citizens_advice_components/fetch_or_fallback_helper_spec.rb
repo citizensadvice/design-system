@@ -19,7 +19,7 @@ RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component
     ).to eq :adviser
   end
 
-  context "production rails env" do
+  context "with production rails env" do
     before do
       allow(Rails.env).to receive(:production?).and_return(true)
     end
@@ -36,7 +36,7 @@ RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component
     end
   end
 
-  context "non-production rails env" do
+  context "with non-production rails env" do
     before do
       allow(Rails.env).to receive(:production?).and_return(false)
     end

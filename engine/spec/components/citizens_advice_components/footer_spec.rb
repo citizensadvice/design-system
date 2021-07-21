@@ -12,13 +12,13 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   let(:columns) { generate_columns(4) }
   let(:feedback_url) { "https://www.research.net/r/J8PLH2H" }
 
-  context "feedback URL" do
+  describe "feedback URL" do
     let(:subject) { component.at("a[href='#{feedback_url}']") }
 
     it { is_expected.to be_present }
   end
 
-  context "columns" do
+  describe "columns" do
     let(:columns) { generate_columns(3) }
     let(:subject) { component.css("[data-testid='footer-column']") }
 
@@ -47,13 +47,13 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
   end
 
-  context "logo" do
+  describe "logo" do
     let(:subject) { component.at(".cads-logo") }
 
     it { is_expected.to be_present }
   end
 
-  context "copyright notice" do
+  describe "copyright notice" do
     let(:subject) { component.at("[data-testid='copyright']").text }
 
     it { is_expected.to include "Copyright" }
@@ -65,7 +65,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
   end
 
-  context "legal summary" do
+  describe "legal summary" do
     let(:subject) { component.at("[data-testid='legal-summary']").text }
 
     it { is_expected.to include "Citizens Advice is an operating name of" }

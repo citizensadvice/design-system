@@ -31,7 +31,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
   end
 
-  context "by default" do
+  describe "by default" do
     it_behaves_like "textarea"
   end
 
