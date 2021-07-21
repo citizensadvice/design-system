@@ -3,20 +3,20 @@ inherit_gem:
     - default.yml
     - default-rails.yml
 
-AllCops:
-  SuggestExtensions: false
-  Exclude:
-    - 'vendor/**/*'
+require:
+  - rubocop-rspec
 
 Metrics/MethodLength:
   CountAsOne: ['array', 'hash']
   Exclude:
+    # Previews often include lots of test data by design
+    # so we're not too worried about method length there
     - 'previews/**/*.rb'
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*.rb'
-    - 'spec/**/*.rb'
+    # Previews often include lots of test data by design
+    # so we're not too worried about block length there
     - 'previews/**/*.rb'
 
 Metrics/ClassLength:

@@ -13,4 +13,5 @@ group :development, :test do
   gem "rspec-rails"
   gem "rspec-snapshot", "~> 0.1.2"
   gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
 end
