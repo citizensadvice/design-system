@@ -4,16 +4,12 @@ source "https://rubygems.org"
 
 ruby "2.7.3"
 
-gem "actionview", "~> 6.1"
-gem "haml", "~> 5.2"
-gem "rails-i18n", "~> 6.0"
-
 group :test do
   gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v2.0.1"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v2.1.0"
   gem "cucumber", "~> 7.0"
   gem "dotenv"
-  gem "faraday", "~> 1.4"
+  gem "faraday", "~> 1.5"
   gem "haml_lint"
   gem "rake"
   gem "retriable", "~> 3.1"

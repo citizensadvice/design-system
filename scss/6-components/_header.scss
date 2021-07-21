@@ -8,7 +8,10 @@
   padding: $cads-spacing-4 0;
 
   &__hyperlink {
+    display: inline-block;
+    margin-bottom: cads-rem-to-px($cads-spacing-2) - $cads-border-width-medium;
     color: $cads-header__link-colour;
+    border-bottom: $cads-border-width-medium solid transparent;
 
     &:hover {
       color: $cads-header__link-hover-colour;
@@ -66,11 +69,9 @@
     margin-bottom: $cads-spacing-4;
     text-align: right;
 
-    .cads-header__account-link,
     .cads-header__links-item {
       font-size: 1rem;
       line-height: 1.5rem;
-      margin-bottom: $cads-spacing-2;
       margin-right: 0;
       margin-left: $cads-spacing-4;
     }
@@ -92,7 +93,6 @@
   }
 
   &__sign-out {
-    margin-left: $cads-spacing-4;
     margin-bottom: cads-rem(14px);
     background-color: $cads-header__sign-out-background-colour;
     color: $cads-header__sign-out-colour;

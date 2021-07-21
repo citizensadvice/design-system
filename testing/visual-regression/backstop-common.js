@@ -114,6 +114,13 @@ module.exports = function backstopCommon(baseUrl) {
         misMatchThreshold: 0.4,
       },
       {
+        label: 'Components/Header (link focus)',
+        url: storyUrlFor('components-header--default'),
+        misMatchThreshold: 0.4,
+        focusSelector: 'ul li:nth-child(2) a',
+        viewports: [{ label: 'desktop', width: 800, height: 200 }],
+      },
+      {
         label: 'Components/Header',
         url: storyUrlFor('components-header--default'),
         clickSelector: '.js-cads-search-reveal',
@@ -327,20 +334,12 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       ...buildSamplePageScenarios(
-        'Sample Page/Advice collection/Public',
-        'sample-pages-advice-collection--advice-collection-public'
+        'Sample Page/Content page',
+        'sample-pages-examples--content-page'
       ),
       ...buildSamplePageScenarios(
-        'Sample Page/Advice collection/Adviser',
-        'sample-pages-advice-collection--advice-collection-adviser'
-      ),
-      ...buildSamplePageScenarios(
-        'Sample Page/Generic/Forms',
-        'sample-pages-generic--forms'
-      ),
-      ...buildSamplePageScenarios(
-        'Sample Page/Generic/Tables',
-        'sample-pages-generic--tables'
+        'Sample Page/Form page',
+        'sample-pages-examples--form-page'
       ),
       {
         label: `Foundations/Colours`,

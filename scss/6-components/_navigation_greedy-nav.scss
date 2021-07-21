@@ -81,6 +81,10 @@
         @include cads-nav-link-focus;
       }
     }
+
+    .cads-header__sign-out {
+      margin-left: $cads-spacing-4;
+    }
   }
 
   &__dropdown-toggle {
