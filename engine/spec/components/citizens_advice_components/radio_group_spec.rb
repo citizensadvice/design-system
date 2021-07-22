@@ -29,8 +29,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
   end
 
   it "renders the labels for the radio buttons" do
-    expect(subject.text).to include("Option 1")
-    expect(subject.text).to include("Option 2")
+    expect(subject.text).to include("Option 1", "Option 2")
   end
 
   it "does not check any options by default" do
@@ -160,8 +159,11 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       ]
     end
 
-    it "adds the attributes to the radio buttons" do
+    it "adds data-jackie attribute" do
       expect(subject.css("input").attribute("data-jackie").value).to eq "weaver"
+    end
+
+    it "adds data-fruit attribute" do
       expect(subject.css("input").attribute("data-fruit").value).to eq "bananas"
     end
   end

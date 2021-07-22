@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       render_inline(described_class.new)
     end
 
-    it "does not render without any slots" do
+    specify "does not render without any slots" do
       expect(component.at("header")).not_to be_present
     end
   end
@@ -20,9 +20,11 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       end
     end
 
-    it "renders a logo" do
-      expect(logo).to be_present
+    it "has expected title" do
       expect(logo.attr("title")).to eq "Logo title"
+    end
+
+    it "has expected href" do
       expect(logo.attr("href")).to eq "/homepage"
     end
   end
@@ -89,16 +91,20 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
 
   describe "account_link slot" do
     context "with plain link" do
-      subject(:component) do
+      let(:component) do
         render_inline(described_class.new) do |c|
           c.logo(title: "Logo title", url: "/")
           c.account_link(title: "Sign out", url: "/sign-out")
         end
       end
 
-      it "renders account link" do
-        account_link = component.at("a[data-testid=account-link]")
+      let(:account_link) { component.at("a[data-testid=account-link]") }
+
+      it "has expected link href" do
         expect(account_link.attr("href")).to eq "/sign-out"
+      end
+
+      it "has expected link text" do
         expect(account_link.text.strip).to eq "Sign out"
       end
     end

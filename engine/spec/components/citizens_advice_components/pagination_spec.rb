@@ -22,8 +22,11 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
   context "when on first page" do
     let(:current_page) { 1 }
 
-    it "generates pagination" do
+    it "has expected labels" do
       expect(paging_labels).to eq %w[1 2 3 Next Last]
+    end
+
+    it "has aria labels" do
       expect(paging_aria_labels).to eq [
         "Go to page 1",
         "Go to page 2",
@@ -41,18 +44,19 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
       expect(subject.at("nav").attr("aria-label")).to eq "Pagination navigation"
     end
 
-    it "has aria-current for current page" do
-      current_els = subject.css("[aria-current]")
-      expect(current_els.size).to be 1
-      expect(current_els.first.text.strip).to eq "1"
+    it "has single aria-current for current page" do
+      expect(subject.css("[aria-current]:contains(1)").size).to be 1
     end
   end
 
   context "when on second page" do
     let(:current_page) { 2 }
 
-    it "generates pagination" do
+    it "has expected labels" do
       expect(paging_labels).to eq %w[Previous 1 2 3 Next Last]
+    end
+
+    it "has aria labels" do
       expect(paging_aria_labels).to eq [
         "Go to previous page",
         "Go to page 1",
@@ -67,8 +71,11 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
   context "when on tenth page" do
     let(:current_page) { 10 }
 
-    it "generates pagination" do
+    it "has expected labels" do
       expect(paging_labels).to eq %w[First Previous 8 9 10 11 12 Next Last]
+    end
+
+    it "has aria labels" do
       expect(paging_aria_labels).to eq [
         "Go to first page",
         "Go to previous page",
@@ -86,8 +93,11 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
   context "when on last page" do
     let(:current_page) { 100 }
 
-    it "generates pagination" do
+    it "has expected labels" do
       expect(paging_labels).to eq %w[First Previous 98 99 100]
+    end
+
+    it "has aria labels" do
       expect(paging_aria_labels).to eq [
         "Go to first page",
         "Go to previous page",
@@ -105,6 +115,9 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
 
     it "has translated labels" do
       expect(paging_labels).to eq %w[Cyntaf Blaenorol 8 9 10 11 12 Nesaf Diwethaf]
+    end
+
+    it "has translated aria labels" do
       expect(paging_aria_labels).to eq [
         "Ewch i'r dudalen gyntaf",
         "Ewch i'r dudalen flaenorol",

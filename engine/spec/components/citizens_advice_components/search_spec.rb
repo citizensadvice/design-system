@@ -7,6 +7,9 @@ RSpec.describe CitizensAdviceComponents::Search, type: :component do
 
   it "renders search input" do
     expect(component.at(".cads-search")).to be_present
+  end
+
+  it "renders search button with label" do
     expect(component.at("button").text).to include "Search"
   end
 

@@ -115,8 +115,11 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
       }
     end
 
-    it "adds the attributes to the input" do
+    it "adds autocomplete attribute" do
       expect(subject.css("input").attribute("autocomplete").value).to eq("name")
+    end
+
+    it "adds custom data attribute" do
       expect(subject.css("input").attribute("data-foo").value).to eq("bar")
     end
   end
