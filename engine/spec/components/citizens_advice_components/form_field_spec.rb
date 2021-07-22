@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::FormField, type: :component do
-  let(:subject) do
+  subject(:component) do
     render_inline(described_class.new(error: error.presence)) do
       "Fake input"
     end
@@ -11,7 +11,7 @@ RSpec.describe CitizensAdviceComponents::FormField, type: :component do
 
   context "when there is no error" do
     it "does not append the error class" do
-      expect(subject.css(".cads-form-field").attribute("class").value).not_to include("cads-form-field--has-error")
+      expect(component.css(".cads-form-field").attribute("class").value).not_to include("cads-form-field--has-error")
     end
   end
 
@@ -21,15 +21,15 @@ RSpec.describe CitizensAdviceComponents::FormField, type: :component do
     end
 
     it "appends the error class" do
-      expect(subject.css(".cads-form-field").attribute("class").value).to include("cads-form-field--has-error")
+      expect(component.css(".cads-form-field").attribute("class").value).to include("cads-form-field--has-error")
     end
   end
 
   context "when there is no content" do
-    let(:subject) { render_inline described_class.new(error: false) }
+    subject(:component) { render_inline described_class.new(error: false) }
 
     it "does not render" do
-      expect(subject.css(".cads-form-field")).not_to be_present
+      expect(component.css(".cads-form-field")).not_to be_present
     end
   end
 end

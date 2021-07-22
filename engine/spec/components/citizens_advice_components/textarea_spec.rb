@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
-  let(:subject) do
+  subject(:component) do
     render_inline described_class.new(
       name: name.presence,
       label: label.presence,
@@ -13,30 +13,24 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
   let(:label) { "Example input" }
   let(:type) { nil }
 
-  RSpec.shared_examples "textarea" do
-    it "renders a text area" do
-      expect(subject.css("textarea")).to be_present
-    end
-
-    it "renders 8 rows" do
-      expect(subject.css("textarea").attribute("rows").value).to eq("8")
-    end
-
-    context "when a type is specified" do
-      let(:type) { :email }
-
-      it "does not render the type attribute" do
-        expect(subject.css("textarea").attribute("type")).to eq(nil)
-      end
-    end
+  it "renders a text area" do
+    expect(component.css("textarea")).to be_present
   end
 
-  describe "by default" do
-    it_behaves_like "textarea"
+  it "renders 8 rows" do
+    expect(component.css("textarea").attribute("rows").value).to eq("8")
+  end
+
+  context "when a type is specified" do
+    let(:type) { :email }
+
+    it "does not render the type attribute" do
+      expect(component.css("textarea").attribute("type")).to eq(nil)
+    end
   end
 
   context "when a valid number of rows is specified" do
-    let(:subject) do
+    subject(:component) do
       render_inline described_class.new(
         name: name.presence,
         label: label.presence,
@@ -48,12 +42,12 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     let(:rows) { 10 }
 
     it "renders the textarea with the correct number of rows" do
-      expect(subject.css("textarea").attribute("rows").value).to eq("10")
+      expect(component.css("textarea").attribute("rows").value).to eq("10")
     end
   end
 
   context "when an invalid number of rows is specified" do
-    let(:subject) do
+    subject(:component) do
       render_inline described_class.new(
         name: name.presence,
         label: label.presence,
@@ -64,7 +58,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     let(:rows) { "banana" }
 
     it "renders the default number of rows" do
-      expect(subject.css("textarea").attribute("rows").value).to eq("8")
+      expect(component.css("textarea").attribute("rows").value).to eq("8")
     end
   end
 end

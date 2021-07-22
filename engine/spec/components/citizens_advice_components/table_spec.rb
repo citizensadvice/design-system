@@ -42,14 +42,14 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
   let(:caption) { "I am a nice table" }
 
   it "renders correctly" do
-    expect(subject.to_html).to match_snapshot("table")
+    expect(component.to_html).to match_snapshot("table")
   end
 
   context "when there is no caption" do
     let(:caption) { nil }
 
     it "does not render a caption" do
-      expect(subject.css("table caption")).to be_empty
+      expect(component.css("table caption")).to be_empty
     end
   end
 end

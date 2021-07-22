@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Input, type: :component do
-  let(:subject) do
+  subject(:component) do
     render_inline described_class.new(
       name: "example-input",
       label: "Example input",
@@ -14,35 +14,35 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   let(:options) { nil }
 
   it "renders the label" do
-    expect(subject.text.strip).to include("Example input")
+    expect(component.text.strip).to include("Example input")
   end
 
   it "links the label to the input" do
-    expect(subject.css("label").attribute("for").value).to eq("example-input-input")
+    expect(component.css("label").attribute("for").value).to eq("example-input-input")
   end
 
   it "renders an input" do
-    expect(subject.css("input")).to be_present
+    expect(component.css("input")).to be_present
   end
 
   it "adds the correct id to the input" do
-    expect(subject.css("input").attribute("id").value).to eq("example-input-input")
+    expect(component.css("input").attribute("id").value).to eq("example-input-input")
   end
 
   it "renders a text input" do
-    expect(subject.css("input").attribute("type").value).to eq("text")
+    expect(component.css("input").attribute("type").value).to eq("text")
   end
 
   it "renders an empty input" do
-    expect(subject.css("input").attribute("value")).to eq nil
+    expect(component.css("input").attribute("value")).to eq nil
   end
 
   it "renders a required input" do
-    expect(subject.css("input").attribute("required")).to be_present
+    expect(component.css("input").attribute("required")).to be_present
   end
 
   context "when an error is present" do
-    let(:subject) do
+    subject(:component) do
       render_inline described_class.new(
         name: "example-input",
         label: "Example input",
@@ -56,15 +56,15 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     let(:error_message) { "Enter your name" }
 
     it "renders the error message" do
-      expect(subject.text.strip).to include "Enter your name"
+      expect(component.text.strip).to include "Enter your name"
     end
 
     it "adds aria-invalid to the input" do
-      expect(subject.css("input").attribute("aria-invalid")).to be_present
+      expect(component.css("input").attribute("aria-invalid")).to be_present
     end
 
     it "adds aria-describedby to the input" do
-      expect(subject.css("input").attribute("aria-describedby").value).to eq("example-input-error")
+      expect(component.css("input").attribute("aria-describedby").value).to eq("example-input-error")
     end
   end
 
@@ -72,7 +72,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     let(:type) { :email }
 
     it "renders the correct type of input" do
-      expect(subject.css("input").attribute("type").value).to eq("email")
+      expect(component.css("input").attribute("type").value).to eq("email")
     end
   end
 
@@ -80,11 +80,11 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     let(:options) { { optional: true } }
 
     it "adds optional to the label" do
-      expect(subject.text).to include("optional")
+      expect(component.text).to include("optional")
     end
 
     it "does not add required to the input" do
-      expect(subject.css("input").attribute("required")).not_to be_present
+      expect(component.css("input").attribute("required")).not_to be_present
     end
 
     context "when in Cymraeg" do
@@ -93,7 +93,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
       end
 
       it "renders optional in Welsh" do
-        expect(subject.text).to include("dewisol")
+        expect(component.text).to include("dewisol")
       end
     end
   end
@@ -102,7 +102,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     let(:options) { { hint: "This is the hint text" } }
 
     it "renders the hint text" do
-      expect(subject.text.strip).to include("This is the hint text")
+      expect(component.text.strip).to include("This is the hint text")
     end
   end
 
@@ -112,11 +112,11 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
 
     it "adds autocomplete attribute" do
-      expect(subject.css("input").attribute("autocomplete").value).to eq("name")
+      expect(component.css("input").attribute("autocomplete").value).to eq("name")
     end
 
     it "adds custom data attribute" do
-      expect(subject.css("input").attribute("data-foo").value).to eq("bar")
+      expect(component.css("input").attribute("data-foo").value).to eq("bar")
     end
   end
 end

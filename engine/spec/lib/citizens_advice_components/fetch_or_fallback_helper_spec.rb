@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component do
-  subject { test_class.new }
+  subject(:instance) { test_class.new }
 
   let(:test_class) do
     Class.new do
@@ -11,7 +11,7 @@ RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component
 
   it "fetches value when in allowed_values" do
     expect(
-      subject.fetch_or_fallback(
+      instance.fetch_or_fallback(
         allowed_values: %i[adviser example important],
         given_value: :adviser,
         fallback: nil
@@ -26,7 +26,7 @@ RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component
 
     it "returns fallback when not in allowed_values" do
       [0, nil, "1", "one", false, true].each do |given_value|
-        result = subject.fetch_or_fallback(
+        result = instance.fetch_or_fallback(
           allowed_values: [1, 2, 3],
           given_value: given_value,
           fallback: 2
@@ -43,7 +43,7 @@ RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component
 
     it "raises error in non-production environments" do
       expect do
-        subject.fetch_or_fallback(
+        instance.fetch_or_fallback(
           allowed_values: %i[adviser example important],
           given_value: :not_allowed,
           fallback: nil

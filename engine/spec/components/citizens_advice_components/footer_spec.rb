@@ -19,15 +19,16 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   end
 
   describe "columns" do
+    subject(:footer_columns) { component.css("[data-testid='footer-column']") }
+
     let(:columns) { generate_columns(3) }
-    let(:subject) { component.css("[data-testid='footer-column']") }
 
     it "has expected number of columns" do
-      expect(subject.size).to eq 3
+      expect(footer_columns.size).to eq 3
     end
 
     it "has expected headings" do
-      expect(subject.css("h2").map { |item| item.text.strip }).to eq [
+      expect(footer_columns.css("h2").map { |item| item.text.strip }).to eq [
         "Example column 1",
         "Example column 2",
         "Example column 3"
@@ -35,14 +36,14 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
 
     it "has expected number of links" do
-      expect(subject.first.css("a").size).to eq 3
+      expect(footer_columns.first.css("a").size).to eq 3
     end
 
     context "when number of columns exceeds limit" do
       let(:columns) { generate_columns(6) }
 
       it "has number of columns limited to maximum" do
-        expect(subject.size).to eq 4
+        expect(footer_columns.size).to eq 4
       end
     end
   end

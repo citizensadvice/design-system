@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
-  let(:subject) do
+  subject(:component) do
     render_inline described_class.new(
       name: name.presence,
       label: label.presence,
@@ -16,18 +16,18 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
   let(:width) { nil }
 
   it "renders a text input" do
-    expect(subject.css("input").attribute("type").value).to eq("text")
+    expect(component.css("input").attribute("type").value).to eq("text")
   end
 
   it "renders a full width version" do
-    expect(subject.css("input").attribute("class").value).to eq("cads-input")
+    expect(component.css("input").attribute("class").value).to eq("cads-input")
   end
 
   context "when a valid width is specified" do
     let(:width) { :four_chars }
 
     it "renders the input at the correct width" do
-      expect(subject.css(".cads-input--four-chars")).to be_present
+      expect(component.css(".cads-input--four-chars")).to be_present
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
 
     it "renders a full width version" do
       without_fetch_or_fallback_raises do
-        expect(subject.css("input").attribute("class").value).to eq("cads-input")
+        expect(component.css("input").attribute("class").value).to eq("cads-input")
       end
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
 
     it "renders a text input" do
       without_fetch_or_fallback_raises do
-        expect(subject.css("input").attribute("type").value).to eq("text")
+        expect(component.css("input").attribute("type").value).to eq("text")
       end
     end
   end
