@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       render_inline(described_class.new)
     end
 
-    specify "does not render without any slots" do
+    it "does not render without any slots" do
       expect(component.at("header")).not_to be_present
     end
   end
