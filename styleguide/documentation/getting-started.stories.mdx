@@ -6,64 +6,18 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 👋🏼 Hi there! Let's get you started.
 
-## Using with Rails
+The design system component library is made up of two packages:
 
-The design system package is made up of five parts:
+- `@citizensadvice/design-system` — An npm package containing styles, JavaScript modules, fonts, and icons.
+- `citizens_advice_components` — A companion ruby gem which provides a way of using design system components in a Rails app.
 
-- Haml partials. Designed to be used in Rails apps.
-- Locale files. A set of bundled locale files required by Haml templates.
-- SCSS files containing CSS styles for the design system.
-- JavaScript modules. Required for the navigation, header, tables and targeted-content components.
-- Fonts. Our brand font and an icon font.
+## Installing the npm package
 
-This guide assumes that you are using:
-
-- Rails
-- Rails i18n
-- Haml
-- SCSS
-- Webpacker
-
-You can install the package from npm:
+You can install the core package from npm:
 
 ```sh
 npm install @citizensadvice/design-system
 ```
-
-### Haml
-
-To use the provided Haml partials you will need to add the following to your Rails `ApplicationController`:
-
-```ruby
-prepend_view_path(Rails.root.join("node_modules"))
-```
-
-Once you've done this you can reference them from your app as follows:
-
-```haml
-= render partial: "@citizensadvice/design-system/haml/breadcrumb", locals: { breadcrumbs: { "breadcrumb_links" => [{ "url" => "/benefits/", "title" => "Benefits" },{ "url" => "/benefits/", "title" => "Accessing UK benefits and services if you’re subject to immigration control" }, { "url" => "/benefits/benefits-introduction/", "title" => "Benefits - introduction"}, { "url" => "/benefits/benefits-introduction/what-benefits-can-i-get/", "title" => "Benefit calculators: what benefits can you get" }] } }
-```
-
-Most components include sample code you can copy and paste. Look for the "Show code" button next to each story.
-
-### Locale files
-
-We export a locales folder which includes both `en.yml` and `cy.yml`. Files are located in `node_modules/@citizensadvice/design-system/locales`.
-
-You can include them in your Rails app by adding a `config/initializers/locales.rb` file:
-
-```ruby
-# frozen_string_literal: true
-
-I18n.available_locales = [:en, :cy]
-
-# Add design-system locales to the load path
-I18n.load_path += Dir[
-  Rails.root.join("node_modules/@citizensadvice/design-system/locales/*.yml"),
-]
-```
-
-This requires that you have the `rails-i18n` gem installed. See the [Rails i18n guide](https://guides.rubyonrails.org/i18n.html#configure-the-i18n-module) for more details.
 
 ### CSS
 
@@ -81,7 +35,7 @@ The distributed package includes compiled CSS in `lib/lib.css` if you are not us
 
 ### Fonts
 
-The design system uses a custom font to distribute icons. These are included with the npm package and can be found under the `fonts` directory.
+The design system uses distributes two sets of fonts. Open Sans, our brand font, and a custom icon font. These are included with the npm package and can be found under the `fonts` directory.
 
 If you are using SCSS files through Webpacker with Rails then place the following in `config/webpack/environment.js`:
 
@@ -132,6 +86,33 @@ Some components require polyfills for older browsers. Components which require p
 We don't include the polyfills by default in order to avoid double bundling if you have your own.
 
 If you are not using either of these components then you may not need any polyfills.
+
+## Using with Rails
+
+Along side the core npm package we also provide a ruby gem which distributes component templates as part of a Rails engine. This can be installed by adding the following to your `Gemfile`
+
+```
+gem "citizens_advice_components",
+    github: "citizensadvice/design-system",
+    tag: "v4.2.0",
+    glob: "engine/*.gemspec"
+```
+
+### Using components
+
+Components are provided as [view components](https://viewcomponent.org/).
+
+Once installed you can call them within your application by passing the component to `render`.
+
+```erb
+<%= render(
+  CitizensAdviceComponents::Pagination.new(
+    current_params: { "q" => "debt and money" },
+    num_pages: 100,
+    current_page: 1
+  )
+) %>
+```
 
 ## Changelog
 
