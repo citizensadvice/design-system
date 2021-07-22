@@ -24,6 +24,9 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   CountAsOne: ['array', 'hash']
 
+RSpec/ExampleLength:
+  CountAsOne: ['array', 'hash']
+
 # @FIXME
 Rails/I18nLocaleAssignment:
   Exclude:
