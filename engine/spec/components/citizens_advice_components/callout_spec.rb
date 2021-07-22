@@ -20,6 +20,11 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     it "renders a standard callout" do
       without_fetch_or_fallback_raises do
         expect(component.at(".cads-callout--standard")).to be_present
+      end
+    end
+
+    it "does not render a badge" do
+      without_fetch_or_fallback_raises do
         expect(component.at(".cads-badge")).not_to be_present
       end
     end
@@ -71,7 +76,7 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
 
   context "when no content present" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::Callout.new(type: :standard))
+      render_inline(described_class.new(type: :standard))
     end
 
     it "does not render" do

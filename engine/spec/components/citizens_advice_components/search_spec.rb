@@ -2,11 +2,14 @@
 
 RSpec.describe CitizensAdviceComponents::Search, type: :component do
   subject(:component) do
-    render_inline(CitizensAdviceComponents::Search.new)
+    render_inline(described_class.new)
   end
 
   it "renders search input" do
     expect(component.at(".cads-search")).to be_present
+  end
+
+  it "renders search button with label" do
     expect(component.at("button").text).to include "Search"
   end
 
@@ -20,7 +23,7 @@ RSpec.describe CitizensAdviceComponents::Search, type: :component do
 
   context "with value" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::Search.new(value: "Example value"))
+      render_inline(described_class.new(value: "Example value"))
     end
 
     it "has a value" do
@@ -30,7 +33,7 @@ RSpec.describe CitizensAdviceComponents::Search, type: :component do
 
   context "with custom param_name" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::Search.new(param_name: :query))
+      render_inline(described_class.new(param_name: :query))
     end
 
     it "has custom param name" do

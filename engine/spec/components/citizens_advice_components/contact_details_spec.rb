@@ -2,7 +2,7 @@
 
 RSpec.describe CitizensAdviceComponents::ContactDetails, type: :component do
   subject(:component) do
-    render_inline(CitizensAdviceComponents::ContactDetails.new) do
+    render_inline(described_class.new) do
       "Example content"
     end
   end
@@ -13,7 +13,7 @@ RSpec.describe CitizensAdviceComponents::ContactDetails, type: :component do
 
   context "when no content present" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::ContactDetails.new)
+      render_inline(described_class.new)
     end
 
     it "does not render" do

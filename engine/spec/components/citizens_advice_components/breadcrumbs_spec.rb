@@ -21,7 +21,7 @@ end
 RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   subject(:component) do
     render_inline(
-      CitizensAdviceComponents::Breadcrumbs.new(
+      described_class.new(
         type: type.presence,
         links: links.presence
       )
@@ -47,7 +47,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
 
   it_behaves_like "breadcrumbs"
 
-  context "no_collapse type is provided" do
+  context "when no_collapse type is provided" do
     let(:type) { :no_collapse }
 
     it "renders the the non-collapsible version" do
@@ -55,15 +55,15 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     end
   end
 
-  context "no links are provided" do
+  context "when no links are provided" do
     let(:links) { nil }
 
     it "does not render" do
-      expect(component.css(".cads-breadcrumbs")).to_not be_present
+      expect(component.css(".cads-breadcrumbs")).not_to be_present
     end
   end
 
-  context "no type is provided" do
+  context "when no type is provided" do
     let(:type) { nil }
 
     it "renders collapsible version by default" do
@@ -89,7 +89,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     end
   end
 
-  context "links are passed with the old style hash format" do
+  context "when links are passed with the old style hash format" do
     let(:links) do
       [
         {

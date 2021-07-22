@@ -23,6 +23,7 @@ RSpec.shared_examples "adviser_targeted_content" do
 
   context "when welsh language" do
     before { I18n.locale = :cy }
+
     it "has translated label" do
       expect(badge.text).to eq "Cynghorydd"
     end
@@ -60,11 +61,18 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
   context "when missing type" do
     let(:type) { nil }
 
-    it "renders public targeted content" do
+    around do |example|
       without_fetch_or_fallback_raises do
-        expect(component.at(".cads-targeted-content")).to be_present
-        expect(component.at(".cads-badge")).not_to be_present
+        example.run
       end
+    end
+
+    it "renders public targeted content" do
+      expect(component.at(".cads-targeted-content")).to be_present
+    end
+
+    it "does not have badge" do
+      expect(component.at(".cads-badge")).not_to be_present
     end
   end
 

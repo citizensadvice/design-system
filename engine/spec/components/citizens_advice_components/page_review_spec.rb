@@ -3,7 +3,7 @@
 RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
   subject(:component) do
     render_inline(
-      CitizensAdviceComponents::PageReview.new(
+      described_class.new(
         page_review_date: page_review_date.presence,
         date_format: date_format.presence
       )
@@ -21,7 +21,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
     let(:page_review_date) { nil }
 
     it "does not render" do
-      expect(component.at(".cads-page-review")).to_not be_present
+      expect(component.at(".cads-page-review")).not_to be_present
     end
   end
 

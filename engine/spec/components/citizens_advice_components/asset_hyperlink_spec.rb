@@ -3,7 +3,7 @@
 RSpec.describe CitizensAdviceComponents::AssetHyperlink, type: :component do
   subject(:component) do
     render_inline(
-      CitizensAdviceComponents::AssetHyperlink.new(
+      described_class.new(
         href: "https://example.com",
         description: "Test PDF",
         size: 6_444_516
