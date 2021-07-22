@@ -3,57 +3,56 @@
 RSpec.describe CitizensAdviceComponents::Input, type: :component do
   let(:subject) do
     render_inline described_class.new(
-      name: name.presence,
-      label: label.presence,
+      name: "example-input",
+      label: "Example input",
       type: type.presence,
-      options: {
-        error_message: error_message.presence,
-        optional: optional.presence,
-        hint: hint.presence,
-        additional_attributes: additional_attributes.presence
-      }
+      options: options.presence
     )
   end
 
-  let(:name) { "example-input" }
-  let(:label) { "Example input" }
   let(:type) { :text }
-  let(:error_message) { nil }
-  let(:optional) { false }
-  let(:hint) { nil }
-  let(:additional_attributes) { nil }
+  let(:options) { nil }
 
-  describe "by default" do
-    it "renders the label" do
-      expect(subject.text.strip).to include("Example input")
-    end
+  it "renders the label" do
+    expect(subject.text.strip).to include("Example input")
+  end
 
-    it "links the label to the input" do
-      expect(subject.css("label").attribute("for").value).to eq("example-input-input")
-    end
+  it "links the label to the input" do
+    expect(subject.css("label").attribute("for").value).to eq("example-input-input")
+  end
 
-    it "renders an input" do
-      expect(subject.css("input")).to be_present
-    end
+  it "renders an input" do
+    expect(subject.css("input")).to be_present
+  end
 
-    it "adds the correct id to the input" do
-      expect(subject.css("input").attribute("id").value).to eq("example-input-input")
-    end
+  it "adds the correct id to the input" do
+    expect(subject.css("input").attribute("id").value).to eq("example-input-input")
+  end
 
-    it "renders a text input" do
-      expect(subject.css("input").attribute("type").value).to eq("text")
-    end
+  it "renders a text input" do
+    expect(subject.css("input").attribute("type").value).to eq("text")
+  end
 
-    it "renders an empty input" do
-      expect(subject.css("input").attribute("value")).to eq nil
-    end
+  it "renders an empty input" do
+    expect(subject.css("input").attribute("value")).to eq nil
+  end
 
-    it "renders a required input" do
-      expect(subject.css("input").attribute("required")).to be_present
-    end
+  it "renders a required input" do
+    expect(subject.css("input").attribute("required")).to be_present
   end
 
   context "when an error is present" do
+    let(:subject) do
+      render_inline described_class.new(
+        name: "example-input",
+        label: "Example input",
+        type: :text,
+        options: {
+          error_message: "Enter your name"
+        }
+      )
+    end
+
     let(:error_message) { "Enter your name" }
 
     it "renders the error message" do
@@ -69,8 +68,16 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
   end
 
+  context "when a type is specified" do
+    let(:type) { :email }
+
+    it "renders the correct type of input" do
+      expect(subject.css("input").attribute("type").value).to eq("email")
+    end
+  end
+
   context "when the input is optional" do
-    let(:optional) { true }
+    let(:options) { { optional: true } }
 
     it "adds optional to the label" do
       expect(subject.text).to include("optional")
@@ -92,27 +99,16 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   context "when there is hint text" do
-    let(:hint) { "This is the hint text" }
+    let(:options) { { hint: "This is the hint text" } }
 
     it "renders the hint text" do
       expect(subject.text.strip).to include("This is the hint text")
     end
   end
 
-  context "when a type is specified" do
-    let(:type) { :email }
-
-    it "renders the correct type of input" do
-      expect(subject.css("input").attribute("type").value).to eq("email")
-    end
-  end
-
   context "when additional attributes are specified" do
-    let(:additional_attributes) do
-      {
-        autocomplete: "name",
-        "data-foo": "bar"
-      }
+    let(:options) do
+      { additional_attributes: { autocomplete: "name", "data-foo": "bar" } }
     end
 
     it "adds autocomplete attribute" do

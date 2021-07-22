@@ -1,23 +1,19 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
-  let(:subject) do
-    component = described_class.new(
+  subject(:component) do
+    render_inline described_class.new(
       current_params: { "q" => "debt and money" },
-      num_pages: num_pages,
-      current_page: current_page,
-      param_name: param_name.presence
+      num_pages: 100,
+      current_page: current_page
     )
-    render_inline(component)
   end
 
-  let(:num_pages) { 100 }
   let(:current_page) { 1 }
-  let(:param_name) { nil }
 
-  let(:paging_controls) { subject.css("[data-testid='paging-control']") }
-  let(:paging_labels) { paging_controls.map { |item| item.text.strip } }
+  let(:paging_controls) { component.css("[data-testid='paging-control']") }
   let(:paging_aria_labels) { paging_controls.map { |item| item.attr("aria-label") } }
+  let(:paging_labels) { paging_controls.map { |item| item.text.strip } }
 
   context "when on first page" do
     let(:current_page) { 1 }
@@ -41,11 +37,11 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
     end
 
     it "has aria-label for navigation" do
-      expect(subject.at("nav").attr("aria-label")).to eq "Pagination navigation"
+      expect(component.at("nav").attr("aria-label")).to eq "Pagination navigation"
     end
 
     it "has single aria-current for current page" do
-      expect(subject.css("[aria-current]:contains(1)").size).to be 1
+      expect(component.css("[aria-current]:contains(1)").size).to be 1
     end
   end
 
@@ -133,16 +129,28 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
   end
 
   context "when single page" do
-    let(:current_page) { 1 }
-    let(:num_pages) { 1 }
+    subject(:component) do
+      render_inline described_class.new(
+        current_params: { "q" => "debt and money" },
+        num_pages: 1,
+        current_page: 1
+      )
+    end
 
     it "does not render" do
-      expect(subject.at("nav")).to be nil
+      expect(component.at("nav")).to be nil
     end
   end
 
   context "when custom param_name" do
-    let(:param_name) { :page_number }
+    subject(:component) do
+      render_inline described_class.new(
+        current_params: { "q" => "debt and money" },
+        num_pages: 100,
+        current_page: 1,
+        param_name: :page_number
+      )
+    end
 
     it "generates valid query string" do
       expect(paging_controls.first.attr("href")).to eq "?page_number=1&q=debt+and+money"

@@ -14,15 +14,15 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
   let(:subject) do
     render_inline described_class.new(
-      legend: legend.presence,
-      name: name.presence
+      legend: "Radio button group field",
+      name: "radio-buttons",
+      options: options.presence
     ) do |c|
       c.radio_buttons(radios)
     end
   end
 
-  let(:name) { "radio-buttons" }
-  let(:legend) { "Radio button group field" }
+  let(:options) { nil }
 
   it "renders a radio button for each radio" do
     expect(subject.css("input[type='radio']").length).to eq(2)
@@ -52,13 +52,12 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     let(:subject) do
       render_inline described_class.new(
         legend: legend.presence,
-        name: name.presence
+        name: "radio-buttons"
       ) do |c|
         c.radio_buttons(nil)
       end
     end
 
-    let(:name) { "radio-buttons" }
     let(:legend) { "Radio button group field" }
 
     it "does not render" do
@@ -66,30 +65,46 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     end
   end
 
-  context "when there are optional parameters" do
-    let(:subject) do
-      render_inline described_class.new(
-        legend: legend.presence,
-        name: name.presence,
-        options: {
-          error_message: error_message.presence,
-          optional: optional.presence,
-          hint: hint.presence,
-          size: :small,
-          layout: :inline
-        }
-      ) do |c|
-        c.radio_buttons(radios)
+  context "when invalid optional parameter is passed" do
+    let(:options) { { optional: "bananas" } }
+
+    it "renders a required input" do
+      without_fetch_or_fallback_raises do
+        expect(subject.text.strip).not_to include "optional"
       end
     end
+  end
 
-    let(:name) { "radio-buttons" }
-    let(:legend) { "Radio button group field" }
-    let(:error_message) { "This is the error message" }
-    let(:optional) { true }
-    let(:hint) { "This is the hint text" }
-    let(:layout) { :inline }
-    let(:size) { :small }
+  context "when invalid size parameter is passed" do
+    let(:options) { { size: :bananas } }
+
+    it "renders a normal size input" do
+      without_fetch_or_fallback_raises do
+        expect(subject.css(".cads-radio-group--regular")).to be_present
+      end
+    end
+  end
+
+  context "when invalid layout parameter is passed" do
+    let(:options) { { layout: :bananas } }
+
+    it "renders the radio buttons in list layout" do
+      without_fetch_or_fallback_raises do
+        expect(subject.css(".cads-radio-group--list")).to be_present
+      end
+    end
+  end
+
+  context "when there are optional parameters" do
+    let(:options) do
+      {
+        error_message: "This is the error message",
+        optional: true,
+        hint: "This is the hint text",
+        layout: :inline,
+        size: :small
+      }
+    end
 
     it "renders the error message" do
       expect(subject.text.strip).to include "This is the error message"
@@ -118,36 +133,6 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
       it "renders optional in Welsh" do
         expect(subject.text).to include "dewisol"
-      end
-    end
-
-    context "when invalid optional parameter is passed" do
-      let(:optional) { "bananas" }
-
-      it "renders a required input" do
-        without_fetch_or_fallback_raises do
-          expect(subject.text.strip).not_to include "optional"
-        end
-      end
-    end
-
-    context "when invalid size parameter is passed" do
-      let(:size) { :bananas }
-
-      it "renders a normal size input" do
-        without_fetch_or_fallback_raises do
-          expect(subject.css(".cads-from-group--small")).not_to be_present
-        end
-      end
-    end
-
-    context "when invalid layout parameter is passed" do
-      let(:layout) { :bananas }
-
-      it "renders the radio buttons in list layout" do
-        without_fetch_or_fallback_raises do
-          expect(subject.css(".cads-from-group--inline")).not_to be_present
-        end
       end
     end
   end
