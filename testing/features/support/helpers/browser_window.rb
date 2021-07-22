@@ -52,8 +52,6 @@ module Helpers
       ENV.fetch("BROWSER_HEIGHT", fallback)
     end
 
-    private
-
     def timestamp
       Time.now.strftime("%Y-%m-%d-%H-%M-%S")
     end
