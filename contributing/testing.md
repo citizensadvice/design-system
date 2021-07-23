@@ -20,11 +20,7 @@ This will install the visual regression testing tools. These are installed under
 
 **Run tests:**
 
-```
-npm run vr-test:test
-```
-
-You can also choose to run the tests without starting up the design-system server with:
+With the docs running via `npm start` you can run the visual regression tests with:
 
 ```
 npm run vr-test:standalone

@@ -37,12 +37,11 @@
     "test": "jest",
     "test:watch": "jest --watch --notify",
     "vr-test:install": "cd testing && npm install",
-    "vr-test:test": "node scripts/vr-test.js",
     "vr-test:standalone": "cd testing/visual-regression && npx backstop test --docker --config=backstop-config.js",
     "vr-test:reference": "cd testing/visual-regression && npx backstop reference --docker --config=backstop-config.js",
     "vr-test:approve": "cd testing/visual-regression && npx backstop approve --config=backstop-config.js",
     "vr-test:open-report": "cd testing/visual-regression && npx backstop openReport --config=backstop-config.js",
-    "wcag-test": "node scripts/wcag-test.js"
+    "wcag-test": "cd testing/wcag npx pa11y-ci --config=pa11yci.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
