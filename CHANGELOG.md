@@ -1,24 +1,14 @@
-## <sub>v4.2.0-alpha.1</sub>
+## <sub>v4.2.0</sub>
 
-#### _Jul. 21, 2021_
+#### _Aug. 2, 2021_
 
 **Bugfixes**
 
 - 👤 Header: Focussing on header link no longer makes search box jump
 
-
-## <sub>v4.2.0-alpha.0</sub>
-
-#### _Jul. 19, 2021_
-
 **New**
 
 - 👤 Header: Adjusted header link classes in preparation for view component move
-
-## <sub>v4.1.2-alpha.0</sub>
-
-#### _Jun. 28, 2021_
-
 - New ViewComponents for the design system engine:
   - `TextInput`
   - `Input`
