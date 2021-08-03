@@ -42,7 +42,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   context "when a value is provided" do
-    let(:options) { { value: "This is the value of the field"  } }
+    let(:options) { { value: "This is the value of the field" } }
 
     it "renders the value" do
       expect(component.css("input").attribute("value").value).to eq "This is the value of the field"

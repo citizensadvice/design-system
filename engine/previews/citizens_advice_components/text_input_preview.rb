@@ -10,7 +10,8 @@ module CitizensAdviceComponents
 
     def value
       render(
-        CitizensAdviceComponents::TextInput.new(name: "example-input-value", label: "Example input", options: { value: "Lorem ipsum" }, type: :text)
+        CitizensAdviceComponents::TextInput.new(name: "example-input-value", label: "Example input", options: { value: "Lorem ipsum" },
+                                                type: :text)
       )
     end
 
