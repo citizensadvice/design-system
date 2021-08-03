@@ -4,7 +4,7 @@ module CitizensAdviceComponents
   class Input < Base
     attr_reader :name, :label, :error_message, :hint, :value
 
-    def initialize(name:, label:, type:, value: nil, options: nil)
+    def initialize(name:, label:, type:, options: nil)
       super
       @name = name
       @label = label
