@@ -8,7 +8,6 @@ module CitizensAdviceComponents
       super
       @name = name
       @label = label
-      @value = value
       @type = fetch_or_fallback(
         allowed_values: allowed_type_values,
         given_value: type.presence,
@@ -84,7 +83,7 @@ module CitizensAdviceComponents
         type: (@type.to_s.dasherize if @type.present?),
         id: input_id,
         name: name,
-        value: @value,
+        value: value,
         required: required?,
         "aria-invalid": error?,
         "aria-describedby": (error_id.to_s if error?)

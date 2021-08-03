@@ -5,7 +5,6 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     render_inline described_class.new(
       name: "example-input",
       label: "Example input",
-      value: value.presence,
       type: type.presence,
       options: options.presence
     )
@@ -13,7 +12,6 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
 
   let(:type) { :text }
   let(:options) { nil }
-  let(:value) { nil }
 
   it "renders the label" do
     expect(component.text.strip).to include("Example input")
@@ -44,7 +42,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   context "when a value is provided" do
-    let(:value) { "This is the value of the field" }
+    let(:options) { { value: "This is the value of the field"  } }
 
     it "renders the value" do
       expect(component.css("input").attribute("value").value).to eq "This is the value of the field"
