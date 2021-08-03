@@ -1,3 +1,6 @@
+**Bugfixes**
+- `TextInput` and `Textarea` components: allow consumers to specify a value (!)
+
 ## <sub>v4.2.0</sub>
 
 #### _Aug. 2, 2021_
