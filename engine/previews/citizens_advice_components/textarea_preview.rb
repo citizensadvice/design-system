@@ -10,7 +10,7 @@ module CitizensAdviceComponents
 
     def value
       render(
-        CitizensAdviceComponents::Textarea.new(name: "example-input-basic", label: "Example input", value: "Lorem ipsum dolor sit amet.")
+        CitizensAdviceComponents::Textarea.new(name: "example-input-value", label: "Example input", value: "Lorem ipsum dolor sit amet.")
       )
     end
 
