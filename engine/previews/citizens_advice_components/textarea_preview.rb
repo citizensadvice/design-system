@@ -8,6 +8,12 @@ module CitizensAdviceComponents
       )
     end
 
+    def value
+      render(
+        CitizensAdviceComponents::Textarea.new(name: "example-input-basic", label: "Example input", value: "Lorem ipsum dolor sit amet.")
+      )
+    end
+
     def hint
       render(
         CitizensAdviceComponents::Textarea.new(
