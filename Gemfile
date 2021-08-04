@@ -9,7 +9,7 @@ group :test do
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v3.0.0"
   gem "cucumber", "~> 6.1"
   gem "dotenv"
-  gem "faraday", "~> 1.5"
+  gem "faraday", "~> 1.6"
   gem "rake"
   gem "retriable", "~> 3.1"
   gem "rspec"
