@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/citizensadvice/ca_testing.git
-  revision: 1c7e22ced2f7d0d4ec5020ac6b7629546ebc492e
-  tag: v2.0.1
+  revision: aac3a55554cd604ed8b3b6922ab6623a28d013c4
+  tag: v2.1
   specs:
-    ca_testing (2.0.1)
+    ca_testing (2.1)
+      faraday (~> 1.0)
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
