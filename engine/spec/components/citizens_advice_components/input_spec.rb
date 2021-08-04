@@ -41,6 +41,14 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     expect(component.css("input").attribute("required")).to be_present
   end
 
+  context "when a value is provided" do
+    let(:options) { { value: "This is the value of the field" } }
+
+    it "renders the value" do
+      expect(component.css("input").attribute("value").value).to eq "This is the value of the field"
+    end
+  end
+
   context "when an error is present" do
     subject(:component) do
       render_inline described_class.new(

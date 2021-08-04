@@ -17,7 +17,7 @@ module CitizensAdviceComponents
     end
 
     def base_input_attributes
-      super.merge(rows: @rows)
+      super.merge(rows: @rows, value: nil)
     end
   end
 end
