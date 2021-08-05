@@ -1,7 +1,7 @@
 ---
 name: Bug
 about: Use this to file a bug report
-label: bug
+labels: bug
 ---
 
 ## Summary of problem
