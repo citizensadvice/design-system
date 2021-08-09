@@ -71,7 +71,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.2",
     "git-state": "^4.1.0",
-    "http-server": "^0.12.3",
+    "http-server": "^13.0.0",
     "inquirer": "^8.1.1",
     "jest": "^27.0.4",
     "jest-date-mock": "^1.0.8",
