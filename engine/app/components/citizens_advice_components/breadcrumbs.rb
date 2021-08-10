@@ -13,7 +13,7 @@ module CitizensAdviceComponents
     end
 
     def render?
-      @links.present?
+      @links.present? && @links.size > 1
     end
 
     def links

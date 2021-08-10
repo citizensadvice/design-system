@@ -63,6 +63,14 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     end
   end
 
+  context "when there is only one item" do
+    let(:links) { [{ title: "Home", url: "/" }] }
+
+    it "does not render" do
+      expect(component.css(".cads-breadcrumbs")).not_to be_present
+    end
+  end
+
   context "when no type is provided" do
     let(:type) { nil }
 
