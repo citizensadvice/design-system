@@ -1,5 +1,6 @@
 **Bugfixes**
 - `TextInput` and `Textarea` components: allow consumers to specify a value (!)
+- 🥖 Breadcrumbs: Don't render when there is only one item.
 
 ## <sub>v4.2.0</sub>
 
