@@ -7,11 +7,11 @@ GIT
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: 1f1bb85b4ad28254583a184dddc6b47dfeb5da7b
-  tag: v2.1.0
+  revision: bff99e2ce1bd8fdad45dd87e8827bdba2fbc9727
+  tag: v3.0.0
   specs:
-    citizens-advice-style (2.1.0)
-      rubocop (~> 1.11.0)
+    citizens-advice-style (3.0.0)
+      rubocop (~> 1.18.0)
 
 GEM
   remote: https://rubygems.org/
@@ -69,7 +69,7 @@ GEM
       cucumber-messages (~> 17.0, >= 17.0.1)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
-    faraday (1.5.1)
+    faraday (1.6.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -77,6 +77,7 @@ GEM
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
@@ -86,16 +87,8 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
     ffi (1.15.3)
-    haml (5.2.1)
-      temple (>= 0.8.0)
-      tilt
-    haml_lint (0.37.1)
-      haml (>= 4.0, < 5.3)
-      parallel (~> 1.10)
-      rainbow
-      rubocop (>= 0.50.0)
-      sysexits (~> 1.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     mime-types (3.3.1)
@@ -133,13 +126,13 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.11.0)
+    rubocop (1.18.4)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.2.0, < 2.0)
+      rubocop-ast (>= 1.8.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.8.0)
@@ -163,6 +156,8 @@ GEM
     sysexits (1.2.0)
     temple (0.8.2)
     tilt (2.0.10)
+    thor (1.1.0)
+    thread_safe (0.3.6)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -184,8 +179,7 @@ DEPENDENCIES
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv
-  faraday (~> 1.5)
-  haml_lint
+  faraday (~> 1.6)
   rake
   retriable (~> 3.1)
   rspec

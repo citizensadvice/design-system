@@ -7,6 +7,7 @@ import templateInputWithError from '../../examples/text_input/error.html';
 import templateInputFixedWidths from '../../examples/text_input/fixed_widths.html';
 import templateInputAdditionalAttributes from '../../examples/text_input/additional_attributes.html';
 import templateInputType from '../../examples/text_input/type.html';
+import templateInputValue from '../../examples/text_input/value.html';
 
 export default {
   title: 'Forms/Input',
@@ -42,4 +43,9 @@ Attributes.parameters = {
 export const Type = () => templateInputType;
 Type.parameters = {
   docs: { source: { code: templateInputType } },
+};
+
+export const Value = () => templateInputValue;
+Value.parameters = {
+  docs: { source: { code: templateInputValue } },
 };

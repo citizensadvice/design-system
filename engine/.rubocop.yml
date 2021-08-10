@@ -1,0 +1,31 @@
+inherit_gem:
+  citizens-advice-style:
+    - default.yml
+    - default-rails.yml
+
+require:
+  - rubocop-rspec
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']
+  Exclude:
+    # Previews often include lots of test data by design
+    # so we're not too worried about method length there
+    - 'previews/**/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    # Previews often include lots of test data by design
+    # so we're not too worried about block length there
+    - 'previews/**/*.rb'
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash']
+
+RSpec/ExampleLength:
+  CountAsOne: ['array', 'hash']
+
+# @FIXME
+Rails/I18nLocaleAssignment:
+  Exclude:
+    - 'spec/**/*.rb'

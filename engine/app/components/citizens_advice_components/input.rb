@@ -18,7 +18,7 @@ module CitizensAdviceComponents
     end
 
     def set_options(options)
-      return unless options.present?
+      return if options.blank?
 
       @error_message = options[:error_message]
       @hint = options[:hint]

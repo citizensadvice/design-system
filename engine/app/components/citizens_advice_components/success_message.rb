@@ -10,12 +10,7 @@ module CitizensAdviceComponents
     end
 
     def call
-      content_tag(
-        :p,
-        message,
-        class: "cads-success-message",
-        "aria-live": "polite"
-      )
+      tag.p(message, class: "cads-success-message", "aria-live": "polite")
     end
 
     def render?

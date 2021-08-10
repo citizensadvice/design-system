@@ -15,7 +15,7 @@ module CitizensAdviceComponents
     end
 
     def set_options(options)
-      return unless options.present?
+      return if options.blank?
 
       @error_message = options[:error_message]
       @hint = options[:hint]
@@ -70,7 +70,7 @@ module CitizensAdviceComponents
 
       def attributes(name)
         attrs = base_attributes(name)
-        return attrs unless @additional_attributes.present?
+        return attrs if @additional_attributes.blank?
 
         attrs.merge(@additional_attributes)
       end

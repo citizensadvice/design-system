@@ -17,11 +17,7 @@ module CitizensAdviceComponents
     end
 
     def call
-      content_tag(
-        :span,
-        t("citizens_advice_components.badge.#{type}"),
-        class: "cads-badge cads-badge--#{type}"
-      )
+      tag.span(t("citizens_advice_components.badge.#{type}"), class: "cads-badge cads-badge--#{type}")
     end
 
     def render?

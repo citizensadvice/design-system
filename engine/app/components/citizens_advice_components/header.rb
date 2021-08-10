@@ -59,7 +59,7 @@ module CitizensAdviceComponents
 
       def call
         if current_site?
-          content_tag :span, title, class: "cads-header__text"
+          tag.span(title, class: "cads-header__text")
         else
           link_to title, url, class: "cads-header__hyperlink"
         end
@@ -83,7 +83,7 @@ module CitizensAdviceComponents
         # Renders a block if provided to allow passing a custom form button,
         # otherwise renders a link based on title and url arguments.
         if content.present?
-          content_tag(:div, content, class: "cads-header__account-form", "data-testid": "account-link")
+          tag.div(content, class: "cads-header__account-form", "data-testid": "account-link")
         else
           tag.div(class: "cads-header__account-link") do
             link_to(title, url, "data-testid": "account-link")
