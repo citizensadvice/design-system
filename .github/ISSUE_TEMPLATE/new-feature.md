@@ -6,16 +6,16 @@ labels: proposed
 
 # Component title
 
-Please provide a summary / description of the component, including its purpose and where it is/might be used. Please also consider the following:
+Please provide a summary / description of the component, including its purpose and where it is/might be used.
 
 Please provide as much detail as you can. If you have any documents or evidence you want to submit, you can attach them to this issue.
 
-The design system working group is here to support you through the contribution process - to help them, please condsider the following:
+The design system working group is here to support you through the contribution process - to help them, please consider the following:
 
 - does your component need to be used by other products or services?
 - does something similar already exist in the design system
 - is there a product team that would perform the research, design, development and QA work associate with building this component?
-- do you have any user stories / scenarios that descibe the component?
+- do you have any user stories / scenarios that describe the component?
 
 ## Existing components
 
