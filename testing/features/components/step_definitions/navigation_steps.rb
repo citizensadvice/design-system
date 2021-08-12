@@ -9,10 +9,6 @@ Given("a Default Navigation component is on the page") do
     end
 end
 
-Given("the navigation does not fit on the screen") do
-  page.driver.browser.manage.window.resize_to(320, 568) unless device?
-end
-
 Given("a user is logged in") do
   @logged_in = true
 end

@@ -3,6 +3,7 @@
 When("I am able to tab through skip links") do |table|
   table.raw.first.each do |description|
     send_tabs(1)
+
     expect(@component.active_element.text).to eq(description)
   end
 end

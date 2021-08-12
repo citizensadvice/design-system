@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 module Helpers
-  module Page
-    include Helpers::Methods
+  module BrowserWindow
     include Helpers::EnvVariables
-    include Helpers::Javascript
 
     def resize_window(desired_width = width, desired_height = height)
       AutomationLogger.warn("Resizing Windows on Browserstack IE can be flaky!") if browserstack? && internet_explorer?
@@ -14,7 +12,7 @@ module Helpers
     def save_window_screenshot(scenario)
       path = image_file_path(scenario)
       AutomationLogger.info("Taking a screenshot to #{path}")
-      current_session.save_screenshot(path)
+      Capybara.current_session.save_screenshot(path)
       attach(path, "image/png")
     end
 
@@ -52,6 +50,10 @@ module Helpers
 
     def height(fallback: 800)
       ENV.fetch("BROWSER_HEIGHT", fallback)
+    end
+
+    def timestamp
+      Time.now.strftime("%Y-%m-%d-%H-%M-%S")
     end
   end
 end

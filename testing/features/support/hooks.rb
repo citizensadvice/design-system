@@ -8,7 +8,7 @@ Before do |test_case|
   CucumberInfo.test_case = test_case
   skip_this_scenario("Scenario is not permitted to run. See logs for details") if CucumberInfo.skip_scenario?
   resize_window unless device?
-  resize_window(320) if test_case.source_tag_names.include?("@small_screen") && !device?
+  resize_window(320, 568) if test_case.source_tag_names.include?("@small_screen") && !device?
   AutomationLogger.info("Running Scenario: #{test_case.name}")
   AutomationLogger.debug("BROWSERSTACK_CONFIGURATION_OPTIONS = #{ENV['BROWSERSTACK_CONFIGURATION_OPTIONS']}")
 end
