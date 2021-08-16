@@ -1,3 +1,6 @@
+**New**
+- 👤 Header: Support custom logo slot for providing product specific logos
+
 **Bugfixes**
 - `TextInput` and `Textarea` components: allow consumers to specify a value (!)
 - 🥖 Breadcrumbs: Don't render when there is only one item.
