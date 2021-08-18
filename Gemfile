@@ -6,7 +6,7 @@ ruby "2.7.3"
 
 group :test do
   gem "activesupport"
-  gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v2.0.1"
+  gem "ca_testing", github: "citizensadvice/ca_testing", tag: "v2.2"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v3.0.1"
   gem "cucumber", "~> 7.0"
   gem "dotenv"
