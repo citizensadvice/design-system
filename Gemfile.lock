@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: bff99e2ce1bd8fdad45dd87e8827bdba2fbc9727
-  tag: v3.0.0
+  revision: f679a6d482e2ad80eabc08962a52c74d49477c19
+  tag: v3.0.1
   specs:
-    citizens-advice-style (3.0.0)
+    citizens-advice-style (3.0.1)
       rubocop (~> 1.18.0)
 
 GEM
@@ -135,7 +135,7 @@ GEM
       rubocop-ast (>= 1.8.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.8.0)
+    rubocop-ast (1.10.0)
       parser (>= 3.0.1.1)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
