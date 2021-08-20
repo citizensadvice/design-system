@@ -1,3 +1,7 @@
+////
+/// @group Colour
+////
+
 $cads-palette__black: #161616;
 $cads-palette__blue-adviser: #006278;
 $cads-palette__blue-adviser-dark: #03495f;
@@ -6,7 +10,11 @@ $cads-palette__dark-grey: #4a4e4f;
 $cads-palette__green: #0a8600;
 $cads-palette__heritage-blue-40: #97a8cc;
 $cads-palette__heritage-blue-dark: #012760;
+
+/// Heritage blue
+/// @access public
 $cads-palette__heritage-blue: #004b88;
+
 $cads-palette__heritage-yellow-40: #fde5c4;
 $cads-palette__heritage-yellow: #fcbb69;
 $cads-palette__light-grey: #e5e5e5;

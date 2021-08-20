@@ -1,5 +1,15 @@
+////
+/// @group Colour
+////
+
+/// Primary brand colour
+/// @access public
 $cads-language__brand-primary: $cads-palette__heritage-blue !default;
+
+/// Secondary brand colour
+/// @access public
 $cads-language__brand-secondary: $cads-palette__heritage-yellow !default;
+
 $cads-language__brand-primary-contrast: $cads-palette__white !default;
 $cads-language__brand-adviser: $cads-palette__blue-adviser !default;
 $cads-language__text-colour: $cads-palette__black !default;

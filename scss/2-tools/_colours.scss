@@ -1,3 +1,10 @@
+////
+/// @group Colour
+////
+
+/// Mixed a 10% background colour based on the provided colour
+/// @param {String} $colour - Colour to convert
+/// @return {String} Mixed background colour
 @function cads-colour-to-bg($colour) {
   @return mix(rgb(red($colour), green($colour), blue($colour)), #fff, 10%);
 }
