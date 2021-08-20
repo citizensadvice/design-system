@@ -24,3 +24,7 @@ vendor/**/*
 # Keep nothing in these directories except the 'keep' files
 testing/artifacts/*
 !testing/artifacts/.keep
+
+# Sassdoc
+# Temporarily ignored, eventually we'll want to commit this
+/sassdoc/
