@@ -59,9 +59,7 @@
   }
 }
 
-///
-// Variant: No collapse
-///
+// Modifier: No collapse
 .cads-breadcrumbs--no-collapse {
   @include cads-media-breakpoint-only(sm) {
     .cads-breadcrumbs__crumb {

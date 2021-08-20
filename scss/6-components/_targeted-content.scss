@@ -27,17 +27,13 @@
   }
 }
 
-///
 // Modifier: Adviser
-///
 .cads-targeted-content--adviser {
   background-color: cads-colour-to-bg($cads-language__brand-adviser);
 }
 
-///
-// Modifier: Toggleabe
+// Modifier: Toggleable
 // Behaviour added when JavaScript is enabled
-///
 .cads-targeted-content--toggleable {
   .cads-targeted-content__title {
     // Unset padding and border as we need
@@ -82,10 +78,8 @@
   }
 }
 
-///
 // Modifier: Toggleable (Open)
 // Behaviour added when JavaScript is enabled
-///
 .cads-targeted-content--open {
   .cads-targeted-content__icon-vert {
     display: none;
