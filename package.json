@@ -75,7 +75,6 @@
     "inquirer": "^8.1.1",
     "jest": "^27.0.4",
     "jest-date-mock": "^1.0.8",
-    "js-beautify": "^1.14.0",
     "jsdom": "^16.5.3",
     "marked": "^2.1.0",
     "moment": "^2.29.1",
@@ -96,7 +95,6 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
-    "systemjs": "^6.10.1",
     "typescript": "^4.3.4",
     "url-polyfill": "^1.1.12"
   },
