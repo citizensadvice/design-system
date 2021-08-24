@@ -9,6 +9,5 @@ module.exports = {
         actions: false,
       },
     },
-    '@storybook/addon-a11y',
   ],
 };
