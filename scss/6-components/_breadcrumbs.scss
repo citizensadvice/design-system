@@ -1,8 +1,7 @@
 // can't extend a placeholder across selectors (media query) so use a mixin instead.
-@mixin cads-breadcrumb-arrow-right {
+@mixin cads-breadcrumb-arrow {
   @include cads-icon;
 
-  content: '\0041';
   color: $cads-language__input-border-colour;
   margin-right: calc(#{$cads-spacing-3} - 6px);
   font-size: 7px; // Fix size as this is a symbol
@@ -10,7 +9,7 @@
 
 /** @define breadcrumbs */
 .cads-breadcrumbs {
-  @include cads-restrict-content-width();
+  @include cads-restrict-content-width;
 
   padding: $cads-spacing-3 0 $cads-spacing-3 $cads-spacing-4;
   border-bottom: $cads-border-width-small solid $cads-language__border_colour;
@@ -32,7 +31,9 @@
     margin-left: $cads-spacing-3;
 
     + .cads-breadcrumbs__crumb::before {
-      @include cads-breadcrumb-arrow-right;
+      @include cads-breadcrumb-arrow;
+
+      content: '\0041';
     }
   }
 
@@ -47,7 +48,7 @@
       display: flex;
 
       &::before {
-        @include cads-breadcrumb-arrow-right();
+        @include cads-breadcrumb-arrow;
 
         align-self: center;
         content: '\0044';
@@ -73,8 +74,10 @@
         }
 
         &::before {
-          margin: 0 $cads-spacing-3;
-          @include cads-breadcrumb-arrow-right;
+          @include cads-breadcrumb-arrow;
+
+          margin-left: $cads-spacing-3;
+          content: '\0041';
         }
       }
     }
