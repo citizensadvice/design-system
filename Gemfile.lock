@@ -1,16 +1,17 @@
 GIT
   remote: https://github.com/citizensadvice/ca_testing.git
-  revision: 1c7e22ced2f7d0d4ec5020ac6b7629546ebc492e
-  tag: v2.0.1
+  revision: e8bb6f3fd335d814548f6369d18ca8da29d369d0
+  tag: v2.2
   specs:
-    ca_testing (2.0.1)
+    ca_testing (2.2)
+      faraday (~> 1.0)
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: bff99e2ce1bd8fdad45dd87e8827bdba2fbc9727
-  tag: v3.0.0
+  revision: f679a6d482e2ad80eabc08962a52c74d49477c19
+  tag: v3.0.1
   specs:
-    citizens-advice-style (3.0.0)
+    citizens-advice-style (3.0.1)
       rubocop (~> 1.18.0)
 
 GEM
@@ -69,7 +70,7 @@ GEM
       cucumber-messages (~> 17.0, >= 17.0.1)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
-    faraday (1.6.0)
+    faraday (1.7.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -135,7 +136,7 @@ GEM
       rubocop-ast (>= 1.8.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.8.0)
+    rubocop-ast (1.10.0)
       parser (>= 3.0.1.1)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
@@ -153,11 +154,6 @@ GEM
     site_prism-all_there (0.3.2)
     sys-uname (1.2.2)
       ffi (~> 1.1)
-    sysexits (1.2.0)
-    temple (0.8.2)
-    tilt (2.0.10)
-    thor (1.1.0)
-    thread_safe (0.3.6)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -179,7 +175,7 @@ DEPENDENCIES
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv
-  faraday (~> 1.6)
+  faraday (~> 1.7)
   rake
   retriable (~> 3.1)
   rspec

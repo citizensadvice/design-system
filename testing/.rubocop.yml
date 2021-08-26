@@ -6,8 +6,6 @@ inherit_gem:
 
 AllCops:
   SuggestExtensions: false
-  Exclude:
-    - 'vendor/**/*'
 
 Metrics/MethodLength:
   CountAsOne: ['array', 'hash']

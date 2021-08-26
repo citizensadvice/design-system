@@ -1,12 +1,12 @@
-# Design system
+# Citizens Advice Design system
 
 [![Continuous Integration](https://github.com/citizensadvice/design-system/actions/workflows/ci-workflow.yml/badge.svg)](https://github.com/citizensadvice/design-system/actions/workflows/ci-workflow.yml) [![BrowserStack](https://github.com/citizensadvice/design-system/actions/workflows/browserstack-workflow.yml/badge.svg?event=page_build)](https://github.com/citizensadvice/design-system/actions/workflows/browserstack-workflow.yml)
 
-New Platform Design System. The styleguide is hosted here: https://citizensadvice.github.io/design-system/
+[View the documentation site](https://citizensadvice.github.io/design-system/)
 
 ## Getting started
 
-See the [Getting started](https://citizensadvice.github.io/design-system/?path=/docs/getting-started--page) guide in Storybook.
+You can check out the [getting started guide](https://citizensadvice.github.io/design-system/?path=/docs/getting-started--page) for a quick start.
 
 ## Build & contributing
 
