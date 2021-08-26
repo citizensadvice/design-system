@@ -1,10 +1,11 @@
 // can't extend a placeholder across selectors (media query) so use a mixin instead.
 @mixin cads-breadcrumb-arrow-right {
+  @include cads-icon;
+
+  content: '\0041';
   color: $cads-language__input-border-colour;
-  content: '\203A';
   margin-right: $cads-spacing-3;
-  font-size: 18px; // Fix size as this is a symbol
-  float: left; // Suppress inline spacings and underlining of the separator
+  font-size: 8px; // Fix size as this is a symbol
 }
 
 /** @define breadcrumbs */
