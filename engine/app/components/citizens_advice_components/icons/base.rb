@@ -10,6 +10,7 @@ module CitizensAdviceComponents
 
       def size
         return if @size.blank?
+
         size
       end
     end
