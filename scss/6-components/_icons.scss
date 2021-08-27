@@ -1,0 +1,15 @@
+svg {
+  &.cads-icon {
+    fill: $cads-language__brand-primary;
+  }
+
+  &.cads-icon--small {
+    height: 16px;
+    width: 16px;
+  }
+
+  &.cads-icon--large {
+    height: 24px;
+    width: 24px;
+  }
+}
