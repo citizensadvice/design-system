@@ -1,0 +1,17 @@
+%table
+  %thead
+    %tr 
+      %th
+        Component class
+      %th
+        Small
+      %th
+        Large
+  %tbody
+    %tr
+      %td
+        Plus
+      %td
+        = render CitizensAdviceComponents::Icons::Plus.new(size: :small)
+      %td
+        = render CitizensAdviceComponents::Icons::Plus.new(size: :large)
