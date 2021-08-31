@@ -1,3 +1,7 @@
+## <sub>v4.3.0-alpha.0</sub>
+
+#### _Aug. 31, 2021_
+
 **New**
 - 👤 Header: Support custom logo slot for providing product specific logos
 
