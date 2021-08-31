@@ -15,6 +15,16 @@ updates:
     open-pull-requests-limit: 10
     target-branch: 'master'
 
+  - package-ecosystem: bundler
+    directory: '/demo'
+    schedule:
+      interval: monthly
+      timezone: Europe/London
+    labels:
+      - 'ruby dependencies'
+    open-pull-requests-limit: 10
+    target-branch: 'master'
+
   - package-ecosystem: npm
     directory: '/'
     schedule:
