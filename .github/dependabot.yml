@@ -9,31 +9,16 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-      timezone: Europe/London
-    labels:
-      - 'ruby dependencies'
-    open-pull-requests-limit: 10
-    target-branch: 'master'
 
   - package-ecosystem: bundler
     directory: '/demo'
     schedule:
       interval: monthly
-      timezone: Europe/London
-    labels:
-      - 'ruby dependencies'
-    open-pull-requests-limit: 10
-    target-branch: 'master'
 
   - package-ecosystem: npm
     directory: '/'
     schedule:
       interval: weekly
-      timezone: Europe/London
-    open-pull-requests-limit: 10
-    labels:
-      - 'npm dependencies'
-    target-branch: 'master'
     ignore:
       # Requires webpack v5 but storybook bundles v4
       - dependency-name: 'sass-loader'
@@ -43,8 +28,3 @@ updates:
     directory: '/testing'
     schedule:
       interval: weekly
-      timezone: Europe/London
-    open-pull-requests-limit: 10
-    labels:
-      - 'npm dependencies'
-    target-branch: 'master'
