@@ -7,6 +7,13 @@ GIT
       faraday (~> 1.0)
 
 GIT
+  remote: https://github.com/citizensadvice/capybara_accessible_selectors.git
+  revision: 288aa63d36b7632dabe5b6b7560aec3548f76e63
+  specs:
+    capybara_accessible_selectors (0.4.2)
+      capybara (~> 3)
+
+GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
   revision: f679a6d482e2ad80eabc08962a52c74d49477c19
   tag: v3.0.1
@@ -99,6 +106,8 @@ GEM
     minitest (5.14.4)
     multi_test (0.1.2)
     multipart-post (2.1.1)
+    nokogiri (1.12.4-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
     parallel (1.20.1)
@@ -167,11 +176,13 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
   activesupport
   ca_testing!
+  capybara_accessible_selectors!
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv

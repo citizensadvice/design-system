@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+DISCLOSURE_TITLE = "If you are a citizen of a country outside the EU, EEA or Switzerland"
+
 Given("a default targeted content component is on the page") do
   @component = TargetedContent::Default.new.tap(&:load)
 end
@@ -21,7 +23,7 @@ When("I expand/collapse the targeted content") do
 end
 
 When("I close the targeted content") do
-  @component.additional_information.close.click
+  toggle_disclosure(DISCLOSURE_TITLE)
 end
 
 When("I jump to the targeted content") do
