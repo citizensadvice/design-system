@@ -19,7 +19,7 @@ Given("a fallback targeted content component is on the page") do
 end
 
 When("I expand/collapse the targeted content") do
-  @component.heading.expand_collapse.click
+  toggle_disclosure(DISCLOSURE_TITLE)
 end
 
 When("I close the targeted content") do
@@ -31,7 +31,7 @@ When("I jump to the targeted content") do
 end
 
 Then("a targeted content title is present") do
-  expect(@component).to have_heading
+  expect(@component).to have_disclosure_button(DISCLOSURE_TITLE)
 end
 
 Then("the toggle button indicates it will expand") do
@@ -49,7 +49,9 @@ Then("the toggle button indicates it will collapse") do
 end
 
 Then("I can see additional information") do
-  expect(@component).to have_additional_information
+  within_disclosure(DISCLOSURE_TITLE) do
+    expect(@component).to have_text "You should apply to the EU Settlement Scheme if both:"
+  end
 end
 
 Then("I can no longer see additional information") do
