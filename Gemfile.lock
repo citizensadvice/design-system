@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/citizensadvice/ca_testing.git
-  revision: e8bb6f3fd335d814548f6369d18ca8da29d369d0
-  tag: v2.2
+  revision: c7639ce9b9111817e1e594dff2255a55268bdd4b
+  tag: v3.0.1
   specs:
-    ca_testing (2.2)
+    ca_testing (3.0.1)
       faraday (~> 1.0)
 
 GIT
