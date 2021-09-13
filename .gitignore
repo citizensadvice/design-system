@@ -28,3 +28,7 @@ testing/artifacts/*
 # Sassdoc
 # Temporarily ignored, eventually we'll want to commit this
 /sassdoc/
+
+# Yard
+/engine/.yardoc/
+/engine/doc/
