@@ -11,7 +11,6 @@ lib/
 # Ignore testing artifacts
 testing/artifacts/
 testing/visual-regression/backstop_data/
-testing/wcag/
 testing/cucumber.yml
 
 # Ignore locale files from prettier
