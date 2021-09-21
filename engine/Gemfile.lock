@@ -121,6 +121,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    kwalify (0.7.2)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -176,6 +177,10 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.6)
+    reek (6.0.6)
+      kwalify (~> 0.7.0)
+      parser (~> 3.0.0)
+      rainbow (>= 2.0, < 4.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
     rspec (3.10.0)
@@ -257,6 +262,7 @@ DEPENDENCIES
   haml_lint
   i18n-tasks
   pry (~> 0.14.1)
+  reek (~> 6.0)
   rspec
   rspec-rails
   rspec-snapshot (~> 2.0)

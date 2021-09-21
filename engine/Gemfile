@@ -9,6 +9,7 @@ group :development, :test do
   gem "haml_lint"
   gem "i18n-tasks"
   gem "pry", "~> 0.14.1"
+  gem "reek", "~> 6.0"
   gem "rspec"
   gem "rspec-rails"
   gem "rspec-snapshot", "~> 2.0"
