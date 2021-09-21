@@ -1,22 +1,24 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component do
-  subject(:instance) { test_class.new }
-
-  let(:test_class) do
+  subject(:test_class) do
     Class.new do
       include CitizensAdviceComponents::FetchOrFallbackHelper
+
+      attr_reader :type
+
+      def initialize(type:)
+        @type = fetch_or_fallback(
+          allowed_values: %i[adviser example important],
+          given_value: type,
+          fallback: :adviser
+        )
+      end
     end
   end
 
   it "fetches value when in allowed_values" do
-    expect(
-      instance.fetch_or_fallback(
-        allowed_values: %i[adviser example important],
-        given_value: :adviser,
-        fallback: nil
-      )
-    ).to eq :adviser
+    expect(test_class.new(type: :example).type).to eq :example
   end
 
   context "with production rails env" do
@@ -26,12 +28,7 @@ RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component
 
     it "returns fallback when not in allowed_values" do
       [0, nil, "1", "one", false, true].each do |given_value|
-        result = instance.fetch_or_fallback(
-          allowed_values: [1, 2, 3],
-          given_value: given_value,
-          fallback: 2
-        )
-        expect(result).to eq 2
+        expect(test_class.new(type: given_value).type).to eq :adviser
       end
     end
   end
@@ -43,11 +40,7 @@ RSpec.describe CitizensAdviceComponents::FetchOrFallbackHelper, type: :component
 
     it "raises error in non-production environments" do
       expect do
-        instance.fetch_or_fallback(
-          allowed_values: %i[adviser example important],
-          given_value: :not_allowed,
-          fallback: nil
-        )
+        test_class.new(type: :not_allowed)
       end.to raise_error(CitizensAdviceComponents::FetchOrFallbackHelper::InvalidValueError)
     end
   end

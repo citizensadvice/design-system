@@ -18,6 +18,8 @@ module CitizensAdviceComponents
   module FetchOrFallbackHelper
     mattr_accessor :fallback_raises, default: true
 
+    module_function
+
     InvalidValueError = Class.new(StandardError)
 
     def fetch_or_fallback(allowed_values:, given_value:, fallback: nil) # rubocop:disable Metrics/MethodLength
@@ -39,7 +41,7 @@ module CitizensAdviceComponents
       end
     end
 
-    def fetch_or_fallback_boolean(given_value, fallback: false)
+    def fetch_or_fallback_boolean(given_value, fallback:)
       if [true, false].include?(given_value)
         given_value
       else

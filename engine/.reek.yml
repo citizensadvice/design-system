@@ -8,7 +8,6 @@ detectors:
       - CitizensAdviceComponents::Header::HeaderLink#initialize
       - CitizensAdviceComponents::Pagination::PaginationLink#initialize
       - CitizensAdviceComponents::RadioGroup::RadioButton#initialize
-      - CitizensAdviceComponents::FetchOrFallbackHelper#fetch_or_fallback_boolean
   ControlParameter:
     exclude:
       - CitizensAdviceComponents::Footer#initialize
@@ -59,7 +58,6 @@ detectors:
       - CitizensAdviceComponents::TargetedContent
       - CitizensAdviceComponents::TextInput
       - CitizensAdviceComponents::Textarea
-      - CitizensAdviceComponents::FetchOrFallbackHelper::InvalidValueError
       - TestHelpers
       - CitizensAdviceComponents::Engine
       - CitizensAdviceComponents
@@ -112,6 +110,5 @@ detectors:
   UtilityFunction:
     exclude:
       - CitizensAdviceComponents::Textarea#format_rows
-      - CitizensAdviceComponents::FetchOrFallbackHelper#fetch_or_fallback_boolean
       - generate_columns
       - TestHelpers#without_fetch_or_fallback_raises
