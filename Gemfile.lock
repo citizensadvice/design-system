@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/citizensadvice/ca_testing.git
-  revision: f8040a5c55c4dc0cfd7f06cb3f651b94780f2e77
-  tag: v3.0
+  revision: a80aa6956d5907747a698bd99c2f576c3aa0cea7
+  tag: v3.0.2
   specs:
-    ca_testing (3.0)
+    ca_testing (3.0.2)
       faraday (~> 1.0)
 
 GIT
@@ -62,7 +62,7 @@ GEM
       cucumber-messages (~> 17.0, >= 17.0.1)
     cucumber-html-formatter (16.0.1)
       cucumber-messages (~> 17.0, >= 17.0.1)
-    cucumber-messages (17.1.0)
+    cucumber-messages (17.1.1)
     cucumber-tag-expressions (3.0.1)
     cucumber-wire (6.1.1)
       cucumber-core (~> 10.0, >= 10.0.1)
@@ -70,7 +70,7 @@ GEM
       cucumber-messages (~> 17.0, >= 17.0.1)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
-    faraday (1.7.2)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -149,9 +149,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
       websocket (~> 1.0)
-    site_prism (3.7.2)
-      addressable (~> 2.5)
-      capybara (~> 3.8)
+    site_prism (3.7.3)
+      addressable (~> 2.6)
+      capybara (~> 3.15)
       site_prism-all_there (>= 0.3.1, < 1.0)
     site_prism-all_there (0.3.2)
     sys-uname (1.2.2)
