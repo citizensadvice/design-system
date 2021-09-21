@@ -70,7 +70,7 @@ GEM
       cucumber-messages (~> 17.0, >= 17.0.1)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
-    faraday (1.7.1)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -175,7 +175,7 @@ DEPENDENCIES
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv
-  faraday (~> 1.7)
+  faraday (~> 1.8)
   rake
   retriable (~> 3.1)
   rspec
