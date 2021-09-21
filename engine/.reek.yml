@@ -33,9 +33,6 @@ detectors:
     exclude:
       - CitizensAdviceComponents::Input#set_options
       - CitizensAdviceComponents::RadioGroup#set_options
-  UtilityFunction:
-    exclude:
-      - CitizensAdviceComponents::Textarea#format_rows
 exclude_paths:
   - previews/
   - spec/
