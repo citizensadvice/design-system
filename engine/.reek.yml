@@ -19,9 +19,6 @@ detectors:
       - CitizensAdviceComponents::Pagination#initialize
       - CitizensAdviceComponents::Search#initialize
       - CitizensAdviceComponents::TargetedContent#initialize
-  DuplicateMethodCall:
-    exclude:
-      - CitizensAdviceComponents::Pagination#page_num_range
   InstanceVariableAssumption:
     exclude:
       - CitizensAdviceComponents::Input

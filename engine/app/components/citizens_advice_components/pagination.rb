@@ -77,13 +77,13 @@ module CitizensAdviceComponents
     end
 
     def page_num_range
-      if @current_page > 3 && @num_pages > 3
-        min = @current_page - 2
-        max = (@current_page + 2).clamp(1, @num_pages)
-      else
-        min = 1
-        max = @num_pages > 3 ? 3 : @num_pages
-      end
+      min = [@current_page - 2, 1].max
+
+      max = if @current_page > 3 && @num_pages > 3
+              (@current_page + 2).clamp(1, @num_pages)
+            else
+              [@num_pages, 3].min
+            end
 
       min..max
     end
