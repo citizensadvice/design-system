@@ -20,7 +20,7 @@ env:
   # See https://github.com/actions/setup-node/pull/239
   # Maybe we could use https://github.com/guardian/actions-setup-node directly in the meantime?
   NODE_VERSION: '14'
-  RUBY_VERSION: '2.7.3'
+  RUBY_VERSION: '2.7.4'
 
 jobs:
   node-test:
