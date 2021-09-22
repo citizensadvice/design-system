@@ -1,6 +1,5 @@
 <div class="cads-table-container">
-<table class="cads-table cads-table--captioned">
-<caption>I am a nice table</caption>
+<table class="cads-table">
 <tbody>
 <thead>
 <tr>
