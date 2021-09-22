@@ -1,12 +1,22 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Table, type: :component do
+  let(:sample_header) do
+    ["Your location", "Post box collection times"]
+  end
+
+  let(:sample_rows) do
+    [
+      ["City or town", "9am to 6.30pm"],
+      ["Areas with lots of businesses - known as commercial", "9am to 7.30pm"],
+      ["Very rural areas - for example, where there aren't many people", "9am to 4pm"],
+      ["Rest of the UK", "9am to 5.30pm"]
+    ]
+  end
+
   context "when missing headers" do
     subject(:component) do
-      described_class.new(
-        header: [],
-        rows: [["Cell 1", "Cell 2"]]
-      )
+      described_class.new(header: [], rows: sample_rows)
     end
 
     it "does not render" do
@@ -17,10 +27,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
 
   context "when missing rows" do
     subject(:component) do
-      described_class.new(
-        header: ["Header 1", "Header 2"],
-        rows: []
-      )
+      described_class.new(header: sample_header, rows: [])
     end
 
     it "does not render" do
@@ -32,13 +39,8 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
   context "when valid table" do
     subject(:component) do
       described_class.new(
-        header: ["Your location", "Post box collection times"],
-        rows: [
-          ["City or town", "9am to 6.30pm"],
-          ["Areas with lots of businesses - known as commercial", "9am to 7.30pm"],
-          ["Very rural areas - for example, where there aren't many people", "9am to 4pm"],
-          ["Rest of the UK", "9am to 5.30pm"]
-        ]
+        header: sample_header,
+        rows: sample_rows
       )
     end
 
@@ -50,8 +52,8 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
   context "when a caption is present" do
     subject(:component) do
       described_class.new(
-        header: ["Header 1", "Header 1"],
-        rows: [["Cell 1", "Cell 2"]],
+        header: sample_header,
+        rows: sample_rows,
         caption: "Example caption"
       )
     end
@@ -59,6 +61,19 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
     it "renders a caption" do
       render_inline component
       expect(rendered_component).to have_css "caption", text: "Example caption"
+    end
+  end
+
+  context "when additional empty rows" do
+    subject(:component) do
+      described_class.new(
+        header: sample_header,
+        rows: sample_rows.concat([["", ""], ["", ""], ["", ""]])
+      )
+    end
+
+    it "strips empty rows" do
+      expect(render_inline(component).to_html).to match_snapshot("table")
     end
   end
 end
