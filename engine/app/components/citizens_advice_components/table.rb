@@ -12,7 +12,11 @@ module CitizensAdviceComponents
     end
 
     def caption?
-      @caption.present?
+      caption.present?
+    end
+
+    def render?
+      header.present? && rows.present?
     end
   end
 end
