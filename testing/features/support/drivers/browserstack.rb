@@ -22,7 +22,7 @@ module Drivers
 
       require "selenium/webdriver/common/platform"
 
-      CaTesting::Drivers::Browserstack.new(browser, configurable_capabilities).register
+      CaTesting::Drivers::Browserstack.new(browser, configurable_capabilities, device_options).register
     end
 
     def validate_driver_request
@@ -44,12 +44,21 @@ module Drivers
     def configurable_capabilities
       {
         build_name: PayloadValuesGenerator.build_name,
-        project_name: "Design System tests",
+        project_name: "Public-Website tests",
         session_name: PayloadValuesGenerator.session_name,
         browserstack_debug_mode: browserstack_debug_mode,
         username: browserstack_username,
         api_key: browserstack_api_key,
         config: browserstack_configuration_options
+      }
+    end
+
+    def device_options
+      return unless device?
+
+      {
+        device_name: browserstack_os,
+        os_version: browserstack_os_version
       }
     end
 

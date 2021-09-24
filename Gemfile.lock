@@ -99,6 +99,8 @@ GEM
     minitest (5.14.4)
     multi_test (0.1.2)
     multipart-post (2.1.1)
+    nokogiri (1.12.4-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
     parallel (1.21.0)
