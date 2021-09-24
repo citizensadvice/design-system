@@ -44,7 +44,7 @@ module Drivers
     def configurable_capabilities
       {
         build_name: PayloadValuesGenerator.build_name,
-        project_name: "Public-Website tests",
+        project_name: "Design System tests",
         session_name: PayloadValuesGenerator.session_name,
         browserstack_debug_mode: browserstack_debug_mode,
         username: browserstack_username,
