@@ -6,11 +6,7 @@ module CitizensAdviceComponents
     renders_many :header_links, "HeaderLink"
 
     renders_one :account_link, "AccountLink"
-
-    renders_one :logo, lambda { |title:, url: "/"|
-      link_to("", url, title: title, class: "cads-logo")
-    }
-
+    renders_one :logo, "HeaderLogo"
     renders_one :search_form, "HeaderSearch"
 
     def render?
@@ -36,6 +32,22 @@ module CitizensAdviceComponents
           url: "#cads-footer"
         )
       ]
+    end
+
+    class HeaderLogo < Base
+      attr_reader :title, :url
+
+      def initialize(title: nil, url: "/")
+        super
+        @title = title
+        @url = url
+      end
+
+      def call
+        # Renders a block if provided to allow passing a custom logo SVG,
+        # otherwise renders the standard logo.
+        content.presence || link_to("", url, title: title, class: "cads-logo")
+      end
     end
 
     class SkipLink

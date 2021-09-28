@@ -8,11 +8,11 @@ GIT
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: f679a6d482e2ad80eabc08962a52c74d49477c19
-  tag: v3.0.1
+  revision: 8786246af8134b7efa1e800b56236186c6f68f7a
+  tag: v4.1.0
   specs:
-    citizens-advice-style (3.0.1)
-      rubocop (~> 1.18.0)
+    citizens-advice-style (4.1.0)
+      rubocop (~> 1.21.0)
 
 GEM
   remote: https://rubygems.org/
@@ -70,7 +70,7 @@ GEM
       cucumber-messages (~> 17.0, >= 17.0.1)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
-    faraday (1.7.0)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -95,13 +95,13 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0704)
-    mini_mime (1.1.0)
+    mini_mime (1.1.1)
     minitest (5.14.4)
     multi_test (0.1.2)
     multipart-post (2.1.1)
-    nokogiri (1.11.7-x86_64-linux)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
-    parallel (1.20.1)
+    parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
@@ -127,16 +127,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.18.4)
+    rubocop (1.21.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.8.0, < 2.0)
+      rubocop-ast (>= 1.9.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.10.0)
+    rubocop-ast (1.11.0)
       parser (>= 3.0.1.1)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
@@ -147,7 +147,7 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
       websocket (~> 1.0)
-    site_prism (3.7.1)
+    site_prism (3.7.2)
       addressable (~> 2.5)
       capybara (~> 3.8)
       site_prism-all_there (>= 0.3.1, < 1.0)
@@ -156,8 +156,8 @@ GEM
       ffi (~> 1.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.0.0)
-    webdrivers (4.6.0)
+    unicode-display_width (2.1.0)
+    webdrivers (4.6.1)
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
@@ -175,7 +175,7 @@ DEPENDENCIES
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv
-  faraday (~> 1.7)
+  faraday (~> 1.8)
   rake
   retriable (~> 3.1)
   rspec
@@ -185,7 +185,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 2.7.3p183
+   ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.19
+   2.2.24

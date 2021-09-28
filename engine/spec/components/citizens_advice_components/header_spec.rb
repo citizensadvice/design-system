@@ -12,20 +12,34 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
   end
 
   describe "logo slot" do
-    subject(:logo) { component.at(".cads-logo") }
+    context "with default logo" do
+      subject(:logo) { component.at(".cads-logo") }
 
-    let(:component) do
-      render_inline(described_class.new) do |c|
-        c.logo(title: "Logo title", url: "/homepage")
+      let(:component) do
+        render_inline(described_class.new) do |c|
+          c.logo(title: "Logo title", url: "/homepage")
+        end
+      end
+
+      it "has expected title" do
+        expect(logo.attr("title")).to eq "Logo title"
+      end
+
+      it "has expected href" do
+        expect(logo.attr("href")).to eq "/homepage"
       end
     end
 
-    it "has expected title" do
-      expect(logo.attr("title")).to eq "Logo title"
-    end
+    context "with custom block" do
+      subject(:component) do
+        render_inline(described_class.new) do |c|
+          c.logo { "Custom logo HTML" }
+        end
+      end
 
-    it "has expected href" do
-      expect(logo.attr("href")).to eq "/homepage"
+      it "renders custom block" do
+        expect(component.text).to include "Custom logo HTML"
+      end
     end
   end
 

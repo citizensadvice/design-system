@@ -20,6 +20,15 @@ module CitizensAdviceComponents
       end
     end
 
+    def with_custom_logo
+      render_with_template(
+        locals: {
+          skip_links: skip_links,
+          header_links: header_links
+        }
+      )
+    end
+
     def with_custom_account_link
       render_with_template(
         locals: {
