@@ -1,17 +1,41 @@
-%table
-  %thead
-    %tr
-      %th
-        Component class
-      %th
-        Small
-      %th
-        Large
-  %tbody
-    %tr
-      %td
-        ArrowDown
-      %td
-        = render CitizensAdviceComponents::Icons::ArrowDown.new(size: :small)
-      %td
-        = render CitizensAdviceComponents::Icons::ArrowDown.new(size: :large)
+.cads-grid-container
+  .cads-grid-row 
+    .cads-grid-col-8
+      %table.cads-table
+        %thead
+          %tr
+            %th
+              Component class
+            %th
+              Small
+            %th
+              Large
+        %tbody
+          %tr
+            %td
+              ArrowDown
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowDown.new(size: :small)
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowDown.new(size: :large)
+          %tr
+            %td
+              ArrowLeft
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowLeft.new(size: :small)
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowLeft.new(size: :large)
+          %tr
+            %td
+              ArrowRight
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowRight.new(size: :small)
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowRight.new(size: :large)
+          %tr
+            %td
+              ArrowUp
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowUp.new(size: :small)
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowUp.new(size: :large)
