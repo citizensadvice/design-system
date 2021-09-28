@@ -27,6 +27,7 @@ module TestHelpers
 end
 
 RSpec.configure do |config|
+  config.include ActiveSupport::Testing::TimeHelpers
   config.include ViewComponent::TestHelpers, type: :component
   config.include TestHelpers
 
