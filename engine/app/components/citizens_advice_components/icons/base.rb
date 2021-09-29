@@ -5,9 +5,10 @@ module CitizensAdviceComponents
     class Base < CitizensAdviceComponents::Base
       attr_reader :size
       
-      def initialize(size: nil)
+      def initialize(size: nil, icon_name: nil)
         super
         @size = fetch_or_fallback(allowed_values: [nil, :small, :large], given_value: size, fallback: nil)
+        @icon_name = icon_name
       end
 
       def css_classes
@@ -15,7 +16,7 @@ module CitizensAdviceComponents
       end
 
       def human_class_name
-        self.class.name.demodulize.underscore.dasherize
+        @icon_name.demodulize.underscore.dasherize
       end
     end
   end
