@@ -1,3 +1,8 @@
+**Bugfixes**
+
+- 🧂 Tables: Added render guards for missing headers and empty rows
+
+
 ## <sub>v4.3.0-alpha.0</sub>
 
 #### _Aug. 31, 2021_
