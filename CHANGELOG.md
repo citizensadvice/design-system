@@ -1,3 +1,8 @@
+**New**
+
+- 🥾 Footer: Supports dynamic copyright year
+
+
 ## <sub>v4.3.0-alpha.0</sub>
 
 #### _Aug. 31, 2021_
