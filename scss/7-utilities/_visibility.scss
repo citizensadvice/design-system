@@ -1,3 +1,6 @@
+@use '../1-settings/breakpoints' as breakpoint-settings;
+@use '../2-tools/breakpoints' as breakpoint-tools;
+
 .cads-hide {
   display: none !important;
 }
@@ -29,12 +32,12 @@
   }
 }
 
-@each $name, $breakpoint in $cads-breakpoints {
+@each $name, $breakpoint in breakpoint-settings.$cads-breakpoints {
   @if $name != 'sm' {
     .cads-show-#{$name}-up {
       display: none !important;
 
-      @include cads-media-breakpoint-up($name) {
+      @include breakpoint-tools.cads-media-breakpoint-up($name) {
         display: inherit !important;
       }
     }
@@ -42,7 +45,7 @@
     .cads-show-#{$name}-down {
       display: inherit !important;
 
-      @include cads-media-breakpoint-up($name) {
+      @include breakpoint-tools.cads-media-breakpoint-up($name) {
         display: none !important;
       }
     }
@@ -50,13 +53,13 @@
     .cads-show-#{$name}-only {
       display: none !important;
 
-      @include cads-media-breakpoint-only($name) {
+      @include breakpoint-tools.cads-media-breakpoint-only($name) {
         display: inherit !important;
       }
     }
 
     .cads-hide-#{$name}-up {
-      @include cads-media-breakpoint-up($name) {
+      @include breakpoint-tools.cads-media-breakpoint-up($name) {
         display: none !important;
       }
     }
@@ -64,13 +67,13 @@
     .cads-hide-#{$name}-down {
       display: none !important;
 
-      @include cads-media-breakpoint-up($name) {
+      @include breakpoint-tools.cads-media-breakpoint-up($name) {
         display: inherit !important;
       }
     }
 
     .cads-hide-#{$name}-only {
-      @include cads-media-breakpoint-only($name) {
+      @include breakpoint-tools.cads-media-breakpoint-only($name) {
         display: none !important;
       }
     }

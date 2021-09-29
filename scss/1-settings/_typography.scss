@@ -1,5 +1,7 @@
+@use '../1-settings/colour-palette' as palette;
+
 $cads-font-family: 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif;
 $cads-font-size: 16px;
 $cads-font-weight__regular: 400;
 $cads-font-weight__bold: 700;
-$cads-font-colour__headings: $cads-palette__black !default;
+$cads-font-colour__headings: palette.$cads-palette__black !default;
