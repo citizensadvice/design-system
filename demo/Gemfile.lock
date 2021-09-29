@@ -111,7 +111,7 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     nio4r (2.5.8)
-    nokogiri (1.12.4)
+    nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     pry (0.14.1)
@@ -214,7 +214,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.7.3p183
+   ruby 2.7.4p191
 
 BUNDLED WITH
-   2.1.4
+   2.2.24

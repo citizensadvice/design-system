@@ -1,7 +1,10 @@
+**New**
+
+- 🥾 Footer: Supports dynamic copyright year
+
 **Bugfixes**
 
 - 🧂 Tables: Added render guards for missing headers and empty rows
-
 
 ## <sub>v4.3.0-alpha.0</sub>
 

@@ -12,6 +12,10 @@ module CitizensAdviceComponents
       @feedback_url = feedback_url
     end
 
+    def current_year
+      Time.zone.today.year
+    end
+
     def columns_to_show
       columns.take(4)
     end
