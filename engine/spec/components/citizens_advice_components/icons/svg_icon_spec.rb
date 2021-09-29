@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::Icons::Base, type: :component do
+RSpec.describe CitizensAdviceComponents::Icons::SvgIcon, type: :component do
   subject(:component) do
     render_inline described_class.new(
       size: size.presence,
-      icon_name: "CitizensAdviceComponents::Icons::MyGreatIcon"
+      icon_name: "my-great-icon"
     )
   end
 
