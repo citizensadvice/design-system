@@ -1,0 +1,19 @@
+= render CitizensAdviceComponents::Button.new do |c|
+  Example button
+  - c.icon_right do
+    = render CitizensAdviceComponents::Icons::ArrowRight.new(size: :small)
+
+= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c|
+  Example button
+  - c.icon_right do
+    = render CitizensAdviceComponents::Icons::ArrowRight.new(size: :small)
+
+= render CitizensAdviceComponents::Button.new do |c|
+  Example button
+  - c.icon_left do
+    = render CitizensAdviceComponents::Icons::ArrowLeft.new(size: :small)
+
+= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c|
+  Example button
+  - c.icon_left do
+    = render CitizensAdviceComponents::Icons::ArrowLeft.new(size: :small)

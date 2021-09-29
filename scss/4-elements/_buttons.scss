@@ -67,6 +67,13 @@ $button-shadow-size: 4px;
   &:active {
     border-color: $cads-language__primary-button-hover-colour;
   }
+
+  .cads-icon {
+    fill: currentColor;
+    // Optically align icons in buttons
+    position: relative;
+    top: 2px;
+  }
 }
 
 /**
