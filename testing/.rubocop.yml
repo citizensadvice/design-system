@@ -11,7 +11,6 @@ Metrics/MethodLength:
   CountAsOne: ['array', 'hash']
   Exclude:
     - 'engine/previews/**/*.rb'
-    - 'testing/features/support/drivers/browserstack/base.rb'
 
 Metrics/BlockLength:
   Exclude:

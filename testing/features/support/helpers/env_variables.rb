@@ -62,16 +62,20 @@ module Helpers
       ENV.fetch("TESTING_BASE_URL")
     end
 
+    def browserstack_configuration_options
+      ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS")
+    end
+
     def browserstack_os
-      ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[0]
+      browserstack_configuration_options.split("_")[0]
     end
 
     def browserstack_os_version
-      ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[1]
+      browserstack_configuration_options.split("_")[1]
     end
 
     def browserstack_browser_version
-      ENV.fetch("BROWSERSTACK_CONFIGURATION_OPTIONS").split("_")[2]
+      browserstack_configuration_options.split("_")[2]
     end
 
     def ios13?
