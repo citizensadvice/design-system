@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   class Table < Base
-    attr_reader :header, :rows, :caption
+    attr_reader :header, :caption
 
     def initialize(header:, rows:, caption: nil)
       super
@@ -11,8 +11,18 @@ module CitizensAdviceComponents
       @caption = caption
     end
 
+    def rows
+      @rows.reject do |row|
+        row.flatten.reject(&:empty?).blank?
+      end
+    end
+
     def caption?
-      @caption.present?
+      caption.present?
+    end
+
+    def render?
+      header.present? && rows.present?
     end
   end
 end
