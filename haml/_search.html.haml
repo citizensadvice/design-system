@@ -1,9 +1,0 @@
-- input_value = search.fetch(:input_value, "")
-
-%form.cads-search{ action: search[:action_url], role: "search" }
-  %input.cads-search__input.cads-input{ type: "search",
-    name: "q",
-    "aria-label": t("cads.search.input_aria_label"),
-    value: input_value }
-  %button.cads-search__button{title: t("cads.search.submit_title")}
-    %span.cads-search__button-label= t("cads.search.submit_label")

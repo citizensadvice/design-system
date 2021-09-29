@@ -24,8 +24,6 @@ import { Story, Preview } from '@storybook/addon-docs';
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template following the example below.
 
-Note the options for the haml template and view component are the same.
-
 ```rb
 = render(
   CitizensAdviceComponents::Table.new(
@@ -55,13 +53,3 @@ Note the options for the haml template and view component are the same.
   )
 )
 ```
-
-## Haml template and View component options
-
-The Haml partial takes a `table_data` hash with the properties in the table below. If you are using the view component, these are passed into the `.new()` method as parameters:
-
-| Property   | Description                                     |
-| ---------- | ----------------------------------------------- |
-| `caption`  | Optional, table caption                         |
-| `header[]` | Required, an array of header titles             |
-| `rows[]`   | Required, array of tuples containing row values |
