@@ -1,3 +1,7 @@
+**Breaking Changes**
+
+- 🗑️ Remove legacy haml partials and locale files. The `citizens_advice_components` gem is now the canonical way to use components with Rails.
+
 **New**
 
 - 🥾 Footer: Supports dynamic copyright year
