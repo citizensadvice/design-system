@@ -2,25 +2,15 @@
 // Fonts
 // ============================================================================
 
+/* open-sans-regular - latin */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
-  src: url('../../assets/fonts/open-sans-v17-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Open Sans Regular'), local('OpenSans-Regular'),
-    url('../../assets/fonts/open-sans-v17-latin-regular.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('../../assets/fonts/open-sans-v17-latin-regular.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('../../assets/fonts/open-sans-v17-latin-regular.woff') format('woff'),
-    /* Modern Browsers */
-      url('../../assets/fonts/open-sans-v17-latin-regular.ttf')
-      format('truetype'),
-    /* Safari, Android, iOS */
-      url('../../assets/fonts/open-sans-v17-latin-regular.svg#OpenSans')
-      format('svg'); /* Legacy iOS */
+  src: local(''),
+    url('../../assets/fonts/open-sans-v26-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../../assets/fonts/open-sans-v26-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* open-sans-700 - latin */
@@ -28,15 +18,10 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
-  src: url('../../assets/fonts/open-sans-v17-latin-700.eot');
-  src: local('Open Sans Bold'), local('OpenSans-Bold'),
-    url('../../assets/fonts/open-sans-v17-latin-700.eot?#iefix')
-      format('embedded-opentype'),
-    url('../../assets/fonts/open-sans-v17-latin-700.woff2') format('woff2'),
-    url('../../assets/fonts/open-sans-v17-latin-700.woff') format('woff'),
-    url('../../assets/fonts/open-sans-v17-latin-700.ttf') format('truetype'),
-    url('../../assets/fonts/open-sans-v17-latin-700.svg#OpenSans') format('svg');
+  src: local(''),
+    url('../../assets/fonts/open-sans-v26-latin-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../../assets/fonts/open-sans-v26-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 // ============================================================================
