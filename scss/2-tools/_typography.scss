@@ -1,8 +1,10 @@
+@use '../2-tools/breakpoints' as breakpoints;
+
 @mixin cads-typographic-scale-text() {
   font-size: 1.125rem;
   line-height: 1.75rem;
 
-  @include cads-media-breakpoint-down(sm) {
+  @include breakpoints.cads-media-breakpoint-down(sm) {
     font-size: 1rem;
     line-height: 1.625rem;
   }
@@ -12,7 +14,7 @@
   font-size: 1rem;
   line-height: 1.625rem;
 
-  @include cads-media-breakpoint-down(sm) {
+  @include breakpoints.cads-media-breakpoint-down(sm) {
     font-size: 0.875rem;
     line-height: 1.5rem;
   }
