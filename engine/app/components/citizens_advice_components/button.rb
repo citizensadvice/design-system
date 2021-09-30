@@ -12,7 +12,7 @@ module CitizensAdviceComponents
       @variant = fetch_or_fallback(
         allowed_values: %i[primary secondary tertiary],
         given_value: variant,
-        fallback: :standard
+        fallback: :primary
       )
       @type = fetch_or_fallback(
         allowed_values: %i[button submit],
@@ -20,10 +20,6 @@ module CitizensAdviceComponents
         fallback: :button
       )
       @additional_attributes = additional_attributes
-    end
-
-    def render?
-      content.present?
     end
   end
 end
