@@ -1,16 +1,22 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Callout, type: :component do
-  subject(:component) do
-    render_inline(described_class.new(type: type.presence)) do
-      "Example content"
-    end
-  end
+  subject(:component) { described_class.new(type: type.presence) }
 
   let(:type) { :standard }
 
-  it "renders content block" do
-    expect(component.text).to include "Example content"
+  context "when no content present" do
+    it "does not render" do
+      render_inline component
+      expect(rendered_component).not_to be_present
+    end
+  end
+
+  context "when content present" do
+    it "renders content block" do
+      render_inline(component) { "Example content" }
+      expect(rendered_component).to have_text "Example content"
+    end
   end
 
   context "when missing type" do
@@ -18,13 +24,15 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
 
     it "renders a standard callout" do
       without_fetch_or_fallback_raises do
-        expect(component.at(".cads-callout--standard")).to be_present
+        render_inline(component) { "Example content" }
+        expect(rendered_component).to have_selector ".cads-callout--standard"
       end
     end
 
     it "does not render a badge" do
       without_fetch_or_fallback_raises do
-        expect(component.at(".cads-badge")).not_to be_present
+        render_inline(component) { "Example content" }
+        expect(rendered_component).to have_no_selector ".cads-badge"
       end
     end
   end
@@ -33,11 +41,13 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     let(:type) { :example }
 
     it "renders an example callout" do
-      expect(component.at(".cads-callout--example")).to be_present
+      render_inline(component) { "Example content" }
+      expect(rendered_component).to have_selector ".cads-callout--example"
     end
 
     it "has expected badge" do
-      expect(component.at(".cads-badge--example")).to be_present
+      render_inline(component) { "Example content" }
+      expect(rendered_component).to have_selector ".cads-badge--example"
     end
   end
 
@@ -45,11 +55,13 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     let(:type) { :important }
 
     it "renders an important callout" do
-      expect(component.at(".cads-callout--important")).to be_present
+      render_inline(component) { "Example content" }
+      expect(rendered_component).to have_selector ".cads-callout--important"
     end
 
     it "has expected badge" do
-      expect(component.at(".cads-badge--important")).to be_present
+      render_inline(component) { "Example content" }
+      expect(rendered_component).to have_selector ".cads-badge--important"
     end
   end
 
@@ -57,21 +69,13 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     let(:type) { :adviser }
 
     it "renders an adviser callout" do
-      expect(component.at(".cads-callout--adviser")).to be_present
+      render_inline(component) { "Example content" }
+      expect(rendered_component).to have_selector ".cads-callout--adviser"
     end
 
     it "has expected badge" do
-      expect(component.at(".cads-badge--adviser")).to be_present
-    end
-  end
-
-  context "when no content present" do
-    subject(:component) do
-      render_inline(described_class.new(type: :standard))
-    end
-
-    it "does not render" do
-      expect(component.at("section")).not_to be_present
+      render_inline(component) { "Example content" }
+      expect(rendered_component).to have_selector ".cads-badge--adviser"
     end
   end
 end
