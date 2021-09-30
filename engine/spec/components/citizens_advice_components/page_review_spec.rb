@@ -2,11 +2,9 @@
 
 RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
   subject(:component) do
-    render_inline(
-      described_class.new(
-        page_review_date: page_review_date.presence,
-        date_format: date_format.presence
-      )
+    described_class.new(
+      page_review_date: page_review_date.presence,
+      date_format: date_format.presence
     )
   end
 
@@ -14,14 +12,16 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
   let(:date_format) { nil }
 
   it "renders a formatted date" do
-    expect(component.text.strip).to eq "Page last reviewed on 12 June 2021"
+    render_inline component
+    expect(rendered_component).to have_text "Page last reviewed on 12 June 2021"
   end
 
   context "when no date" do
     let(:page_review_date) { nil }
 
     it "does not render" do
-      expect(component.at(".cads-page-review")).not_to be_present
+      render_inline component
+      expect(rendered_component).to have_no_selector ".cads-page-review"
     end
   end
 
@@ -29,7 +29,8 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
     let(:date_format) { :short }
 
     it "renders date with custom format" do
-      expect(component.text.strip).to eq "Page last reviewed on Jun 12"
+      render_inline component
+      expect(rendered_component).to have_text "Page last reviewed on Jun 12"
     end
   end
 
@@ -37,7 +38,8 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
     before { I18n.locale = :cy }
 
     it "has translated date" do
-      expect(component.text.strip).to eq "Adolygwyd y dudalen ar 12 Mehefin 2021"
+      render_inline component
+      expect(rendered_component).to have_text "Adolygwyd y dudalen ar 12 Mehefin 2021"
     end
   end
 end
