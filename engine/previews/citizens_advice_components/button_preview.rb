@@ -2,12 +2,26 @@
 
 module CitizensAdviceComponents
   class ButtonPreview < ViewComponent::Preview
-    def standard
+    def primary
       render CitizensAdviceComponents::Button.new do
-        "Example button"
+        "Primary button"
       end
     end
 
-    def with_icon; end
+    def secondary
+      render CitizensAdviceComponents::Button.new(variant: :secondary) do
+        "Secondary button"
+      end
+    end
+
+    def tertiary
+      render CitizensAdviceComponents::Button.new(variant: :tertiary) do
+        "Tertiary button"
+      end
+    end
+
+    def with_left_icon; end
+
+    def with_right_icon; end
   end
 end
