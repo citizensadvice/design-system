@@ -1,20 +1,16 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Badge, type: :component do
-  subject(:badge) { component.at(".cads-badge--#{type}") }
-
   let(:component) do
-    render_inline(described_class.new(type: type.presence))
+    described_class.new(type: type.presence)
   end
-  let(:type) { :adviser }
 
-  context "when missing type" do
-    let(:type) { nil }
+  let(:type) { nil }
 
-    it "does not render when type is missing" do
-      without_fetch_or_fallback_raises do
-        expect(component.at(".cads-badge")).not_to be_present
-      end
+  it "does not render when type is missing" do
+    without_fetch_or_fallback_raises do
+      render_inline component
+      expect(rendered_component.at(".cads-badge")).not_to be_present
     end
   end
 
@@ -22,14 +18,16 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
     let(:type) { :example }
 
     it "has the correct label" do
-      expect(badge.text).to eq "Example"
+      render_inline component
+      expect(rendered_component).to have_selector ".cads-badge--example", text: "Example"
     end
 
     context "when welsh language" do
       before { I18n.locale = :cy }
 
       it "has translated label" do
-        expect(badge.text).to eq "Enghraifft"
+        render_inline component
+        expect(rendered_component).to have_text "Enghraifft"
       end
     end
   end
@@ -38,14 +36,16 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
     let(:type) { :important }
 
     it "has the correct label" do
-      expect(badge.text).to eq "Important"
+      render_inline component
+      expect(rendered_component).to have_selector ".cads-badge--important", text: "Important"
     end
 
     context "when welsh language" do
       before { I18n.locale = :cy }
 
       it "has translated label" do
-        expect(badge.text).to eq "Pwysig"
+        render_inline component
+        expect(rendered_component).to have_text "Pwysig"
       end
     end
   end
@@ -54,14 +54,16 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
     let(:type) { :adviser }
 
     it "has the correct label" do
-      expect(badge.text).to eq "Adviser"
+      render_inline component
+      expect(rendered_component).to have_selector ".cads-badge--adviser", text: "Adviser"
     end
 
     context "when welsh language" do
       before { I18n.locale = :cy }
 
       it "has translated label" do
-        expect(badge.text).to eq "Cynghorydd"
+        render_inline component
+        expect(rendered_component).to have_text "Cynghorydd"
       end
     end
   end
