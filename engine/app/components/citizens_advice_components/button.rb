@@ -7,7 +7,7 @@ module CitizensAdviceComponents
 
     attr_reader :variant, :type, :additional_attributes
 
-    def initialize(variant: :primary, type: :button, additional_attributes: {})
+    def initialize(variant: :primary, type: :button, **additional_attributes)
       super
       @variant = fetch_or_fallback(
         allowed_values: %i[primary secondary tertiary],
@@ -19,7 +19,7 @@ module CitizensAdviceComponents
         given_value: type,
         fallback: :button
       )
-      @additional_attributes = additional_attributes
+      @additional_attributes = additional_attributes || {}
     end
   end
 end

@@ -96,17 +96,17 @@ Do not use anchor tags with an empty href when you want a button `<a href=â€#â€
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
 
 ```haml
-= render CitizensAdviceComponents::Button.new(variant: :primary) do
+= render CitizensAdviceComponents::Button.new(variant: :primary, "data-testid": "example") do
   Primary button
 ```
 
 ### View component options
 
-| Property                | Description                                                             |
-| ----------------------- | ----------------------------------------------------------------------- |
-| `variant`               | Either `:primary`, `:secondary`, or `:tertiary`. Defaults to `:primary` |
-| `type`                  | Either `:button` or `:submit`. Defaults to `:button`                    |
-| `additional_attributes` | Optional additional attributes passed to the button                     |
+| Property                  | Description                                                             |
+| ------------------------- | ----------------------------------------------------------------------- |
+| `variant`                 | Either `:primary`, `:secondary`, or `:tertiary`. Defaults to `:primary` |
+| `type`                    | Either `:button` or `:submit`. Defaults to `:button`                    |
+| `**additional_attributes` | Additional attributes are passed to the button                          |
 
 ### Icon slots
 
