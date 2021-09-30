@@ -8,7 +8,7 @@ module CitizensAdviceComponents
       def initialize(size: :small)
         super
         @size = fetch_or_fallback(
-          allowed_values: [nil, :small, :large],
+          allowed_values: %i[small large],
           given_value: size,
           fallback: :small
         )
