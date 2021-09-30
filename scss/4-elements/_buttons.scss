@@ -68,8 +68,8 @@ $button-shadow-size: 4px;
     border-color: $cads-language__primary-button-hover-colour;
   }
 
-  .cads-icon {
-    fill: currentColor;
+  .cads-button__icon-left,
+  .cads-button__icon-right {
     // Optically align icons in buttons
     position: relative;
     top: 2px;
