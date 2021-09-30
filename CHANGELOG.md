@@ -6,6 +6,7 @@
 - 🧂 Tables: Account for possibly nil cells
 
 **New**
+- ➡️️ Buttons: Adds new `Button` view component with support for icons
 - 🏋 SVG Icons: Added view component SVG icons
 - 📦 Checkbox and Checkbox groups are now available
 - Full Ruby 3 support for `citizens_advice_components`
