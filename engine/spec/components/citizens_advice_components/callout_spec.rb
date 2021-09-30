@@ -2,13 +2,12 @@
 
 RSpec.describe CitizensAdviceComponents::Callout, type: :component do
   subject(:component) do
-    render_inline(described_class.new(type: type.presence, title: title.presence)) do
+    render_inline(described_class.new(type: type.presence)) do
       "Example content"
     end
   end
 
   let(:type) { :standard }
-  let(:title) { nil }
 
   it "renders content block" do
     expect(component.text).to include "Example content"
@@ -63,14 +62,6 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
 
     it "has expected badge" do
       expect(component.at(".cads-badge--adviser")).to be_present
-    end
-  end
-
-  context "when title is provided" do
-    let(:title) { "Descriptive title" }
-
-    it "Includes descriptive aria-label" do
-      expect(component.at("section").attr("aria-label")).to eq "Descriptive title"
     end
   end
 

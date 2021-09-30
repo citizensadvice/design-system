@@ -2,16 +2,15 @@
 
 module CitizensAdviceComponents
   class Callout < Base
-    attr_reader :type, :title
+    attr_reader :type
 
-    def initialize(type: nil, title: nil)
+    def initialize(type: nil)
       super
       @type = fetch_or_fallback(
         allowed_values: %i[standard example important adviser],
         given_value: type,
         fallback: :standard
       )
-      @title = title
     end
 
     def show_badge?
