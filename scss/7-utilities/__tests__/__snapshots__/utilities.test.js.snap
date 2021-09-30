@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`visibility styles match snapshot 1`] = `
+".cads-hide {
+  display: none !important;
+}
+
+.cads-invisible {
+  visibility: hidden !important;
+}
+
+.cads-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cads-sr-only-focusable:active, .cads-sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.cads-show-md-up {
+  display: none !important;
+}
+@media (min-width: 768px) {
+  .cads-show-md-up {
+    display: inherit !important;
+  }
+}
+
+.cads-show-md-down {
+  display: inherit !important;
+}
+@media (min-width: 768px) {
+  .cads-show-md-down {
+    display: none !important;
+  }
+}
+
+.cads-show-md-only {
+  display: none !important;
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .cads-show-md-only {
+    display: inherit !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .cads-hide-md-up {
+    display: none !important;
+  }
+}
+
+.cads-hide-md-down {
+  display: none !important;
+}
+@media (min-width: 768px) {
+  .cads-hide-md-down {
+    display: inherit !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .cads-hide-md-only {
+    display: none !important;
+  }
+}
+
+.cads-show-lg-up {
+  display: none !important;
+}
+@media (min-width: 1024px) {
+  .cads-show-lg-up {
+    display: inherit !important;
+  }
+}
+
+.cads-show-lg-down {
+  display: inherit !important;
+}
+@media (min-width: 1024px) {
+  .cads-show-lg-down {
+    display: none !important;
+  }
+}
+
+.cads-show-lg-only {
+  display: none !important;
+}
+@media (min-width: 1024px) {
+  .cads-show-lg-only {
+    display: inherit !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cads-hide-lg-up {
+    display: none !important;
+  }
+}
+
+.cads-hide-lg-down {
+  display: none !important;
+}
+@media (min-width: 1024px) {
+  .cads-hide-lg-down {
+    display: inherit !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cads-hide-lg-only {
+    display: none !important;
+  }
+}"
+`;

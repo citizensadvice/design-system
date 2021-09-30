@@ -1,3 +1,5 @@
+@use '../2-tools/spacing-sizing' as sizing-tools;
+
 .cads-max-content-width {
-  @include cads-restrict-content-width();
+  @include sizing-tools.cads-restrict-content-width();
 }
