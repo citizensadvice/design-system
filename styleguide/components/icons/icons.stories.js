@@ -2,7 +2,7 @@ import docs from './icons-docs.mdx';
 import icons from '../../examples/icons/icons.html';
 
 export default {
-  title: 'Components/SvgIcons',
+  title: 'Components/SVG Icons',
   parameters: { docs: { page: docs } },
 };
 
