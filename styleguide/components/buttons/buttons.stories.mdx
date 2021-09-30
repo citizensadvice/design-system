@@ -1,6 +1,11 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs';
 import buttonIconExample from './images/button-with-icon-example.png';
 import nextPreviousExample from './images/next-previous-example.png';
+import templatePrimary from './../../examples/button/primary.html';
+import templateSecondary from './../../examples/button/secondary.html';
+import templateTertiary from './../../examples/button/tertiary.html';
+
+export const buttonLinkHtml = `<button type="button" class="cads-linkbutton">Link button</button>\n<button type="button" class="cads-linkbutton__regular">Regular link button</button>`;
 
 <Meta title="Components/Buttons" />
 
@@ -12,19 +17,14 @@ Write button text in sentence case, describing the action it performs. E.g. “S
 
 ## How it works
 
-export const buttonPrimaryHtml = `<button type="button" class="cads-button cads-button__primary">Primary button</button>`;
-export const buttonSecondaryHtml = `<button type="button" class="cads-button cads-button__secondary">Secondary button</button>`;
-export const buttonTertiaryHtml = `<button type="button" class="cads-button cads-button__tertiary">Tertiary button</button>`;
-export const buttonLinkHtml = `<button type="button" class="cads-linkbutton">Link button</button>\n<button type="button" class="cads-linkbutton__regular">Regular link button</button>`;
-
 Primary buttons should be used for the main action, such as submitting a form. Align the primary action button to the left edge of your form.
 
 <Preview>
   <Story
     name="Primary"
-    parameters={{ docs: { source: { code: buttonPrimaryHtml } } }}
+    parameters={{ docs: { source: { code: templatePrimary } } }}
   >
-    {() => buttonPrimaryHtml}
+    {() => templatePrimary}
   </Story>
 </Preview>
 
@@ -33,9 +33,9 @@ Secondary button should be used for secondary calls to action. Typically there s
 <Preview>
   <Story
     name="Secondary"
-    parameters={{ docs: { source: { code: buttonSecondaryHtml } } }}
+    parameters={{ docs: { source: { code: templateSecondary } } }}
   >
-    {() => buttonSecondaryHtml}
+    {() => templateSecondary}
   </Story>
 </Preview>
 
@@ -44,13 +44,13 @@ Tertiary buttons are used for turning something on or off instantly on a page �
 <Preview>
   <Story
     name="Tertiary"
-    parameters={{ docs: { source: { code: buttonTertiaryHtml } } }}
+    parameters={{ docs: { source: { code: templateTertiary } } }}
   >
-    {() => buttonTertiaryHtml}
+    {() => templateTertiary}
   </Story>
 </Preview>
 
-Link buttons are styled to look like hyperpinks. Use these when you want a button to draw less attention, or when you would prefer to have a text styling but the action changes state such as deleting an item or logging out a user.
+Link buttons are styled to look like hyperlinks. Use these when you want a button to draw less attention, or when you would prefer to have a text styling but the action changes state such as deleting an item or logging out a user.
 
 <Preview>
   <Story
@@ -90,3 +90,38 @@ When selecting a button, it will depress slightly to give users visual feedback 
 
 Use `<input type=submit>` or `<button>` elements depending on if the button submits a form, or performs an interaction.
 Do not use anchor tags with an empty href when you want a button `<a href=”#”>`. Read more about [why the empty href is a bad thing](https://adrianroselli.com/2016/01/links-buttons-submits-and-divs-oh-hell.html).
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+
+```haml
+= render CitizensAdviceComponents::Button.new(variant: :primary) do
+  Primary button
+```
+
+### View component options
+
+| Property                | Description                                                             |
+| ----------------------- | ----------------------------------------------------------------------- |
+| `variant`               | Either `:primary`, `:secondary`, or `:tertiary`. Defaults to `:primary` |
+| `type`                  | Either `:button` or `:submit`. Defaults to `:button`                    |
+| `additional_attributes` | Optional additional attributes passed to the button                     |
+
+### Icon slots
+
+The button component accepts an `icon_left` or `icon_right` slot for buttons with icons.
+
+```haml
+= render CitizensAdviceComponents::Button.new do |c|
+  Next
+  - c.icon_right do
+    = render CitizensAdviceComponents::Icons::ArrowRight.new
+```
+
+```haml
+= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c|
+  Previous
+  - c.icon_left do
+    = render CitizensAdviceComponents::Icons::ArrowLeft.new
+```
