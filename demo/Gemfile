@@ -7,7 +7,7 @@ ruby "2.7.4"
 gem "high_voltage", "~> 3.1"
 gem "puma", "~> 5.3"
 gem "rails", "~> 6.1"
-gem "webpacker", "~> 5.0"
+gem "webpacker", "~> 5.4"
 
 gem "citizens_advice_components", path: "../engine"
 
