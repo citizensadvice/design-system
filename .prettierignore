@@ -16,7 +16,6 @@ testing/cucumber.yml
 
 # Ignore locale files from prettier
 # formatted by i18n-tasks
-/locales/
 /engine/config/locales/
 /demo/config/locales/
 
