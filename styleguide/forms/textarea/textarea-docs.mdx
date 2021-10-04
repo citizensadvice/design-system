@@ -58,17 +58,3 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 | &rarr; `optional`              | Optional, boolean indicating the field is optional (ie not required)                               |
 | &rarr; `value`                 | Optional, the value of the input                                                                   |
 | &rarr; `additional_attributes` | Optional, a hash of additional attributes rendered onto the `input`, eg `{ autocomplete: "name" }` |
-
-## Haml template options
-
-The Haml partial takes an `input` hash with the following properties:
-
-| properties      | Description                                                 |
-| --------------- | ----------------------------------------------------------- |
-| `name`          | Required, field name                                        |
-| `label`         | Required, label text                                        |
-| `hint`          | Optional, hint text                                         |
-| `optional`      | Optional, boolean flag to mark the field as optional        |
-| `error_message` | Optional, error message for the field                       |
-| `has_error`     | Optional, boolean flag to mark the field as having an error |
-| `rows`          | Optional, textarea rows. Defaults to 8                      |

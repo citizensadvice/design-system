@@ -1,6 +1,7 @@
 **Breaking changes**
 
 - 🔠 Fonts: removed support for legacy browser fonts (only woff and woff2 remain)
+- 🗑️ Remove legacy haml partials and locale files. The `citizens_advice_components` gem is now the canonical way to use components with Rails.
 
 **New**
 

@@ -1,9 +1,0 @@
--# Default type to standard if none is provided
-
-- type = notice.fetch("type", "standard")
-- title = notice.fetch("title", nil)
-
-%section.cads-callout{ class: "cads-callout--#{type}", aria: { label: title } }
-  - if type != "standard"
-    .cads-badge{ class: "cads-badge--#{type}" }= t("cads.callout.#{type}")
-  = notice["body"]
