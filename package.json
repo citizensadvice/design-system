@@ -6,10 +6,10 @@
   "author": "Citizens Advice",
   "license": "UNLICENCED",
   "files": [
+    "assets",
     "scss",
     "lib",
     "!scss/**/__tests__",
-    "fonts",
     "CHANGELOG.md",
     "README.md"
   ],
