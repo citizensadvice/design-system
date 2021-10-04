@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+<Meta title="Components/SVG Icons" />
+
+# SVG Icons
+
+If you are designing SVG icons, please refer to [Foundations - Icon](?path=/docs/foundations-icon--page).
+
+## Using with Rails
+
+SVG icons are now available as Rails view components. You can call them from within a template using:
+
+```rb
+render CitizensAdviceComponents::Icons::Email.new(size: :small)
+```
+
+You can look in the 'Component class' column of the [examples table](?path=/story/components-svg-icons--default) to see which component class to use for which icon.
+
+### View Component Options
+
+The constructor accepts the following arguments
+
+| Property | Description                                                                             |
+| -------- | --------------------------------------------------------------------------------------- |
+| `size`   | Defaults to `:small`. One of either `:small` (16px by 16px) or `:large` (24px by 24px). |
+
+## Using as inline files
+
+The SVG code is available for you in `/assets/svg/icons`, or via inspection of the [examples table](?path=/story/components-svg-icons--default).
+
+## Customising icon appearance
+
+Each `<svg>` element is rendered with the following classes:
+
+- `.cads-icon`
+- `.cads-icon--{size}` (where {size} is `large` or `small`)
+- `.cads-icon--{name}` (where {name} is the dasherised version of the component class name)
+
+The default `fill` colour is `currentColor`. You can override this in your CSS using the class mentioned above, eg:
+
+```CSS
+.my-component .cads-icon--arrow-up {
+  fill: #0000ff;
+}
+```
