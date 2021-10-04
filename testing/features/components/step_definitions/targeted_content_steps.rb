@@ -20,11 +20,11 @@ Given("a fallback targeted content component is on the page") do
 end
 
 When("I expand/collapse the targeted content") do
-  toggle_disclosure(DISCLOSURE_TITLE)
+  toggle_disclosure DISCLOSURE_TITLE
 end
 
 When("I close the targeted content") do
-  toggle_disclosure(DISCLOSURE_TITLE)
+  toggle_disclosure DISCLOSURE_TITLE
 end
 
 When("I jump to the targeted content") do
@@ -32,7 +32,7 @@ When("I jump to the targeted content") do
 end
 
 Then("a targeted content title is present") do
-  expect(@component).to have_disclosure_button(DISCLOSURE_TITLE)
+  expect(@component).to have_disclosure_button DISCLOSURE_TITLE
 end
 
 Then("the toggle button indicates it will expand") do
