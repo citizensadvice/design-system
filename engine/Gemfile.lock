@@ -77,8 +77,19 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
+    awesome_print (1.9.2)
     builder (3.2.4)
+    capybara (3.35.3)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
@@ -131,7 +142,7 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     nio4r (2.5.8)
-    nokogiri (1.12.3)
+    nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     parallel (1.20.1)
@@ -140,6 +151,7 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    public_suffix (4.0.6)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -197,7 +209,8 @@ GEM
       rspec-expectations (~> 3.10)
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
-    rspec-snapshot (0.1.2)
+    rspec-snapshot (2.0.0)
+      awesome_print (> 1.0.0)
       rspec (> 3.0.0)
     rspec-support (3.10.2)
     rubocop (1.11.0)
@@ -244,12 +257,15 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara
   citizens-advice-style!
   citizens_advice_components!
   haml_lint
@@ -257,7 +273,7 @@ DEPENDENCIES
   pry (~> 0.14.1)
   rspec
   rspec-rails
-  rspec-snapshot (~> 0.1.2)
+  rspec-snapshot (~> 2.0)
   rubocop-rails
   rubocop-rspec
 

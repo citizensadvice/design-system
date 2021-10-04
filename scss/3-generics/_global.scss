@@ -1,3 +1,6 @@
+@use '../1-settings/typography' as typography;
+@use '../1-settings/colour-language' as language;
+
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -11,8 +14,8 @@ html {
 }
 
 body {
-  font-family: $cads-font-family;
-  font-size: $cads-font-size;
-  font-weight: $cads-font-weight__regular;
-  color: $cads-language__text-colour;
+  font-family: typography.$cads-font-family;
+  font-size: typography.$cads-font-size;
+  font-weight: typography.$cads-font-weight__regular;
+  color: language.$cads-language__text-colour;
 }

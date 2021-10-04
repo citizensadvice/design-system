@@ -1,4 +1,4 @@
-import { Story, Preview } from '@storybook/addon-docs/blocks';
+import { Story, Preview } from '@storybook/addon-docs';
 
 # Search
 
@@ -21,8 +21,6 @@ If you are using the `citizens_advice_components` gem you call the component fro
   = render(CitizensAdviceComponents::Search.new(value: "Current search term"))
 ```
 
-**Note:** Unlike the legacy haml partial you'll have to render your own form when using this component. The component will only render the input and button to give you more control over how the field is used.
-
 ### Component arguments
 
 The component accepts the following arguments:
@@ -31,12 +29,3 @@ The component accepts the following arguments:
 | ------------ | --------------------------------------------------- |
 | `value`      | Optional, current value                             |
 | `param_name` | Optional. Pagination param name, defaults to `page` |
-
-## Haml template options
-
-The Haml partial takes a `search` hash with the following properties:
-
-| Property      | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| `action_url`  | Required. The url that will form the base of the GET request |
-| `input_value` | Optional. The current value for the search input             |

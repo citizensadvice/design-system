@@ -1,3 +1,15 @@
+**Breaking Changes**
+
+- 🗑️ Remove legacy haml partials and locale files. The `citizens_advice_components` gem is now the canonical way to use components with Rails.
+
+**New**
+
+- 🥾 Footer: Supports dynamic copyright year
+
+**Bugfixes**
+
+- 🧂 Tables: Added render guards for missing headers and empty rows
+
 ## <sub>v4.3.0-alpha.0</sub>
 
 #### _Aug. 31, 2021_

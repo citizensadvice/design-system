@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
 <Meta title="Components/Footer" />
 
@@ -88,17 +88,3 @@ Each slot accepts the following named arguments:
 | `link[url]`   | &rarr; Required, url for the link                      |
 | `link[title]` | &rarr; Required, title for the link                    |
 | `link[icon]`  | &rarr; Optional, icon name e.g. `external-link`        |
-
-## Haml template options
-
-The Haml partial the following locals:
-
-| Property         | Description                                                |
-| ---------------- | ---------------------------------------------------------- |
-| `root_path`      | Required, root path for the logo home link                 |
-| `feedback_url`   | If present, a link to this feedback form will be displayed |
-| `links`          | Main content for the footer (see links above)              |
-| `links[:url]`    | &rarr; Required, url for the link                          |
-| `links[:title] ` | &rarr; Required, title for the link                        |
-| `links[:icon] `  | &rarr; Optional, display an icon next to the link          |
-| `homepage_url`   | Optional, defaults to `/`                                  |

@@ -1,4 +1,4 @@
-import { Story, Preview } from '@storybook/addon-docs/blocks';
+import { Story, Preview } from '@storybook/addon-docs';
 
 # Radio groups
 
@@ -105,22 +105,3 @@ Any additional key/value pairs (beyond `label` and `value`) in your radio button
 | &rarr; `optional`      | Optional, boolean indicating the field is optional (ie not required)    |
 | &rarr; `size`          | Optional, the size of the radio buttons. One of `nil, :small, :regular` |
 | &rarr; `layout`        | Optional, the layout of the radio buttons. One of `nil, :inline, :list` |
-
-## Haml template options
-
-The Haml partial takes a `radio` hash with the following properties:
-
-| properties        | Description                                                  |
-| ----------------- | ------------------------------------------------------------ |
-| `name`            | Required, field name                                         |
-| `label`           | Required, label text                                         |
-| `options`         | Reqiuired, an array of hashes, each with the following:      |
-| `option[name]`    | &rarr; Required, name for the option                         |
-| `option[value]`   | &rarr; Required, value for the option                        |
-| `option[checked]` | &rarr; optional, true if the option is checked, false if not |
-| `hint`            | Optional, hint text                                          |
-| `optional`        | Optional, boolean flag to mark the field as optional         |
-| `error_message`   | Optional, error message for the field                        |
-| `has_error`       | Optional, boolean flag to mark the field as having an error  |
-| `inline`          | Optional, boolean flag to display radio buttons inline       |
-| `small`           | Optional, boolean flag to display radio in small style       |

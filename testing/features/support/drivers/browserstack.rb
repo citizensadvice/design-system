@@ -14,7 +14,15 @@ module Drivers
     def register_browser
       validate_driver_request
 
-      browser_type_class.new.register
+      # This is missing from the selenium repo proper. It has been added to all relevant spots
+      # HERE: https://github.com/SeleniumHQ/selenium/pull/9862
+      # Remove once we are only supporting Selenium 4
+      #
+      # LH - Sep '21
+
+      require "selenium/webdriver/common/platform"
+
+      CaTesting::Drivers::Browserstack.new(browser, configurable_capabilities, device_options).register
     end
 
     def validate_driver_request
@@ -33,22 +41,25 @@ module Drivers
       ]
     end
 
-    def browser_type_class
-      if specialized_driver?
-        Module.const_get("Drivers::Browserstack::#{browser.to_s.pascalize}")
-      else
-        AutomationLogger.debug("Non-specialized driver requested, will use standard Base Driver")
-        Drivers::Browserstack::Base
-      end
+    def configurable_capabilities
+      {
+        build_name: PayloadValuesGenerator.build_name,
+        project_name: "Design System tests",
+        session_name: PayloadValuesGenerator.session_name,
+        browserstack_debug_mode: browserstack_debug_mode,
+        username: browserstack_username,
+        api_key: browserstack_api_key,
+        config: browserstack_configuration_options
+      }
     end
 
-    def specialized_driver?
-      %i[
-        android
-        chrome
-        internet_explorer
-        ios
-      ].include?(browser)
+    def device_options
+      return unless device?
+
+      {
+        device_name: browserstack_os,
+        os_version: browserstack_os_version
+      }
     end
 
     def register_exit_handler

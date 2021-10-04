@@ -2,10 +2,10 @@
 
 source "https://rubygems.org"
 
-ruby "2.7.3"
+ruby "2.7.4"
 
 gem "high_voltage", "~> 3.1"
-gem "puma", "~> 5.3"
+gem "puma", "~> 5.5"
 gem "rails", "~> 6.1"
 gem "webpacker", "~> 5.0"
 

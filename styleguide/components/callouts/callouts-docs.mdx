@@ -1,4 +1,4 @@
-import { Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { Story, Preview } from '@storybook/addon-docs';
 
 # Callouts
 
@@ -67,12 +67,21 @@ Note that there is code in the Content Platform app that ensure headings inside 
   <Story id="components-callouts--variable-heading" />
 </Preview>
 
-## Haml template options
+## Using with Rails
 
-The Haml partial takes a `notice` hash with the following properties:
+If you are using the `citizens_advice_components` gem you call the component from within a template using:
 
-| Property | Description                                                                      |
-| -------- | -------------------------------------------------------------------------------- |
-| `type`   | Optional type, one of: `standard`, `example`, `important`, `adviser`             |
-| `body`   | HTML string                                                                      |
-| `title`  | Optional, will be rendered as the aria label for the callout section if provided |
+```haml
+= render(CitizensAdviceComponents::Callout.new(type: :example)) do
+  %h3 Callout title
+  %p Some example text
+```
+
+### Component arguments
+
+The component accepts a [`content` block](https://viewcomponent.org/guide/#implementation) for the main contents along with the following arguments:
+
+| Argument | Description                                                                                          |
+| -------- | ---------------------------------------------------------------------------------------------------- |
+| `type`   | Optional type. One of `:standard`, `:example`, `:important`, or `:adviser`. Defaults to `:standard`. |
+| `label`  | Optional, title used as aria-label                                                                   |

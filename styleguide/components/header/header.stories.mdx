@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
 import initHeader from '../../../src/js/header';
 import templateDefault from './../../examples/header/full_example.html';
@@ -153,35 +153,3 @@ If you plan to use this component you will need to initialise the following Java
 import initHeader from '@citizensadvice/design-system/lib/header';
 initHeader();
 ```
-
-## Haml template options
-
-The Haml partial supports the following locals:
-
-| Property                   | Description                                             |
-| -------------------------- | ------------------------------------------------------- |
-| `root_path`                | Required, root path for the logo home link              |
-| `links`                    | Optional, an array made up of links (see example below) |
-| `sign_in_out`              | Optional, a hash with the following:                    |
-| `sign_in_out[url]`         | &rarr; Required, url for the sign in link               |
-| `sign_in_out[title] `      | &rarr; Required, title for the sign in link             |
-| `sign_in_out[form] `       | &rarr; Optional, display the link in a form             |
-| `search_action_url`        | Required, URL for the search form                       |
-| `main_content_anchor_link` | Optional, defaults to `#cads-main-content`              |
-| `homepage_url`             | Optional, defaults to `/`                               |
-
-### `links` template option
-
-The links variable allows you to insert links to the left of the `sign_in_out` link. Each link object has the following properties:
-
-| Property       | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| `title`        | Required, the text to display                                                    |
-| `url`          | Required, the url of the link                                                    |
-| `current_site` | Optional, a boolean used to render a span for the current site instead of a link |
-
-### Skip links
-
-The header contains three skip links that become visible when they receive focus. There are three links that link to the navigation, main content and footer.
-
-You can override the default anchor link for linking to the main page content by passing in the `main_content_anchor_link` property above. Don't forget to add the id to the main content of your pages!

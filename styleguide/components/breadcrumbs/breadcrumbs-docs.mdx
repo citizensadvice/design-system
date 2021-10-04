@@ -1,4 +1,4 @@
-import { Story, Preview } from '@storybook/addon-docs/blocks';
+import { Story, Preview } from '@storybook/addon-docs';
 
 # Breadcrumbs
 
@@ -118,14 +118,3 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 | `type`         | Optional, one of: `:collapse` (default), `:no_collapse`                                           |
 | `current_page` | Optional, will render `aria-location=current` on last crumb if true. Defaults to true.            |
 | `full_width`   | Optional, will wrap breadcrumbs in the `.cads-breadcrumbs-wrapper` div if true. Defaults to true. |
-
-### Haml template options
-
-The Haml partial takes a `breadcrumb` hash, which has the following properties:
-
-| Property           | Description                                            |
-| ------------------ | ------------------------------------------------------ |
-| `type`             | Optional, one of: `collapse` (default), `no-collapse`  |
-| `breadcrumb_links` | Required, an array of hashes, each with the following: |
-| `link[url]`        | &rarr; Required, url for the breadcrumb link           |
-| `link[title]`      | &rarr; Required, title for the breadcrumb link         |

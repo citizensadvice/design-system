@@ -1,0 +1,18 @@
+// ============================================================================
+// SVG Icons
+// Temporarily scoped to `svg` until the existing cads-icon font is deprecated.
+// ============================================================================
+
+svg {
+  &.cads-icon {
+    fill: $cads-language__default-icon-fill;
+  }
+
+  &.cads-icon--small {
+    height: 16px;
+  }
+
+  &.cads-icon--large {
+    height: 24px;
+  }
+}

@@ -1,4 +1,4 @@
-import { Story, Preview } from '@storybook/addon-docs/blocks';
+import { Story, Preview } from '@storybook/addon-docs';
 
 # Inputs
 
@@ -98,21 +98,6 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 | &rarr; `value`                 | Optional, the value of the input                                                                   |
 | &rarr; `additional_attributes` | Optional, a hash of additional attributes rendered onto the `input`, eg `{ autocomplete: "name" }` |
 
-### Addtional `type` values
+### Additional `type` values
 
 If you need access to inputs with additional type values, eg `file` or `color`, you can use the base `Input` view component instead. The interface is the same except you may not specifiy a `width` parameter.
-
-## Haml template options
-
-The Haml partial takes an `input` hash with the following properties:
-
-| properties      | Description                                                               |
-| --------------- | ------------------------------------------------------------------------- |
-| `name`          | Required, field name                                                      |
-| `label`         | Required, label text                                                      |
-| `hint`          | Optional, hint text                                                       |
-| `optional`      | Optional, boolean flag to mark the field as optional                      |
-| `error_message` | Optional, error message for the field                                     |
-| `has_error`     | Optional, boolean flag to mark the field as having an error               |
-| `size`          | Optional, fixed character width size. One of: `2ch`, `4ch`, `8ch`, `16ch` |
-| `value`         | Optional, field value                                                     |

@@ -12,6 +12,10 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   let(:columns) { generate_columns(4) }
   let(:feedback_url) { "https://www.research.net/r/J8PLH2H" }
 
+  before do
+    travel_to Time.zone.local(2049)
+  end
+
   describe "feedback URL" do
     let(:subject) { component.at("a[href='#{feedback_url}']") }
 
@@ -57,12 +61,12 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   describe "copyright notice" do
     let(:subject) { component.at("[data-testid='copyright']").text }
 
-    it { is_expected.to include "Copyright" }
+    it { is_expected.to start_with "Copyright ©2049 Citizens Advice" }
 
     context "when welsh language" do
       before { I18n.locale = :cy }
 
-      it { is_expected.to include "Hawlfraint" }
+      it { is_expected.to start_with "Hawlfraint ©2049 Cyngor ar Bopeth" }
     end
   end
 

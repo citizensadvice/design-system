@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Source } from '@storybook/addon-docs';
 import template from '../../examples/page_review/example.html';
 
 <Meta title="Components/Page review" />
@@ -19,17 +19,9 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 = render(CitizensAdviceComponents::PageReview.new(page_review_date: Date.new(2020, 9, 21)))
 ```
 
-Unlike the legacy haml partial the component accepts a date object rather than a formatted string. This allows us to define a default format. This [can be customised](https://guides.rubyonrails.org/i18n.html#adding-date-time-formats) by passing a `date_format` option which is passed to `I18n.l`.
-
 ### View Component Options
 
 | Property           | Description                                                             |
 | ------------------ | ----------------------------------------------------------------------- |
 | `page_review_date` | Required, date object for last reviewed date                            |
 | `date_format`      | Optional, custom date format passed to `I18n.l`. Defaults to `%d %B %Y` |
-
-## Haml template options
-
-| Property           | Description                     |
-| ------------------ | ------------------------------- |
-| `page_review_date` | Required. Formatted date string |
