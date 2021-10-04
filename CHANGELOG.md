@@ -12,6 +12,7 @@
 
 - 🧂 Tables: Added render guards for missing headers and empty rows
 - 🔠 Fonts: Updated Open Sans to v27
+- 🔍 Search: Match button colour on hover
 
 ## <sub>v4.3.0-alpha.0</sub>
 
