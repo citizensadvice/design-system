@@ -40,6 +40,7 @@
     &:active {
       color: $cads-language__primary-button-text-colour;
       background-color: $cads-language__primary-button-hover-colour;
+      border-color: $cads-language__primary-button-hover-colour;
     }
 
     &:focus {
