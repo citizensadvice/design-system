@@ -1,0 +1,29 @@
+.cads-grid-container
+  .cads-grid-row
+    .cads-grid-col-8
+      %table.cads-table
+        %thead
+          %tr
+            %th
+              Component class
+            %th
+              Toggle
+            %th 
+              Icon
+        %tbody
+          %tr
+            %td
+              ArrowUpDown
+            %td
+              %button
+                Toggle arrow
+            %td
+              = render CitizensAdviceComponents::Icons::ArrowUpDown.new(size: :large)
+
+%script
+  :plain
+    var button = document.querySelector('button');
+    button.addEventListener('click', function() {
+      var icon = document.querySelector('.cads-icon');
+      icon.classList.toggle('show-up')
+    })

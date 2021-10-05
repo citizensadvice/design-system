@@ -16,3 +16,19 @@ svg {
     height: 24px;
   }
 }
+
+.cads-icon--arrow-up-down {
+  .up {
+    display: none;
+  }
+
+  &.show-up {
+    .up {
+      display: block;
+    }
+
+    .down {
+      display: none;
+    }
+  }
+}
