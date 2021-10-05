@@ -15,4 +15,10 @@
   -webkit-appearance: none;
   // Limit resizing to vertical
   resize: vertical;
+  line-height: 1.625rem;
+
+  @include cads-media-breakpoint-up(md) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
