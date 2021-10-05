@@ -1,3 +1,7 @@
+## <sub>v5.0.0-alpha.0</sub>
+
+#### _Oct. 5, 2021_
+
 **Breaking changes**
 
 - 🔠 Fonts: removed support for legacy browser fonts (only woff and woff2 remain)
