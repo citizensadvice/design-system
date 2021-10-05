@@ -1,0 +1,76 @@
+@use 'sass:math';
+
+// ============================================================================
+// Forms: Text inputs
+// ============================================================================
+
+/** @define input */
+.cads-input {
+  @include cads-interactive-element();
+
+  color: inherit;
+  width: 100%;
+  // prevent elements with size attributes overflowing on mobile
+  max-width: 100%;
+  height: $cads-interactive-target-size;
+  padding: $cads-spacing-2;
+  appearance: none;
+}
+
+// Character width modifiers
+// Based on https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/input/_index.scss#L62-L92
+// The ex measurements are based on the number of W's that can fit inside the input
+// Extra space is left on the right hand side to allow for the Safari prefill icon
+
+@function cads-character-width($desired-characters) {
+  // Linear regression estimation based on visual tests: y = 1.76 + 1.81x
+  // e.g. 2 characters desired = 1.76 + (2 * 1.81)
+  @return #{1.76 + ($desired-characters * 1.81)}ex;
+}
+
+//
+// Modifier: ~2 characters wide
+//
+.cads-input--two-chars,
+.cads-input--2ch {
+  max-width: cads-character-width(2);
+}
+
+//
+// Modifier: ~4 characters wide
+//
+.cads-input--four-chars,
+.cads-input--4ch {
+  max-width: cads-character-width(4);
+}
+
+//
+// Modifier: ~8 characters wide
+//
+.cads-input--eight-chars,
+.cads-input--8ch {
+  max-width: cads-character-width(8);
+}
+
+//
+// Modifier: ~16 characters wide
+//
+.cads-input--sixteen-chars,
+.cads-input--16ch {
+  max-width: cads-character-width(16);
+}
+
+/** @define textarea */
+.cads-textarea {
+  @include cads-interactive-element();
+
+  color: inherit;
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: $cads-spacing-2;
+  border-radius: 0;
+  -webkit-appearance: none;
+  // Limit resizing to vertical
+  resize: vertical;
+}
