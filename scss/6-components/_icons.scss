@@ -32,3 +32,19 @@ svg {
     }
   }
 }
+
+.cads-icon--plus-minus {
+  .minus {
+    display: none;
+  }
+
+  &.show-minus {
+    .minus {
+      display: block;
+    }
+
+    .plus {
+      display: none;
+    }
+  }
+}
