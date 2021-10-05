@@ -19,6 +19,12 @@ Metrics/BlockLength:
     # so we're not too worried about block length there
     - 'previews/**/*.rb'
 
+Metrics/LineLength:
+  Exclude:
+    # Previews often include lots of test data by design
+    # so we're not too worried about line length there
+    - 'previews/**/*.rb'
+
 Metrics/ClassLength:
   CountAsOne: ['array', 'hash']
 
