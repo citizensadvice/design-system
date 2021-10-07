@@ -39,11 +39,15 @@ jobs:
     defaults:
       run:
         working-directory: engine
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby_version: ['2.7', '3.0']
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ env.RUBY_VERSION }}
+          ruby-version: ${{ matrix.ruby_version }}
           working-directory: engine
       - run: |
           bundle config path vendor/bundle
