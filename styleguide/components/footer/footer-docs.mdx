@@ -73,9 +73,7 @@ These can either be passed on at a time like in the example above, or by iterati
 
 ```rb
 render CitizensAdviceComponents::Footer.new do |c|
-  my_columns.each do |column|
-    c.column(column)
-  end
+  c.columns(columns)
 end
 ```
 

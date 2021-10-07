@@ -12,7 +12,7 @@ module CitizensAdviceComponents
       )
       args[:options]&.merge(width: @width)
       @base_input_args = args
-      super(@base_input_args)
+      super(**@base_input_args)
     end
 
     def allowed_width_values
