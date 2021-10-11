@@ -1,10 +1,6 @@
-## <sub>v5.0.0-alpha.1</sub>
+## <sub>v5.0.0</sub>
 
-#### _Oct. 6, 2021_
-
-## <sub>v5.0.0-alpha.0</sub>
-
-#### _Oct. 5, 2021_
+#### _Oct. 11, 2021_
 
 **Breaking changes**
 
@@ -15,23 +11,13 @@
 
 - 🥾 Footer: Supports dynamic copyright year
 - 🍑 Assets: Fonts and SVGs now available in `/assets`
+- 👤 Header: Support custom logo slot for providing product specific logos
 
 **Bugfixes**
 
 - 🧂 Tables: Added render guards for missing headers and empty rows
 - 🔠 Fonts: Updated Open Sans to v27
 - 🔍 Search: Match button colour on hover
-
-## <sub>v4.3.0-alpha.0</sub>
-
-#### _Aug. 31, 2021_
-
-**New**
-
-- 👤 Header: Support custom logo slot for providing product specific logos
-
-**Bugfixes**
-
 - `TextInput` and `Textarea` components: allow consumers to specify a value (!)
 - 🥖 Breadcrumbs: Don't render when there is only one item.
 
