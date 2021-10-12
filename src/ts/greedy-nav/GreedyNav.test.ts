@@ -18,8 +18,6 @@ import {
   GreedyNavMenu,
 } from './GreedyNav';
 
-import { defaultConfig } from './Config';
-
 const menuFixture = fs.readFileSync(
   path.join(__dirname, './__fixtures__/menu.html'),
   'utf8'
@@ -252,7 +250,7 @@ describe('Greedy Nav', () => {
     beforeEach(async () => {
       document.body.innerHTML = menuFixture;
 
-      nav = new GreedyNavMenu(defaultConfig, document);
+      nav = new GreedyNavMenu();
       nav.init();
 
       // Change the viewport to 300px.
@@ -285,7 +283,7 @@ describe('Greedy Nav', () => {
 
     beforeEach(async () => {
       document.body.innerHTML = menuFixture;
-      nav = new GreedyNavMenu(defaultConfig, document);
+      nav = new GreedyNavMenu();
       nav.init();
     });
 
