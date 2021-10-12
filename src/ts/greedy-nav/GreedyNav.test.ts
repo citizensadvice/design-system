@@ -6,8 +6,8 @@
 import '@testing-library/jest-dom';
 import { fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
-import { JSDOM } from 'jsdom';
 import path from 'path';
+import fs from 'fs';
 
 import ResizeObserver from './__mocks__/ResizeObserver';
 
@@ -19,8 +19,6 @@ import {
 } from './GreedyNav';
 import { defaultConfig } from './Config';
 
-const jsdomConfig = { url: 'http://public-website.test:3000' };
-
 describe('Greedy Nav', () => {
   beforeAll(() => {
     window.ResizeObserver = ResizeObserver;
@@ -31,27 +29,21 @@ describe('Greedy Nav', () => {
   });
 
   describe('getClosest', () => {
-    let dom: JSDOM;
-    let document: Document;
     let top: HTMLElement;
     let middle: HTMLElement;
     let bottom: HTMLElement;
 
     beforeEach(() => {
-      dom = new JSDOM(
-        '<div id="top" class="parent top" data-top="top"><div id="middle" class="parent middle" data-middle="middle"><div id="bottom" class="bottom" data-bottom="bottom"></div></div></div>',
-        jsdomConfig
-      );
-
-      document = dom.window.document;
+      document.body.innerHTML = `
+        <div id="top" class="parent top" data-top="top">
+          <div id="middle" class="parent middle" data-middle="middle">
+            <div id="bottom" class="bottom" data-bottom="bottom"></div>
+          </div>
+        </div>`;
 
       top = document.querySelector<HTMLElement>('#top')!;
       middle = document.querySelector<HTMLElement>('#middle')!;
       bottom = document.querySelector<HTMLElement>('#bottom')!;
-    });
-
-    afterEach(() => {
-      document.body.innerHTML = '';
     });
 
     it('finds direct ancestor node by id', () => {
@@ -92,20 +84,14 @@ describe('Greedy Nav', () => {
   });
 
   describe('showToggle', () => {
-    afterEach(() => {
-      document.body.innerHTML = '';
-    });
-
     it('displays toggle if breaks is empty', () => {
       const selector = '.cads-greedy-nav-dropdown-toggle';
-      const dom = new JSDOM(
-        `<div class="cads-greedy-nav-dropdown cads-greedy-nav-has-dropdown">
-                <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
-                <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-visible"></button>
-                </div></div>`
-      );
 
-      const { document } = dom.window;
+      document.body.innerHTML = `<div class="cads-greedy-nav-dropdown cads-greedy-nav-has-dropdown">
+        <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
+          <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-visible"></button>
+        </div>
+      </div>`;
 
       const wrapper = document.querySelector<HTMLElement>(
         '.cads-greedy-nav-dropdown'
@@ -125,14 +111,12 @@ describe('Greedy Nav', () => {
 
     it('hides toggle if breaks is populated', () => {
       const selector = '.cads-greedy-nav-dropdown-toggle';
-      const dom = new JSDOM(
-        `<div class="cads-greedy-nav-dropdown ">
-                <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
-                <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-hidden"></button>
-                </div></div>`
-      );
 
-      const { document } = dom.window;
+      document.body.innerHTML = `<div class="cads-greedy-nav-dropdown">
+        <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
+        <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-hidden"></button>
+        </div>
+      </div>`;
 
       const wrapper = document.querySelector<HTMLElement>(
         '.cads-greedy-nav-dropdown'
@@ -155,7 +139,6 @@ describe('Greedy Nav', () => {
     let label: string;
     let activeLabel: string;
     let selector: string;
-    let dom: JSDOM;
 
     let wrapper: HTMLElement;
     let toggle: HTMLElement;
@@ -164,16 +147,11 @@ describe('Greedy Nav', () => {
       label = 'Menu';
       activeLabel = 'Close';
       selector = '.toggle';
-      dom = new JSDOM('<div class="wrapper"><div class="toggle"></div></div>');
-
-      const { document } = dom.window;
+      document.body.innerHTML =
+        '<div class="wrapper"><div class="toggle"></div></div>';
 
       wrapper = document.querySelector<HTMLElement>('.wrapper')!;
       toggle = document.querySelector<HTMLElement>(selector)!;
-    });
-
-    afterEach(() => {
-      document.body.innerHTML = '';
     });
 
     it('updates dropdownToggle to closed state', () => {
@@ -192,19 +170,13 @@ describe('Greedy Nav', () => {
   });
 
   describe('toDropdown', () => {
-    afterEach(() => {
-      document.body.innerHTML = '';
-    });
     it('moves last menu child to dropdown', () => {
-      const dom = new JSDOM(
-        `<nav>
-                <ul class="menu">
-                <li>one</li><li>two></li><li>three</li>
-                </ul>
-                <ul class="cads-greedy-nav__dropdown"></ul></nav>`
-      );
-
-      const { document } = dom.window;
+      document.body.innerHTML = `<nav>
+        <ul class="menu">
+          <li>one</li><li>two></li><li>three</li>
+        </ul>
+        <ul class="cads-greedy-nav__dropdown"></ul>
+      </nav>`;
 
       const nav = document.querySelector<HTMLElement>('nav')!;
       const menu = document.querySelector<HTMLElement>('.menu')!;
@@ -221,15 +193,12 @@ describe('Greedy Nav', () => {
     });
 
     it('moves menu items to the dop of dropdown', () => {
-      const dom = new JSDOM(
-        `<nav>
-                <ul class="menu">
-                <li>one</li><li>two</li>
-                </ul>
-                <ul class="cads-greedy-nav__dropdown"><li>three</li></ul></nav>`
-      );
-
-      const { document } = dom.window;
+      document.body.innerHTML = `<nav>
+        <ul class="menu">
+        <li>one</li><li>two</li>
+        </ul>
+        <ul class="cads-greedy-nav__dropdown"><li>three</li></ul>
+      </nav>`;
 
       const nav = document.querySelector<HTMLElement>('nav')!;
       const dropdown = document.querySelector<HTMLElement>(
@@ -249,15 +218,12 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = '';
     });
     it('moves items from dropdown to menu', () => {
-      const dom = new JSDOM(
-        `<nav>
-                <ul class="menu">
-                <li>one</li>
-                </ul>
-                <ul class="cads-greedy-nav__dropdown"><li>two></li><li>three</li></ul></nav>`
-      );
-
-      const { document } = dom.window;
+      document.body.innerHTML = `<nav>
+        <ul class="menu">
+        <li>one</li>
+        </ul>
+        <ul class="cads-greedy-nav__dropdown"><li>two></li><li>three</li></ul>
+      </nav>`;
 
       const nav = document.querySelector<HTMLElement>('nav')!;
       const menu = document.querySelector<HTMLElement>('.menu')!;
@@ -275,17 +241,13 @@ describe('Greedy Nav', () => {
   });
 
   describe('listeners', () => {
-    let dom: JSDOM;
-    let document: HTMLDocument;
     let nav: GreedyNavMenu;
 
     beforeEach(async () => {
-      dom = await JSDOM.fromFile(
+      document.body.innerHTML = fs.readFileSync(
         path.join(__dirname, './__fixtures__/menu.html'),
-        { url: 'http://www.example.com/menu.html' }
+        'utf8'
       );
-
-      document = dom.window.document;
 
       nav = new GreedyNavMenu(defaultConfig, document);
       nav.init();
@@ -295,10 +257,6 @@ describe('Greedy Nav', () => {
 
       // Trigger the window resize event.
       global.dispatchEvent(new Event('resize'));
-    });
-
-    afterEach(() => {
-      document.body.innerHTML = '';
     });
 
     it('toggles the menu open', () => {
@@ -320,17 +278,13 @@ describe('Greedy Nav', () => {
   });
 
   describe('menu opening and closing', () => {
-    let dom: JSDOM;
-    let document: HTMLDocument;
     let nav: GreedyNavMenu;
 
     beforeEach(async () => {
-      dom = await JSDOM.fromFile(
+      document.body.innerHTML = fs.readFileSync(
         path.join(__dirname, './__fixtures__/menu.html'),
-        { url: 'http://www.example.com/menu.html' }
+        'utf8'
       );
-
-      document = dom.window.document;
 
       nav = new GreedyNavMenu(defaultConfig, document);
       nav.init();
