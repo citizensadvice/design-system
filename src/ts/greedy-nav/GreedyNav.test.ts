@@ -17,7 +17,13 @@ import {
   updateLabel,
   GreedyNavMenu,
 } from './GreedyNav';
+
 import { defaultConfig } from './Config';
+
+const menuFixture = fs.readFileSync(
+  path.join(__dirname, './__fixtures__/menu.html'),
+  'utf8'
+);
 
 describe('Greedy Nav', () => {
   beforeAll(() => {
@@ -244,10 +250,7 @@ describe('Greedy Nav', () => {
     let nav: GreedyNavMenu;
 
     beforeEach(async () => {
-      document.body.innerHTML = fs.readFileSync(
-        path.join(__dirname, './__fixtures__/menu.html'),
-        'utf8'
-      );
+      document.body.innerHTML = menuFixture;
 
       nav = new GreedyNavMenu(defaultConfig, document);
       nav.init();
@@ -281,11 +284,7 @@ describe('Greedy Nav', () => {
     let nav: GreedyNavMenu;
 
     beforeEach(async () => {
-      document.body.innerHTML = fs.readFileSync(
-        path.join(__dirname, './__fixtures__/menu.html'),
-        'utf8'
-      );
-
+      document.body.innerHTML = menuFixture;
       nav = new GreedyNavMenu(defaultConfig, document);
       nav.init();
     });
