@@ -9,8 +9,6 @@ import userEvent from '@testing-library/user-event';
 import path from 'path';
 import fs from 'fs';
 
-import ResizeObserver from './__mocks__/ResizeObserver';
-
 import {
   getClosest,
   showToggle,
@@ -22,6 +20,27 @@ const menuFixture = fs.readFileSync(
   path.join(__dirname, './__fixtures__/menu.html'),
   'utf8'
 );
+
+class ResizeObserver {
+  /* eslint-disable class-methods-use-this */
+  callback: ResizeObserverCallback;
+
+  constructor(callback: ResizeObserverCallback) {
+    this.callback = callback;
+  }
+
+  observe(target: Element, options?: ResizeObserverOptions | undefined): void {
+    return null;
+  }
+
+  unobserve(): void {
+    return null;
+  }
+
+  disconnect(): void {
+    return null;
+  }
+}
 
 describe('Greedy Nav', () => {
   beforeAll(() => {
