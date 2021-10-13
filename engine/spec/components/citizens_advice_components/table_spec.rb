@@ -68,7 +68,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
     subject(:component) do
       described_class.new(
         header: sample_header,
-        rows: sample_rows.concat([["", ""], ["", ""], ["", ""]])
+        rows: sample_rows.concat([["", ""], [nil, nil], ["", nil]])
       )
     end
 
