@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- 🧂 Tables: Account for possibly nil cells
+
 ## <sub>v5.0.0</sub>
 
 #### _Oct. 11, 2021_

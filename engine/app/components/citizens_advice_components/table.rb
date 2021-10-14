@@ -13,7 +13,7 @@ module CitizensAdviceComponents
 
     def rows
       @rows.reject do |row|
-        row.flatten.reject(&:empty?).blank?
+        row.flatten.reject { |item| item.to_s.empty? }.blank?
       end
     end
 
