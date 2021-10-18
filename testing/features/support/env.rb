@@ -2,7 +2,6 @@
 
 require "dotenv"
 Dotenv.load(".env")
-require "capybara_accessible_selectors"
 
 require_relative "all"
 require_relative "helpers/all"
