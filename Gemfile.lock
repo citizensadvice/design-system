@@ -7,13 +7,6 @@ GIT
       faraday (~> 1.0)
 
 GIT
-  remote: https://github.com/citizensadvice/capybara_accessible_selectors.git
-  revision: 288aa63d36b7632dabe5b6b7560aec3548f76e63
-  specs:
-    capybara_accessible_selectors (0.4.2)
-      capybara (~> 3)
-
-GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
   revision: 8786246af8134b7efa1e800b56236186c6f68f7a
   tag: v4.1.0
@@ -103,13 +96,9 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0901)
     mini_mime (1.1.1)
-    mini_portile2 (2.6.1)
     minitest (5.14.4)
     multi_test (0.1.2)
     multipart-post (2.1.1)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
@@ -180,14 +169,12 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  ruby
   x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
   activesupport
   ca_testing!
-  capybara_accessible_selectors!
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv

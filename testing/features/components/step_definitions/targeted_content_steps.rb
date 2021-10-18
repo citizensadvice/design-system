@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-DISCLOSURE_TITLE = "If you are a citizen of a country outside the EU, EEA or Switzerland"
-SUMMARY_TEXT = "You should apply to the EU Settlement Scheme if both"
-
 Given("a default targeted content component is on the page") do
   @component = TargetedContent::Default.new.tap(&:load)
 end
@@ -20,11 +17,11 @@ Given("a fallback targeted content component is on the page") do
 end
 
 When("I expand/collapse the targeted content") do
-  toggle_disclosure DISCLOSURE_TITLE
+  @component.heading.expand_collapse.click
 end
 
 When("I close the targeted content") do
-  toggle_disclosure DISCLOSURE_TITLE
+  @component.additional_information.close.click
 end
 
 When("I jump to the targeted content") do
@@ -32,29 +29,34 @@ When("I jump to the targeted content") do
 end
 
 Then("a targeted content title is present") do
-  expect(@component).to have_disclosure_button DISCLOSURE_TITLE
+  expect(@component).to have_heading
 end
 
 Then("the toggle button indicates it will expand") do
+  expect(@component.heading).to have_expand_collapse
+
   expect(@component.heading.expand_collapse["aria-label"])
     .to start_with("show this section")
 end
 
 Then("the toggle button indicates it will collapse") do
+  expect(@component.heading).to have_expand_collapse
+
   expect(@component.heading.expand_collapse["aria-label"])
     .to start_with("hide this section")
 end
 
 Then("I can see additional information") do
-  expect(@component).to have_text SUMMARY_TEXT
+  expect(@component).to have_additional_information
 end
 
 Then("I can no longer see additional information") do
-  expect(@component).not_to have_text SUMMARY_TEXT
+  expect(@component).not_to have_additional_information
 end
 
 Then("I can see a close button") do
-  expect(@component).to have_button "Close"
+  expect(@component.additional_information.close.text)
+    .to eq("Close")
 end
 
 Then("an Adviser label is present in the expandable pane") do
@@ -62,6 +64,7 @@ Then("an Adviser label is present in the expandable pane") do
 end
 
 Then("I cannot close or collapse the content") do
-  expect(@component.heading).not_to have_disclosure_button DISCLOSURE_TITLE
-  expect(@component).not_to have_button "Close"
+  expect(@component.heading).not_to have_expand_collapse
+
+  expect(@component.additional_information).not_to have_close
 end
