@@ -43,3 +43,33 @@ The default `fill` colour is `currentColor`. You can override this in your CSS u
   fill: #0000ff;
 }
 ```
+
+## Combined Icons
+
+In some instances, you might need to combine icons into one SVG and use javascript and CSS to create a toggleable combined icon. You can do this by:
+
+- combining the relevant `path` elements into the same `svg` element
+- adding classes to the `path` elements
+- add supporting CSS and JS to show/hide the required `path` elements
+
+For convenience, two common examples of this are included in the design system: the PlusMinus icon and the ArrowUpDown icon.
+
+They can be used in the same way as the other icon components:
+
+```
+  = render CitizensAdviceComponents::Icons::PlusMinus.new(size: :large)
+  = render CitizensAdviceComponents::Icons::ArrowUpDown.new(size: :large)
+```
+
+The supporting CSS for these components has been written. Append `.show-up` to show to the up arrow in `ArrowUpDown` and `.show-minus` to show the minus in `PlusMinus`.
+
+You will need to write your own javascript that toggles the required class, eg:
+
+```
+var button = document.querySelector('button');
+
+button.addEventListener('click', function() {
+  const icon = document.querySelector('.cads-icon');
+  icon.classList.toggle('show-minus')
+});
+```

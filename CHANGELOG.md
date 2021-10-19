@@ -1,6 +1,8 @@
 **Bugfixes**
-
 - 🧂 Tables: Account for possibly nil cells
+
+**New**
+- 🏋 SVG Icons: Added view component SVG icons
 
 ## <sub>v5.0.0</sub>
 
