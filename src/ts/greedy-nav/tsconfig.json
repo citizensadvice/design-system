@@ -1,8 +1,10 @@
 {
   "extends": "../../../tsconfig-base.json",
   "compilerOptions": {
-    "outFile": "../../../lib/greedy-nav.js",
-    "rootDir": "."
+    "module": "CommonJS",
+    "outDir": "../../../lib/greedy-nav",
+    "rootDir": ".",
+    "declaration": true
   },
   "include": ["./**/*.ts"],
   "exclude": ["./**/*.test.ts"]

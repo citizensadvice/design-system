@@ -3,9 +3,6 @@
   "references": [
     {
       "path": "./src/ts/greedy-nav/tsconfig.json"
-    },
-    {
-      "path": "./src/ts/greedy-nav/tsconfig.common.json"
     }
   ]
 }
