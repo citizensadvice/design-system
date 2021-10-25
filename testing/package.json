@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "backstopjs": "^5.3.7",
+    "backstopjs": "^5.4.4",
     "pa11y-ci": "^2.4.2"
   },
   "author": "Marcelo Nicolosi <marcelo.nicolosi@citizensadvice.org.uk>",
