@@ -71,7 +71,7 @@
     "eslint-plugin-import": "^2.23.2",
     "git-state": "^4.1.0",
     "glob": "^7.1.7",
-    "http-server": "^13.0.0",
+    "http-server": "^14.0.0",
     "inquirer": "^8.1.1",
     "jest": "^27.0.4",
     "jest-date-mock": "^1.0.8",
