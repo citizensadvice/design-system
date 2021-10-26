@@ -2,6 +2,8 @@
  * @jest-environment jsdom
  */
 /* eslint-env jest */
+/* eslint-disable import/no-extraneous-dependencies */
+
 import { screen } from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';
 
