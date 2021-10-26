@@ -19,9 +19,9 @@ const initHeader = () => {
         controlButton.classList.add(CLASS_NAMES.iconSearch);
         controlButton.setAttribute('aria-expanded', 'false');
 
-        const label = controlButton.getAttribute('data-descriptive-label-show');
-        if (label) {
-          controlButton.setAttribute('aria-label', label);
+        const title = controlButton.getAttribute('data-descriptive-label-show');
+        if (title) {
+          controlButton.title = title;
         }
       } else {
         header.classList.add(CLASS_NAMES.showSearch);
@@ -29,9 +29,9 @@ const initHeader = () => {
         controlButton.classList.add(CLASS_NAMES.iconClose);
         controlButton.setAttribute('aria-expanded', 'true');
 
-        const label = controlButton.getAttribute('data-descriptive-label-hide');
-        if (label) {
-          controlButton.setAttribute('aria-label', label);
+        const title = controlButton.getAttribute('data-descriptive-label-hide');
+        if (title) {
+          controlButton.title = title;
         }
       }
     });
