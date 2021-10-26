@@ -1,4 +1,4 @@
-const initHeader = () => {
+const initHeader = (): void => {
   const CLASS_NAMES = {
     showSearch: 'cads-header--show-search',
     iconSearch: 'cads-icon_search',
