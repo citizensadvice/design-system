@@ -151,7 +151,7 @@ function initTargetedContentFor(el) {
   }
 }
 
-export default function initTargetedContent() {
+export default function initTargetedContent(): void {
   const targetedContentEls = document.querySelectorAll(SELECTORS.el);
   if (targetedContentEls.length > 0) {
     for (let i = 0; i < targetedContentEls.length; i++) {
