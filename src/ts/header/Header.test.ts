@@ -7,7 +7,7 @@
 import { screen } from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';
 
-import initHeader from './Header';
+import initHeader from './header';
 
 const searchFormHtml = `<form action='/the/search-action-url' class='cads-search' role='search'>
   <input aria-label='Search through site content' name='q' type='search'>
