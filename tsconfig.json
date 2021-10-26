@@ -6,6 +6,9 @@
     },
     {
       "path": "./src/ts/header/tsconfig.json"
+    },
+    {
+      "path": "./src/ts/targeted-content/tsconfig.json"
     }
   ]
 }
