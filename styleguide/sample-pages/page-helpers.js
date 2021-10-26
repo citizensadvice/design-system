@@ -1,5 +1,5 @@
 import GreedyNav from '../../src/ts/greedy-nav/GreedyNav';
-import initHeader from '../../src/ts/header/Header';
+import initHeader from '../../src/ts/header/header';
 import initTargetedContent from '../../src/js/targeted-content';
 
 export function initGlobalJS() {
