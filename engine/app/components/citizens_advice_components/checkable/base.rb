@@ -1,12 +1,13 @@
 module CitizensAdviceComponents
   module Checkable 
-    class Base < ViewComponent::Base
+    class Base < CitizensAdviceComponents::Base
       attr_reader :label
 
       def initialize(label:, value:, checked: false, **additional_attributes)
         super
         @label = label
         @value = value
+        @checked = fetch_or_fallback_boolean(checked, fallback: false)
         @additional_attributes = additional_attributes
       end
 
