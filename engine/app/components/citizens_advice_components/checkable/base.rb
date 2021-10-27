@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module CitizensAdviceComponents
-  module Checkable 
+  module Checkable
     class Base < CitizensAdviceComponents::Base
       attr_reader :label
 

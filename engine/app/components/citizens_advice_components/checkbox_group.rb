@@ -1,8 +1,7 @@
 # frozen_string_literal: true
+
 module CitizensAdviceComponents
-
   class CheckboxGroup < ViewComponent::Base
-
     attr_reader :legend, :name, :error_message, :hint
 
     renders_many :checkboxes, Checkable::Checkbox

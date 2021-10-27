@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CitizensAdviceComponents
   class CheckboxGroupPreview < ViewComponent::Preview
     def basic
@@ -46,8 +47,6 @@ module CitizensAdviceComponents
       end
     end
 
-   
-
     def long
       render CheckboxGroup.new(
         legend: "Example radio group",
@@ -66,12 +65,11 @@ module CitizensAdviceComponents
       end
     end
 
-
     private
-    
-    def checkboxes 
+
+    def checkboxes
       [
-        { label: "Option 1", value: 1 },
+        { label: "Option 1", value: 1, checked: true },
         { label: "Option 2", value: 2 },
         { label: "Option 3", value: 3 }
       ]
