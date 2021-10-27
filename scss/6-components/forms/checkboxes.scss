@@ -20,10 +20,10 @@
   &::after {
     content: '';
     position: absolute;
-    top: $cads-spacing-2;
-    left: 0.9rem;
+    top: 9px;
+    left: 15px;
     width: 10px;
-    height: 19px;
+    height: 17px;
     border-right: $cads-border-width-large solid currentColor;
     border-bottom: $cads-border-width-large solid currentColor;
     opacity: 0;
