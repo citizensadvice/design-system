@@ -1,7 +1,7 @@
 .cads-form-field{ class: ("cads-form-field--has-error" if error?) }
   .cads-form-field__error-marker
-  %div.cads-form-group.cads-form-field__content.cads-checkbox-group
-    %div.cads-form-field__label
+  .cads-form-group.cads-form-field__content.cads-checkbox-group
+    .cads-form-field__label
     - if error?
       %p.cads-form-field__error-message{ id: "#{name}-error" }
         = error_message

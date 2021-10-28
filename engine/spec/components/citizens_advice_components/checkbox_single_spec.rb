@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-# default behaviour - large, list, one for each option, value, checked, name, id
-# optional behaviour - optional, hint, inline, small, error, layout
-# invalid params - size, layout, optional
-
 RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
   subject(:component) do
     render_inline described_class.new(
