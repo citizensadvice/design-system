@@ -1,7 +1,6 @@
-
 .cads-form-field{ class: ("cads-form-field--has-error" if error?) }
   .cads-form-field__error-marker
-  %fieldset.cads-form-field__content.cads-checkbox-group
+  %fieldset.cads-form-field__content.cads-checkbox-group.cads-form-group
     %legend.cads-form-field__label
       = legend
       - if optional?
@@ -11,7 +10,7 @@
     - if error?
       %p.cads-form-field__error-message= error_message
     - checkboxes.each do |checkbox|
-      .cads-checkbox-group__item
-        %input.cads-checkbox-group__input{ checkbox.attributes(name) }
-        %label.cads-checkbox-group__label{ for: checkbox.attributes(name)[:id] }
+      .cads-form-group__item
+        %input.cads-form-group__input{ checkbox.attributes(name) }
+        %label.cads-form-group__label{ for: checkbox.attributes(name)[:id] }
           = checkbox.label

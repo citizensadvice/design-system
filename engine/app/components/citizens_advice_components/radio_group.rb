@@ -51,8 +51,8 @@ module CitizensAdviceComponents
     def fieldset_attributes
       {
         class: [
-          ("cads-radio-group--#{@size.to_s.dasherize}" if size?),
-          ("cads-radio-group--#{@layout.to_s.dasherize}" if layout?)
+          ("cads-form-group--#{@size.to_s.dasherize}" if size?),
+          ("cads-form-group--#{@layout.to_s.dasherize}" if layout?)
         ]
       }
     end
