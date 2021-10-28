@@ -17,7 +17,7 @@ module CitizensAdviceComponents
 
       @error_message = options[:error_message]
       @hint = options[:hint]
-      @optional = options[:optional]
+      @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
     end
 
     def common_fieldset_classes
