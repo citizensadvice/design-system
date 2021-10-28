@@ -37,7 +37,7 @@ module CitizensAdviceComponents
 
       def error_attributes
         {
-          "aria-describedBy": "#{@name}-error",
+          "aria-describedby": "#{@name}-error",
           "aria-invalid": true
         }
       end

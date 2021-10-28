@@ -3,14 +3,13 @@
 
 module CitizensAdviceComponents
   class CheckboxSingle < Base
-    attr_reader :name, :error_message, :optional
+    attr_reader :name, :error_message
 
     renders_one :checkbox, Checkable::Checkbox
 
     def initialize(name:, error_message: nil, optional: false)
       @name = name
       @error_message = error_message
-      @optional = optional
     end
 
     def error?
