@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
@@ -7,7 +6,8 @@ module CitizensAdviceComponents
 
     renders_one :checkbox, Checkable::Checkbox
 
-    def initialize(name:, error_message: nil, optional: false)
+    def initialize(name:, error_message: nil)
+      super
       @name = name
       @error_message = error_message
     end

@@ -17,7 +17,7 @@ module CitizensAdviceComponents
     private
 
     def checkbox
-      { label: "I agree to the great terms and conditions", value: "agreed-to-tcs"}
+      { label: "I agree to the great terms and conditions", value: "agreed-to-tcs" }
     end
   end
 end

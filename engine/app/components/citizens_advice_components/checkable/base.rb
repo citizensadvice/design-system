@@ -13,7 +13,7 @@ module CitizensAdviceComponents
         @additional_attributes = additional_attributes
       end
 
-      def attributes(name, error = false)
+      def attributes(name, error: false)
         @name = name
         attrs = base_attributes
         attrs = base_attributes.merge(@additional_attributes) if @additional_attributes.present?

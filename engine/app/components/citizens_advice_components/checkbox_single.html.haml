@@ -6,6 +6,6 @@
       %p.cads-form-field__error-message{ id: "#{name}-error" }
         = error_message
     .cads-form-group__item
-      %input.cads-form-group__input{ checkbox.attributes(name, error?) }
+      %input.cads-form-group__input{ checkbox.attributes(name, error: error?) }
       %label.cads-form-group__label{ for: checkbox.attributes(name)[:id] }
         = checkbox.label

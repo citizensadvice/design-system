@@ -15,7 +15,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
   end
 
   let(:checkbox) do
-    { label: "Option 1", value: "1"  }
+    { label: "Option 1", value: "1" }
   end
 
   let(:name) { "my-checkbox" }
@@ -43,7 +43,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
 
   context "when there are no checkboxes" do
     subject(:component) do
-      render_inline described_class.new(name: "checkboxes") 
+      render_inline described_class.new(name: "checkboxes")
     end
 
     it "does not render" do
@@ -51,27 +51,25 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
     end
   end
 
-
   context "when there is an error message" do
     let(:error_message) { "This is the error message" }
 
     it "renders the error message" do
       expect(component.text.strip).to include "This is the error message"
     end
-    
+
     it "adds an aria-invalid attribute to the input" do
       expect(component.css("input[aria-invalid]").length).to eq(1)
     end
 
     it "links the error message to the input" do
-      expect(component.css('input').attribute("aria-describedby").value).to eq("my-checkbox-error")
+      expect(component.css("input").attribute("aria-describedby").value).to eq("my-checkbox-error")
     end
 
     it "gives an id to the error message" do
       expect(component.css("[id=my-checkbox-error]")).to be_present
     end
   end
-
 
   context "when there are additional parameters on the radio buttons" do
     let(:checkbox) do
