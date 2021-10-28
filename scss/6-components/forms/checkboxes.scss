@@ -1,40 +1,20 @@
 .cads-checkbox-group {
-  @extend %cads-form-group;
-}
+  .cads-form-group__label {
+    &::before {
+      border-radius: 2px;
+    }
 
-.cads-checkbox-group__item {
-  @extend %cads-form-group__item;
-}
-
-.cads-checkbox-group__input {
-  @extend %cads-form-group__input;
-}
-
-.cads-checkbox-group__label {
-  @extend %cads-form-group__label;
-
-  &::before {
-    border-radius: 2px;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: 15px;
+      width: 10px;
+      height: 17px;
+      border-right: $cads-border-width-large solid currentColor;
+      border-bottom: $cads-border-width-large solid currentColor;
+      opacity: 0;
+      transform: rotateZ(45deg);
+    }
   }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 9px;
-    left: 15px;
-    width: 10px;
-    height: 17px;
-    border-right: $cads-border-width-large solid currentColor;
-    border-bottom: $cads-border-width-large solid currentColor;
-    opacity: 0;
-    transform: rotateZ(45deg);
-  }
-}
-
-.cads-checkbox-group__input:checked + .cads-checkbox-group__label {
-  @extend %cads-form-group--selected;
-}
-
-.cads-checkbox-group__input:focus + .cads-checkbox-group__label {
-  @extend %cads-form-group--focussed;
 }
