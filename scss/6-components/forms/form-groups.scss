@@ -1,6 +1,12 @@
 @use 'sass:math';
+// ============================================================================
+// Forms: Form groups
+// Styles for groups of checkable items, like checkboxes and radio buttons
+// ============================================================================
 
-$cads-radios-size: 40px;
+/** @define form-group; weak */
+
+$cads-checkable-size: 40px;
 
 .cads-form-group {
   border: none;
@@ -11,9 +17,9 @@ $cads-radios-size: 40px;
 .cads-form-group__item {
   display: block;
   position: relative;
-  min-height: $cads-radios-size;
+  min-height: $cads-checkable-size;
   margin-bottom: $cads-spacing-4;
-  padding-left: $cads-radios-size;
+  padding-left: $cads-checkable-size;
   clear: left;
 
   &:last-child,
@@ -24,7 +30,7 @@ $cads-radios-size: 40px;
 
 .cads-form-group__input {
   $input-offset: math.div(
-    ($cads-interactive-target-size - $cads-radios-size),
+    ($cads-interactive-target-size - $cads-checkable-size),
     2
   );
 
@@ -43,7 +49,7 @@ $cads-radios-size: 40px;
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 0;
-  // optically align radio labels with controls
+  // optically align labels with controls
   padding: cads-rem(7px) $cads-spacing-4 $cads-spacing-2;
   cursor: pointer;
   // remove 300ms pause on mobile
@@ -56,8 +62,8 @@ $cads-radios-size: 40px;
     position: absolute;
     top: 0;
     left: 0;
-    width: $cads-radios-size;
-    height: $cads-radios-size;
+    width: $cads-checkable-size;
+    height: $cads-checkable-size;
     border: $cads-border-width-medium solid $cads-language__input-border-colour;
     background: transparent;
   }
