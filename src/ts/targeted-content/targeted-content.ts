@@ -26,33 +26,34 @@ const CLASS_NAMES = {
   iconVertLine: 'cads-targeted-content__icon-vert',
 };
 
-function setState(el, state) {
+function setState(el: HTMLElement, state: string) {
   if (state === 'open') {
     el.classList.add(CLASS_NAMES.open);
   } else {
     el.classList.remove(CLASS_NAMES.open);
   }
 
-  const titleEl = el.querySelector(SELECTORS.title);
-  const btn = titleEl.querySelector('button');
+  const titleEl = el.querySelector(SELECTORS.title) as HTMLElement;
+  const btn = titleEl.querySelector('button') as HTMLElement;
 
   btn.setAttribute('aria-expanded', state === 'open' ? 'true' : 'false');
-  btn.setAttribute(
-    'aria-label',
-    el.getAttribute(
-      state === 'open'
-        ? 'data-descriptive-label-hide'
-        : 'data-descriptive-label-show'
-    )
+  const label = el.getAttribute(
+    state === 'open'
+      ? 'data-descriptive-label-hide'
+      : 'data-descriptive-label-show'
   );
+
+  if (label) {
+    btn.setAttribute('aria-label', label);
+  }
 }
 
-function openByHash(hash) {
+function openByHash(hash: string) {
   try {
     const hashId = hash.replace(/^#/, '');
     const targetEl = document.getElementById(hashId);
     if (targetEl) {
-      const matchEl = targetEl.closest(SELECTORS.el);
+      const matchEl = targetEl.closest(SELECTORS.el) as HTMLElement;
       if (matchEl) {
         setState(matchEl, 'open');
       }
@@ -60,9 +61,13 @@ function openByHash(hash) {
   } catch (e) {} // eslint-disable-line no-empty
 }
 
-function initTargetedContentFor(el) {
+function initTargetedContentFor(el: HTMLElement): void {
   const titleEl = el.querySelector(SELECTORS.title);
   const contentEl = el.querySelector(SELECTORS.content);
+
+  if (!(titleEl && contentEl)) {
+    return;
+  }
 
   /**
    * Create the toggle button
@@ -120,7 +125,9 @@ function initTargetedContentFor(el) {
   el.classList.add(CLASS_NAMES.toggleable);
   createToggleButton();
 
-  const toggleButtonEl = el.querySelector(`.${CLASS_NAMES.button}`);
+  const toggleButtonEl = el.querySelector(
+    `.${CLASS_NAMES.button}`
+  ) as HTMLElement;
 
   toggleButtonEl.addEventListener('click', () => {
     const currentlyExpanded =
@@ -137,7 +144,7 @@ function initTargetedContentFor(el) {
 
   if (closeButtonEl) {
     closeButtonEl.addEventListener('click', () => {
-      const matchEl = closeButtonEl.closest(SELECTORS.el);
+      const matchEl = closeButtonEl.closest(SELECTORS.el) as HTMLElement;
       if (matchEl) {
         setState(matchEl, 'closed');
       }
@@ -151,11 +158,11 @@ function initTargetedContentFor(el) {
   }
 }
 
-export default function initTargetedContent() {
+export default function initTargetedContent(): void {
   const targetedContentEls = document.querySelectorAll(SELECTORS.el);
   if (targetedContentEls.length > 0) {
     for (let i = 0; i < targetedContentEls.length; i++) {
-      const el = targetedContentEls[i];
+      const el = targetedContentEls[i] as HTMLElement;
 
       /**
        * Avoid initialising if already initialised

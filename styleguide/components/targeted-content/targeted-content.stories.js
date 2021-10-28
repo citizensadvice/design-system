@@ -1,4 +1,4 @@
-import initTargetedContent from '../../../src/js/targeted-content';
+import initTargetedContent from '../../../src/ts/targeted-content/targeted-content';
 
 import docs from './targeted-content-docs.mdx';
 import templateDefault from '../../examples/targeted_content/default.html';
