@@ -13,29 +13,37 @@ module CitizensAdviceComponents
         @additional_attributes = additional_attributes
       end
 
-      def attributes(name)
-        attrs = base_attributes(name)
-        return attrs if @additional_attributes.blank?
-
-        attrs.merge(@additional_attributes)
+      def attributes(name, error = false)
+        @name = name
+        attrs = base_attributes
+        attrs = base_attributes.merge(@additional_attributes) if @additional_attributes.present?
+        attrs = attrs.merge(error_attributes) if error
+        attrs
       end
 
       def input_type
         raise NotImplementedError
       end
 
-      def base_attributes(name)
+      def base_attributes
         {
           type: input_type,
-          id: format_button_id(name),
-          name: name,
+          id: format_button_id,
+          name: @name,
           value: @value,
           checked: @checked
         }
       end
 
-      def format_button_id(name)
-        "#{name}-#{@value}"
+      def error_attributes
+        {
+          "aria-describedBy": "#{@name}-error",
+          "aria-invalid": true
+        }
+      end
+
+      def format_button_id
+        "#{@name}-#{@value}"
       end
     end
   end
