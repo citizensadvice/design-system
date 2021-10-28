@@ -7,7 +7,7 @@ module CitizensAdviceComponents
         legend: "This is the group legend",
         name: "my-radio-group"
       ) do |c|
-        c.checkboxes(checkboxes)
+        c.inputs(checkboxes)
       end
     end
 
@@ -19,7 +19,7 @@ module CitizensAdviceComponents
           error_message: "Select an option"
         }
       ) do |c|
-        c.checkboxes(checkboxes)
+        c.inputs(checkboxes)
       end
     end
 
@@ -31,7 +31,7 @@ module CitizensAdviceComponents
           optional: true
         }
       ) do |c|
-        c.checkboxes(checkboxes)
+        c.inputs(checkboxes)
       end
     end
 
@@ -43,7 +43,7 @@ module CitizensAdviceComponents
           hint: "This is the hint text"
         }
       ) do |c|
-        c.checkboxes(checkboxes)
+        c.inputs(checkboxes)
       end
     end
 
@@ -52,7 +52,7 @@ module CitizensAdviceComponents
         legend: "Example radio group",
         name: "radio-buttons-long"
       ) do |c|
-        c.checkboxes(long_checkboxes)
+        c.inputs(long_checkboxes)
       end
     end
 
@@ -61,7 +61,7 @@ module CitizensAdviceComponents
         legend: "Example radio group",
         name: "radio-buttons-attrs"
       ) do |c|
-        c.checkboxes(additional_attribute_checkboxes)
+        c.inputs(additional_attribute_checkboxes)
       end
     end
 

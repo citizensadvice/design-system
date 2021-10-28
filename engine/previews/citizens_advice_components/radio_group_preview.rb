@@ -7,7 +7,7 @@ module CitizensAdviceComponents
         legend: "Example radio group",
         name: "radio-buttons"
       ) do |c|
-        c.radio_buttons(radios)
+        c.inputs(radios)
       end
     end
 
@@ -19,7 +19,7 @@ module CitizensAdviceComponents
           error_message: "Select an option"
         }
       ) do |c|
-        c.radio_buttons(radios)
+        c.inputs(radios)
       end
     end
 
@@ -31,7 +31,7 @@ module CitizensAdviceComponents
           optional: true
         }
       ) do |c|
-        c.radio_buttons(radios)
+        c.inputs(radios)
       end
     end
 
@@ -43,7 +43,7 @@ module CitizensAdviceComponents
           hint: "This is the hint text"
         }
       ) do |c|
-        c.radio_buttons(radios)
+        c.inputs(radios)
       end
     end
 
@@ -55,7 +55,7 @@ module CitizensAdviceComponents
           size: :small
         }
       ) do |c|
-        c.radio_buttons(radios)
+        c.inputs(radios)
       end
     end
 
@@ -67,7 +67,7 @@ module CitizensAdviceComponents
           layout: :inline
         }
       ) do |c|
-        c.radio_buttons(radios)
+        c.inputs(radios)
       end
     end
 
@@ -76,7 +76,7 @@ module CitizensAdviceComponents
         legend: "Example radio group",
         name: "radio-buttons-long"
       ) do |c|
-        c.radio_buttons(long_radios)
+        c.inputs(long_radios)
       end
     end
 
@@ -85,7 +85,7 @@ module CitizensAdviceComponents
         legend: "Example radio group",
         name: "radio-buttons-attrs"
       ) do |c|
-        c.radio_buttons(additional_attribute_radios)
+        c.inputs(additional_attribute_radios)
       end
     end
 
