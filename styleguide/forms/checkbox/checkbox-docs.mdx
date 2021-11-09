@@ -1,0 +1,57 @@
+import { Story, Preview } from '@storybook/addon-docs';
+
+# Checkbox
+
+A single checkbox allows a user to affirm a statement or condition.
+
+<Preview>
+  <Story id="forms-checkbox--basic" />
+</Preview>
+
+## When to use
+
+Use a single checkbox when you want a user to confirm they have understood or agree to something. For example, showing the have read and understood some terms and conditions.
+
+## When not to use
+
+Do not use a checkbox if the user:
+
+- should be able to select one or more choices from a list of options (use a [checkbox group](/docs/forms-checkbox-group--basic) for this)
+- should only be able to select one choice from a list of options (use a [radio group](/docs/forms-radio-group--basic#radio-groups) for this)
+
+## How it works
+
+### With error message
+
+Error messages are used to highlight where users need to change information. They’re used together with an [error summary](/design-system/styleguide/forms/components-error-summary--page?path=/docs/forms-error-summary--example).
+
+<Preview>
+  <Story id="forms-checkbox--with-error" />
+</Preview>
+
+## Implementation
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a following the example below.
+
+The checkbox itself can be defined using a simple hash (as with the ones for radio and checkbox groups), and passed into the `CheckboxSingle` component like this:
+
+```rb
+- my_checkbox = [
+  { label: "Option 1", value: "1", checked: true }
+]
+
+= render CitizensAdviceComponents::CheckboxSingle.new(
+    name: "checkbox"
+  ) do |c|
+    c.checkbox(my_checkbox)
+  end
+```
+
+### View Component Options
+
+| Property        | Description                              |
+| --------------- | ---------------------------------------- |
+| `name`          | Required, field name                     |
+| `error_message` | Optional, an error_message for the input |
