@@ -334,8 +334,38 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
-        label: `Forms/Radio group (small)`,
-        url: storyUrlFor(`forms-radio-group--small`),
+        label: `Forms/Checkbox group (basic)`,
+        url: storyUrlFor(`forms-checkbox-group`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Checkbox group (hint)`,
+        url: storyUrlFor(`forms-checkbox-group--with-hint`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Checkbox group (optional)`,
+        url: storyUrlFor(`forms-checkbox-group--optional-field`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Checkbox group (error)`,
+        url: storyUrlFor(`forms-checkbox-group--with-error`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Checkbox group (long)`,
+        url: storyUrlFor(`forms-checkbox-group--with-long-options`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Checkbox (basic)`,
+        url: storyUrlFor(`forms-checkbox--basic`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Checkbox (error)`,
+        url: storyUrlFor(`forms-checkbox--with-error`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       ...buildSamplePageScenarios(
