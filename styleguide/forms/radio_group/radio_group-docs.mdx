@@ -14,7 +14,10 @@ Use radios when a user can only select one option from a list of choices. The la
 
 ## When not to use
 
-Do not use radios if the user needs to select more than one option from a list of choices. Use a checkbox component instead (not yet developed).
+Do not use a radio group if the userL
+
+- should be able to select one or more choices from a list of options (use a [checkbox group](/docs/forms-checkbox-group--basic) for this)
+- there is only one checkbox in the list of options, for example agreeing to terms and conditions (use [checkbox](/docs/forms-checkbox--basic) for this)
 
 ## How it works
 
@@ -39,7 +42,7 @@ Use hint text for help that’s relevant to the majority of users, based on the 
 ### With optional field marker
 
 <Preview>
-  <Story id="forms-radio-group--optional" />
+  <Story id="forms-radio-group--optional-field" />
 </Preview>
 
 ### With error message
