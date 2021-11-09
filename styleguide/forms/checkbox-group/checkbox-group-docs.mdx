@@ -2,7 +2,7 @@ import { Story, Preview } from '@storybook/addon-docs';
 
 # Checkbox groups
 
-A checkbox group allows a user to select one or more options from a group of choices.
+A checkbox group allows a user to select one or more options from a list of choices.
 
 <Preview>
   <Story id="forms-checkbox-group--basic" />
@@ -14,9 +14,9 @@ Use a checkbox group when a user can select one or more options from a list of c
 
 ## When not to use
 
-Do not use a checkbox group if the user:
+Do not use a checkbox group if:
 
-- should only be able to select one choice from a list of options (use a [radio group](/docs/forms-radio-group--basic#radio-groups) for this)
+- the user should only be able to select one choice from a list of options (use a [radio group](/docs/forms-radio-group--basic#radio-groups) for this)
 - there is only one checkbox in the list of options, for example agreeing to terms and conditions (use [checkbox](/docs/forms-checkbox--basic) for this)
 
 ## How it works
@@ -58,7 +58,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 The checkbox buttons themselves can be defined using a simple hash, and passed into the `CheckboxGroup` component like this:
 
 ```rb
-- my_checkbox_buttons = [
+- my_checkboxes = [
   { label: "Option 1", value: "1", checked: true },
   { label: "Option 2", value: "2" },
   { label: "Option 3", value: "3", "data-testid": "my-test-id" }
@@ -66,12 +66,12 @@ The checkbox buttons themselves can be defined using a simple hash, and passed i
 
 = render CitizensAdviceComponents::CheckboxGroup.new(
     legend: "Example checkbox buttons",
-    name: "checkbox-buttons",
+    name: "my-checkboxes",
     options: {
       optional: true
     }
   ) do |c|
-    c.inputs(my_checkbox_buttons)
+    c.inputs(my_checkboxes)
   end
 ```
 
@@ -85,11 +85,11 @@ Any additional key/value pairs (beyond `label` and `value`) in your checkbox but
 
 ### View Component Options
 
-| Property               | Description                                                          |
-| ---------------------- | -------------------------------------------------------------------- |
-| `name`                 | Required, field name                                                 |
-| `label`                | Required, the text for the label associated with the input           |
-| `options`              | Optional, a hash with one or more of the following values:           |
-| &rarr; `hint`          | Optional, hint text for the input                                    |
-| &rarr; `error_message` | Optional, an error_message for the input                             |
-| &rarr; `optional`      | Optional, boolean indicating the field is optional (ie not required) |
+| Property               | Description                                                           |
+| ---------------------- | --------------------------------------------------------------------- |
+| `name`                 | Required, field name                                                  |
+| `legend`               | Required, the text for the fieldset legend associated with the inputs |
+| `options`              | Optional, a hash with one or more of the following values:            |
+| &rarr; `hint`          | Optional, hint text for the input                                     |
+| &rarr; `error_message` | Optional, an error_message for the input                              |
+| &rarr; `optional`      | Optional, boolean indicating the field is optional (ie not required)  |
