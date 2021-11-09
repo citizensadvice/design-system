@@ -27,7 +27,7 @@ module CitizensAdviceComponents
 
     def fieldset_classes
       common_fieldset_classes << [
-        "cads-radio-group",
+        "cads-form-group--radio",
         ("cads-radio-group--#{@size.to_s.dasherize}" if size?),
         ("cads-radio-group--#{@layout.to_s.dasherize}" if layout?)
       ]

@@ -5,7 +5,7 @@ module CitizensAdviceComponents
     renders_many :inputs, Checkable::Checkbox
 
     def fieldset_classes
-      common_fieldset_classes << "cads-checkbox-group"
+      common_fieldset_classes << "cads-form-group--checkbox"
     end
   end
 end
