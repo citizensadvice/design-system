@@ -37,8 +37,8 @@
           legend: "Have you paid for goods or services from this trader?",
           name: "paid-for-goods"
         ) do |c| %>
-          <% c.radio_button(label: "Yes - If yes, answer the below questions", value: "yes") %>
-          <% c.radio_button(label: "No", value: "no") %>
+          <% c.input(label: "Yes - If yes, answer the below questions", value: "yes") %>
+          <% c.input(label: "No", value: "no") %>
         <% end %>
 
         <%= render CitizensAdviceComponents::TextInput.new(
@@ -55,8 +55,8 @@
           legend: "Have you contacted the trader about this complaint?",
           name: "contacted-trader"
         ) do |c| %>
-          <% c.radio_button(label: "Yes - If yes, answer the below questions", value: "yes") %>
-          <% c.radio_button(label: "No", value: "no") %>
+          <% c.input(label: "Yes - If yes, answer the below questions", value: "yes") %>
+          <% c.input(label: "No", value: "no") %>
         <% end %>
 
         <%= render CitizensAdviceComponents::Textarea.new(

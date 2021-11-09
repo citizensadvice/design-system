@@ -1,0 +1,20 @@
+.cads-form-group--checkbox {
+  .cads-form-group__label {
+    &::before {
+      border-radius: 2px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: 15px;
+      width: 10px;
+      height: 17px;
+      border-right: $cads-border-width-large solid currentColor;
+      border-bottom: $cads-border-width-large solid currentColor;
+      opacity: 0;
+      transform: rotateZ(45deg);
+    }
+  }
+}

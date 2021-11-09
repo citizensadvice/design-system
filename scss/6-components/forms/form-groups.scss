@@ -1,0 +1,93 @@
+@use 'sass:math';
+// ============================================================================
+// Forms: Form groups
+// Styles for groups of checkable items, like checkboxes and radio buttons
+// ============================================================================
+
+/** @define form-group; weak */
+
+$cads-checkable-size: 40px;
+
+.cads-form-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cads-form-group__item {
+  display: block;
+  position: relative;
+  min-height: $cads-checkable-size;
+  margin-bottom: $cads-spacing-4;
+  padding-left: $cads-checkable-size;
+  clear: left;
+
+  &:last-child,
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.cads-form-group__input {
+  $input-offset: math.div(
+    ($cads-interactive-target-size - $cads-checkable-size),
+    2
+  );
+
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  top: $input-offset * -1;
+  left: $input-offset * -1;
+  width: $cads-interactive-target-size;
+  height: $cads-interactive-target-size;
+  margin: 0;
+  opacity: 0;
+}
+
+.cads-form-group__label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+  // optically align labels with controls
+  padding: cads-rem(7px) $cads-spacing-4 $cads-spacing-2;
+  cursor: pointer;
+  // remove 300ms pause on mobile
+  touch-action: manipulation;
+
+  // [ ] / ( ) outer element (ring / box)
+  &::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $cads-checkable-size;
+    height: $cads-checkable-size;
+    border: $cads-border-width-medium solid $cads-language__input-border-colour;
+    background: transparent;
+  }
+}
+
+.cads-form-group__input:checked + .cads-form-group__label {
+  &::before {
+    border-color: $cads-language__input-border-colour;
+  }
+
+  &::after {
+    color: $cads-language__input-border-colour;
+    opacity: 1;
+  }
+}
+
+.cads-form-group__input:focus + .cads-form-group__label {
+  &::before {
+    border-color: $cads-language__focus-border-colour;
+    // We need to use box-shadow instead of outline as outline does not have a radius
+    box-shadow: 0 0 0 $cads-border-width-medium $cads-language__focus-colour;
+  }
+
+  &::after {
+    color: currentColor;
+  }
+}

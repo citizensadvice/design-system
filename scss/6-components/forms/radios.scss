@@ -5,91 +5,38 @@
 // ============================================================================
 // Based on https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/radios/_index.scss
 
-$cads-radios-size: 40px;
 $cads-small-radios-size: 24px;
 
-/** @define radio-group */
-.cads-radio-group {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-.cads-radio-group__item {
-  display: block;
-  position: relative;
-  min-height: $cads-radios-size;
-  margin-bottom: $cads-spacing-4;
-  padding-left: $cads-radios-size;
-  clear: left;
+.cads-form-group--radio {
+  .cads-form-group__label {
+    // (  ) Radio ring
+    &::before {
+      border-radius: 50%;
+    }
 
-  &:last-child,
-  &:last-of-type {
-    margin-bottom: 0;
+    //  •  Radio button
+    //
+    // We create the 'button' entirely out of 'border' so that they remain
+    // 'filled' even when colours are overridden in the browser.
+    &::after {
+      content: '';
+      position: absolute;
+      top: $cads-spacing-2;
+      left: $cads-spacing-2;
+      width: 0;
+      height: 0;
+      border: $cads-spacing-3 solid currentColor;
+      border-radius: 50%;
+      opacity: 0;
+      background: currentColor;
+    }
   }
 }
-.cads-radio-group__input {
-  $input-offset: math.div(
-    ($cads-interactive-target-size - $cads-radios-size),
-    2
-  );
-
-  cursor: pointer;
-  position: absolute;
-  z-index: 1;
-  top: $input-offset * -1;
-  left: $input-offset * -1;
-  width: $cads-interactive-target-size;
-  height: $cads-interactive-target-size;
-  margin: 0;
-  opacity: 0;
-}
-.cads-radio-group__label {
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: 0;
-  // optically align radio labels with controls
-  padding: cads-rem(7px) $cads-spacing-4 $cads-spacing-2;
-  cursor: pointer;
-  // remove 300ms pause on mobile
-  touch-action: manipulation;
-
-  // ( ) Radio ring
-  &::before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: $cads-radios-size;
-    height: $cads-radios-size;
-    border: $cads-border-width-medium solid $cads-language__input-border-colour;
-    border-radius: 50%;
-    background: transparent;
-  }
-
-  //  •  Radio button
-  //
-  // We create the 'button' entirely out of 'border' so that they remain
-  // 'filled' even when colours are overridden in the browser.
-  &::after {
-    content: '';
-    position: absolute;
-    top: $cads-spacing-2;
-    left: $cads-spacing-2;
-    width: 0;
-    height: 0;
-    border: $cads-spacing-3 solid currentColor;
-    border-radius: 50%;
-    opacity: 0;
-    background: currentColor;
-  }
-}
-
 //
 // Modifier: inline
 //
 .cads-radio-group--inline {
-  .cads-radio-group__item {
+  .cads-form-group__item {
     display: inline-block;
     margin-right: $cads-spacing-5;
     margin-bottom: 0;
@@ -106,7 +53,7 @@ $cads-small-radios-size: 24px;
   );
   $label-offset: $cads-interactive-target-size - $input-offset;
 
-  .cads-radio-group__item {
+  .cads-form-group__item {
     margin-bottom: 0;
   }
 
@@ -119,11 +66,11 @@ $cads-small-radios-size: 24px;
   //  └┆▲──┘
   //  ▲┆└─ Radio pseudo element, aligned with margin
   //  └─── Touch target (invisible input), shifted into the margin
-  .cads-radio-group__input {
+  .cads-form-group__input {
     margin-left: math.div($cads-small-radios-size, 3) * -1;
   }
 
-  .cads-radio-group__label {
+  .cads-form-group__label {
     // optically align radio labels with controls
     padding-left: 0;
     padding-top: cads-rem(8px);
@@ -133,7 +80,7 @@ $cads-small-radios-size: 24px;
   //
   // Reduce the size of the control [1],
   // vertically centering it within the touch target [2]
-  .cads-radio-group__label::before {
+  .cads-form-group__label::before {
     top: $input-offset - $cads-border-width-medium; // 2
     width: $cads-small-radios-size; // 1
     height: $cads-small-radios-size; // 1
@@ -142,30 +89,9 @@ $cads-small-radios-size: 24px;
   //  •  Radio button
   //
   // Reduce the size of the 'button' and center it within the ring
-  .cads-radio-group__label::after {
+  .cads-form-group__label::after {
     top: 14px;
     left: 6px;
     border-width: 6px;
   }
-}
-
-// Selected state
-.cads-radio-group__input:checked + .cads-radio-group__label::before {
-  border-color: $cads-language__input-border-colour;
-}
-
-.cads-radio-group__input:checked + .cads-radio-group__label::after {
-  color: $cads-language__input-border-colour;
-  opacity: 1;
-}
-
-// Focussed state
-.cads-radio-group__input:focus + .cads-radio-group__label::before {
-  border-color: $cads-language__focus-border-colour;
-  // We need to use box-shadow instead of outline as outline does not have a radius
-  box-shadow: 0 0 0 $cads-border-width-medium $cads-language__focus-colour;
-}
-
-.cads-radio-group__input:focus + .cads-radio-group__label::after {
-  color: currentColor;
 }
