@@ -61,36 +61,35 @@ jobs:
     needs: engine
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
-    # We link the @citizensadvice/design-system package
-    # from the root but we only build the lib/ directory
-    # when we publish to npm, so we need to build it first.
-    - uses: bahmutov/npm-install@v1
-    - run: npm run build
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
 
-    # Setup demo app
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ env.RUBY_VERSION }}
+      # Setup demo app
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          working-directory: demo
+      - run: |
+          bundle config path vendor/bundle
+          bundle update
+          bundle install --jobs 4 --retry 3
         working-directory: demo
-    - run: |
-        bundle config path vendor/bundle
-        bundle update
-        bundle install --jobs 4 --retry 3
-      working-directory: demo
-    - uses: bahmutov/npm-install@v1
-      with:
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: demo
+
+      # Run a webpack build as a smoke test
+      - run: ./bin/webpack
         working-directory: demo
-
-    # Run a webpack build as a smoke test    
-    - run: ./bin/webpack
-      working-directory: demo
-
 
   # Actions can run in parallel at the job or the workflow level.
   # In order to run our build-dependent tests in parallel we need a way
