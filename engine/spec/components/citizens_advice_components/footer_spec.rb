@@ -3,9 +3,7 @@
 RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   subject(:component) do
     render_inline(described_class.new(feedback_url: feedback_url)) do |c|
-      columns.each do |column|
-        c.column(column)
-      end
+      c.columns(columns)
     end
   end
 

@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
       name: name.presence,
       error_message: error_message.presence
     ) do |c|
-      c.checkbox(checkbox)
+      c.checkbox(**checkbox)
     end
   end
 
