@@ -5,9 +5,9 @@ module CitizensAdviceComponents
     renders_one :icon_left
     renders_one :icon_right
 
-    attr_reader :variant, :type, :additional_attributes
+    attr_reader :variant, :type, :attributes
 
-    def initialize(variant: :primary, type: :button, **additional_attributes)
+    def initialize(variant: :primary, type: :button, attributes: nil)
       super
       @variant = fetch_or_fallback(
         allowed_values: %i[primary secondary tertiary],
@@ -19,7 +19,7 @@ module CitizensAdviceComponents
         given_value: type,
         fallback: :button
       )
-      @additional_attributes = additional_attributes || {}
+      @attributes = attributes || {}
     end
   end
 end

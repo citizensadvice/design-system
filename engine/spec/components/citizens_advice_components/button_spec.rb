@@ -70,7 +70,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
   describe "additional_attributes" do
     subject(:component) do
       described_class
-        .new("data-testid": "example")
+        .new(attributes: { "data-testid": "example" })
         .with_content("Example")
     end
 
