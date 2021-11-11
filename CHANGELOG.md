@@ -7,6 +7,7 @@
 
 **New**
 - 🏋 SVG Icons: Added view component SVG icons
+- 📦 Checkbox and Checkbox groups are now available
 
 ## <sub>v5.0.0</sub>
 
