@@ -8,6 +8,7 @@
 **New**
 - 🏋 SVG Icons: Added view component SVG icons
 - 📦 Checkbox and Checkbox groups are now available
+- Full Ruby 3 support for `citizens_advice_components`
 
 ## <sub>v5.0.0</sub>
 
