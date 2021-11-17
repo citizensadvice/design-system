@@ -12,6 +12,18 @@ This prepares the release and puts it in a branch with the appropriate version n
 
 ## 2. Publish to npm
 
+**_Note:_**
+
+To run this step you need to be part of the npm org and have 2FA enabled on your account.
+
+You also need an auth token in your `~/.npmrc` file. You can do this by running the following command:
+
+```sh
+npm login
+```
+
+You will only need to do this once on the machine you want to release from.
+
 After the new version branch is merged, switch to `master`, pull the latest changes and run:
 
 ```sh
@@ -27,8 +39,6 @@ git push origin v{your_version_here}
 To publish the release tag to GitHub.
 
 A `prePublish` script will ensure you can only run npm publish from a `master` that is in a clean state. It will build the package and publish to npm.
-
-**_Note:_** To run this step you need to be part of the npm org and have 2FA enabled.
 
 ## 3. Update the release tag in GitHub
 
