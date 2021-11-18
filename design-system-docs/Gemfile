@@ -22,5 +22,9 @@ gem "bridgetown", "~> 1.0.0.alpha10"
 # (you can optionally limit this to the "development" group)
 gem "puma", "~> 5.2"
 
-
+# citizens advice design system view components
+gem "railties"
+gem "actionpack"
 gem "citizens_advice_components", path: "../engine"
+
+gem "bridgetown-view-component", "~> 0.7.0", :group => :bridgetown_plugins

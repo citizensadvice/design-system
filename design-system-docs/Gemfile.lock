@@ -105,6 +105,10 @@ GEM
       zeitwerk (~> 2.5)
     bridgetown-paginate (1.0.0.alpha10)
       bridgetown-core (= 1.0.0.alpha10)
+    bridgetown-view-component (0.7.0)
+      actionview (~> 6.0)
+      bridgetown (>= 0.21.0, < 2.0)
+      view_component (>= 2.32)
     builder (3.2.4)
     colorator (1.1.0)
     concurrent-ruby (1.1.9)
@@ -256,9 +260,12 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  actionpack
   bridgetown (~> 1.0.0.alpha10)
+  bridgetown-view-component (~> 0.7.0)
   citizens_advice_components!
   puma (~> 5.2)
+  railties
 
 BUNDLED WITH
    2.2.31
