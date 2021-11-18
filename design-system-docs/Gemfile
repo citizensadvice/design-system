@@ -21,3 +21,6 @@ gem "bridgetown", "~> 1.0.0.alpha10"
 # Puma is a Rack-compatible server
 # (you can optionally limit this to the "development" group)
 gem "puma", "~> 5.2"
+
+
+gem "citizens_advice_components", path: "../engine"
