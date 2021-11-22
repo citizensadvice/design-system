@@ -310,6 +310,7 @@ export class GreedyNavMenu {
    */
   document: HTMLDocument;
 
+  // eslint-disable-next-line default-param-last
   constructor(config: Config = defaultConfig, document?: HTMLDocument) {
     this.settings = { ...defaultConfig, ...config };
     this.count = 0;
