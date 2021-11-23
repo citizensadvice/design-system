@@ -1,38 +1,80 @@
 <header class="cads-header">
-<div class="cads-grid-container">
-<div class="cads-grid-row">
-<nav class="cads-skip-links">
-<a class="cads-skip-links__link" href="#cads-navigation">Skip to navigation</a>
-<a class="cads-skip-links__link" href="#cads-main-content">Skip to content</a>
-<a class="cads-skip-links__link" href="#cads-footer">Skip to footer</a>
-</nav>
-<div class="cads-grid-col-md-2 cads-header__logo-row">
-<a title="Citizens Advice homepage" class="cads-logo" href="/"></a>
-<button class="cads-header__search-reveal js-cads-search-reveal cads-icon_search" title="Open search" aria-expanded="false" data-testid="expand-button" data-descriptive-label-show="Open search" data-descriptive-label-hide="Close search"></button>
-</div>
-<div class="cads-grid-col-md-10 cads-header__search-row">
-<ul class="cads-header__links js-cads-copy-into-nav">
-<li class="cads-header__links-item"><span class="cads-header__text">Public site</span></li>
-<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?advisernet">AdviserNet</a></li>
-<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?CABlink">CABlink</a></li>
-<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?BMIS">BMIS</a></li>
-<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?lang=cy">Cymraeg</a></li>
-<li class="cads-header__links-item"><div class="cads-header__account-form" data-testid="account-link">
-<form action="/sign-out/out" accept-charset="UTF-8" method="post">
-<button name="button" type="submit">Sign out</button>
-</form>
-
-</div></li>
-</ul>
-<div class="cads-header__search-form">
-<form role="search" class="cads-search cads-search--icon-only" action="/search" accept-charset="UTF-8" method="get">
-<input type="search" name="q" id="search-query" aria-label="Search through site content" class="cads-search__input cads-input">
-<button title="Submit search query" data-testid="search-button" class="cads-search__button"><span class="cads-search__button-label">Search</span>
-</button>
-</form>
-
-</div>
-</div>
-</div>
-</div>
+  <div class="cads-grid-container">
+    <div class="cads-grid-row">
+      <nav class="cads-skip-links">
+        <a class="cads-skip-links__link" href="#cads-navigation"
+          >Skip to navigation</a
+        >
+        <a class="cads-skip-links__link" href="#cads-main-content"
+          >Skip to content</a
+        >
+        <a class="cads-skip-links__link" href="#cads-footer">Skip to footer</a>
+      </nav>
+      <div class="cads-grid-col-md-2 cads-header__logo-row">
+        <a title="Citizens Advice homepage" class="cads-logo" href="/"></a>
+        <button
+          class="
+            cads-header__search-reveal
+            js-cads-search-reveal
+            cads-icon_search
+          "
+          title="Open search"
+          aria-expanded="false"
+          data-testid="expand-button"
+          data-descriptive-label-show="Open search"
+          data-descriptive-label-hide="Close search"
+        ></button>
+      </div>
+      <div class="cads-grid-col-md-10 cads-header__search-row">
+        <ul class="cads-header__links js-cads-copy-into-nav">
+          <li class="cads-header__links-item">
+            <span class="cads-header__text">Public site</span>
+          </li>
+          <li class="cads-header__links-item">
+            <a class="cads-header__hyperlink" href="?advisernet">AdviserNet</a>
+          </li>
+          <li class="cads-header__links-item">
+            <a class="cads-header__hyperlink" href="?CABlink">CABlink</a>
+          </li>
+          <li class="cads-header__links-item">
+            <a class="cads-header__hyperlink" href="?BMIS">BMIS</a>
+          </li>
+          <li class="cads-header__links-item">
+            <a class="cads-header__hyperlink" href="?lang=cy">Cymraeg</a>
+          </li>
+          <li class="cads-header__links-item">
+            <div class="cads-header__account-form" data-testid="account-link">
+              <form action="/sign-out/out" accept-charset="UTF-8" method="post">
+                <button name="button" type="submit">Sign out</button>
+              </form>
+            </div>
+          </li>
+        </ul>
+        <div class="cads-header__search-form">
+          <form
+            role="search"
+            class="cads-search cads-search--icon-only"
+            action="/search"
+            accept-charset="UTF-8"
+            method="get"
+          >
+            <input
+              type="search"
+              name="q"
+              id="search-query"
+              aria-label="Search through site content"
+              class="cads-search__input cads-input"
+            />
+            <button
+              title="Submit search query"
+              data-testid="search-button"
+              class="cads-search__button"
+            >
+              <span class="cads-search__button-label">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>

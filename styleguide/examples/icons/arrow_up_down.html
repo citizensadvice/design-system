@@ -1,46 +1,48 @@
 <div class="cads-grid-container">
-<div class="cads-grid-row">
-<div class="cads-grid-col-8">
-<table class="cads-table">
-<thead>
-<tr>
-<th>
-Component class
-</th>
-<th>
-Toggle
-</th>
-<th>
-Icon
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-ArrowUpDown
-</td>
-<td>
-<button>
-Toggle arrow
-</button>
-</td>
-<td>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" class="cads-icon cads-icon--large cads-icon--arrow-up-down" focusable="false" aria-hidden="true">
-  <path class="down" d="m8 8.73 4.06-4.005a.57.57 0 0 1 .804 0l.97.956a.561.561 0 0 1 0 .794l-5.43 5.36a.567.567 0 0 1-.806 0l-5.43-5.36a.56.56 0 0 1 0-.794l.97-.956a.57.57 0 0 1 .803 0l4.06 4.005Z"></path>
-  <path class="up" d="m8 7.27-4.06 4.005a.568.568 0 0 1-.804 0l-.97-.956a.56.56 0 0 1 .001-.794l5.43-5.36a.57.57 0 0 1 .805 0l5.431 5.36a.562.562 0 0 1 0 .794l-.97.956a.57.57 0 0 1-.804 0L8 7.27Z"></path> 
-</svg>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-8">
+      <table class="cads-table">
+        <thead>
+          <tr>
+            <th>Component class</th>
+            <th>Toggle</th>
+            <th>Icon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ArrowUpDown</td>
+            <td>
+              <button>Toggle arrow</button>
+            </td>
+            <td>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewbox="0 0 16 16"
+                class="cads-icon cads-icon--large cads-icon--arrow-up-down"
+                focusable="false"
+                aria-hidden="true"
+              >
+                <path
+                  class="down"
+                  d="m8 8.73 4.06-4.005a.57.57 0 0 1 .804 0l.97.956a.561.561 0 0 1 0 .794l-5.43 5.36a.567.567 0 0 1-.806 0l-5.43-5.36a.56.56 0 0 1 0-.794l.97-.956a.57.57 0 0 1 .803 0l4.06 4.005Z"
+                ></path>
+                <path
+                  class="up"
+                  d="m8 7.27-4.06 4.005a.568.568 0 0 1-.804 0l-.97-.956a.56.56 0 0 1 .001-.794l5.43-5.36a.57.57 0 0 1 .805 0l5.431 5.36a.562.562 0 0 1 0 .794l-.97.956a.57.57 0 0 1-.804 0L8 7.27Z"
+                ></path>
+              </svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 <script>
-var button = document.querySelector('button');
-button.addEventListener('click', function() {
-  var icon = document.querySelector('.cads-icon');
-  icon.classList.toggle('show-up')
-})
+  var button = document.querySelector('button');
+  button.addEventListener('click', function () {
+    var icon = document.querySelector('.cads-icon');
+    icon.classList.toggle('show-up');
+  });
 </script>
