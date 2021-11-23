@@ -19,6 +19,10 @@ url: '' # the base hostname & protocol for your site, e.g. https://example.com
 permalink: pretty
 
 template_engine: erb
+
+collections:
+  cads_components:
+    output: true
 # Other options you might want to investigate:
 #
 # base_path: "/" # the subpath of your site, e.g. /blog
