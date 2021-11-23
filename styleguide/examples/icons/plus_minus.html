@@ -1,48 +1,46 @@
 <div class="cads-grid-container">
-  <div class="cads-grid-row">
-    <div class="cads-grid-col-8">
-      <table class="cads-table">
-        <thead>
-          <tr>
-            <th>Component class</th>
-            <th>Toggle</th>
-            <th>Icon</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>PlusMinus</td>
-            <td>
-              <button>Toggle minus</button>
-            </td>
-            <td>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewbox="0 0 16 16"
-                class="cads-icon cads-icon--large cads-icon--plus-minus"
-                focusable="false"
-                aria-hidden="true"
-              >
-                <path
-                  class="plus"
-                  d="M14 7.5a.5.5 0 0 0-.5-.5H9V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V7H2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H7v4.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V9h4.5a.5.5 0 0 0 .5-.5v-1Z"
-                ></path>
-                <path
-                  class="minus"
-                  d="M13.5 7h-11a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5Z"
-                ></path>
-              </svg>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="cads-grid-row">
+<div class="cads-grid-col-8">
+<table class="cads-table">
+<thead>
+<tr>
+<th>
+Component class
+</th>
+<th>
+Toggle
+</th>
+<th>
+Icon
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+PlusMinus
+</td>
+<td>
+<button>
+Toggle minus
+</button>
+</td>
+<td>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" class="cads-icon cads-icon--large cads-icon--plus-minus" focusable="false" aria-hidden="true">
+  <path class="plus" d="M14 7.5a.5.5 0 0 0-.5-.5H9V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V7H2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H7v4.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V9h4.5a.5.5 0 0 0 .5-.5v-1Z"></path>
+  <path class="minus" d="M13.5 7h-11a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5Z"></path>
+</svg>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <script>
-  var button = document.querySelector('button');
-  button.addEventListener('click', function () {
-    var icon = document.querySelector('.cads-icon');
-    icon.classList.toggle('show-minus');
-  });
+var button = document.querySelector('button');
+button.addEventListener('click', function() {
+  var icon = document.querySelector('.cads-icon');
+  icon.classList.toggle('show-minus')
+})
 </script>

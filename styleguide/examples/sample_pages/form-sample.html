@@ -1,601 +1,354 @@
 <header class="cads-header">
-  <div class="cads-grid-container">
-    <div class="cads-grid-row">
-      <nav class="cads-skip-links">
-        <a class="cads-skip-links__link" href="#cads-navigation"
-          >Skip to navigation</a
-        >
-        <a class="cads-skip-links__link" href="#cads-main-content"
-          >Skip to content</a
-        >
-        <a class="cads-skip-links__link" href="#cads-footer">Skip to footer</a>
-      </nav>
-      <div class="cads-grid-col-md-2 cads-header__logo-row">
-        <a title="Citizens Advice homepage" class="cads-logo" href="/"></a>
-        <button
-          class="
-            cads-header__search-reveal
-            js-cads-search-reveal
-            cads-icon_search
-          "
-          title="Open search"
-          aria-expanded="false"
-          data-testid="expand-button"
-          data-descriptive-label-show="Open search"
-          data-descriptive-label-hide="Close search"
-        ></button>
-      </div>
-      <div class="cads-grid-col-md-10 cads-header__search-row">
-        <ul class="cads-header__links js-cads-copy-into-nav">
-          <li class="cads-header__links-item">
-            <span class="cads-header__text">Public site</span>
-          </li>
-          <li class="cads-header__links-item">
-            <a class="cads-header__hyperlink" href="?advisernet">AdviserNet</a>
-          </li>
-          <li class="cads-header__links-item">
-            <a class="cads-header__hyperlink" href="?CABlink">CABlink</a>
-          </li>
-          <li class="cads-header__links-item">
-            <a class="cads-header__hyperlink" href="?BMIS">BMIS</a>
-          </li>
-          <li class="cads-header__links-item">
-            <a class="cads-header__hyperlink" href="?lang=cy">Cymraeg</a>
-          </li>
-          <li class="cads-header__links-item">
-            <div class="cads-header__account-form" data-testid="account-link">
-              <form
-                class="cads-header__account-form"
-                action="/sign-out"
-                accept-charset="UTF-8"
-                method="post"
-              >
-                <button
-                  name="button"
-                  type="submit"
-                  class="
-                    cads-button__tertiary
-                    cads-header__sign-out
-                    js-cads-close-on-blur
-                  "
-                >
-                  Sign out
-                </button>
-              </form>
-            </div>
-          </li>
-        </ul>
-        <div class="cads-header__search-form">
-          <form
-            role="search"
-            class="cads-search cads-search--icon-only"
-            action="/search"
-            accept-charset="UTF-8"
-            method="get"
-          >
-            <input
-              type="search"
-              name="q"
-              id="search-query"
-              aria-label="Search through site content"
-              class="cads-search__input cads-input"
-            />
-            <button
-              title="Submit search query"
-              data-testid="search-button"
-              class="cads-search__button"
-            >
-              <span class="cads-search__button-label">Search</span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="cads-grid-container">
+<div class="cads-grid-row">
+<nav class="cads-skip-links">
+<a class="cads-skip-links__link" href="#cads-navigation">Skip to navigation</a>
+<a class="cads-skip-links__link" href="#cads-main-content">Skip to content</a>
+<a class="cads-skip-links__link" href="#cads-footer">Skip to footer</a>
+</nav>
+<div class="cads-grid-col-md-2 cads-header__logo-row">
+<a title="Citizens Advice homepage" class="cads-logo" href="/"></a>
+<button class="cads-header__search-reveal js-cads-search-reveal cads-icon_search" title="Open search" aria-expanded="false" data-testid="expand-button" data-descriptive-label-show="Open search" data-descriptive-label-hide="Close search"></button>
+</div>
+<div class="cads-grid-col-md-10 cads-header__search-row">
+<ul class="cads-header__links js-cads-copy-into-nav">
+<li class="cads-header__links-item"><span class="cads-header__text">Public site</span></li>
+<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?advisernet">AdviserNet</a></li>
+<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?CABlink">CABlink</a></li>
+<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?BMIS">BMIS</a></li>
+<li class="cads-header__links-item"><a class="cads-header__hyperlink" href="?lang=cy">Cymraeg</a></li>
+<li class="cads-header__links-item"><div class="cads-header__account-form" data-testid="account-link"><form class="cads-header__account-form" action="/sign-out" accept-charset="UTF-8" method="post"><button name="button" type="submit" class="cads-button__tertiary cads-header__sign-out js-cads-close-on-blur">Sign out</button></form></div></li>
+</ul>
+<div class="cads-header__search-form">
+<form role="search" class="cads-search cads-search--icon-only" action="/search" accept-charset="UTF-8" method="get">
+<input type="search" name="q" id="search-query" aria-label="Search through site content" class="cads-search__input cads-input">
+<button title="Submit search query" data-testid="search-button" class="cads-search__button"><span class="cads-search__button-label">Search</span>
+</button>
+</form>
+
+</div>
+</div>
+</div>
+</div>
 </header>
 <div class="cads-navigation-full-width-wrapper">
-  <nav class="cads-navigation js-cads-greedy-nav" id="cads-navigation">
-    <ul class="cads-navigation__list">
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/benefits/">Benefits</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/work/">Work</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/debt-and-money/"
-          >Debt and money</a
-        >
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/consumer/">Consumer</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/housing/">Housing</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/family/">Family</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/law-and-courts/"
-          >Law and courts</a
-        >
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/immigration/">Immigration</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/health/">Health</a>
-      </li>
-      <li class="cads-navigation__list-item">
-        <a class="cads-navigation__link" href="/more">More from us</a>
-      </li>
-    </ul>
-  </nav>
+<nav class="cads-navigation js-cads-greedy-nav" id="cads-navigation">
+<ul class="cads-navigation__list">
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/benefits/">Benefits</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/work/">Work</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/debt-and-money/">Debt and money</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/consumer/">Consumer</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/housing/">Housing</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/family/">Family</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/law-and-courts/">Law and courts</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/immigration/">Immigration</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/health/">Health</a>
+</li>
+<li class="cads-navigation__list-item">
+<a class="cads-navigation__link" href="/more">More from us</a>
+</li>
+</ul>
+</nav>
 </div>
 
+
 <div class="cads-breadcrumbs-wrapper">
-  <nav
-    aria-label="breadcrumbs"
-    class="cads-breadcrumbs cads-breadcrumbs--collapse"
-  >
-    <ul class="cads-breadcrumbs__list">
-      <li class="cads-breadcrumbs__crumb">
-        <a class="cads-breadcrumb" href="/"> Home </a>
-      </li>
-      <li class="cads-breadcrumbs__crumb">
-        <span aria-current="location" class="cads-breadcrumb"> Form </span>
-      </li>
-    </ul>
-  </nav>
+<nav aria-label="breadcrumbs" class="cads-breadcrumbs cads-breadcrumbs--collapse">
+<ul class="cads-breadcrumbs__list">
+<li class="cads-breadcrumbs__crumb">
+<a class="cads-breadcrumb" href="/">
+Home
+</a>
+</li>
+<li class="cads-breadcrumbs__crumb">
+<span aria-current="location" class="cads-breadcrumb">
+Form
+</span>
+</li>
+</ul>
+</nav>
 </div>
 
 <div class="cads-page-content">
   <div class="cads-grid-container">
     <div class="cads-grid-row">
       <main class="cads-grid-col-md-8" id="cads-main-content">
-        <h1 class="cads-page-title">Consumer Query</h1>
-        <div class="cads-prose">
-          <p>
-            From 1 April 2019 we are only able to provide general consumer
-            advice to residents of England and Wales. If you are resident in
-            Scotland and have a general consumer enquiry please contact Advice
-            Direct Scotland / 0808 164 6000
-          </p>
+            <h1 class="cads-page-title">Consumer Query</h1>
+    <div class="cads-prose">
+      <p>From 1 April 2019 we are only able to provide general consumer advice to residents of England and Wales. If you are resident in Scotland and have a general consumer enquiry please contact Advice Direct Scotland / 0808 164 6000</p>
 
-          <form action="">
-            <div class="cads-form-field">
-              <div class="cads-form-field__error-marker"></div>
-              <div class="cads-form-field__content">
-                <label
-                  class="cads-form-field__label"
-                  for="first-name-input"
-                  id="first-name-label"
-                >
-                  First name or initials
-                </label>
-                <input
-                  class="cads-input cads-input--sixteen-chars"
-                  id="first-name-input"
-                  name="first-name"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
+      <form action="">
+        <div class="cads-form-field">
+<div class="cads-form-field__error-marker"></div>
+<div class="cads-form-field__content">
+<label class="cads-form-field__label" for="first-name-input" id="first-name-label">
+First name or initials
+</label>
+<input class="cads-input cads-input--sixteen-chars" id="first-name-input" name="first-name" required type="text">
 
-            <div class="cads-form-field">
-              <div class="cads-form-field__error-marker"></div>
-              <div class="cads-form-field__content">
-                <label
-                  class="cads-form-field__label"
-                  for="last-name-input"
-                  id="last-name-label"
-                >
-                  Last name
-                </label>
-                <input
-                  class="cads-input cads-input--sixteen-chars"
-                  id="last-name-input"
-                  name="last-name"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
 
-            <div class="cads-form-field">
-              <div class="cads-form-field__error-marker"></div>
-              <div class="cads-form-field__content">
-                <label
-                  class="cads-form-field__label"
-                  for="your-enquiry-input"
-                  id="your-enquiry-label"
-                >
-                  Your complaint or enquiry
-                </label>
-                <p class="cads-form-field__hint">
-                  Please provide details of your complaint or enquiry.
-                </p>
-                <textarea
-                  class="cads-textarea"
-                  id="your-enquiry-input"
-                  name="your-enquiry"
-                  required
-                  rows="8"
-                ></textarea>
-              </div>
-            </div>
+</div>
+</div>
 
-            <h2>Purchase details</h2>
 
-            <div class="cads-form-field">
-              <div class="cads-form-field__error-marker"></div>
-              <fieldset
-                class="
-                  cads-form-field__content
-                  cads-form-group cads-form-group--radio
-                "
-              >
-                <legend class="cads-form-field__label">
-                  Have you paid for goods or services from this trader?
-                </legend>
-                <div class="cads-form-group__item">
-                  <input
-                    class="cads-form-group__input"
-                    id="paid-for-goods-yes"
-                    name="paid-for-goods"
-                    type="radio"
-                    value="yes"
-                  />
-                  <label
-                    class="cads-form-group__label"
-                    for="paid-for-goods-yes"
-                  >
-                    Yes - If yes, answer the below questions
-                  </label>
-                </div>
-                <div class="cads-form-group__item">
-                  <input
-                    class="cads-form-group__input"
-                    id="paid-for-goods-no"
-                    name="paid-for-goods"
-                    type="radio"
-                    value="no"
-                  />
-                  <label class="cads-form-group__label" for="paid-for-goods-no">
-                    No
-                  </label>
-                </div>
-              </fieldset>
-            </div>
+        <div class="cads-form-field">
+<div class="cads-form-field__error-marker"></div>
+<div class="cads-form-field__content">
+<label class="cads-form-field__label" for="last-name-input" id="last-name-label">
+Last name
+</label>
+<input class="cads-input cads-input--sixteen-chars" id="last-name-input" name="last-name" required type="text">
 
-            <div class="cads-form-field">
-              <div class="cads-form-field__error-marker"></div>
-              <div class="cads-form-field__content">
-                <label
-                  class="cads-form-field__label"
-                  for="total-amount-input"
-                  id="total-amount-label"
-                >
-                  What was the total amount paid for the goods or services?
-                </label>
-                <p class="cads-form-field__hint">
-                  Enter a value in pounds and pence only e.g. £112.00
-                </p>
-                <input
-                  class="cads-input cads-input--four-chars"
-                  id="total-amount-input"
-                  name="total-amount"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
 
-            <div class="cads-form-field">
-              <div class="cads-form-field__error-marker"></div>
-              <fieldset
-                class="
-                  cads-form-field__content
-                  cads-form-group cads-form-group--radio
-                "
-              >
-                <legend class="cads-form-field__label">
-                  Have you contacted the trader about this complaint?
-                </legend>
-                <div class="cads-form-group__item">
-                  <input
-                    class="cads-form-group__input"
-                    id="contacted-trader-yes"
-                    name="contacted-trader"
-                    type="radio"
-                    value="yes"
-                  />
-                  <label
-                    class="cads-form-group__label"
-                    for="contacted-trader-yes"
-                  >
-                    Yes - If yes, answer the below questions
-                  </label>
-                </div>
-                <div class="cads-form-group__item">
-                  <input
-                    class="cads-form-group__input"
-                    id="contacted-trader-no"
-                    name="contacted-trader"
-                    type="radio"
-                    value="no"
-                  />
-                  <label
-                    class="cads-form-group__label"
-                    for="contacted-trader-no"
-                  >
-                    No
-                  </label>
-                </div>
-              </fieldset>
-            </div>
+</div>
+</div>
 
-            <div class="cads-form-field">
-              <div class="cads-form-field__error-marker"></div>
-              <div class="cads-form-field__content">
-                <label
-                  class="cads-form-field__label"
-                  for="trader-response-input"
-                  id="trader-response-label"
-                >
-                  Outline the trader's response to the complaint, if any
-                </label>
-                <textarea
-                  class="cads-textarea"
-                  id="trader-response-input"
-                  name="trader-response"
-                  required
-                  rows="8"
-                ></textarea>
-              </div>
-            </div>
 
-            <input
-              class="cads-button cads-button__primary"
-              type="submit"
-              value="Submit complaint"
-            />
-          </form>
-        </div>
+        <div class="cads-form-field">
+<div class="cads-form-field__error-marker"></div>
+<div class="cads-form-field__content">
+<label class="cads-form-field__label" for="your-enquiry-input" id="your-enquiry-label">
+Your complaint or enquiry
+</label>
+<p class="cads-form-field__hint">Please provide details of your complaint or enquiry.</p>
+<textarea class="cads-textarea" id="your-enquiry-input" name="your-enquiry" required rows="8"></textarea>
+
+
+</div>
+</div>
+
+
+        <h2>Purchase details</h2>
+
+        <div class="cads-form-field">
+<div class="cads-form-field__error-marker"></div>
+<fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
+<legend class="cads-form-field__label">
+Have you paid for goods or services from this trader?
+</legend>
+<div class="cads-form-group__item">
+<input class="cads-form-group__input" id="paid-for-goods-yes" name="paid-for-goods" type="radio" value="yes">
+<label class="cads-form-group__label" for="paid-for-goods-yes">
+Yes - If yes, answer the below questions
+</label>
+</div>
+<div class="cads-form-group__item">
+<input class="cads-form-group__input" id="paid-for-goods-no" name="paid-for-goods" type="radio" value="no">
+<label class="cads-form-group__label" for="paid-for-goods-no">
+No
+</label>
+</div>
+</fieldset>
+</div>
+
+        <div class="cads-form-field">
+<div class="cads-form-field__error-marker"></div>
+<div class="cads-form-field__content">
+<label class="cads-form-field__label" for="total-amount-input" id="total-amount-label">
+What was the total amount paid for the goods or services?
+</label>
+<p class="cads-form-field__hint">Enter a value in pounds and pence only e.g. £112.00</p>
+<input class="cads-input cads-input--four-chars" id="total-amount-input" name="total-amount" required type="text">
+
+
+</div>
+</div>
+
+
+        <div class="cads-form-field">
+<div class="cads-form-field__error-marker"></div>
+<fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
+<legend class="cads-form-field__label">
+Have you contacted the trader about this complaint?
+</legend>
+<div class="cads-form-group__item">
+<input class="cads-form-group__input" id="contacted-trader-yes" name="contacted-trader" type="radio" value="yes">
+<label class="cads-form-group__label" for="contacted-trader-yes">
+Yes - If yes, answer the below questions
+</label>
+</div>
+<div class="cads-form-group__item">
+<input class="cads-form-group__input" id="contacted-trader-no" name="contacted-trader" type="radio" value="no">
+<label class="cads-form-group__label" for="contacted-trader-no">
+No
+</label>
+</div>
+</fieldset>
+</div>
+
+        <div class="cads-form-field">
+<div class="cads-form-field__error-marker"></div>
+<div class="cads-form-field__content">
+<label class="cads-form-field__label" for="trader-response-input" id="trader-response-label">
+Outline the trader's response to the complaint, if any
+</label>
+<textarea class="cads-textarea" id="trader-response-input" name="trader-response" required rows="8"></textarea>
+
+
+</div>
+</div>
+
+
+        <input class="cads-button cads-button__primary" type="submit" value="Submit complaint">
+      </form>
+    </div>
+
       </main>
     </div>
   </div>
 </div>
 <footer class="cads-footer" id="cads-footer">
-  <div class="cads-grid-container">
-    <div class="cads-grid-row">
-      <div class="cads-grid-col">
-        <p class="cads-footer__feedback">
-          <a
-            class="cads-footer__hyperlink js-cads-footer-feedback"
-            href="https://www.research.net/r/J8PLH2H"
-            rel="noopener"
-            target="_blank"
-          >
-            Is there anything wrong with this page? Let us know
-          </a>
-          <span
-            class="cads-footer__feedback-icon cads-icon_external-link"
-          ></span>
-        </p>
-      </div>
-    </div>
-    <nav aria-label="Footer Navigation">
-      <div class="cads-grid-row">
-        <div class="cads-grid-col-md-3" data-testid="footer-column">
-          <h2 class="cads-footer__section-title">Advice</h2>
-          <ul class="cads-footer__links">
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/benefits/">Benefits</a>
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/work/">Work</a>
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/debt-and-money/"
-                >Debt and Money</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/consumer/">Consumer</a>
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/family/">Family</a>
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/housing/">Housing</a>
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/law-and-courts/"
-                >Law and courts</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/immigration/"
-                >Immigration</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/health/">Health</a>
-            </li>
-          </ul>
-        </div>
-        <div class="cads-grid-col-md-3" data-testid="footer-column">
-          <h2 class="cads-footer__section-title">Resources and tools</h2>
-          <ul class="cads-footer__links">
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/how-citizens-advice-works/products-and-services/adviser-resources/"
-                >Advisor resources</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/how-we-provide-advice/our-prevention-work/education/"
-                >Education resources</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/resources-and-tools/about-this-site/accessibility/"
-                >Accessibility</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/resources-and-tools/about-this-site/accessibility/"
-                >Site search</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/resources-and-tools/search-navigation-tools/a-to-z-of-advice/"
-                >A-Z of advice</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="cads-grid-col-md-3" data-testid="footer-column">
-          <h2 class="cads-footer__section-title">More from us</h2>
-          <ul class="cads-footer__links">
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/about-us/">About us</a>
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/how-citizens-advice-works/who-we-are-and-what-we-do/annual-reports/"
-                >Annual reports</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/contact-us/contact-us/contact-us/"
-                >Contact us</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/contact-us/contact-us/make-a-complaint-about-us/"
-                >Complaints</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/how-citizens-advice-works/media/"
-                >Media</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/about-us/policy/"
-                >Policy research</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/about-us/support-us/"
-                >Support us</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/support-us/volunteering/"
-                >Volunteering</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/how-citizens-advice-works/job-and-voluntary-opportunities/"
-                >Jobs</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="cads-grid-col-md-3" data-testid="footer-column">
-          <h2 class="cads-footer__section-title">About Citizens Advice</h2>
-          <ul class="cads-footer__links">
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/how-we-provide-advice/"
-                >How we provide advice</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/difference-we-make/"
-                >The difference we make</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="/about-us/support-us/"
-                >Support us</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/how-citizens-advice-works/"
-                >How Citizens Advice works</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/resources-and-tools/about-this-site/disclaimer-and-copyright/"
-                >Disclaimer and Copyright</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a
-                class="cads-footer__hyperlink"
-                href="/about-us/citizens-advice-privacy-policy/"
-                >Privacy and cookies</a
-              >
-            </li>
-            <li class="cads-footer__link">
-              <a class="cads-footer__hyperlink" href="http://example.com"
-                >External link</a
-              >
-              <span class="cads-footer__icon cads-icon_external-link"></span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="cads-footer__company-info">
-      <div class="cads-footer__logo">
-        <a class="cads-logo" href="/" title="Citizens Advice homepage"></a>
-      </div>
-      <div class="cads-footer__meta">
-        <p class="cads-footer__meta-text" data-testid="copyright">
-          Copyright ©2021 Citizens Advice. All rights reserved.
-        </p>
-        <p class="cads-footer__meta-text" data-testid="legal-summary">
-          Citizens Advice is an operating name of the National Association of
-          Citizens Advice Bureaux. Registered charity number 279057. VAT number
-          726 0202 76. Company limited by guarantee. Registered number 01436945
-          England. Registered office: Citizens Advice, 3rd Floor North, 200
-          Aldersgate, London, EC1A 4HD
-        </p>
-      </div>
-    </div>
-  </div>
+<div class="cads-grid-container">
+<div class="cads-grid-row">
+<div class="cads-grid-col">
+<p class="cads-footer__feedback">
+<a class="cads-footer__hyperlink js-cads-footer-feedback" href="https://www.research.net/r/J8PLH2H" rel="noopener" target="_blank">
+Is there anything wrong with this page? Let us know
+</a>
+<span class="cads-footer__feedback-icon cads-icon_external-link"></span>
+</p>
+</div>
+</div>
+<nav aria-label="Footer Navigation">
+<div class="cads-grid-row">
+<div class="cads-grid-col-md-3" data-testid="footer-column">
+<h2 class="cads-footer__section-title">Advice</h2>
+<ul class="cads-footer__links">
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/benefits/">Benefits</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/work/">Work</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/debt-and-money/">Debt and Money</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/consumer/">Consumer</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/family/">Family</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/housing/">Housing</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/law-and-courts/">Law and courts</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/immigration/">Immigration</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/health/">Health</a>
+</li>
+</ul>
+</div>
+<div class="cads-grid-col-md-3" data-testid="footer-column">
+<h2 class="cads-footer__section-title">Resources and tools</h2>
+<ul class="cads-footer__links">
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/how-citizens-advice-works/products-and-services/adviser-resources/">Advisor resources</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/how-we-provide-advice/our-prevention-work/education/">Education resources</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/resources-and-tools/about-this-site/accessibility/">Accessibility</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/resources-and-tools/about-this-site/accessibility/">Site search</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/resources-and-tools/search-navigation-tools/a-to-z-of-advice/">A-Z of advice</a>
+</li>
+</ul>
+</div>
+<div class="cads-grid-col-md-3" data-testid="footer-column">
+<h2 class="cads-footer__section-title">More from us</h2>
+<ul class="cads-footer__links">
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/">About us</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/how-citizens-advice-works/who-we-are-and-what-we-do/annual-reports/">Annual reports</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/contact-us/contact-us/contact-us/">Contact us</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/contact-us/contact-us/make-a-complaint-about-us/">Complaints</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/how-citizens-advice-works/media/">Media</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/policy/">Policy research</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/support-us/">Support us</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/support-us/volunteering/">Volunteering</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/how-citizens-advice-works/job-and-voluntary-opportunities/">Jobs</a>
+</li>
+</ul>
+</div>
+<div class="cads-grid-col-md-3" data-testid="footer-column">
+<h2 class="cads-footer__section-title">About Citizens Advice</h2>
+<ul class="cads-footer__links">
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/how-we-provide-advice/">How we provide advice</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/difference-we-make/">The difference we make</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/support-us/">Support us</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/how-citizens-advice-works/">How Citizens Advice works</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/resources-and-tools/about-this-site/disclaimer-and-copyright/">Disclaimer and Copyright</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="/about-us/citizens-advice-privacy-policy/">Privacy and cookies</a>
+</li>
+<li class="cads-footer__link">
+<a class="cads-footer__hyperlink" href="http://example.com">External link</a>
+<span class="cads-footer__icon cads-icon_external-link"></span>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="cads-footer__company-info">
+<div class="cads-footer__logo">
+<a class="cads-logo" href="/" title="Citizens Advice homepage"></a>
+</div>
+<div class="cads-footer__meta">
+<p class="cads-footer__meta-text" data-testid="copyright">Copyright ©2021 Citizens Advice. All rights reserved.</p>
+<p class="cads-footer__meta-text" data-testid="legal-summary">Citizens Advice is an operating name of the National Association of Citizens Advice Bureaux. Registered charity number 279057. VAT number 726 0202 76. Company limited by guarantee. Registered number 01436945 England. Registered office: Citizens Advice, 3rd Floor North, 200 Aldersgate, London, EC1A 4HD</p>
+</div>
+</div>
+</div>
 </footer>
