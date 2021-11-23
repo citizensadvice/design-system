@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <%= render CitizensAdviceComponents::Header.new do |c| %>
+      <%- c.logo(title: "Design System Docs") %>
+    <% end %>
     <main>
       <%= yield %>
     </main>
-
   </body>
 </html>
