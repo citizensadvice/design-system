@@ -21,3 +21,7 @@ testing/cucumber.yml
 
 # Ignore Rails demo app files
 /demo/public/
+
+# Ignore design-system-docs output
+/design-system-docs/output/
+/design-system-docs/.bridgetown-webpack/

@@ -4,3 +4,6 @@ lib
 testing/visual-regression/backstop_data/html_report/
 vendor
 /demo/
+/design-system-docs/output/
+/design-system-docs/.bridgetown-webpack/
+/design-system-docs/config/webpack.defaults.js
