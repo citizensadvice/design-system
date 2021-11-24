@@ -1,6 +1,6 @@
-const { merge } = require('webpack-merge');
+// const { merge } = require('webpack-merge');
 
-var config = require('./config/webpack.defaults.js');
+const config = require('./config/webpack.defaults.js');
 
 // Add any overrides to the default webpack config here:
 //
@@ -21,8 +21,5 @@ var config = require('./config/webpack.defaults.js');
 //    const customConfig = { ..... }
 //    config = merge(config, customConfig)
 //  ```
-////////////////////////////////////////////////////////
-
-console.log(config.module.rules.filter((r) => r.loader === 'sass-loader'));
 
 module.exports = config;
