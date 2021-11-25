@@ -19,7 +19,7 @@ Welcome to your new Bridgetown website! You can update this README file to provi
   - `gem install bridgetown -N`
 - [Node](https://nodejs.org)
   - `>= 12`
-- [Yarn](https://yarnpkg.com)
+- [npm](https://npmjs.com)
 
 ## Install
 
