@@ -44,3 +44,29 @@ You must:
 
 In rare cases, such as the page feedback, the error summary may not be at the top of the page. Ensure that correct focus is brought to the element so it’s accessible.
 If users correct some of the errors on the page but not all, update the error summary with the errors left to correct.
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+
+```rb
+= render(
+  CitizensAdviceComponents::ErrorSummary.new().do |c|
+    c.error(
+        href: "#",
+        message: "Enter your full name"
+    )
+    c.error(
+        href: "#",
+        message: "Enter an email address in the correct format, like name@example.com"
+    )
+  end
+)
+```
+
+### View Component Options
+
+| Property         | Description             |
+| ---------------- | ----------------------- |
+| `error[href]`    | Required, error href    |
+| `error[message]` | Required, error message |
