@@ -14,7 +14,7 @@
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
 
-  :last-child {
+  > :last-child {
     margin-bottom: 0;
   }
 
