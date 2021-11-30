@@ -5,6 +5,8 @@ cy:
       adviser: Cynghorydd
       example: Enghraifft
       important: Pwysig
+    error_summary:
+      title: There is a problem
     footer:
       copyright: Hawlfraint ©%{year} Cyngor ar Bopeth. Cedwir pob hawl.
       legal_summary: 'Cyngor ar Bopeth yn enw gweithredol ar Gymdeithas Genedlaethol Cyngor ar Bopeth. Rhif elusen gofrestredig 279057. Rhif TAW 726 0202 76. Cwmni cyfyngedig drwy warant. Rhif cofrestredig 0143694 Lloegr. Swyddfa gofrestredig: Cyngor ar Bopeth, 3ydd Llawr Gogledd, 200 Aldersgate, Llundain, EC1A 4HD'
