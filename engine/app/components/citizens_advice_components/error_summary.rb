@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CitizensAdviceComponents
   class ErrorSummary < Base
     renders_many :errors, "Error"

@@ -51,7 +51,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 ```rb
 = render(
-  CitizensAdviceComponents::ErrorSummary.new().do |c|
+  CitizensAdviceComponents::ErrorSummary.new do |c|
     c.error(
         href: "#",
         message: "Enter your full name"

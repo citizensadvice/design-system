@@ -3,7 +3,7 @@
 module CitizensAdviceComponents
   class ErrorSummaryPreview < ViewComponent::Preview
     def example
-      render CitizensAdviceComponents::ErrorSummary.new() do |c|
+      render CitizensAdviceComponents::ErrorSummary.new do |c|
         c.error(
           href: "#",
           message: "Enter your full name"
