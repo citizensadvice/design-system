@@ -1,3 +1,10 @@
+## <sub>v5.2.0-alpha.0</sub>
+
+#### _Dec. 2, 2021_
+
+**New**
+- 🛑️️ Error summary: Adds new `Error Summary` view component
+
 ## <sub>v5.1.0</sub>
 
 #### _Nov. 17, 2021_
