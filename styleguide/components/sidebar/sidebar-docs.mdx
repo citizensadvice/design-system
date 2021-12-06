@@ -1,0 +1,25 @@
+import { Story, Preview } from '@storybook/addon-docs';
+
+# Sidebar
+
+<Preview>
+  <Story id="components-sidebar--example" />
+</Preview>
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+
+```rb
+= render CitizensAdviceComponents::Sidebar.new(title: "Related Content") do |c|
+    c.section_title(title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme")
+    c.sidebar_links(sidebar_links)
+end
+```
+
+| Argument               | Description                      |
+| ---------------------- | -------------------------------- |
+| `title`                | Optional                         |
+| `section_title[title]` | Required.                        |
+| `section_title[url]`   | Optional.                        |
+| `sidebar_links`        | Required. Array of title and url |
