@@ -5,6 +5,8 @@ en:
       adviser: Adviser
       example: Example
       important: Important
+    error_summary:
+      title: There is a problem
     footer:
       copyright: Copyright ©%{year} Citizens Advice. All rights reserved.
       legal_summary: 'Citizens Advice is an operating name of the National Association of Citizens Advice Bureaux. Registered charity number 279057. VAT number 726 0202 76. Company limited by guarantee. Registered number 01436945 England. Registered office: Citizens Advice, 3rd Floor North, 200 Aldersgate, London, EC1A 4HD'
