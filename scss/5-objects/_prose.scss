@@ -1,3 +1,5 @@
+@use '../1-settings/prose' as prose-config;
+
 %cads-prose {
   h1 {
     @extend %cads-h1;
@@ -56,16 +58,10 @@
 
   // Style external links
   a[rel~='external']::after,
-  // These older rules have a bug that match any URL
-  // with https:// and citizensadvice.org.uk in it
-  // e.g. https://example.com/u/citizensadvice.org.uk/
-  // Using string matches and hardcoding domains isn't especially
-  // reliable. In a future release we should remove these styles
-  // and favour using rel=external as a styling hook.
+  // Allow external links to be determined based on $cads-internal-link-domain value 
+  // Favour using rel=external as a styling hook.
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel#attr-external
-  a[href^="https://"]:not([href*="citizensadvice.org.uk"])::after,
-  a[href^="http://"]:not([href*="citizensadvice.org.uk"])::after
-  {
+  a:not([href^="#{prose-config.$cads-internal-link-domain}"])::after {
     @media not print {
       @include cads-hyperlink--external-icon();
     }
@@ -79,7 +75,7 @@
   }
 
   a[href^='/']::after {
-    content: (' (https://www.citizensadvice.org.uk' attr(href) ')');
+    content: (' (#{prose-config.$cads-internal-link-domain}' attr(href) ')');
     display: inline;
     word-break: break-all;
   }
