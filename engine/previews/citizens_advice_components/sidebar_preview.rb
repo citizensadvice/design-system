@@ -4,12 +4,25 @@ module CitizensAdviceComponents
   class SidebarPreview < ViewComponent::Preview
     def example
       render CitizensAdviceComponents::Sidebar.new(title: "Related Content") do |c|
-        c.section_title(title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme")
+        c.section_title(section_title)
         c.sidebar_links(sidebar_links)
       end
     end
 
+    def with_additional_content
+      render_with_template(
+        locals: {
+          section_title: section_title,
+          sidebar_links: sidebar_links,
+        }
+      )
+    end
+
     private
+
+    def section_title
+      { title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme" }
+    end
 
     def sidebar_links
       [

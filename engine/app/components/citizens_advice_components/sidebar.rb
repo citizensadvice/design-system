@@ -13,7 +13,7 @@ module CitizensAdviceComponents
     end
 
     def render?
-      title.present?
+      sidebar_links.present?
     end
 
     class SectionTitle

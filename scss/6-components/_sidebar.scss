@@ -6,36 +6,24 @@
   }
 
   &__title {
-    @extend %cads-paragraph-small;
-
     color: $cads-language__secondary-text-colour;
-    margin-top: $cads-spacing-5;
-    margin-bottom: $cads-spacing-4;
   }
 
   &__section-title {
     color: $cads-language__secondary-text-colour;
-  }
 
-  &__links-list {
-    list-style: none;
-    margin-bottom: 0;
-  }
+    &--small{
+      @extend %cads-h3;
 
-  .text-list__link-title {
-    @extend %cads-h3;
-
-    margin-top: 0;
-    margin-bottom: $cads-spacing-4;
+      margin-top: 0;
+      margin-bottom: $cads-spacing-4;
+    }
   }
 
   &__links {
-    padding-left: 0;
     list-style: none;
-  }
-
-  &__link {
-    margin-bottom: $cads-spacing-4;
+    margin-bottom: 0;
+    padding-left: 0;
   }
 
   &__item {
@@ -46,7 +34,7 @@
 .cads-targeted-content .cads-sidebar {
   margin: 0;
 
-  &__section-title {
+  &__title {
     display: none;
   }
 }

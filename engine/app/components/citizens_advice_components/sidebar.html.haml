@@ -1,9 +1,14 @@
 %aside.cads-sidebar
   .cads-sidebar__content
-    %p.cads-sidebar__section-title= title
-    %h3.text-list__link-title
-      =link_to section_title.title, section_title.url
+    %p.cads-sidebar__title= title
+    - if section_title.url.present?
+      %h3.cads-sidebar__section-title.cads-sidebar__section-title--small
+        =link_to section_title.title, section_title.url
+    - else
+      %h2.cads-sidebar__section-title
+        =section_title.title
     %nav{ aria: { label: (section_title.title if section_title) } }
       %ul.cads-sidebar__links
         - sidebar_links.each do |link|
-          %li.cads-sidebar__item= link_to link.title, link.url, class: "cads-sidebar__link"
+          %li.cads-sidebar__item= link_to link.title, link.url
+      =content
