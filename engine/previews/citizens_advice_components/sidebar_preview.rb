@@ -13,7 +13,7 @@ module CitizensAdviceComponents
       render_with_template(
         locals: {
           section_title: section_title,
-          sidebar_links: sidebar_links,
+          sidebar_links: sidebar_links
         }
       )
     end

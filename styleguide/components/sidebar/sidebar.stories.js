@@ -11,4 +11,6 @@ export const Example = () => templateExample;
 Example.parameters = { docs: { source: { code: templateExample } } };
 
 export const WithAdditionalContent = () => templateWithAdditionalContent;
-WithAdditionalContent.parameters = { docs: { source: { code: templateWithAdditionalContent } } };
+WithAdditionalContent.parameters = {
+  docs: { source: { code: templateWithAdditionalContent } },
+};
