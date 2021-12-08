@@ -25,10 +25,24 @@ RSpec.describe CitizensAdviceComponents::Sidebar, type: :component do
   end
 
   it "renders the section title" do
-      expect(component.text.strip).to include "Applying to the EU settlement scheme"
+     expect(component.text.strip).to include "Applying to the EU settlement scheme"
   end
 
   it "renders a link for each sibling" do
-    expect(component.css(".cads-sidebar__link").count).to eq sidebar_links.count
+    expect(component.css(".cads-sidebar__item").count).to eq sidebar_links.count
+  end
+
+  context "when additional content present" do
+    subject(:component) do
+      render_inline described_class.new(title: "Related Content") do |c|
+        c.section_title(title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme")
+        c.sidebar_links(sidebar_links)
+        "Example content"
+      end
+    end
+
+    it "renders the section title" do
+      expect(component.text.strip).to include "Example content"
+    end
   end
 end
