@@ -30,7 +30,7 @@ RSpec.describe CitizensAdviceComponents::Sidebar, type: :component do
   end
 
   it "renders a link for each sibling" do
-    expect(component.css(".cads-sidebar__item").count).to eq sidebar_links.count
+    expect(component.css("[data-testid='sidebar-link']").count).to eq sidebar_links.count
   end
 
   context "when additional content present" do

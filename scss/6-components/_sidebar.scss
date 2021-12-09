@@ -1,3 +1,4 @@
+/** @define sidebar */
 .cads-sidebar {
   padding-left: $cads-spacing-4;
 
@@ -10,14 +11,10 @@
   }
 
   &__section-title {
+    @extend %cads-h3;
     color: $cads-language__secondary-text-colour;
-
-    &--small {
-      @extend %cads-h3;
-
-      margin-top: 0;
-      margin-bottom: $cads-spacing-4;
-    }
+    margin-top: 0;
+    margin-bottom: $cads-spacing-4;
   }
 
   &__links {
@@ -28,14 +25,6 @@
 
   &__item {
     margin-bottom: $cads-spacing-4;
-  }
-}
-
-.cads-targeted-content .cads-sidebar {
-  margin: 0;
-
-  &__title {
-    display: none;
   }
 }
 
