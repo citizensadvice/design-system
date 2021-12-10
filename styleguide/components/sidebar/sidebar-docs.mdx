@@ -30,6 +30,8 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 end
 ```
 
+### View Component Options
+
 | Argument               | Description                                            |
 | ---------------------- | ------------------------------------------------------ |
 | `title`                | Required. Title for the sidebar                        |
@@ -38,3 +40,5 @@ end
 | `sidebar_links`        | Required, an array of hashes, each with the following: |
 | `sidebar_link[url]`    | → Required, url for the sidebar link                   |
 | `sidebar_link[title]`  | → Required, title for the sidebar link                 |
+
+The component accepts a `content` block for additional content such as adviser only links.
