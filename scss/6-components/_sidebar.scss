@@ -27,6 +27,11 @@
   &__item {
     margin-bottom: $cads-spacing-4;
   }
+
+  &__link {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media print {

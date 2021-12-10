@@ -10,5 +10,5 @@
     %nav{ aria: { label: section_title&.title } }
       %ul.cads-sidebar__links
         - sidebar_links.each do |link|
-          %li.cads-sidebar__item= link_to link.title, link.url, class: "cads-hyperlink", "data-testid": "sidebar-link"
+          %li.cads-sidebar__item= link_to link.title, link.url, class: "cads-hyperlink cads-sidebar__link", "data-testid": "sidebar-link"
       = content
