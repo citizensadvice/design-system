@@ -9,7 +9,7 @@ const initOnThisPage = (): void => {
   const onThisPageClasses = {
     toggleWhenHidden: 'cads-icon_plus',
     toggleWhenShowing: 'cads-icon_minus',
-    elementIsOpen: 'on-this-page__list--open',
+    elementIsOpen: 'cads-on-this-page__list--open',
   };
 
   const onThisPageAttributes = {

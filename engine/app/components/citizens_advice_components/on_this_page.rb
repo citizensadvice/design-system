@@ -25,7 +25,7 @@ module CitizensAdviceComponents
 
     def modifier_class_names
       if show_nested_links?
-        "js-cads-on-this-page #{'on-this-page--expandable' if @sub_headings}"
+        "js-cads-on-this-page #{'cads-on-this-page--expandable' if @sub_headings}"
       elsif columns?
         "on-this-page--columns"
       end

@@ -7,7 +7,7 @@
           %button.cads-on-this-page__show.cads-icon_plus.cads-linkbutton.js-cads-on-this-page__toggle{aria: { expanded: false }, data: { testid: "on-this-page-toggle", toggle_target_id: "#{entry[:id]}-list", label_when_hiding: "Show sub-headings for #{entry[:label]}", label_when_showing: "Hide sub-headings for #{entry[:label]}" } }
         %a.cads-on-this-page__link{ href: "##{entry[:id]}", data: { testid: "on-this-page-link" } }= entry[:label]
         - if show_children_for?(entry)
-          %ul.cads-on-this-page__list.on-this-page__list--nested{id: "#{entry[:id]}-list", data: { testid: "on-this-page-children" } }
+          %ul.cads-on-this-page__list.cads-on-this-page__list--nested{id: "#{entry[:id]}-list", data: { testid: "on-this-page-children" } }
             - entry[:children].each do |child|
               %li.cads-on-this-page__list-item
                 %a.cads-on-this-page__link{ href: "##{child[:id]}", data: { testid: "on-this-page-child-link" } }= child[:label]
