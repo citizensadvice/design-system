@@ -2,7 +2,15 @@
 
 require "rails_helper"
 
-RSpec.describe OnThisPage, type: :component do
+RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
+  subject(:component) do
+     render_inline described_class.new(show_nested_links: show_nested_links) do |c|
+       c.links(links)
+     end
+  end
+
+  let(:links) {nil}
+
   let(:simple_links) do
     [
       { label: "Link 1", id: "link-1" },
@@ -29,16 +37,7 @@ RSpec.describe OnThisPage, type: :component do
 
   let(:show_nested_links) { false }
 
-  let(:subject) do
-    component = OnThisPage.new(
-      show_nested_links: show_nested_links,
-    )
-    render_inline(component)
-  end
-
   context "when no links present" do
-    let(:links) { nil }
-
     it "will not render anything" do
       expect(subject.children).to be_empty
     end
@@ -48,12 +47,13 @@ RSpec.describe OnThisPage, type: :component do
   context "when there are links present" do
     let(:links) { simple_links }
 
-    it "renders a list of top-level headings" do
+    it "renders a list of top-level links" do
       links = subject.css("[data-testid='on-this-page-link']")
       expect(links.map { |item| item.text.strip }).to eq [
-        "An example level 2 heading",
-        "A second level 2 heading example",
-        "One more level 2 heading example"
+        "Link 1",
+        "Link 2",
+        "Link 3",
+        "Link 4"
       ]
     end
 
@@ -66,30 +66,31 @@ RSpec.describe OnThisPage, type: :component do
   context "when show_nested_links is true" do
     let(:show_nested_links) { true }
 
-    context "when there are only top-level headings present" do
+    context "when there are only top-level links present" do
       let(:body) { only_h2s }
 
-      it "does not render child links" do
+      it "does not render nested links" do
         expect(subject.at("[data-testid='on-this-page-toggle']")).to be_nil
         expect(subject.at("[data-testid='on-this-page-children']")).to be_nil
       end
     end
 
-    context "when there are multiple heading levels present" do
-      let(:body) { nested_h3s }
+    context "when there are nested links present" do
+      let(:links) { nested_links }
 
-      it "renders a list of top-level headings" do
+      it "renders a list of top-level links" do
         links = subject.css("[data-testid='on-this-page-link']")
         expect(links.map { |item| item.text.strip }).to eq [
-          "An example level 2 heading",
-          "A second level 2 heading example",
-          "One more level 2 heading example"
+           "Link 1",
+           "Link 2",
+           "Link 3",
+           "Link 4",
+           "Link 5"
         ]
       end
 
       it "renders child links" do
         links = subject.css("[data-testid='on-this-page-child-link']")
-        expect(links.map { |item| item.text.strip }).to eq ["A level 3 heading"]
         expect(subject.at("[data-testid='on-this-page-toggle']")).to_not be_nil
       end
     end
