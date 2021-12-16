@@ -1,0 +1,48 @@
+import { Story, Preview } from '@storybook/addon-docs';
+
+# On this page
+
+<Preview>
+  <Story id="components-on-this-page--example" />
+</Preview>
+
+## With nested links
+
+This style is when an example needs to be displayed. Also, use it for quotes.
+
+<Preview>
+  <Story id="components-on-this-page--with-nested-links" />
+</Preview>
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem you call the component from within a template using:
+
+```haml
+= render CitizensAdviceComponents::OnThisPage.new(show_nested_links: true) do |c|
+    c.links(
+      [
+        { label: "Link 1", id: "link-1" },
+        { label: "Link 2", id: "link-2", children: [
+          { label: "Link 2.1", id: "link-2-1" },
+          { label: "Link 2.2", id: "link-2-2" },
+        ]},
+        { label: "Link 3", id: "link-3" },
+        { label: "Link 4", id: "link-4", children: [
+          { label: "Link 4.1", id: "link-4-1" },
+        ]},
+        { label: "Link 5", id: "link-5" },
+      ]
+    )
+  end
+```
+
+### Component arguments
+
+| Argument            | Description                                                                                          |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| `show_nested_links` | Optional type. One of `:standard`, `:example`, `:important`, or `:adviser`. Defaults to `:standard`. |
+| `links`             | Optional, title used as aria-label                                                                   |
+| `link[id]`          | Optional, title used as aria-label                                                                   |
+| `link[label]`       | Optional, title used as aria-label                                                                   |
+| `link[children]`       | Optional, title used as aria-label                                                                   |

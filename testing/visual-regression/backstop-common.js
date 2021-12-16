@@ -138,6 +138,20 @@ module.exports = function backstopCommon(baseUrl) {
         misMatchThreshold: 0.4,
       },
       {
+        label: 'Components/On this page (example)',
+        url: storyUrlFor('components-on-this-page--example'),
+      },
+      {
+        label: 'Components/On this page (with nested links)',
+        url: storyUrlFor('components-on-this-page--with-nested-links'),
+      },
+      {
+        label: 'Components/On this page (with nested links open)',
+        url: storyUrlFor('components-on-this-page--with-nested-links'),
+        readySelector: '.cads-on-this-page--expandable',
+        clickSelector: '.js-cads-on-this-page__toggle',
+      },
+      {
         label: 'Components/Targeted content',
         url: storyUrlFor('components-targeted-content--default'),
       },
