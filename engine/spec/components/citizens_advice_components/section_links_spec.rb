@@ -4,7 +4,8 @@ require "rails_helper"
 
 RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   subject(:component) do
-    render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme", section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
+    render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
+                                      section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
       c.section_links(section_links)
     end
   end
@@ -34,7 +35,8 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
 
   context "when additional content present" do
     subject(:component) do
-      render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme", section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
+      render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
+                                        section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
         c.section_links(section_links)
         "Example content"
       end
@@ -42,6 +44,33 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
 
     it "renders the section title" do
       expect(component.text.strip).to include "Example content"
+    end
+  end
+
+  context "when no links present" do
+    subject(:component) do
+      render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
+                                        section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
+        c.section_links(nil)
+        "Example content"
+      end
+    end
+
+    it "does not render" do
+      expect(component.at(".cads-section-links")).not_to be_present
+    end
+  end
+
+  context "when no section title url present" do
+    subject(:component) do
+      render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme") do |c|
+        c.section_links(section_links)
+        "Example content"
+      end
+    end
+
+    it "does not render section title as a link" do
+      expect(component.at("[data-testid='section-title-link']")).not_to be_present
     end
   end
 end

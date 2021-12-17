@@ -3,7 +3,7 @@
     %p.cads-section-links__title= title
     %h3.cads-section-links__section-title
       - if section_title_url.present?
-        = link_to section_title, section_title_url
+        = link_to section_title, section_title_url, "data-testid": "section-title-link"
       - else
         = section_title
     %nav{ aria: { label: section_title } }
