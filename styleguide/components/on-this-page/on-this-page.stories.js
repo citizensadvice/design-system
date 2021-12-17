@@ -18,5 +18,7 @@ export const Example = () => templateExample;
 Example.parameters = { docs: { source: { code: templateExample } } };
 
 export const WithNestedLinks = () => templateWithNestedLinks;
-WithNestedLinks.parameters = { docs: { source: { code: templateWithNestedLinks } } };
+WithNestedLinks.parameters = {
+  docs: { source: { code: templateWithNestedLinks } },
+};
 WithNestedLinks.decorators = [decorateWithBehaviour];

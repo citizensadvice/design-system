@@ -1,7 +1,9 @@
 # frozen_string_literal: true
+
 module CitizensAdviceComponents
   class OnThisPage < Base
     attr_accessor :headings
+
     renders_many :links, "Link"
 
     def initialize(show_nested_links: false)
@@ -36,7 +38,7 @@ module CitizensAdviceComponents
     end
 
     def children_exist?
-      links.any? { |link| link.has_children?(link) }
+      links.any? { |link| link.children?(link) }
     end
 
     class Link
@@ -48,7 +50,7 @@ module CitizensAdviceComponents
         @children = children
       end
 
-      def has_children?(link)
+      def children?(link)
         link.children.present?
       end
     end

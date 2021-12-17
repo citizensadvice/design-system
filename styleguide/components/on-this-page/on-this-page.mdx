@@ -8,11 +8,18 @@ import { Story, Preview, Canvas } from '@storybook/addon-docs';
 
 ## With nested links
 
-This style is when an example needs to be displayed. Also, use it for quotes.
-
 <Canvas>
   <Story id="components-on-this-page--with-nested-links" />
 </Canvas>
+
+## JavaScript behaviour
+
+On this page requires some additional JavaScript behaviour which can be initialised with:
+
+```js
+import initOnThisPage from '@citizensadvice/design-system/lib/on-this-page';
+initOnThisPage();
+```
 
 ## Using with Rails
 
@@ -39,10 +46,10 @@ If you are using the `citizens_advice_components` gem you call the component fro
 
 ### Component arguments
 
-| Argument            | Description                                                                                          |
-| ------------------- | ---------------------------------------------------------------------------------------------------- |
-| `show_nested_links` | Optional type. One of `:standard`, `:example`, `:important`, or `:adviser`. Defaults to `:standard`. |
-| `links`             | Optional, title used as aria-label                                                                   |
-| `link[id]`          | Optional, title used as aria-label                                                                   |
-| `link[label]`       | Optional, title used as aria-label                                                                   |
-| `link[children]`       | Optional, title used as aria-label                                                                   |
+| Argument            | Description                                                                    |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `show_nested_links` | Required, will display nested links if there are any. Defaults to `false`      |
+| `links`             | Required, an array of hashes, each with the following:                         |
+| `link[id]`          | Required, used for linking content on the page, and for accessibility purposes |
+| `link[label]`       | Required, the label of the link                                                |
+| `link[children]`    | Optional, array for nested links                                               |

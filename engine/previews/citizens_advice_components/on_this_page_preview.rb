@@ -21,7 +21,7 @@ module CitizensAdviceComponents
         { label: "Link 1", id: "link-1" },
         { label: "Link 2", id: "link-2" },
         { label: "Link 3", id: "link-3" },
-        { label: "Link 4", id: "link-4" },
+        { label: "Link 4", id: "link-4" }
       ]
     end
 
@@ -30,13 +30,13 @@ module CitizensAdviceComponents
         { label: "Link 1", id: "link-1" },
         { label: "Link 2", id: "link-2", children: [
           { label: "Link 2.1", id: "link-2-1" },
-          { label: "Link 2.2", id: "link-2-2" },
-        ]},
+          { label: "Link 2.2", id: "link-2-2" }
+        ] },
         { label: "Link 3", id: "link-3" },
         { label: "Link 4", id: "link-4", children: [
-          { label: "Link 4.1", id: "link-4-1" },
-        ]},
-        { label: "Link 5", id: "link-5" },
+          { label: "Link 4.1", id: "link-4-1" }
+        ] },
+        { label: "Link 5", id: "link-5" }
       ]
     end
   end
