@@ -1,9 +1,9 @@
-import docs from './sidebar-docs.mdx';
-import templateExample from '../../examples/sidebar/example.html';
-import templateWithAdditionalContent from '../../examples/sidebar/with_additional_content.html';
+import docs from './section-links.mdx';
+import templateExample from '../../examples/section_links/example.html';
+import templateWithAdditionalContent from '../../examples/section_links/with_additional_content.html';
 
 export default {
-  title: 'Components/Sidebar',
+  title: 'Components/Section Links',
   parameters: { docs: { page: docs } },
 };
 

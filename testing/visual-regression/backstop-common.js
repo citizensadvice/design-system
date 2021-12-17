@@ -185,8 +185,8 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-search'],
       },
       {
-        label: 'Components/Sidebar',
-        url: storyUrlFor('components-sidebar--example'),
+        label: 'Components/Section Links',
+        url: storyUrlFor('components-section-links--example'),
       },
       {
         label: 'Components/Breadcrumbs/Collapsing',

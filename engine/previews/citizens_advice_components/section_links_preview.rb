@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class SidebarPreview < ViewComponent::Preview
+  class SectionLinksPreview < ViewComponent::Preview
     def example
-      render CitizensAdviceComponents::Sidebar.new(title: "Related Content") do |c|
+      render CitizensAdviceComponents::SectionLinks.new(title: "Related Content") do |c|
         c.section_title(section_title)
-        c.sidebar_links(sidebar_links)
+        c.section_links(section_links)
       end
     end
 
@@ -13,7 +13,7 @@ module CitizensAdviceComponents
       render_with_template(
         locals: {
           section_title: section_title,
-          sidebar_links: sidebar_links
+          section_links: section_links
         }
       )
     end
@@ -24,7 +24,7 @@ module CitizensAdviceComponents
       { title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme" }
     end
 
-    def sidebar_links
+    def section_links
       [
         { title: "Preparing to apply for pre-settled and settled status", url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status" },
         { title: "Applying for pre-settled and settled status", url: "/immigration/applying-for-settled-status" },

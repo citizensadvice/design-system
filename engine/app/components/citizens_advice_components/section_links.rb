@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class Sidebar < Base
-    renders_many :sidebar_links, "SidebarLink"
+  class SectionLinks < Base
+    renders_many :section_links, "SectionLink"
     renders_one :section_title, "SectionTitle"
 
     attr_reader :title
@@ -13,7 +13,7 @@ module CitizensAdviceComponents
     end
 
     def render?
-      sidebar_links.present?
+      section_links.present?
     end
 
     class SectionTitle
@@ -25,7 +25,7 @@ module CitizensAdviceComponents
       end
     end
 
-    class SidebarLink
+    class SectionLink
       attr_reader :title, :url
 
       def initialize(title:, url:)

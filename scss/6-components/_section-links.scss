@@ -1,5 +1,5 @@
-/** @define sidebar */
-.cads-sidebar {
+/** @define section-links */
+.cads-section-links {
   padding-left: $cads-spacing-4;
 
   @include cads-media-breakpoint-only(sm) {
@@ -35,7 +35,7 @@
 }
 
 @media print {
-  .cads-sidebar {
+  .cads-section-links {
     display: none;
   }
 }

@@ -2,15 +2,15 @@
 
 require "rails_helper"
 
-RSpec.describe CitizensAdviceComponents::Sidebar, type: :component do
+RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   subject(:component) do
     render_inline described_class.new(title: "Related Content") do |c|
       c.section_title(title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme")
-      c.sidebar_links(sidebar_links)
+      c.section_links(section_links)
     end
   end
 
-  let(:sidebar_links) do
+  let(:section_links) do
     [
       { title: "Preparing to apply for pre-settled and settled status",
         url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status" },
@@ -30,14 +30,14 @@ RSpec.describe CitizensAdviceComponents::Sidebar, type: :component do
   end
 
   it "renders a link for each sibling" do
-    expect(component.css("[data-testid='sidebar-link']").count).to eq sidebar_links.count
+    expect(component.css("[data-testid='section-links-link']").count).to eq section_links.count
   end
 
   context "when additional content present" do
     subject(:component) do
       render_inline described_class.new(title: "Related Content") do |c|
         c.section_title(title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme")
-        c.sidebar_links(sidebar_links)
+        c.section_links(section_links)
         "Example content"
       end
     end

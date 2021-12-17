@@ -1,6 +1,6 @@
-= render CitizensAdviceComponents::Sidebar.new(title: "Related Content") do |c|
+= render CitizensAdviceComponents::SectionLinks.new(title: "Related Content") do |c|
   - c.section_title(section_title)
-  - c.sidebar_links(sidebar_links)
+  - c.section_links(section_links)
   .example-links-block= link_to "Adviser resources - EU Settlement Scheme", "/advisernet/immigration/staying-in-the-uk/settled-status/adviser-resources-eu-settlement-scheme"
 
 :css

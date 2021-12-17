@@ -1,0 +1,13 @@
+%aside.cads-section-links
+  .cads-section-links__content
+    %p.cads-section-links__title= title
+    %h3.cads-section-links__section-title
+      - if section_title.url.present?
+        = link_to section_title.title, section_title.url
+      - else
+        = section_title.title
+    %nav{ aria: { label: section_title&.title } }
+      %ul.cads-section-links__links
+        - section_links.each do |link|
+          %li.cads-section-links__item= link_to link.title, link.url, class: "cads-hyperlink cads-section-links__link", "data-testid": "section-links-link"
+      = content
