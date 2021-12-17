@@ -4,8 +4,7 @@ require "rails_helper"
 
 RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   subject(:component) do
-    render_inline described_class.new(title: "Related Content") do |c|
-      c.section_title(title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme")
+    render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme", section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
       c.section_links(section_links)
     end
   end
@@ -35,8 +34,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
 
   context "when additional content present" do
     subject(:component) do
-      render_inline described_class.new(title: "Related Content") do |c|
-        c.section_title(title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme")
+      render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme", section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
         c.section_links(section_links)
         "Example content"
       end

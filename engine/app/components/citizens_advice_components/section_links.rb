@@ -3,26 +3,18 @@
 module CitizensAdviceComponents
   class SectionLinks < Base
     renders_many :section_links, "SectionLink"
-    renders_one :section_title, "SectionTitle"
 
-    attr_reader :title
+    attr_reader :title, :section_title, :section_title_url
 
-    def initialize(title:)
+    def initialize(title:, section_title:, section_title_url: nil)
       super
       @title = title
+      @section_title = section_title
+      @section_title_url = section_title_url
     end
 
     def render?
       section_links.present?
-    end
-
-    class SectionTitle
-      attr_reader :title, :url
-
-      def initialize(title:, url: nil)
-        @title = title
-        @url = url
-      end
     end
 
     class SectionLink

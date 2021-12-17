@@ -3,8 +3,7 @@
 module CitizensAdviceComponents
   class SectionLinksPreview < ViewComponent::Preview
     def example
-      render CitizensAdviceComponents::SectionLinks.new(title: "Related Content") do |c|
-        c.section_title(section_title)
+      render CitizensAdviceComponents::SectionLinks.new(title: "Related Content", section_title: "Applying to the EU settlement scheme", section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
         c.section_links(section_links)
       end
     end
@@ -12,17 +11,12 @@ module CitizensAdviceComponents
     def with_additional_content
       render_with_template(
         locals: {
-          section_title: section_title,
           section_links: section_links
         }
       )
     end
 
     private
-
-    def section_title
-      { title: "Applying to the EU settlement scheme", url: "/immigration#h-applying-to-the-eu-settlement-scheme" }
-    end
 
     def section_links
       [
