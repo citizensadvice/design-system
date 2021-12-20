@@ -1,4 +1,4 @@
-import initShowHideWithToggle from './utils/show-hide';
+import initShowHideWithToggle from '../utils/show-hide';
 
 const initOnThisPage = (): void => {
   const onThisPageSelectors = {

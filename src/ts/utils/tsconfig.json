@@ -1,13 +1,12 @@
 {
   "extends": "../../../tsconfig-base.json",
   "compilerOptions": {
-    "outDir": "../../../lib/on-this-page/",
+    "outDir": "../../../lib/utils/",
     "module": "CommonJS",
     "rootDir": ".",
     "declaration": true,
-    "resolveJsonModule": true
+    "composite": true
   },
-  "references": [{ "path": "../utils/" }],
   "include": ["./**/*.ts"],
   "exclude": ["./**/*.test.ts"]
 }
