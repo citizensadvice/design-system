@@ -1,0 +1,41 @@
+/** @define section-links */
+.cads-section-links {
+  padding-left: $cads-spacing-4;
+
+  @include cads-media-breakpoint-only(sm) {
+    padding-left: 0;
+  }
+
+  &__title {
+    color: $cads-language__secondary-text-colour;
+  }
+
+  &__section-title {
+    @extend %cads-h3;
+
+    color: $cads-language__secondary-text-colour;
+    margin-top: 0;
+    margin-bottom: $cads-spacing-4;
+  }
+
+  &__links {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  &__item {
+    margin-bottom: $cads-spacing-4;
+  }
+
+  &__link {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media print {
+  .cads-section-links {
+    display: none;
+  }
+}
