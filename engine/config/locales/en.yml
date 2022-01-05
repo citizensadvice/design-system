@@ -21,6 +21,8 @@ en:
       skip_to_navigation: Skip to navigation
     input:
       optional: optional
+    on_this_page:
+      title: On this page
     page_review:
       body_html: Page last reviewed on <strong>%{date}</strong>
     pagination:

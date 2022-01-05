@@ -1,0 +1,55 @@
+import { Story, Preview, Canvas } from '@storybook/addon-docs';
+
+# On this page
+
+<Preview>
+  <Story id="components-on-this-page--example" />
+</Preview>
+
+## With nested links
+
+<Canvas>
+  <Story id="components-on-this-page--with-nested-links" />
+</Canvas>
+
+## JavaScript behaviour
+
+On this page requires some additional JavaScript behaviour which can be initialised with:
+
+```js
+import initOnThisPage from '@citizensadvice/design-system/lib/on-this-page/on-this-page';
+initOnThisPage();
+```
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem you call the component from within a template using:
+
+```haml
+= render CitizensAdviceComponents::OnThisPage.new(show_nested_links: true) do |c|
+    c.links(
+      [
+        { label: "Link 1", id: "link-1" },
+        { label: "Link 2", id: "link-2", children: [
+          { label: "Link 2.1", id: "link-2-1" },
+          { label: "Link 2.2", id: "link-2-2" },
+        ]},
+        { label: "Link 3", id: "link-3" },
+        { label: "Link 4", id: "link-4", children: [
+          { label: "Link 4.1", id: "link-4-1" },
+        ]},
+        { label: "Link 5", id: "link-5" },
+      ]
+    )
+  end
+```
+
+### Component arguments
+
+| Argument            | Description                                                                    |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `show_nested_links` | Required, will display nested links if there are any. Defaults to `false`      |
+| `links`             | Required, an array of hashes, each with the following:                         |
+| `link[id]`          | Required, used for linking content on the page, and for accessibility purposes |
+| `link[label]`       | Required, the label of the link                                                |
+| `link[children]`    | Optional, array for nested links                                               |

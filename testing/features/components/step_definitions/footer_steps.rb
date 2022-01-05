@@ -17,7 +17,7 @@ Then("each header item has at least 1 link below it") do
 end
 
 Then("a copyright notice is present") do
-  expect(@component.copyright.text).to start_with("Copyright ©2021 Citizens Advice")
+  expect(@component.copyright.text).to start_with("Copyright ©2022 Citizens Advice")
 end
 
 Then("a company info is present") do
