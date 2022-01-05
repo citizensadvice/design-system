@@ -38,7 +38,7 @@ module CitizensAdviceComponents
     end
 
     def children_exist?
-      links.any? { |link| link.children? }
+      links.any?(&:children?)
     end
 
     class Link
