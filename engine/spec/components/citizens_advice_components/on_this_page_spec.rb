@@ -98,8 +98,8 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
         expect(component.at("[data-testid='on-this-page-children']")).not_to be_nil
       end
 
-      it "renders toggle buttons" do
-        expect(component.at("[data-testid='on-this-page-toggle']")).not_to be_nil
+      it "renders the correct number of toggle buttons" do
+        expect(component.css("[data-testid='on-this-page-toggle']").length).to eq(2)
       end
     end
   end

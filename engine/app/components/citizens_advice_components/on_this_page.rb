@@ -38,7 +38,7 @@ module CitizensAdviceComponents
     end
 
     def children_exist?
-      links.any? { |link| link.children?(link) }
+      links.any? { |link| link.children? }
     end
 
     class Link
@@ -50,8 +50,8 @@ module CitizensAdviceComponents
         @children = children
       end
 
-      def children?(link)
-        link.children.present?
+      def children?
+        @children.present?
       end
     end
   end

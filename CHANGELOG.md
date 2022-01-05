@@ -1,3 +1,6 @@
+**New**
+- 📜 On this page: Adds new `On this page` view component
+
 ## <sub>v5.2.0-alpha.0</sub>
 
 #### _Dec. 2, 2021_
