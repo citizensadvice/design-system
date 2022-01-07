@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     # spec.metadata["allowed_push_host"] = "https://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+          "public gem pushes."
   end
 
   spec.files = Dir["{app,config,lib}/**/*", "README.md"]
@@ -27,4 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency     "rails", [">= 6.0.0", "< 7.0"]
   spec.add_runtime_dependency     "rails-i18n", [">= 6.0.0", "< 7.0"]
   spec.add_runtime_dependency     "view_component", [">= 2.0.0", "< 3.0"]
+  spec.metadata = {
+    "rubygems_mfa_required" => "true"
+  }
 end
