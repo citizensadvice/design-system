@@ -1,3 +1,7 @@
+## <sub>v5.2.0-alpha.1</sub>
+
+#### _Jan. 10, 2022_
+
 **New**
 - 📜 On this page: Adds new `On this page` view component
 
