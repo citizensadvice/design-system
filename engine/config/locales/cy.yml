@@ -21,6 +21,8 @@ cy:
       skip_to_navigation: Neidio i’r llywio
     input:
       optional: dewisol
+    on_this_page:
+      title: Ar y dudalen hon
     page_review:
       body_html: Adolygwyd y dudalen ar <strong>%{date}</strong>
     pagination:

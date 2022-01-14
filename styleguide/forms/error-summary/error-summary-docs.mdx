@@ -52,21 +52,18 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 ```rb
 = render(
   CitizensAdviceComponents::ErrorSummary.new do |c|
-    c.error(
-        href: "#your-name-input",
-        message: "Enter your full name"
-    )
-    c.error(
-        href: "#your-email-input",
-        message: "Enter an email address in the correct format, like name@example.com"
-    )
+    c.errors([
+       { href: "#your-name-input", message: "Enter your full name" },
+       { href: "#your-email-input", message: "Enter an email address in the correct format, like name@example.com" },
+    ])
   end
 )
 ```
 
 ### View Component Options
 
-| Property         | Description             |
-| ---------------- | ----------------------- |
-| `error[href]`    | Required, error href    |
-| `error[message]` | Required, error message |
+| Property         | Description                                                           |
+| ---------------- | --------------------------------------------------------------------- |
+| `errors`         | Required, array of error messages and links, each with the following: |
+| `error[href]`    | &rarr; Required, error href                                           |
+| `error[message]` | &rarr; Required, error message                                        |

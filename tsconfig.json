@@ -9,6 +9,12 @@
     },
     {
       "path": "./src/ts/targeted-content/tsconfig.json"
+    },
+    {
+      "path": "./src/ts/on-this-page/tsconfig.json"
+    },
+    {
+      "path": "./src/ts/utils/tsconfig.json"
     }
   ]
 }
