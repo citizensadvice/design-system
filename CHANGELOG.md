@@ -1,3 +1,6 @@
+**Bugfixes**
+- 🔗 Links: Style links with `rel=external` in `.cads-prose` as a more reliable way of determining external links.
+
 ## <sub>v5.2.0-alpha.1</sub>
 
 #### _Jan. 10, 2022_
