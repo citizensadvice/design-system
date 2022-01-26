@@ -40,7 +40,6 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
   end
 
   it "constructs the ids of the inputs correctly" do
-    expect(component.css("input[value=1]").attribute("id").value).to eq "checkboxes-0"
     expect(component.css("input[value=2]").attribute("id").value).to eq "checkboxes-1"
   end
 
