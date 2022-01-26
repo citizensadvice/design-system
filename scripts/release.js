@@ -29,7 +29,7 @@ function updateVersionNumber(newVersion) {
 checkRepoStatus(PATH);
 chalk.bold(`You are preparing a new release.
 This script will create a branch based on your chosen version number and you must then create a
-pull request to master.`);
+pull request to main.`);
 prompt([
   {
     message: 'Have you updated the Changelog?',
