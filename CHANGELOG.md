@@ -1,3 +1,13 @@
+**Bugfixes**
+- 🔗 Links: Style links with `rel=external` in `.cads-prose` as a more reliable way of determining external links.
+
+## <sub>v5.2.0-alpha.1</sub>
+
+#### _Jan. 10, 2022_
+
+**New**
+- 📜 On this page: Adds new `On this page` view component
+
 ## <sub>v5.2.0-alpha.0</sub>
 
 #### _Dec. 2, 2021_

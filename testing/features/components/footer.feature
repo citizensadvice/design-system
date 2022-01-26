@@ -10,12 +10,10 @@ Feature: Footer component
       Then a report problem with this page link is present
       And each header item has at least 1 link below it
       And a logo is present
-      And a copyright notice is present
       And a company info is present
 
   Rule: Minimal Footer
     Scenario: Footer contains a variety of links / content
       Given the Minimal Footer component is on the page
       Then a logo is present
-      And a copyright notice is present
       And a company info is present
