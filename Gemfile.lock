@@ -8,11 +8,12 @@ GIT
 
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: 8786246af8134b7efa1e800b56236186c6f68f7a
-  tag: v4.1.0
+  revision: c084221dc43f6db555d748c4c6a786bbed417027
+  tag: v6.0.0
   specs:
-    citizens-advice-style (4.1.0)
-      rubocop (~> 1.21.0)
+    citizens-advice-style (6.0.0)
+      rubocop (~> 1.24.1)
+      rubocop-rspec (~> 2.7.0)
 
 GEM
   remote: https://rubygems.org/
@@ -112,16 +113,16 @@ GEM
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     parallel (1.21.0)
-    parser (3.0.2.0)
+    parser (3.1.0.0)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rainbow (3.0.0)
+    rainbow (3.1.1)
     rake (13.0.6)
-    regexp_parser (2.1.1)
+    regexp_parser (2.2.0)
     retriable (3.1.2)
     rexml (3.2.5)
     rspec (3.10.0)
@@ -137,19 +138,21 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.21.0)
+    rubocop (1.24.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.9.1, < 2.0)
+      rubocop-ast (>= 1.15.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.11.0)
+    rubocop-ast (1.15.1)
       parser (>= 3.0.1.1)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
+    rubocop-rspec (2.7.0)
+      rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
