@@ -13,7 +13,7 @@ module CitizensAdviceComponents
         @additional_attributes = additional_attributes
       end
 
-      def attributes(name, index, error: false)
+      def attributes(name, index = 0, error: false)
         @name = name
         @index = index
         attrs = base_attributes
