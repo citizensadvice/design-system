@@ -10,9 +10,8 @@ module CitizensAdviceComponents
     end
 
     def set_options(options)
-      super      
+      super
       return if options.blank?
-
 
       @size = fetch_or_fallback(given_value: options[:size], allowed_values: [nil, :regular, :small], fallback: :regular)
       @layout = fetch_or_fallback(given_value: options[:layout], allowed_values: [nil, :list, :inline], fallback: :list)
