@@ -1,5 +1,6 @@
 **Bugfixes**
 - 🔗 Links: Style links with `rel=external` in `.cads-prose` as a more reliable way of determining external links.
+- 🛂 Ids: Radio buttons and checkbox `id` attributes are now generated using the input's index instead of value
 
 ## <sub>v5.2.0-alpha.1</sub>
 
