@@ -13,8 +13,9 @@ module CitizensAdviceComponents
         @additional_attributes = additional_attributes
       end
 
-      def attributes(name, error: false)
+      def attributes(name, index, error: false)
         @name = name
+        @index = index
         attrs = base_attributes
         attrs = base_attributes.merge(@additional_attributes) if @additional_attributes.present?
         attrs = attrs.merge(error_attributes) if error
@@ -43,7 +44,7 @@ module CitizensAdviceComponents
       end
 
       def format_button_id
-        "#{@name}-#{@value}"
+        "#{@name}-#{@index}"
       end
     end
   end
