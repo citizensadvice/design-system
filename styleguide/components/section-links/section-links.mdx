@@ -12,6 +12,14 @@ import { Story, Canvas } from '@storybook/addon-docs';
   <Story id="components-section-links--with-additional-content" />
 </Canvas>
 
+## With Additional Attributes
+
+Any additional key/value pairs (beyond `title` and `url`) in your section link definition will be added to the link (eg {"aria-current":"page"} ).
+
+<Canvas>
+  <Story id="components-section-links--with-additional-attributes" />
+</Canvas>
+
 ## Using with Rails
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
@@ -20,7 +28,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 = render CitizensAdviceComponents::SectionLinks.new(title: "Related Content") do |c|
     c.section_title(title: "Section title", url: "/section-title")
     c.section_links([
-      { title: "Link 1", url: "/link-1" },
+      { title: "Link 1", url: "/link-1", "data-example-attr":"example-attribute" },
       { title: "Link 2", url: "/link-2" },
       { title: "Link 3", url: "/link-3" },
       { title: "Link 4", url: "/link-4" },
