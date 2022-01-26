@@ -26,7 +26,7 @@ module CitizensAdviceComponents
 
     def additional_attribute_links
       [
-        { title: "Preparing to apply for pre-settled and settled status", url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status", "aria-current":"page"},
+        { title: "Preparing to apply for pre-settled and settled status", url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status", "aria-current": "page" },
         { title: "Applying for pre-settled and settled status", url: "/immigration/applying-for-settled-status" },
         { title: "Updating and proving your pre-settled or settled status", url: "/immigration/viewing-your-pre-settled-or-settled-status" },
         { title: "Switching from pre-settled to settled status", url: "/immigration/switching-from-pre-settled-to-settled-status" },
@@ -36,7 +36,7 @@ module CitizensAdviceComponents
 
     def section_links
       [
-        { title: "Preparing to apply for pre-settled and settled status", url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status"},
+        { title: "Preparing to apply for pre-settled and settled status", url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status" },
         { title: "Applying for pre-settled and settled status", url: "/immigration/applying-for-settled-status" },
         { title: "Updating and proving your pre-settled or settled status", url: "/immigration/viewing-your-pre-settled-or-settled-status" },
         { title: "Switching from pre-settled to settled status", url: "/immigration/switching-from-pre-settled-to-settled-status" },
