@@ -6,6 +6,38 @@ module Helpers
       ENV.fetch("BROWSER", "chrome").to_sym
     end
 
+    def browser_version
+      ENV.fetch("BROWSER_VERSION", "latest").to_sym
+    end
+
+    def saucelabs?
+      ENV["SAUCELABS"] == "true"
+    end
+
+    def platform_name
+      ENV.fetch("PLATFORM_NAME", "Windows 10").to_sym
+    end
+
+    def width(fallback: "1280")
+      ENV.fetch("BROWSER_WIDTH", fallback)
+    end
+
+    def height(fallback: "800")
+      ENV.fetch("BROWSER_HEIGHT", fallback)
+    end
+
+    def screen_resolution
+      "#{width}x#{height}"
+    end
+
+    def saucelabs_username
+      ENV.fetch("SAUCE_USERNAME")
+    end
+
+    def saucelabs_access_key
+      ENV.fetch("SAUCE_ACCESS_KEY")
+    end
+
     def browserstack?
       ENV["BROWSERSTACK"] == "true"
     end

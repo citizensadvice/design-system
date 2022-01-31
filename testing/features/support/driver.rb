@@ -12,6 +12,8 @@ class Driver
   def register
     if browserstack?
       Drivers::Browserstack.new.register
+    elsif saucelabs?
+      Drivers::Saucelabs.new.register
     else
       ::CaTesting::Drivers::Local.new(browser).register
     end
