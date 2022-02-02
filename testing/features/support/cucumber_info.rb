@@ -26,7 +26,7 @@ module CucumberInfo
         # when being served by the Browserstack Hub infrastructure.
 
         # This should be retried as it's an intermittent failure from Browserstack
-        @session_id = Capybara.page.driver.browser.session_id if browserstack?
+        @session_id = Capybara.page.driver.browser.session_id if browserstack? || saucelabs?
       end
     end
 

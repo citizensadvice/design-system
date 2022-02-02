@@ -18,6 +18,18 @@ module Helpers
       ENV.fetch("PLATFORM_NAME", "Windows 10").to_sym
     end
 
+    def platform_version
+      ENV.fetch("PLATFORM_VERSION")
+    end
+
+    def device_name
+      ENV.fetch("DEVICE_NAME")
+    end
+
+    def appium_version
+      ENV.fetch("APPIUM_VERSION")
+    end
+
     def width(fallback: "1280")
       ENV.fetch("BROWSER_WIDTH", fallback)
     end
@@ -75,7 +87,7 @@ module Helpers
     end
 
     def device?
-      %w[android ios].include?(ENV["BROWSER"])
+      %w[android ios].include?(ENV["BROWSER"]) || %w[android ios].include?(ENV["PLATFORM_NAME"])
     end
 
     def iphone?
