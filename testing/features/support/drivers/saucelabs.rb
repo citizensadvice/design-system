@@ -66,9 +66,9 @@ module Drivers
       {
         browser_name: browser,
         platform_name: platform_name,
-        browser_version: '',
-        'appium:deviceName': device_name,
-        'appium:platformVersion': platform_version,
+        browser_version: "",
+        "appium:deviceName": device_name,
+        "appium:platformVersion": platform_version,
         "sauce:options": {
           name: Saucelabs::PayloadValuesGenerator.session_name,
           build: Saucelabs::PayloadValuesGenerator.build_name,
