@@ -16,9 +16,9 @@ jobs:
             sauce_username: 'SAUCE_USERNAME'
             sauce_access_key: 'SAUCE_ACCESS_KEY'
           - platform_name: 'Windows 10'
-              browser: 'firefox'
-              sauce_username: 'SAUCE_USERNAME'
-              sauce_access_key: 'SAUCE_ACCESS_KEY'
+            browser: 'firefox'
+            sauce_username: 'SAUCE_USERNAME'
+            sauce_access_key: 'SAUCE_ACCESS_KEY'
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
