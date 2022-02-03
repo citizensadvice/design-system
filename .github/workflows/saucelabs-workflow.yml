@@ -2,7 +2,7 @@
 #
 ## Saucelabs tests are run against the deployed GitHub pages URL
 ## The closest event we can use to trigger when these are updated is page_build.
-#on: [page_build]
+#on: [push]
 #
 #jobs:
 #  saucelabs:
@@ -15,8 +15,11 @@
 #            browser: 'chrome'
 #            sauce_username: 'SAUCE_USERNAME'
 #            sauce_access_key: 'SAUCE_ACCESS_KEY'
-#          - platform_name: 'Windows 10'
-#            browser: 'firefox'
+#
+#          - platform_name: 'ios'
+#            browser: 'safari'
+#            platform_version: '13.4'
+#            device_name: 'iPhone 11 Simulator'
 #            sauce_username: 'SAUCE_USERNAME'
 #            sauce_access_key: 'SAUCE_ACCESS_KEY'
 #    steps:
