@@ -18,7 +18,7 @@ def base_cucumber_path
   if ENV["SAUCELABS"] == "true"
     "artifacts/#{ENV['BROWSER_NAME']}/#{ENV['BROWSER_VERSION']}/#{ENV['PLATFORM_NAME']}".sub(/\s/, "_")
   else
-    "artifacts/#{ENV['BROWSER']}/other"
+    "other"
   end
 end
 
@@ -34,6 +34,7 @@ namespace :design_system do
   desc "Creating report folders"
   task :report_folders do
     puts "Creating folder structure for this test run"
+    puts ENV["SAUCELABS"]
     puts base_cucumber_path
     dirs = %w[html_pages logs reports screenshots]
     dirs.each do |dir|
