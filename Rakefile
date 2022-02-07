@@ -34,10 +34,10 @@ namespace :design_system do
   desc "Creating report folders"
   task :report_folders do
     puts "Creating folder structure for this test run"
+    puts base_cucumber_path
     dirs = %w[html_pages logs reports screenshots]
     dirs.each do |dir|
       FileUtils.mkdir_p("testing/#{base_cucumber_path}/#{dir}")
     end
-    puts base_cucumber_path
   end
 end
