@@ -13,18 +13,21 @@ jobs:
         include:
           - platform_name: 'Windows 10'
             browser: 'chrome'
+            browser_version: 'latest'
             platform_version: ''
             device_name: ''
             sauce_username: 'SAUCE_USERNAME'
             sauce_access_key: 'SAUCE_ACCESS_KEY'
           - platform_name: 'ios'
             browser: 'safari'
+            browser_version: 'latest'
             platform_version: '13.4'
             device_name: 'iPhone 11 Simulator'
             sauce_username: 'SAUCE_USERNAME'
             sauce_access_key: 'SAUCE_ACCESS_KEY'
           - platform_name: 'android'
             browser: 'chrome'
+            browser_version: 'latest'
             platform_version: '12.0'
             device_name: 'Android GoogleAPI Emulator'
             sauce_username: 'SAUCE_USERNAME'
@@ -39,6 +42,7 @@ jobs:
           SAUCELABS: true
           LOG_LOCATION: automation_logs.log
           BROWSER_NAME: ${{ matrix.browser }}
+          BROWSER_VERSION: ${{ matrix.browser_version }}
           PLATFORM_NAME: ${{ matrix.platform_name }}
           PLATFORM_VERSION: ${{ matrix.platform_version}}
           DEVICE_NAME: ${{ matrix.device_name}}
