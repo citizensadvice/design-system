@@ -22,5 +22,9 @@ vendor/**/*
 *.code-workspace
 
 # Keep nothing in these directories except the 'keep' files
-testing/artifacts/*
+testing/artifacts/**/*
 !testing/artifacts/.keep
+!artifacts/.keep
+!testing/artifacts/logs/.keep
+!testing/artifacts/reports/.keep
+!testing/artifacts/screenshots/.keep
