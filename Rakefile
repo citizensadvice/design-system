@@ -15,7 +15,7 @@ def collect_task_errors(tasks)
 end
 
 def base_cucumber_path
-  "artifacts/#{ENV['BROWSER']}/#{ENV['BROWSERSTACK'] == 'true' ? ENV['BROWSERSTACK_CONFIGURATION_OPTIONS'] : 'other'}"
+  "artifacts/#{ENV['BROWSER']}/#{ENV['SAUCELABS'] == 'true' ? ENV['BROWSER_VERSION']/ENV['PLATFORM_NAME'] : 'other'}"
 end
 
 namespace :design_system do
