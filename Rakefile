@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "fileutils"
+require 'fileutils'
 
 task default: :check
 
@@ -15,26 +15,26 @@ def collect_task_errors(tasks)
 end
 
 def base_cucumber_path
-  if ENV["SAUCELABS"] == "true"
-    "artifacts/#{ENV['BROWSER_NAME']}/#{ENV['BROWSER_VERSION']}/#{ENV['PLATFORM_NAME']}".sub(/\s/, "_")
+  if ENV['SAUCELABS'] == 'true'
+    "artifacts/#{ENV['BROWSER_NAME']}/#{ENV['BROWSER_VERSION']}/#{ENV['PLATFORM_NAME']}".sub(/\s/, '_')
   else
-    "other"
+    'gother'
   end
 end
 
 namespace :design_system do
-  desc "All Design System Tests"
+  desc 'All Design System Tests'
   task all: :report_folders do
-    puts "Running all design system tests"
+    puts 'Running all design system tests'
     system(
-      "cd ./testing && bundle exec cucumber -p reports --retry 1 && cd .."
+      'cd ./testing && bundle exec cucumber -p reports --retry 1 && cd ..'
     ) || raise
   end
 
-  desc "Creating report folders"
+  desc 'Creating report folders'
   task :report_folders do
-    puts "Creating folder structure for this test run"
-    puts ENV["SAUCELABS"]
+    puts 'Creating folder structure for this test run'
+    puts ENV['SAUCELABS']
     puts base_cucumber_path
     dirs = %w[html_pages logs reports screenshots]
     dirs.each do |dir|
