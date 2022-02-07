@@ -2,7 +2,7 @@ name: BrowserStack
 
 # BrowserStack tests are run against the deployed GitHub pages URL
 # The closest event we can use to trigger when these are updated is page_build.
-on: [push]
+on:
 
 jobs:
   browserstack:
