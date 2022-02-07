@@ -9,8 +9,8 @@
       %p.cads-form-field__hint= hint
     - if error?
       %p.cads-form-field__error-message= error_message
-    - inputs.each do |input|
+    - inputs.each_with_index do |input, index|
       .cads-form-group__item
-        %input.cads-form-group__input{ input.attributes(name) }
-        %label.cads-form-group__label{ for: input.attributes(name)[:id] }
+        %input.cads-form-group__input{ input.attributes(name, index) }
+        %label.cads-form-group__label{ for: input.attributes(name, index)[:id] }
           = input.label
