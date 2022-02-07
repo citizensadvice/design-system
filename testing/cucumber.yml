@@ -1,6 +1,7 @@
 passing: --tags 'not @failing and not @future_release'
 
-<% base_path = artifacts/#{ENV['BROWSER']}/#{ENV['SAUCELABS'] == 'true' ? "#{ENV['BROWSER_VERSION']}/#{ENV['PLATFORM_NAME']}".sub(/\s/, "_") : 'other'} %>
+<% running_context = ENV["SAUCELABS"] == 'true' ? "#{ENV['BROWSER_VERSION']}/#{ENV['PLATFORM_NAME']}".sub(/\s/, "_") : "other" %>
+<% base_path = ENV["BROWSER"] ? "artifacts/#{ENV['BROWSER']}/#{running_context}" : "artifacts" %>
 
 html: --format html --out "<%= base_path %>/reports/report.html" BASE_ARTIFACTS_PATH="<%= base_path%>"
 junit: --format junit --out "<%= base_path %>/reports" BASE_ARTIFACTS_PATH="<%= base_path%>"
