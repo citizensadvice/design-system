@@ -1,45 +1,54 @@
-#name: Saucelabs
-#
-## Saucelabs tests are run against the deployed GitHub pages URL
-## The closest event we can use to trigger when these are updated is page_build.
-#on: [push]
-#
-#jobs:
-#  saucelabs:
-#    runs-on: ubuntu-20.04
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        include:
-#          - platform_name: 'Windows 10'
-#            browser: 'chrome'
-#            sauce_username: 'SAUCE_USERNAME'
-#            sauce_access_key: 'SAUCE_ACCESS_KEY'
-#
-#          - platform_name: 'ios'
-#            browser: 'safari'
-#            platform_version: '13.4'
-#            device_name: 'iPhone 11 Simulator'
-#            sauce_username: 'SAUCE_USERNAME'
-#            sauce_access_key: 'SAUCE_ACCESS_KEY'
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: ruby/setup-ruby@v1
-#        with:
-#          bundler-cache: true
-#      - run: bundle exec rake design_system:all
-#        env:
-#          SAUCELABS: true
-#          LOG_LOCATION: automation_logs.log
-#          BROWSER_NAME: ${{ matrix.browser }}
-#          PLATFORM_NAME: ${{ matrix.platform_name }}
-#          SAUCE_USERNAME: ${{ secrets[matrix.sauce_username] }}
-#          SAUCE_ACCESS_KEY: ${{ secrets[matrix.sauce_access_key] }}
-#          TESTING_BASE_URL: 'https://citizensadvice.github.io/design-system'
-#
-#      - uses: actions/upload-artifact@v2
-#        if: failure()
-#        with:
-#          name: grid-artifacts
-#          path: testing/artifacts
-#          retention-days: 3
+name: Saucelabs
+
+# Saucelabs tests are run against the deployed GitHub pages URL
+# The closest event we can use to trigger when these are updated is page_build.
+on: [push]
+
+jobs:
+  saucelabs:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform_name: 'Windows 10'
+            browser: 'chrome'
+            platform_version: ''
+            device_name: ''
+            sauce_username: 'SAUCE_USERNAME'
+            sauce_access_key: 'SAUCE_ACCESS_KEY'
+          - platform_name: 'ios'
+            browser: 'safari'
+            platform_version: '13.4'
+            device_name: 'iPhone 11 Simulator'
+            sauce_username: 'SAUCE_USERNAME'
+            sauce_access_key: 'SAUCE_ACCESS_KEY'
+          - platform_name: 'android'
+            browser: 'chrome'
+            platform_version: '12.0'
+            device_name: 'Android GoogleAPI Emulator'
+            sauce_username: 'SAUCE_USERNAME'
+            sauce_access_key: 'SAUCE_ACCESS_KEY'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bundle exec rake design_system:all
+        env:
+          SAUCELABS: true
+          LOG_LOCATION: automation_logs.log
+          BROWSER_NAME: ${{ matrix.browser }}
+          PLATFORM_NAME: ${{ matrix.platform_name }}
+          PLATFORM_VERSION: ${{ matrix.platform_version}}
+          DEVICE_NAME: ${{ matrix.device_name}}
+          SAUCE_USERNAME: ${{ secrets[matrix.sauce_username] }}
+          SAUCE_ACCESS_KEY: ${{ secrets[matrix.sauce_access_key] }}
+          TESTING_BASE_URL: 'https://citizensadvice.github.io/design-system'
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: grid-artifacts
+          path: testing/artifacts
+          retention-days: 3
