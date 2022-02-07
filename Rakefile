@@ -38,5 +38,6 @@ namespace :design_system do
     dirs.each do |dir|
       FileUtils.mkdir_p("testing/#{base_cucumber_path}/#{dir}")
     end
+    puts base_cucumber_path
   end
 end
