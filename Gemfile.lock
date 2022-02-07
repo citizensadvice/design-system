@@ -118,6 +118,8 @@ GEM
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
     parallel (1.21.0)
+    parallel_tests (3.7.3)
+      parallel
     parser (3.1.0.0)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
@@ -205,6 +207,7 @@ DEPENDENCIES
   cucumber (~> 7.0)
   dotenv
   faraday (~> 1.9)
+  parallel_tests
   rake
   retriable (~> 3.1)
   rspec

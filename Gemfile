@@ -11,6 +11,7 @@ group :test do
   gem "cucumber", "~> 7.0"
   gem "dotenv"
   gem "faraday", "~> 1.9"
+  gem "parallel_tests"
   gem "rake"
   gem "retriable", "~> 3.1"
   gem "rspec"
