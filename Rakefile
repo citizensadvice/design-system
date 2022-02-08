@@ -18,7 +18,7 @@ def base_cucumber_path
   if ENV['SAUCELABS'] == 'true'
     "artifacts/#{ENV['BROWSER_NAME']}/#{ENV['BROWSER_VERSION']}/#{ENV['PLATFORM_NAME']}".sub(/\s/, '_')
   else
-    'gother'
+    'other'
   end
 end
 
