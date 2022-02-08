@@ -16,6 +16,7 @@ jobs:
             browser_version: 'latest'
             platform_version: ''
             device_name: ''
+            appium_version: ''
             sauce_username: 'SAUCE_USERNAME'
             sauce_access_key: 'SAUCE_ACCESS_KEY'
           - platform_name: 'ios'
@@ -23,6 +24,7 @@ jobs:
             browser_version: 'latest'
             platform_version: '13.4'
             device_name: 'iPhone 11 Simulator'
+            appium_version: ''
             sauce_username: 'SAUCE_USERNAME'
             sauce_access_key: 'SAUCE_ACCESS_KEY'
           - platform_name: 'android'
@@ -30,6 +32,7 @@ jobs:
             browser_version: 'latest'
             platform_version: '12.0'
             device_name: 'Android GoogleAPI Emulator'
+            appium_version: ''
             sauce_username: 'SAUCE_USERNAME'
             sauce_access_key: 'SAUCE_ACCESS_KEY'
     steps:
@@ -46,6 +49,7 @@ jobs:
           PLATFORM_NAME: ${{ matrix.platform_name }}
           PLATFORM_VERSION: ${{ matrix.platform_version}}
           DEVICE_NAME: ${{ matrix.device_name}}
+          APPIUM_VERSION: ${{ matrix.appium_version }}
           SAUCE_USERNAME: ${{ secrets[matrix.sauce_username] }}
           SAUCE_ACCESS_KEY: ${{ secrets[matrix.sauce_access_key] }}
           TESTING_BASE_URL: 'https://citizensadvice.github.io/design-system'
