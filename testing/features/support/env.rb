@@ -24,4 +24,4 @@ CaTesting.logger.level = :DEBUG
 CaTesting::Patches::Capybara.new.patch!
 CaTesting::Patches::SeleniumLogger.new.patch!
 CaTesting::Patches::SeleniumManager.new.patch!
-CaTesting::Patches::SeleniumOptions.new(ENV["BROWSER"].to_sym).patch!
+CaTesting::Patches::SeleniumOptions.new(ENV["BROWSER"]).patch!
