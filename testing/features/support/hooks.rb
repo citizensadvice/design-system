@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-AfterConfiguration do
+BeforeAll do
   CucumberInfo.set_session_id
 end
 
