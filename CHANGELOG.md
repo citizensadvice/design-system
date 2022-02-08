@@ -1,3 +1,7 @@
+## <sub>v5.2.0-alpha.3</sub>
+
+#### _Feb. 8, 2022_
+
 **Bugfixes**
 - 📱 Section Links: Using `cads-list-no-bullet` styles to make the font consistent on smaller screens.
 
