@@ -15,7 +15,6 @@ module Header
     element :open_search_pane, "[data-testid='expand-button']"
 
     def search_for(search_term)
-      open_search_pane(wait: 1).click if iphone?
       search_field.send_keys(search_term)
     end
   end
