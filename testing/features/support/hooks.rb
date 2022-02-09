@@ -3,7 +3,7 @@
 Before do |test_case|
   CucumberInfo.test_case = test_case
   skip_this_scenario("Scenario is not permitted to run. See logs for details") if CucumberInfo.skip_scenario?
-  resize_window(320, 568) if test_case.source_tag_names.include?("@small_screen")
+  test_case.source_tag_names.include?("@small_screen") ? resize_window(320, 568) : resize_window
   AutomationLogger.info("Running Scenario: #{test_case.name}")
 end
 
