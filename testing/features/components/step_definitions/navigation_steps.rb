@@ -1,16 +1,11 @@
 # frozen_string_literal: true
 
 Given("a Default Navigation component is on the page") do
-  @component =
-    if @logged_in
-      Navigation::Header.new.tap(&:load)
-    else
-      Navigation::Default.new.tap(&:load)
-    end
+  @component = Navigation::Default.new.tap(&:load)
 end
 
-Given("a user is logged in") do
-  @logged_in = true
+Given('a Default Navigation component with a sign-in button displayed on the page') do
+  @component = Navigation::Header.new.tap(&:load)
 end
 
 When("I tab onto the More button") do
@@ -66,5 +61,5 @@ Then("the dropdown menu is open") do
 end
 
 Then("the dropdown menu has header links") do
-  expect(@component).to have_sign_out
+  expect(@component).to have_sign_in
 end

@@ -9,7 +9,6 @@ end
 
 After do |test_case|
   if test_case.failed?
-    save_window_screenshot(test_case) unless device?
     AutomationLogger.info("Scenario: #{test_case.name} - Status: FAILED")
     AutomationLogger.error("ERROR: #{test_case.exception&.message}")
     AutomationLogger.error("ERROR TYPE: #{test_case.exception.class}")

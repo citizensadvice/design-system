@@ -1,5 +1,5 @@
 # NB: Due to a Storybook issue, these tests won't run on Old Safari / iOS
-@not_ios13 @not_ios12 @not_safari @future_release @v4_1_2
+@not_safari
 Feature: Navigation component
 
   The greedy navigation displays as many navigation links that will fit on the viewport.
@@ -9,7 +9,6 @@ Feature: Navigation component
     Background:
       Given a Default Navigation component is on the page
 
-    @not_mobile @not_tablet
     Scenario: All navigation links are shown
       Then the dropdown toggle is not present
 
@@ -25,13 +24,12 @@ Feature: Navigation component
       Then I can open the dropdown menu
       And I can close the dropdown menu
 
-    @not_mobile @not_tablet
     Scenario: Tabbing into the dropdown toggle automatically opens the dropdown menu
       When I tab onto the More button
       Then the Close button is present
       And the dropdown menu is open
 
-    @failing @NP-1755 @not_mobile @not_tablet
+    @failing @NP-1755
     Scenario: Tabbing out of the dropdown menu automatically closes it
       When I open the dropdown menu
       And I tab out of the dropdown menu
@@ -42,16 +40,14 @@ Feature: Navigation component
       And I press 'Escape'
       Then the dropdown menu is closed
 
-    @not_mobile @not_tablet @NP-1766
     Scenario: You can close the dropdown menu by clicking outside of it
       When I open the dropdown menu
       And I click outside of the menu
       Then the dropdown menu is closed
 
   @small_screen
-  Rule: Default Navigation - logged in users on small screens
+  Rule: Default Navigation - with sign in button on small screens
     Scenario: Header links are displayed in the dropdown nav on mobiles
-      Given a user is logged in
-      And a Default Navigation component is on the page
+      Given a Default Navigation component with a sign-in button displayed on the page
       When I open the dropdown menu
       Then the dropdown menu has header links
