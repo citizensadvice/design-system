@@ -28,7 +28,6 @@ Feature: Callout components
       And an "Adviser" label is present above the callout title
 
   Rule: Nested Callouts
-    @future_release @v4_1_2
     Scenario: Callouts are not altered when nested
       Given there are Nested Callout components on the page
       Then both callouts are rendered correctly

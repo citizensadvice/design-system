@@ -1,4 +1,3 @@
-@future_release @v4_1_2
 Feature: Breadcrumbs component
 
   The Breadcrumbs component allows users to see a navigable path to their
@@ -10,7 +9,6 @@ Feature: Breadcrumbs component
     Background:
       Given a Default Breadcrumbs component is on the page
 
-    @not_mobile
     Scenario: On large devices breadcrumbs only link up till the last one
       Then a series of breadcrumbs are present
       And the initial breadcrumbs are all links
