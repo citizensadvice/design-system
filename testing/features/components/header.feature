@@ -21,7 +21,7 @@ Feature: Header component
       Then a link to change language is present
       And a login link is present
       And a logo is present
-      
+
     Scenario: Users can quickly navigate to various areas of the page
       Then I am able to tab through skip links
         | Skip to navigation | Skip to content | Skip to footer |
