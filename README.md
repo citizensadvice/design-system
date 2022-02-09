@@ -10,4 +10,4 @@ You can check out the [getting started guide](https://citizensadvice.github.io/d
 
 ## Build & contributing
 
-For any dev related information, including contributing and building locally see the [contribution guide](CONTRIBUTING.md).
+For any dev related information, including contributing and building locally see the [contribution guide](CONTRIBUTING.md)..
