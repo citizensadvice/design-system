@@ -4,7 +4,7 @@ Given("a Default Navigation component is on the page") do
   @component = Navigation::Default.new.tap(&:load)
 end
 
-Given('a Default Navigation component with a sign-in button displayed on the page') do
+Given("a Default Navigation component with a sign-in button displayed on the page") do
   @component = Navigation::Header.new.tap(&:load)
 end
 
