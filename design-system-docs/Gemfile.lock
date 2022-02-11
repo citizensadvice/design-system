@@ -183,7 +183,7 @@ GEM
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     public_suffix (4.0.6)
-    puma (5.5.2)
+    puma (5.6.2)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -269,7 +269,7 @@ DEPENDENCIES
   bridgetown (~> 1.0.0.alpha10)
   bridgetown-view-component (~> 0.7.0)
   citizens_advice_components!
-  puma (~> 5.2)
+  puma (~> 5.6)
   railties
 
 BUNDLED WITH
