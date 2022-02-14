@@ -28,7 +28,7 @@ jobs:
       - run: |
           cd design-system-docs
           bundle
-          npm install
+          yarn install
           bin/bridgetown deploy
 
       - name: Deploy draft to Netlify
@@ -37,7 +37,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: './output'
+          build-dir: './design-system-docs/output'
           draft: true
           comment-on-pull-request: true
           config-path: netlify.toml
