@@ -25,7 +25,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           working-directory: design-system-docs
-      - run: bin/bridgetown deploy
+      - run: |
+          cd design-system-docs
+          bin/bridgetown deploy
 
       - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
