@@ -27,6 +27,7 @@ jobs:
           working-directory: design-system-docs
       - run: |
           cd design-system-docs
+          bundle
           bin/bridgetown deploy
 
       - name: Deploy draft to Netlify
