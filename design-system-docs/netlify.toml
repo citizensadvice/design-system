@@ -1,0 +1,4 @@
+[build]
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
+  publish = "output/"
+  command = "bin/bridgetown deploy"

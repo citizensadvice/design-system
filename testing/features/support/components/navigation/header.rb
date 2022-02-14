@@ -2,8 +2,8 @@
 
 module Navigation
   class Header < Default
-    set_url "/iframe.html?id=sample-pages-advice-collection--advice-collection-public&viewMode=story"
+    set_url "/iframe.html?id=sample-pages-examples--content-page&args=&viewMode=story"
 
-    element :sign_out, "button", text: "Sign out"
+    element :sign_in, "a", text: "Sign in"
   end
 end

@@ -34,7 +34,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
   end
 
   it "associates the labels with the inputs correctly" do
-    expect(component.css("input[id='my-checkbox-1'] + label").attribute("for").value).to eq "my-checkbox-1"
+    expect(component.css("input[id='my-checkbox-0'] + label").attribute("for").value).to eq "my-checkbox-0"
   end
 
   context "when there are no checkboxes" do

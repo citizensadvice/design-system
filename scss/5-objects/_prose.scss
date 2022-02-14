@@ -1,3 +1,5 @@
+@use '../1-settings/prose' as prose-config;
+
 %cads-prose {
   h1 {
     @extend %cads-h1;
@@ -54,11 +56,14 @@
     @extend %cads-list-no-bullet;
   }
 
-  a[href^="https://"]:not([href*="citizensadvice.org.uk"])::after,
-  a[href^="http://"]:not([href*="citizensadvice.org.uk"])::after
-  {
+  // Style external links
+  a[rel~='external']::after,
+  // Allow external links to be determined based on $cads-internal-link-domain value 
+  // Favour using rel=external as a styling hook.
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel#attr-external
+  a:not([href^="#{prose-config.$cads-internal-link-domain}"])::after {
     @media not print {
-      @include cads-hyperlink--external-icon;
+      @include cads-hyperlink--external-icon();
     }
   }
 }
@@ -70,7 +75,7 @@
   }
 
   a[href^='/']::after {
-    content: (' (https://www.citizensadvice.org.uk' attr(href) ')');
+    content: (' (#{prose-config.$cads-internal-link-domain}' attr(href) ')');
     display: inline;
     word-break: break-all;
   }

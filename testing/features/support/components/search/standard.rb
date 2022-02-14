@@ -19,13 +19,8 @@ module Search
 
     def clear_field
       search_field.send_keys(%i[end])
-
-      if device?
-        current_text_length.times { search_field.send_keys(:backspace) }
-      else
-        search_field.send_keys(%i[shift home])
-        search_field.send_keys(:delete)
-      end
+      search_field.send_keys(%i[shift home])
+      search_field.send_keys(:delete)
     end
 
     def current_text_length

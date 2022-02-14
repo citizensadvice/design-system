@@ -1,6 +1,6 @@
 passing: --tags 'not @failing and not @future_release'
 
-<% base_path = "artifacts/#{ENV['BROWSER']}/#{ENV['BROWSERSTACK'] == 'true' ? ENV['BROWSERSTACK_CONFIGURATION_OPTIONS'] : 'other'}" %>
+<% base_path = "artifacts/#{ENV['BROWSER']}" %>
 
 html: --format html --out "<%= base_path %>/reports/report.html" BASE_ARTIFACTS_PATH="<%= base_path%>"
 junit: --format junit --out "<%= base_path %>/reports" BASE_ARTIFACTS_PATH="<%= base_path%>"

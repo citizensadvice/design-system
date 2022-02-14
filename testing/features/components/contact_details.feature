@@ -1,4 +1,3 @@
-@future_release @v4_1_2
 Feature: Contact Details component
 
   The Contact Details component provides users with full contact information

@@ -10,11 +10,7 @@ class Driver
   end
 
   def register
-    if browserstack?
-      Drivers::Browserstack.new.register
-    else
-      ::CaTesting::Drivers::Local.new(browser).register
-    end
+    ::CaTesting::Drivers::Local.new(browser).register
   end
 
   private

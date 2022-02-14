@@ -23,9 +23,9 @@ function checkRepoStatus(repo, testRun) {
 
     let err = false;
 
-    if (branch !== 'master') {
+    if (branch !== 'main') {
       showError(
-        `${error} You must be in the master branch to release. Currently you are in ${branch}.`
+        `${error} You must be in the main branch to release. Currently you are in ${branch}.`
       );
       err = true;
     }
@@ -51,7 +51,7 @@ function checkRepoStatus(repo, testRun) {
 
     if (err) {
       showError(
-        'Please ensure you are in the master branch and that the repo is in a clean state.',
+        'Please ensure you are in the main branch and that the repo is in a clean state.',
         !testRun
       );
     }
