@@ -30,3 +30,4 @@ WithAnchor.parameters = { docs: { source: { code: templateAnchor } } };
 export const Fallback = () => templateFallback;
 // Set the code sample to templateDefault as templateFallback is used to force the behaviour only
 Fallback.parameters = { docs: { source: { code: templateDefault } } };
+

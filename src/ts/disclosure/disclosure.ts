@@ -20,6 +20,7 @@ const attributes = {
 };
 
 function initDisclosureToggle(disclosure: Element) {
+  console.log(disclosure,'disclosure');
   const toggle = disclosure.querySelector(selectors.toggle);
   const summary = disclosure.querySelector(selectors.summary);
   const details = disclosure.querySelector(selectors.details);
@@ -42,6 +43,7 @@ const initDisclosure = (): void => {
 
   const disclosures = document.querySelectorAll(selectors.component);
   for (let i = 0; i < disclosures.length; i++) {
+    console.log('disclosure');
     const disclosure = disclosures[i];
     initDisclosureToggle(disclosure);
   }

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe DisclosureComponent, type: :component do
+RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
   let(:subject) do
-    render_inline DisclosureComponent.new(
+    render_inline described_class.new(
       closed_summary: closed_summary.presence,
       open_summary: open_summary.presence
     ).with_content(content.presence)
@@ -45,6 +45,14 @@ RSpec.describe DisclosureComponent, type: :component do
 
     it "does not render" do
       expect(subject.children).to be_empty
+    end
+  end
+
+  context "when there is no disclosure content" do
+    let(:content) { nil }
+
+    it "does not render" do
+      expect(subject.at(".cads-disclosure")).not_to be_present
     end
   end
 end

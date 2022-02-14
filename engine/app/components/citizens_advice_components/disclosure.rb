@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CitizensAdviceComponents
   class Disclosure < Base
     attr_reader :closed_summary
@@ -10,7 +11,7 @@ module CitizensAdviceComponents
     end
 
     def render?
-      @closed_summary.present?
+      @closed_summary.present? && content.present?
     end
 
     def disclosure_details_id
@@ -20,7 +21,7 @@ module CitizensAdviceComponents
     def button_attrs
       {
         type: "button",
-        class: %w[disclosure__toggle cads-icon_plus cads-linkbutton js-disclosure-toggle],
+        class: %w[cads-disclosure__toggle cads-icon_plus cads-linkbutton js-disclosure-toggle],
         aria: { expanded: "false", controls: disclosure_details_id },
         data: button_data_attrs
       }
