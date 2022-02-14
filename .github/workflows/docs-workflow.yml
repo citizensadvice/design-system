@@ -28,6 +28,7 @@ jobs:
       - run: |
           cd design-system-docs
           bundle
+          npm install
           bin/bridgetown deploy
 
       - name: Deploy draft to Netlify
