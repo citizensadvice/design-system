@@ -1,4 +1,4 @@
-import initDisclosure from "../../../src/ts/disclosure/disclosure";
+import initDisclosure from '../../../src/ts/disclosure/disclosure';
 
 import docs from './disclosure-docs.mdx';
 import templateExample from '../../examples/disclosure/example.html';
