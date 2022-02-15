@@ -2,24 +2,16 @@ import { Story, Preview } from '@storybook/addon-docs';
 
 # Disclosure
 
-The targeted content component allows users to show and hide sections of related content on a page. It can help users scan and process content on a page more effectively.
-
-However, it does hide content from users and it can be easy for users to miss. When using it, you should aim to use **no more than 6** and you shouldn’t have a targeted content on its own.
-
-Because targeted contents hide content, they should always have a clear label/title that helps users understand what is in the section. You can use `h3` within them to break up the content.
+The disclosure component allows users to reveal more information or extra functionality only if they need it.
 
 ## When to use
 
-When content is only relevant to some particular users visiting the page.
+To hide functionality that most users will not use.
 
 ## When not to use
 
-They shouldn’t be used to make a page seem shorter, for example: using them to hide large chunks of content.
-If you find yourself using targeted content to do this, think about:
-
-- If you’re repeating content on the page and could consolidate it.
-- Using headings on the page instead.
-- If you need to move some of the content onto another page.
+The disclosure component should not be used just to declutter an interface.
+If you have functionality that a lot of users will need, the options should not be hidden as a lot of users will miss it. (For example the 'This advice applies to' switcher at the top of advice pages now lists all nations as most users missed the drop-down that was there before.)
 
 ## Default behaviour
 
@@ -55,19 +47,15 @@ initDisclosure();
 If you are using the `citizens_advice_components` gem you call the component from within a template using:
 
 ```rb
-= render(CitizensAdviceComponents::TargetedContent.new(title: "Your title",
-  id: "targeted-content-example-id")) do
+= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "Show content", open_summary: "Hide content")) do
   %p Your HTML content
 ```
 
 ### Component arguments
 
-The component accepts a [`content` block](https://viewcomponent.org/guide/#implementation) for the main contents along with the following arguments:
+The component requires a content` block for the main contents along with the following arguments:
 
-| Argument        | Description                                                              |
-| --------------- | ------------------------------------------------------------------------ |
-| `id`            | Required, unique ID                                                      |
-| `title`         | Required, title string                                                   |
-| `type`          | Optional, one of `public` or `adviser`. Defaults to `public`             |
-| `heading_level` | Optional, sets the heading level of the title. Defaults to `2`           |
-| `close_button`  | Optional, include close button at the end of content. Defaults to `true` |
+| Argument         | Description                                              |
+| ---------------- | -------------------------------------------------------- |
+| `closed_summary` | Required, the button text when the component is closed   |
+| `open_summary`   | Optional, if not provided, the closed title will be used |
