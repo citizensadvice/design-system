@@ -16,10 +16,8 @@ jobs:
   deployPRDraft:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
-    if: |
-      github.event_name == 'pull_request' && 
-      github.ref != 'refs/heads/master' &&
-      git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF .
+    needs: engine
+    if: github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
