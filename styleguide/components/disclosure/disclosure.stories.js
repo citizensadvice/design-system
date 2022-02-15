@@ -20,8 +20,8 @@ Example.parameters = { docs: { source: { code: templateExample } } };
 Example.decorators = [decorateWithBehaviour];
 
 export const WithoutOpenSummary = () => templateWithoutOpenSummary;
-Example.parameters = { docs: { source: { code: templateWithoutOpenSummary } } };
-Example.decorators = [decorateWithBehaviour];
+WithoutOpenSummary.parameters = { docs: { source: { code: templateWithoutOpenSummary } } };
+WithoutOpenSummary.decorators = [decorateWithBehaviour];
 
 export const Fallback = () => templateFallback;
 Fallback.parameters = { docs: { source: { code: templateFallback } } };
