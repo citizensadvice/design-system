@@ -43,9 +43,9 @@ jobs:
           config-path: ./netlify.toml
 
   # This job will:
-  #   * deploy a production build every time there is a release created on the master branch
+  #   * deploy a production build every time there is a release created 
   #   * comment that commit with the deploy URL
-  publishOnMasterRelease:
+  publishOnRelease:
     name: Publish release to Netlify
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'created'
@@ -71,3 +71,4 @@ jobs:
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           build-dir: ./design-system-docs/output
           config-path: ./netlify.toml
+          comment-on-commit: true
