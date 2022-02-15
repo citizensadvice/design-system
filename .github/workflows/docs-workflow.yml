@@ -43,7 +43,7 @@ jobs:
           config-path: ./netlify.toml
 
   # This job will:
-  #   * deploy a production build every time there is a release created 
+  #   * deploy a production build every time there is a release created
   #   * comment that commit with the deploy URL
   publishOnRelease:
     name: Publish release to Netlify
