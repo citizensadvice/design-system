@@ -1,7 +1,6 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-
-layout: home
+layout: default
 ---
 
-Welcome to Bridgetown!
+<h1>Citizens Advice Design System Docs</h1>
+<a href="/cads_components/targeted_content">Targeted Content</a>
