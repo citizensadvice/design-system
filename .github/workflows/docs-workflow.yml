@@ -16,7 +16,10 @@ jobs:
   deployPRDraft:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
+    if: |
+      github.event_name == 'pull_request' && 
+      github.ref != 'refs/heads/master' &&
+      git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF .
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -37,7 +40,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: './design-system-docs/output'
+          build-dir: ./design-system-docs/output
           draft: true
           comment-on-pull-request: true
-          config-path: netlify.toml
+          config-path: ./netlify.toml
