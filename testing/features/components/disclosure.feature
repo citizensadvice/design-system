@@ -2,10 +2,10 @@ Feature: Disclosure
 
   Rule: Example Disclosure
     Background:
-      Given a Disclosure component is on the page
+      Given the Example Disclosure component is on the page
 
     Scenario: Disclosure can be expanded to reveal more content
-      When I open/close the disclosure component
+      When I open the disclosure component
       Then The disclosure component displays expanded content
 
     Scenario: Close the filter panel

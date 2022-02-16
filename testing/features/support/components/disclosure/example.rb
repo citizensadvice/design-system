@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module ContactDetails
+module Disclosure
   class Example < ::Base
     set_url "/iframe.html?id=components-disclosure--example&args=&viewMode=story"
 
-    element :toggle_button, "[data-label-when-hiding='View template letter']"
-    element :details, "[id$='disclosure-details']"
+    element :toggle, ".cads-disclosure__toggle"
+    element :details, ".cads-disclosure__details"
   end
 end
