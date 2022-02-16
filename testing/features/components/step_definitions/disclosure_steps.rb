@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Given("the Example Disclosure component is on the page") do
   @component = Disclosure::Example.new.tap(&:load)
 end
