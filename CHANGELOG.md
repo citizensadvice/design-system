@@ -1,3 +1,6 @@
+**New**
+- 🔓 Disclosure: Adds new `Disclosure` view component
+
 ## <sub>v5.2.0-alpha.3</sub>
 
 #### _Feb. 8, 2022_
