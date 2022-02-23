@@ -86,7 +86,7 @@
     "sass": "^1.35.1",
     "sass-loader": "^10.1.1",
     "semver": "^7.3.5",
-    "simple-git": "^2.40.0",
+    "simple-git": "^3.2.6",
     "size-limit": "^6.0.4",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
