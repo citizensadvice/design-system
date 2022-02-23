@@ -23,7 +23,6 @@ updates:
       - dependency-name: '@storybook/*'
       # Requires webpack v5 but storybook bundles v4
       - dependency-name: 'sass-loader'
-        versions: ['11.x']
 
   - package-ecosystem: npm
     directory: '/testing'
