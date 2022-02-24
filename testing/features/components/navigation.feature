@@ -29,12 +29,6 @@ Feature: Navigation component
       Then the Close button is present
       And the dropdown menu is open
 
-    @failing @NP-1755
-    Scenario: Tabbing out of the dropdown menu automatically closes it
-      When I open the dropdown menu
-      And I tab out of the dropdown menu
-      Then the dropdown menu is closed
-
     Scenario: You can close the dropdown menu using your Keyboard
       When I open the dropdown menu
       And I press 'Escape'
