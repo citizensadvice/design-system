@@ -123,7 +123,6 @@ GEM
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.2.0)
-    retriable (3.1.2)
     rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -190,9 +189,7 @@ DEPENDENCIES
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv
-  faraday (~> 1.9)
   rake
-  retriable (~> 3.1)
   rspec
   rubocop-rake
   selenium-webdriver (= 4.0.0.alpha6)

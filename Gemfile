@@ -10,9 +10,7 @@ group :test do
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v6.0.0"
   gem "cucumber", "~> 7.0"
   gem "dotenv"
-  gem "faraday", "~> 1.9"
   gem "rake"
-  gem "retriable", "~> 3.1"
   gem "rspec"
   gem "rubocop-rake", require: false
   gem "selenium-webdriver", "4.0.0.alpha6"

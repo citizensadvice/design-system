@@ -14,22 +14,6 @@ module CucumberInfo
       Skipper.new(tag_array).skip_scenario?
     end
 
-    # def set_session_id
-    #   Retriable.retriable(
-    #     on: Selenium::WebDriver::Error::WebDriverError,
-    #     tries: 5,
-    #     base_interval: 1, # in seconds
-    #     on_retry: method(:log_exception)
-    #   ) do
-    #     # The call to Capybara.page.driver.browser can fail with the exception "no sessionId in returned payload"
-    #     # This is caused by the response to create_session in Selenium's remote WebDriver not returning a payload
-    #     # when being served by the Browserstack Hub infrastructure.
-    #
-    #     # This should be retried as it's an intermittent failure from Browserstack
-    #     @session_id = Capybara.page.driver.browser.session_id
-    #   end
-    # end
-
     def test_case=(test_case)
       # Clear previous tag cache
       remove_instance_variable(:@tags) if instance_variable_defined?(:@tags)
