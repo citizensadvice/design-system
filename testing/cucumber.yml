@@ -1,8 +1,3 @@
 passing: --tags 'not @failing and not @future_release'
 
-<% base_path = "artifacts/#{ENV['BROWSER']}" %>
-
-html: --format html --out "<%= base_path %>/reports/report.html" BASE_ARTIFACTS_PATH="<%= base_path%>"
-junit: --format junit --out "<%= base_path %>/reports" BASE_ARTIFACTS_PATH="<%= base_path%>"
-
-reports: --format progress -p passing -p html -p junit
+reports: --format progress -p passing
