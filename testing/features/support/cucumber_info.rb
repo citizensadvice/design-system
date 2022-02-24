@@ -10,10 +10,6 @@ module CucumberInfo
     attr_reader :session_id, :test_case
     attr_writer :scenario_result
 
-    def skip_scenario?
-      Skipper.new(tag_array).skip_scenario?
-    end
-
     def test_case=(test_case)
       # Clear previous tag cache
       remove_instance_variable(:@tags) if instance_variable_defined?(:@tags)
