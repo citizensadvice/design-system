@@ -22,7 +22,9 @@ class Driver
   private
 
   def capabilities
-    Selenium::WebDriver::Chrome::Options.new.tap { |opts| opts.headless! if headless? }
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument("--headless")
+    options
   end
 
   def setup_capybara
@@ -31,7 +33,6 @@ class Driver
       config.default_driver = :selenium
       config.default_max_wait_time = 0
       config.app_host = base_url
-      config.default_normalize_ws = true if safari?
     end
   end
 

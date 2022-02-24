@@ -6,18 +6,6 @@ module Helpers
       ENV.fetch("BROWSER", "chrome").to_sym
     end
 
-    def chrome?
-      ENV["BROWSER"] == "chrome"
-    end
-
-    def firefox?
-      ENV["BROWSER"] == "firefox"
-    end
-
-    def safari?
-      ENV["BROWSER"] == "safari"
-    end
-
     def headless?
       ENV["HEADLESS"] == "true"
     end
