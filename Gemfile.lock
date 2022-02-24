@@ -10,12 +10,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.1)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (>= 1.6, < 2)
-      minitest (>= 5.1)
-      tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
@@ -29,7 +23,6 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
-    concurrent-ruby (1.1.9)
     cucumber (7.0.0)
       builder (~> 3.2, >= 3.2.4)
       cucumber-core (~> 10.0, >= 10.0.1)
@@ -64,14 +57,11 @@ GEM
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     ffi (1.15.4)
-    i18n (1.8.10)
-      concurrent-ruby (~> 1.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0901)
     mini_mime (1.1.1)
     mini_portile2 (2.8.0)
-    minitest (5.14.4)
     multi_test (0.1.2)
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
@@ -133,8 +123,6 @@ GEM
     site_prism-all_there (0.3.2)
     sys-uname (1.2.2)
       ffi (~> 1.1)
-    tzinfo (2.0.4)
-      concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
     webdrivers (5.0.0)
       nokogiri (~> 1.6)
@@ -142,7 +130,6 @@ GEM
       selenium-webdriver (~> 4.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
@@ -150,7 +137,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activesupport
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv

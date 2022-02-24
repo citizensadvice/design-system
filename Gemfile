@@ -5,7 +5,6 @@ source "https://rubygems.org"
 ruby "2.7.4"
 
 group :test do
-  gem "activesupport"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v6.0.0"
   gem "cucumber", "~> 7.0"
   gem "dotenv"

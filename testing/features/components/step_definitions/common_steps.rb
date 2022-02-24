@@ -11,7 +11,7 @@ end
 Then("a logo is present") do
   expect(@component.logo["title"]).to eq("Citizens Advice homepage")
 
-  expect(@component.logo["href"]).not_to be_blank
+  expect(@component.logo["href"]).not_to be_nil
 end
 
 Then("I am able to search") do

@@ -13,7 +13,7 @@ Then("the label includes a name at the beginning") do
 end
 
 Then("the label includes an icon") do
-  expect(@component.download_icon_content).not_to be_blank
+  expect(@component.download_icon_content).not_to be_empty
 end
 
 Then("the label includes the file size") do
@@ -21,5 +21,5 @@ Then("the label includes the file size") do
 end
 
 Then("the label is a downloadable link") do
-  expect(@component.download_link["href"]).not_to be_blank
+  expect(@component.download_link["href"]).not_to be_empty
 end
