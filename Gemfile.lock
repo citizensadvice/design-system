@@ -79,7 +79,6 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.1.1)
-    rake (13.0.6)
     regexp_parser (2.2.0)
     rexml (3.2.5)
     rspec (3.10.0)
@@ -106,8 +105,6 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.15.1)
       parser (>= 3.0.1.1)
-    rubocop-rake (0.6.0)
-      rubocop (~> 1.0)
     rubocop-rspec (2.7.0)
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
@@ -140,9 +137,7 @@ DEPENDENCIES
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv
-  rake
   rspec
-  rubocop-rake
   selenium-webdriver (= 4.1.0)
   site_prism (~> 3.7)
   webdrivers
