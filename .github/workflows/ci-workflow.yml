@@ -186,5 +186,5 @@ jobs:
         working-directory: testing
       - run: ruby -run -e httpd -- docs -p 6006 &
       - run: ./bin/wait-for localhost:6006
-      - run: bundle exec cucumber -p reports
+      - run: bundle exec cucumber
         working-directory: testing

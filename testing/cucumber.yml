@@ -1,3 +1,1 @@
-passing: --tags 'not @failing'
-
-reports: --format progress -p passing
+default: --format progress --publish-quiet
