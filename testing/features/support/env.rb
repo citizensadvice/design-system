@@ -3,18 +3,19 @@
 require "dotenv"
 Dotenv.load(".env")
 
-require_relative "all"
-require_relative "helpers/all"
+require "capybara"
+require "capybara/dsl"
+require "capybara/cucumber"
+require "rspec"
+require "selenium-webdriver"
+require "site_prism"
+require "webdrivers"
+
 require_relative "driver"
 require_relative "components/all"
 require_relative "forms/all"
 
-World(
-  Helpers::BrowserWindow,
-  Helpers::EnvVariables,
-  Helpers::Regex,
-  Capybara::RSpecMatcherProxies
-)
+World(Capybara::RSpecMatcherProxies)
 
 Driver.new.register
 

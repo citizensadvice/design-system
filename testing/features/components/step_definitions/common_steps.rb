@@ -2,9 +2,12 @@
 
 When("I am able to tab through skip links") do |table|
   table.raw.first.each do |description|
-    send_tabs(1)
+    send_keys(:tab)
+    sleep 0.1
 
-    expect(@component.active_element.text).to eq(description)
+    active_element = Capybara.current_session.evaluate_script("document.activeElement")
+
+    expect(active_element.text).to eq(description)
   end
 end
 

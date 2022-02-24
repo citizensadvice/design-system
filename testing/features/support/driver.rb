@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Driver
-  include Helpers::EnvVariables
-
   def initialize
     setup_capybara
   end
@@ -32,5 +30,13 @@ class Driver
       config.default_max_wait_time = 0
       config.app_host = base_url
     end
+  end
+
+  def headless?
+    ENV.fetch("HEADLESS", "true") == "true"
+  end
+
+  def base_url
+    ENV.fetch("TESTING_BASE_URL")
   end
 end

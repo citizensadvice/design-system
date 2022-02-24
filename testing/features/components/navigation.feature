@@ -1,5 +1,3 @@
-# NB: Due to a Storybook issue, these tests won't run on Old Safari / iOS
-@not_safari
 Feature: Navigation component
 
   The greedy navigation displays as many navigation links that will fit on the viewport.
