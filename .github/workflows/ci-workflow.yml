@@ -103,9 +103,6 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - uses: bahmutov/npm-install@v1
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
       - run: npm run build
       - run: npm run docs:build
       - uses: actions/upload-artifact@v2
@@ -180,6 +177,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          ruby-version: '2.7.4'
+          working-directory: testing
       - uses: actions/download-artifact@v2
         with:
           name: docs-build
