@@ -10,10 +10,20 @@ class Driver
   end
 
   def register
-    ::CaTesting::Drivers::Local.new(browser).register
+    Capybara.register_driver :selenium do |app|
+      Capybara::Selenium::Driver.new(
+        app,
+        browser: browser,
+        desired_capabilities: capabilities
+      )
+    end
   end
 
   private
+
+  def capabilities
+    Selenium::WebDriver::Chrome::Options.new.tap { |opts| opts.headless! if headless? }
+  end
 
   def setup_capybara
     Capybara.configure do |config|

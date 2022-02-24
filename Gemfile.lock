@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/citizensadvice/ca_testing.git
-  revision: a80aa6956d5907747a698bd99c2f576c3aa0cea7
-  tag: v3.0.2
-  specs:
-    ca_testing (3.0.2)
-      faraday (~> 1.0)
-
-GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
   revision: c084221dc43f6db555d748c4c6a786bbed417027
   tag: v6.0.0
@@ -71,29 +63,6 @@ GEM
       cucumber-messages (~> 17.0, >= 17.0.1)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
-    faraday (1.9.3)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0)
-      faraday-multipart (~> 1.0)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.0)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      faraday-retry (~> 1.0)
-      ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.3)
-      multipart-post (>= 1.2, < 3)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
-    faraday-retry (1.0.3)
     ffi (1.15.4)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
@@ -104,7 +73,6 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     multi_test (0.1.2)
-    multipart-post (2.1.1)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
@@ -153,7 +121,6 @@ GEM
     rubocop-rspec (2.7.0)
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.0.0.alpha6)
       childprocess (>= 0.5, < 4.0)
@@ -185,7 +152,6 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  ca_testing!
   citizens-advice-style!
   cucumber (~> 7.0)
   dotenv

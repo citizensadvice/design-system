@@ -13,4 +13,3 @@ require "webdrivers"
 
 # Patches need to be required last after everything else defined
 require "active_support/core_ext/object/blank"
-require "ca_testing"
