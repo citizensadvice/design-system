@@ -17,7 +17,7 @@ const FULL_PACKAGE_NAME = `${ORG_NAME}/${PACKAGE_NAME}`;
 
 function updateVersionNumber(newVersion) {
   log(chalk.blue.dim(`${ok} Updating version number to ${newVersion}`));
-  execSync(`npm version ${newVersion}`);
+  execSync(`npm --no-git-tag-version version ${newVersion}`);
   log(chalk.green(`${ok} Updated version number to ${newVersion}`));
 }
 
