@@ -2,33 +2,14 @@
 
 #### _Feb. 28, 2022_
 
-## <sub>v5.2.0-alpha.3</sub>
-
-#### _Feb. 8, 2022_
 
 **Bugfixes**
 - 📱 Section Links: Using `cads-list-no-bullet` styles to make the font consistent on smaller screens.
-
-## <sub>v5.2.0-alpha.2</sub>
-
-#### _Jan. 27, 2022_
-
-**Bugfixes**
 - 🔗 Links: Style links with `rel=external` in `.cads-prose` as a more reliable way of determining external links.
 - 🛂 Ids: Radio buttons and checkbox `id` attributes are now generated using the input's index instead of value
 
-## <sub>v5.2.0-alpha.1</sub>
-
-#### _Jan. 10, 2022_
-
 **New**
 - 📜 On this page: Adds new `On this page` view component
-
-## <sub>v5.2.0-alpha.0</sub>
-
-#### _Dec. 2, 2021_
-
-**New**
 - 🛑️️ Error summary: Adds new `Error Summary` view component
 
 ## <sub>v5.1.0</sub>
