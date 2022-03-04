@@ -2,8 +2,6 @@
 
 module Navigation
   class Default < ::Base
-    include Helpers::BrowserWindow
-
     set_url "/iframe.html?id=components-navigation--default&viewMode=story"
 
     element :navigation, ".js-cads-greedy-nav"
@@ -12,11 +10,17 @@ module Navigation
     element :last_link, "a", text: "More from us"
 
     def tab_into_dropdown
-      send_tabs(5)
+      5.times do
+        send_keys(:tab)
+        sleep 0.1
+      end
     end
 
     def tab_through_dropdown
-      send_tabs(10)
+      10.times do
+        send_keys(:tab)
+        sleep 0.1
+      end
     end
 
     def click_outside_navigation

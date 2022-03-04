@@ -2,8 +2,6 @@
 
 module Callouts
   class Standard < ::Base
-    include Helpers::Javascript
-
     set_url "/iframe.html?id=components-callouts--standard&viewMode=story"
 
     element :label, ".cads-badge"
