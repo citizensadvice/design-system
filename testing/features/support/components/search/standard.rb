@@ -2,8 +2,6 @@
 
 module Search
   class Standard < ::Base
-    include Helpers::EnvVariables
-
     set_url "/iframe.html?id=components-search--search&viewMode=story"
 
     element :search_field, ".cads-search__input"

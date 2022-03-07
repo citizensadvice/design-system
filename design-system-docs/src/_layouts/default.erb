@@ -3,6 +3,7 @@
   <head>
     <title>Design system docs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="<%= webpack_path "css" %>" />
   </head>
   <body>
@@ -10,6 +11,12 @@
       <%- c.logo(title: "Design System Docs") %>
     <% end %>
     <%= render CitizensAdviceComponents::Navigation.new(links: [{url: "/getting-started", title: "Get started"}, {url: "/foundations", title: "Foundations"}, {url: "/components", title: "Components"}]) %>
-    <%= yield %>
+    <main id="cads-main-content" class="cads-grid-container cads-page-content">
+      <div class="cads-grid-row">
+        <div class="cads-grid-col-md-8">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

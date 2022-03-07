@@ -4,8 +4,6 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-# Gems
-bundle install
 npm ci
 
 # Set up engine

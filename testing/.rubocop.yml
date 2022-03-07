@@ -1,25 +1,6 @@
-require: rubocop-rake
-
 inherit_gem:
   citizens-advice-style:
     - default.yml
 
 AllCops:
   SuggestExtensions: false
-
-Metrics/MethodLength:
-  CountAsOne: ['array', 'hash']
-  Exclude:
-    - 'engine/previews/**/*.rb'
-
-Metrics/BlockLength:
-  Exclude:
-    - 'Rakefile'
-    - '**/*.rake'
-    - 'spec/**/*.rb'
-    - 'engine/spec/**/*.rb'
-    - 'engine/previews/**/*.rb'
-    - 'demo/spec/**/*.rb'
-
-Metrics/ClassLength:
-  CountAsOne: ['array', 'hash']
