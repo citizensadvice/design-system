@@ -1,0 +1,61 @@
+import { Story, Preview } from '@storybook/addon-docs';
+
+# Disclosure
+
+The disclosure component allows users to reveal more information or extra functionality only if they need it.
+
+## When to use
+
+To hide functionality that most users will not use.
+
+## When not to use
+
+The disclosure component should not be used just to declutter an interface.
+If you have functionality that a lot of users will need, the options should not be hidden as a lot of users will miss it. (For example the 'This advice applies to' switcher at the top of advice pages now lists all nations as most users missed the drop-down that was there before.)
+
+## Default behaviour
+
+<Preview>
+  <Story id="components-disclosure--example" />
+</Preview>
+
+## Without open summary text behaviour
+
+<Preview>
+  <Story id="components-disclosure--without-open-summary" />
+</Preview>
+
+## Fallback behaviour
+
+If JavaScript either fails or is disabled in the users browser the fallback is to show the content as open.
+
+<Preview>
+  <Story id="components-disclosure--fallback" />
+</Preview>
+
+## JavaScript behaviour
+
+Targeted content requires some additional JavaScript behaviour which can be initialised with:
+
+```js
+import initDisclosure from '@citizensadvice/design-system/lib/disclosure';
+initDisclosure();
+```
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem you call the component from within a template using:
+
+```rb
+= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "Show content", open_summary: "Hide content")) do
+  %p Your HTML content
+```
+
+### Component arguments
+
+The component requires a content` block for the main contents along with the following arguments:
+
+| Argument         | Description                                              |
+| ---------------- | -------------------------------------------------------- |
+| `closed_summary` | Required, the button text when the component is closed   |
+| `open_summary`   | Optional, if not provided, the closed title will be used |

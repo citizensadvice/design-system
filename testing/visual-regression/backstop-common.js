@@ -152,6 +152,28 @@ module.exports = function backstopCommon(baseUrl) {
         clickSelector: '.js-cads-on-this-page__toggle',
       },
       {
+        label: 'Components/Disclosure',
+        url: storyUrlFor('components-disclosure--example'),
+      },
+      {
+        label: 'Components/Disclosure (open)',
+        url: storyUrlFor('components-disclosure--example'),
+        clickSelector: '.js-disclosure-summary',
+      },
+      {
+        label: 'Components/Disclosure (without open summary)',
+        url: storyUrlFor('components-disclosure--without-open-summary'),
+      },
+      {
+        label: 'Components/Disclosure (without open summary - open)',
+        url: storyUrlFor('components-disclosure--without-open-summary'),
+        clickSelector: '.js-disclosure-summary',
+      },
+      {
+        label: 'Components/Disclosure (fallback)',
+        url: storyUrlFor('components-disclosure--fallback'),
+      },
+      {
         label: 'Components/Targeted content',
         url: storyUrlFor('components-targeted-content--default'),
       },

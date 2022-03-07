@@ -1,7 +1,9 @@
+**New**
+- 🔓 Disclosure: Adds new `Disclosure` view component
+
 ## <sub>v5.2.0</sub>
 
 #### _Feb. 28, 2022_
-
 
 **Bugfixes**
 - 📱 Section Links: Using `cads-list-no-bullet` styles to make the font consistent on smaller screens.
