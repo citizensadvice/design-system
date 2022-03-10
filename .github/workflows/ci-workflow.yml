@@ -13,22 +13,14 @@ on:
   schedule:
     - cron: '0 2 * * *'
 
-env:
-  # Share node version across jobs
-  # actions/setup-node doesn't currently look at any config files
-  # for now we do the simplest thing and set an environment variable.
-  # See https://github.com/actions/setup-node/pull/239
-  # Maybe we could use https://github.com/guardian/actions-setup-node directly in the meantime?
-  NODE_VERSION: '14'
-
 jobs:
   node-test:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
       - uses: bahmutov/npm-install@v1
       - run: npm run lint
       - run: npm test
@@ -61,9 +53,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
 
       # We link the @citizensadvice/design-system package
       # from the root but we only build the lib/ directory
@@ -99,9 +91,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
       - uses: bahmutov/npm-install@v1
       - run: npm run build
       - run: npm run docs:build
@@ -118,9 +110,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
       - uses: bahmutov/npm-install@v1
       - uses: actions/download-artifact@v2
         with:
