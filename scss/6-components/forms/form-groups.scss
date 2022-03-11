@@ -64,27 +64,27 @@ $cads-checkable-size: 40px;
     left: 0;
     width: $cads-checkable-size;
     height: $cads-checkable-size;
-    border: $cads-border-width-medium solid $cads-language__input-border-colour;
+    border: $cads-border-width-medium solid $cads-language__input__border-colour;
     background: transparent;
   }
 }
 
 .cads-form-group__input:checked + .cads-form-group__label {
   &::before {
-    border-color: $cads-language__input-border-colour;
+    border-color: $cads-language__input__border-colour;
   }
 
   &::after {
-    color: $cads-language__input-border-colour;
+    color: $cads-language__input__border-colour;
     opacity: 1;
   }
 }
 
 .cads-form-group__input:focus + .cads-form-group__label {
   &::before {
-    border-color: $cads-language__focus-border-colour;
+    border-color: $cads-language__border-colour--focus;
     // We need to use box-shadow instead of outline as outline does not have a radius
-    box-shadow: 0 0 0 $cads-border-width-medium $cads-language__focus-colour;
+    box-shadow: 0 0 0 $cads-border-width-medium $cads-language__brand--focus;
   }
 
   &::after {

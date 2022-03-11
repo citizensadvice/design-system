@@ -1,12 +1,12 @@
 @mixin cads-interactive-focus() {
   outline: none;
-  border-color: $cads-language__focus-border-colour;
+  border-color: $cads-language__border-colour--focus;
   // We need to use box-shadow instead of outline as outline does not have a radius
-  box-shadow: 0 0 0 2px $cads-language__focus-colour;
+  box-shadow: 0 0 0 2px $cads-language__brand--focus;
 }
 
 @mixin cads-interactive-element() {
-  border: solid $cads-border-width-medium $cads-language__input-border-colour;
+  border: solid $cads-border-width-medium $cads-language__input__border-colour;
   border-radius: $cads-border-radius;
   box-shadow: none;
   outline: none;
@@ -17,15 +17,15 @@
 }
 
 @mixin cads-nav-link-focus() {
-  background-color: $cads-language__brand-primary-contrast;
-  color: $cads-language__brand-primary;
+  background-color: $cads-language__brand--primary-contrast;
+  color: $cads-language__brand--primary;
   border: $cads-border-width-medium solid $cads-palette__yellow;
   outline: none;
 }
 
 @mixin cads-nav-link() {
   font-size: $cads-font-size;
-  color: $cads-language__brand-primary-contrast;
+  color: $cads-language__brand--primary-contrast;
   padding: $cads-spacing-3 $cads-spacing-2;
   display: inline-block;
   text-decoration: none;
@@ -38,13 +38,13 @@
   }
 
   &:visited {
-    color: $cads-language__brand-primary-contrast;
+    color: $cads-language__brand--primary-contrast;
   }
 
   &:hover {
-    background-color: $cads-language__nav-hover-background-colour;
-    border-color: $cads-language__nav-hover-border-colour;
-    color: $cads-language__brand-primary-contrast;
+    background-color: $cads-language__brand--primary-dark;
+    border-color: $cads-language__brand--primary-dark;
+    color: $cads-language__brand--primary-contrast;
   }
 
   &:active,

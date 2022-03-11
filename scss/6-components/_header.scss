@@ -4,37 +4,37 @@
 
 /** @define header */
 .cads-header {
-  background-color: $cads-header__background-colour;
+  background-color: $cads-language__brand--primary-contrast;
   padding: $cads-spacing-4 0;
 
   &__hyperlink {
     display: inline-block;
     margin-bottom: cads-rem-to-px($cads-spacing-2) - $cads-border-width-medium;
-    color: $cads-header__link-colour;
+    color: $cads-language__link__colour;
     border-bottom: $cads-border-width-medium solid transparent;
 
     &:hover {
-      color: $cads-header__link-hover-colour;
-      background-color: $cads-header__hover-background-colour;
+      color: $cads-language__link__colour--hover;
+      background-color: $cads-language__background-colour--hover;
     }
 
     &:active {
-      color: $cads-header__link-active-colour;
+      color: $cads-language__link__colour--active;
     }
 
     &:focus {
-      color: $cads-palette__black;
-      background-color: $cads-header__link-focus-colour;
-      border-bottom: 2px solid $cads-header__link-focus-highlight-colour;
+      color: $cads-language__text-colour;
+      background-color: $cads-language__brand--focus;
+      border-bottom: 2px solid $cads-language__text-colour;
     }
 
     &:visited {
-      color: $cads-header__link-visited-colour;
+      color: $cads-language__link__colour--visited;
     }
   }
 
   &__text {
-    color: $cads-language__secondary-text-colour;
+    color: $cads-language__text-colour--secondary;
     font-weight: $cads-font-weight__bold;
   }
 
@@ -44,22 +44,22 @@
     display: none;
     margin: 0;
     padding: 11px 12px 11px 12px;
-    color: $cads-language__primary-button-colour;
+    color: $cads-language__button__colour--primary;
     background: transparent;
     border: solid $cads-border-width-medium
-      $cads-language__primary-button-colour;
+      $cads-language__button__colour--primary;
 
     &:hover,
     &:active {
-      color: $cads-language__primary-button-hover-colour;
-      background-color: $cads-language__secondary-button-hover-colour;
+      color: $cads-language__button__colour--primary-hover;
+      background-color: $cads-language__background-colour--hover;
     }
 
     &:focus {
       outline: none;
-      color: $cads-language__focus-text-colour;
-      border-color: $cads-language__focus-border-colour;
-      background-color: $cads-language__focus-colour;
+      color: $cads-language__text-colour;
+      border-color: $cads-language__border-colour--focus;
+      background-color: $cads-language__brand--focus;
     }
   }
 
@@ -77,7 +77,7 @@
     }
 
     .cads-header__account-link {
-      border-left: solid 1px $cads-header__link-colour;
+      border-left: solid 1px $cads-language__link__colour;
       padding-left: $cads-spacing-4;
     }
 
@@ -94,9 +94,9 @@
 
   &__sign-out {
     margin-bottom: cads-rem(14px);
-    background-color: $cads-header__sign-out-background-colour;
-    color: $cads-header__sign-out-colour;
-    border-color: $cads-header__sign-out-border-colour;
+    background-color: $cads-language__brand--primary-contrast;
+    color: $cads-language__button__colour--primary;
+    border-color: $cads-language__button__colour--primary;
 
     @include cads-media-breakpoint-up(md) {
       margin-bottom: 0;

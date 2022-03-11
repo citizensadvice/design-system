@@ -28,7 +28,7 @@
   margin-bottom: $cads-spacing-3;
 }
 .cads-form-field__optional {
-  color: $cads-language__secondary-text-colour;
+  color: $cads-language__text-colour--secondary;
   font-weight: normal;
 
   &::before {
@@ -42,7 +42,7 @@
 .cads-form-field__hint {
   display: block;
   margin: 0 0 $cads-spacing-3 0;
-  color: $cads-language__secondary-text-colour;
+  color: $cads-language__text-colour--secondary;
 }
 .cads-form-field__label + .cads-form-field__hint {
   // Reduces visual spacing between label + hint when there is a hint
@@ -53,7 +53,7 @@
 }
 .cads-form-field__error-message {
   display: none;
-  color: $cads-language__warning-colour;
+  color: $cads-language__error__colour;
   margin: 0 0 $cads-spacing-3 0;
 }
 
@@ -70,7 +70,7 @@
     position: relative;
     padding: 0;
     width: 0;
-    border: $cads-border-width-small solid $cads-language__warning-colour;
+    border: $cads-border-width-small solid $cads-language__error__colour;
 
     &::before {
       content: '';

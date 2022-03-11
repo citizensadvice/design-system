@@ -6,13 +6,13 @@
 .cads-footer {
   @include cads-typographic-scale-text-small();
 
-  background-color: $cads-footer__background-colour;
+  background-color: $cads-language__background-colour--hover;
   padding: $cads-spacing-4 0;
 
   .cads-footer__section-title {
     @extend %cads-h4;
 
-    color: $cads-footer__text-colour;
+    color: $cads-language__text-colour;
     margin: 0 0 $cads-spacing-2 0;
   }
   .cads-footer__feedback {
@@ -20,8 +20,8 @@
 
     width: 100%;
     text-align: center;
-    color: $cads-footer__text-secondary-colour;
-    border-bottom: 1px solid $cads-footer__divider-colour;
+    color: $cads-language__text-colour--secondary;
+    border-bottom: 1px solid $cads-language__brand--primary;
     padding-bottom: $cads-spacing-4;
     margin: 0 0 $cads-spacing-4 0;
 
@@ -40,30 +40,30 @@
   }
 
   .cads-footer__icon {
-    color: $cads-footer__link-colour;
+    color: $cads-language__link__colour;
     font-size: 12px;
   }
 
   .cads-footer__hyperlink {
-    color: $cads-footer__link-colour;
+    color: $cads-language__link__colour;
 
     &:visited {
-      color: $cads-footer__link-visited-colour;
+      color: $cads-language__link__colour--visited;
     }
 
     &:hover {
-      color: $cads-footer__link-hover-colour;
-      background-color: $cads-footer__hover-background-colour;
+      color: $cads-language__link__colour--hover;
+      background-color: $cads-language__background-colour--hover;
     }
 
     &:active {
-      color: $cads-footer__link-active-colour;
+      color: $cads-language__link__colour--active;
     }
 
     &:focus {
-      color: $cads-footer__link-focus-colour;
-      background-color: $cads-footer__link-focus-background-colour;
-      border-bottom: 2px solid $cads-footer__link-focus-border-colour;
+      color: $cads-language__text-colour;
+      background-color: $cads-language__brand--focus;
+      border-bottom: 2px solid $cads-language__text-colour;
     }
   }
 
@@ -75,7 +75,7 @@
   .cads-footer__company-info {
     @include cads-restrict-content-width();
 
-    color: $cads-footer__text-colour;
+    color: $cads-language__text-colour;
     padding-top: $cads-spacing-5;
     border-top: 1px solid $cads-language__border-colour;
 

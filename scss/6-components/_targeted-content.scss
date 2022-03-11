@@ -12,8 +12,8 @@
     @extend %cads-h4;
 
     display: block;
-    color: $cads-language__link-colour;
-    border: $cads-border-width-small solid $cads-language__link-colour;
+    color: $cads-language__link__colour;
+    border: $cads-border-width-small solid $cads-language__link__colour;
     padding: $cads-spacing-3 $cads-spacing-4;
     margin: 0;
     box-shadow: none;
@@ -21,7 +21,7 @@
   }
 
   .cads-targeted-content__content {
-    border: $cads-border-width-small solid $cads-language__link-colour;
+    border: $cads-border-width-small solid $cads-language__link__colour;
     border-top: none;
     padding: $cads-spacing-3 $cads-spacing-4;
   }
@@ -31,7 +31,7 @@
 // Modifier: Adviser
 ///
 .cads-targeted-content--adviser {
-  background-color: cads-colour-to-bg($cads-language__brand-adviser);
+  background-color: cads-colour-to-bg($cads-language__brand--adviser);
 }
 
 ///
@@ -59,10 +59,10 @@
     width: 100%;
     padding: $cads-spacing-3 $cads-spacing-4;
     text-align: left;
-    border: $cads-border-width-small solid $cads-language__link-colour;
+    border: $cads-border-width-small solid $cads-language__link__colour;
 
     &:hover {
-      background-color: $cads-language__hover-background-colour;
+      background-color: $cads-language__background-colour--hover;
     }
 
     &:focus {

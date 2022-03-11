@@ -8,9 +8,9 @@
 
   position: relative;
   border-radius: $cads-border-radius;
-  border: solid 0 $cads-language__brand-secondary;
+  border: solid 0 $cads-language__brand--secondary;
   border-left-width: $cads-border-width-large;
-  background-color: cads-colour-to-bg($cads-language__brand-secondary);
+  background-color: cads-colour-to-bg($cads-language__brand--secondary);
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
 
@@ -44,13 +44,13 @@
 }
 
 .cads-callout--important {
-  border-color: $cads-language__error-colour;
-  background-color: cads-colour-to-bg($cads-language__error-colour);
+  border-color: $cads-language__error__colour;
+  background-color: cads-colour-to-bg($cads-language__error__colour);
 }
 
 .cads-callout--adviser {
-  border-color: $cads-language__brand-adviser;
-  background-color: cads-colour-to-bg($cads-language__brand-adviser);
+  border-color: $cads-language__brand--adviser;
+  background-color: cads-colour-to-bg($cads-language__brand--adviser);
 }
 
 /* stylelint-disable  plugin/selector-bem-pattern */

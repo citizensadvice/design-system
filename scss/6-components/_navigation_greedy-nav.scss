@@ -19,7 +19,7 @@
     z-index: 1000;
     position: absolute;
     visibility: hidden;
-    background-color: $cads-language__brand-primary;
+    background-color: $cads-language__brand--primary;
     border-top: $cads-border-width-small solid $cads-palette__white;
     right: 0;
     width: 100vw;
@@ -92,7 +92,7 @@
 
     height: 100%;
     font-weight: bold;
-    background-color: $cads-language__brand-primary;
+    background-color: $cads-language__brand--primary;
     border-left: $cads-border-width-small solid $cads-language__border-colour;
 
     @include cads-media-breakpoint-up(md) {

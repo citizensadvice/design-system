@@ -10,14 +10,14 @@
   font-weight: $cads-font-weight__bold;
   display: inline-block;
   margin-bottom: $cads-spacing-3;
-  color: $cads-language__secondary-text-colour;
+  color: $cads-language__text-colour--secondary;
 }
 
 ///
 // Modifier: Adviser
 ///
 .cads-badge--adviser {
-  background: $cads-language__brand-adviser;
+  background: $cads-language__brand--adviser;
   color: $cads-palette__white;
   padding: cads-rem(2px) $cads-spacing-2;
 

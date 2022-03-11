@@ -2,7 +2,7 @@
 @mixin cads-breadcrumb-arrow {
   @include cads-icon;
 
-  color: $cads-language__input-border-colour;
+  color: $cads-language__input__border-colour;
   margin-right: calc(#{$cads-spacing-3} - 6px);
   font-size: 7px; // Fix size as this is a symbol
 }
@@ -12,7 +12,7 @@
   @include cads-restrict-content-width;
 
   padding: $cads-spacing-3 0 $cads-spacing-3 $cads-spacing-4;
-  border-bottom: $cads-border-width-small solid $cads-language__border_colour;
+  border-bottom: $cads-border-width-small solid $cads-language__border-colour;
   margin-bottom: $cads-spacing-5;
 
   &__list {
@@ -53,7 +53,7 @@
         align-self: center;
         content: '\0044';
         margin: 0 calc(#{$cads-spacing-4} - 6px) 0 $cads-spacing-4;
-        color: $cads-language__input-border-colour;
+        color: $cads-language__input__border-colour;
       }
     }
   }

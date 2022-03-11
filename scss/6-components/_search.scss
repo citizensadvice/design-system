@@ -32,22 +32,22 @@
     margin-bottom: 0;
     padding: (cads-rem-to-px($cads-spacing-3) - 2px) $cads-spacing-3;
     border: solid $cads-border-width-medium
-      $cads-language__primary-button-colour;
-    color: $cads-language__primary-button-text-colour;
-    background-color: $cads-language__primary-button-colour;
+      $cads-language__button__colour--primary;
+    color: $cads-language__brand--primary-contrast;
+    background-color: $cads-language__button__colour--primary;
 
     &:hover,
     &:active {
-      color: $cads-language__primary-button-text-colour;
-      background-color: $cads-language__primary-button-hover-colour;
-      border-color: $cads-language__primary-button-hover-colour;
+      color:$cads-language__brand--primary-contrast;
+      background-color: $cads-language__button__colour--primary-hover;
+      border-color: $cads-language__button__colour--primary-hover;
     }
 
     &:focus {
       outline: none;
-      color: $cads-language__focus-text-colour;
-      border-color: $cads-language__focus-border-colour;
-      background-color: $cads-language__focus-colour;
+      color: $cads-language__text-colour;
+      border-color: $cads-language__border-colour--focus;
+      background-color: $cads-language__brand--focus;
     }
   }
 }

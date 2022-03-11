@@ -2,18 +2,18 @@
   border: solid $cads-border-width-medium $cads-language__border-colour;
   border-radius: $cads-border-radius;
   padding: $cads-spacing-4;
-  color: $cads-language__warning-colour;
+  color: $cads-language__error__colour;
   margin-bottom: $cads-spacing-4;
 
   &:focus {
-    outline: 2px solid $cads-language__focus-colour;
-    border-color: $cads-language__error-colour;
+    outline: 2px solid $cads-language__brand--focus;
+    border-color: $cads-language__error__colour;
   }
 
   &__title {
     @extend %cads-h4;
 
-    color: $cads-language__warning-colour;
+    color: $cads-language__error__colour;
     margin-bottom: $cads-spacing-4;
   }
 
@@ -28,7 +28,7 @@
       }
 
       a {
-        color: $cads-language__warning-colour;
+        color: $cads-language__error__colour;
         text-decoration: underline;
 
         &:focus {
