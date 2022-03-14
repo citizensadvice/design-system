@@ -10,6 +10,17 @@ updates:
     schedule:
       interval: weekly
 
+  # citizens_advice_components
+  - package-ecosystem: bundler
+    directory: '/engine'
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: '/engine'
+    schedule:
+      interval: weekly
+
   - package-ecosystem: bundler
     directory: '/demo'
     schedule:
