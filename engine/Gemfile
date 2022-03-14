@@ -6,8 +6,8 @@ gemspec
 
 group :development, :test do
   gem "citizens-advice-style",
-    github: "citizensadvice/citizens-advice-style-ruby",
-    tag: "v7.0.0"
+      github: "citizensadvice/citizens-advice-style-ruby",
+      tag: "v7.0.0"
 
   gem "capybara"
   gem "haml_lint"
