@@ -1,7 +1,5 @@
 # Rails engine
 
-**Status:** Experimental
-
 The goal is to provide a set of [view components](https://viewcomponent.org/) for each design system component, distributed as a Rails engine.
 
 ## Installing the engine

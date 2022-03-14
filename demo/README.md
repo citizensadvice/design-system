@@ -2,7 +2,7 @@
 
 This app:
 
-- Is used by the engine specs as a test harness.
+- Is used in CI to run smoke tests against to make sure each part of the design system works together as a whole.
 - Acts as a reference implementation showing both how to configure the engine and how to load design system styles.
 - Can be ran as a standalone Rails app for viewing component previews and to experiment with components.
 
