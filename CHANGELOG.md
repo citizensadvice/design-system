@@ -1,5 +1,6 @@
 **New**
 - 🔓 Disclosure: Adds new `Disclosure` view component
+- Expand version ranges for `citizens_advice_components` to support Rails 7
 
 **Bugfixes**
 

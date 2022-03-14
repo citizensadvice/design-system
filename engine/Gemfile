@@ -5,11 +5,13 @@ source "https://rubygems.org"
 gemspec
 
 group :development, :test do
+  gem "citizens-advice-style",
+    github: "citizensadvice/citizens-advice-style-ruby",
+    tag: "v7.0.0"
+
   gem "capybara"
-  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v7.0.0"
   gem "haml_lint"
   gem "i18n-tasks"
-  gem "pry", "~> 0.14.1"
   gem "rspec"
   gem "rspec-rails"
   gem "rspec-snapshot", "~> 2.0"
