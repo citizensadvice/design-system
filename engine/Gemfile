@@ -4,6 +4,9 @@ source "https://rubygems.org"
 
 gemspec
 
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem "rails", (ENV["RAILS_VERSION"] || "~> 6.1").to_s
+
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
