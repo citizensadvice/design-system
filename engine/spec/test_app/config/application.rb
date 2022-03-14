@@ -12,6 +12,6 @@ Bundler.require(*Rails.groups)
 
 module Demo
   class Application < Rails::Application
-    config.load_defaults 6.1
+    config.load_defaults (ENV["RAILS_VERSION"] ? ENV["RAILS_VERSION"][0..2] : "6.1").to_s
   end
 end
