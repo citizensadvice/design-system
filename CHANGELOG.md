@@ -1,6 +1,10 @@
 **New**
 - 🔓 Disclosure: Adds new `Disclosure` view component
 
+**Bugfixes**
+
+- Fix deprecation warning with newer versions of view_component
+
 ## <sub>v5.2.0</sub>
 
 #### _Feb. 28, 2022_
