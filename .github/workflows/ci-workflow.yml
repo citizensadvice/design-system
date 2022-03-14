@@ -30,11 +30,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby_version: ['2.7', '3.0']
-        rails_version: ['6.0', '6.1', '7.0']
+        ruby_version: ['2.7', '3.0', '3.1']
+        rails_version: ['6.0.4', '6.1.5', '7.0.2']
         exclude:
-          - rails_version: '6.0'
+          - rails_version: '6.0.4'
             ruby_version: '3.0'
+          - rails_version: '6.0.4'
+            ruby_version: '3.1'
     env:
       RAILS_VERSION: ${{ matrix.rails_version }}
     defaults:
