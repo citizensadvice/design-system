@@ -3,7 +3,7 @@
 require "haml-rails"
 require "rails-i18n"
 require "active_support/core_ext"
-require "view_component/engine"
+require "view_component"
 
 module CitizensAdviceComponents
   class Engine < ::Rails::Engine

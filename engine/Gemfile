@@ -4,12 +4,17 @@ source "https://rubygems.org"
 
 gemspec
 
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem "rails", (ENV["RAILS_VERSION"] || "~> 6.1").to_s
+
 group :development, :test do
+  gem "citizens-advice-style",
+      github: "citizensadvice/citizens-advice-style-ruby",
+      tag: "v7.0.0"
+
   gem "capybara"
-  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v7.0.0"
   gem "haml_lint"
   gem "i18n-tasks"
-  gem "pry", "~> 0.14.1"
   gem "rspec"
   gem "rspec-rails"
   gem "rspec-snapshot", "~> 2.0"

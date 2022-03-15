@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   subject(:component) do
     render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
