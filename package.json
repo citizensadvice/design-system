@@ -120,11 +120,12 @@
     "clearMocks": true,
     "coverageDirectory": "coverage",
     "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/vendor/",
-      "/lib/",
+      "/cypress/",
       "/demo/config/webpack/",
-      "/engine/spec/"
+      "/engine/spec/",
+      "/lib/",
+      "/node_modules/",
+      "/vendor/"
     ],
     "setupFiles": [
       "jest-date-mock"
