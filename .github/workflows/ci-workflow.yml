@@ -4,7 +4,7 @@
 # 1. A set of parallel jobs to run node and ruby based tests,
 #    alongside a job to build the storybook docs and static assets.
 #
-# 2. A subsequent set of parallel jobs for pa11y, backstop, and selenium.
+# 2. A subsequent set of parallel jobs for backstop, and selenium.
 #    These depend on the build job and are seeded with a copy of the docs.
 ##
 name: Continuous Integration
@@ -70,8 +70,10 @@ jobs:
       - run: bundle exec rubocop --format github
       - run: bundle exec haml-lint
 
-  demo-app:
+  demo-app-cypress:
     runs-on: ubuntu-20.04
+    env:
+      RAILS_ENV: test
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -106,10 +108,6 @@ jobs:
         with:
           working-directory: demo
 
-      # Run a webpack build
-      - run: ./bin/webpack
-        working-directory: demo
-
       # Run cypress tests
       - run: ./bin/rails cypress:run
         working-directory: demo
@@ -120,8 +118,54 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: demo/cypress/screenshots
         if: ${{ failure() }}
+
+  demo-app-backstop:
+    runs-on: ubuntu-20.04
+    env:
+      RAILS_ENV: test
+      CYPRESS_INSTALL_BINARY: 0
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+
+      # Setup demo app
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.4'
+          bundler-cache: true
+          working-directory: demo
+
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: demo
+
+      - run: ./bin/rails server -p 3001 &
+        working-directory: demo
+
+      - run: ./bin/wait-for localhost:3001
+
+      - run: npx backstop test --docker --config=backstop-config-actions.js
+        working-directory: demo
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: backstop-report
+          path: |
+            demo/visual-regression/backstop_data/html_report
+            demo/visual-regression/backstop_data/bitmaps_reference
+            demo/visual-regression/backstop_data/bitmaps_test
+          retention-days: 3
 
   # Actions can run in parallel at the job or the workflow level.
   # In order to run our build-dependent tests in parallel we need a way
@@ -146,57 +190,6 @@ jobs:
             docs
             lib
           retention-days: 1
-
-  pa11y:
-    needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: .nvmrc
-      - uses: bahmutov/npm-install@v1
-      - uses: actions/download-artifact@v2
-        with:
-          name: docs-build
-      # Explicitly install testing dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: testing
-      - run: ruby -run -e httpd -- docs -p 6006 &
-      - run: ./bin/wait-for localhost:6006
-      - run: npx pa11y-ci --config=pa11yci.js
-        working-directory: ./testing/wcag
-
-  backstop:
-    needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v2
-        with:
-          name: docs-build
-      # Explicitly install testing dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: testing
-        env:
-          # Skip the pa11y chromium download,
-          # we only want the backstop docker command
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-      - run: ruby -run -e httpd -- docs -p 6006 &
-      - run: ./bin/wait-for localhost:6006
-      - run: npx backstop test --docker --config=backstop-config-actions.js
-        working-directory: ./testing/visual-regression
-      - uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: backstop-report
-          path: |
-            testing/visual-regression/backstop_data/html_report
-            testing/visual-regression/backstop_data/bitmaps_reference
-            testing/visual-regression/backstop_data/bitmaps_test
-          retention-days: 3
 
   # The Ubuntu 20.04 virtual environment includes a copy of Chrome by default
   # We can use this to run our selenium tests locally without needing selenium grid
