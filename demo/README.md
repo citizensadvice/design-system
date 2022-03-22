@@ -21,3 +21,17 @@ Start Rails:
 ```
 
 The engine code bundles a set of component previews which can be seen at `http://localhost:3000/rails/view_components`.
+
+## Running cypress tests
+
+Open the Cypress UI:
+
+```
+./bin/rails cypress:open
+```
+
+Run all tests in a headless browser:
+
+```
+./bin/rails cypress:run
+```
