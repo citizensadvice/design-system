@@ -13,6 +13,7 @@ gem "citizens_advice_components", path: "../engine"
 
 group :development do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "cypress-rails"
   gem "listen", "~> 3.2"
   gem "pry"
   gem "spring"
