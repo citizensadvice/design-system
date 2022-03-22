@@ -214,6 +214,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  view_component (= 2.50.0)
   web-console (>= 3.3.0)
   webpacker (~> 5.0)
 
