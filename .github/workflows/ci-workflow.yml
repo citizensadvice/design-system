@@ -138,27 +138,6 @@ jobs:
             lib
           retention-days: 1
 
-  pa11y:
-    needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: .nvmrc
-      - uses: bahmutov/npm-install@v1
-      - uses: actions/download-artifact@v2
-        with:
-          name: docs-build
-      # Explicitly install testing dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: testing
-      - run: ruby -run -e httpd -- docs -p 6006 &
-      - run: ./bin/wait-for localhost:6006
-      - run: npx pa11y-ci --config=pa11yci.js
-        working-directory: ./testing/wcag
-
   backstop:
     needs: build
     runs-on: ubuntu-20.04
@@ -171,10 +150,6 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: testing
-        env:
-          # Skip the pa11y chromium download,
-          # we only want the backstop docker command
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
       - run: ruby -run -e httpd -- docs -p 6006 &
       - run: ./bin/wait-for localhost:6006
       - run: npx backstop test --docker --config=backstop-config-actions.js

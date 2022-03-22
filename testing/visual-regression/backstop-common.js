@@ -47,13 +47,11 @@ module.exports = function backstopCommon(baseUrl) {
         onReadyScript: 'onReadyEmulatePrint.js',
         viewports: [{ label: 'print', width: 1024, height: 1024 }],
         selectors: ['document'],
-        excludeFromA11yTest: true,
       },
       {
         label: `${labelPrefix}`,
         url: storyUrlFor(componentId),
         readySelector: '.cads-greedy-nav-has-dropdown',
-        excludeFromA11yTest: true,
       },
     ];
   }
@@ -421,7 +419,6 @@ module.exports = function backstopCommon(baseUrl) {
         url: storyUrlFor('foundations-colours--page'),
         viewports: [commonViewports.large],
         selectors: ['document'],
-        excludeFromA11yTest: true,
       },
     ],
     dockerCommandTemplate:
