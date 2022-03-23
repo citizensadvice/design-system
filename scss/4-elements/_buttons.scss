@@ -50,7 +50,8 @@ $button-shadow-size: 4px;
     color: $cads-language__text__colour;
     border-color: $cads-language__text__colour--secondary;
     background-color: $cads-language__brand--focus;
-    box-shadow: 0 $button-shadow-size 0 0 $cads-language__text__colour--secondary;
+    box-shadow: 0 $button-shadow-size 0 0
+      $cads-language__text__colour--secondary;
   }
 
   &:hover {
@@ -150,6 +151,7 @@ $button-shadow-size: 4px;
     color: $cads-language__text__colour;
     border-color: $cads-language__text__colour--secondary;
     background-color: $cads-language__brand--focus;
-    box-shadow: 0 $button-shadow-size 0 0 $cads-language__text__colour--secondary;
+    box-shadow: 0 $button-shadow-size 0 0
+      $cads-language__text__colour--secondary;
   }
 }
