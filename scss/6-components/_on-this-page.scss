@@ -12,7 +12,7 @@
     @extend %cads-h4;
 
     margin: 0 0 $cads-spacing-4 0;
-    color: $cads-language__text-colour--secondary;
+    color: $cads-language__text__colour--secondary;
   }
 
   &__list {
@@ -108,7 +108,7 @@
       background-color: $cads-language__brand--focus;
       border-color: $cads-language__border-colour--focus;
       border-width: $cads-border-width-medium;
-      color: $cads-language__text-colour;
+      color: $cads-language__text__colour;
     }
 
     &:hover {

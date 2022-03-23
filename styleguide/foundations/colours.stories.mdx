@@ -15,8 +15,8 @@ Brand colours are usually used in global components such as ‘Global Navigation
 
 <Description>
   {colourLanguageTable([
-    ['Brand primary', 'brand-primary'],
-    ['Brand secondary', 'brand-secondary'],
+    ['Brand primary', 'brand--primary'],
+    ['Brand secondary', 'brand--secondary'],
   ])}
 </Description>
 
@@ -26,8 +26,8 @@ There are 2 shades of Text colour. Choose the colours carefully based on the imp
 
 <Description>
   {colourLanguageTable([
-    ['Text', 'text-colour'],
-    ['Secondary text', 'secondary-text-colour'],
+    ['Text', 'text__colour'],
+    ['Secondary text', 'text__colour--secondary'],
   ])}
 </Description>
 
@@ -37,11 +37,11 @@ There are various colours for different interaction states. When different colou
 
 <Description>
   {colourLanguageTable([
-    ['Link', 'link-colour'],
-    ['Visited', 'link-visited-colour'],
-    ['Hover', 'link-hover-colour'],
-    ['Hover background', 'hover-background-colour'],
-    ['Active', 'link-active-colour'],
+    ['Link', 'link__colour'],
+    ['Visited', 'link__colour--visited'],
+    ['Hover', 'link__colour--hover'],
+    ['Hover background', 'background-colour--hover'],
+    ['Active', 'link__colour--active'],
   ])}
 </Description>
 
@@ -49,8 +49,8 @@ There are various colours for different interaction states. When different colou
 
 <Description>
   {colourLanguageTable([
-    ['Link', 'focus-colour'],
-    ['Focus text', 'focus-text-colour'],
+    ['Link', 'brand--focus'],
+    ['Focus border colour', 'border-colour--focus'],
   ])}
 </Description>
 
@@ -60,7 +60,7 @@ Use the ‘Input border’ for interactive elements like input boxes so it meets
 
 <Description>
   {colourLanguageTable([
-    ['Input border', 'input-border-colour'],
+    ['Input border', 'input__border-colour'],
     ['Border', 'border-colour'],
   ])}
 </Description>
@@ -69,8 +69,8 @@ Use the ‘Input border’ for interactive elements like input boxes so it meets
 
 <Description>
   {colourLanguageTable([
-    ['Button', 'primary-button-colour'],
-    ['Button hover', 'primary-button-hover-colour'],
+    ['Button', 'button__colour--primary'],
+    ['Button hover', 'button__colour--primary-hover'],
   ])}
 </Description>
 
@@ -78,7 +78,9 @@ Use the ‘Input border’ for interactive elements like input boxes so it meets
 
 Only use ‘Adviser’ colours for adviser-related components, like ‘Adviser callout’. This is also the brand colour for AdviserNet.
 
-<Description>{colourLanguageTable([['Adviser', 'brand-adviser']])}</Description>
+<Description>
+  {colourLanguageTable([['Adviser', 'brand--adviser']])}
+</Description>
 
 ## Accessibility
 

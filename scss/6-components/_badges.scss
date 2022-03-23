@@ -10,7 +10,7 @@
   font-weight: $cads-font-weight__bold;
   display: inline-block;
   margin-bottom: $cads-spacing-3;
-  color: $cads-language__text-colour--secondary;
+  color: $cads-language__text__colour--secondary;
 }
 
 ///
@@ -29,7 +29,7 @@
 @media print {
   .cads-badge {
     background: transparent !important;
-    color: $cads-language__text-colour;
+    color: $cads-language__text__colour;
     padding: 0;
   }
 }

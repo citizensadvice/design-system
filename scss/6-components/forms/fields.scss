@@ -28,7 +28,7 @@
   margin-bottom: $cads-spacing-3;
 }
 .cads-form-field__optional {
-  color: $cads-language__text-colour--secondary;
+  color: $cads-language__text__colour--secondary;
   font-weight: normal;
 
   &::before {
@@ -42,7 +42,7 @@
 .cads-form-field__hint {
   display: block;
   margin: 0 0 $cads-spacing-3 0;
-  color: $cads-language__text-colour--secondary;
+  color: $cads-language__text__colour--secondary;
 }
 .cads-form-field__label + .cads-form-field__hint {
   // Reduces visual spacing between label + hint when there is a hint

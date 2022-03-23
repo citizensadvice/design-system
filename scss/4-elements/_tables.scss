@@ -59,7 +59,8 @@
 
     caption {
       background-color: $cads-palette__white;
-      border: solid $cads-border-width-small $cads-language__input__border-colour;
+      border: solid $cads-border-width-small
+        $cads-language__input__border-colour;
       border-top-left-radius: $cads-border-radius-large;
       border-top-right-radius: $cads-border-radius-large;
       border-bottom: $cads-border-width-large solid

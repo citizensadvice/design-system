@@ -7,8 +7,8 @@ $cads-language__brand--primary-contrast: palette.$cads-palette__white !default;
 $cads-language__brand--adviser: palette.$cads-palette__blue-adviser !default;
 $cads-language__brand--focus: palette.$cads-palette__yellow !default;
 
-$cads-language__text-colour: palette.$cads-palette__black !default;
-$cads-language__text-colour--secondary: palette.$cads-palette__dark-grey !default;
+$cads-language__text__colour: palette.$cads-palette__black !default;
+$cads-language__text__colour--secondary: palette.$cads-palette__dark-grey !default;
 
 $cads-language__link__colour: palette.$cads-palette__heritage-blue !default;
 $cads-language__link__colour--hover: palette.$cads-palette__heritage-blue-dark !default;
@@ -24,7 +24,6 @@ $cads-language__border-colour: palette.$cads-palette__light-grey !default;
 // Buttons
 $cads-language__button__colour--primary: palette.$cads-palette__teal !default;
 $cads-language__button__colour--primary-hover: palette.$cads-palette__teal-dark !default;
-
 
 $cads-language__error__colour: palette.$cads-palette__red !default;
 $cads-language__success__colour: palette.$cads-palette__green !default;

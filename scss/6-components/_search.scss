@@ -38,14 +38,14 @@
 
     &:hover,
     &:active {
-      color:$cads-language__brand--primary-contrast;
+      color: $cads-language__brand--primary-contrast;
       background-color: $cads-language__button__colour--primary-hover;
       border-color: $cads-language__button__colour--primary-hover;
     }
 
     &:focus {
       outline: none;
-      color: $cads-language__text-colour;
+      color: $cads-language__text__colour;
       border-color: $cads-language__border-colour--focus;
       background-color: $cads-language__brand--focus;
     }

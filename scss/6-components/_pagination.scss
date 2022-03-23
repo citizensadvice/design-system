@@ -4,7 +4,7 @@
 
 @mixin cads-paging-focus() {
   outline: none;
-  color: $cads-language__text-colour;
+  color: $cads-language__text__colour;
   border-color: $cads-language__border-colour--focus;
   background-color: $cads-language__brand--focus;
 }
@@ -64,5 +64,5 @@
   line-height: 1.25rem;
   font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-4 0;
-  color: $cads-language__text-colour--secondary;
+  color: $cads-language__text__colour--secondary;
 }

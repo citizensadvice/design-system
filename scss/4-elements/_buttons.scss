@@ -39,28 +39,29 @@ $button-shadow-size: 4px;
   @include cads-button-defaults();
 
   border-radius: $cads-border-radius;
-  border: solid $cads-border-width-medium $cads-language__button__colour--primary;
+  border: solid $cads-border-width-medium
+    $cads-language__button__colour--primary;
   border-bottom: none; // Remove bottom border as box-shadow replaces it
   box-shadow: 0 $button-shadow-size 0 0
     $cads-language__button__colour--primary-hover;
 
   &:focus {
     outline: none;
-    color: $cads-language__text-colour;
-    border-color: $cads-language__text-colour--secondary;
+    color: $cads-language__text__colour;
+    border-color: $cads-language__text__colour--secondary;
     background-color: $cads-language__brand--focus;
-    box-shadow: 0 $button-shadow-size 0 0 $cads-language__text-colour--secondary;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-language__text__colour--secondary;
   }
 
   &:hover {
     box-shadow: 0 $button-shadow-size 0 0
-    $cads-language__button__colour--primary-hover;
+      $cads-language__button__colour--primary-hover;
   }
 
   &:active {
     transform: translate(0, $button-shadow-size - $cads-border-width-medium);
     box-shadow: 0 $cads-border-width-medium 0 0
-    $cads-language__button__colour--primary-hover;
+      $cads-language__button__colour--primary-hover;
   }
 
   &:hover,
@@ -118,7 +119,7 @@ $button-shadow-size: 4px;
 
   &:focus {
     box-shadow: 0 ($button-shadow-size - $cads-border-width-small) 0 0
-      $cads-language__text-colour--secondary;
+      $cads-language__text__colour--secondary;
   }
 
   &:hover,
@@ -146,9 +147,9 @@ $button-shadow-size: 4px;
   }
 
   &:focus {
-    color: $cads-language__text-colour;
-    border-color: $cads-language__text-colour--secondary;
+    color: $cads-language__text__colour;
+    border-color: $cads-language__text__colour--secondary;
     background-color: $cads-language__brand--focus;
-    box-shadow: 0 $button-shadow-size 0 0 $cads-language__text-colour--secondary;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-language__text__colour--secondary;
   }
 }

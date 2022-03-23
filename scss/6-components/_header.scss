@@ -23,9 +23,9 @@
     }
 
     &:focus {
-      color: $cads-language__text-colour;
+      color: $cads-language__text__colour;
       background-color: $cads-language__brand--focus;
-      border-bottom: 2px solid $cads-language__text-colour;
+      border-bottom: 2px solid $cads-language__text__colour;
     }
 
     &:visited {
@@ -34,7 +34,7 @@
   }
 
   &__text {
-    color: $cads-language__text-colour--secondary;
+    color: $cads-language__text__colour--secondary;
     font-weight: $cads-font-weight__bold;
   }
 
@@ -57,7 +57,7 @@
 
     &:focus {
       outline: none;
-      color: $cads-language__text-colour;
+      color: $cads-language__text__colour;
       border-color: $cads-language__border-colour--focus;
       background-color: $cads-language__brand--focus;
     }

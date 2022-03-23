@@ -5,23 +5,23 @@
 /* stylelint-disable */
 :export {
   language: {
-    brand-primary: $cads-language__brand--primary;
-    brand-secondary: $cads-language__brand--secondary;
-    brand-adviser: $cads-language__brand--adviser;
-    text-colour: $cads-language__text-colour;
-    secondary-text-colour: $cads-language__text-colour--secondary;
-    link-colour: $cads-language__link__colour;
-    link-hover-colour: $cads-language__link__colour--hover;
-    link-visited-colour: $cads-language__link__colour--visited;
-    link-active-colour: $cads-language__link__colour--active;
-    hover-background-colour: $cads-language__background-colour--hover;
-    focus-colour: $cads-language__brand--focus;
-    focus-border-colour: $cads-language__border-colour--focus;
-    input-border-colour: $cads-language__input__border-colour;
+    brand--primary: $cads-language__brand--primary;
+    brand--secondary: $cads-language__brand--secondary;
+    brand--adviser: $cads-language__brand--adviser;
+    text__colour: $cads-language__text__colour;
+    text__colour--secondary: $cads-language__text__colour--secondary;
+    link__colour: $cads-language__link__colour;
+    link__colour--hover: $cads-language__link__colour--hover;
+    link__colour--visited: $cads-language__link__colour--visited;
+    link__colour--active: $cads-language__link__colour--active;
+    background-colour--hover: $cads-language__background-colour--hover;
+    brand--focus: $cads-language__brand--focus;
+    border-colour--focus: $cads-language__border-colour--focus;
+    input__border-colour: $cads-language__input__border-colour;
     border-colour: $cads-language__border-colour;
+    button__colour--primary: $cads-language__button__colour--primary;
+    button__colour--primary-hover: $cads-language__button__colour--primary-hover;
     error-colour: $cads-language__error__colour;
-    primary-button-colour: $cads-language__button__colour--primary;
-    primary-button-hover-colour: $cads-language__button__colour--primary-hover;
     success-colour: $cads-language__success__colour;
   }
 }
