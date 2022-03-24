@@ -1,6 +1,0 @@
-inherit_gem:
-  citizens-advice-style:
-    - default.yml
-
-AllCops:
-  SuggestExtensions: false
