@@ -4,7 +4,6 @@ class Base < SitePrism::Page
   element :root, "#root"
 
   load_validation do
-    AutomationLogger.debug("Waiting for #{self.class} component.")
     [validate_initial_state!, "Initial #{self.class} component didn't load correctly!"]
   end
 

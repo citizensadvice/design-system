@@ -1,4 +1,4 @@
 --color
 --format documentation
---require rails_helper
+--require spec_helper
 --order random

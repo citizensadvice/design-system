@@ -1,4 +1,3 @@
-@failing @NP-1803
 Feature: Search components
   Rule: Standard Search
     Scenario: Search component is on the page without any term

@@ -16,15 +16,16 @@ Gem::Specification.new do |spec|
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
     # spec.metadata["allowed_push_host"] = "https://rubygems.org"
+    spec.metadata["rubygems_mfa_required"] = "true"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+          "public gem pushes."
   end
 
   spec.files = Dir["{app,config,lib}/**/*", "README.md"]
 
   spec.add_runtime_dependency     "haml-rails", [">= 2.0.0", "< 3.0"]
-  spec.add_runtime_dependency     "rails", [">= 6.0.0", "< 7.0"]
-  spec.add_runtime_dependency     "rails-i18n", [">= 6.0.0", "< 7.0"]
+  spec.add_runtime_dependency     "rails", [">= 6.0.0", "< 8.0"]
+  spec.add_runtime_dependency     "rails-i18n", [">= 6.0.0", "< 8.0"]
   spec.add_runtime_dependency     "view_component", [">= 2.0.0", "< 3.0"]
 end
