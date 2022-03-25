@@ -44,8 +44,8 @@
 }
 
 .cads-callout--important {
-  border-color: $cads-language__error__colour;
-  background-color: cads-colour-to-bg($cads-language__error__colour);
+  border-color: $cads-language__important__colour;
+  background-color: cads-colour-to-bg($cads-language__important__colour);
 }
 
 .cads-callout--adviser {

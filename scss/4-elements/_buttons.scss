@@ -136,7 +136,7 @@ $button-shadow-size: 4px;
 }
 
 %cads-button__tertiary--dark {
-  background-color: $cads-language__brand--primary;
+  background-color: get-color("brand","primary");
   color: $cads-language__brand--primary-contrast;
   border-color: $cads-language__brand--primary-contrast;
 
