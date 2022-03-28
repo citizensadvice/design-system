@@ -7,6 +7,5 @@ Feature: Asset Hyperlink component
     Given an Asset Hyperlink component is on the page
     Then a link to the PDF is present
     And the label includes a name at the beginning
-    And the label includes an icon
     And the label includes the file size
     And the label is a downloadable link

@@ -4,9 +4,6 @@ module Header
   class Standard < ::Base
     set_url "/iframe.html?id=components-header--default&viewMode=story"
 
-    include Helpers::BrowserWindow
-    include Helpers::Javascript
-
     element :change_language, "a", text: "Cymraeg"
     element :login, "[data-testid='account-link']"
     element :logo, ".cads-logo"

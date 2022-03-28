@@ -1,5 +1,3 @@
-# NB: Due to a Storybook issue, these tests won't run on Old Safari / iOS
-@not_safari
 Feature: Navigation component
 
   The greedy navigation displays as many navigation links that will fit on the viewport.
@@ -29,11 +27,11 @@ Feature: Navigation component
       Then the Close button is present
       And the dropdown menu is open
 
-    @failing @NP-1755
-    Scenario: Tabbing out of the dropdown menu automatically closes it
-      When I open the dropdown menu
-      And I tab out of the dropdown menu
-      Then the dropdown menu is closed
+    # @failing @NP-1755
+    # Scenario: Tabbing out of the dropdown menu automatically closes it
+      # When I open the dropdown menu
+      # And I tab out of the dropdown menu
+      # Then the dropdown menu is closed
 
     Scenario: You can close the dropdown menu using your Keyboard
       When I open the dropdown menu

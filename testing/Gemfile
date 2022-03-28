@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+ruby "2.7.4"
+
+group :test do
+  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v7.0.0"
+  gem "cucumber", "~> 7.0"
+  gem "dotenv"
+  gem "rspec"
+  gem "selenium-webdriver", "4.1.0"
+  gem "site_prism", "~> 3.7"
+  gem "webdrivers"
+end

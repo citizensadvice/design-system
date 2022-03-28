@@ -1,0 +1,43 @@
+/** @define disclosure **/
+.cads-disclosure {
+  &__details {
+    display: none;
+    margin-top: $cads-spacing-4;
+
+    &--open {
+      display: block;
+    }
+  }
+
+  &__summary {
+    text-decoration: underline;
+  }
+
+  &__toggle {
+    text-decoration: none;
+
+    @include cads-media-breakpoint-up(md) {
+      font-size: cads-rem(18px);
+    }
+
+    &::before {
+      font-size: 0.75em;
+    }
+  }
+}
+
+.cads-disclosure__toggle:focus .cads-disclosure__summary {
+  text-decoration: none;
+}
+
+/* stylelint-disable plugin/selector-bem-pattern, no-descending-specificity */
+.no-js {
+  .cads-disclosure__toggle,
+  .cads-disclosure__summary {
+    display: none;
+  }
+
+  .cads-disclosure__details {
+    display: block;
+  }
+}

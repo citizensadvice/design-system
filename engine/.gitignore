@@ -1,2 +1,5 @@
 .generators
 .rakeTasks
+
+/spec/test_app/tmp/*
+/spec/test_app/log/*

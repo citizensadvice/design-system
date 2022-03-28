@@ -15,7 +15,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   end
 
   describe "feedback URL" do
-    let(:subject) { component.at("a[href='#{feedback_url}']") }
+    subject { component.at("a[href='#{feedback_url}']") }
 
     it { is_expected.to be_present }
   end
@@ -51,13 +51,13 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   end
 
   describe "logo" do
-    let(:subject) { component.at(".cads-logo") }
+    subject { component.at(".cads-logo") }
 
     it { is_expected.to be_present }
   end
 
   describe "copyright notice" do
-    let(:subject) { component.at("[data-testid='copyright']").text }
+    subject { component.at("[data-testid='copyright']").text }
 
     it { is_expected.to start_with "Copyright ©2049 Citizens Advice" }
 
@@ -69,7 +69,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   end
 
   describe "legal summary" do
-    let(:subject) { component.at("[data-testid='legal-summary']").text }
+    subject { component.at("[data-testid='legal-summary']").text }
 
     it { is_expected.to include "Citizens Advice is an operating name of" }
 

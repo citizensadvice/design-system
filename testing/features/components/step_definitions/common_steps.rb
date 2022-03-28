@@ -2,16 +2,19 @@
 
 When("I am able to tab through skip links") do |table|
   table.raw.first.each do |description|
-    send_tabs(1)
+    send_keys(:tab)
+    sleep 0.1
 
-    expect(@component.active_element.text).to eq(description)
+    active_element = Capybara.current_session.evaluate_script("document.activeElement")
+
+    expect(active_element.text).to eq(description)
   end
 end
 
 Then("a logo is present") do
   expect(@component.logo["title"]).to eq("Citizens Advice homepage")
 
-  expect(@component.logo["href"]).not_to be_blank
+  expect(@component.logo["href"]).not_to be_nil
 end
 
 Then("I am able to search") do

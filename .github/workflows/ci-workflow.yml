@@ -13,37 +13,37 @@ on:
   schedule:
     - cron: '0 2 * * *'
 
-env:
-  # Share node version across jobs
-  # actions/setup-node doesn't currently look at any config files
-  # for now we do the simplest thing and set an environment variable.
-  # See https://github.com/actions/setup-node/pull/239
-  # Maybe we could use https://github.com/guardian/actions-setup-node directly in the meantime?
-  NODE_VERSION: '14'
-
 jobs:
   node-test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
       - uses: bahmutov/npm-install@v1
       - run: npm run lint
       - run: npm test
 
-  engine:
+  engine-specs:
     runs-on: ubuntu-20.04
-    defaults:
-      run:
-        working-directory: engine
     strategy:
       fail-fast: false
       matrix:
-        ruby_version: ['2.7', '3.0']
+        ruby_version: ['2.7', '3.0', '3.1']
+        rails_version: ['6.0.4', '6.1.5', '7.0.2']
+        exclude:
+          - rails_version: '6.0.4'
+            ruby_version: '3.0'
+          - rails_version: '6.0.4'
+            ruby_version: '3.1'
+    env:
+      RAILS_VERSION: ${{ matrix.rails_version }}
+    defaults:
+      run:
+        working-directory: engine
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
@@ -52,18 +52,31 @@ jobs:
           bundle config path vendor/bundle
           bundle update
           bundle install --jobs 4 --retry 3
-      - run: bundle exec rubocop --format github
-      - run: bundle exec haml-lint
       - run: bundle exec rake spec
 
+  engine-lint:
+    needs: engine-specs
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: '2.7.4'
+          working-directory: engine
+      - run: bundle exec rubocop --format github
+      - run: bundle exec haml-lint
+
   demo-app:
-    needs: engine
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
 
       # We link the @citizensadvice/design-system package
       # from the root but we only build the lib/ directory
@@ -81,13 +94,34 @@ jobs:
           bundle update
           bundle install --jobs 4 --retry 3
         working-directory: demo
+
+      # Cache cypress binary
+      - uses: actions/cache@v2
+        with:
+          path: /home/runner/.cache/Cypress
+          key: cypress-binary-${{ hashFiles('package-lock.json') }}
+
+      # Npm install
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: demo
 
-      # Run a webpack build as a smoke test
+      # Run a webpack build
       - run: ./bin/webpack
         working-directory: demo
+
+      # Run cypress tests
+      - run: ./bin/rails cypress:run
+        working-directory: demo
+        env:
+          CYPRESS_RAILS_CYPRESS_OPTS: '--browser chrome'
+
+      # Archive test screenshots
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+        if: ${{ failure() }}
 
   # Actions can run in parallel at the job or the workflow level.
   # In order to run our build-dependent tests in parallel we need a way
@@ -98,14 +132,11 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
       - uses: bahmutov/npm-install@v1
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
       - run: npm run build
       - run: npm run docs:build
       - uses: actions/upload-artifact@v2
@@ -120,10 +151,10 @@ jobs:
     needs: build
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .nvmrc
       - uses: bahmutov/npm-install@v1
       - uses: actions/download-artifact@v2
         with:
@@ -141,7 +172,7 @@ jobs:
     needs: build
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/download-artifact@v2
         with:
           name: docs-build
@@ -174,25 +205,20 @@ jobs:
     needs: build
     runs-on: ubuntu-20.04
     env:
-      HEADLESS: true
-      BROWSER: chrome
-      LOG_LOCATION: automation_logs.log
       TESTING_BASE_URL: 'http://localhost:6006'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          ruby-version: '2.7.4'
+          working-directory: testing
       - uses: actions/download-artifact@v2
         with:
           name: docs-build
       - run: bundle exec rubocop --format github
         working-directory: testing
       - run: ruby -run -e httpd -- docs -p 6006 &
-      - run: ./bin/wait-for localhost:6006 -- bundle exec rake design_system:all
-      - uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: grid-artifacts
-          path: testing/artifacts
-          retention-days: 3
+      - run: ./bin/wait-for localhost:6006
+      - run: bundle exec cucumber
+        working-directory: testing

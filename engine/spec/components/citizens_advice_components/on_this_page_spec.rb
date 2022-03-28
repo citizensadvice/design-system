@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
   subject(:component) do
     render_inline described_class.new(show_nested_links: show_nested_links) do |c|
