@@ -4,6 +4,7 @@
 
 **Bugfixes**
 
+- 🔗 Links: Fix external link styles when used outside of the main www.citizensadvice.org.uk domain.
 - Fix deprecation warning with newer versions of view_component
 
 ## <sub>v5.2.0</sub>
