@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -16,15 +18,22 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #
 # Happy Bridgetowning!
 
-gem "bridgetown", "~> 1.0.0.alpha10"
+gem "bridgetown", "~> 1.0"
 
 # Puma is a Rack-compatible server
 # (you can optionally limit this to the "development" group)
 gem "puma", "~> 5.2"
 
 # citizens advice design system view components
-gem "railties"
-gem "actionpack"
 gem "citizens_advice_components", path: "../engine"
+gem "view_component", "2.50.0"
 
-gem "bridgetown-view-component", "~> 0.7.0", :group => :bridgetown_plugins
+group :bridgetown_plugins do
+  gem "bridgetown-view-component", "~> 1.0"
+end
+
+group :development, :test do
+  gem "citizens-advice-style",
+      github: "citizensadvice/citizens-advice-style-ruby",
+      tag: "v7.0.0"
+end

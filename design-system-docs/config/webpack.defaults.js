@@ -6,7 +6,7 @@
 // when an update is applied hence we strongly recommend adding overrides to
 // `webpack.config.js` instead of editing this file.
 //
-// Shipped with Bridgetown v1.0.0.alpha10
+// Shipped with Bridgetown v1.0.0
 
 const path = require('path');
 const rootDir = path.resolve(__dirname, '..');
@@ -47,6 +47,9 @@ const cssRules = {
         importLoaders: 1,
       },
     },
+    {
+      loader: 'resolve-url-loader',
+    },
   ],
   mode: 'sass',
 
@@ -56,21 +59,16 @@ const cssRules = {
   },
 
   sass: () => {
-    cssRules.use.push(
-      {
-        loader: 'resolve-url-loader',
-      },
-      {
-        loader: 'sass-loader',
-        options: {
-          implementation: require('sass'),
-          sassOptions: {
-            fiber: false,
-            includePaths: [path.resolve(rootDir, 'src/_components')],
-          },
+    cssRules.use.push({
+      loader: 'sass-loader',
+      options: {
+        implementation: require('sass'),
+        sassOptions: {
+          fiber: false,
+          includePaths: [path.resolve(rootDir, 'src/_components')],
         },
-      }
-    );
+      },
+    });
     return { test: cssRules.test, use: cssRules.use };
   },
 };
@@ -124,7 +122,12 @@ module.exports = {
       filename: '../css/[name].[contenthash].css',
     }),
     new WebpackManifestPlugin({
-      fileName: path.resolve(rootDir, '.bridgetown-webpack', 'manifest.json'),
+      fileName: path.resolve(
+        rootDir,
+        '.bridgetown-cache',
+        'frontend-bundling',
+        'manifest.json'
+      ),
     }),
   ],
   module: {

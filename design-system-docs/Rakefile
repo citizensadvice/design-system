@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bridgetown"
 
 Bridgetown.load_tasks
@@ -9,7 +11,7 @@ task default: :deploy
 # Standard set of tasks, which you can customize if you wish:
 #
 desc "Build the Bridgetown site for deployment"
-task :deploy => [:clean, "frontend:build"] do
+task deploy: [:clean, "frontend:build"] do
   Bridgetown::Commands::Build.start
 end
 
@@ -33,7 +35,6 @@ namespace :frontend do
   desc "Watch the frontend with Webpack during development"
   task :dev do
     sh "npm run webpack-dev --color"
-  rescue Interrupt
   end
 end
 
