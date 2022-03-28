@@ -4,6 +4,7 @@
 
 **Bugfixes**
 
+- 🔗 Links: Fix external link styles when used outside of the main www.citizensadvice.org.uk domain.
 - Fix deprecation warning with newer versions of view_component
 - 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
 
