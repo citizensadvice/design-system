@@ -13,7 +13,7 @@ module CitizensAdviceComponents
     end
 
     def current_year
-      Time.zone.today.year
+      Time.current.year
     end
 
     def columns_to_show

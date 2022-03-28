@@ -5,6 +5,7 @@
 **Bugfixes**
 
 - Fix deprecation warning with newer versions of view_component
+- 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
 
 ## <sub>v5.2.0</sub>
 
