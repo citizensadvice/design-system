@@ -24,11 +24,14 @@ gem "bridgetown", "~> 1.0"
 # (you can optionally limit this to the "development" group)
 gem "puma", "~> 5.2"
 
+gem "htmlbeautifier"
+
 # citizens advice design system view components
 gem "citizens_advice_components", path: "../engine"
 gem "view_component", "2.50.0"
 
 group :bridgetown_plugins do
+  gem "bridgetown-seo-tag"
   gem "bridgetown-view-component", "~> 1.0"
 end
 

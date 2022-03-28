@@ -1,0 +1,14 @@
+---
+title: Default
+---
+<%= render(CitizensAdviceComponents::TargetedContent.new(
+  title: "If you are a citizen of a country outside the EU, EEA or Switzerland",
+  id: "targeted-content-123")
+) do %>
+  <p>You should apply to the EU Settlement Scheme if both:</p>
+  <ul>
+    <li>you’re in the UK by 31 December 2020</li>
+    <li>you have family in the UK from the EU, EEA or Switzerland</li>
+  </ul>
+  <p>You need to apply to the scheme even if you have a permanent residence card as it will not be valid after 31 December 2020</p>
+<% end %>

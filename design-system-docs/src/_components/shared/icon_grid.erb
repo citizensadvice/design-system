@@ -1,0 +1,8 @@
+<ul class="cads-styleguide-icon-grid">
+  <% icons.each do |icon| %>
+    <li>
+      <span><%= render icon.new(size: :large) %></span>
+      <span><%= icon.name.demodulize.underscore.humanize %></span>
+    </li>
+  <% end %>
+</ul>

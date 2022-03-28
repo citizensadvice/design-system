@@ -8,6 +8,8 @@ output
 node_modules
 bower_components
 vendor
+!src/vendor/
+
 
 # Caches
 .sass-cache

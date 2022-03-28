@@ -1,0 +1,26 @@
+---
+title: Components
+layout: default
+---
+
+<%= render(CitizensAdviceComponents::Breadcrumbs.new(
+  links: [
+    { title: "Home", url: "/"},
+    { title: resource.data.title }
+  ]
+)) %>
+
+<main id="cads-main-content" class="cads-grid-container cads-page-content">
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-md-8">
+      <h1 class="cads-page-title"><%= resource.data.title %></h1>
+      <div class="text-list">
+        <ul class="text-list__links">
+          <% collections.component_docs.resources.each do |foundation| %>
+            <li><a href="<%= foundation.relative_url %>"><%= foundation.data.title %></a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>

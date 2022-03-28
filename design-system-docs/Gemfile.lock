@@ -121,6 +121,8 @@ GEM
       zeitwerk (~> 2.5)
     bridgetown-paginate (1.0.0)
       bridgetown-core (= 1.0.0)
+    bridgetown-seo-tag (5.0.0)
+      bridgetown (>= 0.20.0, < 2.0)
     bridgetown-view-component (1.0.0)
       actionview (>= 6.0)
       bridgetown (>= 1.0.0.beta3, < 2.0)
@@ -176,6 +178,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    htmlbeautifier (1.4.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     io-wait (0.2.1)
@@ -317,9 +320,11 @@ PLATFORMS
 
 DEPENDENCIES
   bridgetown (~> 1.0)
+  bridgetown-seo-tag
   bridgetown-view-component (~> 1.0)
   citizens-advice-style!
   citizens_advice_components!
+  htmlbeautifier
   puma (~> 5.2)
   view_component (= 2.50.0)
 

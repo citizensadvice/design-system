@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="<%= site.locale %>">
+  <head>
+    <meta charset="utf-8" />
+    <%= seo %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="<%= webpack_path "css" %>" />
+  </head>
+  <body>
+    <%= yield %>
+    <script src="<%= webpack_path "js" %>"></script>
+    <script src="/vendor/iframeResizer.contentWindow.min.js"></script>
+  </body>
+</html>

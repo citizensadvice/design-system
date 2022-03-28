@@ -2,11 +2,10 @@
 layout: default
 ---
 
-
 <%= render(CitizensAdviceComponents::Breadcrumbs.new(
   links: [
     { title: "Home", url: "/"},
-    { title: resource.collection.metadata.name, url: "/components" },
+    { title: resource.collection.metadata.name, url: "/foundations" },
     { title: resource.data.title }
   ]
 )) %>
@@ -27,9 +26,9 @@ layout: default
         render(CitizensAdviceComponents::SectionLinks.new(
           title: "In this section",
           section_title: resource.collection.metadata.name,
-          section_title_url: "/components"
+          section_title_url: "/foundations"
         )) do |c|
-          c.section_links(collections.component_docs.resources.map do |foundation|
+          c.section_links(collections.foundations.resources.map do |foundation|
             { url: foundation.relative_url, title: foundation.data.title }
           end)
           # Need to pass in some content to avoid shadowing Bridgetowns content global
