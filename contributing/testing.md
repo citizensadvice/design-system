@@ -68,8 +68,6 @@ For more advanced details see the [BackstopJS Github's page](https://github.com/
 
 ## Accessibility testing
 
-`pa11y-ci` is used to perform automated accessibility tests. The default configuration is to use htmlsniffer and the urls in the `pa11yci.js` config files.
+Accessibility testing is performed using `cypress-axe` as part of our Cypress tests.
 
-```sh
-npm run wcag-test
-```
+See the [demo app README for instructions on how to run these](../demo/README.md).
