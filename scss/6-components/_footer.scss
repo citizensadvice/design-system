@@ -2,17 +2,6 @@
 // Footer
 // ============================================================================
 
-// Colours
-$cads-footer__divider__colour: $cads-language__brand--primary !default;
-$cads-footer__background-colour: $cads-language__background-colour--hover !default;
-$cads-footer__text__colour: $cads-language__text__colour !default;
-$cads-footer__text__colour--secondary: $cads-language__brand--primary !default;
-$cads-footer__link__colour: $cads-language__link__colour !default;
-$cads-footer__link__colour--hover: $cads-language__link__colour--hover !default;
-$cads-footer__background-colour--hover: $cads-language__background-colour--hover !default;
-$cads-footer__link__colour--visited: $cads-language__link__colour--visited !default;
-$cads-footer__link__colour--active: $cads-language__link__colour--active !default;
-
 /** @define footer */
 .cads-footer {
   @include cads-typographic-scale-text-small();

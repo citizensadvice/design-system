@@ -2,18 +2,6 @@
 // Header
 // ============================================================================
 
-// Colours
-$cads-header__background-colour: $cads-language__brand--primary-contrast !default;
-$cads-header__link__colour: $cads-language__link__colour !default;
-$cads-header__link__colour--hover: $cads-language__link__colour--hover !default;
-$cads-header__background-colour--hover: $cads-language__background-colour--hover !default;
-$cads-header__link__colour--visited: $cads-language__link__colour--visited !default;
-$cads-header__link__colour--active: $cads-language__link__colour--active !default;
-
-$cads-header__sign-out__background-colour: $cads-language__brand--primary-contrast !default;
-$cads-header__sign-out__colour: $cads-language__button__colour--primary !default;
-$cads-header__sign-out__border-colour: $cads-language__button__colour--primary-hover !default;
-
 /** @define header */
 .cads-header {
   background-color: $cads-header__background-colour;

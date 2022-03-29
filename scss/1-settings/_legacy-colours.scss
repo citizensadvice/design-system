@@ -1,0 +1,62 @@
+@use '../1-settings/colour-palette' as palette;
+
+$cads-language__brand-primary: palette.$cads-palette__heritage-blue !default;
+$cads-language__brand-secondary: palette.$cads-palette__heritage-yellow !default;
+$cads-language__brand-primary-contrast: palette.$cads-palette__white !default;
+$cads-language__brand-adviser: palette.$cads-palette__blue-adviser !default;
+$cads-language__text-colour: palette.$cads-palette__black !default;
+$cads-language__secondary-text-colour: palette.$cads-palette__dark-grey !default;
+$cads-language__link-colour: palette.$cads-palette__heritage-blue !default;
+$cads-language__link-hover-colour: palette.$cads-palette__heritage-blue-dark !default;
+$cads-language__link-visited-colour: palette.$cads-palette__purple !default;
+$cads-language__link-active-colour: palette.$cads-palette__dark-grey !default;
+$cads-language__hover-background-colour: palette.$cads-palette__blue-light !default;
+$cads-language__focus-colour: palette.$cads-palette__yellow !default;
+$cads-language__focus-border-colour: palette.$cads-palette__dark-grey !default;
+$cads-language__focus-text-colour: palette.$cads-palette__black !default;
+$cads-language__input-border-colour: palette.$cads-palette__mid-grey !default;
+$cads-language__border-colour: palette.$cads-palette__light-grey !default;
+$cads-language__error-colour: palette.$cads-palette__red !default;
+$cads-language__primary-button-colour: palette.$cads-palette__teal !default;
+$cads-language__primary-button-text-colour: palette.$cads-palette__white !default;
+$cads-language__primary-button-hover-colour: palette.$cads-palette__teal-dark !default;
+$cads-language__secondary-button-hover-colour: $cads-language__hover-background-colour !default;
+$cads-language__tertiary-button-dark-hover-background-colour: palette.$cads-palette__heritage-blue-dark !default;
+$cads-language__tertiary-button-dark-hover-colour: $cads-language__brand-primary-contrast !default;
+$cads-language__tertiary-button-dark-hover-border-colour: $cads-language__brand-primary-contrast !default;
+
+$cads-language__button-shadow-colour: palette.$cads-palette__teal-dark !default;
+$cads-language__warning-colour: palette.$cads-palette__red !default;
+$cads-language__success-colour: palette.$cads-palette__green !default;
+
+// Navigation colours
+$cads-language__nav-hover-background-colour: palette.$cads-palette__heritage-blue-dark !default;
+$cads-language__nav-hover-border-colour: palette.$cads-palette__heritage-blue-dark !default;
+
+// Header colours
+$cads-header__background-colour: palette.$cads-palette__white !default;
+$cads-header__link-colour: $cads-language__link-colour !default;
+$cads-header__link-hover-colour: $cads-language__link-hover-colour !default;
+$cads-header__hover-background-colour: $cads-language__hover-background-colour !default;
+$cads-header__link-visited-colour: $cads-language__link-visited-colour !default;
+$cads-header__link-active-colour: $cads-language__link-active-colour !default;
+$cads-header__link-focus-highlight-colour: palette.$cads-palette__black !default;
+$cads-header__link-focus-colour: $cads-language__focus-colour !default;
+
+$cads-header__sign-out-background-colour: $cads-language__brand-primary-contrast !default;
+$cads-header__sign-out-colour: $cads-language__primary-button-colour !default;
+$cads-header__sign-out-border-colour: $cads-language__primary-button-colour !default;
+
+// Footer colours
+$cads-footer__divider-colour: $cads-language__brand-primary !default;
+$cads-footer__background-colour: palette.$cads-palette__blue-light !default;
+$cads-footer__text-colour: palette.$cads-palette__black !default;
+$cads-footer__text-secondary-colour: $cads-language__brand-primary !default;
+$cads-footer__link-colour: $cads-language__link-colour !default;
+$cads-footer__link-hover-colour: $cads-language__link-hover-colour !default;
+$cads-footer__hover-background-colour: $cads-language__hover-background-colour !default;
+$cads-footer__link-visited-colour: $cads-language__link-visited-colour !default;
+$cads-footer__link-active-colour: $cads-language__link-active-colour !default;
+$cads-footer__link-focus-colour: palette.$cads-palette__black !default;
+$cads-footer__link-focus-background-colour: $cads-language__focus-colour !default;
+$cads-footer__link-focus-border-colour: palette.$cads-palette__black !default;
