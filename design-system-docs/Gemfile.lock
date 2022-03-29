@@ -302,7 +302,7 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
-    view_component (2.50.0)
+    view_component (2.52.0)
       activesupport (>= 5.0.0, < 8.0)
       method_source (~> 1.0)
     webrick (1.7.0)
@@ -321,7 +321,6 @@ DEPENDENCIES
   citizens-advice-style!
   citizens_advice_components!
   puma (~> 5.2)
-  view_component (= 2.50.0)
 
 BUNDLED WITH
    2.2.31

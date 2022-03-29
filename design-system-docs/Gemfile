@@ -26,7 +26,6 @@ gem "puma", "~> 5.2"
 
 # citizens advice design system view components
 gem "citizens_advice_components", path: "../engine"
-gem "view_component", "2.50.0"
 
 group :bridgetown_plugins do
   gem "bridgetown-view-component", "~> 1.0"
