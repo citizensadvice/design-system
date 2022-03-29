@@ -30,6 +30,7 @@ gem "view_component", "2.50.0"
 
 group :bridgetown_plugins do
   gem "bridgetown-view-component", "~> 1.0"
+  gem "bridgetown-seo-tag"
 end
 
 group :development, :test do

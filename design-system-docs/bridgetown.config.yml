@@ -15,17 +15,15 @@
 #
 
 url: '' # the base hostname & protocol for your site, e.g. https://example.com
-
+timezone: Europe/London
 permalink: pretty
-
 template_engine: erb
 
 collections:
   cads_components:
     output: true
-# Other options you might want to investigate:
-#
-# base_path: "/" # the subpath of your site, e.g. /blog
-# timezone: America/Los_Angeles
+    sort_by: order
+    name: Components
+    permalink: /components/:slug/
 # pagination:
 #   enabled: true

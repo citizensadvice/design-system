@@ -1,22 +1,26 @@
 <!doctype html>
 <html lang="<%= site.locale %>">
   <head>
-    <title>Design system docs</title>
+    <meta charset="utf-8" />
+    <%= seo %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="<%= webpack_path "css" %>" />
+    <style><%= Rouge::Theme.find('github').render(scope: '.highlight') %></style>
   </head>
   <body>
     <%= render CitizensAdviceComponents::Header.new do |c| %>
-      <%- c.logo(title: "Design System Docs") %>
+      <%- c.logo(title: site.metadata.title) %>
     <% end %>
-    <%= render CitizensAdviceComponents::Navigation.new(links: [{url: "/getting-started", title: "Get started"}, {url: "/foundations", title: "Foundations"}, {url: "/components", title: "Components"}]) %>
-    <main id="cads-main-content" class="cads-grid-container cads-page-content">
-      <div class="cads-grid-row">
-        <div class="cads-grid-col-md-8">
-          <%= yield %>
-        </div>
-      </div>
-    </main>
+    <%= render CitizensAdviceComponents::Navigation.new(
+      links: [
+        { url: "/getting-started", title: "Getting started" },
+        { url: "/foundations", title: "Foundations" },
+        { url: "/components", title: "Components" }
+      ]
+    ) %>
+    <%= yield %>
+    <%= render CitizensAdviceComponents::Footer.new %>
+    <script src="<%= webpack_path "js" %>" defer></script>
   </body>
 </html>
