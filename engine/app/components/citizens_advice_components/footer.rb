@@ -11,7 +11,7 @@ module CitizensAdviceComponents
     def initialize(homepage_url: nil, feedback_url: nil)
       super
       @homepage_url = homepage_url || "/"
-      @feedback_url = feedback_url
+      @feedback_url = feedback_url.to_s
 
       feedback_url_deprecation
     end
@@ -76,7 +76,7 @@ module CitizensAdviceComponents
       def initialize(url:, title: nil, external: false, new_tab: false)
         super
 
-        @url = url
+        @url = url.to_s
         @title = title || t("citizens_advice_components.footer.website_feedback")
         @external = external
         @new_tab = new_tab

@@ -97,6 +97,16 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
       it { is_expected.to have_selector "[target=_blank]", text: default_text }
     end
+
+    context "with URI builder object" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.feedback_link(url: URI::HTTPS.build(host: "example.com", path: "/example-path"))
+        end
+      end
+
+      it { is_expected.to have_link "Is there anything wrong", href: "https://example.com/example-path" }
+    end
   end
 
   describe "deprecated feedback_url" do
@@ -111,6 +121,12 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     it "logs deprecation warning" do
       expect(ActiveSupport::Deprecation).to have_received(:warn)
         .with(/feedback_url argument is deprecated/)
+    end
+
+    it "allows passing a URI builder object" do
+      render_inline(described_class.new(feedback_url: URI::HTTPS.build(host: "example.com", path: "/example-path")))
+
+      expect(page).to have_link "Is there anything wrong", href: "https://example.com/example-path"
     end
   end
 
