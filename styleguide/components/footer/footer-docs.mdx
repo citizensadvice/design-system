@@ -20,7 +20,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 ```rb
 render(CitizensAdviceComponents::Footer.new) do |c|
-  c.feedback_url(url: "https://example.com", external: true)
+  c.feedback_link(url: "https://example.com", external: true)
   c.column(
     title: "Advice",
     links: [
