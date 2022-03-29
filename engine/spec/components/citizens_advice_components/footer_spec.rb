@@ -1,82 +1,116 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Footer, type: :component do
-  subject(:component) do
-    render_inline(described_class.new(feedback_url: feedback_url)) do |c|
-      c.columns(columns)
+  subject { page }
+
+  before { travel_to Time.zone.local(2049) }
+
+  describe "common elements" do
+    before { render_inline described_class.new }
+
+    it { is_expected.to have_selector ".cads-logo" }
+    it { is_expected.to have_text "Copyright ©2049 Citizens Advice" }
+    it { is_expected.to have_text "Citizens Advice is an operating name of" }
+
+    context "when welsh language" do
+      around { |example| I18n.with_locale(:cy) { example.run } }
+
+      it { is_expected.to have_text "Hawlfraint ©2049 Cyngor ar Bopeth" }
+      it { is_expected.to have_text "Cyngor ar Bopeth yn enw gweithredol ar" }
     end
-  end
-
-  let(:columns) { generate_columns(4) }
-  let(:feedback_url) { "https://www.research.net/r/J8PLH2H" }
-
-  before do
-    travel_to Time.zone.local(2049)
-  end
-
-  describe "feedback URL" do
-    subject { component.at("a[href='#{feedback_url}']") }
-
-    it { is_expected.to be_present }
   end
 
   describe "columns" do
-    subject(:footer_columns) { component.css("[data-testid='footer-column']") }
+    before do
+      allow(ActiveSupport::Deprecation).to receive(:warn)
+
+      render_inline(described_class.new) do |c|
+        c.columns(columns)
+      end
+    end
 
     let(:columns) { generate_columns(3) }
 
-    it "has expected number of columns" do
-      expect(footer_columns.size).to eq 3
-    end
-
-    it "has expected headings" do
-      expect(footer_columns.css("h2").map { |item| item.text.strip }).to eq [
-        "Example column 1",
-        "Example column 2",
-        "Example column 3"
-      ]
-    end
-
-    it "has expected number of links" do
-      expect(footer_columns.first.css("a").size).to eq 3
-    end
+    it { is_expected.to have_selector "[data-testid='footer-column']", count: 3 }
+    it { is_expected.to have_selector "h2", text: "Example column 1" }
+    it { is_expected.to have_selector "h2", text: "Example column 2" }
+    it { is_expected.to have_selector "h2", text: "Example column 3" }
+    it { is_expected.to have_selector "[data-testid='footer-column']:first-of-type a", count: 3 }
 
     context "when number of columns exceeds limit" do
       let(:columns) { generate_columns(6) }
 
       it "has number of columns limited to maximum" do
-        expect(footer_columns.size).to eq 4
+        expect(page).to have_selector "[data-testid='footer-column']", count: 4
+      end
+    end
+
+    context "when a link includes deprecated icon property" do
+      let(:columns) do
+        [{
+          title: "Example column",
+          links: [
+            { url: "#", title: "Link 1" },
+            { url: "#", title: "Link 2" },
+            { url: "#", title: "Link 3", icon: "external-link" }
+          ]
+        }]
+      end
+
+      it "logs deprecation warning" do
+        expect(ActiveSupport::Deprecation).to have_received(:warn)
+          .with(/generic `icon` property for column links is deprecated/)
       end
     end
   end
 
-  describe "logo" do
-    subject { component.at(".cads-logo") }
+  describe "feedback_link" do
+    let(:default_text) { "Is there anything wrong" }
 
-    it { is_expected.to be_present }
-  end
+    context "with url only" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.feedback_link(url: "https://example.com/")
+        end
+      end
 
-  describe "copyright notice" do
-    subject { component.at("[data-testid='copyright']").text }
+      it { is_expected.to have_link default_text, href: "https://example.com/" }
+      it { is_expected.not_to have_selector "[target=_blank]", text: default_text }
+    end
 
-    it { is_expected.to start_with "Copyright ©2049 Citizens Advice" }
+    context "with custom title" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.feedback_link(title: "Custom link title", url: "https://example.com/")
+        end
+      end
 
-    context "when welsh language" do
-      before { I18n.locale = :cy }
+      it { is_expected.to have_link "Custom link title", href: "https://example.com/" }
+    end
 
-      it { is_expected.to start_with "Hawlfraint ©2049 Cyngor ar Bopeth" }
+    context "with new_tab set to true" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.feedback_link(url: "https://example.com/", new_tab: true)
+        end
+      end
+
+      it { is_expected.to have_selector "[target=_blank]", text: default_text }
     end
   end
 
-  describe "legal summary" do
-    subject { component.at("[data-testid='legal-summary']").text }
+  describe "deprecated feedback_url" do
+    before do
+      allow(ActiveSupport::Deprecation).to receive(:warn)
 
-    it { is_expected.to include "Citizens Advice is an operating name of" }
+      render_inline(described_class.new(feedback_url: "https://example.com/"))
+    end
 
-    context "when welsh language" do
-      before { I18n.locale = :cy }
+    it { is_expected.to have_link "Is there anything wrong", href: "https://example.com/" }
 
-      it { is_expected.to include "Cyngor ar Bopeth yn enw gweithredol ar" }
+    it "logs deprecation warning" do
+      expect(ActiveSupport::Deprecation).to have_received(:warn)
+        .with(/feedback_url argument is deprecated/)
     end
   end
 

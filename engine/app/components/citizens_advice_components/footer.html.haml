@@ -1,12 +1,16 @@
 %footer#cads-footer.cads-footer
   .cads-grid-container
-    - if feedback_url.present?
+    - if feedback&.url.present?
       .cads-grid-row
         .cads-grid-col
           %p.cads-footer__feedback
-            %a.cads-footer__hyperlink.js-cads-footer-feedback{ href: feedback_url, target: "_blank", rel: "noopener" }
-              = t(".website_feedback")
-            %span.cads-footer__feedback-icon.cads-icon_external-link
+            = link_to(feedback.title, feedback.url,
+              class: "cads-footer__hyperlink js-cads-footer-feedback",
+              **feedback.new_tab_atrributes)
+            - if feedback.external?
+              %span.cads-footer__feedback-icon
+                = render CitizensAdviceComponents::Icons::ExternalLink.new
+
     %nav{ "aria-label": t(".navigation_title")  }
       .cads-grid-row
         - columns_to_show.each do |column|
@@ -16,8 +20,10 @@
               - column.links.each do |link|
                 %li.cads-footer__link
                   = link_to link[:title], link[:url], class: "cads-footer__hyperlink"
-                  - if link[:icon].present?
-                    = tag.span(class: "cads-footer__icon cads-icon_#{link[:icon]}")
+                  -# Support old "icon" key but assume external link
+                  - if link[:external].present? || link[:icon].present?
+                    %span.cads-footer__icon
+                      = render CitizensAdviceComponents::Icons::ExternalLink.new
     .cads-footer__company-info
       .cads-footer__logo
         %a.cads-logo{ href: homepage_url, title: t(".logo_title") }
