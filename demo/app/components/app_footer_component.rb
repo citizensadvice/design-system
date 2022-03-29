@@ -2,13 +2,10 @@
 
 class AppFooterComponent < ViewComponent::Base
   def call
-    render CitizensAdviceComponents::Footer.new(feedback_url: feedback_url) do |c|
+    render CitizensAdviceComponents::Footer.new do |c|
       c.columns(columns)
+      c.feedback_link(url: "https://example.com/", external: true)
     end
-  end
-
-  def feedback_url
-    "https://www.research.net/r/J8PLH2H"
   end
 
   def columns

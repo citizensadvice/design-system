@@ -2,7 +2,7 @@
 // Footer
 // ============================================================================
 
-/** @define footer */
+/** @define footer; weak */
 .cads-footer {
   @include cads-typographic-scale-text-small();
 
@@ -28,10 +28,18 @@
     @media print {
       display: none;
     }
+  }
 
-    .cads-footer__feedback-icon {
-      font-size: 0.7rem;
-      margin-left: 0.5ch;
+  .cads-footer__feedback-icon {
+    font-size: 0.7rem;
+    margin-left: 0.5ch;
+
+    svg {
+      height: 14px;
+      // Optical alignment
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
     }
   }
 
@@ -42,6 +50,14 @@
   .cads-footer__icon {
     color: $cads-footer__link-colour;
     font-size: 12px;
+
+    svg {
+      height: 14px;
+      // Optical alignment
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
   }
 
   .cads-footer__hyperlink {

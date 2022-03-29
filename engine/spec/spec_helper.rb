@@ -32,8 +32,8 @@ RSpec.configure do |config|
 
   # Explicitly set locale before each component spec,
   # to avoid leaking locale state between test runs.
-  config.before(type: :component) do
-    I18n.locale = :en
+  config.around(type: :component) do |example|
+    I18n.with_locale(:en) { example.run }
   end
 
   config.expect_with :rspec do |expectations|
