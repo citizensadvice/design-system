@@ -8,11 +8,6 @@ CHANGELOG.md
 docs/
 lib/
 
-# Ignore testing artifacts
-testing/artifacts/
-testing/visual-regression/backstop_data/
-testing/cucumber.yml
-
 # Ignore locale files from prettier
 # formatted by i18n-tasks
 /engine/config/locales/
@@ -20,6 +15,7 @@ testing/cucumber.yml
 
 # Ignore Rails demo app files
 /demo/public/
+/demo/visual-regression/backstop_data/
 
 # Ignore design-system-docs output
 /design-system-docs/output/

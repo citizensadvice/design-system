@@ -1,0 +1,5 @@
+<% content_for :custom_head do %>
+  <%= stylesheet_pack_tag "previews", media: "all" %>
+<% end %>
+<% @body_class = "component-preview--#{@preview.preview_name.split("/").last}" if @preview.present? %>
+<%= render template: "layouts/application" %>

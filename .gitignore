@@ -7,20 +7,15 @@ node_modules
 local.log
 *.iml
 .env
-testing/.env
 npm-debug.log
 .vscode
 *.tgz
 yarn-error.log
 .npmrc
 *.gem
-testing/visual-regression/backstop_data/bitmaps_test
-testing/visual-regression/backstop_data/html_report
-testing/visual-regression/backstop_data/ci_report
+demo/visual-regression/backstop_data/bitmaps_test
+demo/visual-regression/backstop_data/html_report
+demo/visual-regression/backstop_data/ci_report
 vendor/**/*
 /lib
 *.code-workspace
-
-# Keep nothing in these directories except the 'keep' files
-testing/artifacts/*
-!testing/artifacts/.keep

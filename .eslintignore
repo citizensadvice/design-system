@@ -1,7 +1,7 @@
 .storybook/vendor
 docs
 lib
-testing/visual-regression/backstop_data/html_report/
+demo/visual-regression/backstop_data/html_report/
 vendor
 /demo/
 /design-system-docs/output/
