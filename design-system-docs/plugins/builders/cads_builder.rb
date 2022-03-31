@@ -6,6 +6,11 @@ require "haml/plugin"
 
 ActionView::Template.register_template_handler(:haml, Haml::Plugin)
 
+# Make sure translation files are loaded
+I18n.load_path << Dir[
+  "#{CitizensAdviceComponents::Engine.root.join('config/locales')}/*.yml"
+]
+
 module Builders
   class CadsBuilder < SiteBuilder
     def build
