@@ -178,6 +178,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    htmlbeautifier (1.4.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     io-wait (0.2.1)
@@ -323,6 +324,7 @@ DEPENDENCIES
   bridgetown-view-component (~> 1.0)
   citizens-advice-style!
   citizens_advice_components!
+  htmlbeautifier
   puma (~> 5.2)
 
 BUNDLED WITH

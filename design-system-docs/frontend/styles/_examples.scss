@@ -1,0 +1,32 @@
+// ============================================================================
+// Component examples
+// ============================================================================
+
+.component-example {
+  border: 1px solid $cads-language__border-colour;
+  padding: $cads-spacing-5;
+  margin-bottom: $cads-spacing-6;
+}
+.component-example__links {
+  text-align: right;
+  margin-bottom: $cads-spacing-5;
+}
+.component-example__iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  min-width: 230px;
+  min-height: 60px;
+  overflow: auto;
+  margin-bottom: $cads-spacing-4;
+}
+.component-example__source {
+  .cads-disclosure {
+    margin-bottom: $cads-spacing-4;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

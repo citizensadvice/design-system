@@ -1,0 +1,25 @@
+// ============================================================================
+// Listings
+// ============================================================================
+
+.sidebar {
+  margin-top: $cads-spacing-4;
+}
+
+.text-list {
+  margin-bottom: $cads-spacing-6;
+
+  &__title {
+    @extend %cads-h2;
+  }
+
+  &__links {
+    @extend %cads-list-no-bullet;
+
+    margin-bottom: $cads-spacing-6;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
