@@ -120,7 +120,7 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (5.6.2)
+    puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -209,7 +209,7 @@ DEPENDENCIES
   high_voltage (~> 3.1)
   listen (~> 3.2)
   pry
-  puma (~> 5.5)
+  puma (~> 5.6)
   rails (~> 6.1)
   spring
   spring-watcher-listen (~> 2.0.0)
