@@ -1,5 +1,0 @@
----
-layout: component
----
-
-# Targeted Content

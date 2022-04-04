@@ -54,27 +54,27 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = '';
     });
 
-    it('finds direct ancestor node by id', () => {
+    test('finds direct ancestor node by id', () => {
       expect(getClosest(bottom, '#middle')).toBe(middle);
     });
 
-    it('finds grandparent node by id', () => {
+    test('finds grandparent node by id', () => {
       expect(getClosest(bottom, '#top')).toBe(top);
     });
 
-    it('finds parent by class', () => {
+    test('finds parent by class', () => {
       expect(getClosest(bottom, '.parent')).toBe(middle);
     });
 
-    it('finds grandparent by class', () => {
+    test('finds grandparent by class', () => {
       expect(getClosest(bottom, '.top')).toBe(top);
     });
 
-    it('finds parent by attribute', () => {
+    test('finds parent by attribute', () => {
       expect(getClosest(bottom, '[data-middle]')).toEqual(middle);
     });
 
-    it('finds grandparent by attribute', () => {
+    test('finds grandparent by attribute', () => {
       expect(getClosest(bottom, '[data-top]')).toEqual(top);
     });
 
@@ -86,7 +86,7 @@ describe('Greedy Nav', () => {
       expect(getClosest(bottom, '.not-there')).toBeFalsy();
     });
 
-    it('returns false for absent attribute', () => {
+    test('returns false for absent attribute', () => {
       expect(getClosest(bottom, '[not-there]')).toBeFalsy();
     });
   });
@@ -96,7 +96,7 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = '';
     });
 
-    it('displays toggle if breaks is empty', () => {
+    test('displays toggle if breaks is empty', () => {
       const selector = '.cads-greedy-nav-dropdown-toggle';
       const dom = new JSDOM(
         `<div class="cads-greedy-nav-dropdown cads-greedy-nav-has-dropdown">
@@ -123,7 +123,7 @@ describe('Greedy Nav', () => {
       expect(navWrapper?.getAttribute('aria-haspopup')).toBe('false');
     });
 
-    it('hides toggle if breaks is populated', () => {
+    test('hides toggle if breaks is populated', () => {
       const selector = '.cads-greedy-nav-dropdown-toggle';
       const dom = new JSDOM(
         `<div class="cads-greedy-nav-dropdown ">
@@ -176,14 +176,14 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = '';
     });
 
-    it('updates dropdownToggle to closed state', () => {
+    test('updates dropdownToggle to closed state', () => {
       updateLabel(wrapper, label, selector, activeLabel);
 
       expect(toggle.innerHTML).toEqual('Menu');
       expect(toggle.getAttribute('aria-expanded')).toBe('false');
     });
 
-    it('updates dropdownToggle to open state', () => {
+    test('updates dropdownToggle to open state', () => {
       updateLabel(wrapper, activeLabel, selector, activeLabel);
 
       expect(toggle.innerHTML).toEqual('Close');
@@ -195,7 +195,7 @@ describe('Greedy Nav', () => {
     afterEach(() => {
       document.body.innerHTML = '';
     });
-    it('moves last menu child to dropdown', () => {
+    test('moves last menu child to dropdown', () => {
       const dom = new JSDOM(
         `<nav>
                 <ul class="menu">
@@ -220,7 +220,7 @@ describe('Greedy Nav', () => {
       expect(dropdown.querySelectorAll('li')).toHaveLength(1);
     });
 
-    it('moves menu items to the dop of dropdown', () => {
+    test('moves menu items to the dop of dropdown', () => {
       const dom = new JSDOM(
         `<nav>
                 <ul class="menu">
@@ -248,7 +248,8 @@ describe('Greedy Nav', () => {
     afterEach(() => {
       document.body.innerHTML = '';
     });
-    it('moves items from dropdown to menu', () => {
+
+    test('moves items from dropdown to menu', () => {
       const dom = new JSDOM(
         `<nav>
                 <ul class="menu">
@@ -301,7 +302,7 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = '';
     });
 
-    it('toggles the menu open', () => {
+    test('toggles the menu open', () => {
       fireEvent.keyUp(nav.navDropdownToggle, { key: 'Tab' });
 
       expect(nav.navDropdown!.className).toContain('show');
@@ -309,7 +310,7 @@ describe('Greedy Nav', () => {
       expect(nav.navDropdownToggle!.innerHTML).toContain('Close');
     });
 
-    it('when tabbing backwards through the dropdown menu', () => {
+    test('when tabbing backwards through the dropdown menu', () => {
       fireEvent.focus(nav.navDropdownToggle);
       fireEvent.blur(nav.navDropdownToggle);
 
@@ -340,36 +341,23 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = '';
     });
 
-    describe('openDropDown', () => {
-      it('opens the dropdown menu', () => {
-        userEvent.click(nav.navDropdownToggle);
+    test('opens the dropdown menu', async () => {
+      const user = userEvent.setup();
 
-        expect(nav.navDropdown.classList).toContain('show');
-      });
+      await user.click(nav.navDropdownToggle);
 
-      it('sets aria-hidden to false on the drop down', () => {
-        nav.openDropDown(nav.mainNavWrapper);
-
-        expect(nav.navDropdown!).toHaveAttribute('aria-hidden', 'false');
-      });
+      expect(nav.navDropdown.classList).toContain('show');
+      expect(nav.navDropdown!).toHaveAttribute('aria-hidden', 'false');
     });
 
-    describe('closeDropDown', () => {
-      beforeEach(() => {
-        userEvent.click(nav.navDropdownToggle);
-      });
+    test('closes the dropdown menu', async () => {
+      const user = userEvent.setup();
 
-      it('closes the dropdown menu', () => {
-        userEvent.click(nav.navDropdownToggle);
+      await user.click(nav.navDropdownToggle);
+      await user.click(nav.navDropdownToggle);
 
-        expect(nav.navDropdown).not.toContain('show');
-      });
-
-      it('sets aria-hidden to true on the drop down', () => {
-        userEvent.click(nav.navDropdownToggle);
-
-        expect(nav.navDropdown).toHaveAttribute('aria-hidden', 'true');
-      });
+      expect(nav.navDropdown).not.toContain('show');
+      expect(nav.navDropdown).toHaveAttribute('aria-hidden', 'true');
     });
   });
 });

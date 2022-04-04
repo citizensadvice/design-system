@@ -1,0 +1,20 @@
+// ============================================================================
+// Listings
+// ============================================================================
+
+.feedback-prompt {
+  margin-bottom: $cads-spacing-7;
+  padding: $cads-spacing-4 0;
+  border: solid $cads-language__border-colour;
+  border-width: 1px 0;
+}
+.feedback-prompt__title {
+  @extend %cads-h4;
+
+  margin: 0 0 $cads-spacing-1 0;
+}
+.feedback-prompt__body {
+  @include cads-typographic-scale-text-small();
+
+  margin: 0;
+}

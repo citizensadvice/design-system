@@ -29,12 +29,12 @@ end
 namespace :frontend do
   desc "Build the frontend with Webpack for deployment"
   task :build do
-    sh "npm run webpack-build"
+    sh "yarn run webpack-build"
   end
 
   desc "Watch the frontend with Webpack during development"
   task :dev do
-    sh "npm run webpack-dev --color"
+    sh "yarn run webpack-dev --color"
   end
 end
 

@@ -16,23 +16,36 @@ jobs:
   deployPRDraft:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
+    if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
 
-      - name: Build docs site
-        uses: ruby/setup-ruby@v1
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+
+      # Setup docs site
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.4'
+          bundler-cache: true
+          working-directory: design-system-docs
+
+      # Yarn install
+      - uses: bahmutov/npm-install@v1
         with:
           working-directory: design-system-docs
-      - run: |
-          cd design-system-docs
-          bundle
-          yarn install
-          bin/bridgetown deploy
+
+      - run: ./bin/bridgetown deploy
+        working-directory: design-system-docs
 
       - name: Deploy draft to Netlify
-        uses: South-Paw/action-netlify-deploy@v1.2.0
+        uses: South-Paw/action-netlify-deploy@v1.2.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -50,21 +63,34 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'created'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
 
-      - name: Build docs site
-        uses: ruby/setup-ruby@v1
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+
+      # Setup docs site
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.4'
+          bundler-cache: true
+          working-directory: design-system-docs
+
+      # Yarn install
+      - uses: bahmutov/npm-install@v1
         with:
           working-directory: design-system-docs
-      - run: |
-          cd design-system-docs
-          bundle
-          yarn install
-          bin/bridgetown deploy
+
+      - run: ./bin/bridgetown deploy
+        working-directory: design-system-docs
 
       - name: Deploy production to Netlify
-        uses: South-Paw/action-netlify-deploy@v1.2.0
+        uses: South-Paw/action-netlify-deploy@v1.2.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
