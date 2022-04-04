@@ -16,7 +16,7 @@ jobs:
   deployPRDraft:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
+    if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
