@@ -199,10 +199,6 @@ module.exports = function backstopCommon(baseUrl) {
         label: 'Components/Pagination (example)',
         url: componentUrlFor('pagination/with_fifth_page'),
       },
-      // {
-      //   label: 'Components/Pagination (paging info)',
-      //   url: componentUrlFor('components-pagination--paging-info'),
-      // },
       {
         label: 'Components/Search',
         url: componentUrlFor('search/example'),
