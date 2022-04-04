@@ -1,3 +1,6 @@
 inherit_gem:
   citizens-advice-style:
     - default.yml
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']

@@ -1,0 +1,31 @@
+// ============================================================================
+// Foundations
+// ============================================================================
+
+.cads-prose .cads-styleguide-icon-grid {
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: $cads-spacing-2;
+
+  > li {
+    display: block;
+    border: 1px solid $cads-language__border-colour;
+    border-radius: $cads-border-radius;
+    padding: $cads-spacing-4;
+    margin: 0;
+    text-align: center;
+
+    .cads-styleguide-icon-grid__label {
+      @include cads-typographic-scale-text-small();
+
+      display: block;
+    }
+
+    svg {
+      margin-bottom: 0.5em;
+    }
+  }
+}
