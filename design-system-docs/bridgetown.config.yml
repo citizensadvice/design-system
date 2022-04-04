@@ -20,10 +20,13 @@ permalink: pretty
 template_engine: erb
 
 collections:
-  cads_components:
+  component_docs:
     output: true
     sort_by: order
     name: Components
     permalink: /components/:slug/
+  component_examples:
+    output: true
+    permalink: /examples/:slug/
 # pagination:
 #   enabled: true

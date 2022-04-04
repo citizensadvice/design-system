@@ -1,4 +1,6 @@
 ---
+layout: default
+---
 
 <%= render(CitizensAdviceComponents::Breadcrumbs.new(
   links: [
@@ -17,9 +19,23 @@
           <%= content %>
         </div>
       </div>
+      <%= render "feedback_prompt" %>
     </div>
     <div class="cads-grid-col-md-4 sidebar">
-      <%# TODO: Add sidebar %>
+      <%=
+        render(CitizensAdviceComponents::SectionLinks.new(
+          title: "In this section",
+          section_title: resource.collection.metadata.name,
+          section_title_url: "/components"
+        )) do |c|
+          c.section_links(collections.component_docs.resources.map do |foundation|
+            { url: foundation.relative_url, title: foundation.data.title }
+          end)
+          # Need to pass in some content to avoid shadowing Bridgetowns content global
+          # We could probably avoid this by wrapping this in its own component?
+          ""
+        end
+      %>
     </div>
   </div>
 </main>
