@@ -170,24 +170,29 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Targeted content',
         url: componentUrlFor('targeted_content/default'),
+        viewports: [commonViewports.small, commonViewports.large],
       },
       {
         label: 'Components/Targeted content (open)',
         url: componentUrlFor('targeted_content/default'),
+        viewports: [commonViewports.small, commonViewports.large],
         clickSelector: '.cads-targeted-content',
       },
       {
         label: 'Components/Targeted content adviser',
         url: componentUrlFor('targeted_content/adviser'),
+        viewports: [commonViewports.small, commonViewports.large],
       },
       {
         label: 'Components/Targeted content adviser (open)',
         url: componentUrlFor('targeted_content/adviser'),
+        viewports: [commonViewports.small, commonViewports.large],
         clickSelector: '.cads-targeted-content',
       },
       {
         label: 'Components/Targeted content (fallback)',
         url: componentUrlFor('targeted_content/default'),
+        viewports: [commonViewports.small, commonViewports.large],
         onBeforeScript: 'onBeforeNoJs.js',
       },
       {
