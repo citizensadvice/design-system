@@ -20,7 +20,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "bridgetown", "~> 1.0"
 gem "htmlbeautifier"
-gem "puma", "~> 5.2"
+gem "puma", "~> 5.6"
 
 gem "citizens_advice_components", path: "../engine"
 
