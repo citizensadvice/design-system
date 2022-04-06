@@ -8,6 +8,7 @@
 **Bugfixes**
 
 - 🔗 Links: Fix external link styles when used outside of the main www.citizensadvice.org.uk domain.
+- 🔗 Links: Swap external link out with background image. Fixes an issue with the contents of the icon being read out to screen readers.
 - 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
 - 🤫 Fix deprecation warning with newer versions of view_component
 
