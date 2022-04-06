@@ -2,6 +2,15 @@
 // Code styles
 // ============================================================================
 
+code {
+  line-height: 1;
+  margin: 0 2px;
+  padding: $cads-spacing-1 $cads-spacing-2;
+  border-radius: $cads-border-radius;
+  white-space: nowrap;
+  background-color: #f8f8f8;
+}
+
 pre code {
   display: block;
   background: none;
