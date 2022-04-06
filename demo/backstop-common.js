@@ -29,12 +29,12 @@ module.exports = function backstopCommon(baseUrl) {
         focusSelector: 'button',
         viewports: [viewport],
       },
-      {
-        label: `${labelPrefix} (active)`,
-        url: componentUrlFor(componentId),
-        onReadyScript: 'onReadyButtonActive.js',
-        viewports: [viewport],
-      },
+      // {
+      //   label: `${labelPrefix} (active)`,
+      //   url: componentUrlFor(componentId),
+      //   onReadyScript: 'onReadyButtonActive.js',
+      //   viewports: [viewport],
+      // },
     ];
   }
 
