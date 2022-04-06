@@ -30,6 +30,6 @@ collections:
     permalink: /components/:slug/
   component_examples:
     output: true
-    permalink: /examples/:slug/
+    permalink: /examples/:categories/:slug/
 # pagination:
 #   enabled: true

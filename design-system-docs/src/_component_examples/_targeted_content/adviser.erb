@@ -1,10 +1,8 @@
 ---
-title: Default
 ---
-<%= render(CitizensAdviceComponents::TargetedContent.new(
-  title: "If you are a citizen of a country outside the EU, EEA or Switzerland",
-  id: "targeted-content-123")
-) do %>
+<%= render(CitizensAdviceComponents::TargetedContent.new(type: :adviser,
+  title: "Students or self-sufficient people",
+  id: "targeted-content-adviser")) do %>
   <p>You should apply to the EU Settlement Scheme if both:</p>
   <ul>
     <li>you’re in the UK by 31 December 2020</li>
