@@ -170,30 +170,6 @@ export const linkTextHtml = `<p class="my-paragraph"><a href="">cads-hyperlink</
 
 Read our guidance about using <a href ="?path=/docs/components-buttons--primary">buttons as links</a>.
 
-### External Links
-
-When you link to a page external to your website add the `.cads-hyperlink--external` class to display an icon after the link.
-
-If your links appear within a `.cads-prose` container this style is automatically applied for all links with a `rel=external` attribute or that don't match the value set for `$cads-internal-link-domain` (defaults to `https:/www.citizensadvice.org.uk`).
-
-export const externalLinkHTML = `
-<p class="my-paragraph">
-  A <a href="http://www.example.com/unvisted" class="cads-hyperlink--external">cads-hyperlink--external</a> link, displayed in a paragraph.
-</p>
-<main class="cads-prose">
-  <p>This is a link to an <a href="https://www.example.com" rel="external">external site</a>, while this link is within <a href="https://www.citizensadvice.org.uk/immigration">Citizens Advice</a></p>
-</main>
-`;
-
-<Preview>
-  <Story
-    name="External Links"
-    parameters={{ docs: { source: { code: externalLinkHTML } } }}
-  >
-    {() => externalLinkHTML}
-  </Story>
-</Preview>
-
 ## Lists
 
 ### Unordered lists

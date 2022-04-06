@@ -20,7 +20,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 ```rb
 render(CitizensAdviceComponents::Footer.new) do |c|
-  c.feedback_link(url: "https://example.com", external: true)
+  c.feedback_link(url: "https://example.com")
   c.column(
     title: "Advice",
     links: [
@@ -71,11 +71,11 @@ The component accepts a `feedback_link` slot to render an optional feedback link
 
 The slot accepts the following named arguments:
 
-| Property   | Description                                             |
-| ---------- | ------------------------------------------------------- |
-| `title`    | Optional, title for the column                          |
-| `url`      | Required, feedback URL                                  |
-| `external` | Optional. Is this an external link? Defaults to `false` |
+| Property  | Description                                                |
+| --------- | ---------------------------------------------------------- |
+| `title`   | Optional, title for the column                             |
+| `url`     | Required, feedback URL                                     |
+| `new_tab` | Optional. Does this open in a new tab? Defaults to `false` |
 
 #### Column slots
 
@@ -89,11 +89,10 @@ end
 
 Each slot accepts the following named arguments:
 
-| Property         | Description                                            |
-| ---------------- | ------------------------------------------------------ |
-| `title`          | Required, title for the column                         |
-| `links`          | Required, an array of hashes, each with the following: |
-| `link[url]`      | &rarr; Required, url for the link                      |
-| `link[title]`    | &rarr; Required, title for the link                    |
-| `link[external]` | &rarr; Optional, is this an external link?             |
-| `link[new_tab]`  | &rarr; Optional, should this link open in a new tab?   |
+| Property        | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| `title`         | Required, title for the column                         |
+| `links`         | Required, an array of hashes, each with the following: |
+| `link[url]`     | &rarr; Required, url for the link                      |
+| `link[title]`   | &rarr; Required, title for the link                    |
+| `link[new_tab]` | &rarr; Optional, should this link open in a new tab?   |

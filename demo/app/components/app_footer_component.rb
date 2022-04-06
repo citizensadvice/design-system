@@ -4,7 +4,7 @@ class AppFooterComponent < ViewComponent::Base
   def call
     render CitizensAdviceComponents::Footer.new do |c|
       c.columns(columns)
-      c.feedback_link(url: "https://example.com/", external: true)
+      c.feedback_link(url: "https://example.com/")
     end
   end
 
@@ -56,7 +56,7 @@ class AppFooterComponent < ViewComponent::Base
          { url: "/about-us/how-citizens-advice-works/", title: "How Citizens Advice works" },
          { url: "/resources-and-tools/about-this-site/disclaimer-and-copyright/", title: "Disclaimer and Copyright" },
          { url: "/about-us/citizens-advice-privacy-policy/", title: "Privacy and cookies" },
-         { url: "http://example.com", title: "External link", icon: "external-link" }
+         { url: "http://example.com", title: "External link" }
        ]
      }]
   end

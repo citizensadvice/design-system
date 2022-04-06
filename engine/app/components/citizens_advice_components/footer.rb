@@ -37,7 +37,6 @@ module CitizensAdviceComponents
       FooterFeedbackLink.new(
         url: @feedback_url,
         title: t("citizens_advice_components.footer.website_feedback"),
-        external: true,
         new_tab: true
       )
     end
@@ -65,7 +64,7 @@ module CitizensAdviceComponents
         return unless links.any? { |link| link[:icon].present? }
 
         ActiveSupport::Deprecation.warn(
-          "generic `icon` property for column links is deprecated use `external: true` instead"
+          "The `icon` property for column links is deprecated"
         )
       end
     end
@@ -73,17 +72,12 @@ module CitizensAdviceComponents
     class FooterFeedbackLink < Base
       attr_reader :title, :url
 
-      def initialize(url:, title: nil, external: false, new_tab: false)
+      def initialize(url:, title: nil, new_tab: false)
         super
 
         @url = url.to_s
         @title = title || t("citizens_advice_components.footer.website_feedback")
-        @external = external
         @new_tab = new_tab
-      end
-
-      def external?
-        @external.present?
       end
 
       def new_tab?

@@ -53,7 +53,7 @@ module CitizensAdviceComponents
             { url: "/about-us/how-citizens-advice-works/", title: "How Citizens Advice works" },
             { url: "/resources-and-tools/about-this-site/disclaimer-and-copyright/", title: "Disclaimer and Copyright" },
             { url: "/about-us/citizens-advice-privacy-policy/", title: "Privacy and cookies" },
-            { url: "http://example.com", title: "External link", icon: "external-link" }
+            { url: "http://example.com", title: "External link" }
           ]
         )
       end

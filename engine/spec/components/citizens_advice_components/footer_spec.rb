@@ -52,14 +52,14 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
           links: [
             { url: "#", title: "Link 1" },
             { url: "#", title: "Link 2" },
-            { url: "#", title: "Link 3", icon: "external-link" }
+            { url: "#", title: "Link 3", icon: "deprecated-icon" }
           ]
         }]
       end
 
       it "logs deprecation warning" do
         expect(ActiveSupport::Deprecation).to have_received(:warn)
-          .with(/generic `icon` property for column links is deprecated/)
+          .with("The `icon` property for column links is deprecated")
       end
     end
   end

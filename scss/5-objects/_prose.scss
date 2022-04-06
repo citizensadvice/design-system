@@ -55,17 +55,6 @@
   .cads-list-no-bullet {
     @extend %cads-list-no-bullet;
   }
-
-  // Style external links
-  a[rel~='external']::after,
-  // Allow external links to be determined based on $cads-internal-link-domain value
-  // Favour using rel=external as a styling hook.
-  // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel#attr-external
-  a:not([href^="#{prose-config.$cads-internal-link-domain}"]):not([href^="/"]):not([href^="#"])::after {
-    @media not print {
-      @include cads-hyperlink--external-icon();
-    }
-  }
 }
 
 @media print {
