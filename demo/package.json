@@ -2,6 +2,12 @@
   "name": "demo",
   "private": true,
   "version": "0.1.0",
+  "scripts": {
+    "backstop": "npx backstop test --docker --config=backstop-config.js",
+    "backstop:reference": "npx backstop reference --docker --config=backstop-config.js",
+    "backstop:approve": "npx backstop approve --config=backstop-config.js",
+    "backstop:report": "npx backstop openReport --config=backstop-config.js"
+  },
   "dependencies": {
     "@citizensadvice/design-system": "file:..",
     "@rails/webpacker": "^5.4.0"
@@ -9,6 +15,7 @@
   "devDependencies": {
     "@testing-library/cypress": "^8.0.2",
     "axe-core": "^4.4.1",
+    "backstopjs": "^5.4.4",
     "cypress": "^9.5.1",
     "cypress-axe": "^0.14.0",
     "cypress-plugin-tab": "^1.0.5",
