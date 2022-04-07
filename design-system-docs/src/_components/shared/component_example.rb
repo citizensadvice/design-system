@@ -25,6 +25,10 @@ module Shared
       example_resource
     end
 
+    def example_title
+      example.data.title.downcase
+    end
+
     def find_example
       @site.collections.component_examples.resources.find do |resource|
         resource.data.categories.include?(@category.to_s) &&
