@@ -16,7 +16,7 @@
       <%= render(CitizensAdviceComponents::Disclosure.new(
         closed_summary: "Show HTML",
         open_summary: "Hide HTML",
-        id: example_title.parameterize)) do %>
+        id: "#{example_title.parameterize}-html")) do %>
         <pre class="highlight"><code><%= raw highlighted_html %></code></pre>
       <% end %>
     <% end %>
@@ -24,7 +24,7 @@
       <%= render(CitizensAdviceComponents::Disclosure.new(
         closed_summary: "Show ERB code",
         open_summary: "Hide ERB code",
-        id: example_title.parameterize)) do %>
+        id: "#{example_title.parameterize}-source")) do %>
         <pre class="highlight"><code><%= raw highlighted_source %></code></pre>
       <% end %>
     <% end %>
