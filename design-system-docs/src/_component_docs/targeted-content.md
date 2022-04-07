@@ -5,9 +5,9 @@ title: Targeted Content
 
 The targeted content component allows users to show and hide sections of related content on a page. It can help users scan and process content on a page more effectively.
 
-However, it does hide content from users and it can be easy for users to miss. When using it, you should aim to use **no more than 6** and you shouldn’t have a targeted content on its own.
+However, it does hide content from users and it can be easy for users to miss. When using it, you should aim to use no more than 6 and you shouldn’t have a targeted content on its own.
 
-Because targeted contents hide content, they should always have a clear label/title that helps users understand what is in the section. You can use `h3` within them to break up the content.
+Because targeted contents hide content, they should always have a clear titles that helps users understand what is in the section. You can use headings within them to break up the content.
 
 ## When to use
 
