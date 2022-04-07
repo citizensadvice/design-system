@@ -23,3 +23,8 @@
     }
   }
 }
+
+.cads-footer .cads-footer__company-info {
+  // Remove border whilst not using footer links or feedback
+  border-top: none;
+}
