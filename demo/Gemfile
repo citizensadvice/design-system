@@ -5,18 +5,18 @@ source "https://rubygems.org"
 ruby "2.7.4"
 
 gem "high_voltage", "~> 3.1"
-gem "puma", "~> 5.5"
+gem "puma", "~> 5.6"
 gem "rails", "~> 6.1"
 gem "webpacker", "~> 5.0"
 
-# Pinned due to: https://github.com/github/view_component/issues/1315
-gem 'view_component', '2.50.0'
-
 gem "citizens_advice_components", path: "../engine"
+
+group :development, :test do
+  gem "cypress-rails"
+end
 
 group :development do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
-  gem "cypress-rails"
   gem "listen", "~> 3.2"
   gem "pry"
   gem "spring"

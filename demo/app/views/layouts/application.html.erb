@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="<%= I18n.locale %>">
+<html class="no-js" lang="<%= I18n.locale %>">
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag "application", media: "all" %>
+    <%= yield :custom_head %>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
   </head>
-  <body>
+  <body<%- if @body_class.present? %> class="<%= @body_class %>"<%- end -%>>
     <div id="content"><%= yield %></div>
     <%= javascript_packs_with_chunks_tag "application" %>
   </body>

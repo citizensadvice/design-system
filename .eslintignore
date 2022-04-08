@@ -1,9 +1,9 @@
 .storybook/vendor
 docs
 lib
-testing/visual-regression/backstop_data/html_report/
+demo/visual-regression/backstop_data/html_report/
 vendor
+
+# Sub-projects manage their own linting rules
 /demo/
-/design-system-docs/output/
-/design-system-docs/.bridgetown-webpack/
-/design-system-docs/config/webpack.defaults.js
+/design-system-docs/

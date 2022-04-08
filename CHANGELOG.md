@@ -1,10 +1,15 @@
 **New**
 - 🔓 Disclosure: Adds new `Disclosure` view component
-- Expand version ranges for `citizens_advice_components` to support Rails 7
+- 🥾 Footer: Add more flexible `feedback_link` slot and deprecate `feedback_url` argument.
+- 🥾 Footer: Support `external` icon for column links and deprecate`icon` property. Previous option was too generic, only support external links.
+- 🥾 Footer: Fix accessibility issue with external link icons using old icon font and reading out content. Use new SVG icons.
+- 🛤️ Expand version ranges for `citizens_advice_components` to support Rails 7
 
 **Bugfixes**
 
-- Fix deprecation warning with newer versions of view_component
+- 🔗 Links: Fix external link styles when used outside of the main www.citizensadvice.org.uk domain.
+- 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
+- 🤫 Fix deprecation warning with newer versions of view_component
 
 ## <sub>v5.2.0</sub>
 

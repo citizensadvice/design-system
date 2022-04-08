@@ -2,4 +2,40 @@
 layout: default
 ---
 
-<%= content %>
+<%= render(CitizensAdviceComponents::Breadcrumbs.new(
+  links: [
+    { title: "Home", url: "/"},
+    { title: resource.collection.metadata.name, url: "/components" },
+    { title: resource.data.title }
+  ]
+)) %>
+
+<main id="cads-main-content" class="cads-grid-container">
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-md-8">
+      <div class="cads-page-content">
+        <h1 class="cads-page-title"><%= resource.data.title %></h1>
+        <div class="cads-prose">
+          <%= content %>
+        </div>
+      </div>
+      <%= render "feedback_prompt" %>
+    </div>
+    <div class="cads-grid-col-md-4 sidebar">
+      <%=
+        render(CitizensAdviceComponents::SectionLinks.new(
+          title: "In this section",
+          section_title: resource.collection.metadata.name,
+          section_title_url: "/components"
+        )) do |c|
+          c.section_links(collections.component_docs.resources.map do |foundation|
+            { url: foundation.relative_url, title: foundation.data.title }
+          end)
+          # Need to pass in some content to avoid shadowing Bridgetowns content global
+          # We could probably avoid this by wrapping this in its own component?
+          ""
+        end
+      %>
+    </div>
+  </div>
+</main>
