@@ -1,5 +1,5 @@
-@use '../1-settings/colour-palette' as palette;
 @import 'legacy-colours';
+@use '../1-settings/colour-palette' as palette;
 
 @function cads-colours($colour, $legacy: false) {
   @if ($legacy) {
