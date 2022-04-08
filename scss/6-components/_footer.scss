@@ -1,6 +1,43 @@
 // ============================================================================
 // Footer
 // ============================================================================
+// Colours
+$cads-footer__divider__colour: cads-colours(
+  $cads-palette__heritage-blue-dark,
+  $legacy: $cads-footer__divider-colour
+);
+$cads-footer__background-colour: cads-colours(
+  $cads-palette__blue-light,
+  $legacy: $cads-footer__background-colour
+);
+$cads-footer__text__colour: cads-colours(
+  $cads-palette__black,
+  $legacy: $cads-footer__text-colour
+);
+$cads-footer__text__colour--secondary: cads-colours(
+  $cads-palette__heritage-blue,
+  $legacy: $cads-footer__text-secondary-colour
+);
+$cads-footer__link__colour: cads-colours(
+  $cads-palette__heritage-blue,
+  $legacy: $cads-footer__link-colour
+);
+$cads-footer__link__colour--hover: cads-colours(
+  $cads-palette__heritage-blue-dark,
+  $legacy: $cads-footer__link-hover-colour
+);
+$cads-footer__background-colour--hover: cads-colours(
+  $cads-palette__blue-light,
+  $legacy: $cads-footer__hover-background-colour
+);
+$cads-footer__link__colour--visited: cads-colours(
+  $cads-palette__purple,
+  $legacy: $cads-footer__link-visited-colour
+);
+$cads-footer__link__colour--active: cads-colours(
+  $cads-palette__dark-grey,
+  $legacy: $cads-footer__link-active-colour
+);
 
 /** @define footer; weak */
 .cads-footer {
