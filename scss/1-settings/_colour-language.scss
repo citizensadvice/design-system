@@ -15,7 +15,7 @@ $use-legacy-colours: true !default;
 
 // ${component}__{element}__{property}--{state}
 $cads-language__brand--primary: cads-colours(
-  pink,
+  $cads-palette__heritage-blue,
   $legacy: $cads-language__brand-primary
 ) !default;
 $cads-language__brand--primary-dark: cads-colours(
