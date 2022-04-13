@@ -604,20 +604,23 @@ export class GreedyNavMenu {
       navDropdownToggle.addEventListener(
         blurEventName,
         (e: FocusEvent): void => {
-          let lastItem: Nullable<HTMLElement> | undefined = null;
-          const headerLinksInNav: Nullable<HTMLElement> =
-            document.querySelector(
-              `${this.navDropdownSelector} .js-cads-copy-into-nav`
-            );
+          let lastItem: HTMLElement | null | undefined;
+          const headerLinksInNav: HTMLElement | null = document.querySelector(
+            `${this.navDropdownSelector} .js-cads-copy-into-nav`
+          );
 
-          if (headerLinksInNav?.offsetParent !== null) {
-            lastItem = headerLinksInNav?.querySelector(
+          if (headerLinksInNav?.offsetParent) {
+            lastItem = headerLinksInNav?.querySelector<HTMLElement>(
               '.js-cads-close-on-blur'
             );
-          } else {
+          } else if (headerLinksInNav?.offsetParent === null) {
+            // offsetParent returns null in this case as the header links in the nav have display: none
+            // using nth-last-child(2) as the last-child in this case is the hidden header nav links
             lastItem = this.navDropdown?.querySelector(
               `li:nth-last-child(2) a`
             );
+          } else {
+            lastItem = this.navDropdown?.querySelector(`li:last-child a`);
           }
 
           if (!parent(relatedTarget(e, this.document), this.toggleWrapper)) {
