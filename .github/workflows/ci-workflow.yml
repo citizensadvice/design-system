@@ -106,7 +106,7 @@ jobs:
           CYPRESS_RAILS_CYPRESS_OPTS: '--browser chrome'
 
       # Archive test screenshots
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: cypress-screenshots
           path: demo/cypress/screenshots
@@ -152,7 +152,7 @@ jobs:
       - run: npx backstop test --docker --config=backstop-config-actions.js
         working-directory: demo
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: backstop-report
@@ -178,7 +178,7 @@ jobs:
       - uses: bahmutov/npm-install@v1
       - run: npm run build
       - run: npm run docs:build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: docs-build
           path: |
