@@ -1,5 +1,19 @@
 # Testing
 
+## JS and Typescript
+
+We use Jest:
+
+```sh
+npm run test
+```
+
+from the project root.
+
+## Acceptance testing
+
+We use Cypress, see the [demo app README for instructions on how to run these](../demo/README.md)
+
 ## Visual regression testing
 
 We use BackstopJS to automate visual regression testing of components by comparing DOM screenshots over time.
@@ -16,6 +30,29 @@ You can install backstop and set up the demo app by running the following from w
 
 ```sh
 ./bin/setup
+```
+
+#### Compile packs
+
+**Note:** Ensure the build is up to date before compiling packs by running:
+
+```sh
+npm run build
+```
+
+from the project root.
+
+You will need to compile any changes to the build for the test environment, in
+the `demo` directory:
+
+```sh
+RAILS_ENV=test bin/rails webpacker:compile
+```
+
+You can also clobber the test packs:
+
+```sh
+RAILS_ENV=test bin/rails webpacker:clobber
 ```
 
 #### Run tests

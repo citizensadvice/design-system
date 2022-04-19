@@ -8,13 +8,29 @@ This app:
 
 ## Running the demo app
 
-Run the setup script:
+### Run the setup script:
 
 ```shell
 ./bin/setup
 ```
 
-Start Rails:
+### Compile the packs:
+
+Ensure the build is up to date before compiling packs by running:
+
+```shell
+npm run build
+```
+
+from the project root and then:
+
+```shell
+RAILS_ENV=test ./bin/rails webpacker:compile
+```
+
+from the `demo` directory.
+
+### Start Rails:
 
 ```shell
 ./bin/rails s
