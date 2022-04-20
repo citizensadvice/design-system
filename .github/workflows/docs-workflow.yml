@@ -5,18 +5,19 @@ on:
     types:
       - opened # a PR is created
       - synchronize # existing PR is updated
+      - labeled
   release:
     types:
       - created
 
 jobs:
   # This job will:
-  #   * deploy a draft every time there is a pull request created or synchronized that is not on master branch
+  #   * deploy a draft every time there is a pull request created that has the expected label
   #   * comment on that pull request with the deploy URL
   deployPRDraft:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
+    if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && github.event.label.name == 'docs preview'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
