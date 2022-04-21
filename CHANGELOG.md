@@ -1,3 +1,7 @@
+## <sub>v5.3.0-alpha.0</sub>
+
+#### _Apr. 21, 2022_
+
 **New**
 
 - 🔗 Links: Document links no longer present their appended file icon to screen
