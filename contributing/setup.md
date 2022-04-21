@@ -17,11 +17,7 @@ From the root of the project run:
 
 ## Running local tests
 
-Run the following to run linting and unit tests using the ruby and node contexts installed directly in your machine:
-
-```
-bundle exec rake check
-```
+See [Testing guide](./testing.md)
 
 ## Building
 

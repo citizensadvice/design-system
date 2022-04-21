@@ -1,4 +1,5 @@
 **New**
+- 🔗 Links: Relflow long links so they do not add scrollbars to the viewport
 - 🔓 Disclosure: Adds new `Disclosure` view component
 - 🥾 Footer: Add more flexible `feedback_link` slot and deprecate `feedback_url` argument.
 - 🥾 Footer: Support `external` icon for column links and deprecate`icon` property. Previous option was too generic, only support external links.
