@@ -1,4 +1,7 @@
 **New**
+
+- 🔗 Links: Document links no longer present their appended file icon to screen
+  readers
 - 🔗 Links: Relflow long links so they do not add scrollbars to the viewport
 - 🔓 Disclosure: Adds new `Disclosure` view component
 - 🥾 Footer: Add more flexible `feedback_link` slot and deprecate `feedback_url` argument.
