@@ -3,9 +3,12 @@ name: Design System Docs
 on:
   pull_request:
     types:
-      - opened # a PR is created
-      - synchronize # existing PR is updated
+      # Trigger when the pull request is labelled.
+      # Used to only deploy previews when the "docs preview" label is added.
       - labeled
+      # Trigger when an existing PR is updated.
+      # Used to make sure new previews are deployed for changes after the label is added.
+      - synchronize
   release:
     types:
       - created
