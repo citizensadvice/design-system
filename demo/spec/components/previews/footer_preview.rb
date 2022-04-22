@@ -2,9 +2,8 @@
 
 class FooterPreview < ViewComponent::Preview
   def default
-    render CitizensAdviceComponents::Footer.new(
-      feedback_url: "https://www.research.net/r/J8PLH2H"
-    ) do |c|
+    render CitizensAdviceComponents::Footer.new do |c|
+      c.feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
       c.column(
         title: "Advice",
         links: [
@@ -52,7 +51,7 @@ class FooterPreview < ViewComponent::Preview
           { url: "/about-us/how-citizens-advice-works/", title: "How Citizens Advice works" },
           { url: "/resources-and-tools/about-this-site/disclaimer-and-copyright/", title: "Disclaimer and Copyright" },
           { url: "/about-us/citizens-advice-privacy-policy/", title: "Privacy and cookies" },
-          { url: "http://example.com", title: "External link", icon: "external-link" }
+          { url: "http://example.com", title: "External link", external: true }
         ]
       )
     end
