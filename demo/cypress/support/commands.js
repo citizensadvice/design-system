@@ -3,7 +3,7 @@ import 'cypress-axe';
 import 'cypress-plugin-tab';
 
 Cypress.Commands.add('visitComponentUrl', (urlPart) => {
-  cy.visit(`/rails/view_components/citizens_advice_components/${urlPart}`);
+  cy.visit(`/rails/view_components/${urlPart}`);
 });
 
 Cypress.Commands.add('scrolledIntoView', (selector) => {
