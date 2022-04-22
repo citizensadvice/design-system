@@ -25,5 +25,6 @@ module Demo
   class Application < Rails::Application
     config.load_defaults 6.1
     config.view_component.default_preview_layout = "component_preview"
+    config.view_component.preview_paths << "#{Rails.root}/spec/components/previews"
   end
 end
