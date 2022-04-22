@@ -1,99 +1,32 @@
 # Testing
 
-## JS and Typescript
+## Linting
 
-We use Jest:
+We run `eslint`, `stylelint`, and `prettier` as lint checks.
+
+From the project root run:
+
+```sh
+npm run lint
+```
+
+## Unit tests
+
+We use Jest for basic unit tests for our JavaScript as well as testing sass output:
+
+From the project root run:
 
 ```sh
 npm run test
 ```
 
-from the project root.
+## Cypress tests
 
-## Acceptance testing
-
-We use Cypress, see the [demo app README for instructions on how to run these](../demo/README.md)
+We use Cypress for behavioural tests, see the [demo app README for instructions on how to run these](../demo/README.md)
 
 ## Visual regression testing
 
-We use BackstopJS to automate visual regression testing of components by comparing DOM screenshots over time.
-
-### Usage
-
-The tests are run inside of Docker to ensure consistency accross different environments (mac, windows and linux). You can install Docker by following the instructions at [docker.com](https://www.docker.com/products/docker-desktop).
-
-Backstop tests are run against the demo app. The following commands should all be run within `demo/`.
-
-#### Set up the demo app
-
-You can install backstop and set up the demo app by running the following from within the `demo/` directory:
-
-```sh
-./bin/setup
-```
-
-#### Compile packs
-
-**Note:** Ensure the build is up to date before compiling packs by running:
-
-```sh
-npm run build
-```
-
-from the project root.
-
-You will need to compile any changes to the build for the test environment, in
-the `demo` directory:
-
-```sh
-RAILS_ENV=test bin/rails webpacker:compile
-```
-
-You can also clobber the test packs:
-
-```sh
-RAILS_ENV=test bin/rails webpacker:clobber
-```
-
-#### Run tests
-
-First, run the demo app using:
-
-```sh
-./bin rails server -e test
-```
-
-With the demo app running, you can start the backstop tests using:
-
-```sh
-npm run backstop
-```
-
-#### Open the report
-
-After a test run is complete you can run view the report in a browser using:
-
-```sh
-npm run backstop:report
-```
-
-#### Approve changes
-
-If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
-
-```
-npm run backstop:approve
-```
-
-### Run the tests for a specific set of scenarios:
-
-You can run tests for a specific set of scenarios by passing a filter to the backstop command where `Example` is the search term you want to filter by.
-
-```
-npm run backstop -- --filter=Example
-```
-
-For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
+We use Backstop for visual regression tests, see the [demo app README for instructions on how to run these](../demo/README.md)
 
 ## Accessibility testing
 
