@@ -5,6 +5,7 @@ set -e
 cd "$(dirname "$0")/.."
 
 npm ci
+npm run build
 
 # Set up engine
 pushd engine
@@ -13,3 +14,6 @@ popd
 
 # Set up demo
 ./demo/bin/setup
+
+# Set up docs site
+./design-system-docs/bin/setup
