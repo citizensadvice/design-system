@@ -6,7 +6,7 @@ module.exports = function backstopCommon(baseUrl) {
   };
 
   function componentUrlFor(componentId) {
-    return `${baseUrl}/rails/view_components/citizens_advice_components/${componentId}`;
+    return `${baseUrl}/rails/view_components/${componentId}`;
   }
 
   function buildButtonScenarios(labelPrefix, componentId) {
