@@ -10,7 +10,7 @@ This app:
 
 ### Run the setup script:
 
-```shell
+```sh
 ./bin/setup
 ```
 
@@ -18,22 +18,22 @@ This app:
 
 Ensure the build is up to date before compiling packs by running:
 
-```shell
+```sh
 npm run build
 ```
 
 from the project root and then:
 
-```shell
-RAILS_ENV=test ./bin/rails webpacker:compile
+```sh
+./bin/webpack
 ```
 
 from the `demo` directory.
 
 ### Start Rails:
 
-```shell
-./bin/rails s
+```sh
+./bin/dev
 ```
 
 The engine code bundles a set of component previews which can be seen at `http://localhost:3000/rails/view_components`.
@@ -51,3 +51,51 @@ Run all tests in a headless browser:
 ```
 ./bin/rails cypress:run
 ```
+
+## Running visual regression tests
+
+We use BackstopJS to automate visual regression testing of components by comparing DOM screenshots over time.
+
+### Usage
+
+The tests are run inside of Docker to ensure consistency across different environments (mac, windows and linux). You can install Docker by following the instructions at [docker.com](https://www.docker.com/products/docker-desktop).
+
+#### Run tests
+
+First, run the demo app using:
+
+```sh
+./bin rails server -e test
+```
+
+With the demo app running, you can start the backstop tests using:
+
+```sh
+npm run backstop
+```
+
+#### Open the report
+
+After a test run is complete you can run view the report in a browser using:
+
+```sh
+npm run backstop:report
+```
+
+#### Approve changes
+
+If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+
+```
+npm run backstop:approve
+```
+
+### Run the tests for a specific set of scenarios:
+
+You can run tests for a specific set of scenarios by passing a filter to the backstop command where `Example` is the search term you want to filter by.
+
+```
+npm run backstop -- --filter=Example
+```
+
+For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
