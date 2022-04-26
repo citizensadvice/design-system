@@ -68,6 +68,8 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       RAILS_ENV: test
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -120,6 +122,7 @@ jobs:
     env:
       RAILS_ENV: test
       CYPRESS_INSTALL_BINARY: 0
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
