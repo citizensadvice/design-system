@@ -62,12 +62,6 @@ module.exports = function backstopCommon(baseUrl) {
     viewports: Object.values(commonViewports),
     onReadyScript: 'onReady.js',
     scenarios: [
-      ...buildButtonScenarios('Components/Buttons/Primary', 'button/primary'),
-      ...buildButtonScenarios(
-        'Components/Buttons/Secondary',
-        'button/secondary'
-      ),
-      ...buildButtonScenarios('Components/Buttons/Tertiary', 'button/tertiary'),
       {
         label: 'Components/Asset hyperlink',
         url: componentUrlFor('asset_hyperlink/example'),
@@ -101,6 +95,12 @@ module.exports = function backstopCommon(baseUrl) {
         label: `Components/Contact details`,
         url: componentUrlFor('contact_details/example'),
       },
+      ...buildButtonScenarios('Components/Buttons/Primary', 'button/primary'),
+      ...buildButtonScenarios(
+        'Components/Buttons/Secondary',
+        'button/secondary'
+      ),
+      ...buildButtonScenarios('Components/Buttons/Tertiary', 'button/tertiary'),
       {
         label: 'Components/Header',
         url: componentUrlFor('header/full_example'),
