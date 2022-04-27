@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "backstop": "backstop test --docker --config=backstop-config.js",
-    "backstop:reference": "backstop reference --docker --config=backstop-config.js",
-    "backstop:approve": "backstop approve --config=backstop-config.js",
-    "backstop:report": "backstop openReport --config=backstop-config.js",
+    "backstop": "npx backstop test --docker --config=backstop-config.js",
+    "backstop:reference": "npx backstop reference --docker --config=backstop-config.js",
+    "backstop:approve": "npx backstop approve --config=backstop-config.js",
+    "backstop:report": "npx backstop openReport --config=backstop-config.js",
     "backstop:ci": "start-server-and-test start-test-server http://localhost:3001 backstop:actions",
-    "backstop:actions": "backstop test --docker --config=backstop-config-actions.js",
+    "backstop:actions": "npx backstop test --docker --config=backstop-config-actions.js",
     "start-test-server": "./bin/webpack && ./bin/rails server -e test -p 3001"
   },
   "dependencies": {

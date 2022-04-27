@@ -1,4 +1,4 @@
-module.exports = function backstopCommon(baseUrl) {
+module.exports = function backstopCommon(baseUrl, report = ['browser']) {
   const commonViewports = {
     small: { label: 'small', width: 320, height: 480 },
     medium: { label: 'medium', width: 800, height: 600 },
@@ -420,7 +420,7 @@ module.exports = function backstopCommon(baseUrl) {
       html_report: 'visual-regression/backstop_data/html_report',
       ci_report: 'visual-regression/backstop_data/ci_report',
     },
-    report: process.env.CI == 'true' ? ['html'] : ['browser'],
+    report: report,
     engine: 'puppeteer',
     engineOptions: {
       args: ['--no-sandbox'],
