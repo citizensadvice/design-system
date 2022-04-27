@@ -143,16 +143,7 @@ jobs:
         with:
           working-directory: demo
 
-      # Run asset build
-      - run: ./bin/webpack
-        working-directory: demo
-
-      - run: ./bin/rails server -p 3001 &
-        working-directory: demo
-
-      - run: ./bin/wait-for localhost:3001
-
-      - run: npx backstop test --docker --config=backstop-config-actions.js
+      - run: npm run backstop:ci
         working-directory: demo
 
       - uses: actions/upload-artifact@v3
