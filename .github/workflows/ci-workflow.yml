@@ -117,6 +117,9 @@ jobs:
 
   demo-app-backstop:
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        test: [1, 2, 3, 4, 5]
     env:
       RAILS_ENV: test
       CYPRESS_INSTALL_BINARY: 0
