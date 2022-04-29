@@ -20,6 +20,9 @@ permalink: pretty
 template_engine: erb
 
 collections:
+  foundations:
+    output: true
+    name: Foundations
   component_docs:
     output: true
     sort_by: order
