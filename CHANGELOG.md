@@ -15,6 +15,7 @@
 
 **Bugfixes**
 
+- 🏋 Icons: Fix syntax error with close icon view component
 - 🔗 Links: Fix external link styles when used outside of the main www.citizensadvice.org.uk domain.
 - 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
 - 🤫 Fix deprecation warning with newer versions of view_component
@@ -24,6 +25,7 @@
 #### _Feb. 28, 2022_
 
 **Bugfixes**
+
 - 📱 Section Links: Using `cads-list-no-bullet` styles to make the font consistent on smaller screens.
 - 🔗 Links: Style links with `rel=external` in `.cads-prose` as a more reliable way of determining external links.
 - 🛂 Ids: Radio buttons and checkbox `id` attributes are now generated using the input's index instead of value
