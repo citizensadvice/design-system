@@ -404,6 +404,10 @@ module.exports = function backstopCommon(baseUrl) {
         url: componentUrlFor(`checkbox_single/error`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
+      {
+        label: 'Example links',
+        url: componentUrlFor('links/example_links'),
+      },
       ...buildSamplePageScenarios('Sample Page/Content page', 'content-sample'),
       ...buildSamplePageScenarios('Sample Page/Form page', 'form-sample'),
     ],
