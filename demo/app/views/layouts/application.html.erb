@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
     <%= csp_meta_tag %>
+    <link href="<%= Webpacker.manifest.lookup("media/fonts/open-sans-v26-latin-700.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="<%= Webpacker.manifest.lookup("media/fonts/open-sans-v26-latin-regular.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="<%= Webpacker.manifest.lookup("media/fonts/cads.woff") %>" rel="preload" as="font" type="font/woff" crossorigin="true" />
     <%= stylesheet_pack_tag "application", media: "all" %>
     <%= yield :custom_head %>
     <script>document.querySelector('html').classList.remove('no-js');</script>
