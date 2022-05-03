@@ -1,0 +1,19 @@
+.sizing-border {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  vertical-align: middle;
+  border: solid $cads-border-width-small $cads-language__border-colour;
+  margin-left: 11px;
+  margin-right: 11px;
+
+  &--medium {
+    border: solid $cads-border-width-medium $cads-language__border-colour;
+    margin-left: 10px;
+  }
+
+  &--large {
+    border: solid $cads-border-width-large $cads-language__border-colour;
+    margin-left: 10px;
+  }
+}
