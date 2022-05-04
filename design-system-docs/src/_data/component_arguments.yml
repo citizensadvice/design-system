@@ -1,0 +1,11 @@
+targeted_content:
+  - argument: id
+    description: Required, unique ID
+  - argument: title
+    description: Required, title string
+  - argument: type
+    description: Optional, one of public or adviser. Defaults to public
+  - argument: heading_level
+    description: Optional, sets the heading level of the title. Defaults to 2
+  - argument: close_button
+    description: Optional, include close button at the end of content. Defaults to true
