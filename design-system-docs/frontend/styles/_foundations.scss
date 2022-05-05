@@ -1,6 +1,15 @@
 // ============================================================================
-// Icons
+// Foundations
 // ============================================================================
+
+// Grid examples
+
+.grid-example {
+  padding: $cads-spacing-4;
+  background-color: $cads-palette__light-grey;
+}
+
+// Icons
 
 .icon-grid {
   display: grid;
