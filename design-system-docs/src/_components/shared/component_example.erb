@@ -12,11 +12,15 @@
     <% end %>
   </div>
   <div class="component-example__source">
-    <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "HTML code for #{example.data.title.downcase} example")) do %>
-      <pre class="highlight"><code><%= raw highlighted_html %></code></pre>
+    <% if show_html? %>
+      <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "HTML code for #{example.data.title.downcase} example")) do %>
+        <pre class="highlight"><code><%= raw highlighted_html %></code></pre>
+      <% end %>
     <% end %>
-    <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "ERB code for #{example.data.title.downcase} example")) do %>
-      <pre class="highlight"><code><%= raw highlighted_source %></code></pre>
+    <% if show_source? %>
+      <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "ERB code for #{example.data.title.downcase} example")) do %>
+        <pre class="highlight"><code><%= raw highlighted_source %></code></pre>
+      <% end %>
     <% end %>
   </div>
 </div>
