@@ -60,3 +60,9 @@ If you are using the `citizens_advice_components` gem you call the component fro
   end
 %>
 ```
+
+### Component arguments
+
+The component accepts a `content` block for the main contents along with the following arguments:
+
+<%= render Shared::ArgumentsTable.new(:targeted_content) %>
