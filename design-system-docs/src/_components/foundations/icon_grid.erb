@@ -1,0 +1,8 @@
+<div class="icon-grid">
+  <% icons.each do |icon| %>
+    <div class="icon-card">
+      <%= render icon.new(size: :large) %>
+      <span class="icon-card__label"><%= icon.name.demodulize.underscore.humanize %></span>
+    </div>
+  <% end %>
+</div>
