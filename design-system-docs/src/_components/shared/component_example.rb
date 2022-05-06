@@ -6,11 +6,11 @@ module Shared
   class ComponentExample < ViewComponent::Base
     include Bridgetown::ViewComponentHelpers
 
-    def initialize(slug, iframe: false)
+    def initialize(category, slug)
       super
 
+      @category = category
       @slug = slug
-      @iframe = iframe
       @site = Bridgetown::Current.site
     end
 
@@ -27,12 +27,21 @@ module Shared
 
     def find_example
       @site.collections.component_examples.resources.find do |resource|
-        resource.data.slug == @slug
+        resource.data.categories.include?(@category.to_s) &&
+          resource.data.slug == @slug.to_s
       end
     end
 
     def iframe?
-      @iframe.present?
+      example.data[:iframe].present?
+    end
+
+    def show_html?
+      example.data[:show_html].present?
+    end
+
+    def show_source?
+      example.data[:show_source].present?
     end
 
     def highlighted_source

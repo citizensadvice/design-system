@@ -1,5 +1,4 @@
 ---
-layout: component
 title: Targeted Content
 ---
 
@@ -26,11 +25,11 @@ If you find yourself using targeted content to do this, think about:
 
 ### Default variant
 
-<%= render(Shared::ComponentExample.new("targeted_content_default")) %>
+<%= render(Shared::ComponentExample.new(:targeted_content, :default)) %>
 
 ### Adviser variant
 
-<%= render(Shared::ComponentExample.new("targeted_content_adviser")) %>
+<%= render(Shared::ComponentExample.new(:targeted_content, :adviser)) %>
 
 ## JavaScript behaviour
 
