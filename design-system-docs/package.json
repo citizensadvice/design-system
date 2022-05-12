@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@citizensadvice/design-system": "file:..",
-    "css-loader": "^4.3.0",
+    "css-loader": "^6.7.1",
     "esbuild": "^0.14.25",
     "esbuild-loader": "^2.18.0",
     "file-loader": "^6.2.0",
