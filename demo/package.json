@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:..",
-    "@rails/webpacker": "^5.4.0"
+    "@rails/webpacker": "^5.4.3"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.2",
