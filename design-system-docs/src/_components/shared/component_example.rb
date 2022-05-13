@@ -4,6 +4,8 @@ require "htmlbeautifier"
 
 module Shared
   class ComponentExample < ViewComponent::Base
+    Bridgetown::ViewComponentHelpers.allow_rails_helpers :tag
+
     include Bridgetown::ViewComponentHelpers
 
     def initialize(category, slug)
@@ -30,6 +32,10 @@ module Shared
         resource.data.categories.include?(@category.to_s) &&
           resource.data.slug == @slug.to_s
       end
+    end
+
+    def example_label
+      "#{example.data.category.humanize} (#{example.data.title})"
     end
 
     def iframe?
