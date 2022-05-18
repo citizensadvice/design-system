@@ -62,7 +62,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "git-state": "^4.1.0",
-    "glob": "^7.1.7",
+    "glob": "^8.0.3",
     "http-server": "^14.0.0",
     "inquirer": "^8.1.1",
     "jest": "^28.0.3",
