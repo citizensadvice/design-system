@@ -1,2 +1,10 @@
 # Global owners - all PRs will be assigned to these users
 *       @davidrapson @davidsauntson @marianayovcheva
+
+# Owners of package and gemfiles. Added to allow package updates during spanner weeks
+package.json       @davidrapson @davidsauntson @marianayovcheva @clairgriffiths @KPobeeNorris
+package-lock.json       @davidrapson @davidsauntson @marianayovcheva @clairgriffiths @KPobeeNorris
+Gemfile       @davidrapson @davidsauntson @marianayovcheva @clairgriffiths @KPobeeNorris
+Gemfile.lock       @davidrapson @davidsauntson @marianayovcheva @clairgriffiths @KPobeeNorris
+
+
