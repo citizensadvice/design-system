@@ -4,7 +4,7 @@ module CitizensAdviceComponents
   class RadioGroup < FormGroup
     renders_many :inputs, Checkable::Radio
 
-    def initialize(legend:, name:, options: nil)
+    def initialize(legend:, name:, isLegendPageHeading: false, options: nil)
       super
       set_options(options)
     end

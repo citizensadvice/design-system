@@ -4,10 +4,11 @@ module CitizensAdviceComponents
   class FormGroup < Base
     attr_reader :legend, :name, :error_message, :hint, :size, :layout
 
-    def initialize(legend:, name:, options: nil)
+    def initialize(legend:, name:, options: nil, isLegendPageHeading: false)
       super
       @legend = legend
       @name = name
+      @isLegendPageHeading = fetch_or_fallback_boolean(isLegendPageHeading, fallback: false)
 
       set_options(options)
     end
@@ -46,6 +47,10 @@ module CitizensAdviceComponents
 
     def hint?
       @hint.present?
+    end
+
+    def isLegendPageHeading?
+      @isLegendPageHeading
     end
   end
 end

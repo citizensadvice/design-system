@@ -1,8 +1,12 @@
 .cads-form-field{ class: ("cads-form-field--has-error" if error?) }
   .cads-form-field__error-marker
   %fieldset{ class: fieldset_classes }
-    %legend.cads-form-field__label
-      = legend
+    %legend.cads-form-field__label{ class: ("cads-form-field__label--with-heading" if isLegendPageHeading?)}
+      - if isLegendPageHeading?
+        %h1.cads-form-field__heading
+          = legend
+      - else
+        = legend
       - if optional?
         %span.cads-form-field__optional= t("citizens_advice_components.input.optional")
     - if hint?
