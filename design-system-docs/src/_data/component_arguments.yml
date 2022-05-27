@@ -26,5 +26,5 @@ radio_group:
     description: Optional, the size of the radio buttons. One of nil, :small, :regular
   - argument: layout
     description: Optional, the layout of the radio buttons. One of nil, :inline, :list
-  - argument: isLegendPageHeading
+  - argument: legend_heading
     description: Optional, wraps the text inside the legend in h1

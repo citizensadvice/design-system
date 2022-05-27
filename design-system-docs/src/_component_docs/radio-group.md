@@ -10,8 +10,8 @@ A radio allows a user to select only one option from a group of exclusive choice
 
 Do not use a radio group if the userL
 
-- should be able to select one or more choices from a list of options (use a [checkbox group](/docs/forms-checkbox-group--basic) for this)
-- there is only one checkbox in the list of options, for example agreeing to terms and conditions (use [checkbox](/docs/forms-checkbox--basic) for this)
+- should be able to select one or more choices from a list of options (use a checkbox group for this)
+- there is only one checkbox in the list of options, for example agreeing to terms and conditions (use checkbox for this)
 
 ## How it works
 
@@ -39,7 +39,7 @@ Use hint text for help that’s relevant to the majority of users, based on the 
 
 ### With error message
 
-Error messages are used to highlight where users need to change information. They’re used together with an [error summary](/design-system/styleguide/forms/components-error-summary--page?path=/docs/forms-error-summary--example).
+Error messages are used to highlight where users need to change information. They’re used together with an error summary.
 
 <%= render(Shared::ComponentExample.new(:radio_group, :error)) %>
 
@@ -84,7 +84,7 @@ Any additional key/value pairs (beyond `label` and `value`) in your radio button
 
 ### With heading in the legend
 
-Used for one question per page forms
+Used for one question per page forms.
 
 <%= render(Shared::ComponentExample.new(:radio_group, :legend_heading)) %>
 
