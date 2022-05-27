@@ -88,13 +88,13 @@ class RadioGroupPreview < ViewComponent::Preview
     end
   end
 
-  def with_legend_heading
+  def legend_heading
     render CitizensAdviceComponents::RadioGroup.new(
       legend: "Example radio group",
-      name: "radio-buttons-attrs",
+      name: "radio-buttons-legend-heading",
       isLegendPageHeading: true
     ) do |c|
-      c.inputs(additional_attribute_radios)
+      c.inputs(radios)
     end
   end
 
