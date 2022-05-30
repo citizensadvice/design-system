@@ -84,7 +84,7 @@ Any additional key/value pairs (beyond `label` and `value`) in your radio button
 
 ### With heading in the legend
 
-Used for one question per page forms.
+Used for one question per page forms. Using similar approach to the one described in gov.uk - [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/#legends-as-page-headings).
 
 <%= render(Shared::ComponentExample.new(:radio_group, :legend_heading)) %>
 
