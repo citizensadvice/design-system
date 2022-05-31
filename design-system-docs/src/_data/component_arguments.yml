@@ -9,3 +9,22 @@ targeted_content:
     description: Optional, sets the heading level of the title. Defaults to 2
   - argument: close_button
     description: Optional, include close button at the end of content. Defaults to true
+radio_group:
+  - argument: name
+    description: Required, field name
+  - argument: label
+    description: Required, the text for the label associated with the input
+  - argument: options
+    description: Optional, a hash with one or more of the following values
+  - argument: '→ hint'
+    description: Optional, hint text for the input
+  - argument: '→ error_message'
+    description: Optional, an error_message for the input
+  - argument: '→ optional'
+    description: Optional, boolean indicating the field is optional (ie not required)
+  - argument: '→ size'
+    description: Optional, the size of the radio buttons. One of nil, :small, :regular
+  - argument: '→ layout'
+    description: Optional, the layout of the radio buttons. One of nil, :inline, :list
+  - argument: '→ legend_heading'
+    description: Optional, wraps the text inside the legend in h1

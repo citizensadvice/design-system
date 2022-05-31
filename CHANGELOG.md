@@ -1,3 +1,7 @@
+**New**
+
+- 📋 Form group: Add `legend_heading` to `options` for one question per page forms
+
 ## <sub>v5.3.0-alpha.0</sub>
 
 #### _Apr. 21, 2022_

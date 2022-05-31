@@ -18,6 +18,7 @@ module CitizensAdviceComponents
       @error_message = options[:error_message]
       @hint = options[:hint]
       @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
+      @legend_heading = fetch_or_fallback_boolean(options[:legend_heading], fallback: false)
     end
 
     def common_fieldset_classes
@@ -46,6 +47,10 @@ module CitizensAdviceComponents
 
     def hint?
       @hint.present?
+    end
+
+    def legend_heading?
+      @legend_heading
     end
   end
 end
