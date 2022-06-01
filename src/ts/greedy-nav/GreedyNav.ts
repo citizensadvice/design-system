@@ -453,8 +453,7 @@ export class GreedyNavMenu {
      */
     this.navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
 
-    this.navDropdownToggleLabel.innerHTML =
-      this.settings.navDropdownToggleAriaLabel;
+    this.navDropdownToggleLabel.innerHTML = this.settings.navDropdownToggleAriaLabel;
 
     /**
      * Set aria attributes for accessibility
@@ -472,8 +471,9 @@ export class GreedyNavMenu {
     const headerLinks = document.querySelector('.js-cads-copy-into-nav');
     if (headerLinks) {
       // prepare items that can close the more dropdown on blur
-      const closeNavOnBlur =
-        headerLinks.lastElementChild?.querySelectorAll('a, button');
+      const closeNavOnBlur = headerLinks.lastElementChild?.querySelectorAll(
+        'a, button'
+      );
       closeNavOnBlur?.forEach((el) =>
         el.classList.add('js-cads-close-on-blur')
       );
