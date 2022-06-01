@@ -11,6 +11,6 @@ RSpec.describe CitizensAdviceComponents::AssetHyperlink, type: :component do
 
   it "renders link with text" do
     render_inline component
-    expect(rendered_component).to have_link "Test PDF 6.15 MB"
+    expect(rendered_content).to have_link "Test PDF 6.15 MB"
   end
 end
