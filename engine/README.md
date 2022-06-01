@@ -36,7 +36,7 @@ Install dependencies
 bundle install
 ```
 
-Run rspec
+Run rspec.
 
 ```sh
 bundle exec rspec
