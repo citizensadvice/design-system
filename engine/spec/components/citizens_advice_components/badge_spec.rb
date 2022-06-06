@@ -10,7 +10,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
   it "does not render when type is missing" do
     without_fetch_or_fallback_raises do
       render_inline component
-      expect(page).not_to have_selector ".cads-badge"
+      expect(page).to have_no_selector ".cads-badge"
     end
   end
 
