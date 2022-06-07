@@ -13,7 +13,7 @@
     "@rails/webpacker": "^5.4.3"
   },
   "devDependencies": {
-    "@testing-library/cypress": "^8.0.2",
+    "@testing-library/cypress": "^8.0.3",
     "axe-core": "^4.4.2",
     "backstopjs": "^5.4.4",
     "cypress": "^9.7.0",
