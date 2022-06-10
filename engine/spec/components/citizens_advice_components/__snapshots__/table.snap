@@ -1,6 +1,5 @@
 <div class="cads-table-container">
 <table class="cads-table">
-<tbody>
 <thead>
 <tr>
 <th>
@@ -11,6 +10,7 @@
 </th>
 </tr>
 </thead>
+<tbody>
 <tr>
 <td>
 <span class="cads-table__th-heading">Your location</span>

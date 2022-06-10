@@ -1,5 +1,9 @@
 ## <sub>v5.3.0-alpha.1</sub>
 
+**Bugfixes**
+
+- 🧂 Tables: `thead` is no longer incorrectly nested within `tbody`
+
 #### _Jun. 1, 2022_
 
 **New**
