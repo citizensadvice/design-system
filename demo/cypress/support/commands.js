@@ -1,6 +1,7 @@
 import '@testing-library/cypress/add-commands';
 import 'cypress-axe';
 import 'cypress-plugin-tab';
+import 'cypress-html-validate/dist/commands';
 
 Cypress.Commands.add('visitComponentUrl', (urlPart) => {
   cy.visit(`/rails/view_components/${urlPart}`);
