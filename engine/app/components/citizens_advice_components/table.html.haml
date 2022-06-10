@@ -2,13 +2,12 @@
   %table.cads-table{ class: ("cads-table--captioned" if caption?) }
     - if caption?
       %caption= caption
+    %thead
+      %tr
+        - header.each do |head|
+          %th
+            %span.cads-table__content= head
     %tbody
-      %thead
-        %tr
-          - header.each do |head|
-            %th
-              %span.cads-table__content= head
-
       - rows.each do |row|
         %tr
           - header.zip(row).each do |(header, cell)|
