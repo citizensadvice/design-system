@@ -12,3 +12,28 @@
     margin: 0;
   }
 }
+
+.custom-logo {
+  display: block;
+  width: 239px;
+  height: 52px;
+  margin-top: 16px;
+}
+.custom-logo svg {
+  fill: #4a4e4f;
+}
+
+@media only screen and (max-width: 768px) {
+  .custom-logo {
+    height: 44px;
+    width: 202px;
+    margin-top: 0;
+  }
+}
+
+.example-links-block {
+  background-color: #e6eff2;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-sizing: border-box;
+}
