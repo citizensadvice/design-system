@@ -46,7 +46,7 @@ module CitizensAdviceComponents
       def call
         # Renders a block if provided to allow passing a custom logo SVG,
         # otherwise renders the standard logo.
-        content.presence || link_to("", url, title: title, class: "cads-logo")
+        content.presence || link_to("", url, "aria-label": title, class: "cads-logo")
       end
     end
 

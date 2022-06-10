@@ -21,8 +21,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
         end
       end
 
-      it "has expected title" do
-        expect(logo.attr("title")).to eq "Logo title"
+      it "has expected aria-label" do
+        expect(logo.attr("aria-label")).to eq "Logo title"
       end
 
       it "has expected href" do
