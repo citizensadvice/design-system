@@ -20,12 +20,13 @@ const minimalHeaderHtml = `<header class='cads-header' data-testid="header">
       <div class='cads-grid-col-md-5 cads-header__logo-row'>
         <a class='cads-logo' href='root_path'
           title='Citizens Advice homepage'></a>
-        <button aria-expanded="false" 
-          class="cads-header__search-reveal js-cads-search-reveal cads-icon_search" 
-          data-descriptive-label-hide="Close search" 
-          data-descriptive-label-show="Open search" 
-          data-testid="expand-button" 
-          title="Open search"></button>
+        <button type="button"
+          class="cads-header__search-reveal js-cads-search-reveal cads-icon_search"
+          data-descriptive-label-hide="Close search"
+          data-descriptive-label-show="Open search"
+          data-testid="expand-button"
+          aria-expanded="false"
+          aria-label="Open search"></button>
       </div>
       <div class='cads-grid-col-md-7 cads-header__search-row'>
         ${searchFormHtml}
@@ -39,16 +40,17 @@ test('allow toggling search', () => {
   initHeader();
 
   const headerEl = screen.getByTestId('header');
-  const controlButtonEl = screen.getByTitle('Open search');
+  const controlButtonEl = screen.getByTestId('expand-button');
 
   expect(headerEl).not.toHaveClass('cads-header--show-search');
+  expect(controlButtonEl).toHaveAttribute('aria-label', 'Open search');
   expect(controlButtonEl).toHaveAttribute('aria-expanded', 'false');
   expect(controlButtonEl).toHaveClass('cads-icon_search');
 
   controlButtonEl.click();
 
   expect(headerEl).toHaveClass('cads-header--show-search');
-  expect(controlButtonEl.title).toBe('Close search');
+  expect(controlButtonEl).toHaveAttribute('aria-label', 'Close search');
   expect(controlButtonEl).toHaveAttribute('aria-expanded', 'true');
   expect(controlButtonEl).toHaveClass('cads-icon_close');
 });

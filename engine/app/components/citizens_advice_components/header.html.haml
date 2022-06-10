@@ -10,7 +10,8 @@
         = logo
         - if search_form.present?
           = tag.button(class: "cads-header__search-reveal js-cads-search-reveal cads-icon_search",
-            title: t(".open_search"),
+            type: "button",
+            "aria-label": t(".open_search"),
             "aria-expanded": "false",
             "data-testid": "expand-button",
             "data-descriptive-label-show": t(".open_search"),
