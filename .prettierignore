@@ -21,3 +21,4 @@ lib/
 /design-system-docs/output/
 /design-system-docs/.bridgetown-webpack/
 /design-system-docs/.bridgetown-cache/
+/design-system-docs/src/_data/colour_language.json
