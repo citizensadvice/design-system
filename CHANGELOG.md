@@ -1,3 +1,9 @@
+## Unreleased
+
+**Bugfixes**
+
+- 🔗 Tables: Add `scope: col` to `th` cells
+
 ## <sub>v5.3.0-alpha.1</sub>
 
 **Bugfixes**
