@@ -36,3 +36,14 @@
     display: block;
   }
 }
+
+// Colours
+
+.colour-swatch {
+  display: block;
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: $cads-spacing-2;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
