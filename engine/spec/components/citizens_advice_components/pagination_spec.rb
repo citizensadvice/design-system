@@ -138,7 +138,7 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
     end
 
     it "does not render" do
-      expect(component.at("nav")).to be nil
+      expect(component.at("nav")).to be_nil
     end
   end
 
