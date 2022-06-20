@@ -25,7 +25,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     let(:type) { :email }
 
     it "does not render the type attribute" do
-      expect(component.css("textarea").attribute("type")).to eq(nil)
+      expect(component.css("textarea").attribute("type")).to be_nil
     end
   end
 
