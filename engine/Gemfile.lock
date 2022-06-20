@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
-  revision: 96fde17720128bdfba8af1bfbede8bab1d342d67
-  tag: v7.0.0
+  revision: 1a0f7e2cdcfd455a1c4d757c03d1c45eb160551d
+  tag: v9.0.0
   specs:
-    citizens-advice-style (7.0.0)
-      rubocop (~> 1.25.1)
-      rubocop-rspec (~> 2.8.0)
+    citizens-advice-style (9.0.0)
+      rubocop (~> 1.30.1)
+      rubocop-rspec (~> 2.11.1)
 
 PATH
   remote: .
@@ -131,7 +131,7 @@ GEM
     html_tokenizer (0.0.7)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (1.0.10)
+    i18n-tasks (1.0.11)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       better_html (~> 1.0)
@@ -183,7 +183,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     rails-i18n (7.0.3)
       i18n (>= 0.7, < 2)
@@ -222,22 +222,22 @@ GEM
       awesome_print (> 1.0.0)
       rspec (> 3.0.0)
     rspec-support (3.11.0)
-    rubocop (1.25.1)
+    rubocop (1.30.1)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
-      rexml
-      rubocop-ast (>= 1.15.1, < 2.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.18.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.18.0)
       parser (>= 3.1.1.0)
-    rubocop-rails (2.14.2)
+    rubocop-rails (2.15.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
-    rubocop-rspec (2.8.0)
+    rubocop-rspec (2.11.1)
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     ruby_parser (3.19.1)
