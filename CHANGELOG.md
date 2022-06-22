@@ -4,6 +4,7 @@
 
 - 👤 Header: Fix accessibility issue with search toggle
 - 👤 Header: Fix minor HTML validation issue with search form
+- 🧭 GreedyNav: Fix minor HTML validation issue
 - 🧂 Tables: Add `scope: col` to `th` cells
 - 🎯 Targeted content: Fix validation issues with HTML
 - 🔗 Pagination links: Remove redundant `navigation` role

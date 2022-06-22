@@ -291,7 +291,7 @@ export class GreedyNavMenu {
 
   navDropdownToggleLabel: Nullable<HTMLSpanElement>;
 
-  toggleWrapper: Nullable<HTMLSpanElement>;
+  toggleWrapper: Nullable<HTMLDivElement>;
 
   navDropdownSelector: string;
 
@@ -442,7 +442,7 @@ export class GreedyNavMenu {
      * Create dropdow menu
      * @type {HTMLElement}
      */
-    this.toggleWrapper = this.document.createElement('span');
+    this.toggleWrapper = this.document.createElement('div');
     this.navDropdown = this.document.createElement('ul');
     this.navDropdownToggle = this.document.createElement('button');
     this.navDropdownToggleLabel = this.document.createElement('span');
