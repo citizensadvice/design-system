@@ -3,6 +3,7 @@
 **Bugfixes**
 
 - 👤 Header: Fix accessibility issue with search toggle
+- 👤 Header: Fix minor HTML validation issue with search form
 - 🧂 Tables: Add `scope: col` to `th` cells
 - 🎯 Targeted content: Fix validation issues with HTML
 - 🔗 Pagination links: Remove redundant `navigation` role
