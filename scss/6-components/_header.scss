@@ -2,7 +2,7 @@
 // Header
 // ============================================================================
 
-/** @define header */
+/** @define header; weak */
 .cads-header {
   background-color: $cads-header__background-colour;
   padding: $cads-spacing-4 0;
@@ -41,13 +41,20 @@
   &__search-reveal {
     @include cads-button-defaults();
 
-    display: none;
+    display: none; // Hide by default
+    width: $cads-interactive-target-size;
+    height: $cads-interactive-target-size;
     margin: 0;
-    padding: 11px 12px 11px 12px;
+    padding: 0;
     color: $cads-language__primary-button-colour;
     background: transparent;
     border: solid $cads-border-width-medium
       $cads-language__primary-button-colour;
+
+    .cads-icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
 
     &:hover,
     &:active {
@@ -114,7 +121,18 @@
 
     .cads-header__search-reveal {
       display: inline-block;
-      width: $cads-interactive-target-size;
+
+      .cads-icon {
+        height: 18px;
+      }
+
+      .cads-icon--search {
+        display: inline-block;
+      }
+
+      .cads-icon--close {
+        display: none;
+      }
     }
 
     .cads-header__links {
@@ -146,6 +164,16 @@
 .cads-header--show-search {
   .cads-header__search-row {
     display: block;
+  }
+
+  .cads-header__search-reveal {
+    .cads-icon--search {
+      display: none;
+    }
+
+    .cads-icon--close {
+      display: inline-block;
+    }
   }
 }
 
