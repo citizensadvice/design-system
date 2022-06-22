@@ -2,7 +2,7 @@
 // Search
 // ============================================================================
 
-/** @define search */
+/** @define search; weak */
 .cads-search {
   position: relative;
   white-space: nowrap;
@@ -53,22 +53,17 @@
 }
 
 ///
-// Modifier:
+// Modifier: Icon only
 ///
 .cads-search--icon-only {
-  @include cads-media-breakpoint-only(sm) {
-    .cads-search__button {
-      &::before {
-        display: inline;
-        content: '\004b';
-        font-family: 'cads';
-        font-weight: normal;
-      }
+  .cads-icon--search {
+    display: none;
+  }
 
-      &::after {
-        display: none;
-        content: '';
-      }
+  @include cads-media-breakpoint-only(sm) {
+    .cads-icon--search {
+      display: inline-block;
+      height: 20px;
     }
 
     .cads-search__button-label {

@@ -19,13 +19,38 @@
           </svg>
         </a>
         <button
-          class="cads-header__search-reveal js-cads-search-reveal cads-icon_search"
-          title="Open search"
+          class="cads-header__search-reveal js-cads-search-reveal"
+          type="button"
+          aria-label="Open search"
           aria-expanded="false"
+          aria-controls="header-search-form"
           data-testid="expand-button"
           data-descriptive-label-show="Open search"
           data-descriptive-label-hide="Close search"
-        ></button>
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewbox="0 0 16 16"
+            class="cads-icon cads-icon--small cads-icon--search"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <path
+              d="M13.842 12.294 11.514 9.86a5.162 5.162 0 0 0-.74-6.354A5.139 5.139 0 0 0 2 7.145a5.146 5.146 0 0 0 2.712 4.542 5.135 5.135 0 0 0 5.282-.257l2.304 2.413a.53.53 0 0 0 .751 0l.795-.796a.529.529 0 0 0-.002-.753Zm-6.703-2.223a2.925 2.925 0 0 1-2.87-2.358 2.93 2.93 0 0 1 1.75-3.277 2.925 2.925 0 0 1 3.554 1.079 2.93 2.93 0 0 1-.364 3.698 2.908 2.908 0 0 1-2.07.862v-.004Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewbox="0 0 16 16"
+            class="cads-icon cads-icon--small cads-icon--close"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <path
+              d="M12.854 12.073a.5.5 0 0 0 0-.707L9.488 8l3.366-3.366a.5.5 0 0 0 0-.707l-.781-.78a.5.5 0 0 0-.707 0L8 6.511 4.634 3.146a.5.5 0 0 0-.707 0l-.78.781a.5.5 0 0 0 0 .707L6.511 8l-3.366 3.366a.5.5 0 0 0 0 .707l.781.78a.5.5 0 0 0 .707 0L8 9.489l3.366 3.366a.5.5 0 0 0 .707 0l.78-.781Z"
+            ></path>
+          </svg>
+        </button>
       </div>
       <div class="cads-grid-col-md-10 cads-header__search-row">
         <ul class="cads-header__links js-cads-copy-into-nav">
@@ -50,7 +75,7 @@
             </div>
           </li>
         </ul>
-        <div class="cads-header__search-form">
+        <div class="cads-header__search-form" id="header-search-form">
           <form
             role="search"
             class="cads-search cads-search--icon-only"
@@ -70,6 +95,17 @@
               data-testid="search-button"
               class="cads-search__button"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewbox="0 0 16 16"
+                class="cads-icon cads-icon--small cads-icon--search"
+                focusable="false"
+                aria-hidden="true"
+              >
+                <path
+                  d="M13.842 12.294 11.514 9.86a5.162 5.162 0 0 0-.74-6.354A5.139 5.139 0 0 0 2 7.145a5.146 5.146 0 0 0 2.712 4.542 5.135 5.135 0 0 0 5.282-.257l2.304 2.413a.53.53 0 0 0 .751 0l.795-.796a.529.529 0 0 0-.002-.753Zm-6.703-2.223a2.925 2.925 0 0 1-2.87-2.358 2.93 2.93 0 0 1 1.75-3.277 2.925 2.925 0 0 1 3.554 1.079 2.93 2.93 0 0 1-.364 3.698 2.908 2.908 0 0 1-2.07.862v-.004Z"
+                ></path>
+              </svg>
               <span class="cads-search__button-label">Search</span>
             </button>
           </form>
