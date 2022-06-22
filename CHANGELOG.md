@@ -4,6 +4,7 @@
 
 - 🔗 Tables: Add `scope: col` to `th` cells
 - 🎯 Targeted content: Fix validation issues with HTML
+- 🔗 Pagination links: Remove redundant `navigation` role
 
 ## <sub>v5.3.0-alpha.1</sub>
 

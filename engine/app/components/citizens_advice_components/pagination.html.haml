@@ -1,4 +1,4 @@
-%nav{ role: "navigation", "aria-label": t(".aria_label") }
+%nav{ "aria-label": t(".aria_label") }
   %ul.cads-paging.cads-list-unordered__inline
     - links_to_show.each do |pagination_link|
       %li.cads-paging__item{ class: ("cads-paging__current" if pagination_link.current?) }
