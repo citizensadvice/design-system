@@ -2,7 +2,8 @@
 
 **Bugfixes**
 
-- 🔗 Tables: Add `scope: col` to `th` cells
+- 👤 Header: Fix accessibility issue with search toggle
+- 🧂 Tables: Add `scope: col` to `th` cells
 - 🎯 Targeted content: Fix validation issues with HTML
 - 🔗 Pagination links: Remove redundant `navigation` role
 

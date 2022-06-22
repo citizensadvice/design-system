@@ -45,14 +45,12 @@ test('allow toggling search', () => {
   expect(headerEl).not.toHaveClass('cads-header--show-search');
   expect(controlButtonEl).toHaveAttribute('aria-label', 'Open search');
   expect(controlButtonEl).toHaveAttribute('aria-expanded', 'false');
-  expect(controlButtonEl).toHaveClass('cads-icon_search');
 
   controlButtonEl.click();
 
   expect(headerEl).toHaveClass('cads-header--show-search');
   expect(controlButtonEl).toHaveAttribute('aria-label', 'Close search');
   expect(controlButtonEl).toHaveAttribute('aria-expanded', 'true');
-  expect(controlButtonEl).toHaveClass('cads-icon_close');
 });
 
 test('only initialises when header is present', () => {
