@@ -87,7 +87,7 @@ function initTargetedContentFor(el: HTMLElement): void {
    * @see https://inclusive-components.design/collapsible-sections/
    */
   const createToggleButton = () => {
-    titleEl.innerHTML = `<button class="${
+    titleEl.innerHTML = `<button type="button" class="${
       CLASS_NAMES.button
     }" aria-expanded="false" aria-controls="${contentEl.id}"
       aria-label="${el.getAttribute('data-descriptive-label-show')}">
@@ -113,7 +113,7 @@ function initTargetedContentFor(el: HTMLElement): void {
   const createCloseButton = () => {
     const ariaLabel = el.getAttribute('data-descriptive-label-hide');
     const closeButton = `<hr class="cads-separator" />
-        <button aria-label="${ariaLabel}" class="cads-linkbutton ${
+        <button type="button" aria-label="${ariaLabel}" class="cads-linkbutton ${
       CLASS_NAMES.closeButton
     }">
           ${el.getAttribute('data-close-label')}
