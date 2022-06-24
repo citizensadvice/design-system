@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`allow toggling targeted content 1`] = `
-"<button class=\\"cads-targeted-content__button\\" aria-expanded=\\"false\\" aria-controls=\\"targeted-content-123-content\\" aria-label=\\"show this section\\">
+"<button type=\\"button\\" class=\\"cads-targeted-content__button\\" aria-expanded=\\"false\\" aria-controls=\\"targeted-content-123-content\\" aria-label=\\"show this section\\">
         
     <div class=\\"cads-targeted-content__title-text\\">Targeted content title</div>
   
@@ -13,7 +13,7 @@ exports[`allow toggling targeted content 1`] = `
 `;
 
 exports[`allow toggling targeted content 2`] = `
-"<button class=\\"cads-targeted-content__button\\" aria-expanded=\\"true\\" aria-controls=\\"targeted-content-123-content\\" aria-label=\\"hide this section\\">
+"<button type=\\"button\\" class=\\"cads-targeted-content__button\\" aria-expanded=\\"true\\" aria-controls=\\"targeted-content-123-content\\" aria-label=\\"hide this section\\">
         
     <div class=\\"cads-targeted-content__title-text\\">Targeted content title</div>
   

@@ -8,6 +8,7 @@ a,
   color: $cads-color-link;
   text-decoration: underline;
   outline: none;
+  overflow-wrap: break-word;
 
   &:visited {
     color: $cads-color-link-visited;

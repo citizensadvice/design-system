@@ -156,7 +156,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     end
 
     it "renders search toggle" do
-      expect(component.at("button[title='Open search']")).to be_present
+      expect(component.at("button[aria-label='Open search']")).to be_present
     end
 
     context "when welsh language" do
@@ -167,7 +167,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       end
 
       it "has translated search label" do
-        expect(component.at("button[title='Ymchwiliad agored']")).to be_present
+        expect(component.at("button[aria-label='Ymchwiliad agored']")).to be_present
       end
     end
   end

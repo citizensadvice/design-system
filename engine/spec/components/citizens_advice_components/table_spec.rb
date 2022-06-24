@@ -21,7 +21,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
 
     it "does not render" do
       render_inline component
-      expect(rendered_component).to have_no_table
+      expect(page).to have_no_table
     end
   end
 
@@ -32,7 +32,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
 
     it "does not render" do
       render_inline component
-      expect(rendered_component).to have_no_table
+      expect(page).to have_no_table
     end
   end
 
@@ -60,7 +60,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
 
     it "renders a caption" do
       render_inline component
-      expect(rendered_component).to have_css "caption", text: "Example caption"
+      expect(page).to have_selector "caption", text: "Example caption"
     end
   end
 

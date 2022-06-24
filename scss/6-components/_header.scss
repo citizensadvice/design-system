@@ -40,7 +40,7 @@ $cads-color-header-sign-out-border: cads-colors(
   $cads-header__sign-out-border-colour
 ) !default;
 
-/** @define header */
+/** @define header; weak */
 .cads-header {
   background-color: $cads-color-header-background;
   padding: $cads-spacing-4 0;
@@ -79,12 +79,19 @@ $cads-color-header-sign-out-border: cads-colors(
   &__search-reveal {
     @include cads-button-defaults();
 
-    display: none;
+    display: none; // Hide by default
+    width: $cads-interactive-target-size;
+    height: $cads-interactive-target-size;
     margin: 0;
-    padding: 11px 12px 11px 12px;
+    padding: 0;
     color: $cads-color-button-primary;
     background: transparent;
     border: solid $cads-border-width-medium $cads-color-button-primary;
+
+    .cads-icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
 
     &:hover,
     &:active {
@@ -151,7 +158,18 @@ $cads-color-header-sign-out-border: cads-colors(
 
     .cads-header__search-reveal {
       display: inline-block;
-      width: $cads-interactive-target-size;
+
+      .cads-icon {
+        height: 18px;
+      }
+
+      .cads-icon--search {
+        display: inline-block;
+      }
+
+      .cads-icon--close {
+        display: none;
+      }
     }
 
     .cads-header__links {
@@ -183,6 +201,16 @@ $cads-color-header-sign-out-border: cads-colors(
 .cads-header--show-search {
   .cads-header__search-row {
     display: block;
+  }
+
+  .cads-header__search-reveal {
+    .cads-icon--search {
+      display: none;
+    }
+
+    .cads-icon--close {
+      display: inline-block;
+    }
   }
 }
 

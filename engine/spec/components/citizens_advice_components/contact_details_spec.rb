@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::ContactDetails, type: :component do
 
     it "renders content block" do
       render_inline component
-      expect(rendered_component).to have_selector ".cads-contact-details", text: "Example content"
+      expect(page).to have_selector ".cads-contact-details", text: "Example content"
     end
   end
 
@@ -15,7 +15,7 @@ RSpec.describe CitizensAdviceComponents::ContactDetails, type: :component do
 
     it "does not render" do
       render_inline component
-      expect(rendered_component).to have_no_selector ".cads-contact-details"
+      expect(page).to have_no_selector ".cads-contact-details"
     end
   end
 end

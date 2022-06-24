@@ -1,4 +1,35 @@
+## Unreleased
+
+**Bugfixes**
+
+- 👤 Header: Fix accessibility issue with search toggle
+- 👤 Header: Fix minor HTML validation issue with search form
+- 🧂 Tables: Add `scope: col` to `th` cells
+- 🎯 Targeted content: Fix validation issues with HTML
+- 🔗 Pagination links: Remove redundant `navigation` role
+- 📜 On this page: Add missing type to toggle buttons
+
+## <sub>v5.3.0-alpha.1</sub>
+
+**Bugfixes**
+
+- 🧂 Tables: `thead` is no longer incorrectly nested within `tbody`
+
+#### _Jun. 1, 2022_
+
 **New**
+
+- 📋 Form group: Add `legend_heading` to `options` for one question per page forms
+
+## <sub>v5.3.0-alpha.0</sub>
+
+#### _Apr. 21, 2022_
+
+**New**
+
+- 🔗 Links: Document links no longer present their appended file icon to screen
+  readers
+- 🔗 Links: Relflow long links so they do not add scrollbars to the viewport
 - 🔓 Disclosure: Adds new `Disclosure` view component
 - 🥾 Footer: Add more flexible `feedback_link` slot and deprecate `feedback_url` argument.
 - 🥾 Footer: Support `external` icon for column links and deprecate`icon` property. Previous option was too generic, only support external links.
@@ -7,6 +38,7 @@
 
 **Bugfixes**
 
+- 🏋 Icons: Fix syntax error with close icon view component
 - 🔗 Links: Fix external link styles when used outside of the main www.citizensadvice.org.uk domain.
 - 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
 - 🤫 Fix deprecation warning with newer versions of view_component
@@ -16,6 +48,7 @@
 #### _Feb. 28, 2022_
 
 **Bugfixes**
+
 - 📱 Section Links: Using `cads-list-no-bullet` styles to make the font consistent on smaller screens.
 - 🔗 Links: Style links with `rel=external` in `.cads-prose` as a more reliable way of determining external links.
 - 🛂 Ids: Radio buttons and checkbox `id` attributes are now generated using the input's index instead of value

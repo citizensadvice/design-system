@@ -27,6 +27,12 @@
   display: block;
   margin-bottom: $cads-spacing-3;
 }
+.cads-form-field__label--with-heading {
+  margin-bottom: 0;
+}
+.cads-form-field__heading {
+  @extend %cads-h1;
+}
 .cads-form-field__optional {
   color: $cads-color-text-secondary;
   font-weight: normal;
@@ -56,7 +62,6 @@
   color: $cads-color-error;
   margin: 0 0 $cads-spacing-3 0;
 }
-
 //
 // Modifier: has-error
 //

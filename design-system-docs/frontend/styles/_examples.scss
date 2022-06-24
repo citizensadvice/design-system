@@ -4,12 +4,20 @@
 
 .component-example {
   border: 1px solid $cads-color-border;
-  padding: $cads-spacing-5;
   margin-bottom: $cads-spacing-6;
+}
+.component-example__links,
+.component-example__source {
+  padding: $cads-spacing-3 $cads-spacing-4;
 }
 .component-example__links {
   text-align: right;
-  margin-bottom: $cads-spacing-5;
+  @include cads-typographic-scale-text-small();
+}
+.component-example__preview {
+  border: solid $cads-language__border-colour;
+  border-width: 1px 0;
+  padding: $cads-spacing-4;
 }
 .component-example__iframe {
   display: block;
@@ -19,7 +27,6 @@
   min-width: 230px;
   min-height: 60px;
   overflow: auto;
-  margin-bottom: $cads-spacing-4;
 }
 .component-example__source {
   .cads-disclosure {
@@ -28,5 +35,8 @@
     &:last-of-type {
       margin-bottom: 0;
     }
+  }
+  .cads-disclosure__toggle {
+    @include cads-typographic-scale-text-small();
   }
 }

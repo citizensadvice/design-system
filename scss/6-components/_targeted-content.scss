@@ -20,6 +20,13 @@
     box-sizing: border-box;
   }
 
+  // These are spans because they get wrapped by
+  // a <button> element, but need to display as blocks.
+  .cads-targeted-content__title-text,
+  .cads-targeted-content__badge {
+    display: block;
+  }
+
   .cads-targeted-content__content {
     border: $cads-border-width-small solid $cads-color-link;
     border-top: none;

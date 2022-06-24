@@ -13,7 +13,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
 
   it "renders a formatted date" do
     render_inline component
-    expect(rendered_component).to have_text "Page last reviewed on 12 June 2021"
+    expect(page).to have_text "Page last reviewed on 12 June 2021"
   end
 
   context "when no date" do
@@ -21,7 +21,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
 
     it "does not render" do
       render_inline component
-      expect(rendered_component).to have_no_selector ".cads-page-review"
+      expect(page).to have_no_selector ".cads-page-review"
     end
   end
 
@@ -30,7 +30,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
 
     it "renders date with custom format" do
       render_inline component
-      expect(rendered_component).to have_text "Page last reviewed on Jun 12"
+      expect(page).to have_text "Page last reviewed on Jun 12"
     end
   end
 
@@ -39,7 +39,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
 
     it "has translated date" do
       render_inline component
-      expect(rendered_component).to have_text "Adolygwyd y dudalen ar 12 Mehefin 2021"
+      expect(page).to have_text "Adolygwyd y dudalen ar 12 Mehefin 2021"
     end
   end
 end

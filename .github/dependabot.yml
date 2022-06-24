@@ -1,31 +1,16 @@
 version: 2
 updates:
+  ##
+  # GitHub actions
+  ##
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'weekly'
 
-  - package-ecosystem: bundler
-    directory: '/'
-    schedule:
-      interval: weekly
-
-  # citizens_advice_components
-  - package-ecosystem: bundler
-    directory: '/engine'
-    schedule:
-      interval: weekly
-
-  - package-ecosystem: npm
-    directory: '/engine'
-    schedule:
-      interval: weekly
-
-  - package-ecosystem: bundler
-    directory: '/demo'
-    schedule:
-      interval: monthly
-
+  ##
+  # Top-level package
+  ##
   - package-ecosystem: npm
     directory: '/'
     schedule:
@@ -35,7 +20,41 @@ updates:
       # Requires webpack v5 but storybook bundles v4
       - dependency-name: 'sass-loader'
 
+  ##
+  # Rails engine
+  ##
+  - package-ecosystem: bundler
+    directory: '/engine'
+    schedule:
+      interval: weekly
+
   - package-ecosystem: npm
-    directory: '/testing'
+    directory: '/engine'
+    schedule:
+      interval: weekly
+
+  ##
+  # Demo app
+  ##
+  - package-ecosystem: bundler
+    directory: '/demo'
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: '/demo'
+    schedule:
+      interval: weekly
+
+  ##
+  # Documentation website
+  ##
+  - package-ecosystem: bundler
+    directory: '/design-system-docs'
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: '/design-system-docs'
     schedule:
       interval: weekly

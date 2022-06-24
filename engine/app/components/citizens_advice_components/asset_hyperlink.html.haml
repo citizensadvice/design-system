@@ -1,5 +1,5 @@
 %a{ href: href }
   = description
   %span.cads-asset-type<
-    %span.cads-icon_file
+    = render CitizensAdviceComponents::Icons::File.new
     \ #{number_to_human_size(size)}

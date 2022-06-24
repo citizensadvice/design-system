@@ -75,7 +75,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
 
       it { is_expected.to have_link default_text, href: "https://example.com/" }
-      it { is_expected.not_to have_selector "[target=_blank]", text: default_text }
+      it { is_expected.to have_no_selector "[target=_blank]", text: default_text }
     end
 
     context "with custom title" do

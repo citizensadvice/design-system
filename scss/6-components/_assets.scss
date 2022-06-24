@@ -2,7 +2,7 @@
 // Assets
 // ============================================================================
 
-/** @define asset-type */
+/** @define asset-type; weak */
 .cads-asset-type {
   &::before {
     content: '[';
@@ -10,5 +10,12 @@
 
   &::after {
     content: ']';
+  }
+
+  .cads-icon--file {
+    // Optically align
+    vertical-align: baseline;
+    position: relative;
+    top: 2px;
   }
 }

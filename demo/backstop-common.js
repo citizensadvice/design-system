@@ -6,7 +6,7 @@ module.exports = function backstopCommon(baseUrl) {
   };
 
   function componentUrlFor(componentId) {
-    return `${baseUrl}/rails/view_components/citizens_advice_components/${componentId}`;
+    return `${baseUrl}/rails/view_components/${componentId}`;
   }
 
   function buildButtonScenarios(labelPrefix, componentId) {
@@ -403,6 +403,10 @@ module.exports = function backstopCommon(baseUrl) {
         label: `Forms/Checkbox (error)`,
         url: componentUrlFor(`checkbox_single/error`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: 'Example links',
+        url: componentUrlFor('links/example_links'),
       },
       ...buildSamplePageScenarios('Sample Page/Content page', 'content-sample'),
       ...buildSamplePageScenarios('Sample Page/Form page', 'form-sample'),

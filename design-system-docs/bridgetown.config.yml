@@ -20,6 +20,9 @@ permalink: pretty
 template_engine: erb
 
 collections:
+  foundations:
+    output: true
+    name: Foundations
   component_docs:
     output: true
     sort_by: order
@@ -27,6 +30,6 @@ collections:
     permalink: /components/:slug/
   component_examples:
     output: true
-    permalink: /examples/:slug/
+    permalink: /examples/:categories/:slug/
 # pagination:
 #   enabled: true

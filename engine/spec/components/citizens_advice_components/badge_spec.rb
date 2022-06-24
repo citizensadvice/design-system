@@ -10,7 +10,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
   it "does not render when type is missing" do
     without_fetch_or_fallback_raises do
       render_inline component
-      expect(rendered_component.at(".cads-badge")).not_to be_present
+      expect(page).to have_no_selector ".cads-badge"
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
     it "has the correct label" do
       render_inline component
-      expect(rendered_component).to have_selector ".cads-badge--example", text: "Example"
+      expect(page).to have_selector ".cads-badge--example", text: "Example"
     end
 
     context "when welsh language" do
@@ -27,7 +27,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
       it "has translated label" do
         render_inline component
-        expect(rendered_component).to have_text "Enghraifft"
+        expect(page).to have_text "Enghraifft"
       end
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
     it "has the correct label" do
       render_inline component
-      expect(rendered_component).to have_selector ".cads-badge--important", text: "Important"
+      expect(page).to have_selector ".cads-badge--important", text: "Important"
     end
 
     context "when welsh language" do
@@ -45,7 +45,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
       it "has translated label" do
         render_inline component
-        expect(rendered_component).to have_text "Pwysig"
+        expect(page).to have_text "Pwysig"
       end
     end
   end
@@ -55,7 +55,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
     it "has the correct label" do
       render_inline component
-      expect(rendered_component).to have_selector ".cads-badge--adviser", text: "Adviser"
+      expect(page).to have_selector ".cads-badge--adviser", text: "Adviser"
     end
 
     context "when welsh language" do
@@ -63,7 +63,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
 
       it "has translated label" do
         render_inline component
-        expect(rendered_component).to have_text "Cynghorydd"
+        expect(page).to have_text "Cynghorydd"
       end
     end
   end

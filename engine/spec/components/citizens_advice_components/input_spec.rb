@@ -34,7 +34,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   it "renders an empty input" do
-    expect(component.css("input").attribute("value")).to eq nil
+    expect(component.css("input").attribute("value")).to be_nil
   end
 
   it "renders a required input" do
