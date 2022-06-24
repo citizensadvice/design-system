@@ -39,30 +39,25 @@ $button-shadow-size: 4px;
   @include cads-button-defaults();
 
   border-radius: $cads-border-radius;
-  border: solid $cads-border-width-medium
-    $cads-color-button-primary;
+  border: solid $cads-border-width-medium $cads-color-button-primary;
   border-bottom: none; // Remove bottom border as box-shadow replaces it
-  box-shadow: 0 $button-shadow-size 0 0
-    $cads-color-button-primary-hover;
+  box-shadow: 0 $button-shadow-size 0 0 $cads-color-button-primary-hover;
 
   &:focus {
     outline: none;
     color: $cads-color-text;
     border-color: $cads-color-text-secondary;
     background-color: $cads-color-brand-focus;
-    box-shadow: 0 $button-shadow-size 0 0
-      $cads-color-text-secondary;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-color-text-secondary;
   }
 
   &:hover {
-    box-shadow: 0 $button-shadow-size 0 0
-      $cads-color-button-primary-hover;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-color-button-primary-hover;
   }
 
   &:active {
     transform: translate(0, $button-shadow-size - $cads-border-width-medium);
-    box-shadow: 0 $cads-border-width-medium 0 0
-      $cads-color-button-primary-hover;
+    box-shadow: 0 $cads-border-width-medium 0 0 $cads-color-button-primary-hover;
   }
 
   &:hover,
@@ -151,7 +146,6 @@ $button-shadow-size: 4px;
     color: $cads-color-text;
     border-color: $cads-color-text-secondary;
     background-color: $cads-color-brand-focus;
-    box-shadow: 0 $button-shadow-size 0 0
-      $cads-color-text-secondary;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-color-text-secondary;
   }
 }

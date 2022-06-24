@@ -29,8 +29,7 @@
   td {
     padding: $cads-spacing-2;
     font-weight: $cads-font-weight__regular;
-    border-bottom: solid $cads-border-width-small
-      $cads-color-input-border;
+    border-bottom: solid $cads-border-width-small $cads-color-input-border;
   }
 
   tr:first-child th {
@@ -59,12 +58,10 @@
 
     caption {
       background-color: $cads-palette__white;
-      border: solid $cads-border-width-small
-        $cads-color-input-border;
+      border: solid $cads-border-width-small $cads-color-input-border;
       border-top-left-radius: $cads-border-radius-large;
       border-top-right-radius: $cads-border-radius-large;
-      border-bottom: $cads-border-width-large solid
-        $cads-color-brand-primary;
+      border-bottom: $cads-border-width-large solid $cads-color-brand-primary;
       padding: $cads-spacing-2;
       margin: 0;
     }
@@ -96,8 +93,7 @@
     }
 
     tr td:last-child {
-      border-bottom: solid $cads-border-width-small
-        $cads-color-input-border;
+      border-bottom: solid $cads-border-width-small $cads-color-input-border;
     }
 
     td::before {
