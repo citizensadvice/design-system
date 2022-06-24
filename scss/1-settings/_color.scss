@@ -11,7 +11,7 @@
   @return $color;
 }
 
-$use-legacy-color-names: true !default;
+$use-legacy-color-names: false !default;
 
 // ${component}-{element}-{state}
 

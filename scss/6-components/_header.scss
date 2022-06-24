@@ -6,43 +6,43 @@
 $cads-color-header-background: cads-colors(
   $cads-palette__white,
   $cads-header__background-colour
-);
+) !default;
 $cads-color-header-background-hover: cads-colors(
-    $cads-palette__blue-light,
-    $cads-header__hover-background-colour
-);
+  $cads-palette__blue-light,
+  $cads-header__hover-background-colour
+) !default;
 $cads-color-header-link: cads-colors(
   $cads-palette__heritage-blue,
   $cads-header__link-colour
-);
+) !default;
 $cads-color-header-link-hover: cads-colors(
   $cads-palette__heritage-blue-dark,
   $cads-header__link-hover-colour
-);
+) !default;
 $cads-color-header-link-visited: cads-colors(
   $cads-palette__purple,
   $cads-header__link-visited-colour
-);
+) !default;
 $cads-color-header-link-active: cads-colors(
   $cads-palette__dark-grey,
   $cads-header__link-active-colour
-);
+) !default;
 $cads-color-header-sign-out-background: cads-colors(
   $cads-palette__white,
   $cads-header__sign-out-background-colour
-);
+) !default;
 $cads-color-header-sign-out-text: cads-colors(
   $cads-palette__teal,
   $cads-header__sign-out-colour
-);
+) !default;
 $cads-color-header-sign-out-border: cads-colors(
   $cads-palette__teal-dark,
   $cads-header__sign-out-border-colour
-);
+) !default;
 
 /** @define header */
 .cads-header {
-  background-color: $cads-header__background-colour;
+  background-color: $cads-color-header-background;
   padding: $cads-spacing-4 0;
 
   &__hyperlink {
@@ -84,8 +84,7 @@ $cads-color-header-sign-out-border: cads-colors(
     padding: 11px 12px 11px 12px;
     color: $cads-color-button-primary;
     background: transparent;
-    border: solid $cads-border-width-medium
-      $cads-color-button-primary;
+    border: solid $cads-border-width-medium $cads-color-button-primary;
 
     &:hover,
     &:active {
