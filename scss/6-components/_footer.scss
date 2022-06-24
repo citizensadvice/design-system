@@ -2,39 +2,40 @@
 // Footer
 // ============================================================================
 // Colours
-$cads-footer__divider__colour: cads-colors(
+// $cads-color-footer-{element}-{state}
+$cads-color-footer-divider: cads-colors(
   $cads-palette__heritage-blue-dark,
   $legacy: $cads-footer__divider-colour
 );
-$cads-footer__background-colour: cads-colors(
+$cads-color-footer-background: cads-colors(
   $cads-palette__blue-light,
   $legacy: $cads-footer__background-colour
 );
-$cads-footer__text__colour: cads-colors(
+$cads-color-footer-text: cads-colors(
   $cads-palette__black,
   $legacy: $cads-footer__text-colour
 );
-$cads-footer__text__colour--secondary: cads-colors(
+$cads-color-footer-text-secondary: cads-colors(
   $cads-palette__heritage-blue,
   $legacy: $cads-footer__text-secondary-colour
 );
-$cads-footer__link__colour: cads-colors(
-  $cads-palette__heritage-blue,
-  $legacy: $cads-footer__link-colour
-);
-$cads-footer__link__colour--hover: cads-colors(
-  $cads-palette__heritage-blue-dark,
-  $legacy: $cads-footer__link-hover-colour
-);
-$cads-footer__background-colour--hover: cads-colors(
+$cads-color-footer-background-hover: cads-colors(
   $cads-palette__blue-light,
   $legacy: $cads-footer__hover-background-colour
 );
-$cads-footer__link__colour--visited: cads-colors(
+$cads-color-footer-link: cads-colors(
+    $cads-palette__heritage-blue,
+  $legacy: $cads-footer__link-colour
+);
+$cads-color-footer-link-hover: cads-colors(
+    $cads-palette__heritage-blue-dark,
+  $legacy: $cads-footer__link-hover-colour
+);
+$cads-color-footer-link-visited: cads-colors(
   $cads-palette__purple,
   $legacy: $cads-footer__link-visited-colour
 );
-$cads-footer__link__colour--active: cads-colors(
+$cads-color-footer-link-active: cads-colors(
   $cads-palette__dark-grey,
   $legacy: $cads-footer__link-active-colour
 );
@@ -49,7 +50,7 @@ $cads-footer__link__colour--active: cads-colors(
   .cads-footer__section-title {
     @extend %cads-h4;
 
-    color: $cads-footer__text__colour;
+    color: $cads-color-footer-text;
     margin: 0 0 $cads-spacing-2 0;
   }
   .cads-footer__feedback {
@@ -57,8 +58,8 @@ $cads-footer__link__colour--active: cads-colors(
 
     width: 100%;
     text-align: center;
-    color: $cads-footer__text__colour--secondary;
-    border-bottom: 1px solid $cads-footer__divider__colour;
+    color: $cads-color-footer-text-secondary;
+    border-bottom: 1px solid $cads-color-footer-divider;
     padding-bottom: $cads-spacing-4;
     margin: 0 0 $cads-spacing-4 0;
 
@@ -85,7 +86,7 @@ $cads-footer__link__colour--active: cads-colors(
   }
 
   .cads-footer__icon {
-    color: $cads-footer__link__colour;
+    color: $cads-color-footer-link;
     font-size: 12px;
 
     svg {
@@ -98,19 +99,19 @@ $cads-footer__link__colour--active: cads-colors(
   }
 
   .cads-footer__hyperlink {
-    color: $cads-footer__link__colour;
+    color: $cads-color-footer-link;
 
     &:visited {
-      color: $cads-footer__link__colour--visited;
+      color: $cads-color-footer-link-visited;
     }
 
     &:hover {
-      color: $cads-footer__link__colour--hover;
-      background-color: $cads-footer__background-colour--hover;
+      color: $cads-color-footer-link-hover;
+      background-color: $cads-color-footer-background-hover;
     }
 
     &:active {
-      color: $cads-footer__link__colour--active;
+      color: $cads-color-footer-link-active;
     }
 
     &:focus {
@@ -128,7 +129,7 @@ $cads-footer__link__colour--active: cads-colors(
   .cads-footer__company-info {
     @include cads-restrict-content-width();
 
-    color: $cads-footer__text__colour;
+    color: $cads-color-footer-text;
     padding-top: $cads-spacing-5;
     border-top: 1px solid $cads-color-border;
 
