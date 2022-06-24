@@ -1,5 +1,5 @@
 @use '../1-settings/typography' as typography;
-@use '../1-settings/colour-language' as language;
+@use '../1-settings/color' as color;
 
 html {
   box-sizing: border-box;
@@ -17,5 +17,5 @@ body {
   font-family: typography.$cads-font-family;
   font-size: typography.$cads-font-size;
   font-weight: typography.$cads-font-weight__regular;
-  color: language.$cads-color-text;
+  color: color.$cads-color-text;
 }

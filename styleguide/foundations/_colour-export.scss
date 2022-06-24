@@ -1,10 +1,10 @@
 @import '../../scss/1-settings/colour-palette';
-@import '../../scss/1-settings/colour-language';
+@import '../../scss/1-settings/color';
 
 // The following map is only used to provide a loop for displaying the colours in Storybook.
 /* stylelint-disable */
 :export {
-  language: {
+  color: {
     brand--primary: $cads-color-brand-primary;
     brand--secondary: $cads-color-brand-secondary;
     brand--adviser: $cads-color-brand-adviser;
