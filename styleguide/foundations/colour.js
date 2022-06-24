@@ -2,7 +2,7 @@ import sassColours from './_colour-export.scss';
 
 function getColours() {
   const keys = Object.keys(sassColours).filter((item) =>
-    item.includes('language')
+    item.includes('color')
   );
   return Object.fromEntries(keys.map((key) => [key, sassColours[key]]));
 }
@@ -10,7 +10,7 @@ function getColours() {
 export const colours = getColours();
 
 export function colourFor(key) {
-  return colours[`language-${key}`];
+  return colours[`color-${key}`];
 }
 
 export function swatchFor(key) {
@@ -18,15 +18,15 @@ export function swatchFor(key) {
   return `<span class="cads-styleguide-colour-swatch" style="background-color: ${colour};"></span>`;
 }
 
-export function colourLanguageTable(mappings) {
+export function colorTable(mappings) {
   let result = `<table>`;
-  result += `<thead><tr><th>Colour language</th><th>Variables</th><th>Hex value</th></tr></thead>`;
+  result += `<thead><tr><th>Colour</th><th>Variables</th><th>Hex value</th></tr></thead>`;
   result += `<tbody>`;
   mappings.forEach((mapping) => {
     const [description, colourKey] = mapping;
     result += '<tr>';
     result += `<td>${swatchFor(colourKey)} ${description}</td>`;
-    result += `<td>\`${`$cads-language__${colourKey}`}\`</td>`;
+    result += `<td>\`${`$cads-color-${colourKey}`}\`</td>`;
     result += `<td>\`${colourFor(colourKey)}\`</td>`;
     result += '</tr>';
   });

@@ -1,5 +1,5 @@
 import { Meta, Description } from '@storybook/addon-docs';
-import { colourLanguageTable } from './colour-language';
+import { colorTable } from './colour';
 
 <Meta title="Foundations/Colours" />
 
@@ -14,9 +14,9 @@ The same colour is sometimes repeated because it’s used in different ways – 
 Brand colours are usually used in global components such as ‘Global Navigation’ to enhance branding and create a consistent look on the website.
 
 <Description>
-  {colourLanguageTable([
-    ['Brand primary', 'brand--primary'],
-    ['Brand secondary', 'brand--secondary'],
+  {colorTable([
+    ['Brand primary', 'brand-primary'],
+    ['Brand secondary', 'brand-secondary'],
   ])}
 </Description>
 
@@ -25,9 +25,9 @@ Brand colours are usually used in global components such as ‘Global Navigation
 There are 2 shades of Text colour. Choose the colours carefully based on the importance of the information.
 
 <Description>
-  {colourLanguageTable([
-    ['Text', 'text__colour'],
-    ['Secondary text', 'text__colour--secondary'],
+  {colorTable([
+    ['Text', 'text'],
+    ['Secondary text', 'text-secondary'],
   ])}
 </Description>
 
@@ -36,21 +36,21 @@ There are 2 shades of Text colour. Choose the colours carefully based on the imp
 There are various colours for different interaction states. When different coloured backgrounds are used in designs, **make sure the colour contrast ratio of all the interaction states meets at least 4.5:1** – this is the same for typography.
 
 <Description>
-  {colourLanguageTable([
-    ['Link', 'link__colour'],
-    ['Visited', 'link__colour--visited'],
-    ['Hover', 'link__colour--hover'],
-    ['Hover background', 'background-colour--hover'],
-    ['Active', 'link__colour--active'],
+  {colorTable([
+    ['Link', 'link'],
+    ['Visited', 'link-visited'],
+    ['Hover', 'link-hover'],
+    ['Hover background', 'background-hover'],
+    ['Active', 'link-active'],
   ])}
 </Description>
 
 ### Focus
 
 <Description>
-  {colourLanguageTable([
-    ['Link', 'brand--focus'],
-    ['Focus border colour', 'border-colour--focus'],
+  {colorTable([
+    ['Link', 'brand-focus'],
+    ['Focus border colour', 'border-focus'],
   ])}
 </Description>
 
@@ -59,18 +59,18 @@ There are various colours for different interaction states. When different colou
 Use the ‘Input border’ for interactive elements like input boxes so it meets the contrast ratio of 3:1. ‘Border’ is usually used for decorative lines and dividers.
 
 <Description>
-  {colourLanguageTable([
-    ['Input border', 'input__border-colour'],
-    ['Border', 'border-colour'],
+  {colorTable([
+    ['Input border', 'input-border'],
+    ['Border', 'border'],
   ])}
 </Description>
 
 ### Buttons
 
 <Description>
-  {colourLanguageTable([
-    ['Button', 'button__colour--primary'],
-    ['Button hover', 'button__colour--primary-hover'],
+  {colorTable([
+    ['Button', 'button-primary'],
+    ['Button hover', 'button-primary-hover'],
   ])}
 </Description>
 
@@ -79,7 +79,7 @@ Use the ‘Input border’ for interactive elements like input boxes so it meets
 Only use ‘Adviser’ colours for adviser-related components, like ‘Adviser callout’. This is also the brand colour for AdviserNet.
 
 <Description>
-  {colourLanguageTable([['Adviser', 'brand--adviser']])}
+  {colorTable([['Adviser', 'brand-adviser']])}
 </Description>
 
 ## Accessibility
