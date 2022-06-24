@@ -40,34 +40,34 @@ $button-shadow-size: 4px;
 
   border-radius: $cads-border-radius;
   border: solid $cads-border-width-medium
-    $cads-language__button__colour--primary;
+    $cads-color-button-primary;
   border-bottom: none; // Remove bottom border as box-shadow replaces it
   box-shadow: 0 $button-shadow-size 0 0
-    $cads-language__button__colour--primary-hover;
+    $cads-color-button-primary-hover;
 
   &:focus {
     outline: none;
-    color: $cads-language__text__colour;
-    border-color: $cads-language__text__colour--secondary;
-    background-color: $cads-language__brand--focus;
+    color: $cads-color-text;
+    border-color: $cads-color-text-secondary;
+    background-color: $cads-color-brand-focus;
     box-shadow: 0 $button-shadow-size 0 0
-      $cads-language__text__colour--secondary;
+      $cads-color-text-secondary;
   }
 
   &:hover {
     box-shadow: 0 $button-shadow-size 0 0
-      $cads-language__button__colour--primary-hover;
+      $cads-color-button-primary-hover;
   }
 
   &:active {
     transform: translate(0, $button-shadow-size - $cads-border-width-medium);
     box-shadow: 0 $cads-border-width-medium 0 0
-      $cads-language__button__colour--primary-hover;
+      $cads-color-button-primary-hover;
   }
 
   &:hover,
   &:active {
-    border-color: $cads-language__button__colour--primary-hover;
+    border-color: $cads-color-button-primary-hover;
   }
 
   .cads-button__icon-left,
@@ -84,12 +84,12 @@ $button-shadow-size: 4px;
 .cads-button,
 .cads-button__primary {
   color: $cads-palette__white;
-  background-color: $cads-language__button__colour--primary;
+  background-color: $cads-color-button-primary;
 
   &:hover,
   &:active {
     color: $cads-palette__white;
-    background-color: $cads-language__button__colour--primary-hover;
+    background-color: $cads-color-button-primary-hover;
   }
 }
 
@@ -97,14 +97,14 @@ $button-shadow-size: 4px;
  * Secondary buttons
  */
 .cads-button__secondary {
-  color: $cads-language__button__colour--primary;
+  color: $cads-color-button-primary;
   background-color: $cads-palette__white;
-  box-shadow: 0 $button-shadow-size 0 0 $cads-language__button__colour--primary;
+  box-shadow: 0 $button-shadow-size 0 0 $cads-color-button-primary;
 
   &:hover,
   &:active {
-    color: $cads-language__button__colour--primary-hover;
-    background-color: $cads-language__background-colour--hover;
+    color: $cads-color-button-primary-hover;
+    background-color: $cads-color-background-hover;
   }
 }
 
@@ -113,20 +113,20 @@ $button-shadow-size: 4px;
  */
 .cads-button__tertiary {
   font-weight: $cads-font-weight__regular;
-  color: $cads-language__button__colour--primary;
+  color: $cads-color-button-primary;
   background-color: $cads-palette__white;
-  border: solid $cads-border-width-small $cads-language__button__colour--primary;
+  border: solid $cads-border-width-small $cads-color-button-primary;
   box-shadow: none;
 
   &:focus {
     box-shadow: 0 ($button-shadow-size - $cads-border-width-small) 0 0
-      $cads-language__text__colour--secondary;
+      $cads-color-text-secondary;
   }
 
   &:hover,
   &:active {
-    background-color: $cads-language__background-colour--hover;
-    color: $cads-language__button__colour--primary-hover;
+    background-color: $cads-color-background-hover;
+    color: $cads-color-button-primary-hover;
     box-shadow: none;
   }
 
@@ -136,22 +136,22 @@ $button-shadow-size: 4px;
 }
 
 %cads-button__tertiary--dark {
-  background-color: $cads-language__brand--primary;
-  color: $cads-language__brand--primary-contrast;
-  border-color: $cads-language__brand--primary-contrast;
+  background-color: $cads-color-brand-primary;
+  color: $cads-color-brand-primary-contrast;
+  border-color: $cads-color-brand-primary-contrast;
 
   &:hover,
   &:active {
-    background-color: $cads-language__brand--primary-dark;
-    color: $cads-language__brand--primary-contrast;
-    border-color: $cads-language__brand--primary-dark;
+    background-color: $cads-color-brand-primary-dark;
+    color: $cads-color-brand-primary-contrast;
+    border-color: $cads-color-brand-primary-dark;
   }
 
   &:focus {
-    color: $cads-language__text__colour;
-    border-color: $cads-language__text__colour--secondary;
-    background-color: $cads-language__brand--focus;
+    color: $cads-color-text;
+    border-color: $cads-color-text-secondary;
+    background-color: $cads-color-brand-focus;
     box-shadow: 0 $button-shadow-size 0 0
-      $cads-language__text__colour--secondary;
+      $cads-color-text-secondary;
   }
 }

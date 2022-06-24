@@ -13,98 +13,103 @@
 
 $use-legacy-color-names: true !default;
 
+// ${component}-{element}-{state}
+
 // Brand
-$cads-color__brand-primary: cads-colors(
+$cads-color-brand-primary: cads-colors(
   $cads-palette__heritage-blue,
   $legacy: $cads-language__brand-primary
 ) !default;
-$cads-color__brand-primary-dark: cads-colors(
+$cads-color-brand-primary-dark: cads-colors(
   $cads-palette__heritage-blue-dark,
   $legacy: $cads-language__tertiary-button-dark-hover-background-colour
 ) !default;
-$cads-color__brand-secondary: cads-colors(
+$cads-color-brand-secondary: cads-colors(
   $cads-palette__heritage-yellow,
   $legacy: $cads-language__brand-secondary
 ) !default;
-$cads-color__brand-primary-contrast: cads-colors(
+$cads-color-brand-primary-contrast: cads-colors(
   $cads-palette__white,
   $legacy: $cads-language__brand-primary-contrast
 ) !default;
-$cads-color__brand-adviser: cads-colors(
+$cads-color-brand-adviser: cads-colors(
   $cads-palette__blue-adviser,
   $legacy: $cads-language__brand-adviser
 ) !default;
-$cads-color__brand-focus: cads-colors(
+$cads-color-brand-focus: cads-colors(
   $cads-palette__yellow,
   $legacy: $cads-language__focus-colour
 ) !default;
 
 // Text
-$cads-color__text: cads-colors(
+$cads-color-text: cads-colors(
   $cads-palette__black,
   $legacy: $cads-language__text-colour
 ) !default;
-$cads-color__text--secondary: cads-colors(
+$cads-color-text-secondary: cads-colors(
   $cads-palette__dark-grey,
   $legacy: $cads-language__secondary-text-colour
 ) !default;
 
 // Links
-$cads-color__link: cads-colors(
+$cads-color-link: cads-colors(
   $cads-palette__heritage-blue,
   $legacy: $cads-language__link-colour
 ) !default;
-$cads-color__link--hover: cads-colors(
+$cads-color-link-hover: cads-colors(
   $cads-palette__heritage-blue-dark,
   $legacy: $cads-language__link-hover-colour
 ) !default;
-$cads-color__link--visited: cads-colors(
+$cads-color-link-visited: cads-colors(
   $cads-palette__purple,
   $legacy: $cads-language__link-visited-colour
 ) !default;
-$cads-color__link--active: cads-colors(
+$cads-color-link-active: cads-colors(
   $cads-palette__dark-grey,
   $legacy: $cads-language__link-active-colour
 ) !default;
 
-$cads-color__background--hover: cads-colors(
+$cads-color-background-hover: cads-colors(
   $cads-palette__blue-light,
   $legacy: $cads-language__hover-background-colour
 ) !default;
-$cads-color__border--focus: cads-colors(
+
+// Border
+$cads-color-border: cads-colors(
+    $cads-palette__light-grey,
+  $legacy: $cads-language__border-colour
+) !default;
+
+$cads-color-border-focus: cads-colors(
   $cads-palette__dark-grey,
   $legacy: $cads-language__focus-border-colour
 ) !default;
 
-$cads-color__input-border: cads-colors(
+$cads-color-input-border: cads-colors(
   $cads-palette__mid-grey,
   $legacy: $cads-language__input-border-colour
 ) !default;
-$cads-color__border: cads-colors(
-  $cads-palette__light-grey,
-  $legacy: $cads-language__border-colour
-) !default;
 
 // Buttons
-$cads-color__button--primary: cads-colors(
+$cads-color-button-primary: cads-colors(
   $cads-palette__teal,
   $legacy: $cads-language__primary-button-colour
 ) !default;
-$cads-color__button--primary-hover: cads_colors(
+$cads-color-button-primary-hover: cads_colors(
   $cads-palette__teal-dark,
   $legacy: $cads-language__primary-button-hover-colour
 ) !default;
 
 // Messages
-$cads-color__error: cads-colors(
+$cads-color-error: cads-colors(
   $cads-palette__red,
   $legacy: $cads-language__error-colour
 ) !default;
-$cads-color__important: cads-colors(
+$cads-color-important: cads-colors(
   $cads-palette__red,
   $legacy: $cads-language__warning-colour
 ) !default;
-$cads-color__success: cads-colors(
+$cads-color-success: cads-colors(
   $cads-palette__green,
   $legacy: $cads-language__success-colour
 ) !default;

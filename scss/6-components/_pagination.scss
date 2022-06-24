@@ -4,9 +4,9 @@
 
 @mixin cads-paging-focus() {
   outline: none;
-  color: $cads-language__text__colour;
-  border-color: $cads-language__border-colour--focus;
-  background-color: $cads-language__brand--focus;
+  color: $cads-color-text;
+  border-color: $cads-color-border-focus;
+  background-color: $cads-color-brand-focus;
 }
 
 /** @define paging */
@@ -22,8 +22,8 @@
 .cads-paging__button {
   @include cads-button-defaults();
 
-  color: $cads-language__link__colour;
-  border: solid $cads-border-width-small $cads-language__border-colour;
+  color: $cads-color-link;
+  border: solid $cads-border-width-small $cads-color-border;
   border-radius: $cads-border-radius;
   font-weight: $cads-font-weight__regular;
   background-color: transparent;
@@ -36,24 +36,24 @@
 
   &:hover,
   &:active {
-    color: $cads-language__link__colour--hover;
-    border-color: $cads-language__link__colour--hover;
-    background-color: $cads-language__background-colour--hover;
+    color: $cads-color-link-hover;
+    border-color: $cads-color-link-hover;
+    background-color: $cads-color-background-hover;
   }
 
   .cads-paging__current & {
     font-weight: $cads-font-weight__bold;
     color: $cads-palette__white;
-    background-color: $cads-language__button__colour--primary;
-    border-color: $cads-language__button__colour--primary;
+    background-color: $cads-color-button-primary;
+    border-color: $cads-color-button-primary;
 
     &:focus {
       @include cads-paging-focus();
     }
 
     &:hover {
-      border-color: $cads-language__button__colour--primary-hover;
-      background-color: $cads-language__button__colour--primary-hover;
+      border-color: $cads-color-button-primary-hover;
+      background-color: $cads-color-button-primary-hover;
     }
   }
 }
@@ -64,5 +64,5 @@
   line-height: 1.25rem;
   font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-4 0;
-  color: $cads-language__text__colour--secondary;
+  color: $cads-color-text-secondary;
 }

@@ -1,5 +1,5 @@
 .cads-notice-banner {
-  border-left: solid $cads-border-width-large $cads-language__brand--secondary;
+  border-left: solid $cads-border-width-large $cads-color-brand-secondary;
   margin: 0 0 $cads-spacing-5 0;
 
   .cads-notice-banner__title {
@@ -41,7 +41,7 @@
     .cads-notice-banner__title {
       flex-grow: 0;
       flex-shrink: 0;
-      background-color: $cads-language__brand--secondary;
+      background-color: $cads-color-brand-secondary;
       padding: $cads-spacing-2;
       margin: 0 $cads-spacing-4 0 0;
     }

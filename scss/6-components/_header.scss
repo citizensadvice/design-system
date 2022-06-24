@@ -61,9 +61,9 @@ $cads-header__sign-out__border-colour: cads-colors(
     }
 
     &:focus {
-      color: $cads-language__text__colour;
-      background-color: $cads-language__brand--focus;
-      border-bottom: 2px solid $cads-language__text__colour;
+      color: $cads-color-text;
+      background-color: $cads-color-brand-focus;
+      border-bottom: 2px solid $cads-color-text;
     }
 
     &:visited {
@@ -72,7 +72,7 @@ $cads-header__sign-out__border-colour: cads-colors(
   }
 
   &__text {
-    color: $cads-language__text__colour--secondary;
+    color: $cads-color-text-secondary;
     font-weight: $cads-font-weight__bold;
   }
 
@@ -82,22 +82,22 @@ $cads-header__sign-out__border-colour: cads-colors(
     display: none;
     margin: 0;
     padding: 11px 12px 11px 12px;
-    color: $cads-language__button__colour--primary;
+    color: $cads-color-button-primary;
     background: transparent;
     border: solid $cads-border-width-medium
-      $cads-language__button__colour--primary;
+      $cads-color-button-primary;
 
     &:hover,
     &:active {
-      color: $cads-language__button__colour--primary-hover;
-      background-color: $cads-language__button__colour--primary-hover;
+      color: $cads-color-button-primary-hover;
+      background-color: $cads-color-button-primary-hover;
     }
 
     &:focus {
       outline: none;
-      color: $cads-language__text__colour;
-      border-color: $cads-language__border-colour--focus;
-      background-color: $cads-language__brand--focus;
+      color: $cads-color-text;
+      border-color: $cads-color-border-focus;
+      background-color: $cads-color-brand-focus;
     }
   }
 

@@ -5,23 +5,23 @@
 /* stylelint-disable */
 :export {
   language: {
-    brand--primary: $cads-language__brand--primary;
-    brand--secondary: $cads-language__brand--secondary;
-    brand--adviser: $cads-language__brand--adviser;
-    text__colour: $cads-language__text__colour;
-    text__colour--secondary: $cads-language__text__colour--secondary;
-    link__colour: $cads-language__link__colour;
-    link__colour--hover: $cads-language__link__colour--hover;
-    link__colour--visited: $cads-language__link__colour--visited;
-    link__colour--active: $cads-language__link__colour--active;
-    background-colour--hover: $cads-language__background-colour--hover;
-    brand--focus: $cads-language__brand--focus;
-    border-colour--focus: $cads-language__border-colour--focus;
-    input__border-colour: $cads-language__input__border-colour;
-    border-colour: $cads-language__border-colour;
-    button__colour--primary: $cads-language__button__colour--primary;
-    button__colour--primary-hover: $cads-language__button__colour--primary-hover;
-    error-colour: $cads-language__error__colour;
-    success-colour: $cads-language__success__colour;
+    brand--primary: $cads-color-brand-primary;
+    brand--secondary: $cads-color-brand-secondary;
+    brand--adviser: $cads-color-brand-adviser;
+    text__colour: $cads-color-text;
+    text__colour--secondary: $cads-color-text-secondary;
+    link__colour: $cads-color-link;
+    link__colour--hover: $cads-color-link-hover;
+    link__colour--visited: $cads-color-link-visited;
+    link__colour--active: $cads-color-link-active;
+    background-colour--hover: $cads-color-background-hover;
+    brand--focus: $cads-color-brand-focus;
+    border-colour--focus: $cads-color-border-focus;
+    input__border-colour: $cads-color-input-border;
+    border-colour: $cads-color-border;
+    button__colour--primary: $cads-color-button-primary;
+    button__colour--primary-hover: $cads-color-button-primary-hover;
+    error-colour: $cads-color-error;
+    success-colour: $cads-color-success;
   }
 }

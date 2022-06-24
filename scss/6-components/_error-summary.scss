@@ -1,19 +1,19 @@
 .cads-error-summary {
-  border: solid $cads-border-width-medium $cads-language__border-colour;
+  border: solid $cads-border-width-medium $cads-color-border;
   border-radius: $cads-border-radius;
   padding: $cads-spacing-4;
-  color: $cads-language__error__colour;
+  color: $cads-color-error;
   margin-bottom: $cads-spacing-4;
 
   &:focus {
-    outline: 2px solid $cads-language__brand--focus;
-    border-color: $cads-language__error__colour;
+    outline: 2px solid $cads-color-brand-focus;
+    border-color: $cads-color-error;
   }
 
   &__title {
     @extend %cads-h4;
 
-    color: $cads-language__error__colour;
+    color: $cads-color-error;
     margin-bottom: $cads-spacing-4;
   }
 
@@ -28,11 +28,11 @@
       }
 
       a {
-        color: $cads-language__error__colour;
+        color: $cads-color-error;
         text-decoration: underline;
 
         &:focus {
-          color: $cads-language__text__colour;
+          color: $cads-color-text;
           text-decoration: none;
           outline: none;
         }

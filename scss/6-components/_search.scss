@@ -32,22 +32,22 @@
     margin-bottom: 0;
     padding: (cads-rem-to-px($cads-spacing-3) - 2px) $cads-spacing-3;
     border: solid $cads-border-width-medium
-      $cads-language__button__colour--primary;
-    color: $cads-language__brand--primary-contrast;
-    background-color: $cads-language__button__colour--primary;
+      $cads-color-button-primary;
+    color: $cads-color-brand-primary-contrast;
+    background-color: $cads-color-button-primary;
 
     &:hover,
     &:active {
-      color: $cads-language__brand--primary-contrast;
-      background-color: $cads-language__button__colour--primary-hover;
-      border-color: $cads-language__button__colour--primary-hover;
+      color: $cads-color-brand-primary-contrast;
+      background-color: $cads-color-button-primary-hover;
+      border-color: $cads-color-button-primary-hover;
     }
 
     &:focus {
       outline: none;
-      color: $cads-language__text__colour;
-      border-color: $cads-language__border-colour--focus;
-      background-color: $cads-language__brand--focus;
+      color: $cads-color-text;
+      border-color: $cads-color-border-focus;
+      background-color: $cads-color-brand-focus;
     }
   }
 }

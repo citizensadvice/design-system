@@ -114,9 +114,9 @@ $cads-footer__link__colour--active: cads-colors(
     }
 
     &:focus {
-      color: $cads-language__text__colour;
-      background-color: $cads-language__brand--focus;
-      border-bottom: 2px solid $cads-language__text__colour;
+      color: $cads-color-text;
+      background-color: $cads-color-brand-focus;
+      border-bottom: 2px solid $cads-color-text;
     }
   }
 
@@ -130,7 +130,7 @@ $cads-footer__link__colour--active: cads-colors(
 
     color: $cads-footer__text__colour;
     padding-top: $cads-spacing-5;
-    border-top: 1px solid $cads-language__border-colour;
+    border-top: 1px solid $cads-color-border;
 
     @include cads-media-breakpoint-up(md) {
       display: flex;

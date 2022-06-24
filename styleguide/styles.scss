@@ -7,7 +7,7 @@
 
   li {
     display: inline-block;
-    border: 1px solid $cads-language__border-colour;
+    border: 1px solid $cads-color-border;
     border-radius: $cads-border-radius;
     padding: 1em;
     margin-right: 0.25em;
@@ -54,8 +54,8 @@ $cads-spacers: (
   .cads-styleguide-spacing-block-#{$size} {
     display: inline-block;
     vertical-align: middle;
-    background: rgba($cads-language__border-colour, 0.4);
-    border: dotted 1px $cads-language__border-colour;
+    background: rgba($cads-color-border, 0.4);
+    border: dotted 1px $cads-color-border;
     width: $length;
     height: $length;
   }
@@ -68,35 +68,35 @@ $cads-spacers: (
   width: 100px;
   height: 40px;
   vertical-align: middle;
-  border: solid $cads-border-width-small $cads-language__border-colour;
+  border: solid $cads-border-width-small $cads-color-border;
   margin-left: 11px;
   margin-right: 11px;
 }
 
 .cads-styleguide-sizing-border-medium {
-  border: solid $cads-border-width-medium $cads-language__border-colour;
+  border: solid $cads-border-width-medium $cads-color-border;
   margin-left: 10px;
 }
 
 .cads-styleguide-sizing-border-large {
-  border: solid $cads-border-width-large $cads-language__border-colour;
+  border: solid $cads-border-width-large $cads-color-border;
   margin-left: 10px;
 }
 
 .cads-styleguide-grid {
-  border: solid $cads-border-width-small $cads-language__border-colour;
+  border: solid $cads-border-width-small $cads-color-border;
 
   .cads-grid-row {
     > div {
-      border: solid $cads-border-width-small $cads-language__border-colour;
-      background: rgba($cads-language__border-colour, 0.2);
+      border: solid $cads-border-width-small $cads-color-border;
+      background: rgba($cads-color-border, 0.2);
       text-align: center;
 
       span {
         padding-top: $cads-spacing-2;
         padding-bottom: $cads-spacing-2;
         display: block;
-        background: rgba($cads-language__border-colour, 0.4);
+        background: rgba($cads-color-border, 0.4);
       }
     }
   }
