@@ -2,40 +2,40 @@
 // Header
 // ============================================================================
 // Colours
-$cads-header__background-colour: cads-colours(
+$cads-header__background-colour: cads-colors(
   $cads-palette__white,
   $cads-header__background-colour
 );
-$cads-header__link__colour: cads-colours(
+$cads-header__link__colour: cads-colors(
   $cads-palette__heritage-blue,
   $cads-header__link-colour
 );
-$cads-header__link__colour--hover: cads-colours(
+$cads-header__link__colour--hover: cads-colors(
   $cads-palette__heritage-blue-dark,
   $cads-header__link-hover-colour
 );
-$cads-header__background-colour--hover: cads-colours(
+$cads-header__background-colour--hover: cads-colors(
   $cads-palette__blue-light,
   $cads-header__hover-background-colour
 );
-$cads-header__link__colour--visited: cads-colours(
+$cads-header__link__colour--visited: cads-colors(
   $cads-palette__purple,
   $cads-header__link-visited-colour
 );
-$cads-header__link__colour--active: cads-colours(
+$cads-header__link__colour--active: cads-colors(
   $cads-palette__dark-grey,
   $cads-header__link-active-colour
 );
 
-$cads-header__sign-out__background-colour: cads-colours(
+$cads-header__sign-out__background-colour: cads-colors(
   $cads-palette__white,
   $cads-header__sign-out-background-colour
 );
-$cads-header__sign-out__colour: cads-colours(
+$cads-header__sign-out__colour: cads-colors(
   $cads-palette__teal,
   $cads-header__sign-out-colour
 );
-$cads-header__sign-out__border-colour: cads-colours(
+$cads-header__sign-out__border-colour: cads-colors(
   $cads-palette__teal-dark,
   $cads-header__sign-out-border-colour
 );
