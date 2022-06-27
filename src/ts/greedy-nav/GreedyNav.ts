@@ -439,13 +439,19 @@ export class GreedyNavMenu {
    */
   prepareHtml(_this: HTMLElement): void {
     /**
-     * Create dropdow menu
+     * Create dropdown menu
      * @type {HTMLElement}
      */
     this.toggleWrapper = this.document.createElement('div');
     this.navDropdown = this.document.createElement('ul');
     this.navDropdownToggle = this.document.createElement('button');
     this.navDropdownToggleLabel = this.document.createElement('span');
+
+    /**
+     * Set ID on nav dropdown so we can reference it later
+     */
+    const dropdownId = 'greedy-nav-dropdown'
+    this.navDropdown.setAttribute('id', dropdownId)
 
     /**
      * Set label for dropdown toggle
@@ -460,6 +466,7 @@ export class GreedyNavMenu {
      * Set aria attributes for accessibility
      */
     this.navDropdownToggle.setAttribute('aria-expanded', 'false');
+    this.navDropdownToggle.setAttribute('aria-controls', dropdownId);
     this.navDropdownToggle.setAttribute('type', 'button');
     this.navDropdownToggle.setAttribute(
       'aria-labelledby',
