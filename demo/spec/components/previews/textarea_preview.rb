@@ -56,7 +56,7 @@ class TextareaPreview < ViewComponent::Preview
 
   def additional_attributes
     additional_attributes = {
-      spellcheck: true
+      spellcheck: "true"
     }
 
     render(

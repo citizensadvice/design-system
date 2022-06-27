@@ -85,7 +85,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     let(:current_page) { false }
 
     it "does not add the aria-location attribute" do
-      expect(component.css("span").attribute("aria-location")).to eq nil
+      expect(component.css("span").attribute("aria-location")).to be_nil
     end
   end
 

@@ -4,18 +4,18 @@
       %table.cads-table
         %thead
           %tr
-            %th
+            %th{ scope: "col" }
               Component class
-            %th
+            %th{ scope: "col" }
               Toggle
-            %th
+            %th{ scope: "col" }
               Icon
         %tbody
           %tr
             %td
               PlusMinus
             %td
-              %button
+              %button.cads-button{ type: "button" }
                 Toggle minus
             %td
               = render CitizensAdviceComponents::Icons::PlusMinus.new(size: :large)

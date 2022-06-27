@@ -1,0 +1,15 @@
+---
+title: With hint
+---
+<%= render CitizensAdviceComponents::RadioGroup.new(
+  legend: "Example radio group",
+  name: "radio-buttons-hint",
+  options: {
+    hint: "This is the hint text"
+  }
+) do |c|
+  c.inputs([
+             { label: "Option 1", value: "1" },
+             { label: "Option 2", value: "2" }
+           ])
+end %>

@@ -73,7 +73,7 @@ class RadioGroupPreview < ViewComponent::Preview
   def long
     render CitizensAdviceComponents::RadioGroup.new(
       legend: "Example radio group",
-      name: "radio-buttons-long"
+      name: "radio-buttons-long",
     ) do |c|
       c.inputs(long_radios)
     end
@@ -85,6 +85,18 @@ class RadioGroupPreview < ViewComponent::Preview
       name: "radio-buttons-attrs"
     ) do |c|
       c.inputs(additional_attribute_radios)
+    end
+  end
+
+  def legend_heading
+    render CitizensAdviceComponents::RadioGroup.new(
+      legend: "Example radio group",
+      name: "radio-buttons-legend-heading",
+      options: {
+                    legend_heading: true
+                  }
+    ) do |c|
+      c.inputs(radios)
     end
   end
 

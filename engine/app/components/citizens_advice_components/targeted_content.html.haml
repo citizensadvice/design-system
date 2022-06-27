@@ -1,8 +1,8 @@
 .cads-targeted-content.js-cads-targeted-content{ attributes }
   - haml_tag("h#{heading_level}", heading_attributes) do
-    .cads-targeted-content__title-text
+    %span.cads-targeted-content__title-text
       - if adviser?
-        .cads-targeted-content__badge
+        %span.cads-targeted-content__badge
           = render(CitizensAdviceComponents::Badge.new(type: :adviser))
       = title
   .cads-targeted-content__content.cads-prose.js-cads-targeted-content__content{ id: "#{id}-content" }

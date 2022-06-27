@@ -1,3 +1,26 @@
+## Unreleased
+
+**Bugfixes**
+
+- 👤 Header: Fix accessibility issue with search toggle
+- 👤 Header: Fix minor HTML validation issue with search form
+- 🧂 Tables: Add `scope: col` to `th` cells
+- 🎯 Targeted content: Fix validation issues with HTML
+- 🔗 Pagination links: Remove redundant `navigation` role
+- 📜 On this page: Add missing type to toggle buttons
+
+## <sub>v5.3.0-alpha.1</sub>
+
+**Bugfixes**
+
+- 🧂 Tables: `thead` is no longer incorrectly nested within `tbody`
+
+#### _Jun. 1, 2022_
+
+**New**
+
+- 📋 Form group: Add `legend_heading` to `options` for one question per page forms
+
 ## <sub>v5.3.0-alpha.0</sub>
 
 #### _Apr. 21, 2022_

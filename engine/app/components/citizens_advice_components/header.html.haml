@@ -9,12 +9,16 @@
       .cads-grid-col-md-2.cads-header__logo-row
         = logo
         - if search_form.present?
-          = tag.button(class: "cads-header__search-reveal js-cads-search-reveal cads-icon_search",
-            title: t(".open_search"),
+          = tag.button(class: "cads-header__search-reveal js-cads-search-reveal",
+            type: "button",
+            "aria-label": t(".open_search"),
             "aria-expanded": "false",
+            "aria-controls": "header-search-form",
             "data-testid": "expand-button",
             "data-descriptive-label-show": t(".open_search"),
-            "data-descriptive-label-hide": t(".close_search"))
+            "data-descriptive-label-hide": t(".close_search")) do
+            = render CitizensAdviceComponents::Icons::Search.new
+            = render CitizensAdviceComponents::Icons::Close.new
 
       .cads-grid-col-md-10.cads-header__search-row
         %ul.cads-header__links.js-cads-copy-into-nav
@@ -25,7 +29,7 @@
             %li.cads-header__links-item= account_link
 
         - if search_form.present?
-          .cads-header__search-form
+          #header-search-form.cads-header__search-form
             = form_tag(search_form.search_action_url,
               method: :get,
               role: "search",
@@ -35,7 +39,9 @@
                 "aria-label": t("citizens_advice_components.search.input_aria_label"),
                 class: "cads-search__input cads-input")
               = tag.button(name: nil,
+                type: "submit",
                 title: t("citizens_advice_components.search.submit_title"),
                 "data-testid": "search-button",
                 class: "cads-search__button") do
+                = render CitizensAdviceComponents::Icons::Search.new
                 %span.cads-search__button-label= t("citizens_advice_components.search.submit_label")
