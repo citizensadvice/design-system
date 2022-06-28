@@ -47,3 +47,16 @@
   margin-right: $cads-spacing-2;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
+
+// Typography
+
+// all foundation body copy is wrapped in a .cads-prose for the docs site
+.cads-prose {
+  .my-small-paragraph {
+    @extend %cads-paragraph-small;
+  }
+
+  .my-plain-list {
+    @extend %cads-list-no-bullet;
+  }
+}

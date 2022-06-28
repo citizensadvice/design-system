@@ -10,11 +10,8 @@ Our typeface is Open Sans, it's modern, easy to read and available to download f
 
 Use small text for metadata and some UI components. The majority of your body copy should use the standard 18px font size.
 
-export const paragraphSmallHtml = `<p class="my-small-paragraph">Small paragraph font size is 16px on large screens and 14px on smaller screens.</p>`;
 
-// small paragraph story
-
-### Technical implementation
+<%= render(Shared::ComponentExample.new(:foundations, :typography_small_paragraph)) %>
 
 Paragraph styles have been created using placeholders and extended into the relevant classes for components that consume them.
 
@@ -48,11 +45,7 @@ Make sure to use the appropriate <h#> level, and don't skip heading levels.
 
 H4s are available for custom designed components or pages. Do not use for advice content. If using an H4 in your designs, make sure to use correct heading levels.
 
-export const headingsHtml = `<h1 class="my-h1">Heading level 1</h1><h2 class="my-h2">Heading level 2</h2><h3 class="my-h3">Heading level 3</h3><h4 class="my-h4">Heading level 4</h4></div>`;
-
-// headings story
-
-### Technical implementation
+<%= render(Shared::ComponentExample.new(:foundations, :typography_headings)) %>
 
 When building new components, avoid using line height for spacing and alignment. Use the typographic scale that is established.
 
@@ -78,9 +71,6 @@ If you need to achieve these styles outside of a `.cads-prose` element, you will
 }
 ```
 
-export const headingsProseHtml =
-'<div class="cads-prose"><h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3></div>';
-
 If you need to apply these styles to heading elements that you cannot add a class to, for example content from a CMS or rich text editor, wrap them in a `.cads-prose` element:
 
 ```html
@@ -96,7 +86,7 @@ If you need to apply these styles to heading elements that you cannot add a clas
 </main>
 ```
 
-#### Adjacent Heading Mixin
+### Adjacent Heading Mixin
 
 To ensure that headings have the correct margins applied inside the `.cads-prose` element, a mixin has been used that will add the correct margin. This is automatically applied to the relevant elements that appear in a `.cads-prose` wrapper.
 
@@ -132,9 +122,7 @@ To ensure the appropriate margin between the `<p>` and the `<div>` in the above 
 
 Links are blue and underlined by default. Avoid opening links in a new tab, as it can confuse some users.
 
-export const linkTextHtml = `<p class="my-paragraph"><a href="">cads-hyperlink</a></p>`;
-
-// links story
+<%= render(Shared::ComponentExample.new(:foundations, :typography_link)) %>
 
 Read our guidance about using <a href ="?path=/docs/components-buttons--primary">buttons as links</a>.
 
@@ -144,17 +132,7 @@ When you link to a page external to your website add the `.cads-hyperlink--exter
 
 If your links appear within a `.cads-prose` container this style is automatically applied for all links with a `rel=external` attribute or that don't match the value set for `$cads-internal-link-domain` (defaults to `https:/www.citizensadvice.org.uk`).
 
-export const externalLinkHTML = `
-<p class="my-paragraph">
-  A <a href="http://www.example.com/unvisted" class="cads-hyperlink--external">cads-hyperlink--external</a> link, displayed in a paragraph.
-</p>
-<main class="cads-prose">
-  <p>This is a link to an <a href="https://www.example.com" rel="external">external site</a>, while this link is within <a href="https://www.citizensadvice.org.uk/immigration">Citizens Advice</a></p>
-</main>
-`;
-
-// external links story
-
+<%= render(Shared::ComponentExample.new(:foundations, :typography_external_link)) %>
 
 ## Lists
 
@@ -164,9 +142,8 @@ export const externalLinkHTML = `
 
 Unordered lists should be used to show collections of items where their order does not have meaning, for example the criteria for claiming a particular benefit.
 
-// unordered list story
 
-##### Technical Implementation
+<%= render(Shared::ComponentExample.new(:foundations, :typography_unordered_list)) %>
 
 You can extend the following placeholder to achieve the correct unordered list styling outside of a `.cads-prose` element.
 
@@ -180,9 +157,7 @@ You can extend the following placeholder to achieve the correct unordered list s
 
 In some situations, you will want the styles of an unordered list without the bullet points - for example to present a list of links on a summary page.
 
-// plain list story
-
-##### Technical Implementation
+<%= render(Shared::ComponentExample.new(:foundations, :typography_plain_list)) %>
 
 You can extend the following placeholder to achieve the correct plain list styling outside of a `.cads-prose` element.
 
@@ -197,9 +172,8 @@ You can extend the following placeholder to achieve the correct plain list styli
 
 Ordered lists should be used to show collections of items where the order does have meaning, for example the steps in a process.
 
-// ordered list story
 
-#### Technical Implementation
+<%= render(Shared::ComponentExample.new(:foundations, :typography_ordered_list)) %>
 
 You can use the following placeholders to achieve the correct ordered list styling outside of a `.cads-prose` element.
 
