@@ -1,8 +1,16 @@
 - lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a urna nisl. Aenean euismod purus a magna vulputate, eget volutpat neque volutpat. Donec dapibus scelerisque diam eu scelerisque. Vestibulum laoreet magna sagittis felis pellentesque semper. Nullam porta, arcu rhoncus euismod porttitor, risus augue bibendum ipsum, eget tincidunt mi lectus eget eros. Donec nisl ipsum, facilisis vitae tortor maximus, venenatis mattis purus. Quisque fringilla gravida arcu, ut bibendum nibh malesuada at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+- my_radio_buttons = [{ label: "Option 1", value: "1", checked: true }, { label: "Option 2", value: "2" }, { label: "Option 3", value: "3", "data-testid": "my-test-id" }]
+
 = render CitizensAdviceComponents::ErrorSummary.new do |c|
-  - c.errors([{ href: "#email-input", message: "Enter an email address in the correct format, like name@example.com" }])
+  - c.errors([{ href: "#email-input", message: "Enter an email address in the correct format, like name@example.com" }, { href: "#radio-buttons-0", message: "Enter a value" }])
+
+- 3.times do
+  %p= lorem
 
 = render CitizensAdviceComponents::Input.new(name: "email", label: "Email address", type: :email, options: { value: "helloexample.com", error_message: "Enter a valid email address, like name@example.com" })
 
-- 8.times do
+= render CitizensAdviceComponents::RadioGroup.new(legend: "Example radio buttons", name: "radio-buttons", options: {error_message: "Enter a value"}) do |i|
+  - i.inputs(my_radio_buttons)
+
+- 5.times do
   %p= lorem
