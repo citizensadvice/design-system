@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="<%= webpack_path "css" %>" />
-    <style><%= Rouge::Theme.find('github').render(scope: '.highlight') %></style>
+    <style><%= Rouge::Theme.find('cads-theme').render(scope: '.highlight') %></style>
   </head>
   <body>
     <%= render CitizensAdviceComponents::Header.new do |c| %>
