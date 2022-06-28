@@ -25,5 +25,8 @@
   },
   "resolutions": {
     "postcss-focus-within": "^4.0.0"
+  },
+  "dependencies": {
+    "clipboard-copy": "^4.0.1"
   }
 }
