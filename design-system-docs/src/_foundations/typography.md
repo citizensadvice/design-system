@@ -10,7 +10,6 @@ Our typeface is Open Sans, it's modern, easy to read and available to download f
 
 Use small text for metadata and some UI components. The majority of your body copy should use the standard 18px font size.
 
-
 <%= render(Shared::ComponentExample.new(:foundations, :typography_small_paragraph)) %>
 
 Paragraph styles have been created using placeholders and extended into the relevant classes for components that consume them.
@@ -142,7 +141,6 @@ If your links appear within a `.cads-prose` container this style is automaticall
 
 Unordered lists should be used to show collections of items where their order does not have meaning, for example the criteria for claiming a particular benefit.
 
-
 <%= render(Shared::ComponentExample.new(:foundations, :typography_unordered_list)) %>
 
 You can extend the following placeholder to achieve the correct unordered list styling outside of a `.cads-prose` element.
@@ -172,7 +170,6 @@ You can extend the following placeholder to achieve the correct plain list styli
 
 Ordered lists should be used to show collections of items where the order does have meaning, for example the steps in a process.
 
-
 <%= render(Shared::ComponentExample.new(:foundations, :typography_ordered_list)) %>
 
 You can use the following placeholders to achieve the correct ordered list styling outside of a `.cads-prose` element.
@@ -183,4 +180,3 @@ You can use the following placeholders to achieve the correct ordered list styli
   ...
 }
 ```
-
