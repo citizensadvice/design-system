@@ -3,20 +3,23 @@
 // ============================================================================
 
 code {
-  line-height: 1;
+  line-height: 1rem;
   margin: 0 2px;
   padding: $cads-spacing-1 $cads-spacing-2;
   border-radius: $cads-border-radius;
   background-color: #f8f8f8;
+  font-size: 1rem;
 }
 
 pre code {
   display: block;
-  background: none;
-  white-space: pre;
+  white-space: pre-wrap;
   -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
+  overflow-x: auto;
   max-width: 100%;
   min-width: 100px;
   padding: 20px;
+  line-height: 1.5rem;
+  border: $cads-border-width-small $cads-language__border-colour solid;
+  background-color: $cads-palette__white;
 }
