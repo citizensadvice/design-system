@@ -289,8 +289,6 @@ export class GreedyNavMenu {
 
   navDropdownToggle: Nullable<HTMLElement>;
 
-  navDropdownToggleLabel: Nullable<HTMLSpanElement>;
-
   toggleWrapper: Nullable<HTMLDivElement>;
 
   navDropdownSelector: string;
@@ -320,7 +318,6 @@ export class GreedyNavMenu {
 
     this.navDropdown = null;
     this.navDropdownToggle = null;
-    this.navDropdownToggleLabel = null;
     this.toggleWrapper = null;
 
     this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
@@ -445,22 +442,18 @@ export class GreedyNavMenu {
     this.toggleWrapper = this.document.createElement('div');
     this.navDropdown = this.document.createElement('ul');
     this.navDropdownToggle = this.document.createElement('button');
-    this.navDropdownToggleLabel = this.document.createElement('span');
 
     /**
      * Set ID on nav dropdown so we can reference it later
      */
-    const dropdownId = 'greedy-nav-dropdown'
-    this.navDropdown.setAttribute('id', dropdownId)
+    const dropdownId = 'greedy-nav-dropdown';
+    this.navDropdown.setAttribute('id', dropdownId);
 
     /**
      * Set label for dropdown toggle
      * @type {string}
      */
     this.navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
-
-    this.navDropdownToggleLabel.innerHTML =
-      this.settings.navDropdownToggleAriaLabel;
 
     /**
      * Set aria attributes for accessibility
@@ -469,11 +462,9 @@ export class GreedyNavMenu {
     this.navDropdownToggle.setAttribute('aria-controls', dropdownId);
     this.navDropdownToggle.setAttribute('type', 'button');
     this.navDropdownToggle.setAttribute(
-      'aria-labelledby',
-      'cadsGreedyNavLabel'
+      'aria-label',
+      this.settings.navDropdownToggleAriaLabel
     );
-    this.navDropdownToggleLabel.setAttribute('id', 'cadsGreedyNavLabel');
-    this.navDropdownToggleLabel.className = 'cads-greedy-nav__label';
     this.navDropdown.setAttribute('aria-hidden', 'true');
 
     const headerLinks = document.querySelector('.js-cads-copy-into-nav');
@@ -509,7 +500,6 @@ export class GreedyNavMenu {
       mainNav.insertAdjacentElement('afterend', this.toggleWrapper);
     }
 
-    this.toggleWrapper.appendChild(this.navDropdownToggleLabel);
     this.toggleWrapper.appendChild(this.navDropdownToggle);
     this.toggleWrapper.appendChild(this.navDropdown);
 
