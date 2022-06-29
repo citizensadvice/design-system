@@ -18,40 +18,6 @@ const blurEventName = Object.prototype.hasOwnProperty.call(
 )
   ? 'focusout'
   : 'blur';
-/**
- * Get the closest matching element up the DOM tree
- * @param {Element} element Starting element
- * @param {String} selector Selector to match against (class, ID, or data attribute)
- * @return {Boolean|Element} Returns false if not match found
- */
-export const getClosest = (
-  element: HTMLElement,
-  selector: string
-): HTMLElement | false => {
-  const firstChar = selector.charAt(0);
-
-  let e: Nullable<HTMLElement> = element;
-
-  while (e) {
-    if (firstChar === '.') {
-      if (e.classList.contains(selector.substr(1))) {
-        return e;
-      }
-    } else if (firstChar === '#') {
-      if (e.id === selector.substr(1)) {
-        return e;
-      }
-    } else if (firstChar === '[') {
-      const attr = selector.substr(1, selector.length - 2);
-      if (e.hasAttribute(attr)) {
-        return e;
-      }
-    }
-    e = e.parentElement;
-  }
-
-  return false;
-};
 
 /**
  * Debounced resize to throttle execution
@@ -637,11 +603,12 @@ export class GreedyNavMenu {
      * Remove when clicked outside dropdown
      */
     this.document.addEventListener('click', (event: MouseEvent) => {
+      const targetEl = <HTMLElement>event.target;
       if (
-        event.target &&
-        !getClosest(<HTMLElement>event.target, `.${navDropdownClassName}`) &&
+        targetEl &&
+        targetEl.closest(`.${navDropdownClassName}`) &&
         navDropdownToggle &&
-        event.target !== navDropdownToggle &&
+        targetEl !== navDropdownToggle &&
         navWrapper.classList.contains('is-open')
       ) {
         this.closeDropDown(navWrapper);
