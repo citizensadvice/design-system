@@ -5,7 +5,6 @@
 code {
   line-height: 1rem;
   margin: 0 2px;
-  padding: $cads-spacing-1 $cads-spacing-2;
   border-radius: $cads-border-radius;
   background-color: #f8f8f8;
   font-size: 1rem;
@@ -18,8 +17,24 @@ pre code {
   overflow-x: auto;
   max-width: 100%;
   min-width: 100px;
-  padding: 20px;
   line-height: 1.5rem;
-  border: $cads-border-width-small $cads-language__border-colour solid;
   background-color: $cads-palette__white;
+}
+
+.highlight {
+  margin-bottom: $cads-spacing-6;
+  border: $cads-border-width-small $cads-language__border-colour solid;
+  padding: $cads-spacing-4;
+
+  &--with-button {
+    margin: 0;
+  }
+
+  button {
+    font-family: $cads-font-family;
+  }
+  > .highlight {
+    border: none;
+    padding: 0;
+  }
 }
