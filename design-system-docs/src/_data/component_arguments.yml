@@ -1,3 +1,10 @@
+asset_hyperlink:
+  - argument: href
+    description: Required, link to the asset
+  - argument: description
+    description: Required, description of the asset
+  - argument: size
+    description: Required, size in bytes
 targeted_content:
   - argument: id
     description: Required, unique ID
