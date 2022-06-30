@@ -39,7 +39,7 @@
   }
 
   &__search-reveal {
-    @include cads-button-defaults();
+    @include cads-button-defaults;
 
     display: none; // Hide by default
     width: $cads-interactive-target-size;
@@ -190,6 +190,7 @@
       display: block;
     }
   }
+
   .cads-header__links {
     @include cads-media-breakpoint-only(sm) {
       display: block;

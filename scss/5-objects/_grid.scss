@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'sass:math';
 
 /* @use must be first, which conflicts with the import position rule */
@@ -22,7 +23,7 @@
   margin-left: auto;
 
   @each $breakpoint in map-keys($cads-breakpoints) {
-    $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+    $gutter: map.get($cads-grid-breakpoint-gutters, $breakpoint);
 
     @include cads-media-breakpoint-up($breakpoint) {
       padding-right: $gutter;
@@ -42,7 +43,7 @@
   flex-wrap: wrap;
 
   @each $breakpoint in map-keys($cads-breakpoints) {
-    $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+    $gutter: map.get($cads-grid-breakpoint-gutters, $breakpoint);
 
     @include cads-media-breakpoint-up($breakpoint) {
       margin-right: math.div($gutter, -2);
@@ -61,7 +62,7 @@
 // Generate the correct number of grid classes
 @each $breakpoint in map-keys($cads-breakpoints) {
   $infix: cads-breakpoint-infix($breakpoint);
-  $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+  $gutter: map.get($cads-grid-breakpoint-gutters, $breakpoint);
 
   %grid-gutters {
     @include cads-media-breakpoint-up($breakpoint) {
@@ -100,9 +101,10 @@
 
     @for $i from 1 through $cads-grid-columns {
       .cads-grid-col#{$infix}-#{$i} {
-        flex: 0 0 percentage(math.div($i, $cads-grid-columns));
+        flex: 0 0 math.percentage(math.div($i, $cads-grid-columns));
+
         // Ensure content within each column does not blow out the width of the column
-        max-width: percentage(math.div($i, $cads-grid-columns));
+        max-width: math.percentage(math.div($i, $cads-grid-columns));
       }
     }
   }
