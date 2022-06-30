@@ -1,6 +1,3 @@
-// Polyfill for closest
-import 'element-closest/browser';
-
 /**
  * Get fragment from URL
  *

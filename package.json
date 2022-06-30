@@ -121,7 +121,6 @@
     ]
   },
   "dependencies": {
-    "element-closest": "^3.0.2",
     "jest-environment-jsdom": "^28.0.2"
   }
 }
