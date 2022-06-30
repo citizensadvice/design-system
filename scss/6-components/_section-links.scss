@@ -7,25 +7,30 @@
   }
 
   &__title {
+    font-size: 1rem;
+    line-height: 1.15rem;
+    font-weight: $cads-font-weight__regular;
     color: $cads-language__secondary-text-colour;
-  }
-
-  &__section-title {
-    @extend %cads-h3;
-
-    color: $cads-language__secondary-text-colour;
-    margin-top: 0;
-    margin-bottom: $cads-spacing-4;
+    margin: $cads-spacing-4 0;
   }
 
   &__links {
-    @extend %cads-list-no-bullet;
+    @include cads-reset-list-style();
 
     margin-bottom: 0;
+  }
 
-    .cads-section-links__item {
-      margin-bottom: $cads-spacing-4;
-    }
+  &__item {
+    @extend %cads-list-item;
+
+    margin-bottom: $cads-spacing-4;
+  }
+
+  &__section-title-link {
+    @extend %cads-h3;
+    color: $cads-language__secondary-text-colour;
+    margin-top: 0;
+    margin-bottom: $cads-spacing-4;
   }
 }
 
