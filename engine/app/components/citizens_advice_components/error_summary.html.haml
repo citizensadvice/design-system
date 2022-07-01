@@ -1,5 +1,5 @@
 .cads-error-summary.js-error-summary{ "data-testid": "error-summary", aria: { labelledby: "error-summary-title", live: "assertive" }, role: "alert", tabindex: "0", autofocus: true }
-  %p#error-summary-title.cads-error-summary__title
+  %h2#error-summary-title.cads-error-summary__title
     = t("citizens_advice_components.error_summary.title")
   %ul.cads-error-summary__list
     - errors.each do |e|
