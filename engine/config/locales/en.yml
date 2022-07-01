@@ -16,7 +16,7 @@ en:
     header:
       close_search: Close search
       open_search: Open search
-      skip_to_content: Skip to content
+      skip_to_content: Skip to main content
       skip_to_footer: Skip to footer
       skip_to_navigation: Skip to navigation
     input:
