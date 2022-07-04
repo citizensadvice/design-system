@@ -8,7 +8,8 @@
 - 🎯 Targeted content: Fix validation issues with HTML
 - 🔗 Pagination links: Remove redundant `navigation` role
 - 📜 On this page: Add missing type to toggle buttons
-- 🛑️ Error summary: Fixed scrolling to the input label/legend
+- 🛑️ Error summary: Fix scrolling to the input label/legend
+- 📱 Section links: Fix accessibility issues with visual headings and list mark-up
 
 ## <sub>v5.3.0-alpha.1</sub>
 
