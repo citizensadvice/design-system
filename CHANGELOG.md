@@ -9,6 +9,7 @@
 - 🔗 Pagination links: Remove redundant `navigation` role
 - 📜 On this page: Add missing type to toggle buttons
 - 🛑️ Error summary: Fixed scrolling to the input label/legend
+- 🛑️ Error summary: Fixed accessibility issue with the error heading
 
 ## <sub>v5.3.0-alpha.1</sub>
 
