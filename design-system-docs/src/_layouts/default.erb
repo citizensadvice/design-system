@@ -1,10 +1,13 @@
 <!doctype html>
-<html lang="<%= site.locale %>">
+<html lang="<%= site.locale %>" class="no-js">
   <head>
     <meta charset="utf-8" />
     <%= seo %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
+    <script type="application/javascript">
+      document.querySelector('html').classList.remove('no-js');
+    </script>
     <link rel="stylesheet" href="<%= webpack_path "css" %>" />
     <style><%= Rouge::Theme.find('cads-theme').render(scope: '.highlight') %></style>
   </head>

@@ -1,5 +1,9 @@
 ## Unreleased
 
+**New**
+
+- 🔗 Links: Allow opting-out of external link icon styles using `$cads-enable-external-link-icon`
+
 **Bugfixes**
 
 - 👤 Header: Fix accessibility issue with search toggle
