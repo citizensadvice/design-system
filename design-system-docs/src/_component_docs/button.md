@@ -21,7 +21,7 @@ Tertiary buttons are used for turning something on or off instantly on a page �
 
 Link buttons are styled to look like hyperlinks. Use these when you want a button to draw less attention, or when you would prefer to have a text styling but the action changes state such as deleting an item or logging out a user.
 
-<button type="button" class="cads-linkbutton">Link button</button>\n<button type="button" class="cads-linkbutton__regular">Regular link button</button>
+<%= render(Shared::ComponentExample.new(:button, :linkbutton)) %>
 
 ## Using buttons with icons
 
@@ -29,7 +29,7 @@ Icons can be placed next to the button label to clarify an action or call attent
 The spacing between an icon and the button text should be 4px. Use the small icon (16px) within a button.
 The icon must be the same color value as the text.
 
-<img src="/images/components/button-with-icon-example.png" style="width: 300px" />
+<p><img src="/images/components/button-with-icon-example.png" style="width: 300px" /></p>
 
 ## Previous / next
 
@@ -40,6 +40,8 @@ They are:
 - aligned to the left so users do not miss it
 - the primary button “Next” should come first
 - the secondary button “Previous” is aligned below so the arrows don’t point to each other, which would be confusing
+
+<%= render(Shared::ComponentExample.new(:button, :previous_next)) %>
 
 In different contexts, you can use primary and secondary buttons side by side. Your team should design this based on the user needs and context of the service.
 
@@ -62,26 +64,5 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 ### View component options
 
-| Property     | Description                                                             |
-| ------------ | ----------------------------------------------------------------------- |
-| `variant`    | Either `:primary`, `:secondary`, or `:tertiary`. Defaults to `:primary` |
-| `type`       | Either `:button` or `:submit`. Defaults to `:button`                    |
-| `attributes` | Additional attributes are passed to the button                          |
+<%= render Shared::ArgumentsTable.new(:button) %>
 
-### Icon slots
-
-The button component accepts an `icon_left` or `icon_right` slot for buttons with icons.
-
-```haml
-= render CitizensAdviceComponents::Button.new do |c|
-  Next
-  - c.icon_right do
-    = render CitizensAdviceComponents::Icons::ArrowRight.new
-```
-
-```haml
-= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c|
-  Previous
-  - c.icon_left do
-    = render CitizensAdviceComponents::Icons::ArrowLeft.new
-```
