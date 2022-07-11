@@ -1,6 +1,6 @@
 %button{class: "cads-button cads-button__#{variant}", type: type, **attributes}
   - if icon_left.present?
-    %span{ class: "cads-button__icon-left"}= icon_left
+    %span.cads-button__icon-left= icon_left
   = content
   - if icon_right.present?
-    %span{ class: "cads-button__icon-right"}= icon_right
+    %span.cads-button__icon-right= icon_right
