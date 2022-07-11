@@ -1,6 +1,7 @@
 ---
 title: Button
 ---
+
 Use the button component to help users carry out an action like submitting a form. You should avoid using buttons for simple links. Use regular text links instead.
 
 Write button text in sentence case, describing the action it performs. E.g. “Save and continue” rather than “Submit”.
@@ -66,3 +67,24 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 <%= render Shared::ArgumentsTable.new(:button) %>
 
+### Icon slots
+
+The button component accepts an `icon_left` or `icon_right` slot for buttons with icons.
+
+```rb
+<%%= render CitizensAdviceComponents::Button.new do |c|
+  Next
+  - c.icon_right do
+    = render CitizensAdviceComponents::Icons::ArrowRight.new
+  end
+end %>
+```
+
+```rb
+<%%= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c|
+  Previous
+  - c.icon_left do
+    = render CitizensAdviceComponents::Icons::ArrowLeft.new
+  end
+end %>
+```
