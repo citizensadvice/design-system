@@ -51,7 +51,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       end
     end
 
-    let(:skip_links) { [{ title: "Skip to content", url: "#content" }] }
+    let(:skip_links) { [{ title: "Skip to main content", url: "#content" }] }
 
     it "renders skip links" do
       links = component.css(".cads-skip-links a").map do |item|
@@ -75,7 +75,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
 
         expect(links).to eq [
           { title: "Skip to navigation", url: "#cads-navigation" },
-          { title: "Skip to content", url: "#cads-main-content" },
+          { title: "Skip to main content", url: "#cads-main-content" },
           { title: "Skip to footer", url: "#cads-footer" }
         ]
       end

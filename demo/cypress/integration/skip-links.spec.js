@@ -9,7 +9,7 @@ describe('Skip links', () => {
   });
 
   it('allows skipping to content', () => {
-    clickSkipLink('Skip to content');
+    clickSkipLink('Skip to main content');
     cy.scrolledIntoView('#cads-main-content');
   });
 
