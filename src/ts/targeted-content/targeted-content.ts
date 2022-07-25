@@ -76,7 +76,7 @@ function initTargetedContentFor(el: HTMLElement): void {
    * we wrap the contents of the heading in our toggle button.
    *
    * We include an additional screen-reader-only label so the button
-   * reads "Section title, show this section" or "Section title, hide this section"
+   * reads "Section title, show this section" or "Section title, close this section"
    * for assistive devices based on the current state
    *
    * Follows the approach used in GOV.UK step-by-steps
