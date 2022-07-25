@@ -3,6 +3,7 @@
 **Bugfixes**
 
 - 🔗 Header: Renamed skip to content link
+- 🎯 Targeted content: Fix missing label in name of close button
 
 ## <sub>v5.3.0</sub>
 
