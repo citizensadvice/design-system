@@ -1,3 +1,9 @@
+## Unreleased
+
+**Bugfixes**
+
+- 🔗 Header: Renamed skip to content link
+
 ## <sub>v5.3.0</sub>
 
 #### _Jul. 19, 2022_
