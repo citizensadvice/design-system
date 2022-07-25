@@ -39,8 +39,10 @@ module CitizensAdviceComponents
       "cads-input--#{@width.to_s.dasherize}"
     end
 
-    def base_input_attributes
-      super.merge(class: (width_class if width?))
+    def class_names
+      return super unless width?
+
+      super.to_a.push(width_class)
     end
   end
 end

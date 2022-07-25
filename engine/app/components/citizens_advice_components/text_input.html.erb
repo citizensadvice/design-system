@@ -1,0 +1,3 @@
+<%= render CitizensAdviceComponents::Input.new(**base_input_args) do %>
+  <%= tag.input(class: class_names.join(" "), **input_attributes) %>
+<% end %>

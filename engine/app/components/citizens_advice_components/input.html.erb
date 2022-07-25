@@ -1,0 +1,21 @@
+<%= render CitizensAdviceComponents::FormField.new(error: error?) do %>
+  <label class="cads-form-field__label" id="<%= label_id %>" for="<%= input_id %>">
+    <%= label %>
+    <% if optional? %>
+      <span class="cads-form-field__optional"><%= t(".optional") %></span>
+    <% end %>
+  </label>
+  <% if hint? %>
+    <p class="cads-form-field__hint"><%= hint %></p>
+  <% end %>
+  <% if error? %>
+    <p class="cads-form-field__error-message" id="<%= error_id %>" data-testid="error-message">
+      <%= error_message %>
+    </p>
+  <% end %>
+  <% if content.present? %>
+    <%= content %>
+  <% else %>
+    <%= tag.input(class: class_names.join(" "), **input_attributes) %>
+  <% end %>
+<% end %>

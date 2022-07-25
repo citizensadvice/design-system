@@ -78,6 +78,10 @@ module CitizensAdviceComponents
       "#{name}-error"
     end
 
+    def class_names
+      ["cads-input"]
+    end
+
     def base_input_attributes
       {
         type: (@type.to_s.dasherize if @type.present?),
