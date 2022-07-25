@@ -1,0 +1,10 @@
+---
+title: Output buffer bug
+---
+
+<%= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c| %>
+  Example button
+  <%- c.icon_right do %>
+    <%= render CitizensAdviceComponents::Icons::ArrowRight.new %>
+  <% end %>
+<% end %>
