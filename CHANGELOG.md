@@ -4,6 +4,7 @@
 
 - 🔗 Header: Renamed skip to content link
 - 🎯 Targeted content: Fix missing label in name of close button
+- 📋 Form hints: Added aria-describedby to form input when a hint exists
 
 ## <sub>v5.3.0</sub>
 
