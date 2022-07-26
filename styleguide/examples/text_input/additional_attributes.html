@@ -8,10 +8,12 @@
     >
       Example input
     </label>
-    <p class="cads-form-field__hint">
+    <p class="cads-form-field__hint" id="example-input-attrs-hint">
       This input has the additional attributes (autocomplete and data-testid)
     </p>
     <input
+      aria-disabled="false"
+      aria-describedby="example-input-attrs-hint"
       autocomplete="name"
       class="cads-input"
       data-testid="my great input"
