@@ -2,7 +2,7 @@
   %label.cads-form-field__label{id: label_id, for: input_id }
     = label
     - if optional?
-      %span.cads-form-field__optional= t(".optional")
+      %span.cads-form-field__optional= "(#{t('.optional')})"
   - if hint?
     %p.cads-form-field__hint{ id: hint_id, data: { testid: "hint-message" } }
       = hint
