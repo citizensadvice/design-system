@@ -98,7 +98,7 @@ module CitizensAdviceComponents
       classes = []
       classes << error_id if error?
       classes << hint_id if hint?
-      classes.join(' ')
+      classes.join(" ")
     end
 
     def input_attributes
