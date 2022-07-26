@@ -3,6 +3,7 @@
 **Bugfixes**
 
 - 🔗 Header: Renamed skip to content link
+- Inputs and targeted content: Chang the focus contrast to meet the accessibility requirements
 
 ## <sub>v5.3.0</sub>
 
