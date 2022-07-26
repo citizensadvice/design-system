@@ -119,8 +119,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   context "when there is no hint text and no error" do
-
-    it "should not have an aria-describedby attribute" do
+    it "does not have an aria-describedby attribute" do
       expect(component.css("input").attribute("aria-describedby")).not_to be_present
     end
   end
