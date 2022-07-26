@@ -7,6 +7,7 @@
 
 - 🔗 Header: Renamed skip to content link
 - 📋 Optional form fields: Fixed an issue identified in an accessibility report related to pseudo content. The class "cads-form-field__optional" no longer generates brackets as part of the css.
+- 🎯 Targeted content: Fix missing label in name of close button
 
 ## <sub>v5.3.0</sub>
 
