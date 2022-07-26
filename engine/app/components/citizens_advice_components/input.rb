@@ -95,10 +95,10 @@ module CitizensAdviceComponents
     end
 
     def described_by
-      classes = []
-      classes << error_id if error?
-      classes << hint_id if hint?
-      classes.join(" ")
+      ids = []
+      ids << error_id if error?
+      ids << hint_id if hint?
+      ids.present? ? ids.join(" ") : nil
     end
 
     def input_attributes

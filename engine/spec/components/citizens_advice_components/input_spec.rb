@@ -118,6 +118,13 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
   end
 
+  context "when there is no hint text and no error" do
+
+    it "should not have an aria-describedby attribute" do
+      expect(component.css("input").attribute("aria-describedby")).not_to be_present
+    end
+  end
+
   context "when there is hint text and an error" do
     let(:options) { { hint: "this is the hint text", error_message: "Enter your name" } }
 
