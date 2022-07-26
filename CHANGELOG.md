@@ -3,6 +3,7 @@
 **Bugfixes**
 
 - 🔗 Header: Renamed skip to content link
+- 🛑️ Error summary and message: Changed text colour and weight to meet accessibility requirements
 
 ## <sub>v5.3.0</sub>
 
