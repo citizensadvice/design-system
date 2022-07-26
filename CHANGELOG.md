@@ -1,12 +1,12 @@
 ## Unreleased
 **Breaking changes**
 
-- 📋 Optional form fields: The class "cads-form-field__optional" no longer generates brackets as part of the css. For instance, if you have something like this in your codebase: `<span class="cads-form-field__optional">optional</span>`, you'll want to change it to: `<span class="cads-form-field__optional">(optional)</span>`.
+- 📋 Optional form fields: The class `$cads-form-field__optional` no longer generates brackets as part of the css. For instance, if you have something like this in your codebase: `<span class="cads-form-field__optional">optional</span>`, you'll want to change it to: `<span class="cads-form-field__optional">(optional)</span>`.
 
 **Bugfixes**
 
 - 🔗 Header: Renamed skip to content link
-- 📋 Optional form fields: Fixed an issue identified in an accessibility report related to pseudo content. The class "cads-form-field__optional" no longer generates brackets as part of the css.
+- 📋 Optional form fields: Fixed an issue identified in an accessibility report related to pseudo content. The class `$cads-form-field__optional` no longer generates brackets as part of the css.
 - 🎯 Targeted content: Fix missing label in name of close button
 
 ## <sub>v5.3.0</sub>
