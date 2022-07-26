@@ -118,9 +118,7 @@ jobs:
   demo-app-backstop:
     runs-on: ubuntu-20.04
     env:
-      RAILS_ENV: production
-      RAILS_SERVE_STATIC_FILES: true
-      SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+      RAILS_ENV: test
       CYPRESS_INSTALL_BINARY: 0
     steps:
       - uses: actions/checkout@v3
