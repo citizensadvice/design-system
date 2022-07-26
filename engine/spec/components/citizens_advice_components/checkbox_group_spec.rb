@@ -69,7 +69,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
 
     it "renders a required input" do
       without_fetch_or_fallback_raises do
-        expect(component.text.strip).not_to include "optional"
+        expect(component.text.strip).not_to include "(optional)"
       end
     end
   end
@@ -94,7 +94,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
     end
 
     it "marks the field as optional" do
-      expect(component.text.strip).to include "optional"
+      expect(component.text.strip).to include "(optional)"
     end
 
     context "when in Cymraeg" do
@@ -103,7 +103,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
       end
 
       it "renders optional in Welsh" do
-        expect(component.text).to include "dewisol"
+        expect(component.text).to include "(dewisol)"
       end
     end
   end

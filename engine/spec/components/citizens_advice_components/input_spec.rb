@@ -88,7 +88,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     let(:options) { { optional: true } }
 
     it "adds optional to the label" do
-      expect(component.text).to include("optional")
+      expect(component.text).to include("(optional)")
     end
 
     it "does not add required to the input" do
