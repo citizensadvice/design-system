@@ -1,34 +1,24 @@
 ## Unreleased
+**Breaking changes**
+
+- 📋 Optional form fields: The class `$cads-form-field__optional` no longer generates brackets as part of the css. For instance, if you have something like this in your codebase: `<span class="cads-form-field__optional">optional</span>`, you'll want to change it to: `<span class="cads-form-field__optional">(optional)</span>`.
 
 **Bugfixes**
 
-- 👤 Header: Fix accessibility issue with search toggle
-- 👤 Header: Fix minor HTML validation issue with search form
-- 🧂 Tables: Add `scope: col` to `th` cells
-- 🎯 Targeted content: Fix validation issues with HTML
-- 🔗 Pagination links: Remove redundant `navigation` role
-- 📜 On this page: Add missing type to toggle buttons
-- 🛑️ Error summary: Fix scrolling to the input label/legend
+- 🔗 Header: Renamed skip to content link
+- 📋 Optional form fields: Fixed an issue identified in an accessibility report related to pseudo content. The class `$cads-form-field__optional` no longer generates brackets as part of the css.
+- 🎯 Targeted content: Fix missing label in name of close button
 - 📱 Section links: Fix accessibility issues with visual headings and list mark-up
 
-## <sub>v5.3.0-alpha.1</sub>
 
-**Bugfixes**
+## <sub>v5.3.0</sub>
 
-- 🧂 Tables: `thead` is no longer incorrectly nested within `tbody`
-
-#### _Jun. 1, 2022_
+#### _Jul. 19, 2022_
 
 **New**
 
+- 🔗 Links: Allow opting-out of external link icon styles using `$cads-enable-external-link-icon`
 - 📋 Form group: Add `legend_heading` to `options` for one question per page forms
-
-## <sub>v5.3.0-alpha.0</sub>
-
-#### _Apr. 21, 2022_
-
-**New**
-
 - 🔗 Links: Document links no longer present their appended file icon to screen
   readers
 - 🔗 Links: Relflow long links so they do not add scrollbars to the viewport
@@ -38,12 +28,23 @@
 - 🥾 Footer: Fix accessibility issue with external link icons using old icon font and reading out content. Use new SVG icons.
 - 🛤️ Expand version ranges for `citizens_advice_components` to support Rails 7
 
+
 **Bugfixes**
 
+- 👤 Header: Fix accessibility issue with search toggle
+- 👤 Header: Fix minor HTML validation issue with search form
+- 🧂 Tables: Add `scope: col` to `th` cells
+- 🧂 Tables: `thead` is no longer incorrectly nested within `tbody`
+- 🎯 Targeted content: Fix validation issues with HTML
+- 🔗 Pagination links: Remove redundant `navigation` role
+- 📜 On this page: Add missing type to toggle buttons
+- 🛑️ Error summary: Fixed scrolling to the input label/legend
+- 🛑️ Error summary: Fixed accessibility issue with the error heading
 - 🏋 Icons: Fix syntax error with close icon view component
 - 🔗 Links: Fix external link styles when used outside of the main www.citizensadvice.org.uk domain.
 - 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
 - 🤫 Fix deprecation warning with newer versions of view_component
+
 
 ## <sub>v5.2.0</sub>
 

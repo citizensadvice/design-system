@@ -2,20 +2,22 @@
   aria-labelledby="error-summary-title"
   aria-live="assertive"
   autofocus
-  class="cads-error-summary"
+  class="cads-error-summary js-error-summary"
   data-testid="error-summary"
   role="alert"
   tabindex="0"
 >
-  <p class="cads-error-summary__title" id="error-summary-title">
+  <h2 class="cads-error-summary__title" id="error-summary-title">
     There is a problem
-  </p>
+  </h2>
   <ul class="cads-error-summary__list">
     <li>
-      <a href="#your-name-input"> Enter your full name </a>
+      <a class="js-error-summary-link" href="#your-name-input">
+        Enter your full name
+      </a>
     </li>
     <li>
-      <a href="#your-email-input">
+      <a class="js-error-summary-link" href="#your-email-input">
         Enter an email address in the correct format, like name@example.com
       </a>
     </li>

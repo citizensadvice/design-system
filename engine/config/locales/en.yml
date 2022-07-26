@@ -16,7 +16,7 @@ en:
     header:
       close_search: Close search
       open_search: Open search
-      skip_to_content: Skip to content
+      skip_to_content: Skip to main content
       skip_to_footer: Skip to footer
       skip_to_navigation: Skip to navigation
     input:
@@ -42,5 +42,5 @@ en:
       submit_title: Submit search query
     targeted_content:
       close_label: Close
-      descriptive_label_hide: hide this section
+      descriptive_label_hide: close this section
       descriptive_label_show: show this section
