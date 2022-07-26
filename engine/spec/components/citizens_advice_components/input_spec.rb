@@ -112,6 +112,18 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     it "renders the hint text" do
       expect(component.text.strip).to include("This is the hint text")
     end
+
+    it "adds aria-describedby to the input" do
+      expect(component.css("input").attribute("aria-describedby").value).to eq("example-input-hint")
+    end
+  end
+
+  context "when there is hint text and an error" do
+    let(:options) { { hint: "this is the hint text", error_message: "Enter your name" } }
+
+    it "adds aria-describedby to the input" do
+      expect(component.css("input").attribute("aria-describedby").value).to eq("example-input-error example-input-hint")
+    end
   end
 
   context "when additional attributes are specified" do

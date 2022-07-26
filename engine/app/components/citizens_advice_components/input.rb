@@ -78,6 +78,10 @@ module CitizensAdviceComponents
       "#{name}-error"
     end
 
+    def hint_id
+      "#{name}-hint"
+    end
+
     def base_input_attributes
       {
         type: (@type.to_s.dasherize if @type.present?),
@@ -86,8 +90,15 @@ module CitizensAdviceComponents
         value: value,
         required: required?,
         "aria-invalid": error?,
-        "aria-describedby": (error_id.to_s if error?)
+        "aria-describedby": described_by
       }
+    end
+
+    def described_by
+      classes = []
+      classes << error_id if error?
+      classes << hint_id if hint?
+      classes.join(' ')
     end
 
     def input_attributes
