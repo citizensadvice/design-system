@@ -6,7 +6,7 @@
 // Based on https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/radios/_index.scss
 
 $cads-small-radios-size: 24px;
-
+$cads-radio-selected-size: 0.625rem;
 .cads-form-group--radio {
   .cads-form-group__label {
     // (  ) Radio ring
@@ -21,11 +21,11 @@ $cads-small-radios-size: 24px;
     &::after {
       content: '';
       position: absolute;
-      top: $cads-spacing-2;
-      left: $cads-spacing-2;
+      top: $cads-radio-selected-size;
+      left: $cads-radio-selected-size;
       width: 0;
       height: 0;
-      border: $cads-spacing-3 solid currentColor;
+      border: $cads-radio-selected-size solid currentColor;
       border-radius: 50%;
       opacity: 0;
       background: currentColor;
