@@ -4,7 +4,7 @@
 
 /** @define textarea */
 .cads-textarea {
-  @include cads-interactive-element();
+  @include cads-interactive-element;
 
   color: inherit;
   display: block;
@@ -12,7 +12,8 @@
   min-height: 40px;
   padding: $cads-spacing-2;
   border-radius: 0;
-  -webkit-appearance: none;
+  appearance: none;
+
   // Limit resizing to vertical
   resize: vertical;
   line-height: 1.625rem;

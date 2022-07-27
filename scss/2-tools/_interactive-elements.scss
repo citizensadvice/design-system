@@ -1,6 +1,7 @@
 @mixin cads-interactive-focus() {
   outline: none;
   border-color: $cads-language__focus-border-colour;
+
   // We need to use box-shadow instead of outline as outline does not have a radius
   box-shadow: 0 0 0 2px $cads-language__focus-colour;
 }
@@ -12,7 +13,7 @@
   outline: none;
 
   &:focus {
-    @include cads-interactive-focus();
+    @include cads-interactive-focus;
   }
 }
 
@@ -49,6 +50,6 @@
 
   &:active,
   &:focus {
-    @include cads-nav-link-focus();
+    @include cads-nav-link-focus;
   }
 }

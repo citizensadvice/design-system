@@ -25,13 +25,14 @@ $cads-small-radios-size: 24px;
       left: $cads-spacing-2;
       width: 0;
       height: 0;
-      border: $cads-spacing-3 solid currentColor;
+      border: $cads-spacing-3 solid currentcolor;
       border-radius: 50%;
       opacity: 0;
-      background: currentColor;
+      background: currentcolor;
     }
   }
 }
+
 //
 // Modifier: inline
 //
