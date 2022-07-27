@@ -60,6 +60,7 @@
 .cads-form-field__error-message {
   display: none;
   color: $cads-language__warning-colour;
+  font-weight: $cads-font-weight__bold;
   margin: 0 0 $cads-spacing-3 0;
 }
 
