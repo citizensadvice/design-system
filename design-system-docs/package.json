@@ -8,7 +8,6 @@
     "update-colour-data": "npx sass-export --dependencies='../scss/1-settings/' ../scss/1-settings/_colour-language.scss -o src/_data/colour_language.json"
   },
   "devDependencies": {
-    "@citizensadvice/design-system": "file:..",
     "css-loader": "^4.3.0",
     "esbuild": "^0.14.49",
     "esbuild-loader": "^2.19.0",
