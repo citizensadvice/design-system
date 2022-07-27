@@ -243,10 +243,11 @@
                 >
                   Your complaint or enquiry
                 </label>
-                <p class="cads-form-field__hint">
+                <p class="cads-form-field__hint" id="your-enquiry-hint">
                   Please provide details of your complaint or enquiry.
                 </p>
                 <textarea
+                  aria-describedby="your-enquiry-hint"
                   class="cads-textarea"
                   id="your-enquiry-input"
                   name="your-enquiry"
@@ -303,10 +304,11 @@
                 >
                   What was the total amount paid for the goods or services?
                 </label>
-                <p class="cads-form-field__hint">
+                <p class="cads-form-field__hint" id="total-amount-hint">
                   Enter a value in pounds and pence only e.g. £112.00
                 </p>
                 <input
+                  aria-describedby="total-amount-hint"
                   class="cads-input cads-input--four-chars"
                   id="total-amount-input"
                   name="total-amount"

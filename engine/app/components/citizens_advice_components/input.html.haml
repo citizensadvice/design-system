@@ -4,7 +4,8 @@
     - if optional?
       %span.cads-form-field__optional= "(#{t('.optional')})"
   - if hint?
-    %p.cads-form-field__hint= hint
+    %p.cads-form-field__hint{ id: hint_id, data: { testid: "hint-message" } }
+      = hint
   - if error?
     %p.cads-form-field__error-message{ id: error_id, data: { testid: "error-message" } }
       = error_message
