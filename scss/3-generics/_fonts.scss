@@ -33,7 +33,7 @@
 // ============================================================================
 
 @font-face {
-  font-family: 'cads';
+  font-family: cads;
   src: url('../../assets/fonts/cads.eot?d7dccfce9cf3c38908cc8e38fb40341b?#iefix')
       format('embedded-opentype'),
     url('../../assets/fonts/cads.woff?d7dccfce9cf3c38908cc8e38fb40341b')
@@ -48,7 +48,7 @@
 }
 
 @mixin cads-icon {
-  font-family: 'cads' !important;
+  font-family: cads !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -68,48 +68,63 @@
 .cads-icon_arrow-right::before {
   content: '\0041';
 }
+
 .cads-icon_checkmark::before {
   content: '\0042';
 }
+
 .cads-icon_exclamation-circle::before {
   content: '\0043';
 }
+
 .cads-icon_arrow-left::before {
   content: '\0044';
 }
+
 .cads-icon_external-link::before {
   content: '\0045';
 }
+
 .cads-icon_file::before {
   content: '\0046';
 }
+
 .cads-icon_minus::before {
   content: '\0047';
 }
+
 .cads-icon_plus::before {
   content: '\0048';
 }
+
 .cads-icon_print::before {
   content: '\0049';
 }
+
 .cads-icon_redo::before {
   content: '\004a';
 }
+
 .cads-icon_search::before {
   content: '\004b';
 }
+
 .cads-icon_delete::before {
   content: '\004c';
 }
+
 .cads-icon_email::before {
   content: '\004d';
 }
+
 .cads-icon_references::before {
   content: '\004e';
 }
+
 .cads-icon_undo::before {
   content: '\004f';
 }
+
 // Close icon is + icon rotated
 .cads-icon_close::before {
   content: '\0048';

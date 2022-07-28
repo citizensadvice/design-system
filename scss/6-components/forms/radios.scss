@@ -28,10 +28,11 @@ $cads-radio-selected-size: 0.625rem;
       border: $cads-radio-selected-size solid currentColor;
       border-radius: 50%;
       opacity: 0;
-      background: currentColor;
+      background: currentcolor;
     }
   }
 }
+
 //
 // Modifier: inline
 //

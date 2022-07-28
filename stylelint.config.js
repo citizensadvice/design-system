@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  plugins: ['stylelint-scss', 'stylelint-selector-bem-pattern'],
+  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
+  plugins: ['stylelint-selector-bem-pattern'],
   ignoreFiles: ['**/_normalize.scss', '**/_cads-iconfont.scss'],
   rules: {
     // Disallow named colours, for colours we use sass variables
@@ -9,10 +9,13 @@ module.exports = {
     // Set a reasonable limit on how many compound selectors we can have
     'selector-max-compound-selectors': 4,
 
-    // Vendor prefixes are handled by autoprefixer (or are no longer needed)
-    // So require that no-vendor prefixes are used.
-    'selector-no-vendor-prefix': true,
-    'value-no-vendor-prefix': true,
+    // Disable unwanted or conflicting selector patterns
+    'selector-class-pattern': null,
+    'selector-id-pattern': null,
+
+    // Prefer legacy colour function notation
+    'color-function-notation': 'legacy',
+    'alpha-value-notation': 'number',
 
     // We provide a cads-transition-animation mixin for handling
     // transitions along with a prefers-reduced-motion fallback,
@@ -32,6 +35,9 @@ module.exports = {
     'at-rule-disallowed-list': ['debug'],
     'scss/at-rule-no-unknown': true,
 
+    // Disable unwanted scss rules
+    'scss/comment-no-empty': null,
+
     // Require that @function and @mixin rules are prefixed with cads-
     'scss/at-function-pattern': '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
     'scss/at-mixin-pattern': '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
@@ -45,6 +51,13 @@ module.exports = {
     // These should be enabled as errors once current warnings have been fixed.
     'selector-max-id': [0, { severity: 'warning' }],
     'scss/at-extend-no-missing-placeholder': [true, { severity: 'warning' }],
+
+    // Disable kebab-case preference for variable names
+    // Current design system variables names use a more complex format
+    // which will eventually be simplified
+    // See https://github.com/citizensadvice/design-system/pull/1863
+    'scss/dollar-variable-pattern': null,
+    'scss/percent-placeholder-pattern': null,
 
     // Configure BEM pattern
     // Note: requires components to have an explicit @define comment

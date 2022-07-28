@@ -4,7 +4,7 @@
 
 /** @define badge */
 .cads-badge {
-  @include cads-typographic-scale-text-small();
+  @include cads-typographic-scale-text-small;
 
   line-height: 0.875rem;
   font-weight: $cads-font-weight__bold;

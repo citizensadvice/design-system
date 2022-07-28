@@ -1,3 +1,6 @@
+@use 'sass:list';
+@use 'sass:map';
+
 @use '../1-settings/breakpoints' as breakpoint-settings;
 
 // Name of the next breakpoint (null for the last one)
@@ -6,7 +9,7 @@
   $breakpoints: breakpoint-settings.$cads-breakpoints,
   $breakpoint-names: map-keys(breakpoint-settings.$cads-breakpoints)
 ) {
-  $n: index($breakpoint-names, $name);
+  $n: list.index($breakpoint-names, $name);
 
   @return if(
     $n < length($breakpoint-names),
@@ -20,7 +23,7 @@
   $name,
   $breakpoints: breakpoint-settings.$cads-breakpoints
 ) {
-  $min: map-get($breakpoints, $name);
+  $min: map.get($breakpoints, $name);
 
   @return if($min != 0, $min, null);
 }
