@@ -7,6 +7,7 @@
 
 $cads-small-radios-size: 24px;
 $cads-radio-selected-size: 0.625rem;
+
 .cads-form-group--radio {
   .cads-form-group__label {
     // (  ) Radio ring
@@ -25,7 +26,7 @@ $cads-radio-selected-size: 0.625rem;
       left: $cads-radio-selected-size;
       width: 0;
       height: 0;
-      border: $cads-radio-selected-size solid currentColor;
+      border: $cads-radio-selected-size solid currentcolor;
       border-radius: 50%;
       opacity: 0;
       background: currentcolor;
