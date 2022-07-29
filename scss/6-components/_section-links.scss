@@ -15,7 +15,7 @@
   }
 
   &__links {
-    @include cads-reset-list-style();
+    @include cads-reset-list-style;
 
     margin-bottom: 0;
   }
