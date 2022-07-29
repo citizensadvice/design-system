@@ -10,7 +10,7 @@ $button-shadow-size: 4px;
 @mixin cads-button-defaults() {
   @include cads-transition-animation(background);
 
-  -webkit-appearance: none;
+  appearance: none;
   box-sizing: border-box;
   width: auto;
   text-align: center;
@@ -36,7 +36,7 @@ $button-shadow-size: 4px;
 .cads-button__primary,
 .cads-button__secondary,
 .cads-button__tertiary {
-  @include cads-button-defaults();
+  @include cads-button-defaults;
 
   border-radius: $cads-border-radius;
   border: solid $cads-border-width-medium $cads-language__primary-button-colour;

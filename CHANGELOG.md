@@ -6,10 +6,12 @@
 **Bugfixes**
 
 - 🔗 Header: Renamed skip to content link
-- 📋 Optional form fields: Fixed an issue identified in an accessibility report related to pseudo content. The class `$cads-form-field__optional` no longer generates brackets as part of the css.
+- Inputs and targeted content: Change the focus contrast to meet the accessibility requirements
+- 🛑️ Error summary and message: Change text colour and weight to meet accessibility requirements
+- 📋 Optional form fields: Fix an issue identified in an accessibility report related to pseudo content. The class `$cads-form-field__optional` no longer generates brackets as part of the css.
 - 🎯 Targeted content: Fix missing label in name of close button
 - 📱 Section links: Fix accessibility issues with visual headings and list mark-up
-
+- 📋 Form hints: Add aria-describedby to form input when a hint exists
 
 ## <sub>v5.3.0</sub>
 

@@ -11,16 +11,18 @@
 
 /** @define paging */
 .cads-paging {
-  @include cads-reset-list-style();
+  @include cads-reset-list-style;
 
   display: flex;
   flex-wrap: wrap;
 }
+
 .cads-paging__item {
   margin-right: $cads-spacing-4;
 }
+
 .cads-paging__button {
-  @include cads-button-defaults();
+  @include cads-button-defaults;
 
   color: $cads-language__link-colour;
   border: solid $cads-border-width-small $cads-language__border-colour;
@@ -31,7 +33,7 @@
   margin-bottom: $cads-spacing-2;
 
   &:focus {
-    @include cads-paging-focus();
+    @include cads-paging-focus;
   }
 
   &:hover,
@@ -48,7 +50,7 @@
     border-color: $cads-language__primary-button-colour;
 
     &:focus {
-      @include cads-paging-focus();
+      @include cads-paging-focus;
     }
 
     &:hover {

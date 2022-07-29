@@ -44,6 +44,7 @@
       columns: 2;
     }
   }
+
   .cads-on-this-page__list-item {
     @include cads-media-breakpoint-up(md) {
       // the two column layout extends the inline bottom border of a focused link
