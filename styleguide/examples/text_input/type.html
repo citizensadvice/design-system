@@ -1,28 +1,28 @@
 <div class="cads-form-field">
-  <div class="cads-form-field__error-marker"></div>
   <div class="cads-form-field__content">
     <label
       class="cads-form-field__label"
-      for="example-input-password-input"
       id="example-input-password-label"
+      for="example-input-password-input"
     >
       Example input
     </label>
     <p
       class="cads-form-field__hint"
-      data-testid="hint-message"
       id="example-input-password-hint"
+      data-testid="hint-message"
     >
       This input has type 'password'
     </p>
     <input
-      aria-describedby="example-input-password-hint"
-      class="cads-input"
+      type="password"
       id="example-input-password-input"
       name="example-input-password"
-      required
-      type="password"
       value="It's a secret"
+      required="required"
+      aria-invalid="false"
+      aria-describedby="example-input-password-hint"
+      class="cads-input"
     />
   </div>
 </div>

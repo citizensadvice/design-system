@@ -1,26 +1,26 @@
 <div class="cads-form-field">
-  <div class="cads-form-field__error-marker"></div>
   <div class="cads-form-field__content">
     <label
       class="cads-form-field__label"
-      for="example-input-attrs-input"
       id="example-input-attrs-label"
+      for="example-input-attrs-input"
     >
       Example input
     </label>
     <p
       class="cads-form-field__hint"
-      data-testid="hint-message"
       id="example-input-attrs-hint"
+      data-testid="hint-message"
     >
       This input has additional attributes (spellcheck)
     </p>
     <textarea
-      aria-describedby="example-input-attrs-hint"
       class="cads-textarea"
       id="example-input-attrs-input"
       name="example-input-attrs"
-      required
+      required="required"
+      aria-invalid="false"
+      aria-describedby="example-input-attrs-hint"
       rows="8"
       spellcheck="true"
     ></textarea>

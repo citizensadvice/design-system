@@ -17,6 +17,10 @@ module CitizensAdviceComponents
       set_options(options)
     end
 
+    def render_content
+      content.presence || tag.input(class: "cads-input", **input_attributes)
+    end
+
     def set_options(options)
       return if options.blank?
 
