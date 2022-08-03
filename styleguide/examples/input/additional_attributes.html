@@ -1,29 +1,29 @@
 <div class="cads-form-field">
-  <div class="cads-form-field__error-marker"></div>
   <div class="cads-form-field__content">
     <label
       class="cads-form-field__label"
-      for="example-input-attrs-input"
       id="example-input-attrs-label"
+      for="example-input-attrs-input"
     >
       Example input
     </label>
     <p
       class="cads-form-field__hint"
-      data-testid="hint-message"
       id="example-input-attrs-hint"
+      data-testid="hint-message"
     >
       This input has the additional attributes (autocomplete and data-testid)
     </p>
     <input
-      aria-describedby="example-input-attrs-hint"
-      autocomplete="name"
       class="cads-input"
-      data-testid="my great input"
+      type="text"
       id="example-input-attrs-input"
       name="example-input-attrs"
-      required
-      type="text"
+      required="required"
+      aria-invalid="false"
+      aria-describedby="example-input-attrs-hint"
+      autocomplete="name"
+      data-testid="my great input"
     />
   </div>
 </div>
