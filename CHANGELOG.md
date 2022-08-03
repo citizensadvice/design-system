@@ -2,8 +2,6 @@
 
 #### _Aug. 3, 2022_
 
-## Unreleased
-
 **Bugfixes**
 
 - 🔗 Header: Renamed skip to content link
