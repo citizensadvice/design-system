@@ -1,4 +1,5 @@
 @use 'sass:math';
+
 // ============================================================================
 // Forms: Form groups
 // Styles for groups of checkable items, like checkboxes and radio buttons
@@ -7,6 +8,7 @@
 /** @define form-group; weak */
 
 $cads-checkable-size: 40px;
+$cads-checkable-border: 3px;
 
 .cads-form-group {
   border: none;
@@ -49,9 +51,11 @@ $cads-checkable-size: 40px;
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 0;
+
   // optically align labels with controls
   padding: cads-rem(7px) $cads-spacing-4 $cads-spacing-2;
   cursor: pointer;
+
   // remove 300ms pause on mobile
   touch-action: manipulation;
 
@@ -82,12 +86,14 @@ $cads-checkable-size: 40px;
 
 .cads-form-group__input:focus + .cads-form-group__label {
   &::before {
-    border-color: $cads-language__focus-border-colour;
+    border-color: $cads-language__focus-text-colour;
+    border-width: $cads-checkable-border;
+
     // We need to use box-shadow instead of outline as outline does not have a radius
     box-shadow: 0 0 0 $cads-border-width-medium $cads-language__focus-colour;
   }
 
   &::after {
-    color: currentColor;
+    color: currentcolor;
   }
 }

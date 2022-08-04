@@ -12,6 +12,12 @@ module CitizensAdviceComponents
       super(**@base_input_args)
     end
 
+    def call
+      render CitizensAdviceComponents::Input.new(**base_input_args) do
+        content_tag(:textarea, value, class: "cads-textarea", **input_attributes)
+      end
+    end
+
     def format_rows(rows)
       rows.to_i.zero? ? DEFAULT_ROWS : rows
     end

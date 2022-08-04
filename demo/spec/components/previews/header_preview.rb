@@ -77,7 +77,7 @@ class HeaderPreview < ViewComponent::Preview
   def skip_links
     [
       { title: "Skip to navigation", url: "#cads-navigation" },
-      { title: "Skip to content", url: "#cads-main-content" },
+      { title: "Skip to main content", url: "#cads-main-content" },
       { title: "Skip to footer", url: "#cads-footer" }
     ]
   end

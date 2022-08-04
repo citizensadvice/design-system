@@ -1,0 +1,20 @@
+<div class="cads-form-field<% if error? %> cads-form-field--has-error<% end %>">
+  <% if error? %><div class="cads-form-field__error-marker"></div><% end %>
+  <div class="cads-form-field__content">
+    <label class="cads-form-field__label" id="<%= label_id %>" for="<%= input_id %>">
+      <%= label %>
+      <% if optional? %>
+        <span class="cads-form-field__optional"><%= "(#{t('.optional')})" %></span>
+      <% end %>
+    </label>
+    <% if hint? %>
+      <p class="cads-form-field__hint" id="<%= hint_id %>" data-testid="hint-message"><%= hint %></p>
+    <% end %>
+    <% if error? %>
+      <p class="cads-form-field__error-message" id="<%= error_id %>" data-testid="error-message">
+        <%= error_message %>
+      </p>
+    <% end %>
+    <%= render_content %>
+  </div>
+</div>

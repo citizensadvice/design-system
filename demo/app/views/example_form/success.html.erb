@@ -1,0 +1,16 @@
+<%= render FormAppHeaderComponent.new %>
+<%= render CitizensAdviceComponents::Breadcrumbs.new(
+  links: [{ url: root_path, title: "Home" }, { url: example_form_new_path, title: "Form" }, { title: "Thank you for your submission" }]
+) %>
+<%= render PageLayoutComponent.new do |c| %>
+  <% c.main do %>
+    <h1 class="cads-page-title">Thank you for your submission</h1>
+
+    <div class="cads-prose">
+      <p>Thank you for your submission. This is a sample form.</p>
+
+      <p><a href="<%= example_form_new_path %>">Start again</a></p>
+    </div>
+  <% end %>
+<% end  %>
+<%= render AppFooterComponent.new %>
