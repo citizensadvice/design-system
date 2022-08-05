@@ -1,5 +1,10 @@
+@import 'settings';
+
 @import '../scss/lib';
 
+@import 'base';
+@import 'header';
+@import 'footer';
 @import 'layout';
 @import 'code';
 @import 'examples';

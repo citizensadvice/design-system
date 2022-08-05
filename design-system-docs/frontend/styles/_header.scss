@@ -1,0 +1,47 @@
+// ============================================================================
+// Docs header overrides
+// ============================================================================
+
+.cads-header {
+  border-bottom: $cads-border-width-small solid $cads-palette__white;
+
+  // Allow logo row to use auto-width
+  // @TODO: Currently uses grid styles and must always be 2-cols, which seems wrong?
+  .cads-header__logo-row {
+    width: auto;
+    max-width: none;
+  }
+
+  @media print {
+    background: transparent;
+  }
+}
+
+.docs-logo {
+  display: block;
+  padding-bottom: $cads-spacing-1;
+  margin-top: $cads-spacing-1;
+
+  svg {
+    fill: currentcolor;
+    width: 284px;
+    height: 52px;
+  }
+
+  &:hover,
+  &:focus,
+  &:focus:hover,
+  &:active {
+    border: none;
+    background-color: transparent;
+    margin-bottom: -3px;
+    border-bottom: 3px solid white;
+  }
+
+  @include cads-media-breakpoint-only(sm) {
+    svg {
+      width: 200px;
+      height: 37px;
+    }
+  }
+}
