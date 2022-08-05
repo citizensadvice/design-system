@@ -1,0 +1,19 @@
+---
+title: Previous next
+---
+<div>
+  <%= render CitizensAdviceComponents::Button.new do |c| %>
+    Next
+    <% c.icon_right do
+      render CitizensAdviceComponents::Icons::ArrowRight.new
+    end
+  end %>
+</div>
+<div>
+  <%= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c| %>
+    Previous
+    <% c.icon_left do
+      render CitizensAdviceComponents::Icons::ArrowLeft.new
+    end
+  end %>
+</div>
