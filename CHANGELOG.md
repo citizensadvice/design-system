@@ -1,6 +1,7 @@
 **Bugfixes**
 
 - Header: Don't render right column when only logo is present (engine only)
+- Navigation: Add background to colour language
 
 ## <sub>v5.4.0-alpha.0</sub>
 
