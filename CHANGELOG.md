@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- Header: Don't render right column when only logo is present (engine only)
+
 ## <sub>v5.4.0-alpha.0</sub>
 
 #### _Aug. 3, 2022_
