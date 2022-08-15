@@ -25,42 +25,44 @@
           </button>
         <% end %>
       </div>
-      <div class="cads-grid-col-md-10 cads-header__search-row">
-        <ul class="cads-header__links js-cads-copy-into-nav">
-          <% header_links.each do |header_link| %>
-            <li class="cads-header__links-item"><%= header_link %></li>
-          <% end %>
-          <% if account_link.present? %>
-            <li class="cads-header__links-item"><%= account_link %></li>
-          <% end %>
-        </ul>
-        <% if search_form.present? %>
-          <div class="cads-header__search-form" id="header-search-form">
-            <%= form_tag(
-              search_form.search_action_url,
-              method: :get,
-              role: "search",
-              class: "cads-search cads-search--icon-only"
-            ) do %>
-              <%= search_field_tag(
-                search_form.search_param.to_sym, nil,
-                id: "search-query",
-                "aria-label": t("citizens_advice_components.search.input_aria_label"),
-                class: "cads-search__input cads-input",
-                autocomplete: "off"
-              ) %>
-              <button
-                type="submit"
-                title="<%= t("citizens_advice_components.search.submit_title") %>"
-                data-testid="search-button"
-                class="cads-search__button">
-                <%= render CitizensAdviceComponents::Icons::Search.new %>
-                <%= tag.span(t("citizens_advice_components.search.submit_label"), class: "cads-search__button-label") %>
-              </button>
+      <% if show_right_column? %>
+        <div class="cads-grid-col-md-10 cads-header__search-row">
+          <ul class="cads-header__links js-cads-copy-into-nav">
+            <% header_links.each do |header_link| %>
+              <li class="cads-header__links-item"><%= header_link %></li>
             <% end %>
-          </div>
-        <% end %>
-      </div>
+            <% if account_link.present? %>
+              <li class="cads-header__links-item"><%= account_link %></li>
+            <% end %>
+          </ul>
+          <% if search_form.present? %>
+            <div class="cads-header__search-form" id="header-search-form">
+              <%= form_tag(
+                search_form.search_action_url,
+                method: :get,
+                role: "search",
+                class: "cads-search cads-search--icon-only"
+              ) do %>
+                <%= search_field_tag(
+                  search_form.search_param.to_sym, nil,
+                  id: "search-query",
+                  "aria-label": t("citizens_advice_components.search.input_aria_label"),
+                  class: "cads-search__input cads-input",
+                  autocomplete: "off"
+                ) %>
+                <button
+                  type="submit"
+                  title="<%= t("citizens_advice_components.search.submit_title") %>"
+                  data-testid="search-button"
+                  class="cads-search__button">
+                  <%= render CitizensAdviceComponents::Icons::Search.new %>
+                  <%= tag.span(t("citizens_advice_components.search.submit_label"), class: "cads-search__button-label") %>
+                </button>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </header>

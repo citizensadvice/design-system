@@ -2,43 +2,39 @@
 
 RSpec.describe CitizensAdviceComponents::Header, type: :component do
   describe "no slots" do
-    subject(:component) do
-      render_inline(described_class.new)
-    end
+    before { render_inline(described_class.new) }
 
     it "does not render without any slots" do
-      expect(component.at("header")).not_to be_present
+      expect(page).not_to have_selector "header"
     end
   end
 
   describe "logo slot" do
     context "with default logo" do
-      subject(:logo) { component.at(".cads-logo") }
-
-      let(:component) do
+      before do
         render_inline(described_class.new) do |c|
           c.logo(title: "Logo title", url: "/homepage")
         end
       end
 
-      it "has expected title" do
-        expect(logo.attr("title")).to eq "Logo title"
+      it "has logo link" do
+        expect(page).to have_link "Logo title", href: "/homepage"
       end
 
-      it "has expected href" do
-        expect(logo.attr("href")).to eq "/homepage"
+      it "does not show right column when only logo is present" do
+        expect(page).not_to have_selector ".cads-header__search-row"
       end
     end
 
     context "with custom block" do
-      subject(:component) do
+      before do
         render_inline(described_class.new) do |c|
           c.logo { "Custom logo HTML" }
         end
       end
 
       it "renders custom block" do
-        expect(component.text).to include "Custom logo HTML"
+        expect(page).to have_text "Custom logo HTML"
       end
     end
   end
