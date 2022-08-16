@@ -18,40 +18,6 @@ const blurEventName = Object.prototype.hasOwnProperty.call(
 )
   ? 'focusout'
   : 'blur';
-/**
- * Get the closest matching element up the DOM tree
- * @param {Element} element Starting element
- * @param {String} selector Selector to match against (class, ID, or data attribute)
- * @return {Boolean|Element} Returns false if not match found
- */
-export const getClosest = (
-  element: HTMLElement,
-  selector: string
-): HTMLElement | false => {
-  const firstChar = selector.charAt(0);
-
-  let e: Nullable<HTMLElement> = element;
-
-  while (e) {
-    if (firstChar === '.') {
-      if (e.classList.contains(selector.substr(1))) {
-        return e;
-      }
-    } else if (firstChar === '#') {
-      if (e.id === selector.substr(1)) {
-        return e;
-      }
-    } else if (firstChar === '[') {
-      const attr = selector.substr(1, selector.length - 2);
-      if (e.hasAttribute(attr)) {
-        return e;
-      }
-    }
-    e = e.parentElement;
-  }
-
-  return false;
-};
 
 /**
  * Debounced resize to throttle execution
@@ -184,6 +150,7 @@ export const updateLabel = (
   }
 
   toggle.innerHTML = label;
+  toggle.setAttribute('aria-label', `${label} navigation options`);
 
   if (label === navDropdownLabelActive) {
     toggle.setAttribute('aria-expanded', 'true');
@@ -289,9 +256,7 @@ export class GreedyNavMenu {
 
   navDropdownToggle: Nullable<HTMLElement>;
 
-  navDropdownToggleLabel: Nullable<HTMLSpanElement>;
-
-  toggleWrapper: Nullable<HTMLSpanElement>;
+  toggleWrapper: Nullable<HTMLDivElement>;
 
   navDropdownSelector: string;
 
@@ -320,7 +285,6 @@ export class GreedyNavMenu {
 
     this.navDropdown = null;
     this.navDropdownToggle = null;
-    this.navDropdownToggleLabel = null;
     this.toggleWrapper = null;
 
     this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
@@ -439,13 +403,18 @@ export class GreedyNavMenu {
    */
   prepareHtml(_this: HTMLElement): void {
     /**
-     * Create dropdow menu
+     * Create dropdown menu
      * @type {HTMLElement}
      */
-    this.toggleWrapper = this.document.createElement('span');
+    this.toggleWrapper = this.document.createElement('div');
     this.navDropdown = this.document.createElement('ul');
     this.navDropdownToggle = this.document.createElement('button');
-    this.navDropdownToggleLabel = this.document.createElement('span');
+
+    /**
+     * Set ID on nav dropdown so we can reference it later
+     */
+    const dropdownId = 'greedy-nav-dropdown';
+    this.navDropdown.setAttribute('id', dropdownId);
 
     /**
      * Set label for dropdown toggle
@@ -453,20 +422,16 @@ export class GreedyNavMenu {
      */
     this.navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
 
-    this.navDropdownToggleLabel.innerHTML =
-      this.settings.navDropdownToggleAriaLabel;
-
     /**
      * Set aria attributes for accessibility
      */
     this.navDropdownToggle.setAttribute('aria-expanded', 'false');
+    this.navDropdownToggle.setAttribute('aria-controls', dropdownId);
     this.navDropdownToggle.setAttribute('type', 'button');
     this.navDropdownToggle.setAttribute(
-      'aria-labelledby',
-      'cadsGreedyNavLabel'
+      'aria-label',
+      this.settings.navDropdownToggleAriaLabel
     );
-    this.navDropdownToggleLabel.setAttribute('id', 'cadsGreedyNavLabel');
-    this.navDropdownToggleLabel.className = 'cads-greedy-nav__label';
     this.navDropdown.setAttribute('aria-hidden', 'true');
 
     const headerLinks = document.querySelector('.js-cads-copy-into-nav');
@@ -502,7 +467,6 @@ export class GreedyNavMenu {
       mainNav.insertAdjacentElement('afterend', this.toggleWrapper);
     }
 
-    this.toggleWrapper.appendChild(this.navDropdownToggleLabel);
     this.toggleWrapper.appendChild(this.navDropdownToggle);
     this.toggleWrapper.appendChild(this.navDropdown);
 
@@ -640,11 +604,12 @@ export class GreedyNavMenu {
      * Remove when clicked outside dropdown
      */
     this.document.addEventListener('click', (event: MouseEvent) => {
+      const targetEl = <HTMLElement>event.target;
       if (
-        event.target &&
-        !getClosest(<HTMLElement>event.target, `.${navDropdownClassName}`) &&
+        targetEl &&
+        targetEl.closest(`.${navDropdownClassName}`) &&
         navDropdownToggle &&
-        event.target !== navDropdownToggle &&
+        targetEl !== navDropdownToggle &&
         navWrapper.classList.contains('is-open')
       ) {
         this.closeDropDown(navWrapper);
