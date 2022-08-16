@@ -150,6 +150,7 @@ export const updateLabel = (
   }
 
   toggle.innerHTML = label;
+  toggle.setAttribute('aria-label', `${label} navigation options`);
 
   if (label === navDropdownLabelActive) {
     toggle.setAttribute('aria-expanded', 'true');
