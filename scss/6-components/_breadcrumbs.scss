@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // can't extend a placeholder across selectors (media query) so use a mixin instead.
 @mixin cads-breadcrumb-arrow {
   @include cads-icon;
@@ -69,6 +71,7 @@
 
       &:nth-last-child(2) {
         margin-left: 0;
+
         a {
           display: inline;
         }
@@ -97,7 +100,7 @@
     border-bottom: none;
 
     @each $breakpoint in map-keys($cads-breakpoints) {
-      $gutter: map-get($cads-grid-breakpoint-gutters, $breakpoint);
+      $gutter: map.get($cads-grid-breakpoint-gutters, $breakpoint);
 
       @include cads-media-breakpoint-up($breakpoint) {
         padding-left: $gutter;

@@ -40,7 +40,7 @@
 }
 
 %cads-list-unordered-inline {
-  @include cads-reset-list-style();
+  @include cads-reset-list-style;
 
   margin-bottom: $cads-spacing-5;
 
@@ -51,7 +51,7 @@
 }
 
 %cads-list-no-bullet {
-  @include cads-reset-list-style();
+  @include cads-reset-list-style;
 
   margin-bottom: $cads-spacing-5;
 
