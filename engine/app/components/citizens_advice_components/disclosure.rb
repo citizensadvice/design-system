@@ -4,10 +4,11 @@ module CitizensAdviceComponents
   class Disclosure < Base
     attr_reader :closed_summary
 
-    def initialize(closed_summary:, open_summary: nil)
+    def initialize(closed_summary:, open_summary: nil, additional_attributes: nil)
       super
       @closed_summary = closed_summary
       @open_summary = open_summary || closed_summary
+      @additional_attributes = additional_attributes
     end
 
     def render?
@@ -18,7 +19,7 @@ module CitizensAdviceComponents
       "#{@closed_summary.parameterize}-disclosure-details"
     end
 
-    def button_attrs
+    def base_button_attrs
       {
         type: "button",
         class: %w[cads-disclosure__toggle cads-icon_plus cads-linkbutton js-disclosure-toggle],
@@ -33,6 +34,14 @@ module CitizensAdviceComponents
         label_when_hiding: @closed_summary,
         label_when_showing: @open_summary
       }
+    end
+
+    def button_attrs
+      if @additional_attributes.present?
+        base_button_attrs.merge @additional_attributes
+      else
+        base_button_attrs
+      end
     end
   end
 end
