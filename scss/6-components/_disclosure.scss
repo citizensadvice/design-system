@@ -30,6 +30,10 @@
   text-decoration: none;
 }
 
+.cads-disclosure + .cads-disclosure {
+  margin-top: $cads-spacing-4;;
+}
+
 /* stylelint-disable plugin/selector-bem-pattern, no-descending-specificity */
 .no-js {
   .cads-disclosure__toggle,

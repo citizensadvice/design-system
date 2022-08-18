@@ -27,13 +27,6 @@
   overflow: auto;
 }
 .component-example__source {
-  .cads-disclosure {
-    margin-bottom: $cads-spacing-4;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  }
   .cads-disclosure__toggle {
     @include cads-typographic-scale-text-small();
   }
