@@ -20,12 +20,12 @@ const attributes = {
 const disclosureSelectors = {
   summary: '.js-disclosure-summary',
   details: '.js-disclosure-details',
-}
+};
 
 const disclosureAttributes = {
   closedSummary: 'data-closed-summary',
-  openSummary: 'data-open-summary'
-}
+  openSummary: 'data-open-summary',
+};
 function initDisclosureToggle(disclosure: Element) {
   const toggle = disclosure.querySelector(selectors.toggle);
   const summary = disclosure.querySelector(disclosureSelectors.summary);
@@ -34,9 +34,13 @@ function initDisclosureToggle(disclosure: Element) {
   toggle?.addEventListener('click', () => {
     if (toggle && summary && details) {
       if (details.classList.contains(classes.elementIsOpen)) {
-        summary.textContent = toggle.getAttribute(disclosureAttributes.openSummary);
+        summary.textContent = toggle.getAttribute(
+          disclosureAttributes.openSummary
+        );
       } else {
-        summary.textContent = toggle.getAttribute(disclosureAttributes.closedSummary);
+        summary.textContent = toggle.getAttribute(
+          disclosureAttributes.closedSummary
+        );
       }
     }
   });
