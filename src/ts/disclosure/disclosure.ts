@@ -3,8 +3,6 @@ import initShowHideWithToggle from '../utils/show-hide';
 const selectors = {
   component: '.js-disclosure',
   toggle: '.js-disclosure-toggle',
-  summary: '.js-disclosure-summary',
-  details: '.js-disclosure-details',
 };
 
 const classes = {
@@ -19,17 +17,26 @@ const attributes = {
   target: 'data-toggle-target-id',
 };
 
+const disclosureSelectors = {
+  summary: '.js-disclosure-summary',
+  details: '.js-disclosure-details',
+}
+
+const disclosureAttributes = {
+  closedSummary: 'data-closed-summary',
+  openSummary: 'data-open-summary'
+}
 function initDisclosureToggle(disclosure: Element) {
   const toggle = disclosure.querySelector(selectors.toggle);
-  const summary = disclosure.querySelector(selectors.summary);
-  const details = disclosure.querySelector(selectors.details);
+  const summary = disclosure.querySelector(disclosureSelectors.summary);
+  const details = disclosure.querySelector(disclosureSelectors.details);
 
   toggle?.addEventListener('click', () => {
     if (toggle && summary && details) {
       if (details.classList.contains(classes.elementIsOpen)) {
-        summary.textContent = toggle.getAttribute(attributes.labelWhenShowing);
+        summary.textContent = toggle.getAttribute(disclosureAttributes.openSummary);
       } else {
-        summary.textContent = toggle.getAttribute(attributes.labelWhenHidden);
+        summary.textContent = toggle.getAttribute(disclosureAttributes.closedSummary);
       }
     }
   });

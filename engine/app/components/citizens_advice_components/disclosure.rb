@@ -31,8 +31,10 @@ module CitizensAdviceComponents
     def button_data_attrs
       {
         toggle_target_id: disclosure_details_id,
-        label_when_hiding: @closed_summary,
-        label_when_showing: @open_summary
+        label_when_hiding: "Show this section, #{@closed_summary}",
+        label_when_showing: "Hide this section, #{@open_summary}",
+        open_summary: @open_summary,
+        closed_summary: @closed_summary
       }
     end
 
