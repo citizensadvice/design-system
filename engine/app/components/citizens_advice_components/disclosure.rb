@@ -4,12 +4,11 @@ module CitizensAdviceComponents
   class Disclosure < Base
     attr_reader :closed_summary
 
-    def initialize(closed_summary:, open_summary: nil, additional_attributes: nil, use_default_aria_label: true, id: nil)
+    def initialize(closed_summary:, open_summary: nil, additional_attributes: nil, id: nil)
       super
       @closed_summary = closed_summary
       @open_summary = open_summary || closed_summary
       @additional_attributes = additional_attributes
-      @use_default_aria_label = use_default_aria_label
       @id = id
     end
 
@@ -40,11 +39,11 @@ module CitizensAdviceComponents
       }
     end
 
-    def generate_label(prepend_text,summary)
-      if @use_default_aria_label
-        summary
-      else
+    def generate_label(prepend_text, summary)
+      if @open_summary === @closed_summary
         "#{prepend_text}, #{summary}"
+      else
+        summary
       end
     end
 
