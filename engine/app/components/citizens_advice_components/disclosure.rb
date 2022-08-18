@@ -40,7 +40,7 @@ module CitizensAdviceComponents
     end
 
     def generate_label(prepend_text, summary)
-      if @open_summary === @closed_summary
+      if @open_summary.eql? @closed_summary
         "#{prepend_text}, #{summary}"
       else
         summary
