@@ -4,11 +4,12 @@ module CitizensAdviceComponents
   class Disclosure < Base
     attr_reader :closed_summary
 
-    def initialize(closed_summary:, open_summary: nil, additional_attributes: nil)
+    def initialize(closed_summary:, open_summary: nil, additional_attributes: nil, id: nil)
       super
       @closed_summary = closed_summary
       @open_summary = open_summary || closed_summary
       @additional_attributes = additional_attributes
+      @id = id
     end
 
     def render?
@@ -16,7 +17,11 @@ module CitizensAdviceComponents
     end
 
     def disclosure_details_id
-      "#{@closed_summary.parameterize}-disclosure-details"
+      if @id.present?
+        @id
+      else
+        "#{@closed_summary.parameterize}-disclosure-details"
+      end
     end
 
     def base_button_attrs
