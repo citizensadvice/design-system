@@ -27,7 +27,7 @@ If you have functionality that a lot of users will need, the options should not 
 
 ## With custom id
 
-By default, the `data-toggle-target-id` (used in JavaScript), is generated based on the closed label. Adding a custom id is useful in the cases where there are more than one disclosure per page and it is possible that multiple disclosures would have the same label
+By default, the disclosure details id, is generated based on the closed label. Adding a custom id is useful in the cases where there are more than one disclosure per page and it is possible that multiple disclosures would have the same label
 
 <Preview>
   <Story id="components-disclosure--with-custom-id" />
@@ -71,9 +71,9 @@ If you are using the `citizens_advice_components` gem you call the component fro
 
 The component requires a content` block for the main contents along with the following arguments:
 
-| Argument                | Description                                                                                             |
-| ----------------------- | ------------------------------------------------------------------------------------------------------- |
-| `closed_summary`        | Required, the button text when the component is closed                                                  |
-| `open_summary`          | Optional, if not provided, the closed title will be used                                                |
-| `id`                    | Optional, if not provided, the closed title will be used for generating the `data-toggle-target-id`     |
-| `additional_attributes` | Optional, a hash of additional attributes rendered onto the button, eg { "data-test-id": "my-test-id" } |
+| Argument                | Description                                                                                              |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- |
+| `closed_summary`        | Required, the button text when the component is closed                                                   |
+| `open_summary`          | Optional, if not provided, the closed title will be used                                                 |
+| `id`                    | Optional, if not provided, the closed title will be used for generating the id of the disclosure details |
+| `additional_attributes` | Optional, a hash of additional attributes rendered onto the button, eg { "data-test-id": "my-test-id" }  |

@@ -15,25 +15,24 @@ function decorateWithBehaviour(Story) {
 export default {
   title: 'Components/Disclosure',
   parameters: { docs: { page: docs } },
+  decorators: [decorateWithBehaviour],
 };
 
 export const Example = () => templateExample;
 Example.parameters = { docs: { source: { code: templateExample } } };
-Example.decorators = [decorateWithBehaviour];
 
 export const WithoutOpenSummary = () => templateWithoutOpenSummary;
 WithoutOpenSummary.parameters = {
   docs: { source: { code: templateWithoutOpenSummary } },
 };
-WithoutOpenSummary.decorators = [decorateWithBehaviour];
 
 export const Fallback = () => templateFallback;
 Fallback.parameters = { docs: { source: { code: templateFallback } } };
 
 export const WithCustomId = () => templateWithCustomId;
 WithCustomId.parameters = { docs: { source: { code: templateWithCustomId } } };
-WithCustomId.decorators = [decorateWithBehaviour];
 
 export const WithAdditionalAttributes = () => templateWithAdditionalAttributes;
-WithAdditionalAttributes.parameters = { docs: { source: { code: templateWithAdditionalAttributes } } };
-WithAdditionalAttributes.decorators = [decorateWithBehaviour];
+WithAdditionalAttributes.parameters = {
+  docs: { source: { code: templateWithAdditionalAttributes } },
+};
