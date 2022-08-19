@@ -106,10 +106,10 @@
     padding: $cads-spacing-1 cads-rem(6px);
 
     &:focus {
-      background-color: $cads-color-brand-focus;
+      background-color: $cads-color-focus;
       border-color: $cads-color-border-focus;
       border-width: $cads-border-width-medium;
-      color: $cads-color-text;
+      color: $cads-color-focus-text;
     }
 
     &:hover {

@@ -119,7 +119,7 @@ $cads-color-footer-link-active: cads-colors(
 
     &:focus {
       color: $cads-color-text;
-      background-color: $cads-color-brand-focus;
+      background-color: $cads-color-focus;
       border-bottom: 2px solid $cads-color-text;
     }
   }

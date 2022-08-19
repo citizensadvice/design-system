@@ -4,9 +4,9 @@
 
 @mixin cads-paging-focus() {
   outline: none;
-  color: $cads-color-text;
+  color: $cads-color-focus-text;
   border-color: $cads-color-border-focus;
-  background-color: $cads-color-brand-focus;
+  background-color: $cads-color-focus;
 }
 
 /** @define paging */

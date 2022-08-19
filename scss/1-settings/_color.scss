@@ -36,9 +36,15 @@ $cads-color-brand-adviser: cads-colors(
   $cads-palette__blue-adviser,
   $legacy: $cads-language__brand-adviser
 ) !default;
-$cads-color-brand-focus: cads-colors(
+
+//Focus
+$cads-color-focus: cads-colors(
   $cads-palette__yellow,
   $legacy: $cads-language__focus-colour
+) !default;
+$cads-color-focus-text: cads-colors(
+  $cads-palette__black,
+  $legacy: $cads-language__focus-text-colour
 ) !default;
 
 // Text
@@ -82,8 +88,6 @@ $cads-color-link-active: cads-colors(
   $cads-palette__dark-grey,
   $legacy: $cads-language__link-active-colour
 ) !default;
-
-// Background hover
 $cads-color-background-hover: cads-colors(
   $cads-palette__blue-light,
   $legacy: $cads-language__hover-background-colour

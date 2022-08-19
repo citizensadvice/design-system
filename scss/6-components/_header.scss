@@ -62,7 +62,7 @@ $cads-color-header-sign-out-border: cads-colors(
 
     &:focus {
       color: $cads-color-text;
-      background-color: $cads-color-brand-focus;
+      background-color: $cads-color-focus;
       border-bottom: 2px solid $cads-color-text;
     }
 
@@ -101,9 +101,9 @@ $cads-color-header-sign-out-border: cads-colors(
 
     &:focus {
       outline: none;
-      color: $cads-color-text;
+      color: $cads-color-focus-text;
       border-color: $cads-color-border-focus;
-      background-color: $cads-color-brand-focus;
+      background-color: $cads-color-focus;
     }
   }
 

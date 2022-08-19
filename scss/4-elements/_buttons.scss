@@ -45,9 +45,9 @@ $button-shadow-size: 4px;
 
   &:focus {
     outline: none;
-    color: $cads-color-text;
+    color: $cads-color-focus-text;
     border-color: $cads-color-text-secondary;
-    background-color: $cads-color-brand-focus;
+    background-color: $cads-color-focus;
     box-shadow: 0 $button-shadow-size 0 0 $cads-color-text-secondary;
   }
 
@@ -143,9 +143,9 @@ $button-shadow-size: 4px;
   }
 
   &:focus {
-    color: $cads-color-text;
+    color: $cads-color-focus-text;
     border-color: $cads-color-text-secondary;
-    background-color: $cads-color-brand-focus;
+    background-color: $cads-color-focus;
     box-shadow: 0 $button-shadow-size 0 0 $cads-color-text-secondary;
   }
 }
