@@ -51,6 +51,20 @@ $cads-color-text-secondary: cads-colors(
   $legacy: $cads-language__secondary-text-colour
 ) !default;
 
+// Nav
+$cads-color-nav-background: cads-colors(
+    $cads-palette__heritage-blue ,
+    $cads-language__nav-background-colour
+) !default;
+$cads-color-nav-background-hover: cads-colors(
+    $cads-palette__heritage-blue-dark,
+    $cads-language__nav-hover-background-colour
+) !default;
+$cads-color-nav-border-hover: cads-colors(
+    $cads-palette__heritage-blue-dark,
+    $cads-language__nav-hover-border-colour
+) !default;
+
 // Links
 $cads-color-link: cads-colors(
   $cads-palette__heritage-blue,
