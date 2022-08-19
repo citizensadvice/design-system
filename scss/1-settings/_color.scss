@@ -2,8 +2,8 @@
 @import './colour-palette';
 
 @function cads-colors($color, $legacy: false) {
-  @if ($legacy and $use-legacy-color-names) {
-    @if (type-of($legacy) == 'color') {
+  @if $legacy and $use-legacy-color-names {
+    @if type-of($legacy) == 'color' {
       @return $legacy;
     }
   }
@@ -53,16 +53,16 @@ $cads-color-text-secondary: cads-colors(
 
 // Nav
 $cads-color-nav-background: cads-colors(
-    $cads-palette__heritage-blue ,
-    $cads-language__nav-background-colour
+  $cads-palette__heritage-blue,
+  $cads-language__nav-background-colour
 ) !default;
 $cads-color-nav-background-hover: cads-colors(
-    $cads-palette__heritage-blue-dark,
-    $cads-language__nav-hover-background-colour
+  $cads-palette__heritage-blue-dark,
+  $cads-language__nav-hover-background-colour
 ) !default;
 $cads-color-nav-border-hover: cads-colors(
-    $cads-palette__heritage-blue-dark,
-    $cads-language__nav-hover-border-colour
+  $cads-palette__heritage-blue-dark,
+  $cads-language__nav-hover-border-colour
 ) !default;
 
 // Links
@@ -83,6 +83,7 @@ $cads-color-link-active: cads-colors(
   $legacy: $cads-language__link-active-colour
 ) !default;
 
+// Background hover
 $cads-color-background-hover: cads-colors(
   $cads-palette__blue-light,
   $legacy: $cads-language__hover-background-colour
@@ -93,12 +94,10 @@ $cads-color-border: cads-colors(
   $cads-palette__light-grey,
   $legacy: $cads-language__border-colour
 ) !default;
-
 $cads-color-border-focus: cads-colors(
   $cads-palette__dark-grey,
   $legacy: $cads-language__focus-border-colour
 ) !default;
-
 $cads-color-input-border: cads-colors(
   $cads-palette__mid-grey,
   $legacy: $cads-language__input-border-colour
