@@ -1,5 +1,5 @@
 @mixin cads-interactive-focus() {
-  outline: $cads-border-width-medium solid $cads-language__focus-colour;
+  outline: $cads-border-width-medium solid $cads-color-brand-focus;
   border-color: $cads-color-border-focus;
 
   // We need to use box-shadow instead of outline as outline does not have a radius
