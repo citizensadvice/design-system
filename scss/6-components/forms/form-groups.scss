@@ -86,7 +86,7 @@ $cads-checkable-border: 3px;
 
 .cads-form-group__input:focus + .cads-form-group__label {
   &::before {
-    border-color: $cads-color-focus-text;
+    border-color: $cads-color-text-focus;
     border-width: $cads-checkable-border;
 
     // We need to use box-shadow instead of outline as outline does not have a radius

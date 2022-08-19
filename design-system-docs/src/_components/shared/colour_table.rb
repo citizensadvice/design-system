@@ -32,7 +32,7 @@ module Shared
           tag.div do
             swatch_for(colour["compiledValue"]) + description
           end,
-          tag.code("$cads-language__#{colour_key}"),
+          tag.code("$cads-color-#{colour_key}"),
           tag.code(colour["compiledValue"])
         ]
       end

@@ -20,8 +20,8 @@ Brand colours are usually used in global components such as ‘Global Navigation
 There are 2 shades of Text colour. Choose the colours carefully based on the importance of the information.
 
 <%= render(Shared::ColourTable.new([
-['Text', 'text-colour'],
-['Secondary text', 'secondary-text-colour']
+['Text', 'text'],
+['Secondary text', 'text-secondary']
 ])) %>
 
 ### Links
@@ -29,18 +29,18 @@ There are 2 shades of Text colour. Choose the colours carefully based on the imp
 There are various colours for different interaction states. When different coloured backgrounds are used in designs, **make sure the colour contrast ratio of all the interaction states meets at least 4.5:1** – this is the same for typography.
 
 <%= render(Shared::ColourTable.new([
-['Link', 'link-colour'],
-['Visited', 'link-visited-colour'],
-['Hover', 'link-hover-colour'],
-['Hover background', 'hover-background-colour'],
-['Active', 'link-active-colour'],
+['Link', 'link'],
+['Visited', 'link-visited'],
+['Hover', 'link-hover'],
+['Hover background', 'background-hover'],
+['Active', 'link-active'],
 ])) %>
 
 ### Focus
 
 <%= render(Shared::ColourTable.new([
-['Link', 'focus-colour'],
-['Focus text', 'focus-text-colour'],
+['Link', 'focus'],
+['Focus text', 'focus-text'],
 ])) %>
 
 ### Border
@@ -48,15 +48,15 @@ There are various colours for different interaction states. When different colou
 Use the ‘Input border’ for interactive elements like input boxes so it meets the contrast ratio of 3:1. ‘Border’ is usually used for decorative lines and dividers.
 
 <%= render(Shared::ColourTable.new([
-['Input border', 'input-border-colour'],
-['Border', 'border-colour'],
+['Input border', 'input-border'],
+['Border', 'border'],
 ])) %>
 
 ### Buttons
 
 <%= render(Shared::ColourTable.new([
-['Button', 'primary-button-colour'],
-['Button hover', 'primary-button-hover-colour'],
+['Button', 'button-primary'],
+['Button hover', 'button-primary-hover'],
 ])) %>
 
 ### Adviser

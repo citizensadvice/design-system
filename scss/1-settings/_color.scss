@@ -42,7 +42,7 @@ $cads-color-focus: cads-colors(
   $cads-palette__yellow,
   $legacy: $cads-language__focus-colour
 ) !default;
-$cads-color-focus-text: cads-colors(
+$cads-color-text-focus: cads-colors(
   $cads-palette__black,
   $legacy: $cads-language__focus-text-colour
 ) !default;
@@ -105,16 +105,6 @@ $cads-color-border-focus: cads-colors(
 $cads-color-input-border: cads-colors(
   $cads-palette__mid-grey,
   $legacy: $cads-language__input-border-colour
-) !default;
-
-// Buttons
-$cads-color-button-primary: cads-colors(
-  $cads-palette__teal,
-  $legacy: $cads-language__primary-button-colour
-) !default;
-$cads-color-button-primary-hover: cads_colors(
-  $cads-palette__teal-dark,
-  $legacy: $cads-language__primary-button-hover-colour
 ) !default;
 
 // Messages

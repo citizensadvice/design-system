@@ -7,6 +7,32 @@
  */
 $button-shadow-size: 4px;
 
+// Colours
+$cads-color-button-primary: cads-colors(
+  $cads-palette__teal,
+  $legacy: $cads-language__primary-button-colour
+) !default;
+$cads-color-button-primary-hover: cads_colors(
+  $cads-palette__teal-dark,
+  $legacy: $cads-language__primary-button-hover-colour
+) !default;
+$cads-color-button-secondary-hover: cads_colors(
+  $cads-palette__blue-light,
+  $legacy: $cads-language__secondary-button-hover-colour
+) !default;
+$cads-color-button-tertiary-dark-background-hover: cads_colors(
+  $cads-palette__heritage-blue-dark,
+  $legacy: $cads-language__tertiary-button-dark-hover-background-colour
+) !default;
+$cads-color-button-tertiary-dark-text-hover: cads-colors(
+  $cads-palette__white,
+  $legacy: $cads-language__tertiary-button-dark-hover-colour
+) !default;
+$cads-color-button-tertiary-dark-border-hover: cads_colors(
+  $cads-palette__white,
+  $legacy: $cads-language__tertiary-button-dark-hover-border-colour
+) !default;
+
 @mixin cads-button-defaults() {
   @include cads-transition-animation(background);
 
@@ -45,7 +71,7 @@ $button-shadow-size: 4px;
 
   &:focus {
     outline: none;
-    color: $cads-color-focus-text;
+    color: $cads-color-text-focus;
     border-color: $cads-color-text-secondary;
     background-color: $cads-color-focus;
     box-shadow: 0 $button-shadow-size 0 0 $cads-color-text-secondary;
@@ -99,7 +125,7 @@ $button-shadow-size: 4px;
   &:hover,
   &:active {
     color: $cads-color-button-primary-hover;
-    background-color: $cads-color-background-hover;
+    background-color: $cads-color-button-secondary-hover;
   }
 }
 
@@ -115,12 +141,12 @@ $button-shadow-size: 4px;
 
   &:focus {
     box-shadow: 0 ($button-shadow-size - $cads-border-width-small) 0 0
-      $cads-color-text-secondary;
+      $cads-color-border-focus;
   }
 
   &:hover,
   &:active {
-    background-color: $cads-color-background-hover;
+    background-color: $cads-color-button-secondary-hover;
     color: $cads-color-button-primary-hover;
     box-shadow: none;
   }
@@ -137,15 +163,15 @@ $button-shadow-size: 4px;
 
   &:hover,
   &:active {
-    background-color: $cads-color-brand-primary-dark;
-    color: $cads-color-brand-primary-contrast;
-    border-color: $cads-color-brand-primary-dark;
+    background-color: $cads-color-button-tertiary-dark-background-hover;
+    color: $cads-color-button-tertiary-dark-text-hover;
+    border-color: $cads-color-button-tertiary-dark-border-hover;
   }
 
   &:focus {
-    color: $cads-color-focus-text;
-    border-color: $cads-color-text-secondary;
+    color: $cads-color-text-focus;
+    border-color: $cads-color-border-focus;
     background-color: $cads-color-focus;
-    box-shadow: 0 $button-shadow-size 0 0 $cads-color-text-secondary;
+    box-shadow: 0 $button-shadow-size 0 0 $cads-color-border-focus;
   }
 }
