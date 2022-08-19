@@ -1,3 +1,7 @@
+**New**
+
+- 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$use-legacy-color-names: false` 
+
 **Bugfixes**
 
 - Header: Don't render right column when only logo is present (engine only)
