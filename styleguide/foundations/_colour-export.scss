@@ -1,6 +1,9 @@
 @import '../../scss/1-settings/colour-palette';
 @import '../../scss/1-settings/color';
 
+$cads-color-button-primary: $cads-palette__teal;
+$cads-color-button-primary-hover: $cads-palette__teal-dark;
+
 // The following map is only used to provide a loop for displaying the colours in Storybook.
 /* stylelint-disable */
 :export {
