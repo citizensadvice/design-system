@@ -63,11 +63,14 @@ jobs:
           working-directory: engine
       - run: bundle exec rubocop --format github
       - run: bundle exec haml-lint
+      - run: bundle exec erblint --lint-all
 
   demo-app:
     runs-on: ubuntu-20.04
     env:
       RAILS_ENV: test
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -120,6 +123,7 @@ jobs:
     env:
       RAILS_ENV: test
       CYPRESS_INSTALL_BINARY: 0
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -143,16 +147,7 @@ jobs:
         with:
           working-directory: demo
 
-      # Run asset build
-      - run: ./bin/webpack
-        working-directory: demo
-
-      - run: ./bin/rails server -p 3001 &
-        working-directory: demo
-
-      - run: ./bin/wait-for localhost:3001
-
-      - run: npx backstop test --docker --config=backstop-config-actions.js
+      - run: npm run backstop:ci
         working-directory: demo
 
       - uses: actions/upload-artifact@v3

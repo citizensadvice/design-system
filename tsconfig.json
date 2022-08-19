@@ -17,6 +17,9 @@
       "path": "./src/ts/disclosure/tsconfig.json"
     },
     {
+      "path": "./src/ts/error-summary/tsconfig.json"
+    },
+    {
       "path": "./src/ts/utils/tsconfig.json"
     }
   ]

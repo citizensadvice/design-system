@@ -24,12 +24,12 @@ $cads-language__secondary-button-hover-colour: $cads-language__hover-background-
 $cads-language__tertiary-button-dark-hover-background-colour: palette.$cads-palette__heritage-blue-dark !default;
 $cads-language__tertiary-button-dark-hover-colour: $cads-language__brand-primary-contrast !default;
 $cads-language__tertiary-button-dark-hover-border-colour: $cads-language__brand-primary-contrast !default;
-
 $cads-language__button-shadow-colour: palette.$cads-palette__teal-dark !default;
 $cads-language__warning-colour: palette.$cads-palette__red !default;
 $cads-language__success-colour: palette.$cads-palette__green !default;
 
 // Navigation colours
+$cads-language__nav-background-colour: $cads-language__brand-primary !default;
 $cads-language__nav-hover-background-colour: palette.$cads-palette__heritage-blue-dark !default;
 $cads-language__nav-hover-border-colour: palette.$cads-palette__heritage-blue-dark !default;
 
@@ -42,7 +42,6 @@ $cads-header__link-visited-colour: $cads-language__link-visited-colour !default;
 $cads-header__link-active-colour: $cads-language__link-active-colour !default;
 $cads-header__link-focus-highlight-colour: palette.$cads-palette__black !default;
 $cads-header__link-focus-colour: $cads-language__focus-colour !default;
-
 $cads-header__sign-out-background-colour: $cads-language__brand-primary-contrast !default;
 $cads-header__sign-out-colour: $cads-language__primary-button-colour !default;
 $cads-header__sign-out-border-colour: $cads-language__primary-button-colour !default;

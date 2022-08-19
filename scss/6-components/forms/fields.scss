@@ -7,8 +7,7 @@
 /** @define form-field */
 .cads-form-field {
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
+  flex-flow: row nowrap;
   align-items: stretch;
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -18,50 +17,53 @@
     font-size: 1rem;
   }
 }
+
 .cads-form-field__content {
   width: 100%;
 }
+
 .cads-form-field__label {
   @extend %cads-h4;
 
   display: block;
   margin-bottom: $cads-spacing-3;
 }
+
 .cads-form-field__label--with-heading {
   margin-bottom: 0;
 }
+
 .cads-form-field__heading {
   @extend %cads-h1;
 }
+
 .cads-form-field__optional {
   color: $cads-color-text-secondary;
   font-weight: normal;
-
-  &::before {
-    content: ' (';
-  }
-
-  &::after {
-    content: ')';
-  }
 }
+
 .cads-form-field__hint {
   display: block;
   margin: 0 0 $cads-spacing-3 0;
   color: $cads-color-text-secondary;
 }
+
 .cads-form-field__label + .cads-form-field__hint {
   // Reduces visual spacing between label + hint when there is a hint
   margin-top: -$cads-spacing-2;
 }
+
 .cads-form-field__error-marker {
   display: none;
 }
+
 .cads-form-field__error-message {
   display: none;
   color: $cads-color-error;
+  font-weight: $cads-font-weight__bold;
   margin: 0 0 $cads-spacing-3 0;
 }
+
 //
 // Modifier: has-error
 //

@@ -55,14 +55,14 @@
 }
 
 %cads-paragraph {
-  @include cads-typographic-scale-text();
+  @include cads-typographic-scale-text;
 
   font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-5 0;
 }
 
 %cads-paragraph-small {
-  @include cads-typographic-scale-text-small();
+  @include cads-typographic-scale-text-small;
 
   font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-5 0;

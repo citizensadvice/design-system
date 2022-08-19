@@ -11,7 +11,7 @@ import initTargetedContent from './targeted-content';
 
 const componentHtml = `<div
   class="cads-targeted-content js-cads-targeted-content"
-  data-descriptive-label-hide="hide this section"
+  data-descriptive-label-hide="close this section"
   data-descriptive-label-show="show this section"
   data-close-label="Close"
   data-title-text="Targeted content title"

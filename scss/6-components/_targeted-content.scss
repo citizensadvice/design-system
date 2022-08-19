@@ -73,14 +73,14 @@
     }
 
     &:focus {
-      @include cads-interactive-focus();
+      @include cads-interactive-focus;
     }
   }
 
   .cads-targeted-content__icon {
     height: 1em;
     margin-left: 0.5em;
-    fill: currentColor;
+    fill: currentcolor;
     flex: 0 0 1em;
   }
 
@@ -112,6 +112,7 @@
 
     &__content {
       display: block;
+
       hr,
       button {
         display: none;

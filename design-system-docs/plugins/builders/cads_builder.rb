@@ -3,6 +3,7 @@
 require "view_component/engine"
 require "citizens_advice_components"
 require "haml/plugin"
+require_relative "cads_theme"
 
 ActionView::Template.register_template_handler(:haml, Haml::Plugin)
 
@@ -15,6 +16,7 @@ module Builders
   class CadsBuilder < SiteBuilder
     def build
       load_cads
+      CadsTheme.register('cads-theme')
     end
 
     def load_cads

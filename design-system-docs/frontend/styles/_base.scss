@@ -1,0 +1,19 @@
+// ============================================================================
+// Base styles
+// ============================================================================
+
+html,
+body {
+  height: 100%;
+}
+
+// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1 1 auto;
+}

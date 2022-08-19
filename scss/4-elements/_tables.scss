@@ -68,8 +68,7 @@
 
     td {
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
+      flex-flow: row nowrap;
       align-content: stretch;
       border: none;
     }

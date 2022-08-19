@@ -27,7 +27,7 @@
   }
 
   &__button {
-    @include cads-button-defaults();
+    @include cads-button-defaults;
 
     margin-bottom: 0;
     padding: (cads-rem-to-px($cads-spacing-3) - 2px) $cads-spacing-3;
@@ -66,7 +66,7 @@
     }
 
     .cads-search__button-label {
-      @include cads-visually-hidden();
+      @include cads-visually-hidden;
     }
   }
 }

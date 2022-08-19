@@ -11,10 +11,6 @@
 .cads-greedy-nav {
   white-space: nowrap; // prevent flash of unstyled content
 
-  &__label {
-    display: none;
-  }
-
   &__dropdown {
     z-index: 1000;
     position: absolute;

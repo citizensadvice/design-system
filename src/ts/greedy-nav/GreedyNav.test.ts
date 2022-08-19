@@ -11,15 +11,8 @@ import path from 'path';
 
 import ResizeObserver from './__mocks__/ResizeObserver';
 
-import {
-  getClosest,
-  showToggle,
-  updateLabel,
-  GreedyNavMenu,
-} from './GreedyNav';
+import { showToggle, updateLabel, GreedyNavMenu } from './GreedyNav';
 import { defaultConfig } from './Config';
-
-const jsdomConfig = { url: 'http://public-website.test:3000' };
 
 describe('Greedy Nav', () => {
   beforeAll(() => {
@@ -28,67 +21,6 @@ describe('Greedy Nav', () => {
 
   afterAll(() => {
     delete window.ResizeObserver;
-  });
-
-  describe('getClosest', () => {
-    let dom: JSDOM;
-    let document: Document;
-    let top: HTMLElement;
-    let middle: HTMLElement;
-    let bottom: HTMLElement;
-
-    beforeEach(() => {
-      dom = new JSDOM(
-        '<div id="top" class="parent top" data-top="top"><div id="middle" class="parent middle" data-middle="middle"><div id="bottom" class="bottom" data-bottom="bottom"></div></div></div>',
-        jsdomConfig
-      );
-
-      document = dom.window.document;
-
-      top = document.querySelector<HTMLElement>('#top')!;
-      middle = document.querySelector<HTMLElement>('#middle')!;
-      bottom = document.querySelector<HTMLElement>('#bottom')!;
-    });
-
-    afterEach(() => {
-      document.body.innerHTML = '';
-    });
-
-    test('finds direct ancestor node by id', () => {
-      expect(getClosest(bottom, '#middle')).toBe(middle);
-    });
-
-    test('finds grandparent node by id', () => {
-      expect(getClosest(bottom, '#top')).toBe(top);
-    });
-
-    test('finds parent by class', () => {
-      expect(getClosest(bottom, '.parent')).toBe(middle);
-    });
-
-    test('finds grandparent by class', () => {
-      expect(getClosest(bottom, '.top')).toBe(top);
-    });
-
-    test('finds parent by attribute', () => {
-      expect(getClosest(bottom, '[data-middle]')).toEqual(middle);
-    });
-
-    test('finds grandparent by attribute', () => {
-      expect(getClosest(bottom, '[data-top]')).toEqual(top);
-    });
-
-    it("doesn't find absent id", () => {
-      expect(getClosest(bottom, '#no-there')).toBeFalsy();
-    });
-
-    it("doesn't find absent class", () => {
-      expect(getClosest(bottom, '.not-there')).toBeFalsy();
-    });
-
-    test('returns false for absent attribute', () => {
-      expect(getClosest(bottom, '[not-there]')).toBeFalsy();
-    });
   });
 
   describe('showToggle', () => {
@@ -308,6 +240,10 @@ describe('Greedy Nav', () => {
       expect(nav.navDropdown!.className).toContain('show');
       expect(nav.mainNavWrapper!.className).toContain('is-open');
       expect(nav.navDropdownToggle!.innerHTML).toContain('Close');
+      expect(nav.navDropdownToggle).toHaveAttribute(
+        'aria-label',
+        'Close navigation options'
+      );
     });
 
     test('when tabbing backwards through the dropdown menu', () => {
@@ -317,6 +253,10 @@ describe('Greedy Nav', () => {
       expect(nav.navDropdown!.className).not.toContain('show');
       expect(nav.mainNavWrapper!.className).not.toContain('is-open');
       expect(nav.navDropdownToggle!.innerHTML).toContain('More');
+      expect(nav.navDropdownToggle).toHaveAttribute(
+        'aria-label',
+        'More navigation options'
+      );
     });
   });
 

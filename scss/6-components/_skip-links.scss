@@ -3,7 +3,7 @@
   width: 100%;
 
   &__link {
-    @include cads-visually-hidden();
+    @include cads-visually-hidden;
 
     &:focus {
       clip: auto;

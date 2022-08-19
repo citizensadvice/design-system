@@ -47,7 +47,7 @@ a,
 
 // Reset button styles when styled like a link
 %cads-linkbutton-base {
-  -webkit-appearance: none;
+  appearance: none;
   border: none;
   background: transparent;
   padding: 0;
@@ -55,7 +55,7 @@ a,
   line-height: normal;
 
   &:focus {
-    margin-bottom: -2px; //account for bottom border
+    margin-bottom: -2px; // account for bottom border
   }
 }
 

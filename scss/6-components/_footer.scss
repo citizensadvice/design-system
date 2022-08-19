@@ -42,7 +42,7 @@ $cads-color-footer-link-active: cads-colors(
 
 /** @define footer; weak */
 .cads-footer {
-  @include cads-typographic-scale-text-small();
+  @include cads-typographic-scale-text-small;
 
   background-color: $cads-footer__background-colour;
   padding: $cads-spacing-4 0;
@@ -53,8 +53,9 @@ $cads-color-footer-link-active: cads-colors(
     color: $cads-color-footer-text;
     margin: 0 0 $cads-spacing-2 0;
   }
+
   .cads-footer__feedback {
-    @include cads-typographic-scale-text-small();
+    @include cads-typographic-scale-text-small;
 
     width: 100%;
     text-align: center;
@@ -74,6 +75,7 @@ $cads-color-footer-link-active: cads-colors(
 
     svg {
       height: 14px;
+
       // Optical alignment
       vertical-align: middle;
       position: relative;
@@ -91,6 +93,7 @@ $cads-color-footer-link-active: cads-colors(
 
     svg {
       height: 14px;
+
       // Optical alignment
       vertical-align: middle;
       position: relative;
@@ -123,11 +126,11 @@ $cads-color-footer-link-active: cads-colors(
 
   .cads-footer__links .cads-footer__link {
     // @TODO: cads-list-no-bullet contains font-sizes, should it inherit?
-    @include cads-typographic-scale-text-small();
+    @include cads-typographic-scale-text-small;
   }
 
   .cads-footer__company-info {
-    @include cads-restrict-content-width();
+    @include cads-restrict-content-width;
 
     color: $cads-color-footer-text;
     padding-top: $cads-spacing-5;

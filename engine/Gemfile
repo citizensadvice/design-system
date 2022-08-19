@@ -13,6 +13,7 @@ group :development, :test do
       tag: "v9.0.0"
 
   gem "capybara"
+  gem "erb_lint"
   gem "haml_lint"
   gem "i18n-tasks"
   gem "rspec"

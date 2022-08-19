@@ -5,19 +5,17 @@
 .component-example {
   border: 1px solid $cads-color-border;
   margin-bottom: $cads-spacing-6;
+  padding: $cads-spacing-5;
 }
-.component-example__links,
-.component-example__source {
-  padding: $cads-spacing-3 $cads-spacing-4;
-}
+
 .component-example__links {
   text-align: right;
   @include cads-typographic-scale-text-small();
 }
 .component-example__preview {
-  border: solid $cads-language__border-colour;
+  border: none;
   border-width: 1px 0;
-  padding: $cads-spacing-4;
+  padding: $cads-spacing-4 0;
 }
 .component-example__iframe {
   display: block;

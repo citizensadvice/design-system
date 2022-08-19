@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @import 'navigation_greedy-nav';
 
 /** @define navigation */
@@ -38,10 +40,10 @@
   background-color: $cads-color-brand-primary;
 
   .cads-navigation {
-    @include cads-restrict-content-width();
+    @include cads-restrict-content-width;
 
     @each $breakpoint in map-keys($cads-breakpoints) {
-      $gutter: map-get($cads-nav-breakpoint-gutters, $breakpoint);
+      $gutter: map.get($cads-nav-breakpoint-gutters, $breakpoint);
 
       @include cads-media-breakpoint-up($breakpoint) {
         padding-left: $gutter;
@@ -61,6 +63,7 @@
       content: '';
       border-top: $cads-border-width-small solid $cads-palette__white;
       position: relative;
+
       // take focus border into account
       left: cads-rem-to-px($cads-spacing-4) + $cads-border-width-medium;
       width: calc(

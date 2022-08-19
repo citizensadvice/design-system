@@ -11,7 +11,7 @@
   }
 
   &__title {
-    @extend %cads-h4;
+    @extend %cads-h3;
 
     color: $cads-color-error;
     margin-bottom: $cads-spacing-4;
@@ -29,6 +29,7 @@
 
       a {
         color: $cads-color-error;
+        font-weight: $cads-font-weight__bold;
         text-decoration: underline;
 
         &:focus {

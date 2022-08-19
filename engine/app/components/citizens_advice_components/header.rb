@@ -13,6 +13,10 @@ module CitizensAdviceComponents
       logo.present?
     end
 
+    def show_right_column?
+      header_links.any? || account_link.present? || search_form.present?
+    end
+
     def skip_links_to_show
       skip_links.presence || default_skip_links
     end

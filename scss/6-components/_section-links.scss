@@ -7,7 +7,23 @@
   }
 
   &__title {
+    font-size: 1rem;
+    line-height: 1.15rem;
+    font-weight: $cads-font-weight__regular;
     color: $cads-color-text-secondary;
+    margin: $cads-spacing-4 0;
+  }
+
+  &__links {
+    @include cads-reset-list-style;
+
+    margin-bottom: 0;
+  }
+
+  &__item {
+    @extend %cads-list-item;
+
+    margin-bottom: $cads-spacing-4;
   }
 
   &__section-title {
@@ -16,16 +32,6 @@
     color: $cads-color-text-secondary;
     margin-top: 0;
     margin-bottom: $cads-spacing-4;
-  }
-
-  &__links {
-    @extend %cads-list-no-bullet;
-
-    margin-bottom: 0;
-
-    .cads-section-links__item {
-      margin-bottom: $cads-spacing-4;
-    }
   }
 }
 

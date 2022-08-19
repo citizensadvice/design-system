@@ -77,8 +77,9 @@ Some components require polyfills for older browsers. Components which require p
 - [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest)
 - [Scroll behaviour (Element.prototype.scrollIntoView) polyfill](https://github.com/wessberg/scroll-behavior-polyfill)
 
-#### Navigation (specifically the greedynav behaviour):
+#### Navigation (specifically the greedy nav behaviour):
 
+- [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest)
 - [ResizeObserver polyfill](https://www.npmjs.com/package/resize-observer-polyfill)
 - Note: this polyfill is not a global polyfill, you will need to assign it to window.ResizeObserver.
 

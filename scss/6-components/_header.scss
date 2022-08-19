@@ -77,7 +77,7 @@ $cads-color-header-sign-out-border: cads-colors(
   }
 
   &__search-reveal {
-    @include cads-button-defaults();
+    @include cads-button-defaults;
 
     display: none; // Hide by default
     width: $cads-interactive-target-size;
@@ -227,6 +227,7 @@ $cads-color-header-sign-out-border: cads-colors(
       display: block;
     }
   }
+
   .cads-header__links {
     @include cads-media-breakpoint-only(sm) {
       display: block;

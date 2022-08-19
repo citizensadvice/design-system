@@ -15,6 +15,12 @@ module CitizensAdviceComponents
       super(**@base_input_args)
     end
 
+    def call
+      render CitizensAdviceComponents::Input.new(**base_input_args) do
+        tag.input(**input_attributes)
+      end
+    end
+
     def allowed_width_values
       [nil, :two_chars, :four_chars, :eight_chars, :sixteen_chars]
     end
@@ -35,12 +41,14 @@ module CitizensAdviceComponents
       @width.present?
     end
 
-    def width_class
-      "cads-input--#{@width.to_s.dasherize}"
+    def class_names
+      classes = ["cads-input"]
+      classes << "cads-input--#{@width.to_s.dasherize}" if width?
+      classes.join(" ")
     end
 
     def base_input_attributes
-      super.merge(class: (width_class if width?))
+      super.merge(class: class_names)
     end
   end
 end
