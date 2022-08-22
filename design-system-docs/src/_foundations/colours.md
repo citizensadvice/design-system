@@ -40,7 +40,7 @@ There are various colours for different interaction states. When different colou
 
 <%= render(Shared::ColourTable.new([
 ['Link', 'focus'],
-['Focus text', 'focus-text'],
+['Focus text', 'text-focus'],
 ])) %>
 
 ### Border

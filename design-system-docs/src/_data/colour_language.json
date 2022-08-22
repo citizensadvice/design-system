@@ -91,7 +91,7 @@
       "compiledValue": "#018176"
     },
     {
-      "name": "$cads-language-_primary-button-text-colour",
+      "name": "$cads-color-button-primary-text",
       "value": "palette.$cads-palette__white",
       "compiledValue": "#fff"
     },
@@ -101,29 +101,24 @@
       "compiledValue": "#006159"
     },
     {
-      "name": "$cads-language-_secondary-button-hover-colour",
-      "value": "$cads-language__hover-background-colour",
+      "name": "$cads-color-button-secondary-hover",
+      "value": "palette.$cads-palette__blue-light",
       "compiledValue": "#f2f8ff"
     },
     {
-      "name": "$cads-language-_tertiary-button-dark-hover-background-colour",
+      "name": "$cads-color-button-tertiary-dark-background-hover",
       "value": "palette.$cads-palette__heritage-blue-dark",
       "compiledValue": "#012760"
     },
     {
-      "name": "$cads-language-_tertiary-button-dark-hover-colour",
-      "value": "$cads-language__brand-primary-contrast",
+      "name": "$cads-color-button-tertiary-dark-text-hover",
+      "value": "palette.$cads-palette__white",
       "compiledValue": "#fff"
     },
     {
-      "name": "$cads-language-_tertiary-button-dark-hover-border-colour",
-      "value": "$cads-language__brand-primary-contrast",
+      "name": "$cads-color-button-tertiary-dark-border-hover",
+      "value": "palette.$cads-palette__white",
       "compiledValue": "#fff"
-    },
-    {
-      "name": "$cads-language-_button-shadow-colour",
-      "value": "palette.$cads-palette__teal-dark",
-      "compiledValue": "#006159"
     },
     {
       "name": "$cads-color-important",
@@ -152,47 +147,47 @@
     },
     {
       "name": "$cads-color-header-link",
-      "value": "$cads-language__link-colour",
+      "value": "palette.$cads-palette__heritage-blue",
       "compiledValue": "#004b88"
     },
     {
       "name": "$cads-color-header-link-hover",
-      "value": "$cads-language__link-hover-colour",
+      "value": "palette.$cads-palette__heritage-blue-dark",
       "compiledValue": "#012760"
     },
     {
       "name": "$cads-color-header-background",
-      "value": "$cads-language__hover-background-colour",
+      "value": "palette.$cads-palette__white",
       "compiledValue": "#f2f8ff"
     },
     {
       "name": "$cads-color-header-link-visited",
-      "value": "$cads-language__link-visited-colour",
+      "value": "palette.$cads-palette__purple",
       "compiledValue": "#8f3ea3"
     },
     {
       "name": "$cads-color-header-link-active",
-      "value": "$cads-language__link-active-colour",
+      "value": "palette.$cads-palette__dark-grey",
       "compiledValue": "#4a4e4f"
     },
     {
       "name": "$cads-color-header-sign-out-background",
-      "value": "$cads-language__brand-primary-contrast",
+      "value": "palette.$cads-palette__white",
       "compiledValue": "#fff"
     },
     {
       "name": "$cads-color-header-sign-out-text",
-      "value": "$cads-language__primary-button-colour",
+      "value": "palette.$cads-palette__teal",
       "compiledValue": "#018176"
     },
     {
       "name": "$cads-color-header-sign-out-border",
-      "value": "$cads-language__primary-button-colour",
+      "value": "palette.$cads-palette__teal",
       "compiledValue": "#018176"
     },
     {
       "name": "$cads-color-footer-divider",
-      "value": "$cads-language__brand-primary",
+      "value": "palette.$cads-palette__heritage-blue",
       "compiledValue": "#004b88"
     },
     {
@@ -207,32 +202,32 @@
     },
     {
       "name": "$cads-color-footer-text-secondary",
-      "value": "$cads-language__brand-primary",
+      "value": "palette.$cads-palette__heritage-blue",
       "compiledValue": "#004b88"
     },
     {
       "name": "$cads-color-footer-link",
-      "value": "$cads-language__link-colour",
+      "value": "palette.$cads-palette__heritage-blue",
       "compiledValue": "#004b88"
     },
     {
       "name": "$cads-color-footer-link-hover",
-      "value": "$cads-language__link-hover-colour",
+      "value": "palette.$cads-palette__heritage-blue-dark",
       "compiledValue": "#012760"
     },
     {
       "name": "$cads-color-footer-background-hover",
-      "value": "$cads-language__hover-background-colour",
+      "value": "palette.$cads-palette__blue-light",
       "compiledValue": "#f2f8ff"
     },
     {
       "name": "$cads-color-footer-link-visited",
-      "value": "$cads-language__link-visited-colour",
+      "value": "palette.$cads-palette__purple",
       "compiledValue": "#8f3ea3"
     },
     {
       "name": "$cads-color-footer-link-active",
-      "value": "$cads-language__link-active-colour",
+      "value": "palette.$cads-palette__dark-grey",
       "compiledValue": "#4a4e4f"
     }
   ]

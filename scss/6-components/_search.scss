@@ -32,12 +32,12 @@
     margin-bottom: 0;
     padding: (cads-rem-to-px($cads-spacing-3) - 2px) $cads-spacing-3;
     border: solid $cads-border-width-medium $cads-color-button-primary;
-    color: $cads-color-brand-primary-contrast;
+    color: $cads-color-button-primary-text;
     background-color: $cads-color-button-primary;
 
     &:hover,
     &:active {
-      color: $cads-color-brand-primary-contrast;
+      color: $cads-color-button-primary-text;
       background-color: $cads-color-button-primary-hover;
       border-color: $cads-color-button-primary-hover;
     }

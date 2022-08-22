@@ -16,6 +16,10 @@ $cads-color-button-primary-hover: cads_colors(
   $cads-palette__teal-dark,
   $legacy: $cads-language__primary-button-hover-colour
 ) !default;
+$cads-color-button-primary-text: cads_colors(
+  $cads-palette__white,
+  $legacy: $cads-language__primary-button-text-colour
+) !default;
 $cads-color-button-secondary-hover: cads_colors(
   $cads-palette__blue-light,
   $legacy: $cads-language__secondary-button-hover-colour
