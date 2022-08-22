@@ -1,9 +1,15 @@
+## <sub>v5.4.0-alpha.1</sub>
+
+#### _Aug. 22, 2022_
+
+**New**
+- 🔓 Disclosure: Add optional `id` and `additional_attributes`
+
 **Bugfixes**
 
 - Header: Don't render right column when only logo is present (engine only)
 - Navigation: Add background to colour language
 - 🧭 GreedyNav: Fix minor HTML validation issue
-- 🔓 Disclosure: Add optional `id` and `additional_attributes`
 
 ## <sub>v5.4.0-alpha.0</sub>
 
