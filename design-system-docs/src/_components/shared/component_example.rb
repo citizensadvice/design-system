@@ -62,5 +62,9 @@ module Shared
     def formatter
       Rouge::Formatters::HTML.new
     end
+
+    def example_code_id
+      example.data.title.downcase.parameterize
+    end
   end
 end
