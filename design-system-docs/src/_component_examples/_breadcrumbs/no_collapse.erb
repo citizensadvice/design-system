@@ -1,0 +1,23 @@
+---
+title: No collapse
+---
+<%= render (
+    CitizensAdviceComponents::Breadcrumbs.new(
+      type: :no_collapse,
+      type: :no_collapse,
+      links: [
+        {
+          title: "Home",
+          url: "/"
+        },
+        {
+          title: "Immigration",
+          url: "/immigration"
+        },
+        {
+          title: "Staying in the UK"
+        }
+      ]
+    )
+)
+%>

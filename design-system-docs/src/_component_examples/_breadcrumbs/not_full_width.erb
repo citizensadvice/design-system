@@ -1,0 +1,30 @@
+---
+title: Not full width
+---
+<%= render(
+      CitizensAdviceComponents::Breadcrumbs.new(
+        type: :collapse,
+        links: [
+          {
+            title: "Home",
+            url: "/"
+          },
+          {
+            title: "My Grandmother Asked Me to Tell You She’s Sorry",
+            url: "/immigration"
+          },
+          {
+            title: "The Curious Incident of the Dog in the Night-Time",
+            url: "/immigration/staying-in-the-uk"
+          },
+          {
+            title: "Fried Green Tomatoes at the Whistle Stop Cafe",
+            url: "/"
+          },
+          {
+            title: "Eleanor Oliphant is Completely Fine"
+          }
+        ]
+      )
+    )
+%>
