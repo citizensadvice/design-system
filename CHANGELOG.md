@@ -1,6 +1,6 @@
-## <sub>v5.4.0-alpha.1</sub>
+## <sub>v5.4.0</sub>
 
-#### _Aug. 22, 2022_
+#### _Aug. 24, 2022_
 
 **New**
 - 🔓 Disclosure: Add optional `id` and `additional_attributes`
@@ -10,13 +10,6 @@
 - Header: Don't render right column when only logo is present (engine only)
 - Navigation: Add background to colour language
 - 🧭 GreedyNav: Fix minor HTML validation issue
-
-## <sub>v5.4.0-alpha.0</sub>
-
-#### _Aug. 3, 2022_
-
-**Bugfixes**
-
 - 🔗 Header: Renamed skip to content link
 - Inputs and targeted content: Change the focus contrast to meet the accessibility requirements
 - 🛑️ Error summary and message: Change text colour and weight to meet accessibility requirements
