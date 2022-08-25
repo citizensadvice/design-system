@@ -51,13 +51,13 @@ $cads-color-header-sign-out-border: cads-colors(
     color: $cads-color-header-link;
     border-bottom: $cads-border-width-medium solid transparent;
 
+    &:visited {
+      color: $cads-color-header-link-visited;
+    }
+
     &:hover {
       color: $cads-color-header-link-hover;
       background-color: $cads-color-header-background-hover;
-    }
-
-    &:active {
-      color: $cads-color-header-link-active;
     }
 
     &:focus {
@@ -66,8 +66,8 @@ $cads-color-header-sign-out-border: cads-colors(
       border-bottom: 2px solid $cads-color-text;
     }
 
-    &:visited {
-      color: $cads-color-header-link-visited;
+    &:active {
+      color: $cads-color-header-link-active;
     }
   }
 
@@ -93,8 +93,7 @@ $cads-color-header-sign-out-border: cads-colors(
       vertical-align: middle;
     }
 
-    &:hover,
-    &:active {
+    &:hover {
       color: $cads-color-button-primary-hover;
       background-color: $cads-color-button-primary-hover;
     }
@@ -104,6 +103,11 @@ $cads-color-header-sign-out-border: cads-colors(
       color: $cads-color-text-focus;
       border-color: $cads-color-border-focus;
       background-color: $cads-color-focus;
+    }
+
+    &:active {
+      color: $cads-color-button-primary-hover;
+      background-color: $cads-color-button-primary-hover;
     }
   }
 
