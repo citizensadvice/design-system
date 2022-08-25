@@ -1,6 +1,6 @@
 **New**
 
-- 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$use-legacy-color-names: false` 
+- 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$cads-use-legacy-color-names: false` 
 
 **Bugfixes**
 
