@@ -4,19 +4,20 @@
 
 @import '../scss/1-settings/colour-palette';
 
+$cads-use-legacy-color-names: true;
 $cads-enable-external-link-icon: false !default;
 
-$docs-palette__black: #000;
-$docs-palette__black-tint: #161616;
+$docs-palette-black: #000;
+$docs-palette-black-tint: #161616;
 
 // Header colours
-$cads-color-header-background: $docs-palette__black;
+$cads-color-header-background: $docs-palette-black;
 
 // Navigation colours
-$cads-color-nav-background: $docs-palette__black-tint;
+$cads-color-nav-background: $docs-palette-black-tint;
 $cads-color-nav-background-hover: $cads-palette__dark-grey;
 $cads-color-nav-border-hover: $cads-palette__dark-grey;
 
 // Footer colours
-$cads-footer__text-colour: $cads-palette__white;
-$cads-footer__background-colour: $docs-palette__black;
+$cads-color-footer-text: $cads-palette__white;
+$cads-color-footer-background: $docs-palette-black;
