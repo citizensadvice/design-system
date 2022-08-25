@@ -44,7 +44,7 @@ $cads-color-footer-link-active: cads-colors(
 .cads-footer {
   @include cads-typographic-scale-text-small;
 
-  background-color: $cads-footer__background-colour;
+  background-color: $cads-color-footer-background;
   padding: $cads-spacing-4 0;
 
   .cads-footer__section-title {
