@@ -85,10 +85,10 @@ If you need to apply these styles to heading elements that you cannot add a clas
 </main>
 ```
 
-If you need to apply these styles to heading elements that you cannot add a class to but want more tightly scoped styles than the default `.cads-prose` class you can add a `.cads-prose-scoped` class instead. This is useful when you are embedding lots of rich components within a prose block and you want to more narrowly scope the effects of the cascade.
+If you need to apply these styles to heading elements that you cannot add a class to but want more tightly scoped styles than the default `.cads-prose` class you can add a `.cads-prose-direct-descendants` class instead which will target direct descendants only using the `>` child combinator selector. This is useful when you are embedding lots of rich components within a prose block and you want to more narrowly scope the effects of the cascade.
 
 ```html
-<main class="cads-prose-scoped">
+<main class="cads-prose-direct-descendants">
   <h1>Your options if you're in the UK illegally</h1>
   <h2>Get immigration advice</h2>
   <h3>If you're a British citizen</h3>

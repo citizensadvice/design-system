@@ -86,14 +86,14 @@
 }
 
 /**
- * Prose styles (scoped)
+ * Prose styles (direct descendants)
  *
  * This applies the same styles as the default cads-prose class but scoped using
  * a child combinator selector to only apply the styles to immediate children.
  * This is useful when you are embedding lots of rich components within a prose
  * block and you want to more narrowly scope the effects of the cascade.
  */
-.cads-prose-scoped {
+.cads-prose-direct-descendants {
   > {
     @include cads-prose;
   }
