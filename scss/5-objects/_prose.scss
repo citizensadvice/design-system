@@ -71,7 +71,7 @@
  * without using a mixin or extending a raw class name.
  */
 %cads-prose {
-  @include cads-prose();
+  @include cads-prose;
 }
 
 /**
