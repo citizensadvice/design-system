@@ -3,6 +3,7 @@
 #### _Aug. 24, 2022_
 
 **New**
+- 📃 Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
 - 🔓 Disclosure: Add optional `id` and `additional_attributes`
 
 **Bugfixes**
