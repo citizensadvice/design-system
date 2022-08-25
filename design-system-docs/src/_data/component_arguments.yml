@@ -42,3 +42,16 @@ radio_group:
     description: Optional, the layout of the radio buttons. One of nil, :inline, :list
   - argument: '→ legend_heading'
     description: Optional, wraps the text inside the legend in h1
+breadcrumbs:
+  - argument: links
+    description: Required, an array of hashes, each with the following
+  - argument: link[url]
+    description: → Required, url for the breadcrumb link
+  - argument: link[title]
+    description: → Required, title for the breadcrumb link
+  - argument: type
+    description: Optional, one of :collapse (default), :no_collapse
+  - argument: current_page
+    description: Optional, will render aria-location=current on last crumb if true. Defaults to true.
+  - argument: full_width
+    description: Optional, will wrap breadcrumbs in the .cads-breadcrumbs-wrapper div if true. Defaults to true.
