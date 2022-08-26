@@ -55,3 +55,8 @@ breadcrumbs:
     description: Optional, will render aria-location=current on last crumb if true. Defaults to true.
   - argument: full_width
     description: Optional, will wrap breadcrumbs in the .cads-breadcrumbs-wrapper div if true. Defaults to true.
+callout:
+  - argument: type
+    description: Optional type. One of :standard, :example, :important, or :adviser. Defaults to :standard.
+  - argument: label
+    description: Optional, title used as aria-label
