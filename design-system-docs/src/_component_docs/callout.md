@@ -65,6 +65,7 @@ If you are using the `citizens_advice_components` gem you call the component fro
   <p> Some example text</p>
 <%% end %>
 ```
+
 ### Component arguments
 
 The component accepts a [`content` block](https://viewcomponent.org/guide/#implementation) for the main contents along with the following arguments:
