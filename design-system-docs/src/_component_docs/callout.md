@@ -1,5 +1,5 @@
 ---
-title: Callouts
+title: Callout
 ---
 
 There are 4 main callout styles in our Design System:
