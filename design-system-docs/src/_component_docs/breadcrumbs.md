@@ -72,25 +72,7 @@ If you do not want the last crumb to indicate the current page (for screen reade
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
 
-```rb
-= render(
-  CitizensAdviceComponents::Breadcrumbs.new(
-    type: :collapse,
-    links: [
-      {
-        title: "Home",
-        url: "/"
-      },
-      {
-        title: "Immigration",
-        url: "/immigration"
-      },
-      {
-        title: "Staying in the UK"
-      }
-    ])
-)
-```
+<%= render(Shared::ComponentExampleSource.new(:breadcrumbs, :default)) %>
 
 ### View Component Options
 

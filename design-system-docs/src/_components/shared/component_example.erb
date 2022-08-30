@@ -5,21 +5,27 @@
     </a>
   </div>
   <div class="component-example__preview">
-    <% if iframe? %>
-      <iframe class="component-example__iframe js-component-example-iframe" title="<%= example.data.title.downcase %> example" src="<%= example.relative_url %>" frameborder="0" loading="lazy"></iframe>
+    <% if example.iframe? %>
+      <iframe
+        class="component-example__iframe js-component-example-iframe"
+        title="<%= example.title.downcase %> example"
+        src="<%= example.relative_url %>"
+        frameborder="0"
+        loading="lazy"
+      ></iframe>
     <% else %>
       <%= example.content %>
     <% end %>
   </div>
   <div class="component-example__source">
-    <% if show_html? %>
-      <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "HTML code", id: "html-code-#{example_code_id}")) do %>
-        <pre class="highlight"><code><%= raw highlighted_html %></code></pre>
+    <% if example.show_html? %>
+      <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "HTML code", id: "html-code-#{example.id}")) do %>
+        <pre class="highlight"><code><%= raw example.highlighted_html %></code></pre>
       <% end %>
     <% end %>
-    <% if show_source? %>
-      <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "ERB code", id: "erb-code-#{example_code_id}")) do %>
-        <pre class="highlight"><code><%= raw highlighted_source %></code></pre>
+    <% if example.show_source? %>
+      <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "ERB code", id: "erb-code-#{example.id}")) do %>
+        <pre class="highlight"><code><%= raw example.highlighted_source %></code></pre>
       <% end %>
     <% end %>
   </div>

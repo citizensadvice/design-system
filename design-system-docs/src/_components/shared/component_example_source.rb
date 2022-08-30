@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Shared
-  class ComponentExample < ViewComponent::Base
+  class ComponentExampleSource < ViewComponent::Base
     include Bridgetown::ViewComponentHelpers
 
     def initialize(category, slug)
