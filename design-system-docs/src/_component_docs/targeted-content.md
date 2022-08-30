@@ -50,15 +50,7 @@ If JavaScript either fails or is disabled in the users browser the fallback is t
 
 If you are using the `citizens_advice_components` gem you call the component from within a template using:
 
-```rb
-<%%= render(CitizensAdviceComponents::TargetedContent.new(
-  title: "Your title",
-  id: "targeted-content-example-id")
-  )) do
-    Your content
-  end
-%>
-```
+<%= render(Shared::ComponentExampleSource.new(:targeted_content, :default)) %>
 
 ### Component arguments
 

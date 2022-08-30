@@ -61,20 +61,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 The radio buttons themselves can be defined using a simple hash, and passed into the `RadioGroup` component like this:
 
-```rb
-- my_radio_buttons = [
-  { label: "Option 1", value: "1", checked: true },
-  { label: "Option 2", value: "2" },
-  { label: "Option 3", value: "3", "data-testid": "my-test-id" }
-]
-
-= render CitizensAdviceComponents::RadioGroup.new(
-    label: "Example radio buttons",
-    name: "radio-buttons"
-  ) do |c|
-    c.inputs(my_radio_buttons)
-  end
-```
+<%= render(Shared::ComponentExampleSource.new(:radio_group, :default)) %>
 
 ### Additional attributes (View component only)
 
