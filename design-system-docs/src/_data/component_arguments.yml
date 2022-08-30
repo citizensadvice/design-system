@@ -20,6 +20,15 @@ notice_banner:
     description: Required, string
   - argument: "content (block)"
     description: Required, content block
+pagination:
+  - argument: num_pages
+    description: Total number of pages of pagination to generate
+  - argument: current_page
+    description: The current page number
+  - argument: current_params
+    description: Current request query parameters
+  - argument: param_name
+    description: Optional. Pagination param name, defaults to page
 page_review:
   - argument: page_review_date
     description: Required, date object for last reviewed date
