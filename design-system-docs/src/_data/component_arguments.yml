@@ -1,3 +1,6 @@
+icons:
+  - argument: size
+    description: 'Defaults to <code>:small</code>. One of either <code>:small</code> (16px by 16px) or <code>:large</code> (24px by 24px).'
 button:
   - argument: variant
     description: Either :primary, :secondary, or :tertiary. Defaults to :primary
