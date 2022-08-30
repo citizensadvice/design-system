@@ -18,7 +18,7 @@ asset_hyperlink:
 notice_banner:
   - argument: label
     description: Required, string
-  - argument: "content (block)"
+  - argument: 'content (block)'
     description: Required, content block
 pagination:
   - argument: num_pages
@@ -33,7 +33,7 @@ page_review:
   - argument: page_review_date
     description: Required, date object for last reviewed date
   - argument: date_format
-    description: "Optional, custom date format passed to <code>I18n.l</code>. Defaults to <code>%d %B %Y</code>"
+    description: 'Optional, custom date format passed to <code>I18n.l</code>. Defaults to <code>%d %B %Y</code>'
 success_message:
   - argument: message
     description: Required. Message string
