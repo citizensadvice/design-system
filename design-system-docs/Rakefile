@@ -88,9 +88,7 @@ task :generate_component_docs => :environment do
 
         If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
 
-        ```rb
-        Sample code here
-        ```
+        <%= render(Shared::ComponentExampleSource.new(:#{component_id}, :default)) %>
 
         ### Component arguments
 
