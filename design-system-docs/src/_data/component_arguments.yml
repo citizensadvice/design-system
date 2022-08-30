@@ -20,6 +20,9 @@ notice_banner:
     description: Required, string
   - argument: "content (block)"
     description: Required, content block
+success_message:
+  - argument: message
+    description: Required. Message string
 targeted_content:
   - argument: id
     description: Required, unique ID
