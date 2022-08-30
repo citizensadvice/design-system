@@ -13,30 +13,15 @@ module Shared
     end
 
     def render?
-      find_example.present?
+      example.present?
     end
 
     def example
-      example_resource = find_example
-      # Make sure that rendered output is processed
-      example_resource.transformer.process!
-      example_resource
-    end
-
-    def find_example
-      @site.collections.component_examples.resources.find do |resource|
-        resource.data.categories.include?(@category.to_s) &&
-          resource.data.slug == @slug.to_s
-      end
-    end
-
-    def highlighted_source
-      lexer = Rouge::Lexers::ERB.new
-      formatter.format(lexer.lex(example.untransformed_content))
-    end
-
-    def formatter
-      Rouge::Formatters::HTML.new
+      @example ||= ComponentExamplePresenter.find_example(
+        site: @site,
+        category: @category,
+        slug: @slug
+      )
     end
   end
 end

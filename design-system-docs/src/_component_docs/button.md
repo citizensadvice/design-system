@@ -72,4 +72,3 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 The button component accepts an `icon_left` or `icon_right` slot for buttons with icons.
 
 <%= render(Shared::ComponentExampleSource.new(:button, :previous_next)) %>
-
