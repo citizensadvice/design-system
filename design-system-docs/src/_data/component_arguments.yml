@@ -90,3 +90,10 @@ search:
     description: Optional, current value
   - argument: param_name
     description: 'Optional. Pagination param name, defaults to <code>page</code>'
+tables:
+  - argument: header
+    description: 'Required, array of header label'
+  - argument: rows
+    description: 'Required, nested array of row contents'
+  - argument: caption
+    description: 'Optional, <code>&lt;caption&gt;</code> text'
