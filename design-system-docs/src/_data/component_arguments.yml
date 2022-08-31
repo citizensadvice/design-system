@@ -85,6 +85,11 @@ callout:
     description: Optional type. One of :standard, :example, :important, or :adviser. Defaults to :standard.
   - argument: label
     description: Optional, title used as aria-label
+search:
+  - argument: value
+    description: Optional, current value
+  - argument: param_name
+    description: 'Optional. Pagination param name, defaults to <code>page</code>'
 tables:
   - argument: header
     description: 'Required, array of header label'
