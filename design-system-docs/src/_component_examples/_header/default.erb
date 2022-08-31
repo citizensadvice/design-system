@@ -1,0 +1,20 @@
+---
+title: default
+---
+
+<%= render CitizensAdviceComponents::Header.new do |c|
+  c.logo(title: "Citizens Advice homepage", url: "/")
+  c.skip_links([
+    { title: "Skip to navigation", url: "#cads-navigation" },
+    { title: "Skip to main content", url: "#cads-main-content" },
+    { title: "Skip to footer", url: "#cads-footer" }
+  ])
+  c.header_links([
+    { title: "Public site", url: "#", current_site: true },
+    { title: "AdviserNet", url: "#" },
+    { title: "Intranet", url: "#" },
+    { title: "Cymraeg", url: "#" }
+  ])
+  c.search_form(search_action_url: "/search")
+  c.account_link(title: "Sign in", url: "/sign-in")
+end %>
