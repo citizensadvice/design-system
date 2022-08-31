@@ -97,3 +97,13 @@ tables:
     description: 'Required, nested array of row contents'
   - argument: caption
     description: 'Optional, <code>&lt;caption&gt;</code> text'
+on_this_page:
+  - argument: show_nested_links
+    description: Optional, will display nested links if there are any. Defaults to false
+on_this_page_links_slot:
+  - argument: id
+    description: Required, used for linking content on the page, and for accessibility purposes
+  - argument: label
+    description: Required, the label of the link
+  - argument: id
+    description: Optional, array for nested links
