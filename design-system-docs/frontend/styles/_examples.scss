@@ -30,4 +30,8 @@
   .cads-disclosure__toggle {
     @include cads-typographic-scale-text-small();
   }
+
+  pre.highlight {
+    margin-bottom: 0;
+  }
 }
