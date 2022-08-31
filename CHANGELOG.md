@@ -1,9 +1,13 @@
+**New**
+
+- 👤 Header: Fix error if header javascript is initialised when no search form is present
+- 📃 Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
+
 ## <sub>v5.4.0</sub>
 
 #### _Aug. 24, 2022_
 
 **New**
-- 📃 Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
 - 🔓 Disclosure: Add optional `id` and `additional_attributes`
 
 **Bugfixes**
