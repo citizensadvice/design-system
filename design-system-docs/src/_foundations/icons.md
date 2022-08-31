@@ -1,11 +1,14 @@
 ---
-title: Using icons
+title: Icons
 ---
 
-If you are implementing SVG icons in your code, please refer to [Components - SVG Icons](?path=/docs/components-svg-icons--default).
-
 Icons should be informative and recognisable. They should only be used in a purposeful manner to maximise comprehension when you need to call attention to a particular action.
+
 Icons should be used in combination with a meaningful label or supporting text whenever possible. Avoid `aria-labels` if you are rendering the icon with visible text to prevent accessibility label duplication.
+
+## Available icons
+
+<%= render(Foundations::IconGrid.new) %>
 
 ## Colour
 
@@ -23,8 +26,6 @@ We use small icons in our components such as "Chevron" in the buttons or a "Plus
 
 Medium icons are generally used as a button such as the "Search" button and the "Print this page" button in the toolbar on the Public site and AdviserNet.
 Do not attempt to re-size the icon, as they are designed specifically for a certain size. Only use these 2 icon sizes to ensure the consistency throughout our designs.
-
-<%= render(Foundations::IconGrid.new) %>
 
 ## Alignment
 
@@ -118,3 +119,68 @@ Use the guideline artboards in the [Design System 2.0 Figma file](https://www.fi
 ```
 
 👎 Don't: icon paths are not combined.
+
+## Using with Rails
+
+All our SVG icons are available as Rails view components. You can call them from within a template using:
+
+```rb
+render CitizensAdviceComponents::Icons::Email.new(size: :small)
+```
+
+You can look the name in the [available icons grid](#available-icons) to see which component class to use for which icon.
+
+### View Component Options
+
+The constructor accepts the following arguments
+
+<%= render Shared::ArgumentsTable.new(:icons) %>
+
+### Using as inline files
+
+The SVG code is available for you in `/assets/svg/icons`, or via inspection of the [available icons grid](#available-icons).
+
+### Customising icon appearance
+
+Each `<svg>` element is rendered with the following classes:
+
+- `.cads-icon`
+- `.cads-icon--{size}` (where {size} is `large` or `small`)
+- `.cads-icon--{name}` (where {name} is the hyphenated version of the component class name)
+
+The default `fill` colour is `currentColor`. You can override this in your CSS using the class mentioned above, eg:
+
+```CSS
+.my-component .cads-icon--arrow-up {
+  fill: #0000ff;
+}
+```
+
+### Combined Icons
+
+In some instances, you might need to combine icons into one SVG and use javascript and CSS to create a toggle-able combined icon. You can do this by:
+
+- combining the relevant `path` elements into the same `svg` element
+- adding classes to the `path` elements
+- add supporting CSS and JS to show/hide the required `path` elements
+
+For convenience, two common examples of this are included in the design system: the PlusMinus icon and the ArrowUpDown icon.
+
+They can be used in the same way as the other icon components:
+
+<%= render(Shared::ComponentExample.new(:icons, :plus_minus)) %>
+
+<%= render(Shared::ComponentExample.new(:icons, :up_down)) %>
+
+The supporting CSS for these components has been written. Append `.show-up` to show to the up arrow in `ArrowUpDown` and `.show-minus` to show the minus in `PlusMinus`.
+
+You will need to write your own javascript that toggles the required class, eg:
+
+```js
+var button = document.querySelector('button');
+
+button.addEventListener('click', function () {
+  const icon = document.querySelector('.cads-icon');
+  icon.classList.toggle('show-minus');
+});
+```
