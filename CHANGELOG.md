@@ -1,3 +1,7 @@
+## <sub>v5.4.1-alpha.0</sub>
+
+#### _Aug. 31, 2022_
+
 **New**
 
 - 👤 Header: Fix error if header javascript is initialised when no search form is present
