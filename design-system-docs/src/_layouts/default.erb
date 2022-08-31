@@ -8,7 +8,7 @@
     <script type="application/javascript">
       document.querySelector('html').classList.remove('no-js');
     </script>
-    <link rel="stylesheet" href="<%= webpack_path "css" %>" />
+    <link rel="stylesheet" href="<%= webpack_path "theme.css" %>" />
     <style><%= Rouge::Theme.find('cads-theme').render(scope: '.highlight') %></style>
   </head>
   <body class="site">
@@ -24,6 +24,6 @@
       <%= yield %>
     </div>
     <%= render CitizensAdviceComponents::Footer.new %>
-    <script src="<%= webpack_path "js" %>" defer></script>
+    <script src="<%= webpack_path "theme.js" %>" defer></script>
   </body>
 </html>

@@ -1,0 +1,17 @@
+// This file loads the docs theme
+// We use this for the main docs pages where we want to customise the design system theme
+// For isolated component pages we use the based index.scss/js
+@import 'settings';
+
+@import '../scss/lib';
+
+@import 'base';
+@import 'header';
+@import 'footer';
+@import 'layout';
+@import 'code';
+@import 'examples';
+@import 'foundations';
+@import 'feedback';
+@import 'sizing-border';
+@import 'spacing-block';

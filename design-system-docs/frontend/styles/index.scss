@@ -1,14 +1,3 @@
-@import 'settings';
-
+// This file loads just the design system components for use in isolated iframes
+// We use this when we need a clean base with no theme overrides
 @import '../scss/lib';
-
-@import 'base';
-@import 'header';
-@import 'footer';
-@import 'layout';
-@import 'code';
-@import 'examples';
-@import 'foundations';
-@import 'feedback';
-@import 'sizing-border';
-@import 'spacing-block';
