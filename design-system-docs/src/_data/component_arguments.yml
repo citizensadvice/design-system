@@ -85,3 +85,10 @@ callout:
     description: Optional type. One of :standard, :example, :important, or :adviser. Defaults to :standard.
   - argument: label
     description: Optional, title used as aria-label
+tables:
+  - argument: header
+    description: 'Required, array of header label'
+  - argument: rows
+    description: 'Required, nested array of row contents'
+  - argument: caption
+    description: 'Optional, <code>&lt;caption&gt;</code> text'
