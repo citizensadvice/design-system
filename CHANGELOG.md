@@ -2,6 +2,7 @@
 
 - 👤 Header: Fix error if header javascript is initialised when no search form is present
 - 📃 Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
+- SCSS: Adds a new `cads-grid-col-width` function which allows us to get the percentage width for a given number of grid columns.
 
 ## <sub>v5.4.0</sub>
 
