@@ -37,9 +37,6 @@ layout: default
           c.section_links(resource.collection.resources.map do |foundation|
             { url: foundation.relative_url, title: foundation.data.title }
           end)
-          # Need to pass in some content to avoid shadowing Bridgetowns content global
-          # We could probably avoid this by wrapping this in its own component?
-          ""
         end
       %>
     </div>

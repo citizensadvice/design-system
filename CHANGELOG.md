@@ -1,3 +1,7 @@
+**New**
+
+- Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
+
 ## <sub>v5.4.1-alpha.0</sub>
 
 #### _Aug. 31, 2022_
