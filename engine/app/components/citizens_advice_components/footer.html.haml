@@ -11,19 +11,21 @@
               %span.cads-footer__feedback-icon
                 = render CitizensAdviceComponents::Icons::ExternalLink.new
 
-    %nav{ "aria-label": t(".navigation_title")  }
-      .cads-grid-row
-        - columns_to_show.each do |column|
-          .cads-grid-col-md-3{ "data-testid": "footer-column" }
-            %h2.cads-footer__section-title= column.title
-            %ul.cads-footer__links
-              - column.links.each do |link|
-                %li.cads-footer__link
-                  = link_to link[:title], link[:url], class: "cads-footer__hyperlink"
-                  -# Support old "icon" key but assume external link
-                  - if link[:external].present? || link[:icon].present?
-                    %span.cads-footer__icon
-                      = render CitizensAdviceComponents::Icons::ExternalLink.new
+    - if columns_to_show.any?
+      %nav.cads-footer__navigation{ "aria-label": t(".navigation_title")  }
+        .cads-grid-row
+          - columns_to_show.each do |column|
+            .cads-grid-col-md-3{ "data-testid": "footer-column" }
+              %h2.cads-footer__section-title= column.title
+              %ul.cads-footer__links
+                - column.links.each do |link|
+                  %li.cads-footer__link
+                    = link_to link[:title], link[:url], class: "cads-footer__hyperlink"
+                    -# Support old "icon" key but assume external link
+                    - if link[:external].present? || link[:icon].present?
+                      %span.cads-footer__icon
+                        = render CitizensAdviceComponents::Icons::ExternalLink.new
+
     .cads-footer__company-info
       .cads-footer__logo
         %a.cads-logo{ href: homepage_url, title: t(".logo_title") }
