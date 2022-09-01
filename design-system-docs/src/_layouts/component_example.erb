@@ -5,13 +5,13 @@
     <%= seo %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="<%= webpack_path "css" %>" />
+    <link rel="stylesheet" href="<%= webpack_path "standalone.css" %>" />
     <script type="application/javascript">
       document.querySelector('html').classList.remove('no-js');
     </script>
   </head>
   <body>
     <%= yield %>
-    <script src="<%= webpack_path "js" %>" defer></script>
+    <script src="<%= webpack_path "standalone.js" %>" defer></script>
   </body>
 </html>

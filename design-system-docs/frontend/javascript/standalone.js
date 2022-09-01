@@ -1,7 +1,7 @@
 // This file loads just the design system components for use in isolated iframes
 // We use this when we need a clean base with no theme overrides
 
-import '../styles/index.scss';
+import '../styles/standalone.scss';
 
 // iframeResizer.contentWindow must be loaded by the content iframe
 // see components/iframes for the companion host code
