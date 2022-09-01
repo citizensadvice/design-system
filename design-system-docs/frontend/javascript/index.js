@@ -3,6 +3,10 @@
 
 import '../styles/index.scss';
 
+// iframeResizer.contentWindow must be loaded by the content iframe
+// see components/iframes for the companion host code
+import 'iframe-resizer/js/iframeResizer.contentWindow';
+
 import initHeader from '../../../lib/header';
 import greedyNav from '../../../lib/greedy-nav/index';
 import initTargetedContent from '../../../lib/targeted-content';
