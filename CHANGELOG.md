@@ -5,6 +5,7 @@
 **Bugfixes**
 
 - Footer: Fix borders when using minimal footer
+- Greedy nav: use theme colour for the background, not the brand colour
 
 ## <sub>v5.4.1-alpha.0</sub>
 
