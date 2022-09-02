@@ -58,7 +58,7 @@ initErrorSummary();
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
 
-<%= render(Shared::ComponentExampleSource.new(:error_summary, :default)) %>
+<%= render(Shared::ComponentExampleSource.new(:error_summary, :with_autofocus)) %>
 
 ### Component arguments
 
