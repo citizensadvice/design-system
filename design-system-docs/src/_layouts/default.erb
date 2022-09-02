@@ -5,11 +5,14 @@
     <%= seo %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
+    <link href="<%= webpack_path("fonts/open-sans-v26-latin-700.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="<%= webpack_path("fonts/open-sans-v26-latin-regular.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="<%= webpack_path("fonts/cads.woff") %>" rel="preload" as="font" type="font/woff" crossorigin="true" />
+    <link rel="stylesheet" href="<%= webpack_path "theme.css" %>" />
+    <style><%= Rouge::Theme.find('cads-theme').render(scope: '.highlight') %></style>
     <script type="application/javascript">
       document.querySelector('html').classList.remove('no-js');
     </script>
-    <link rel="stylesheet" href="<%= webpack_path "theme.css" %>" />
-    <style><%= Rouge::Theme.find('cads-theme').render(scope: '.highlight') %></style>
   </head>
   <body class="site">
     <%= render Shared::AppHeader.new %>
