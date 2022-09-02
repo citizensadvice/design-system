@@ -152,6 +152,15 @@ section_links:
     description: '→ Required, url for the section link'
   - argument: 'section_link[:title]'
     description: '→ Required, title for the section link'
+error_summary:
+  - argument: heading_level
+    description: Optional, sets the heading level of the title. Defaults to 2
+  - argument: errors
+    description: 'Required, array of error messages and links, each with the following:'
+  - argument: 'error[:href]'
+    description: '→ Required, error href'
+  - argument: 'error[:message]'
+    description: '→ Required, error message'
 disclosure:
   - argument: closed_summary
     description: 'Required, the button text when the component is closed'

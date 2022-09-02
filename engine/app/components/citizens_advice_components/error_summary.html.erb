@@ -1,0 +1,26 @@
+<%= tag.div(
+  class: "cads-error-summary js-error-summary",
+  "data-testid": "error-summary",
+  "aria-labelledby": "error-summary-title",
+  "aria-live": "assertive",
+  role: "alert",
+  tabindex: "0",
+  autofocus: autofocus?
+) do %>
+  <%= content_tag(
+    "h#{heading_level}".to_sym,
+    id: "error-summary-title",
+    class: "cads-error-summary__title"
+  ) do %>
+    <%= t("citizens_advice_components.error_summary.title") %>
+  <% end %>
+  <ul class="cads-error-summary__list">
+    <% errors.each do |e| %>
+      <li>
+        <a href="<%= e.href %>" class="js-error-summary-link">
+          <%= e.message %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
