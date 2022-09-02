@@ -139,3 +139,16 @@ navigation:
     description: '→ Required, url for the link'
   - argument: 'link[:title]'
     description: '→ Required, title for the link'
+section_links:
+  - argument: title
+    description: Required. A general title for the section links
+  - argument: section_title
+    description: Required. A section title above the links
+  - argument: section_title_url
+    description: Optional. A link for the section title
+  - argument: section_links
+    description: 'Required, an array of hashes, each with the following:'
+  - argument: 'section_link[:url]'
+    description: '→ Required, url for the section link'
+  - argument: 'section_link[:title]'
+    description: '→ Required, title for the section link'
