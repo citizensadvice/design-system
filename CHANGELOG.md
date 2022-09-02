@@ -1,3 +1,7 @@
+**New**
+
+- Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
+
 **Bugfixes**
 
 - Footer: Fix borders when using minimal footer

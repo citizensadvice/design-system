@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
-  subject(:component) do
-    render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
-                                      section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
-      c.section_links(section_links)
-    end
-  end
-
   let(:section_links) do
     [
       { title: "Preparing to apply for pre-settled and settled status",
@@ -30,29 +23,74 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     ]
   end
 
-  it "renders the title" do
-    expect(component.text.strip).to include "Related Content"
+  context "when default options are present" do
+    before do
+      render_inline(
+        described_class.new(
+          title: "Related Content",
+          section_title: "Applying to the EU settlement scheme",
+          section_title_url: "#"
+        )
+      ) do |c|
+        c.section_links(section_links)
+      end
+    end
+
+    it "renders the title" do
+      expect(page).to have_text "Related Content"
+    end
+
+    it "renders the section title" do
+      expect(page).to have_text "Applying to the EU settlement scheme"
+    end
+
+    it "renders a link for each sibling" do
+      expect(page).to have_selector "[data-testid='section-links-link']", count: section_links.count
+    end
   end
 
-  it "renders the section title" do
-    expect(component.text.strip).to include "Applying to the EU settlement scheme"
+  context "when custom content slot is present" do
+    before do
+      render_inline(
+        described_class.new(
+          title: "Related Content",
+          section_title: "Applying to the EU settlement scheme",
+          section_title_url: "#"
+        )
+      ) do |c|
+        c.section_links(additional_attribute_links)
+        c.custom_content { "Example content" }
+      end
+    end
+
+    it "renders the additional content" do
+      expect(page).to have_content "Example content"
+    end
   end
 
-  it "renders a link for each sibling" do
-    expect(component.css("[data-testid='section-links-link']").count).to eq section_links.count
-  end
+  describe "deprecated content block" do
+    before do
+      allow(ActiveSupport::Deprecation).to receive(:warn)
 
-  context "when additional content present" do
-    subject(:component) do
-      render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
-                                        section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
+      render_inline(
+        described_class.new(
+          title: "Related Content",
+          section_title: "Applying to the EU settlement scheme",
+          section_title_url: "#"
+        )
+      ) do |c|
         c.section_links(additional_attribute_links)
         "Example content"
       end
     end
 
     it "renders the additional content" do
-      expect(component.text.strip).to include "Example content"
+      expect(page).to have_text "Example content"
+    end
+
+    it "logs deprecation warning" do
+      expect(ActiveSupport::Deprecation).to have_received(:warn)
+        .with(/Use custom_content slot instead of default content block/)
     end
   end
 
@@ -60,7 +98,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     subject(:component) do
       render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme") do |c|
         c.section_links(additional_attribute_links)
-        "Example content"
+        c.custom_content { "Example content" }
       end
     end
 
@@ -97,7 +135,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     subject(:component) do
       render_inline described_class.new(title: nil, section_title: nil, section_title_url: nil) do |c|
         c.section_links(nil)
-        "Example content"
+        c.custom_content { "Example content" }
       end
     end
 
@@ -110,7 +148,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     subject(:component) do
       render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme") do |c|
         c.section_links(section_links)
-        "Example content"
+        c.custom_content { "Example content" }
       end
     end
 
