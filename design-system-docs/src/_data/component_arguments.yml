@@ -161,3 +161,43 @@ disclosure:
     description: 'Optional, if not provided, the closed title will be used for generating the id of the disclosure details'
   - argument: additional_attributes
     description: 'Optional, a hash of additional attributes rendered onto the button, eg <code>{ "data-test-id": "my-test-id" }</code>'
+text_input:
+  - argument: name
+    description: Required, field name
+  - argument: label
+    description: Required, the text for the label associated with the input
+  - argument: type
+    description: 'Required, one of: <code>:email</code>, <code>:hidden</code>, <code>:number</code>, <code>:password</code>, <code>:search</code>, <code>:tel</code>, <code>:text</code>, <code>:url</code>'
+  - argument: width
+    description: 'Optional, one of: <code>:two_char</code>, <code>:four_char</code>, <code>:eight_char</code>, <code>:sixteen_char</code>'
+  - argument: options
+    description: 'Optional, a hash with one or more of the following values:'
+  - argument: 'options[:hint]'
+    description: '→ Optional, hint text for the input'
+  - argument: 'options[:error_message]'
+    description: '→ Optional, an error message for the input'
+  - argument: 'options[:optional]'
+    description: '→ Optional, boolean indicating the field is optional (i.e. not required)'
+  - argument: 'options[:value]'
+    description: '→ Optional, the value of the input'
+  - argument: 'options[:additional_attributes]'
+    description: 'Optional, a hash of additional attributes rendered onto the input, eg <code>{ autocomplete: "name" }</code>'
+textarea:
+  - argument: name
+    description: Required, field name
+  - argument: label
+    description: Required, the text for the label associated with the input
+  - argument: rows
+    description: 'Optional, the number of rows for the textarea. Defaults to 8'
+  - argument: options
+    description: 'Optional, a hash with one or more of the following values:'
+  - argument: 'options[:hint]'
+    description: '→ Optional, hint text for the input'
+  - argument: 'options[:error_message]'
+    description: '→ Optional, an error message for the input'
+  - argument: 'options[:optional]'
+    description: '→ Optional, boolean indicating the field is optional (i.e. not required)'
+  - argument: 'options[:value]'
+    description: '→ Optional, the value of the input'
+  - argument: 'options[:additional_attributes]'
+    description: 'Optional, a hash of additional attributes rendered onto the input, eg <code>{ autocomplete: "name" }</code>'
