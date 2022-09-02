@@ -170,4 +170,3 @@ disclosure:
     description: 'Optional, if not provided, the closed title will be used for generating the id of the disclosure details'
   - argument: additional_attributes
     description: 'Optional, a hash of additional attributes rendered onto the button, eg <code>{ "data-test-id": "my-test-id" }</code>'
-
