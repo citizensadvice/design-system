@@ -2,7 +2,26 @@
 title: Header
 ---
 
+## Examples
+
+### Standalone
+
 <%= render(Shared::ComponentExample.new(:header, :default)) %>
+
+### With navigation
+
+<%= render(Shared::ComponentExample.new(:header, :with_navigation)) %>
+
+The header is intended to be used alongside the navigation, although it works standalone, see the [navigation component docs](/components/navigation) for details on how to use the navigation component.
+
+## JavaScript behaviour
+
+If you plan to use this component you will need to initialise the following JavaScript:
+
+```js
+import initHeader from '@citizensadvice/design-system/lib/header';
+initHeader();
+```
 
 ## Using with Rails
 
@@ -111,12 +130,3 @@ Or by passing a custom block to render your own HTML:
 **Note:** If you use the custom block format you control the HTML rendered so you'll also need to handle styling yourself.
 
 However, there are some basic `form` and `button` styles you can use to render a simple 'Sign out' button included in the design-system styles and shown in the example above.
-
-## JavaScript behaviour
-
-If you plan to use this component you will need to initialise the following JavaScript:
-
-```js
-import initHeader from '@citizensadvice/design-system/lib/header';
-initHeader();
-```

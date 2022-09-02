@@ -107,3 +107,10 @@ on_this_page_links_slot:
     description: Required, the label of the link
   - argument: id
     description: Optional, array for nested links
+navigation:
+  - argument: links
+    description: 'Required, an array of hashes, each with the following:'
+  - argument: 'link[:url]'
+    description: '→ Required, url for the link'
+  - argument: 'link[:title]'
+    description: '→ Required, title for the link'

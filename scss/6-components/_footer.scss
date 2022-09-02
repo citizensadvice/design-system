@@ -45,6 +45,10 @@
     }
   }
 
+  .cads-footer__navigation {
+    border-bottom: 1px solid $cads-language__border-colour;
+  }
+
   .cads-footer__links {
     @extend %cads-list-no-bullet;
   }
@@ -96,7 +100,6 @@
 
     color: $cads-footer__text-colour;
     padding-top: $cads-spacing-5;
-    border-top: 1px solid $cads-language__border-colour;
 
     @include cads-media-breakpoint-up(md) {
       display: flex;

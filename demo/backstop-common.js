@@ -126,6 +126,11 @@ module.exports = function backstopCommon(baseUrl) {
         misMatchThreshold: 0.4,
       },
       {
+        label: 'Components/Footer (feedback link only)',
+        url: componentUrlFor('footer/feedback_link_only'),
+        misMatchThreshold: 0.4,
+      },
+      {
         label: 'Components/Footer (minimal)',
         url: componentUrlFor('footer/minimal'),
         misMatchThreshold: 0.4,
