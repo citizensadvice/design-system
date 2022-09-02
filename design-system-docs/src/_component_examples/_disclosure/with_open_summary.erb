@@ -1,0 +1,11 @@
+---
+title: with open summary
+---
+
+<%= render(CitizensAdviceComponents::Disclosure.new(
+  closed_summary: "Show",
+  open_summary: "Hide",
+  id: "disclosure-example-open-summary"
+)) do %>
+  <p>Example content</p>
+<% end %>

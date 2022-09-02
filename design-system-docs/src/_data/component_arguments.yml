@@ -161,3 +161,13 @@ error_summary:
     description: '→ Required, error href'
   - argument: 'error[:message]'
     description: '→ Required, error message'
+disclosure:
+  - argument: closed_summary
+    description: 'Required, the button text when the component is closed'
+  - argument: open_summary
+    description: 'Optional, if not provided the closed title will be used'
+  - argument: id
+    description: 'Optional, if not provided, the closed title will be used for generating the id of the disclosure details'
+  - argument: additional_attributes
+    description: 'Optional, a hash of additional attributes rendered onto the button, eg <code>{ "data-test-id": "my-test-id" }</code>'
+
