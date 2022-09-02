@@ -9,8 +9,10 @@ import greedyNav from '../../../lib/greedy-nav/index';
 import initTargetedContent from '../../../lib/targeted-content';
 import initDisclosure from '../../../lib/disclosure/disclosure';
 import initOnThisPage from '../../../lib/on-this-page/on-this-page';
-import initCodeCopy from './code-copy';
-import initExamples from './examples';
+
+import initCodeCopy from './components/code-copy';
+import initSampleCode from './components/sample-code';
+import initComponentExamples from './components/component-examples';
 
 try {
   initHeader();
@@ -19,7 +21,8 @@ try {
   initDisclosure();
   initOnThisPage();
   initCodeCopy();
-  initExamples();
+  initSampleCode();
+  initComponentExamples();
 } catch (error) {
   document.querySelector('html').classList.add('no-js');
   throw error;

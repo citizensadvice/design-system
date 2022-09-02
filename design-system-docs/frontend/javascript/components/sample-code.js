@@ -1,4 +1,4 @@
-export default function initExamples() {
+export default function initSampleCode() {
   const plusMinus = document.querySelector('.js-plus-minus-example');
 
   if (plusMinus) {
