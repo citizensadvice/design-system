@@ -132,3 +132,10 @@ footer_column_slot:
     description: '→ Optional, is this an external link?'
   - argument: 'link[:new_tab]'
     description: '→ Optional, should this link open in a new tab?'
+navigation:
+  - argument: links
+    description: 'Required, an array of hashes, each with the following:'
+  - argument: 'link[:url]'
+    description: '→ Required, url for the link'
+  - argument: 'link[:title]'
+    description: '→ Required, title for the link'

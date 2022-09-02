@@ -1,0 +1,26 @@
+<aside class="cads-section-links">
+  <div class="cads-section-links__content">
+    <h2 class="cads-section-links__title"><%= title %></h2>
+    <nav aria-label="<%= section_title %>">
+      <ul class="cads-section-links__links">
+        <li>
+          <h3 class="cads-section-links__section-title">
+            <% if section_title_url.present? %>
+              <%= link_to(section_title, section_title_url, "data-testid": "section-title-link") %>
+            <% else %>
+              <%= section_title %>
+            <% end %>
+          </h3>
+        </li>
+        <% section_links.each do |link| %>
+          <li class="cads-section-links__item">
+            <%= link_to(link.title, link.url, class: "cads-hyperlink cads-section-links__link", "data-testid": "section-links-link", **link.additional_attributes) %>
+          </li>
+        <% end %>
+      </ul>
+      <% if extra_content.present? %>
+        <%= extra_content %>
+      <% end %>
+    </nav>
+  </div>
+</aside>

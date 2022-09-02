@@ -1,5 +1,17 @@
 **New**
 
+- Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
+
+**Bugfixes**
+
+- Footer: Fix borders when using minimal footer
+
+## <sub>v5.4.1-alpha.0</sub>
+
+#### _Aug. 31, 2022_
+
+**New**
+
 - 👤 Header: Fix error if header javascript is initialised when no search form is present
 - 📃 Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
 - SCSS: Adds a new `cads-grid-col-width` function which allows us to get the percentage width for a given number of grid columns.
