@@ -1,0 +1,10 @@
+<div class="cads-disclosure js-disclosure">
+  <%= tag.button(**button_attrs) do %>
+    <span class="cads-disclosure__summary js-disclosure-summary">
+      <%= closed_summary %>
+    </span>
+  <% end %>
+  <div class="cads-disclosure__details js-disclosure-details" id="<%= id %>">
+    <%= content %>
+  </div>
+</div>
