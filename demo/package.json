@@ -19,7 +19,7 @@
     "@testing-library/cypress": "^8.0.3",
     "axe-core": "^4.4.3",
     "backstopjs": "^6.1.1",
-    "cypress": "^10.6.0",
+    "cypress": "^10.7.0",
     "cypress-axe": "^1.0.0",
     "cypress-plugin-tab": "^1.0.5",
     "prettier": "^2.7.1",
