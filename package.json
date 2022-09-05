@@ -41,7 +41,7 @@
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
-    "@size-limit/preset-small-lib": "^6.0.4",
+    "@size-limit/file": "^8.0.1",
     "@storybook/addon-docs": "^6.3.7",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-viewport": "^6.3.7",
@@ -79,7 +79,7 @@
     "sass-loader": "^10.1.1",
     "semver": "^7.3.5",
     "simple-git": "^3.4.0",
-    "size-limit": "^6.0.4",
+    "size-limit": "^8.0.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard-scss": "^5.0.0",
@@ -90,12 +90,11 @@
   "size-limit": [
     {
       "path": "lib/lib.css",
-      "limit": "16 kB",
-      "webpack": false
+      "limit": "16 kB"
     },
     {
-      "path": "lib/*.js",
-      "limit": "6 kB"
+      "path": "lib/**/*.js",
+      "limit": "16 kB"
     }
   ],
   "browserslist": [
