@@ -23,6 +23,7 @@
         { url: "/components", title: "Components" }
       ]
     ) %>
+    <%= render Shared::AppBreadcrumbs.new(resource) %>
     <div class="site-content">
       <%= yield %>
     </div>
