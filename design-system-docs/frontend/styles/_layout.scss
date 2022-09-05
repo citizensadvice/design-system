@@ -1,9 +1,21 @@
 // ============================================================================
-// Listings
+// Layout
 // ============================================================================
 
+.home-intro {
+  padding: $cads-spacing-7 0;
+  margin-bottom: $cads-spacing-7;
+  border-bottom: $cads-border-width-small $cads-language__border-colour solid;
+
+  .home-intro__title {
+    @extend %cads-h1;
+
+    margin: 0;
+  }
+}
+
 .sidebar {
-  margin-top: $cads-spacing-4;
+  margin: $cads-spacing-4 0 $cads-spacing-7;
 }
 
 .text-list {
