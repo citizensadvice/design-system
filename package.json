@@ -119,6 +119,6 @@
     ]
   },
   "dependencies": {
-    "jest-environment-jsdom": "^28.0.2"
+    "jest-environment-jsdom": "^29.0.2"
   }
 }
