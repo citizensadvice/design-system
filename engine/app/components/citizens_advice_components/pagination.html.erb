@@ -1,0 +1,13 @@
+<nav aria-label="<%= t(".aria_label") %>">
+  <ul class="cads-paging cads-list-unordered__inline">
+    <% links_to_show.each do |pagination_link| %>
+      <li class="cads-paging__item<% if pagination_link.current? %> cads-paging__current<% end %>">
+        <%= tag.a(
+          pagination_link.label,
+          class: "cads-paging__button",
+          **pagination_link.attrs
+        ) %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
