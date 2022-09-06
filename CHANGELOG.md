@@ -1,6 +1,7 @@
 **New**
 
 - Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
+- Search: Add `autocomplete="off"` to search field
 
 **Bugfixes**
 
