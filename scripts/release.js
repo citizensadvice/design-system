@@ -5,7 +5,6 @@ const path = require('path');
 const { prompt } = require('inquirer');
 const { execSync, spawnSync } = require('child_process');
 const semver = require('semver');
-const moment = require('moment');
 const { checkRepoStatus, ok, error, showError } = require('./releaseHelpers');
 
 const log = console.log; // eslint-disable-line
@@ -19,6 +18,12 @@ function updateVersionNumber(newVersion) {
   log(chalk.blue.dim(`${ok} Updating version number to ${newVersion}`));
   execSync(`npm --no-git-tag-version version ${newVersion}`);
   log(chalk.green(`${ok} Updated version number to ${newVersion}`));
+}
+
+function formattedDate() {
+  return new Intl.DateTimeFormat('en-GB', {
+    dateStyle: 'long',
+  }).format(new Date());
 }
 
 /* ///////////////////////////////////////////////////////////////////////// */
@@ -127,9 +132,7 @@ prompt([
         const changelog = fs.readFileSync(changelogPath, 'utf8');
 
         // Add the new entry
-        const changelogEntry = `## <sub>v${newVersion}</sub>\n\n#### ${moment().format(
-          '_MMM. D, YYYY_'
-        )}`;
+        const changelogEntry = `## v${newVersion}\n\n### ${formattedDate()}`;
         const newChangelog = `${changelogEntry}\n\n${changelog}`;
         fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 
