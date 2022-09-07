@@ -14,8 +14,8 @@ Use a checkbox group when a user can select one or more options from a list of c
 
 Do not use a checkbox group if:
 
-- the user should only be able to select one choice from a list of options (use a [radio group](/docs/forms-radio-group--basic#radio-groups) for this)
-- there is only one checkbox in the list of options, for example agreeing to terms and conditions (use [checkbox](/docs/forms-checkbox--basic) for this)
+- the user should only be able to select one choice from a list of options (use a [radio group](/components/radio-group) for this)
+- there is only one checkbox in the list of options, for example agreeing to terms and conditions (use [checkbox](/components/checkbox) for this)
 
 ## How it works
 
@@ -33,7 +33,7 @@ If a selection is not required, use the optional marker.
 
 ### With error message
 
-Error messages are used to highlight where users need to change information. They’re used together with an [error summary](/design-system/styleguide/forms/components-error-summary--page?path=/docs/forms-error-summary--example).
+Error messages are used to highlight where users need to change information. They’re used together with an [error summary](/components/error-summary).
 
 <%= render(Shared::ComponentExample.new(:checkbox_group, :error)) %>
 
@@ -63,4 +63,3 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 ### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:checkbox_group) %>
-
