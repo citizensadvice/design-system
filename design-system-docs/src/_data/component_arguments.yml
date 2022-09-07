@@ -210,3 +210,21 @@ textarea:
     description: '→ Optional, the value of the input'
   - argument: 'options[:additional_attributes]'
     description: 'Optional, a hash of additional attributes rendered onto the input, eg <code>{ autocomplete: "name" }</code>'
+checkbox:
+  - argument: name
+    description: Required, field name
+  - argument: error_message
+    description: Optional, an error_message for the input
+checkbox_group:
+  - argument: name
+    description: Required, field name
+  - argument: legend
+    description: Required, the text for the fieldset legend associated with the inputs
+  - argument: options
+    description: Optional, a hash with one or more of the following values
+  - argument: '→ hint'
+    description: Optional, hint text for the input
+  - argument: '→ error_message'
+    description: Optional, an error_message for the input
+  - argument: '→ optional'
+    description: Optional, boolean indicating the field is optional (ie not required)
