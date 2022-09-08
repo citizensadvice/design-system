@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`allow toggling targeted content 1`] = `
-"<button type=\\"button\\" class=\\"cads-targeted-content__button\\" aria-expanded=\\"false\\" aria-controls=\\"targeted-content-123-content\\" aria-label=\\"show this section\\">
+"<button type="button" class="cads-targeted-content__button" aria-expanded="false" aria-controls="targeted-content-123-content" aria-label="show this section">
         
-    <div class=\\"cads-targeted-content__title-text\\">Targeted content title</div>
+    <div class="cads-targeted-content__title-text">Targeted content title</div>
   
-        <svg class=\\"cads-targeted-content__icon\\" viewBox=\\"0 0 10 10\\" aria-hidden=\\"true\\" focusable=\\"false\\">
-          <rect class=\\"cads-targeted-content__icon-vert\\" height=\\"8\\" width=\\"2\\" y=\\"1\\" x=\\"4\\"></rect>
-          <rect height=\\"2\\" width=\\"8\\" y=\\"4\\" x=\\"1\\"></rect>
+        <svg class="cads-targeted-content__icon" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
+          <rect class="cads-targeted-content__icon-vert" height="8" width="2" y="1" x="4"></rect>
+          <rect height="2" width="8" y="4" x="1"></rect>
         </svg>
       </button>"
 `;
 
 exports[`allow toggling targeted content 2`] = `
-"<button type=\\"button\\" class=\\"cads-targeted-content__button\\" aria-expanded=\\"true\\" aria-controls=\\"targeted-content-123-content\\" aria-label=\\"close this section\\">
+"<button type="button" class="cads-targeted-content__button" aria-expanded="true" aria-controls="targeted-content-123-content" aria-label="close this section">
         
-    <div class=\\"cads-targeted-content__title-text\\">Targeted content title</div>
+    <div class="cads-targeted-content__title-text">Targeted content title</div>
   
-        <svg class=\\"cads-targeted-content__icon\\" viewBox=\\"0 0 10 10\\" aria-hidden=\\"true\\" focusable=\\"false\\">
-          <rect class=\\"cads-targeted-content__icon-vert\\" height=\\"8\\" width=\\"2\\" y=\\"1\\" x=\\"4\\"></rect>
-          <rect height=\\"2\\" width=\\"8\\" y=\\"4\\" x=\\"1\\"></rect>
+        <svg class="cads-targeted-content__icon" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
+          <rect class="cads-targeted-content__icon-vert" height="8" width="2" y="1" x="4"></rect>
+          <rect height="2" width="8" y="4" x="1"></rect>
         </svg>
       </button>"
 `;

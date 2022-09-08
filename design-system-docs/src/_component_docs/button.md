@@ -58,10 +58,7 @@ Do not use anchor tags with an empty href when you want a button `<a href=â€#â€
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
 
-```haml
-= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { "data-testid": "example" }) do
-  Primary button
-```
+<%= render(Shared::ComponentExampleSource.new(:button, :primary)) %>
 
 ### View component options
 
@@ -71,20 +68,4 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 The button component accepts an `icon_left` or `icon_right` slot for buttons with icons.
 
-```rb
-<%%= render CitizensAdviceComponents::Button.new do |c|
-  Next
-  - c.icon_right do
-    = render CitizensAdviceComponents::Icons::ArrowRight.new
-  end
-end %>
-```
-
-```rb
-<%%= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c|
-  Previous
-  - c.icon_left do
-    = render CitizensAdviceComponents::Icons::ArrowLeft.new
-  end
-end %>
-```
+<%= render(Shared::ComponentExampleSource.new(:button, :previous_next)) %>

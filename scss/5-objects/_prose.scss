@@ -1,6 +1,6 @@
 @use '../1-settings/prose' as prose-config;
 
-%cads-prose {
+@mixin cads-prose() {
   h1 {
     @extend %cads-h1;
   }
@@ -47,10 +47,6 @@
     margin: 0 0 $cads-spacing-5 0;
     max-width: 100%;
   }
-}
-
-.cads-prose {
-  @extend %cads-prose;
 
   .cads-list-no-bullet {
     @extend %cads-list-no-bullet;
@@ -67,6 +63,39 @@
         @include cads-hyperlink--external-icon;
       }
     }
+  }
+}
+
+/**
+ * Prose placeholder, allows components to extend prose styles
+ * without using a mixin or extending a raw class name.
+ */
+%cads-prose {
+  @include cads-prose;
+}
+
+/**
+ * Prose styles (cascading)
+ *
+ * Apply this class to blocks of HTML that you want to give consistent typographic styles,
+ * typically this is applied to blocks of copy that come from a content management system
+ * or local file.
+ */
+.cads-prose {
+  @include cads-prose;
+}
+
+/**
+ * Prose styles (direct descendants)
+ *
+ * This applies the same styles as the default cads-prose class but scoped using
+ * a child combinator selector to only apply the styles to immediate children.
+ * This is useful when you are embedding lots of rich components within a prose
+ * block and you want to more narrowly scope the effects of the cascade.
+ */
+.cads-prose-direct-descendants {
+  > {
+    @include cads-prose;
   }
 }
 

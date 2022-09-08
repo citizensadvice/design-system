@@ -111,7 +111,7 @@
   </div>
 </header>
 <div class="cads-navigation-full-width-wrapper">
-  <nav class="cads-navigation js-cads-greedy-nav" id="cads-navigation">
+  <nav id="cads-navigation" class="cads-navigation js-cads-greedy-nav">
     <ul class="cads-navigation__list">
       <li class="cads-navigation__list-item">
         <a class="cads-navigation__link" href="/benefits/">Benefits</a>
@@ -153,17 +153,17 @@
 
 <div class="cads-breadcrumbs-wrapper">
   <nav
-    aria-label="breadcrumbs"
     class="cads-breadcrumbs cads-breadcrumbs--collapse"
+    aria-label="breadcrumbs"
   >
     <ul class="cads-breadcrumbs__list">
       <li class="cads-breadcrumbs__crumb">
-        <a class="cads-breadcrumb" href="/"> Home </a>
+        <a href="/" class="cads-breadcrumb">Home</a>
       </li>
       <li class="cads-breadcrumbs__crumb">
-        <span aria-current="location" class="cads-breadcrumb">
-          Advice collection
-        </span>
+        <span class="cads-breadcrumb" aria-current="location"
+          >Advice collection</span
+        >
       </li>
     </ul>
   </nav>
@@ -240,10 +240,7 @@
           </p>
 
           <h2>Title after paragraph</h2>
-          <img
-            src="https://via.placeholder.com/300x200.jpg?text=Placeholder+image"
-            alt="Placeholder image"
-          />
+          <img src="/placeholder-image.jpg" alt="Placeholder image" />
           <p>
             Etiam laoreet erat sit amet porttitor luctus. Sed vitae enim
             aliquet, aliquam velit sit amet, placerat diam. Aenean malesuada
@@ -260,14 +257,14 @@
 
           <div
             class="cads-targeted-content js-cads-targeted-content"
-            data-close-label="Close"
-            data-descriptive-label-hide="close this section, If you are a citizen of a country outside the EU, EEA or Switzerland"
             data-descriptive-label-show="show this section, If you are a citizen of a country outside the EU, EEA or Switzerland"
+            data-descriptive-label-hide="close this section, If you are a citizen of a country outside the EU, EEA or Switzerland"
+            data-close-label="Close"
           >
             <h2
               class="cads-targeted-content__title js-cads-targeted-content__title"
-              data-testid="targeted-content-title"
               id="h-targeted-content-123"
+              data-testid="targeted-content-title"
             >
               <span class="cads-targeted-content__title-text">
                 If you are a citizen of a country outside the EU, EEA or
@@ -403,7 +400,7 @@
     </div>
   </div>
 </div>
-<footer class="cads-footer" id="cads-footer">
+<footer id="cads-footer" class="cads-footer">
   <div class="cads-grid-container">
     <div class="cads-grid-row">
       <div class="cads-grid-col">
@@ -431,7 +428,7 @@
         </p>
       </div>
     </div>
-    <nav aria-label="Footer Navigation">
+    <nav class="cads-footer__navigation" aria-label="Footer Navigation">
       <div class="cads-grid-row">
         <div class="cads-grid-col-md-3" data-testid="footer-column">
           <h2 class="cads-footer__section-title">Advice</h2>

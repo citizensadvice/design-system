@@ -3,10 +3,9 @@ const initHeader = (): void => {
   const SHOW_SEARCH_CLASS_NAME = 'cads-header--show-search';
 
   const header = document.querySelector('.cads-header');
+  const controlButton = header && header.querySelector(SELECTOR);
 
-  if (header) {
-    const controlButton = header.querySelector(SELECTOR) as HTMLButtonElement;
-
+  if (controlButton) {
     const setClosed = () => {
       header.classList.remove(SHOW_SEARCH_CLASS_NAME);
       controlButton.setAttribute('aria-expanded', 'false');

@@ -1,0 +1,11 @@
+<% if full_width? %><div class="cads-breadcrumbs-wrapper"><% end %>
+<nav class="cads-breadcrumbs cads-breadcrumbs--<%= type.to_s.dasherize %>" aria-label="breadcrumbs">
+  <ul class="cads-breadcrumbs__list">
+    <% crumbs.each do |crumb| %>
+      <li class="cads-breadcrumbs__crumb">
+        <%= crumb %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+<% if full_width? %></div><% end %>

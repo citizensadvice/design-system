@@ -26,6 +26,7 @@
     "postcss-focus-within": "^4.0.0"
   },
   "dependencies": {
-    "clipboard-copy": "^4.0.1"
+    "clipboard-copy": "^4.0.1",
+    "iframe-resizer": "^4.3.2"
   }
 }

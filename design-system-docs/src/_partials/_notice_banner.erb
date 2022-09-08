@@ -1,12 +1,6 @@
-<div class="cads-grid-container">
-  <div class="cads-grid-row">
-    <div class="cads-grid-col-md-9">
-      <%= render CitizensAdviceComponents::NoticeBanner.new(label: "Alpha") do %>
-        <p>
-          You've stumbled across our new documentation site.
-          <a href="https://citizensadvice.github.io/design-system/">Go to the live documentation</a>.
-        </p>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render CitizensAdviceComponents::NoticeBanner.new(label: "Alpha") do %>
+  <p>
+    You've stumbled across our new documentation site.
+    <a href="https://citizensadvice.github.io/design-system/">Go to the live documentation</a>.
+  </p>
+<% end %>

@@ -21,20 +21,12 @@ pre code {
   background-color: $cads-palette__white;
 }
 
-.highlight {
+pre.highlight {
   margin-bottom: $cads-spacing-6;
   border: $cads-border-width-small $cads-language__border-colour solid;
   padding: $cads-spacing-4;
 
-  &--with-button {
-    margin: 0;
-  }
-
   button {
     font-family: $cads-font-family;
-  }
-  > .highlight {
-    border: none;
-    padding: 0;
   }
 }

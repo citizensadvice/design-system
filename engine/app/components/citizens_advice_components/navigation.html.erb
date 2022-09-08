@@ -1,0 +1,11 @@
+<div class="cads-navigation-full-width-wrapper">
+  <nav id="cads-navigation" class="cads-navigation js-cads-greedy-nav">
+    <ul class="cads-navigation__list">
+      <% links.each do |link| %>
+        <li class="cads-navigation__list-item">
+          <%= link_to link[:title], link[:url], class: "cads-navigation__link" %>
+          </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

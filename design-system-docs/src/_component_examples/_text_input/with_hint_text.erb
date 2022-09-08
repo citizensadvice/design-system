@@ -1,0 +1,12 @@
+---
+title: with hint text
+---
+
+<%= render(CitizensAdviceComponents::TextInput.new(
+  name: "example-input-with-hint",
+  label: "Example input with hint",
+  type: :text,
+  options: {
+    hint: "This is the hint for the input"
+  }
+))%>

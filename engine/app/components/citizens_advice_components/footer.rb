@@ -90,7 +90,7 @@ module CitizensAdviceComponents
         @new_tab.present?
       end
 
-      def new_tab_atrributes
+      def new_tab_attributes
         return {} unless new_tab?
 
         {
