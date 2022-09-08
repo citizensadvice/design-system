@@ -16,6 +16,14 @@ module CitizensAdviceComponents
       @error_message.present?
     end
 
+    def error_id
+      "#{name}-error"
+    end
+
+    def label_id
+      checkbox.attributes(name)[:id]
+    end
+
     def render?
       checkbox.present?
     end
