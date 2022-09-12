@@ -8,7 +8,7 @@ The same colour is sometimes repeated because it’s used in different ways – 
 
 ## Brand
 
-Brand colours are usually used in global components such as ‘Global Navigation’ to enhance branding and create a consistent look on the website.
+Brand colours are usually used in global components such as the global navigation to create a consistent look on the website.
 
 <%= render(Shared::ColourTable.new([
 ['Brand primary', 'brand-primary'],
@@ -17,7 +17,7 @@ Brand colours are usually used in global components such as ‘Global Navigation
 
 ### Text
 
-There are 2 shades of Text colour. Choose the colours carefully based on the importance of the information.
+There are 2 shades of text colour. Choose the colours carefully based on the importance of the information.
 
 <%= render(Shared::ColourTable.new([
 ['Text', 'text-colour'],

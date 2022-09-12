@@ -1,5 +1,5 @@
 ---
-title: Radio Group
+title: Radio group
 ---
 
 A radio allows a user to select only one option from a group of exclusive choices and it is usually displayed in a radio group.

@@ -1,5 +1,5 @@
 ---
-title: Targeted Content
+title: Targeted content
 ---
 
 The targeted content component allows users to show and hide sections of related content on a page. It can help users scan and process content on a page more effectively.

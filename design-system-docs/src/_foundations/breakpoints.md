@@ -5,7 +5,7 @@ title: Breakpoints
 There are 3 breakpoints defined.
 
 - `sm`: up to 767px
-- `md`: between 768 and 1023px
+- `md`: between 768px and 1023px
 - `lg`: up from 1024px
 
 ## SASS mixins

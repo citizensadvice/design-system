@@ -4,7 +4,7 @@ title: Grid
 
 ## Basic grids
 
-Grids are made up of three parts:
+Grids are made up of 3 parts:
 
 - A `.cads-grid-container` wrapper element
 - One or more `.cads-grid-row` elements to demarcate grid rows

@@ -1,5 +1,5 @@
 ---
-title: Checkbox Group
+title: Checkbox group
 ---
 
 A checkbox group allows a user to select one or more options from a list of choices.
