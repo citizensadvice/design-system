@@ -10,7 +10,6 @@ module.exports = {
     'selector-max-compound-selectors': 4,
 
     // Disable unwanted or conflicting selector patterns
-    'selector-class-pattern': null,
     'selector-id-pattern': null,
 
     // Prefer legacy colour function notation
@@ -38,9 +37,14 @@ module.exports = {
     // Disable unwanted scss rules
     'scss/comment-no-empty': null,
 
-    // Require that @function and @mixin rules are prefixed with cads-
+    // Require that class names, @function, and @mixin rules
+    // are prefixed with cads-
     'scss/at-function-pattern': '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
     'scss/at-mixin-pattern': '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
+    'selector-class-pattern': [
+      '^(cads-([a-z0-9-_]+)?|no-js)$',
+      { resolveNestedSelectors: true },
+    ],
 
     // Additional stylelint-scss rules
     'scss/selector-no-redundant-nesting-selector': true,
