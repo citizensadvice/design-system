@@ -1,16 +1,17 @@
 module.exports = {
   extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
   plugins: ['stylelint-selector-bem-pattern'],
-  ignoreFiles: ['**/_normalize.scss', '**/_cads-iconfont.scss'],
+  ignoreFiles: ['**/_normalize.scss'],
   rules: {
-    // Disallow named colours, for colours we use sass variables
-    'color-named': 'never',
+    // Disallow ID selectors
+    'selector-id-pattern': null,
+    'selector-max-id': 0,
 
     // Set a reasonable limit on how many compound selectors we can have
     'selector-max-compound-selectors': 4,
 
-    // Disable unwanted or conflicting selector patterns
-    'selector-id-pattern': null,
+    // Disallow named colours, for colours we use sass variables
+    'color-named': 'never',
 
     // Prefer legacy colour function notation
     'color-function-notation': 'legacy',
@@ -37,6 +38,19 @@ module.exports = {
     // Disable unwanted scss rules
     'scss/comment-no-empty': null,
 
+    // Additional stylelint-scss rules
+    'scss/selector-no-redundant-nesting-selector': true,
+    'scss/at-import-no-partial-leading-underscore': true,
+    'scss/at-import-partial-extension-blacklist': ['scss'],
+    'scss/at-extend-no-missing-placeholder': true,
+
+    // Disable kebab-case preference for variable names
+    // Current design system variables names use a more complex format
+    // which will eventually be simplified
+    // See https://github.com/citizensadvice/design-system/pull/1863
+    'scss/dollar-variable-pattern': null,
+    'scss/percent-placeholder-pattern': null,
+
     // Require that class names, @function, and @mixin rules
     // are prefixed with cads-
     'scss/at-function-pattern': '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
@@ -45,23 +59,6 @@ module.exports = {
       '^(cads-([a-z0-9-_]+)?|no-js)$',
       { resolveNestedSelectors: true },
     ],
-
-    // Additional stylelint-scss rules
-    'scss/selector-no-redundant-nesting-selector': true,
-    'scss/at-import-no-partial-leading-underscore': true,
-    'scss/at-import-partial-extension-blacklist': ['scss'],
-
-    // Warning-only rules
-    // These should be enabled as errors once current warnings have been fixed.
-    'selector-max-id': [0, { severity: 'warning' }],
-    'scss/at-extend-no-missing-placeholder': [true, { severity: 'warning' }],
-
-    // Disable kebab-case preference for variable names
-    // Current design system variables names use a more complex format
-    // which will eventually be simplified
-    // See https://github.com/citizensadvice/design-system/pull/1863
-    'scss/dollar-variable-pattern': null,
-    'scss/percent-placeholder-pattern': null,
 
     // Configure BEM pattern
     // Note: requires components to have an explicit @define comment
