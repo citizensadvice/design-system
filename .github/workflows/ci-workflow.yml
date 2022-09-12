@@ -62,7 +62,6 @@ jobs:
           ruby-version: '2.7.4'
           working-directory: engine
       - run: bundle exec rubocop --format github
-      - run: bundle exec haml-lint
       - run: bundle exec erblint --lint-all
 
   demo-app:
