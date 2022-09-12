@@ -9,7 +9,17 @@ exports[`visibility styles match snapshot 1`] = `
   visibility: hidden !important;
 }
 
-.cads-visually-hidden,
+.cads-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 .cads-sr-only {
   border: 0;
   clip: rect(0 0 0 0);

@@ -8,6 +8,7 @@
 $cads-small-radios-size: 24px;
 $cads-radio-selected-size: 0.625rem;
 
+/** @define form-group */
 .cads-form-group--radio {
   .cads-form-group__label {
     // (  ) Radio ring
@@ -37,6 +38,8 @@ $cads-radio-selected-size: 0.625rem;
 //
 // Modifier: inline
 //
+
+/** @define radio-group; weak */
 .cads-radio-group--inline {
   .cads-form-group__item {
     display: inline-block;
@@ -48,6 +51,8 @@ $cads-radio-selected-size: 0.625rem;
 //
 // Modifier: small
 //
+
+/** @define radio-group; weak */
 .cads-radio-group--small {
   $input-offset: math.div(
     ($cads-interactive-target-size - $cads-small-radios-size),

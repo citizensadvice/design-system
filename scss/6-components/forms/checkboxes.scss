@@ -1,3 +1,8 @@
+// ============================================================================
+// Checkboxes
+// ============================================================================
+
+/* @define form-group; weak */
 .cads-form-group--checkbox {
   .cads-form-group__label {
     &::before {
@@ -19,6 +24,7 @@
   }
 }
 
+/* @define checkbox-single; weak */
 .cads-checkbox-single {
   .cads-form-field__error-message {
     margin-bottom: $cads-spacing-4;
