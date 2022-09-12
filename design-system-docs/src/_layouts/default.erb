@@ -14,7 +14,7 @@
       document.querySelector('html').classList.remove('no-js');
     </script>
   </head>
-  <body class="site">
+  <body class="site page-<%= resource.data.slug %>">
     <%= render Shared::AppHeader.new %>
     <%= render CitizensAdviceComponents::Navigation.new(
       links: [
@@ -24,6 +24,7 @@
       ]
     ) %>
     <%= render Shared::AppBreadcrumbs.new(resource) %>
+    <%= render "notice_banner" %>
     <div class="site-content">
       <%= yield %>
     </div>

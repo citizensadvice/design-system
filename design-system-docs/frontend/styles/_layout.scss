@@ -3,15 +3,14 @@
 // ============================================================================
 
 .home-intro {
-  padding: $cads-spacing-7 0;
-  margin-bottom: $cads-spacing-7;
-  border-bottom: $cads-border-width-small $cads-language__border-colour solid;
+  padding: $cads-spacing-5 0;
+}
+.home-intro__title {
+  @extend %cads-h1;
+}
 
-  .home-intro__title {
-    @extend %cads-h1;
-
-    margin: 0;
-  }
+.page-index .cads-notice-banner {
+  margin-top: $cads-spacing-5;
 }
 
 .sidebar {
