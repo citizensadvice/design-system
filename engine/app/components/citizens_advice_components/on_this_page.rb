@@ -15,12 +15,15 @@ module CitizensAdviceComponents
       links.present?
     end
 
-    def modifier_class_names
+    def component_class_names
+      classes = ["cads-on-this-page"]
       if show_nested_links? && children_exist?
-        "js-cads-on-this-page cads-on-this-page--expandable"
+        classes << "js-cads-on-this-page"
+        classes << "cads-on-this-page--expandable"
       elsif columns?
-        "cads-on-this-page--columns"
+        classes << "cads-on-this-page--columns"
       end
+      classes
     end
 
     def show_children_for?(link)
