@@ -27,6 +27,14 @@ test('scss/at-mixin-pattern', () => {
   testCadsPattern(stylelintConfig.rules['scss/at-mixin-pattern']);
 });
 
+test('scss/dollar-variable-pattern', () => {
+  testCadsPattern(stylelintConfig.rules['scss/dollar-variable-pattern'][0]);
+});
+
+test('scss/percent-placeholder-pattern', () => {
+  testCadsPattern(stylelintConfig.rules['scss/percent-placeholder-pattern'][0]);
+});
+
 test('selector-class-pattern', () => {
   const regex = new RegExp(stylelintConfig.rules['selector-class-pattern'][0]);
 

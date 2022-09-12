@@ -44,13 +44,6 @@ module.exports = {
     'scss/at-import-partial-extension-blacklist': ['scss'],
     'scss/at-extend-no-missing-placeholder': true,
 
-    // Disable kebab-case preference for variable names
-    // Current design system variables names use a more complex format
-    // which will eventually be simplified
-    // See https://github.com/citizensadvice/design-system/pull/1863
-    'scss/dollar-variable-pattern': null,
-    'scss/percent-placeholder-pattern': null,
-
     // Require that class names, @function, and @mixin rules
     // are prefixed with cads-
     'scss/at-function-pattern': '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
@@ -58,6 +51,22 @@ module.exports = {
     'selector-class-pattern': [
       '^(cads-([a-z0-9-_]+)?|no-js)$',
       { resolveNestedSelectors: true },
+    ],
+
+    // Require that all variable names and placeholder as
+    // prefixed with cads and use simple kebab-case
+    // Flag as a warning until known issues are fixed
+    // Current design system variables names use a more complex format
+    // which will eventually be simplified
+    // See https://github.com/citizensadvice/design-system/pull/1863
+    // @v6: Set this rule to error once issues have been fixed
+    'scss/dollar-variable-pattern': [
+      '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
+      { severity: 'warning', ignore: 'local' },
+    ],
+    'scss/percent-placeholder-pattern': [
+      '^cads-+([a-z0-9-]+[a-z0-9]+)?$',
+      { severity: 'warning' },
     ],
 
     // Configure BEM pattern
