@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
+require "rails/engine"
 require "rails-i18n"
-require "active_support/core_ext"
 require "view_component"
 
 module CitizensAdviceComponents

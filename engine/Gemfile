@@ -4,8 +4,22 @@ source "https://rubygems.org"
 
 gemspec
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", ENV.fetch("RAILS_VERSION", "~> 6.1").to_s
+rails_version = ENV.fetch("RAILS_VERSION", "~> 6.1").to_s
+
+# rubocop:disable Bundler/DuplicatedGem
+if rails_version == "main"
+  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+  git "https://github.com/rails/rails", ref: "main" do
+    gem "actionpack"
+    gem "activemodel"
+    gem "railties"
+  end
+else
+  gem "actionpack", rails_version
+  gem "activemodel", rails_version
+  gem "railties", rails_version
+end
+# rubocop:enable Bundler/DuplicatedGem
 
 group :development, :test do
   gem "citizens-advice-style",
