@@ -1,5 +1,6 @@
 @use '../1-settings/breakpoints' as breakpoint-settings;
 @use '../2-tools/breakpoints' as breakpoint-tools;
+@use '../2-tools/visibility' as visibility-tools;
 
 .cads-hide {
   display: none !important;
@@ -9,17 +10,13 @@
   visibility: hidden !important;
 }
 
+.cads-visually-hidden,
+// @v6: deprecate cads-sr-only class in favour of cads-visually-hidden to match mixin name
 .cads-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  @include visibility-tools.cads-visually-hidden;
 }
 
+// @v6: deprecate this class, it is undocumented and never used
 .cads-sr-only-focusable {
   &:active,
   &:focus {

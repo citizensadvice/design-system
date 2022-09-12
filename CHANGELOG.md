@@ -4,6 +4,7 @@
 
 **New**
 
+- Utilities: Add `.cads-visually-hidden` class as alias to `.cads-sr-only` to match Sass mixin name.
 - Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
 - Search: Add `autocomplete="off"` to search field
 
