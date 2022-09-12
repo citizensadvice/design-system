@@ -10,23 +10,33 @@ code {
   font-size: 1rem;
 }
 
-pre code {
-  display: block;
-  white-space: pre;
+pre.highlight {
+  margin-bottom: $cads-spacing-6;
+  border: $cads-border-width-small $cads-language__border-colour solid;
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   max-width: 100%;
   min-width: 100px;
-  line-height: 1.5rem;
-  background-color: $cads-palette__white;
-}
 
-pre.highlight {
-  margin-bottom: $cads-spacing-6;
-  border: $cads-border-width-small $cads-language__border-colour solid;
-  padding: $cads-spacing-4;
+  code {
+    display: inline-block;
+    padding: $cads-spacing-4;
+    white-space: pre;
+    min-width: 100px;
+    line-height: 1.5rem;
+    background-color: transparent;
+  }
+
+  &:focus {
+    @include cads-interactive-focus;
+  }
 
   button {
     font-family: $cads-font-family;
+    margin: 0;
+  }
+
+  .highlight__buttons {
+    padding: $cads-spacing-4 $cads-spacing-4 0;
   }
 }

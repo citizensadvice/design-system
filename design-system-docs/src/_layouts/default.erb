@@ -8,14 +8,13 @@
     <meta name="format-detection" content="telephone=no">
     <link href="<%= webpack_path("fonts/open-sans-v26-latin-700.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
     <link href="<%= webpack_path("fonts/open-sans-v26-latin-regular.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
-    <link href="<%= webpack_path("fonts/cads.woff") %>" rel="preload" as="font" type="font/woff" crossorigin="true" />
     <link rel="stylesheet" href="<%= webpack_path "theme.css" %>" />
     <style><%= Rouge::Theme.find('cads-theme').render(scope: '.highlight') %></style>
     <script type="application/javascript">
       document.querySelector('html').classList.remove('no-js');
     </script>
   </head>
-  <body class="site">
+  <body class="site page-<%= resource.data.slug %>">
     <%= render Shared::AppHeader.new %>
     <%= render CitizensAdviceComponents::Navigation.new(
       links: [
@@ -24,6 +23,8 @@
         { url: "/components", title: "Components" }
       ]
     ) %>
+    <%= render Shared::AppBreadcrumbs.new(resource) %>
+    <%= render "notice_banner" %>
     <div class="site-content">
       <%= yield %>
     </div>
