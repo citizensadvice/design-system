@@ -4,6 +4,8 @@ module Foundations
   class BordersTable < ViewComponent::Base
     include Bridgetown::ViewComponentHelpers
 
+    Bridgetown::ViewComponentHelpers.allow_rails_helpers :tag
+
     def call
       render(
         CitizensAdviceComponents::Table.new(
@@ -11,17 +13,17 @@ module Foundations
           rows: [
             [
               "$cads-border-width-small",
-              "<div class='sizing-border' />",
+              tag.div(class: "sizing-border"),
               "1px"
             ],
             [
               "$cads-border-width-medium",
-              "<div class='sizing-border sizing-border--medium' />",
+              tag.div(class: "sizing-border sizing-border--medium"),
               "2px"
             ],
             [
               "$cads-border-width-large",
-              "<div class='sizing-border sizing-border--large' />",
+              tag.div(class: "sizing-border sizing-border--large"),
               "4px"
             ],
           ])
