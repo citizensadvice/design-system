@@ -11,7 +11,15 @@
     </script>
   </head>
   <body>
+    <%#
+      Wrap form components in a form contet.
+      A form context affects how screen readers behave,
+      we set novalidate as we do not rely on html validation
+      for our forms so we don't want this behaviour.
+    %>
+    <% if resource.data[:form].present? %><form action="" novalidate><% end %>
     <%= yield %>
+    <% if resource.data[:form].present? %></form><% end %>
     <script src="<%= webpack_path "standalone.js" %>" defer></script>
   </body>
 </html>
