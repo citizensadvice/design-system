@@ -1,3 +1,8 @@
+// ============================================================================
+// Notice banner
+// ============================================================================
+
+/** @define notice-banner; weak */
 .cads-notice-banner {
   border-left: solid $cads-border-width-large $cads-language__brand-secondary;
   margin: 0 0 $cads-spacing-5 0;
@@ -29,10 +34,6 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-
-    .paragraph-s {
-      flex: 1 1 auto;
-    }
 
     p {
       margin-top: $cads-spacing-1;

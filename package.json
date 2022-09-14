@@ -28,7 +28,7 @@
     "docs:build": "build-storybook -o docs",
     "docs:serve": "http-server -p 6006 docs",
     "lint:format": "prettier --check .",
-    "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
+    "lint:css": "stylelint \"./scss/**/*.scss\"",
     "lint:es": "eslint . --ext .js,.ts",
     "lint": "npm-run-all lint:*",
     "test": "jest",

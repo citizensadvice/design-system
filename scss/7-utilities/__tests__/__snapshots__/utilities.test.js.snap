@@ -9,15 +9,26 @@ exports[`visibility styles match snapshot 1`] = `
   visibility: hidden !important;
 }
 
-.cads-sr-only {
+.cads-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
   position: absolute;
   width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+}
+
+.cads-sr-only {
   border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 .cads-sr-only-focusable:active, .cads-sr-only-focusable:focus {
