@@ -29,9 +29,13 @@ $cads-language__warning-colour: palette.$cads-palette__red !default;
 $cads-language__success-colour: palette.$cads-palette__green !default;
 
 // Navigation colours
+$cads-language__nav-colour: palette.$cads-palette__white !default;
 $cads-language__nav-background-colour: $cads-language__brand-primary !default;
 $cads-language__nav-hover-background-colour: palette.$cads-palette__heritage-blue-dark !default;
 $cads-language__nav-hover-border-colour: palette.$cads-palette__heritage-blue-dark !default;
+$cads-language__nav-focus-colour: $cads-language__link-colour !default;
+$cads-language__nav-focus-background-colour: palette.$cads-palette__white !default;
+$cads-language__nav-focus-border-colour: $cads-language__focus-colour !default;
 
 // Header colours
 $cads-header__background-colour: palette.$cads-palette__white !default;
