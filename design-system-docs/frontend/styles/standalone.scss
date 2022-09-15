@@ -1,3 +1,14 @@
 // This file loads just the design system components for use in isolated iframes
 // We use this when we need a clean base with no theme overrides
 @import '../scss/lib';
+
+body {
+  margin: 1em;
+}
+
+// Unset default margin for specific examples
+body.component-example-header,
+body.component-example-breadcrumbs,
+body.component-example-navigation {
+  margin: 0;
+}

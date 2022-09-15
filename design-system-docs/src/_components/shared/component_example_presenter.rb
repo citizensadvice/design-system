@@ -40,6 +40,10 @@ module Shared
       title.downcase.parameterize
     end
 
+    def form?
+      data[:form].present?
+    end
+
     def iframe?
       data[:iframe].present?
     end

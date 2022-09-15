@@ -14,7 +14,15 @@
         loading="lazy"
       ></iframe>
     <% else %>
+      <%#
+        Wrap form components in a form contet.
+        A form context affects how screen readers behave,
+        we set novalidate as we do not rely on html validation
+        for our forms so we don't want this behaviour.
+      %>
+      <% if example.form? %><form action="" novalidate><% end %>
       <%= example.content %>
+      <% if example.form? %></form><% end %>
     <% end %>
   </div>
   <div class="component-example__source">
