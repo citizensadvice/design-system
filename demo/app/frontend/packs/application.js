@@ -1,9 +1,9 @@
-import initHeader from '@citizensadvice/design-system/lib/header';
-import greedyNav from '@citizensadvice/design-system/lib/greedy-nav/index';
-import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content';
-import initOnThisPage from '@citizensadvice/design-system/lib/on-this-page/on-this-page';
-import initDisclosure from '@citizensadvice/design-system/lib/disclosure/disclosure';
-import initErrorSummary from '@citizensadvice/design-system/lib/error-summary';
+import initHeader from '../../../../lib/header';
+import greedyNav from '../../../../lib/greedy-nav/index';
+import initTargetedContent from '../../../../lib/targeted-content';
+import initOnThisPage from '../../../../lib/on-this-page/on-this-page';
+import initDisclosure from '../../../../lib/disclosure/disclosure';
+import initErrorSummary from '../../../../lib/error-summary';
 
 initHeader();
 greedyNav.init();
