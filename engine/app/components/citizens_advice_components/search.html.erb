@@ -1,0 +1,16 @@
+<div class="cads-search">
+  <%= search_field_tag(
+    param_name,
+    value.presence,
+    class: "cads-search__input cads-input",
+    "aria-label": t(".input_aria_label"),
+    autocomplete: "off"
+  ) %>
+  <button
+    class="cads-search__button"
+    type="submit"
+    title="<%= t(".submit_title") %>"
+    data-testid="search-form-search-button">
+    <span class="cads-search__button-label"><%= t(".submit_label") %></span>
+  </button>
+</div>

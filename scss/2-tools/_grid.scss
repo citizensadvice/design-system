@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+// @use must be first, which conflicts with the import position rule
+// stylelint-disable no-invalid-position-at-import-rule
+@import '../1-settings/grid';
+
+@function cads-grid-col-width($cols) {
+  @if $cols > $cads-grid-columns {
+    @error "Column count can't be greater than $cads-grid-columns";
+  }
+
+  @return math.percentage(math.div($cols, $cads-grid-columns));
+}

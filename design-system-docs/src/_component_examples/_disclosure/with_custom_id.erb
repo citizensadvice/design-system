@@ -1,0 +1,17 @@
+---
+title: with custom id
+---
+
+<%= render(CitizensAdviceComponents::Disclosure.new(
+  closed_summary: "View",
+  id: "disclosure-example-view-1"
+)) do %>
+  <p>Example content</p>
+<% end %>
+
+<%= render(CitizensAdviceComponents::Disclosure.new(
+  closed_summary: "View",
+  id: "disclosure-example-view-2"
+)) do %>
+  <p>Example content</p>
+<% end %>

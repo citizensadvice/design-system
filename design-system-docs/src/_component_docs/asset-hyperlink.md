@@ -8,16 +8,7 @@ title: Asset hyperlink
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
 
-```rb
-<%%= render(
-  CitizensAdviceComponents::AssetHyperlink.new(
-    href: "https://example.com",
-    description: "Test PDF",
-    size: 6_444_516
-  )
-  end
-%>
-```
+<%= render(Shared::ComponentExampleSource.new(:asset_hyperlink, :default)) %>
 
 ### View Component Options
 

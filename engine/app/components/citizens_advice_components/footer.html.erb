@@ -1,0 +1,56 @@
+<footer id="cads-footer" class="cads-footer">
+  <div class="cads-grid-container">
+    <% if feedback&.url.present? %>
+      <div class="cads-grid-row">
+        <div class="cads-grid-col">
+          <p class="cads-footer__feedback">
+            <%= link_to(
+              feedback.title,
+              feedback.url,
+              class: "cads-footer__hyperlink js-cads-footer-feedback",
+              **feedback.new_tab_attributes
+            ) %>
+            <% if feedback.external? %>
+              <span class="cads-footer__feedback-icon">
+                <%= render CitizensAdviceComponents::Icons::ExternalLink.new %>
+              </span>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+    <% if columns_to_show.any? %>
+      <nav class="cads-footer__navigation" aria-label="<%= t(".navigation_title") %>">
+        <div class="cads-grid-row">
+          <% columns_to_show.each do |column| %>
+            <div class="cads-grid-col-md-3" data-testid="footer-column">
+              <h2 class="cads-footer__section-title"><%= column.title %></h2>
+              <ul class="cads-footer__links">
+                <% column.links.each do |link| %>
+                  <li class="cads-footer__link">
+                    <%= link_to link[:title], link[:url], class: "cads-footer__hyperlink" %>
+                    <%# Support old "icon" key but assume external link %>
+                    <% if link[:external].present? || link[:icon].present? %>
+                      <span class="cads-footer__icon">
+                        <%= render CitizensAdviceComponents::Icons::ExternalLink.new %>
+                      </span>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+    <% end %>
+    <div class="cads-footer__company-info">
+      <div class="cads-footer__logo">
+        <a class="cads-logo" href="<%= homepage_url %>" title="<%= t(".logo_title") %>"></a>
+      </div>
+      <div class="cads-footer__meta">
+        <p class="cads-footer__meta-text" data-testid="copyright"><%= t(".copyright", year: current_year) %></p>
+        <p class="cads-footer__meta-text" data-testid="legal-summary"><%= t(".legal_summary") %></p>
+      </div>
+    </div>
+  </div>
+</footer>

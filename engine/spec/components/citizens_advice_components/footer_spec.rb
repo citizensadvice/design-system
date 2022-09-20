@@ -11,6 +11,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     it { is_expected.to have_selector ".cads-logo" }
     it { is_expected.to have_text "Copyright ©2049 Citizens Advice" }
     it { is_expected.to have_text "Citizens Advice is an operating name of" }
+    it { is_expected.not_to have_selector "nav" }
 
     context "when welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }

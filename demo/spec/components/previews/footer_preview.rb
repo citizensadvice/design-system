@@ -57,6 +57,12 @@ class FooterPreview < ViewComponent::Preview
     end
   end
 
+  def feedback_link_only
+    render CitizensAdviceComponents::Footer.new do |c|
+      c.feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+    end
+  end
+
   def minimal
     render CitizensAdviceComponents::Footer.new
   end

@@ -36,7 +36,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
     let(:open_summary) { nil }
 
     it "shows the closed summary text when open" do
-      expect(component.css("[data-label-when-showing='View template letter']")).to be_present
+      expect(component.css("[data-label-when-showing='Hide this section, View template letter']")).to be_present
     end
   end
 
@@ -58,6 +58,40 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
 
     it "does not render" do
       expect(component.at(".cads-disclosure")).not_to be_present
+    end
+  end
+
+  context "when there is custom id" do
+    subject(:component) do
+      render_inline described_class.new(
+        closed_summary: closed_summary.presence,
+        open_summary: open_summary.presence,
+        id: id
+      ).with_content(content.presence)
+    end
+
+    let(:id) { "my-id" }
+
+    it "uses the custom id" do
+      expect(component.css("[data-toggle-target-id='my-id']")).to be_present
+    end
+  end
+
+  context "when additional attributes are specified" do
+    subject(:component) do
+      render_inline described_class.new(
+        closed_summary: closed_summary.presence,
+        open_summary: open_summary.presence,
+        additional_attributes: additional_attributes
+      ).with_content(content.presence)
+    end
+
+    let(:additional_attributes) do
+      { "data-tracking-id": "show" }
+    end
+
+    it "adds custom data attribute" do
+      expect(component.css("[data-tracking-id='show']")).to be_present
     end
   end
 end

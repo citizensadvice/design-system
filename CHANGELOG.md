@@ -1,19 +1,36 @@
 **New**
 
 - 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$cads-use-legacy-color-names: false` 
+- Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
+- Search: Add `autocomplete="off"` to search field
+
+**Bugfixes**
+
+- Footer: Fix borders when using minimal footer
+- Greedy nav: use theme colour for the background, not the brand colour
+
+## <sub>v5.4.1-alpha.0</sub>
+
+#### _Aug. 31, 2022_
+
+**New**
+
+- 👤 Header: Fix error if header javascript is initialised when no search form is present
+- 📃 Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
+- SCSS: Adds a new `cads-grid-col-width` function which allows us to get the percentage width for a given number of grid columns.
+
+## <sub>v5.4.0</sub>
+
+#### _Aug. 24, 2022_
+
+**New**
+- 🔓 Disclosure: Add optional `id` and `additional_attributes`
 
 **Bugfixes**
 
 - Header: Don't render right column when only logo is present (engine only)
 - Navigation: Add background to colour language
 - 🧭 GreedyNav: Fix minor HTML validation issue
-
-## <sub>v5.4.0-alpha.0</sub>
-
-#### _Aug. 3, 2022_
-
-**Bugfixes**
-
 - 🔗 Header: Renamed skip to content link
 - Inputs and targeted content: Change the focus contrast to meet the accessibility requirements
 - 🛑️ Error summary and message: Change text colour and weight to meet accessibility requirements

@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <%= render(CitizensAdviceComponents::Breadcrumbs.new(
   links: [
     { title: "Home", url: "/"},
@@ -9,9 +10,12 @@ layout: default
   ]
 )) %>
 
-<%= render "notice_banner" %>
-
 <main id="cads-main-content" class="cads-grid-container">
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-md-9">
+      <%= render "notice_banner" %>
+    </div>
+  </div>
   <div class="cads-grid-row">
     <div class="cads-grid-col-md-8">
       <div class="cads-page-content">
@@ -37,9 +41,6 @@ layout: default
           c.section_links(resource.collection.resources.map do |foundation|
             { url: foundation.relative_url, title: foundation.data.title }
           end)
-          # Need to pass in some content to avoid shadowing Bridgetowns content global
-          # We could probably avoid this by wrapping this in its own component?
-          ""
         end
       %>
     </div>

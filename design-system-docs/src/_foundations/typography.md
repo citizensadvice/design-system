@@ -85,6 +85,25 @@ If you need to apply these styles to heading elements that you cannot add a clas
 </main>
 ```
 
+If you need to apply these styles to heading elements that you cannot add a class to but want more tightly scoped styles than the default `.cads-prose` class you can add a `.cads-prose-direct-descendants` class instead which will target direct descendants only using the `>` child combinator selector. This is useful when you are embedding lots of rich components within a prose block and you want to more narrowly scope the effects of the cascade.
+
+```html
+<main class="cads-prose-direct-descendants">
+  <h1>Your options if you're in the UK illegally</h1>
+  <h2>Get immigration advice</h2>
+  <h3>If you're a British citizen</h3>
+  <p>
+    Your family members who are citizens of countries outside the EU, EEA or
+    Switzerland might be able to apply to the EU Settlement Scheme if one of the
+    following applies
+  </p>
+
+  <div class="my-special-component">
+    <p>Prose styles are not applied here</p>
+  </div>
+</main>
+```
+
 ### Adjacent Heading Mixin
 
 To ensure that headings have the correct margins applied inside the `.cads-prose` element, a mixin has been used that will add the correct margin. This is automatically applied to the relevant elements that appear in a `.cads-prose` wrapper.
