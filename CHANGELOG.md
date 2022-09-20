@@ -1,6 +1,6 @@
 **New**
 
-- 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$use-legacy-color-names: false` 
+- 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$cads-use-legacy-color-names: false` 
 - Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
 - Search: Add `autocomplete="off"` to search field
 

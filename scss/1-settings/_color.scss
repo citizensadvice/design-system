@@ -2,7 +2,7 @@
 @import './colour-palette';
 
 @function cads-colors($color, $legacy: false) {
-  @if $legacy and $use-legacy-color-names {
+  @if $legacy and $cads-use-legacy-color-names {
     @if type-of($legacy) == 'color' {
       @return $legacy;
     }
@@ -11,7 +11,7 @@
   @return $color;
 }
 
-$use-legacy-color-names: true !default;
+$cads-use-legacy-color-names: true !default;
 
 // ${component}-{element}-{state}
 
