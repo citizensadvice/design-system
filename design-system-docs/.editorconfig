@@ -11,7 +11,7 @@ max_line_length = 80
 trim_trailing_whitespace = true
 quote_type = "single"
 
-[*.{rb, feature, haml, yml}]
+[*.{rb, feature, yml}]
 indent_size = 2
 
 [Jenkinsfile]

@@ -2,10 +2,8 @@
 
 require "view_component/engine"
 require "citizens_advice_components"
-require "haml/plugin"
-require_relative "cads_theme"
 
-ActionView::Template.register_template_handler(:haml, Haml::Plugin)
+require_relative "cads_theme"
 
 # Make sure translation files are loaded
 I18n.load_path << Dir[

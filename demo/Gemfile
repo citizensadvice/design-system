@@ -4,12 +4,25 @@ source "https://rubygems.org"
 
 ruby "2.7.4"
 
-gem "high_voltage", "~> 3.1"
-gem "puma", "~> 5.6"
+# Rails
 gem "rails", "~> 6.1"
+
+# Use the Puma web server [https://github.com/puma/puma]
+gem "puma", "~> 5.6"
+
+# Use webpacker to bundle assets
 gem "webpacker", "~> 5.0"
 
+# Used for static sample pages [https://github.com/thoughtbot/high_voltage]
+gem "high_voltage", "~> 3.1"
+
+# Bundle the design system engine
 gem "citizens_advice_components", path: "../engine"
+
+# Component previews use haml so load the haml-rails gem
+# the design-system engine no longer uses haml internally
+# once previews have been convered to erb this can be removed
+gem "haml-rails"
 
 group :development, :test do
   gem "cypress-rails"
