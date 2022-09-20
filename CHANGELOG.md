@@ -1,3 +1,7 @@
+**New**
+
+- SCSS: Allows nav link colours to be customised using dedicated language variables.
+
 ## v5.5.0-alpha.0
 
 ### 8 September 2022

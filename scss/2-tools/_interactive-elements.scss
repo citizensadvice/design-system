@@ -19,15 +19,16 @@
 }
 
 @mixin cads-nav-link-focus() {
-  background-color: $cads-language__brand-primary-contrast;
-  color: $cads-language__brand-primary;
-  border: $cads-border-width-medium solid $cads-palette__yellow;
+  background-color: $cads-language__nav-focus-background-colour;
+  color: $cads-language__nav-focus-colour;
+  border: $cads-border-width-medium solid
+    $cads-language__nav-focus-border-colour;
   outline: none;
 }
 
 @mixin cads-nav-link() {
   font-size: $cads-font-size;
-  color: $cads-language__brand-primary-contrast;
+  color: $cads-language__nav-colour;
   padding: $cads-spacing-3 $cads-spacing-2;
   display: inline-block;
   text-decoration: none;
