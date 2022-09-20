@@ -139,10 +139,10 @@ GEM
     html_tokenizer (0.0.7)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (1.0.11)
+    i18n-tasks (1.0.12)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
-      better_html (~> 1.0)
+      better_html (>= 1.0, < 3.0)
       erubi
       highline (>= 2.0.0)
       i18n
@@ -150,7 +150,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    loofah (2.18.0)
+    loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -267,7 +267,7 @@ GEM
     tilt (2.0.11)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.2.0)
+    unicode-display_width (2.3.0)
     view_component (2.72.0)
       activesupport (>= 5.0.0, < 8.0)
       concurrent-ruby (~> 1.0)
