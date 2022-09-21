@@ -58,6 +58,10 @@ $cads-color-text-secondary: cads-colors(
 ) !default;
 
 // Nav
+$cads-color-nav: cads-colors(
+  $cads-palette__white,
+  $cads-language__nav-colour
+) !default;
 $cads-color-nav-background: cads-colors(
   $cads-palette__heritage-blue,
   $cads-language__nav-background-colour
@@ -69,6 +73,18 @@ $cads-color-nav-background-hover: cads-colors(
 $cads-color-nav-border-hover: cads-colors(
   $cads-palette__heritage-blue-dark,
   $cads-language__nav-hover-border-colour
+) !default;
+$cads-color-nav-focus: cads-colors(
+  $cads-palette__heritage-blue-dark,
+  $cads-language__nav-focus-colour
+) !default;
+$cads-color-nav-background-focus: cads-colors(
+  $cads-palette__white,
+  $cads-language__nav-focus-background-colour
+) !default;
+$cads-color-nav-border-focus: cads-colors(
+  $cads-palette__yellow,
+  $cads-language__nav-focus-border-colour
 ) !default;
 
 // Links
