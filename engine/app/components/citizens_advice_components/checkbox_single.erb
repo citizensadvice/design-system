@@ -1,0 +1,17 @@
+<div class="cads-form-field<% if error? %> cads-form-field--has-error<% end %>">
+  <% if error? %><div class="cads-form-field__error-marker"></div><% end %>
+  <div class="cads-form-group cads-form-field__content cads-form-group--checkbox cads-checkbox-single">
+    <% if error? %>
+      <p class="cads-form-field__error-message" id="<%= error_id %>">
+        <%= error_message %>
+      </p>
+    <% end %>
+    <div class="cads-form-group__item">
+      <%= tag.input(class:"cads-form-group__input", **checkbox.attributes(name, error: error?)) %>
+      <label class="cads-form-group__label"
+             for="<%= label_id %>">
+        <%= checkbox.label %>
+      </label>
+    </div>
+  </div>
+</div>

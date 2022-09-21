@@ -1,0 +1,12 @@
+---
+title: Additional attributes
+---
+<%= render CitizensAdviceComponents::CheckboxGroup.new(
+  legend: "This is the group legend",
+  name: "my-checkbox-group-additional"
+) do |c|
+  c.inputs([
+    { label: "Option 1", value: "1", "data-testid": "first-input" },
+    { label: "Option 2", value: "2", "data-testid": "second-input" }
+  ])
+end %>

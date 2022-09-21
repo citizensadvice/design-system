@@ -14,18 +14,26 @@
         loading="lazy"
       ></iframe>
     <% else %>
+      <%#
+        Wrap form components in a form contet.
+        A form context affects how screen readers behave,
+        we set novalidate as we do not rely on html validation
+        for our forms so we don't want this behaviour.
+      %>
+      <% if example.form? %><form action="" novalidate><% end %>
       <%= example.content %>
+      <% if example.form? %></form><% end %>
     <% end %>
   </div>
   <div class="component-example__source">
     <% if example.show_html? %>
       <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "HTML code", id: "html-code-#{example.id}")) do %>
-        <pre class="highlight"><code><%= raw example.highlighted_html %></code></pre>
+        <pre class="highlight" tabindex="0"><code><%= raw example.highlighted_html %></code></pre>
       <% end %>
     <% end %>
     <% if example.show_source? %>
       <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "ERB code", id: "erb-code-#{example.id}")) do %>
-        <pre class="highlight"><code><%= raw example.highlighted_source %></code></pre>
+        <pre class="highlight" tabindex="0"><code><%= raw example.highlighted_source %></code></pre>
       <% end %>
     <% end %>
   </div>

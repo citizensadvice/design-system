@@ -1,6 +1,6 @@
 {
   "name": "@citizensadvice/design-system",
-  "version": "5.4.1-alpha.0",
+  "version": "5.5.0-alpha.0",
   "description": "Citizens Advice Design System",
   "repository": "https://github.com/citizensadvice/design-system",
   "author": "Citizens Advice",
@@ -28,7 +28,7 @@
     "docs:build": "build-storybook -o docs",
     "docs:serve": "http-server -p 6006 docs",
     "lint:format": "prettier --check .",
-    "lint:css": "stylelint \"./scss/**/*.scss\" \"./styleguide/**/*.scss\"",
+    "lint:css": "stylelint \"./scss/**/*.scss\"",
     "lint:es": "eslint . --ext .js,.ts",
     "lint": "npm-run-all lint:*",
     "test": "jest",
@@ -66,6 +66,7 @@
     "http-server": "^14.0.0",
     "inquirer": "^8.1.1",
     "jest": "^29.0.2",
+    "jest-environment-jsdom": "^29.0.2",
     "jsdom": "^16.5.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.4",
@@ -116,8 +117,5 @@
       "/node_modules/",
       "/vendor/"
     ]
-  },
-  "dependencies": {
-    "jest-environment-jsdom": "^29.0.2"
   }
 }

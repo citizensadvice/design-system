@@ -1,6 +1,16 @@
 **New**
 
-- 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$cads-use-legacy-color-names: false` 
+- 🎨 Colour ~~language~~: refactored colour names. The new colour names be used by setting `$cads-use-legacy-color-names: false`
+- SCSS: Allows nav link colours to be customised using dedicated language variables.
+- Engine: Haml is no longer a dependency of the Rails engine. All component templates now use ERB internally. This doesn't affect the ability to use Haml in app code. If you were unintentionally relying on `haml-rails` being present in your app you will need to add it to your project Gemfile. 
+
+## v5.5.0-alpha.0
+
+### 8 September 2022
+
+**New**
+
+- Utilities: Add `.cads-visually-hidden` class as alias to `.cads-sr-only` to match Sass mixin name.
 - Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
 - Search: Add `autocomplete="off"` to search field
 

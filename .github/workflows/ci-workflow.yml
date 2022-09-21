@@ -25,11 +25,11 @@ jobs:
       fail-fast: false
       matrix:
         ruby_version: ['2.7', '3.0', '3.1']
-        rails_version: ['6.0.4', '6.1.5', '7.0.2']
+        rails_version: ['6.0.6', '6.1.7', '7.0.4', 'main']
         exclude:
-          - rails_version: '6.0.4'
+          - rails_version: '6.0.6'
             ruby_version: '3.0'
-          - rails_version: '6.0.4'
+          - rails_version: '6.0.6'
             ruby_version: '3.1'
     env:
       RAILS_VERSION: ${{ matrix.rails_version }}
@@ -62,7 +62,6 @@ jobs:
           ruby-version: '2.7.4'
           working-directory: engine
       - run: bundle exec rubocop --format github
-      - run: bundle exec haml-lint
       - run: bundle exec erblint --lint-all
 
   demo-app:

@@ -1,0 +1,16 @@
+---
+title: With hint
+---
+<%= render CitizensAdviceComponents::CheckboxGroup.new(
+  legend: "This is the group legend",
+  name: "my-checbox-group-hint",
+  options: {
+    hint: "This is the hint text"
+  }
+) do |c|
+  c.inputs([
+    { label: "Option 1", value: 1, checked: true },
+    { label: "Option 2", value: 2 },
+    { label: "Option 3", value: 3 }
+  ])
+end %>

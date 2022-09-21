@@ -35,6 +35,7 @@ namespace :frontend do
   desc "Watch the frontend with Webpack during development"
   task :dev do
     sh "yarn run webpack-dev --color"
+  rescue Interrupt
   end
 end
 

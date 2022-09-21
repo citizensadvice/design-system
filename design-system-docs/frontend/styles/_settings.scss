@@ -3,6 +3,7 @@
 // ============================================================================
 
 @import '../scss/1-settings/colour-palette';
+@import '../scss/1-settings/colour-language';
 
 $cads-use-legacy-color-names: true;
 $cads-enable-external-link-icon: false !default;
@@ -14,9 +15,10 @@ $docs-palette-black-tint: #161616;
 $cads-color-header-background: $docs-palette-black;
 
 // Navigation colours
-$cads-color-nav-background: $docs-palette-black-tint;
-$cads-color-nav-background-hover: $cads-palette__dark-grey;
-$cads-color-nav-border-hover: $cads-palette__dark-grey;
+$cads-language__nav-background-colour: $docs-palette__black-tint;
+$cads-language__nav-hover-background-colour: $cads-palette__mid-grey;
+$cads-language__nav-hover-border-colour: $cads-palette__mid-grey;
+$cads-language__nav-focus-colour: $cads-language__text-colour;
 
 // Footer colours
 $cads-color-footer-text: $cads-palette__white;

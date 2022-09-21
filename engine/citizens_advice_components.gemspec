@@ -24,8 +24,10 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{app,config,lib}/**/*", "README.md"]
 
-  spec.add_runtime_dependency     "haml-rails", [">= 2.0.0", "< 3.0"]
-  spec.add_runtime_dependency     "rails", [">= 6.0.0", "< 8.0"]
+  %w[actionpack railties].each do |rails_lib|
+    spec.add_runtime_dependency rails_lib, [">= 6.0.0", "< 8.0"]
+  end
+
   spec.add_runtime_dependency     "rails-i18n", [">= 6.0.0", "< 8.0"]
   spec.add_runtime_dependency     "view_component", [">= 2.0.0", "< 3.0"]
 end

@@ -17,7 +17,7 @@ module Shared
       render CitizensAdviceComponents::Table.new(
         header: %w[Argument Description],
         rows: data.map do |item|
-          [tag.code(item[:argument]), item[:description]]
+          [tag.code(item[:argument]), item[:description].html_safe]
         end
       )
     end

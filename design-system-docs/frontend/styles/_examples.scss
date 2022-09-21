@@ -5,17 +5,18 @@
 .component-example {
   border: 1px solid $cads-color-border;
   margin-bottom: $cads-spacing-6;
-  padding: $cads-spacing-5;
+  padding: $cads-spacing-4;
 }
 
 .component-example__links {
-  text-align: right;
   @include cads-typographic-scale-text-small();
+
+  text-align: right;
+  margin-bottom: $cads-spacing-7;
 }
 .component-example__preview {
   border: none;
   border-width: 1px 0;
-  padding: $cads-spacing-4 0;
 }
 .component-example__iframe {
   display: block;
@@ -25,6 +26,18 @@
   overflow: auto;
 }
 .component-example__source {
+  margin-top: $cads-spacing-7;
+  padding-top: $cads-spacing-4;
+  border-top: $cads-border-width-small $cads-language__border-colour solid;
+
+  .cads-disclosure {
+    margin: 0 0 $cads-spacing-3 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
   .cads-disclosure__toggle {
     @include cads-typographic-scale-text-small();
   }
