@@ -170,10 +170,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     semantic_range (3.0.0)
-    spring (2.1.1)
-    spring-watcher-listen (2.0.1)
-      listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.11)
@@ -211,8 +207,6 @@ DEPENDENCIES
   pry
   puma (~> 5.6)
   rails (~> 7.0.4)
-  spring
-  spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 5.0)
