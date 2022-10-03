@@ -25,6 +25,12 @@ gem "citizens_advice_components", path: "../engine"
 gem "haml-rails"
 
 group :development, :test do
+  gem "citizens-advice-style",
+      github: "citizensadvice/citizens-advice-style-ruby",
+      tag: "v9.0.0"
+
+  gem "rubocop-rails", require: false
+
   gem "cypress-rails"
 end
 

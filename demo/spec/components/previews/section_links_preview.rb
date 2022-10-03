@@ -2,13 +2,15 @@
 
 class SectionLinksPreview < ViewComponent::Preview
   def example
-    render CitizensAdviceComponents::SectionLinks.new(title: "Related Content", section_title: "Applying to the EU settlement scheme", section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
+    render CitizensAdviceComponents::SectionLinks.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
+                                                      section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
       c.section_links(section_links)
     end
   end
 
   def with_additional_attributes
-    render CitizensAdviceComponents::SectionLinks.new(title: "Related Content", section_title: "Applying to the EU settlement scheme", section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
+    render CitizensAdviceComponents::SectionLinks.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
+                                                      section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
       c.section_links(additional_attribute_links)
     end
   end
@@ -25,7 +27,8 @@ class SectionLinksPreview < ViewComponent::Preview
 
   def additional_attribute_links
     [
-      { title: "Preparing to apply for pre-settled and settled status", url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status", "aria-current": "page" },
+      { title: "Preparing to apply for pre-settled and settled status",
+        url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status", "aria-current": "page" },
       { title: "Applying for pre-settled and settled status", url: "/immigration/applying-for-settled-status" },
       { title: "Updating and proving your pre-settled or settled status", url: "/immigration/viewing-your-pre-settled-or-settled-status" },
       { title: "Switching from pre-settled to settled status", url: "/immigration/switching-from-pre-settled-to-settled-status" },
@@ -35,7 +38,8 @@ class SectionLinksPreview < ViewComponent::Preview
 
   def section_links
     [
-      { title: "Preparing to apply for pre-settled and settled status", url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status" },
+      { title: "Preparing to apply for pre-settled and settled status",
+        url: "/immigration/preparing-to-apply-for-pre-settled-and-settled-status" },
       { title: "Applying for pre-settled and settled status", url: "/immigration/applying-for-settled-status" },
       { title: "Updating and proving your pre-settled or settled status", url: "/immigration/viewing-your-pre-settled-or-settled-status" },
       { title: "Switching from pre-settled to settled status", url: "/immigration/switching-from-pre-settled-to-settled-status" },
