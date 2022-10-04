@@ -9,10 +9,12 @@
     "backstop:report": "npx backstop openReport --config=backstop-config.js",
     "backstop:ci": "start-server-and-test start-test-server $(node backstop-test-url.js) backstop:actions",
     "backstop:actions": "npx backstop test --docker --config=backstop-config-actions.js",
-    "start-test-server": "./bin/webpack && ./bin/rails server -p 3001"
+    "start-test-server": "./bin/webpack && ./bin/rails server -p 3001",
+    "build:css": "sass ./app/assets/stylesheets/:./app/assets/builds --no-source-map --load-path=node_modules"
   },
   "dependencies": {
-    "@rails/webpacker": "^5.4.3"
+    "@rails/webpacker": "^5.4.3",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.3",
