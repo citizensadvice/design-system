@@ -12,7 +12,6 @@
     "start-test-server": "./bin/webpack && ./bin/rails server -p 3001"
   },
   "dependencies": {
-    "@citizensadvice/design-system": "file:..",
     "@rails/webpacker": "^5.4.3"
   },
   "devDependencies": {
