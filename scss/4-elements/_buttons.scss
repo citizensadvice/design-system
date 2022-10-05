@@ -152,10 +152,3 @@ $button-shadow-size: 4px;
     box-shadow: 0 $button-shadow-size 0 0 $cads-language__focus-border-colour;
   }
 }
-
-/**
- * A form containing only a button - e.g used for next/previous button spacing
- */
-.cads-single-button-container {
-  margin-top: $cads-spacing-4;
-}
