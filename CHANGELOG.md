@@ -2,7 +2,7 @@
 
 - SCSS: Allows nav link colours to be customised using dedicated language variables.
 - Engine: Haml is no longer a dependency of the Rails engine. All component templates now use ERB internally. This doesn't affect the ability to use Haml in app code. If you were unintentionally relying on `haml-rails` being present in your app you will need to add it to your project Gemfile. 
-- Buttons: Allow opting-out of default button margin bottom using `$cads-no-button-margin`. Add new `.cads-single-button-container` class for spacing between buttons (e.g next/previous).
+- Page form: Introducing a new `.cads-page-form` class to be used mainly for form pages.
 
 ## v5.5.0-alpha.0
 

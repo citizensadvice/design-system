@@ -1,0 +1,10 @@
+/** @define page-form; weak */
+.cads-page-form {
+  .cads-button {
+    margin-bottom: $cads-spacing-1;
+  }
+
+  &--single-button {
+    margin-top: $cads-spacing-4;
+  }
+}

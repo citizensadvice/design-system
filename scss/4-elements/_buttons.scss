@@ -20,14 +20,9 @@ $button-shadow-size: 4px;
   border: none;
   display: inline-block;
   padding: (cads-rem-to-px($cads-spacing-3) - 1px) $cads-spacing-3;
+  margin: 0 0 $cads-spacing-5 0;
   font-weight: $cads-font-weight__bold;
   font-size: 1.125rem;
-
-  @if $cads-no-button-margin == true {
-    margin: 0 0 $cads-spacing-1 0;
-  } @else {
-    margin: 0 0 $cads-spacing-5 0;
-  }
 
   @include cads-media-breakpoint-down(sm) {
     font-size: 1rem;
