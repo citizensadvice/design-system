@@ -139,10 +139,13 @@ prompt([
         // Rebuild the docs
         if (newVersion.includes('alpha') === false) {
           // Build new docs website to github pages directory until we move fully to Netlify
-          const docsBuildStatus = spawnSync('cd design-system-docs && ./bin/bridgetown deploy && cp -r output/ ../docs', {
-            cwd: __dirname,
-            shell: true,
-          }).status;
+          const docsBuildStatus = spawnSync(
+            'cd design-system-docs && ./bin/bridgetown deploy && cp -r output/ ../docs',
+            {
+              cwd: __dirname,
+              shell: true,
+            }
+          ).status;
 
           if (docsBuildStatus === 0) {
             log(chalk.green.dim(`${ok} Documentation build complete.`));
