@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <!-- Begin Bridgetown SEO tag v5.0.0 -->
-<title>Citizens Advice Design System</title>
-<meta property="og:title" content="Citizens Advice Design System" />
+<title>Getting started | Citizens Advice Design System</title>
+<meta property="og:title" content="Getting started" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="/" />
-<meta property="og:url" content="/" />
+<link rel="canonical" href="/getting-started/" />
+<meta property="og:url" content="/getting-started/" />
 <meta property="og:site_name" content="Citizens Advice Design System" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-10-06T15:45:45+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Citizens Advice Design System" />
+<meta property="twitter:title" content="Getting started" />
 <!-- End Bridgetown SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,7 @@
       document.querySelector('html').classList.remove('no-js');
     </script>
   </head>
-  <body class="site page-index">
+  <body class="site page-getting-started">
     <header class="cads-header">
   <div class="cads-grid-container">
     <div class="cads-grid-row">
@@ -86,7 +86,19 @@
   </nav>
 </div>
 
-    
+    <div class="cads-breadcrumbs-wrapper">
+<nav class="cads-breadcrumbs cads-breadcrumbs--collapse" aria-label="breadcrumbs">
+  <ul class="cads-breadcrumbs__list">
+      <li class="cads-breadcrumbs__crumb">
+        <a href="/" class="cads-breadcrumb">Home</a>
+      </li>
+      <li class="cads-breadcrumbs__crumb">
+        <span class="cads-breadcrumb" aria-current="location">Getting started</span>
+      </li>
+  </ul>
+</nav>
+</div>
+
     <div class="cads-grid-container">
   <div class="cads-grid-row">
     <div class="cads-grid-col-md-9">
@@ -104,34 +116,129 @@
 </div>
 
     <div class="site-content">
-      <main id="cads-main-content">
-  <div class="home-intro">
-    <div class="cads-grid-container">
-      <div class="cads-grid-row">
-        <div class="cads-grid-col-12">
-          <h1 class="home-intro__title">Citizens Advice Design System</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="cads-grid-container">
-    <div class="cads-grid-row">
-      <div class="cads-grid-col-md-8">
-        <div class="cads-page-content">
-          <div class="cads-prose">
-            <h3 id="getting-started"><a href="/getting-started">Getting started</a></h3>
+      <main id="cads-main-content" class="cads-grid-container">
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-md-8">
+      <div class="cads-page-content">
+        <h1 class="cads-page-title">Getting started</h1>
+        <div class="cads-prose">
+          <p>👋🏼 Hi there! Let’s get you started.</p>
 
-<p>Get started using the Citizens Advice Design System in your product.</p>
+<p>The design system component library is made up of two packages:</p>
 
-<h3 id="foundations"><a href="/foundations">Foundations</a></h3>
+<ul>
+  <li><code class="highlighter-rouge">@citizensadvice/design-system</code> — An npm package containing styles, JavaScript modules, fonts, and icons.</li>
+  <li><code class="highlighter-rouge">citizens_advice_components</code> — A companion ruby gem which provides a way of using design system components in a Rails app.</li>
+</ul>
 
-<p>Foundations including colours, fonts, spacing, icons, and borders.</p>
+<h2 id="installing-the-npm-package">Installing the npm package</h2>
 
-<h3 id="components"><a href="/components">Components</a></h3>
+<p>You can install the core package from npm:</p>
 
-<p>Documentation for each component in the design system e.g. targeted content.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> @citizensadvice/design-system
+</code></pre></div></div>
 
-          </div>
+<h3 id="css">CSS</h3>
+
+<p>The recommended way of using CSS from the design system is through SCSS.</p>
+
+<p>If you are using Webpacker for your assets you can load the design-system SCSS files by adding the following to your stylesheet:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s1">'~@citizensadvice/design-system/scss/lib.scss'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The design system uses <a href="https://sass-lang.com/dart-sass">Dart Sass</a>. If you’re using webpacker, please use v5.2.2+ as previous versions use <code class="highlighter-rouge">node-sass</code>.</p>
+
+<p>The distributed package includes compiled CSS in <code class="highlighter-rouge">lib/lib.css</code> if you are not using SCSS.</p>
+
+<h3 id="fonts">Fonts</h3>
+
+<p>The design system uses distributes two sets of fonts. Open Sans, our brand font, and a custom icon font. These are included with the npm package and can be found under the <code class="highlighter-rouge">fonts</code> directory.</p>
+
+<p>If you are using SCSS files through Webpacker with Rails then place the following in <code class="highlighter-rouge">config/webpack/environment.js</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// resolve-url-loader must be used before sass-loader</span>
+<span class="nx">environment</span><span class="p">.</span><span class="nx">loaders</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">sass</span><span class="dl">'</span><span class="p">).</span><span class="nx">use</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">loader</span><span class="p">:</span> <span class="dl">'</span><span class="s1">resolve-url-loader</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>This requires that you have <code class="highlighter-rouge">resolve-url-loader</code> installed:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-D</span> resolve-url-loader
+</code></pre></div></div>
+
+<h3 id="javascript-components">Javascript components</h3>
+
+<p>JavaScript components can be included as part of your application bundle.</p>
+
+<p>Components which require JavaScript include the expected usage in their documentation. Typical usage is as follows:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">header</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@citizensadvice/design-system/lib/header</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">greedyNav</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@citizensadvice/design-system/lib/greedy-nav/index</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">targetedContent</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@citizensadvice/design-system/lib/targeted-content</span><span class="dl">'</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">load</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">header</span><span class="p">();</span>
+  <span class="nx">greedyNav</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+  <span class="nx">targetedContent</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="polyfills">Polyfills</h3>
+
+<p>Some components require polyfills for older browsers. Components which require polyfills note this in their documentation. The full list is:</p>
+
+<h4 id="targeted-content">Targeted content:</h4>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/element-closest">Element.prototype.closest polyfill</a></li>
+  <li><a href="https://github.com/wessberg/scroll-behavior-polyfill">Scroll behaviour (Element.prototype.scrollIntoView) polyfill</a></li>
+</ul>
+
+<h4 id="navigation-specifically-the-greedy-nav-behaviour">Navigation (specifically the greedy nav behaviour):</h4>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/element-closest">Element.prototype.closest polyfill</a></li>
+  <li><a href="https://www.npmjs.com/package/resize-observer-polyfill">ResizeObserver polyfill</a></li>
+  <li>Note: this polyfill is not a global polyfill, you will need to assign it to window.ResizeObserver.</li>
+</ul>
+
+<p>We don’t include the polyfills by default in order to avoid double bundling if you have your own.</p>
+
+<p>If you are not using either of these components then you may not need any polyfills.</p>
+
+<h2 id="using-with-rails">Using with Rails</h2>
+
+<p>Along side the core npm package we also provide a ruby gem which distributes component templates as part of a Rails engine. This can be installed by adding the following to your <code class="highlighter-rouge">Gemfile</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem "citizens_advice_components",
+    github: "citizensadvice/design-system",
+    tag: "v4.2.0",
+    glob: "engine/*.gemspec"
+</code></pre></div></div>
+
+<h3 id="using-components">Using components</h3>
+
+<p>Components are provided as <a href="https://viewcomponent.org/">view components</a>.</p>
+
+<p>Once installed you can call them within your application by passing the component to <code class="highlighter-rouge">render</code>.</p>
+
+<div class="language-erb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;%=</span> <span class="n">raw</span> <span class="n">render</span><span class="p">(</span>
+  <span class="no">CitizensAdviceComponents</span><span class="o">::</span><span class="no">Pagination</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+    <span class="ss">current_params: </span><span class="p">{</span> <span class="s2">"q"</span> <span class="o">=&gt;</span> <span class="s2">"debt and money"</span> <span class="p">},</span>
+    <span class="ss">num_pages: </span><span class="mi">100</span><span class="p">,</span>
+    <span class="ss">current_page: </span><span class="mi">1</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre></div></div>
+
+<h2 id="changelog">Changelog</h2>
+
+<ul>
+  <li>Release notes for each version (starting with v2.0.0) can be seen at <a href="https://github.com/citizensadvice/design-system/releases">https://github.com/citizensadvice/design-system/releases</a></li>
+  <li>The full changelog can be found at <a href="https://github.com/citizensadvice/design-system/blob/main/CHANGELOG.md">https://github.com/citizensadvice/design-system/blob/main/CHANGELOG.md</a></li>
+</ul>
+
         </div>
       </div>
     </div>

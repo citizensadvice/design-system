@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <!-- Begin Bridgetown SEO tag v5.0.0 -->
-<title>Citizens Advice Design System</title>
-<meta property="og:title" content="Citizens Advice Design System" />
+<title>Animations | Citizens Advice Design System</title>
+<meta property="og:title" content="Animations" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="/" />
-<meta property="og:url" content="/" />
+<link rel="canonical" href="/foundations/animations/" />
+<meta property="og:url" content="/foundations/animations/" />
 <meta property="og:site_name" content="Citizens Advice Design System" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-10-06T15:45:45+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Citizens Advice Design System" />
+<meta property="twitter:title" content="Animations" />
 <!-- End Bridgetown SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,7 @@
       document.querySelector('html').classList.remove('no-js');
     </script>
   </head>
-  <body class="site page-index">
+  <body class="site page-animations">
     <header class="cads-header">
   <div class="cads-grid-container">
     <div class="cads-grid-row">
@@ -86,7 +86,22 @@
   </nav>
 </div>
 
-    
+    <div class="cads-breadcrumbs-wrapper">
+<nav class="cads-breadcrumbs cads-breadcrumbs--collapse" aria-label="breadcrumbs">
+  <ul class="cads-breadcrumbs__list">
+      <li class="cads-breadcrumbs__crumb">
+        <a href="/" class="cads-breadcrumb">Home</a>
+      </li>
+      <li class="cads-breadcrumbs__crumb">
+        <a href="/foundations" class="cads-breadcrumb">Foundations</a>
+      </li>
+      <li class="cads-breadcrumbs__crumb">
+        <span class="cads-breadcrumb" aria-current="location">Animations</span>
+      </li>
+  </ul>
+</nav>
+</div>
+
     <div class="cads-grid-container">
   <div class="cads-grid-row">
     <div class="cads-grid-col-md-9">
@@ -104,36 +119,84 @@
 </div>
 
     <div class="site-content">
-      <main id="cads-main-content">
-  <div class="home-intro">
-    <div class="cads-grid-container">
-      <div class="cads-grid-row">
-        <div class="cads-grid-col-12">
-          <h1 class="home-intro__title">Citizens Advice Design System</h1>
+      <main id="cads-main-content" class="cads-grid-container">
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-md-8">
+      <div class="cads-page-content">
+        <h1 class="cads-page-title">Animations</h1>
+
+          
+
+        <div class="cads-prose">
+          <p>All animations are 0.3 seconds long. This is defined in the <code class="highlighter-rouge">$cads-animation-speed</code> variable. However you should beware of reduced motion user preferences. These can be checked using the <code class="highlighter-rouge">prefers-reduced-motion: reduce</code> media query.</p>
+
+<p>For defining transitions use the <code class="highlighter-rouge">cads-transition-animation</code> mixin. This will automatically ignore transition animations if the user has set the reduce motion option. You can supply the prop to animate or if none is supplied <code class="highlighter-rouge">background, border</code> is used. Example:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">cads-transition-animation</span><span class="p">();</span>
+<span class="c1">// transition-property: background, border; transition-duration: 0.3s</span>
+<span class="k">@include</span> <span class="nd">cads-transition-animation</span><span class="p">(</span><span class="n">width</span><span class="p">);</span>
+<span class="c1">// transition-property: width; transition-duration: 0.3s</span>
+</code></pre></div></div>
+
+<p>Both of the above will produce <code class="highlighter-rouge">transition: none</code> if reduce motion is set.</p>
+
+<p>Change the accessibility setting and hover over the button below to see an example:</p>
+
+<p><button class="cads-button">Background colour animates on hover</button></p>
+
         </div>
       </div>
+      <div class="feedback-prompt">
+  <h2 class="feedback-prompt__title">Questions and contributions</h2>
+  <p class="feedback-prompt__body">
+    All design system discussions take place in the #design-system Slack channel.
+    For current issues, roadmap and other info see the
+    <a href="https://github.com/orgs/citizensadvice/projects/5">Github project board</a>
+    and <a href="https://github.com/citizensadvice/design-system-testing/issues">related issues</a>.
+  </p>
+</div>
+
     </div>
+    <div class="cads-grid-col-md-4 sidebar">
+      <aside class="cads-section-links">
+  <div class="cads-section-links__content">
+    <h2 class="cads-section-links__title">In this section</h2>
+    <nav aria-label="Foundations">
+      <ul class="cads-section-links__links">
+        <li>
+          <h3 class="cads-section-links__section-title">
+              <a data-testid="section-title-link" href="/foundations">Foundations</a>
+          </h3>
+        </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/animations/">Animations</a>
+          </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/breakpoints/">Breakpoints</a>
+          </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/colours/">Colours</a>
+          </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/grid/">Grid</a>
+          </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/icons/">Icons</a>
+          </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/spacing-and-sizing/">Spacing and sizing</a>
+          </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/typography/">Typography</a>
+          </li>
+          <li class="cads-section-links__item">
+            <a class="cads-hyperlink cads-section-links__link" data-testid="section-links-link" href="/foundations/visibility/">Visibility</a>
+          </li>
+      </ul>
+    </nav>
   </div>
-  <div class="cads-grid-container">
-    <div class="cads-grid-row">
-      <div class="cads-grid-col-md-8">
-        <div class="cads-page-content">
-          <div class="cads-prose">
-            <h3 id="getting-started"><a href="/getting-started">Getting started</a></h3>
+</aside>
 
-<p>Get started using the Citizens Advice Design System in your product.</p>
-
-<h3 id="foundations"><a href="/foundations">Foundations</a></h3>
-
-<p>Foundations including colours, fonts, spacing, icons, and borders.</p>
-
-<h3 id="components"><a href="/components">Components</a></h3>
-
-<p>Documentation for each component in the design system e.g. targeted content.</p>
-
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </main>
