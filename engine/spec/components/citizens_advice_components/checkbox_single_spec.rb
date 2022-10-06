@@ -33,6 +33,10 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
     expect(component.css("input[value=1] + label").text.strip).to eq "Option 1"
   end
 
+  it "does not pass label through to input" do
+    expect(component.css("input[label]")).to be_empty
+  end
+
   it "associates the labels with the inputs correctly" do
     expect(component.css("input[id='my-checkbox-0'] + label").attribute("for").value).to eq "my-checkbox-0"
   end

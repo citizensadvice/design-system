@@ -6,7 +6,6 @@ module CitizensAdviceComponents
       attr_reader :label
 
       def initialize(label:, value:, checked: false, **additional_attributes)
-        super
         @label = label
         @value = value
         @checked = fetch_or_fallback_boolean(checked, fallback: false)

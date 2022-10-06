@@ -6,6 +6,14 @@ inherit_gem:
 require:
   - rubocop-rspec
 
+# Calls to super in subclasses of ViewComponent::Base aren't needed
+# by default and can change the behaviour of **kwargs so we
+# exclude component classes from this rule
+# https://github.com/ViewComponent/view_component/discussions/1545
+Lint/MissingSuper:
+  Exclude:
+    - 'app/components/**/*'
+
 Metrics/MethodLength:
   CountAsOne: ['array', 'hash']
 

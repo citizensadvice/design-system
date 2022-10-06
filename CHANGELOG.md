@@ -1,5 +1,6 @@
 **New**
 
+- Fix label being assigned as checkbox attribute in Ruby 3+
 - SCSS: Allows nav link colours to be customised using dedicated language variables.
 - Engine: Haml is no longer a dependency of the Rails engine. All component templates now use ERB internally. This doesn't affect the ability to use Haml in app code. If you were unintentionally relying on `haml-rails` being present in your app you will need to add it to your project Gemfile. 
 
