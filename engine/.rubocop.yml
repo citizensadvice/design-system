@@ -6,6 +6,10 @@ inherit_gem:
 require:
   - rubocop-rspec
 
+AllCops:
+  # Match minimum target version to gemspec
+  TargetRubyVersion: 2.7
+
 # Calls to super in subclasses of ViewComponent::Base aren't needed
 # by default and can change the behaviour of **kwargs so we
 # exclude component classes from this rule
