@@ -14,6 +14,6 @@
   </head>
   <body<%- if @body_class.present? %> class="<%= @body_class %>"<%- end -%>>
     <div id="content"><%= yield %></div>
-    <%= javascript_packs_with_chunks_tag "application" %>
+    <%= javascript_include_tag "application", defer: true %>
   </body>
 </html>

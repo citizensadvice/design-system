@@ -1,3 +1,3 @@
 web: bin/rails server -p 3000
-webpack: bin/webpack-dev-server
 css: yarn build:css --watch
+js: yarn build --watch

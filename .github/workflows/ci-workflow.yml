@@ -101,7 +101,7 @@ jobs:
           working-directory: demo
 
       # Run asset build
-      - run: ./bin/webpack
+      - run: ./bin/rails assets:precompile
         working-directory: demo
 
       # Run cypress tests
