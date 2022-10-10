@@ -5,7 +5,7 @@ const path = require('path');
 const { prompt } = require('inquirer');
 const { execSync, spawnSync } = require('child_process');
 const semver = require('semver');
-const { checkRepoStatus, ok, error, showError } = require('./releaseHelpers');
+const { checkRepoStatus, ok, showError } = require('./releaseHelpers');
 
 const log = console.log; // eslint-disable-line
 const DO_NOT_RELEASE = 'Do not release';
