@@ -130,7 +130,7 @@ render CitizensAdviceComponents::Icons::Email.new(size: :small)
 
 You can look the name in the [available icons grid](#available-icons) to see which component class to use for which icon.
 
-### View Component Options
+### Component arguments
 
 The constructor accepts the following arguments
 

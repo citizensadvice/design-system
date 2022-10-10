@@ -60,7 +60,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 <%= render(Shared::ComponentExampleSource.new(:button, :primary)) %>
 
-### View component options
+### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:button) %>
 
