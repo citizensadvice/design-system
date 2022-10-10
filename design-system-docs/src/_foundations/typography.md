@@ -104,7 +104,7 @@ If you need to apply these styles to heading elements that you cannot add a clas
 </main>
 ```
 
-### Adjacent Heading Mixin
+### Adjacent heading mixin
 
 To ensure that headings have the correct margins applied inside the `.cads-prose` element, a mixin has been used that will add the correct margin. This is automatically applied to the relevant elements that appear in a `.cads-prose` wrapper.
 
@@ -144,7 +144,7 @@ Links are blue and underlined by default. Avoid opening links in a new tab, as i
 
 Read our guidance about using <a href ="?path=/docs/components-buttons--primary">buttons as links</a>.
 
-### External Links
+### External links
 
 When you link to a page external to your website add the `.cads-hyperlink--external` class to display an icon after the link.
 

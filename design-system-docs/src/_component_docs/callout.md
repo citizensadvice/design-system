@@ -49,7 +49,7 @@ Before using a callout, make sure you really need it. Fewer callouts have more o
 
 Callouts should come with a title that explains the subject of the information when possible. This will give the users an idea of what the information is about.
 
-#### In the Content Platform Rails App
+#### In the Content Platform Rails app
 
 Note that there is code in the Content Platform app that ensure headings inside callouts are rendered with the correct heading level in order to comply with WCAG accessibility standards. This code will not demote a heading past an `h4` (ie no `h5` etc). No `h4` headings should be used in Contentful.
 

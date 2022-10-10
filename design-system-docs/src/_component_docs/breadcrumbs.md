@@ -16,7 +16,7 @@ Do not use breadcrumbs on a website with a flat hierarchy or to show the journey
 
 ## How it works
 
-Breadcrumbs should be placed on the top left of each page and below "Global Navigation". They should start with a link to the home page and end with the current page title. Page titles of parent pages should be linked; the current should not have a link. Note that you will have to add the 'Home' link into the links you pass in.
+Breadcrumbs should be placed on the top left of each page and below the global navigation. They should start with a link to the home page and end with the current page title. Page titles of parent pages should be linked; the current should not have a link. Note that you will have to add the 'Home' link into the links you pass in.
 
 On the small breakpoint, breadcrumbs show the previous parent level as a link by default. You can explicity set this behaviour by passing in
 `collaspe` as the type.
@@ -62,7 +62,7 @@ When shown somewhere where they should not be full width, as in a search result,
 
 <%= render(Shared::ComponentExample.new(:breadcrumbs, :not_full_width)) %>
 
-### Not indicating the current Page
+### Not indicating the current page
 
 If you do not want the last crumb to indicate the current page (for screen readers etc), you can pass in `current_page: false`.
 

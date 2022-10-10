@@ -156,7 +156,7 @@ The default `fill` colour is `currentColor`. You can override this in your CSS u
 }
 ```
 
-### Combined Icons
+### Combined icons
 
 In some instances, you might need to combine icons into one SVG and use javascript and CSS to create a toggle-able combined icon. You can do this by:
 
