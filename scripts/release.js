@@ -136,23 +136,6 @@ prompt([
         const newChangelog = `${changelogEntry}\n\n${changelog}`;
         fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 
-        // Rebuild the docs
-        if (newVersion.includes('alpha') === false) {
-          const docsBuildStatus = spawnSync('npm run docs:build', {
-            cwd: __dirname,
-            shell: true,
-          }).status;
-
-          if (docsBuildStatus === 0) {
-            log(chalk.green.dim(`${ok} Documentation build complete.`));
-          } else {
-            showError(
-              `${error} Documentation build failed, check the repo status.`,
-              true
-            );
-          }
-        }
-
         try {
           log(chalk.green.bold('Release prepared.'));
 
