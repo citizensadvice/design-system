@@ -16,7 +16,7 @@ Secondary button should be used for secondary calls to action. Typically there s
 
 <%= render(Shared::ComponentExample.new(:button, :secondary)) %>
 
-Tertiary buttons are used for turning something on or off instantly on a page – for example, References and “Expand all” action.
+Tertiary buttons are used for turning something on or off instantly on a page – for example, references and “Expand all” actions.
 
 <%= render(Shared::ComponentExample.new(:button, :tertiary)) %>
 
@@ -60,7 +60,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 <%= render(Shared::ComponentExampleSource.new(:button, :primary)) %>
 
-### View component options
+### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:button) %>
 

@@ -5,7 +5,7 @@ const path = require('path');
 const { prompt } = require('inquirer');
 const { execSync, spawnSync } = require('child_process');
 const semver = require('semver');
-const { checkRepoStatus, ok, error, showError } = require('./releaseHelpers');
+const { checkRepoStatus, ok, showError } = require('./releaseHelpers');
 
 const log = console.log; // eslint-disable-line
 const DO_NOT_RELEASE = 'Do not release';
@@ -135,23 +135,6 @@ prompt([
         const changelogEntry = `## v${newVersion}\n\n### ${formattedDate()}`;
         const newChangelog = `${changelogEntry}\n\n${changelog}`;
         fs.writeFileSync(changelogPath, newChangelog, 'utf8');
-
-        // Rebuild the docs
-        if (newVersion.includes('alpha') === false) {
-          const docsBuildStatus = spawnSync('npm run docs:build', {
-            cwd: __dirname,
-            shell: true,
-          }).status;
-
-          if (docsBuildStatus === 0) {
-            log(chalk.green.dim(`${ok} Documentation build complete.`));
-          } else {
-            showError(
-              `${error} Documentation build failed, check the repo status.`,
-              true
-            );
-          }
-        }
 
         try {
           log(chalk.green.bold('Release prepared.'));

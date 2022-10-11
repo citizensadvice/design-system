@@ -10,6 +10,6 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 <%= render(Shared::ComponentExampleSource.new(:page_review, :default)) %>
 
-### View Component Options
+### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:page_review) %>
