@@ -1,9 +1,9 @@
-.storybook/vendor
 docs
 lib
 demo/visual-regression/backstop_data/html_report/
 vendor
 
 # Sub-projects manage their own linting rules
+
 /demo/
 /design-system-docs/
