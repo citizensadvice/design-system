@@ -10,4 +10,4 @@ pushd demo
 popd
 
 echo "\n== Formatting examples with prettier ==\n"
-npx prettier --write ./styleguide/examples/
+npx prettier --write ./examples/
