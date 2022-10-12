@@ -1,6 +1,5 @@
 const simpleGit = require('simple-git');
 const fs = require('fs');
-const chalk = require('chalk');
 const path = require('path');
 const { prompt } = require('inquirer');
 const { execSync, spawnSync } = require('child_process');
@@ -15,9 +14,9 @@ const PACKAGE_NAME = 'design-system';
 const FULL_PACKAGE_NAME = `${ORG_NAME}/${PACKAGE_NAME}`;
 
 function updateVersionNumber(newVersion) {
-  log(chalk.blue.dim(`${ok} Updating version number to ${newVersion}`));
+  log(`${ok} Updating version number to ${newVersion}`);
   execSync(`npm --no-git-tag-version version ${newVersion}`);
-  log(chalk.green(`${ok} Updated version number to ${newVersion}`));
+  log(`${ok} Updated version number to ${newVersion}`);
 }
 
 function formattedDate() {
@@ -32,9 +31,6 @@ function formattedDate() {
 
 // Check the repo status and get the current branch name
 checkRepoStatus(PATH);
-chalk.bold(`You are preparing a new release.
-This script will create a branch based on your chosen version number and you must then create a
-pull request to main.`);
 prompt([
   {
     message: 'Have you updated the Changelog?',
@@ -65,9 +61,7 @@ prompt([
     require(path.join(__dirname, '..', 'package.json')).version; // eslint-disable-line
   const packageSemver = semver.parse(packageVersion);
   log(
-    `The latest published version of ${FULL_PACKAGE_NAME} is currently ${chalk.bold(
-      packageVersion
-    )}`
+    `The latest published version of ${FULL_PACKAGE_NAME} is currently ${packageVersion}`
   );
 
   // Setup the available versions
@@ -90,7 +84,7 @@ prompt([
 
   const currentVersion = packageVersion; // eslint-disable-line
 
-  log(chalk.dim('---'));
+  log('---');
 
   // Ask what version we want to release these packages as
   prompt({
@@ -137,7 +131,7 @@ prompt([
         fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 
         try {
-          log(chalk.green.bold('Release prepared.'));
+          log('Release prepared.');
 
           prompt([
             {
@@ -161,13 +155,11 @@ prompt([
                   }
 
                   log(
-                    chalk.green(
-                      `${ok} Changes committed and pushed. You must now create a pull request for branch v${newVersion}.`
-                    )
+                    `${ok} Changes committed and pushed. You must now create a pull request for branch v${newVersion}.`
                   );
                 });
             } else {
-              log(chalk.bold('Changes not committed. Check the repo status.'));
+              log('Changes not committed. Check the repo status.');
               process.exit(1);
             }
           });

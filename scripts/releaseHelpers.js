@@ -1,12 +1,11 @@
 const gitState = require('git-state');
-const chalk = require('chalk');
 
 const log = console.log; // eslint-disable-line
 const ok = '\u2713'; // The tick
 const error = '\u2716'; // The cross
 
 const showError = (err, exit) => {
-  log(chalk.red.bold(err));
+  log(err);
 
   if (exit) {
     process.exit(1);
@@ -56,7 +55,7 @@ function checkRepoStatus(repo, testRun) {
       );
     }
 
-    log(chalk.green.dim(`${ok} Git repo clean.`));
+    log(`${ok} Git repo clean.`);
 
     return branch;
   } catch (err) {
