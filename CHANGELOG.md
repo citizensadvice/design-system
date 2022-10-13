@@ -1,3 +1,7 @@
+## v5.5.0-alpha.1
+
+### 13 October 2022
+
 **New**
 
 - Fix label being assigned as checkbox attribute in Ruby 3+
