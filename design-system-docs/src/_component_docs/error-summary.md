@@ -63,3 +63,9 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 ### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:error_summary) %>
+
+### Errors slot
+
+The error summary component accepts a required `errors` slot. Errors are an array of the following options:
+
+<%= render Shared::ArgumentsTable.new(:error_summary_errors_slot) %>

@@ -28,7 +28,7 @@ pagination:
   - argument: current_params
     description: Current request query parameters
   - argument: param_name
-    description: Optional. Pagination param name, defaults to page
+    description: 'Optional. Pagination param name, defaults to <code>page</code>'
 page_review:
   - argument: page_review_date
     description: Required, date object for last reviewed date
@@ -45,7 +45,7 @@ targeted_content:
   - argument: type
     description: 'Optional, one of <code>public</code> or <code>adviser</code>. Defaults to <code>public</code>'
   - argument: heading_level
-    description: 'Optional, sets the heading level of the title. Defaults to 2'
+    description: 'Optional, sets the heading level of the title. Defaults to <code>2</code>'
   - argument: close_button
     description: 'Optional, include close button at the end of content. Defaults to <code>true</code>'
 radio_group:
@@ -55,18 +55,18 @@ radio_group:
     description: Required, the text for the label associated with the input
   - argument: options
     description: Optional, a hash with one or more of the following values
-  - argument: '→ hint'
-    description: Optional, hint text for the input
-  - argument: '→ error_message'
-    description: Optional, an error message for the input
-  - argument: '→ optional'
-    description: Optional, boolean indicating the field is optional (ie not required)
-  - argument: '→ size'
-    description: 'Optional, the size of the radio buttons. One of <code>nil</code>, <code>:small</code>, <code>:regular</code>'
-  - argument: '→ layout'
-    description: 'Optional, the layout of the radio buttons. One of <code>nil</code>, <code>:inline</code>, <code>:list</code>'
-  - argument: '→ legend_heading'
-    description: 'Optional, wraps the text inside the legend in <code>h1</code>'
+  - argument: hint
+    description: '→ Optional, hint text for the input'
+  - argument: error_message
+    description: '→ Optional, an error message for the input'
+  - argument: optional
+    description: '→ Optional, boolean indicating the field is optional (ie not required)'
+  - argument: size
+    description: '→ Optional, the size of the radio buttons. One of <code>nil</code>, <code>:small</code>, <code>:regular</code>'
+  - argument: layout
+    description: '→ Optional, the layout of the radio buttons. One of <code>nil</code>, <code>:inline</code>, <code>:list</code>'
+  - argument: legend_heading
+    description: '→ Optional, wraps the text inside the legend in <code>h1</code>'
 breadcrumbs:
   - argument: links
     description: Required, an array of hashes, each with the following
@@ -99,7 +99,7 @@ tables:
     description: 'Optional, <code>&lt;caption&gt;</code> text'
 on_this_page:
   - argument: show_nested_links
-    description: Optional, will display nested links if there are any. Defaults to false
+    description: 'Optional, will display nested links if there are any. Defaults to <code>false</code>'
 on_this_page_links_slot:
   - argument: id
     description: Required, used for linking content on the page, and for accessibility purposes
@@ -146,21 +146,19 @@ section_links:
     description: Required. A section title above the links
   - argument: section_title_url
     description: Optional. A link for the section title
-  - argument: section_links
-    description: 'Required, an array of hashes, each with the following:'
-  - argument: 'section_link[:url]'
-    description: '→ Required, url for the section link'
-  - argument: 'section_link[:title]'
-    description: '→ Required, title for the section link'
+section_links_links_slot:
+  - argument: url
+    description: 'Required, url for the section link'
+  - argument: title
+    description: 'Required, title for the section link'
 error_summary:
   - argument: heading_level
-    description: 'Optional, sets the heading level of the title. Defaults to 2'
-  - argument: errors
-    description: 'Required, array of error messages and links, each with the following:'
-  - argument: 'error[:href]'
-    description: '→ Required, error href'
-  - argument: 'error[:message]'
-    description: '→ Required, error message'
+    description: 'Optional, sets the heading level of the title. Defaults to <code>2</code>'
+error_summary_errors_slot:
+  - argument: href
+    description: 'Required, error href'
+  - argument: message
+    description: 'Required, error message'
 disclosure:
   - argument: closed_summary
     description: 'Required, the button text when the component is closed'
@@ -197,7 +195,7 @@ textarea:
   - argument: label
     description: Required, the text for the label associated with the input
   - argument: rows
-    description: 'Optional, the number of rows for the textarea. Defaults to 8'
+    description: 'Optional, the number of rows for the textarea. Defaults to <code>8</code>'
   - argument: options
     description: 'Optional, a hash with one or more of the following values:'
   - argument: 'options[:hint]'
