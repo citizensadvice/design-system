@@ -3,9 +3,9 @@ icons:
     description: 'Defaults to <code>:small</code>. One of either <code>:small</code> (16px by 16px) or <code>:large</code> (24px by 24px).'
 button:
   - argument: variant
-    description: Either :primary, :secondary, or :tertiary. Defaults to :primary
+    description: 'Either <code>:primary</code>, <code>:secondary</code>, or <code>:tertiary</code>. Defaults to <code>:primary</code>'
   - argument: type
-    description: Either :button or :submit. Defaults to :button
+    description: 'Either <code>:button</code> or <code>:submit</code>. Defaults to <code>:button</code>'
   - argument: attributes
     description: Additional attributes are passed to the button
 asset_hyperlink:
@@ -43,11 +43,11 @@ targeted_content:
   - argument: title
     description: Required, title string
   - argument: type
-    description: Optional, one of public or adviser. Defaults to public
+    description: 'Optional, one of <code>public</code> or <code>adviser</code>. Defaults to <code>public</code>'
   - argument: heading_level
-    description: Optional, sets the heading level of the title. Defaults to 2
+    description: 'Optional, sets the heading level of the title. Defaults to 2'
   - argument: close_button
-    description: Optional, include close button at the end of content. Defaults to true
+    description: 'Optional, include close button at the end of content. Defaults to <code>true</code>'
 radio_group:
   - argument: name
     description: Required, field name
@@ -58,15 +58,15 @@ radio_group:
   - argument: '→ hint'
     description: Optional, hint text for the input
   - argument: '→ error_message'
-    description: Optional, an error_message for the input
+    description: Optional, an error message for the input
   - argument: '→ optional'
     description: Optional, boolean indicating the field is optional (ie not required)
   - argument: '→ size'
-    description: Optional, the size of the radio buttons. One of nil, :small, :regular
+    description: 'Optional, the size of the radio buttons. One of <code>nil</code>, <code>:small</code>, <code>:regular</code>'
   - argument: '→ layout'
-    description: Optional, the layout of the radio buttons. One of nil, :inline, :list
+    description: 'Optional, the layout of the radio buttons. One of <code>nil</code>, <code>:inline</code>, <code>:list</code>'
   - argument: '→ legend_heading'
-    description: Optional, wraps the text inside the legend in h1
+    description: 'Optional, wraps the text inside the legend in <code>h1</code>'
 breadcrumbs:
   - argument: links
     description: Required, an array of hashes, each with the following
@@ -75,14 +75,14 @@ breadcrumbs:
   - argument: link[title]
     description: → Required, title for the breadcrumb link
   - argument: type
-    description: Optional, one of :collapse (default), :no_collapse
+    description: 'Optional, one of <code>:collapse</code> (default), <code>:no_collapse</code>'
   - argument: current_page
-    description: Optional, will render aria-location=current on last crumb if true. Defaults to true.
+    description: 'Optional, will render <code>aria-location=current</code> on last crumb if <code>true</code>. Defaults to <code>true</code>.'
   - argument: full_width
-    description: Optional, will wrap breadcrumbs in the .cads-breadcrumbs-wrapper div if true. Defaults to true.
+    description: 'Optional, will wrap breadcrumbs in the <code>.cads-breadcrumbs-wrapper</code> div if true. Defaults to <code>true</code>.'
 callout:
   - argument: type
-    description: Optional type. One of :standard, :example, :important, or :adviser. Defaults to :standard.
+    description: 'Optional type. One of <code>:standard</code>, <code>:example</code>, <code>:important</code>, or <code>:adviser</code>. Defaults to <code>:standard</code>.'
   - argument: label
     description: Optional, title used as aria-label
 search:
@@ -105,7 +105,7 @@ on_this_page_links_slot:
     description: Required, used for linking content on the page, and for accessibility purposes
   - argument: label
     description: Required, the label of the link
-  - argument: id
+  - argument: children
     description: Optional, array for nested links
 footer:
   - argument: feedback_url
@@ -154,7 +154,7 @@ section_links:
     description: '→ Required, title for the section link'
 error_summary:
   - argument: heading_level
-    description: Optional, sets the heading level of the title. Defaults to 2
+    description: 'Optional, sets the heading level of the title. Defaults to 2'
   - argument: errors
     description: 'Required, array of error messages and links, each with the following:'
   - argument: 'error[:href]'
@@ -190,7 +190,7 @@ text_input:
   - argument: 'options[:value]'
     description: '→ Optional, the value of the input'
   - argument: 'options[:additional_attributes]'
-    description: 'Optional, a hash of additional attributes rendered onto the input, eg <code>{ autocomplete: "name" }</code>'
+    description: '→ Optional, a hash of additional attributes rendered onto the input, eg <code>{ autocomplete: "name" }</code>'
 textarea:
   - argument: name
     description: Required, field name
@@ -214,7 +214,7 @@ checkbox:
   - argument: name
     description: Required, field name
   - argument: error_message
-    description: Optional, an error_message for the input
+    description: Optional, an error message for the input
 checkbox_group:
   - argument: name
     description: Required, field name
@@ -222,9 +222,9 @@ checkbox_group:
     description: Required, the text for the fieldset legend associated with the inputs
   - argument: options
     description: Optional, a hash with one or more of the following values
-  - argument: '→ hint'
-    description: Optional, hint text for the input
-  - argument: '→ error_message'
-    description: Optional, an error_message for the input
-  - argument: '→ optional'
-    description: Optional, boolean indicating the field is optional (ie not required)
+  - argument: hint
+    description: '→ Optional, hint text for the input'
+  - argument: error_message
+    description: '→ Optional, an error message for the input'
+  - argument: optional
+    description: '→ Optional, boolean indicating the field is optional (ie not required)'

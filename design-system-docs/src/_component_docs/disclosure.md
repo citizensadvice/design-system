@@ -49,6 +49,6 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 ### Component arguments
 
-The component requires a content` block for the main contents along with the following arguments:
+The component requires a content block for the main contents along with the following arguments:
 
 <%= render Shared::ArgumentsTable.new(:disclosure) %>
