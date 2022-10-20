@@ -38,7 +38,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
   end
 
   it "renders a required input" do
-    expect(component.css("input").attribute("required")).to be_present
+    expect(component.css("input").attribute("aria-required").value).to eq("true")
   end
 
   context "when a value is provided" do
@@ -92,7 +92,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
 
     it "does not add required to the input" do
-      expect(component.css("input").attribute("required")).not_to be_present
+      expect(component.css("input").attribute("aria-required").value).to eq("false")
     end
 
     context "when in Cymraeg" do
