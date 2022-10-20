@@ -1,3 +1,7 @@
+**New**
+
+- Input: Replace the `required` attribute on inputs with `aria-required`
+
 ## v5.5.0-alpha.1
 
 ### 13 October 2022
