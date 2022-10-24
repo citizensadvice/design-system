@@ -1,14 +1,38 @@
 // stylelint-disable selector-class-pattern, plugin/selector-bem-pattern
 
 /*
- * Core styles for Cads GreedyNav
- * These styles are not optional and should always be included
- *
  * Modified from PriorityNav.js
  *
  * Free to use under the MIT License.
  * http://twitter.com/GijsRoge
  */
+
+@mixin cads-navigation-chevron($direction: 'down') {
+  // Size of chevron (excluding border)
+  $chevron-size: 8px;
+
+  // Size of chevron border
+  $chevron-border-width: 2.5px;
+
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: $chevron-size;
+  height: $chevron-size;
+  border: solid;
+  border-width: $chevron-border-width $chevron-border-width 0 0;
+  border-color: currentcolor;
+
+  @if $direction == 'up' {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 2px;
+  } @else {
+    transform: rotate(135deg);
+    position: relative;
+    top: -2px;
+  }
+}
 
 .cads-greedy-nav {
   white-space: nowrap; // prevent flash of unstyled content
@@ -98,25 +122,17 @@
     }
 
     &::after {
-      @include cads-icon;
+      @include cads-navigation-chevron($direction: 'down');
 
-      content: '\0044';
-      display: inline-block;
-      transform: rotate(270deg);
-      font-size: 0.75rem;
-      margin-left: $cads-spacing-1;
-      top: 1px;
-      position: relative;
+      margin-left: $cads-spacing-2;
     }
 
     &:hover {
       cursor: pointer;
     }
 
-    &.is-open {
-      &::after {
-        transform: rotate(90deg);
-      }
+    &.is-open::after {
+      @include cads-navigation-chevron($direction: 'up');
     }
 
     &.cads-greedy-nav-is-hidden {
