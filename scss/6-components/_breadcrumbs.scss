@@ -1,12 +1,28 @@
 @use 'sass:map';
 
-// can't extend a placeholder across selectors (media query) so use a mixin instead.
-@mixin cads-breadcrumb-arrow {
-  @include cads-icon;
+@mixin cads-breadcrumb-chevron($direction: 'left') {
+  // Size of chevron (excluding border)
+  $chevron-size: 6px;
 
-  color: $cads-language__input-border-colour;
-  margin-right: calc(#{$cads-spacing-3} - 6px);
-  font-size: 7px; // Fix size as this is a symbol
+  // Size of chevron border
+  $chevron-border-width: 1.5px;
+
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: $chevron-size;
+  height: $chevron-size;
+  border: solid;
+  border-width: $chevron-border-width $chevron-border-width 0 0;
+  border-color: $cads-language__input-border-colour;
+
+  @if $direction == 'right' {
+    transform: rotate(-135deg);
+    margin: 0 calc(#{$cads-spacing-4} - #{$chevron-size}) 0 $cads-spacing-4;
+  } @else {
+    transform: rotate(45deg);
+    margin: 0 calc(#{$cads-spacing-3} - #{$chevron-size}) 0 0;
+  }
 }
 
 /** @define breadcrumbs */
@@ -33,9 +49,7 @@
     margin-left: $cads-spacing-3;
 
     + .cads-breadcrumbs__crumb::before {
-      @include cads-breadcrumb-arrow;
-
-      content: '\0041';
+      @include cads-breadcrumb-chevron;
     }
   }
 
@@ -50,12 +64,9 @@
       display: flex;
 
       &::before {
-        @include cads-breadcrumb-arrow;
+        @include cads-breadcrumb-chevron($direction: 'right');
 
         align-self: center;
-        content: '\0044';
-        margin: 0 calc(#{$cads-spacing-4} - 6px) 0 $cads-spacing-4;
-        color: $cads-language__input-border-colour;
       }
     }
   }
@@ -77,10 +88,9 @@
         }
 
         &::before {
-          @include cads-breadcrumb-arrow;
+          @include cads-breadcrumb-chevron;
 
           margin-left: $cads-spacing-3;
-          content: '\0041';
         }
       }
     }
