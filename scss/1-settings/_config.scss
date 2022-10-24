@@ -2,4 +2,8 @@
 // Config flags
 // ============================================================================
 
+// Allow external link icons to be disabled
 $cads-enable-external-link-icon: true !default;
+
+// Allow the icon font-face declaration to be disabled
+$cads-enable-icon-font: true !default;

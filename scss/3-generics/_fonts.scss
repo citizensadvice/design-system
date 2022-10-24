@@ -32,19 +32,21 @@
 // Icon font
 // ============================================================================
 
-@font-face {
-  font-family: cads;
-  src: url('../../assets/fonts/cads.eot?d7dccfce9cf3c38908cc8e38fb40341b?#iefix')
-      format('embedded-opentype'),
-    url('../../assets/fonts/cads.woff?d7dccfce9cf3c38908cc8e38fb40341b')
-      format('woff'),
-    url('../../assets/fonts/cads.ttf?d7dccfce9cf3c38908cc8e38fb40341b')
-      format('truetype'),
-    url('../../assets/fonts/cads.svg?d7dccfce9cf3c38908cc8e38fb40341b#cads')
-      format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+@if $cads-enable-icon-font == true {
+  @font-face {
+    font-family: cads;
+    src: url('../../assets/fonts/cads.eot?d7dccfce9cf3c38908cc8e38fb40341b?#iefix')
+        format('embedded-opentype'),
+      url('../../assets/fonts/cads.woff?d7dccfce9cf3c38908cc8e38fb40341b')
+        format('woff'),
+      url('../../assets/fonts/cads.ttf?d7dccfce9cf3c38908cc8e38fb40341b')
+        format('truetype'),
+      url('../../assets/fonts/cads.svg?d7dccfce9cf3c38908cc8e38fb40341b#cads')
+        format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
 }
 
 @mixin cads-icon {
