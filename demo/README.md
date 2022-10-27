@@ -25,7 +25,7 @@ npm run build
 from the project root and then:
 
 ```sh
-./bin/webpack
+./bin/rails assets:precompile
 ```
 
 from the `demo` directory.

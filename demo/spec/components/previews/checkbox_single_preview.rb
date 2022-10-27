@@ -12,6 +12,4 @@ class CheckboxSinglePreview < ViewComponent::Preview
       c.checkbox(label: "I agree to the great terms and conditions", value: "agreed-to-tcs")
     end
   end
-
-  private
 end

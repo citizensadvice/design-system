@@ -11,7 +11,7 @@ class TextareaPreview < ViewComponent::Preview
     copy = "Amet parturient platea augue natoque vitae sem parturient senectus nisi sit nascetur penatibus neque scelerisque rutrum nisl amet odio adipiscing.Ad consectetur quam taciti faucibus etiam parturient a sed."
     render(
       CitizensAdviceComponents::Textarea.new(name: "example-input-value", label: "Example input",
-                                              options: { value: copy })
+                                             options: { value: copy })
     )
   end
 
