@@ -1,70 +1,51 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Badge, type: :component do
-  let(:component) do
-    described_class.new(type: type.presence)
-  end
+  subject { page }
 
-  let(:type) { nil }
-
-  it "does not render when type is missing" do
-    without_fetch_or_fallback_raises do
-      render_inline component
-      expect(page).to have_no_selector ".cads-badge"
+  context "when type is missing" do
+    before do
+      without_fetch_or_fallback_raises do
+        render_inline described_class.new(type: nil)
+      end
     end
+
+    it { is_expected.to have_no_selector ".cads-badge" }
   end
 
   context "when type is example" do
-    let(:type) { :example }
+    before { render_inline described_class.new(type: :example) }
 
-    it "has the correct label" do
-      render_inline component
-      expect(page).to have_selector ".cads-badge--example", text: "Example"
-    end
+    it { is_expected.to have_selector ".cads-badge--example", text: "Example" }
 
     context "when welsh language" do
-      before { I18n.locale = :cy }
+      around { |example| I18n.with_locale(:cy) { example.run } }
 
-      it "has translated label" do
-        render_inline component
-        expect(page).to have_text "Enghraifft"
-      end
+      it { is_expected.to have_text "Enghraifft" }
     end
   end
 
   context "when type is important" do
-    let(:type) { :important }
+    before { render_inline described_class.new(type: :important) }
 
-    it "has the correct label" do
-      render_inline component
-      expect(page).to have_selector ".cads-badge--important", text: "Important"
-    end
+    it { is_expected.to have_selector ".cads-badge--important", text: "Important" }
 
     context "when welsh language" do
-      before { I18n.locale = :cy }
+      around { |example| I18n.with_locale(:cy) { example.run } }
 
-      it "has translated label" do
-        render_inline component
-        expect(page).to have_text "Pwysig"
-      end
+      it { is_expected.to have_text "Pwysig" }
     end
   end
 
   context "when type is adviser" do
-    let(:type) { :adviser }
+    before { render_inline described_class.new(type: :adviser) }
 
-    it "has the correct label" do
-      render_inline component
-      expect(page).to have_selector ".cads-badge--adviser", text: "Adviser"
-    end
+    it { is_expected.to have_selector ".cads-badge--adviser", text: "Adviser" }
 
     context "when welsh language" do
-      before { I18n.locale = :cy }
+      around { |example| I18n.with_locale(:cy) { example.run } }
 
-      it "has translated label" do
-        render_inline component
-        expect(page).to have_text "Cynghorydd"
-      end
+      it { is_expected.to have_text "Cynghorydd" }
     end
   end
 end

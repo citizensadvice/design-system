@@ -1,86 +1,70 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Callout, type: :component do
-  subject(:component) do
-    render_inline(described_class.new(type: type.presence, title: title.presence)) do
-      "Example content"
+  subject { page }
+
+  context "with default arguments" do
+    before do
+      render_inline(described_class.new(type: :standard)) { "Example content" }
     end
-  end
 
-  let(:type) { :standard }
-  let(:title) { nil }
-
-  it "renders content block" do
-    expect(component.text).to include "Example content"
+    it { is_expected.to have_selector ".cads-callout", text: "Example content" }
   end
 
   context "when missing type" do
-    let(:type) { nil }
-
-    it "renders a standard callout" do
+    before do
       without_fetch_or_fallback_raises do
-        expect(component.at(".cads-callout--standard")).to be_present
+        render_inline(described_class.new) { "Example content" }
       end
     end
 
-    it "does not render a badge" do
-      without_fetch_or_fallback_raises do
-        expect(component.at(".cads-badge")).not_to be_present
-      end
-    end
+    it { is_expected.to have_selector ".cads-callout--standard" }
+    it { is_expected.to have_no_selector ".cads-badge" }
   end
 
   context "when type is example" do
-    let(:type) { :example }
-
-    it "renders an example callout" do
-      expect(component.at(".cads-callout--example")).to be_present
+    before do
+      render_inline(described_class.new(type: :example)) { "Example content" }
     end
 
-    it "has expected badge" do
-      expect(component.at(".cads-badge--example")).to be_present
-    end
+    it { is_expected.to have_selector ".cads-callout--example" }
+    it { is_expected.to have_selector ".cads-badge", text: "Example" }
   end
 
   context "when type is important" do
-    let(:type) { :important }
-
-    it "renders an important callout" do
-      expect(component.at(".cads-callout--important")).to be_present
+    before do
+      render_inline(described_class.new(type: :important)) { "Example content" }
     end
 
-    it "has expected badge" do
-      expect(component.at(".cads-badge--important")).to be_present
-    end
+    it { is_expected.to have_selector ".cads-callout--important" }
+    it { is_expected.to have_selector ".cads-badge--important", text: "Important" }
   end
 
   context "when type is adviser" do
-    let(:type) { :adviser }
-
-    it "renders an adviser callout" do
-      expect(component.at(".cads-callout--adviser")).to be_present
+    before do
+      render_inline(described_class.new(type: :adviser)) { "Example content" }
     end
 
-    it "has expected badge" do
-      expect(component.at(".cads-badge--adviser")).to be_present
-    end
+    it { is_expected.to have_selector ".cads-callout--adviser" }
+    it { is_expected.to have_selector ".cads-badge--adviser", text: "Adviser" }
   end
 
   context "when title is provided" do
-    let(:title) { "Descriptive title" }
-
-    it "Includes descriptive aria-label" do
-      expect(component.at("section").attr("aria-label")).to eq "Descriptive title"
+    before do
+      render_inline(described_class.new(
+                      type: :adviser,
+                      title: "Descriptive title"
+                    )) { "Example content" }
     end
+
+    it { is_expected.to have_selector "section[aria-label='Descriptive title']" }
   end
 
   context "when no content present" do
-    subject(:component) do
+    before do
       render_inline(described_class.new(type: :standard))
     end
 
-    it "does not render" do
-      expect(component.at("section")).not_to be_present
-    end
+    it { is_expected.to have_no_selector ".cads-callout" }
   end
 end
