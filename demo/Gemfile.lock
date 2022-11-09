@@ -12,7 +12,7 @@ PATH
   specs:
     citizens_advice_components (0.1.0)
       actionpack (>= 6.0.0, < 8.0)
-      rails-i18n (>= 6.0.0, < 8.0)
+      rails-i18n (= 7.0.5)
       railties (>= 6.0.0, < 8.0)
       view_component (>= 2.0.0, < 3.0)
 
@@ -170,7 +170,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails-i18n (7.0.3)
+    rails-i18n (7.0.5)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
     railties (7.0.4)
@@ -219,8 +219,9 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.3.0)
-    view_component (2.52.0)
+    view_component (2.75.0)
       activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -230,7 +231,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.6.1)
+    zeitwerk (2.6.6)
 
 PLATFORMS
   ruby
