@@ -12,7 +12,7 @@ PATH
   specs:
     citizens_advice_components (0.1.0)
       actionpack (>= 6.0.0, < 8.0)
-      rails-i18n (>= 6.0.0, < 8.0)
+      rails-i18n (= 7.0.5)
       railties (>= 6.0.0, < 8.0)
       view_component (>= 2.0.0, < 3.0)
 
@@ -125,7 +125,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.18.0)
+    loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     method_source (1.0.0)
@@ -153,7 +153,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails-i18n (7.0.3)
+    rails-i18n (7.0.5)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
     railties (7.0.3.1)
@@ -199,11 +199,12 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
-    view_component (2.52.0)
+    view_component (2.75.0)
       activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
     webrick (1.7.0)
-    zeitwerk (2.6.0)
+    zeitwerk (2.6.6)
 
 PLATFORMS
   ruby
@@ -220,4 +221,4 @@ DEPENDENCIES
   puma (~> 5.6)
 
 BUNDLED WITH
-   2.2.31
+   2.3.21
