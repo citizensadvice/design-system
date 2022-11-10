@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- Fix: Pin `rails-i18n` to `7.0.5` as `7.0.6` removes Welsh language locales due to lack of support. Temporary fix to maintain support.
+
 ## v5.5.0-alpha.1
 
 ### 13 October 2022
