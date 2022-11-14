@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   # rails-i18n is pinned to 7.0.5 as 7.0.6 removes welsh language locales
   # due to lack of support. We only use these locales for basic date formats
   # so we could inline the parts we need and remove this dependency in future.
-  spec.add_runtime_dependency "rails-i18n", "7.0.5"
+  spec.add_runtime_dependency "rails-i18n", "7.0.6"
   spec.add_runtime_dependency "view_component", [">= 2.0.0", "< 3.0"]
 end
