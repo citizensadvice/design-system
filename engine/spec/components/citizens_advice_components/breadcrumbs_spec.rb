@@ -1,119 +1,111 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "breadcrumbs" do
-  it "renders the correct number of breadcrumbs" do
-    expect(component.css("li").length).to eq 3
-  end
-
-  it "renders the current page as a span" do
-    expect(component.css("span").text.strip).to eq "Staying in the UK"
-  end
-
-  it "renders the current page with an aria-current of 'location' by default" do
-    expect(component.css("span").attribute("aria-current").value).to eq "location"
-  end
-
-  it "renders the breadcrumbs in full width mode by default" do
-    expect(component.css(".cads-breadcrumbs-wrapper")).to be_present
-  end
-end
-
 RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
-  subject(:component) do
-    render_inline(
-      described_class.new(
-        type: type.presence,
-        links: links.presence
-      )
-    )
-  end
+  subject { page }
 
-  let(:type) { :collapse }
-  let(:links) do
-    [
-      {
-        title: "Home",
-        url: "/"
-      },
-      {
-        title: "Immigration",
-        url: "/immigration"
-      },
-      {
-        title: "Staying in the UK"
-      }
-    ]
-  end
+  context "when no links are present" do
+    before { render_inline described_class.new(links: []) }
 
-  it_behaves_like "breadcrumbs"
-
-  context "when no_collapse type is provided" do
-    let(:type) { :no_collapse }
-
-    it "renders the the non-collapsible version" do
-      expect(component.css(".cads-breadcrumbs--no-collapse")).to be_present
-    end
-  end
-
-  context "when no links are provided" do
-    let(:links) { nil }
-
-    it "does not render" do
-      expect(component.css(".cads-breadcrumbs")).not_to be_present
-    end
+    it { is_expected.to have_no_selector ".cads-breadcrumbs" }
   end
 
   context "when there is only one item" do
-    let(:links) { [{ title: "Home", url: "/" }] }
-
-    it "does not render" do
-      expect(component.css(".cads-breadcrumbs")).not_to be_present
+    before do
+      render_inline described_class.new(
+        links: [{ title: "Home", url: "/" }]
+      )
     end
+
+    it { is_expected.to have_no_selector ".cads-breadcrumbs" }
+  end
+
+  context "when links are provided" do
+    before do
+      render_inline described_class.new(
+        type: :collapse,
+        links: sample_links
+      )
+    end
+
+    it { is_expected.to have_selector "li", count: 3 }
+    it { is_expected.to have_selector "span[aria-current=location]", text: "Staying in the UK" }
+
+    it "renders the breadcrumbs in full width mode by default" do
+      expect(page).to have_selector ".cads-breadcrumbs-wrapper"
+    end
+  end
+
+  context "when no_collapse type is provided" do
+    before do
+      render_inline described_class.new(
+        type: :no_collapse,
+        links: sample_links
+      )
+    end
+
+    it { is_expected.to have_selector ".cads-breadcrumbs--no-collapse" }
   end
 
   context "when no type is provided" do
-    let(:type) { nil }
-
-    it "renders collapsible version by default" do
+    before do
       without_fetch_or_fallback_raises do
-        expect(component.css(".cads-breadcrumbs--collapse")).to be_present
+        render_inline described_class.new(
+          type: nil,
+          links: sample_links
+        )
       end
     end
+
+    it { is_expected.to have_selector ".cads-breadcrumbs--collapse" }
   end
 
   context "when not rendered on the current page" do
-    let(:current_page) { false }
-
-    it "does not add the aria-location attribute" do
-      expect(component.css("span").attribute("aria-location")).to be_nil
+    before do
+      render_inline described_class.new(
+        type: :collapse,
+        links: sample_links,
+        current_page: false
+      )
     end
+
+    it { is_expected.to have_no_selector "span[aria-current=location]" }
   end
 
   context "when not in full width mode" do
-    let(:full_width) { false }
-
-    it "does not wrap the component in the full width wrapper" do
-      expect(component.css(".cads-breadcrumb-wrapper")).to be_empty
+    before do
+      render_inline described_class.new(
+        type: :collapse,
+        links: sample_links,
+        full_width: false
+      )
     end
+
+    it { is_expected.to have_no_selector ".cads-breadcrumb-wrapper" }
   end
 
   context "when links are passed with the old style hash format" do
-    let(:links) do
-      [
-        {
-          "title" => "Home",
-          "url" => "/"
-        },
-        {
-          "title" => "Immigration",
-          "url" => "/immigration"
-        },
-        {
-          "title" => "Staying in the UK"
-        }
-      ]
+    before do
+      render_inline described_class.new(
+        type: :collapse,
+        links: [
+          { "title" => "Home", "url" => "/" },
+          { "title" => "Immigration", "url" => "/immigration" },
+          { "title" => "Staying in the UK" }
+        ]
+      )
     end
 
-    it_behaves_like "breadcrumbs"
+    it { is_expected.to have_selector "li", count: 3 }
+    it { is_expected.to have_selector "span[aria-current=location]", text: "Staying in the UK" }
+  end
+
+  private
+
+  def sample_links
+    [
+      { title: "Home", url: "/" },
+      { title: "Immigration", url: "/immigration" },
+      { title: "Staying in the UK" }
+    ]
   end
 end

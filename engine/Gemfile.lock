@@ -43,7 +43,6 @@ GEM
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
-    awesome_print (1.9.2)
     better_html (2.0.1)
       actionview (>= 6.0)
       activesupport (>= 6.0)
@@ -143,9 +142,6 @@ GEM
       rspec-expectations (~> 3.11)
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
-    rspec-snapshot (2.0.1)
-      awesome_print (> 1.0.0)
-      rspec (> 3.0.0)
     rspec-support (3.12.0)
     rubocop (1.30.1)
       parallel (~> 1.10)
@@ -194,7 +190,6 @@ DEPENDENCIES
   railties (~> 6.1)
   rspec
   rspec-rails
-  rspec-snapshot (~> 2.0)
   rubocop-rails
   rubocop-rspec
 

@@ -1,27 +1,25 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::NoticeBanner, type: :component do
-  subject(:component) do
-    render_inline(described_class.new(label: "Example label")) do
-      "Example content"
+  subject { page }
+
+  context "with default arguments" do
+    before do
+      render_inline(described_class.new(label: "Example label")) do
+        "Example content"
+      end
     end
-  end
 
-  it "has a label" do
-    expect(component.at("span").text).to include "Example label"
-  end
-
-  it "renders content block" do
-    expect(component.text).to include "Example content"
+    it { is_expected.to have_selector ".cads-notice-banner" }
+    it { is_expected.to have_selector "span", text: "Example label" }
+    it { is_expected.to have_text "Example content" }
   end
 
   context "when no content present" do
-    subject(:component) do
+    before do
       render_inline(described_class.new(label: "Example label"))
     end
 
-    it "does not render" do
-      expect(component.at(".cads-notice-banner")).not_to be_present
-    end
+    it { is_expected.to have_no_selector ".cads-notice-banner" }
   end
 end

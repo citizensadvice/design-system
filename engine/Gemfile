@@ -31,7 +31,6 @@ group :development, :test do
   gem "i18n-tasks"
   gem "rspec"
   gem "rspec-rails"
-  gem "rspec-snapshot", "~> 2.0"
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
 end

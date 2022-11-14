@@ -26,16 +26,3 @@ Metrics/ClassLength:
 
 RSpec/ExampleLength:
   CountAsOne: ['array', 'hash']
-
-# @FIXME
-Rails/I18nLocaleAssignment:
-  Exclude:
-    - 'spec/components/citizens_advice_components/badge_spec.rb'
-    - 'spec/components/citizens_advice_components/checkbox_group_spec.rb'
-    - 'spec/components/citizens_advice_components/header_spec.rb'
-    - 'spec/components/citizens_advice_components/input_spec.rb'
-    - 'spec/components/citizens_advice_components/page_review_spec.rb'
-    - 'spec/components/citizens_advice_components/pagination_spec.rb'
-    - 'spec/components/citizens_advice_components/search_spec.rb'
-    - 'spec/components/citizens_advice_components/targeted_content_spec.rb'
-    - 'spec/spec_helper.rb'

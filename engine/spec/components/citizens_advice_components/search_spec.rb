@@ -1,51 +1,42 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Search, type: :component do
-  subject(:component) do
-    render_inline(described_class.new)
-  end
+  subject { page }
 
-  it "renders search input" do
-    expect(component.at(".cads-search")).to be_present
-  end
+  context "with no arguments" do
+    before { render_inline(described_class.new) }
 
-  it "renders search button with label" do
-    expect(component.at("button").text).to include "Search"
-  end
+    it { is_expected.to have_selector ".cads-search" }
+    it { is_expected.to have_field "Search through site content" }
+    it { is_expected.to have_button "Search" }
 
-  it "has no value" do
-    expect(component.at("input[type=search]").attr("value")).to be_nil
-  end
+    it "has no value" do
+      input = page.find("input[type=search]").native
+      expect(input.attr("value")).to be_nil
+    end
 
-  it "has default param name" do
-    expect(component.at("input[type=search]").attr("name")).to eq "q"
+    it "has default param name" do
+      expect(page).to have_selector "input[name=q]"
+    end
+
+    context "when welsh language" do
+      around { |example| I18n.with_locale(:cy) { example.run } }
+
+      it { is_expected.to have_button "Chwilio" }
+    end
   end
 
   context "with value" do
-    subject(:component) do
-      render_inline(described_class.new(value: "Example value"))
-    end
+    before { render_inline(described_class.new(value: "Example value")) }
 
-    it "has a value" do
-      expect(component.at("input[type=search]").attr("value")).to eq "Example value"
-    end
+    it { is_expected.to have_field "Search through site content", with: "Example value" }
   end
 
   context "with custom param_name" do
-    subject(:component) do
-      render_inline(described_class.new(param_name: :query))
-    end
+    before { render_inline(described_class.new(param_name: :query)) }
 
     it "has custom param name" do
-      expect(component.at("input[type=search]").attr("name")).to eq "query"
-    end
-  end
-
-  context "when welsh language" do
-    before { I18n.locale = :cy }
-
-    it "has translated label" do
-      expect(component.at("button").text).to include "Chwilio"
+      expect(page).to have_selector "input[name=query]"
     end
   end
 end
