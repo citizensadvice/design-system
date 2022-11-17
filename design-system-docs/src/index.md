@@ -15,6 +15,6 @@ Foundations including colours, fonts, spacing, icons, and borders.
 
 Documentation for each component in the design system e.g. targeted content.
 
-### [Accessibility Statement](/accessibility-statement)
+### [Accessibility](/accessibility)
 
-The Design System accessibility statement and other accessibility information.
+Accessibility guidance and general accessibility information.

@@ -1,9 +1,7 @@
 ---
-title: Accessibility statement
+title: Accessibility
 layout: basic
 ---
-
-This accessibility statement refers only to the Design System elements and components.
 
 ## Accessibility and Design System
 
