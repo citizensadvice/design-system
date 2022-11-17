@@ -15,7 +15,7 @@ The Citizens Advice Design System has been designed, built and tested to meet th
 
 ## Where is the design system used?
 
-We have decided to introduce the design system to the Citizens Advice public website and AdviserNet gradually, making sure there are no disruptions to our services. So far the ‘Immigration’ and ‘Family’ sections use the design system. It is also used by our Intranet, smart meter checking tool, and referrals products.
+We have decided to introduce the design system to the Citizens Advice public website and AdviserNet gradually, making sure there are no disruptions to our services. So far, some sections of our public advice and internal AdviserNet tool use the design system. It is also used by our Intranet, smart meter checking tool, and referrals products.
 
 This gradual release approach helped us test all the elements and components in actual pages and in relation to each other. This is an important step as combining accessible pieces of code doesn’t always guarantee an accessible outcome, pages still need to be tested again to make sure the components used work in an accessible way.
 
