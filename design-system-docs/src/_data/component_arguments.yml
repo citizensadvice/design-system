@@ -3,9 +3,9 @@ icons:
     description: 'Defaults to <code>:small</code>. One of either <code>:small</code> (16px by 16px) or <code>:large</code> (24px by 24px).'
 button:
   - argument: variant
-    description: Either :primary, :secondary, or :tertiary. Defaults to :primary
+    description: 'Either <code>:primary</code>, <code>:secondary</code>, or <code>:tertiary</code>. Defaults to <code>:primary</code>'
   - argument: type
-    description: Either :button or :submit. Defaults to :button
+    description: 'Either <code>:button</code> or <code>:submit</code>. Defaults to <code>:button</code>'
   - argument: attributes
     description: Additional attributes are passed to the button
 asset_hyperlink:
@@ -28,7 +28,7 @@ pagination:
   - argument: current_params
     description: Current request query parameters
   - argument: param_name
-    description: Optional. Pagination param name, defaults to page
+    description: 'Optional. Pagination param name, defaults to <code>page</code>'
 page_review:
   - argument: page_review_date
     description: Required, date object for last reviewed date
@@ -43,11 +43,11 @@ targeted_content:
   - argument: title
     description: Required, title string
   - argument: type
-    description: Optional, one of public or adviser. Defaults to public
+    description: 'Optional, one of <code>public</code> or <code>adviser</code>. Defaults to <code>public</code>'
   - argument: heading_level
-    description: Optional, sets the heading level of the title. Defaults to 2
+    description: 'Optional, sets the heading level of the title. Defaults to <code>2</code>'
   - argument: close_button
-    description: Optional, include close button at the end of content. Defaults to true
+    description: 'Optional, include close button at the end of content. Defaults to <code>true</code>'
 radio_group:
   - argument: name
     description: Required, field name
@@ -55,18 +55,18 @@ radio_group:
     description: Required, the text for the label associated with the input
   - argument: options
     description: Optional, a hash with one or more of the following values
-  - argument: '→ hint'
-    description: Optional, hint text for the input
-  - argument: '→ error_message'
-    description: Optional, an error_message for the input
-  - argument: '→ optional'
-    description: Optional, boolean indicating the field is optional (ie not required)
-  - argument: '→ size'
-    description: Optional, the size of the radio buttons. One of nil, :small, :regular
-  - argument: '→ layout'
-    description: Optional, the layout of the radio buttons. One of nil, :inline, :list
-  - argument: '→ legend_heading'
-    description: Optional, wraps the text inside the legend in h1
+  - argument: hint
+    description: '→ Optional, hint text for the input'
+  - argument: error_message
+    description: '→ Optional, an error message for the input'
+  - argument: optional
+    description: '→ Optional, boolean indicating the field is optional (ie not required)'
+  - argument: size
+    description: '→ Optional, the size of the radio buttons. One of <code>nil</code>, <code>:small</code>, <code>:regular</code>'
+  - argument: layout
+    description: '→ Optional, the layout of the radio buttons. One of <code>nil</code>, <code>:inline</code>, <code>:list</code>'
+  - argument: legend_heading
+    description: '→ Optional, wraps the text inside the legend in <code>h1</code>'
 breadcrumbs:
   - argument: links
     description: Required, an array of hashes, each with the following
@@ -75,14 +75,14 @@ breadcrumbs:
   - argument: link[title]
     description: → Required, title for the breadcrumb link
   - argument: type
-    description: Optional, one of :collapse (default), :no_collapse
+    description: 'Optional, one of <code>:collapse</code> (default), <code>:no_collapse</code>'
   - argument: current_page
-    description: Optional, will render aria-location=current on last crumb if true. Defaults to true.
+    description: 'Optional, will render <code>aria-location=current</code> on last crumb if <code>true</code>. Defaults to <code>true</code>.'
   - argument: full_width
-    description: Optional, will wrap breadcrumbs in the .cads-breadcrumbs-wrapper div if true. Defaults to true.
+    description: 'Optional, will wrap breadcrumbs in the <code>.cads-breadcrumbs-wrapper</code> div if true. Defaults to <code>true</code>.'
 callout:
   - argument: type
-    description: Optional type. One of :standard, :example, :important, or :adviser. Defaults to :standard.
+    description: 'Optional type. One of <code>:standard</code>, <code>:example</code>, <code>:important</code>, or <code>:adviser</code>. Defaults to <code>:standard</code>.'
   - argument: label
     description: Optional, title used as aria-label
 search:
@@ -99,13 +99,13 @@ tables:
     description: 'Optional, <code>&lt;caption&gt;</code> text'
 on_this_page:
   - argument: show_nested_links
-    description: Optional, will display nested links if there are any. Defaults to false
+    description: 'Optional, will display nested links if there are any. Defaults to <code>false</code>'
 on_this_page_links_slot:
   - argument: id
     description: Required, used for linking content on the page, and for accessibility purposes
   - argument: label
     description: Required, the label of the link
-  - argument: id
+  - argument: children
     description: Optional, array for nested links
 footer:
   - argument: feedback_url
@@ -146,21 +146,19 @@ section_links:
     description: Required. A section title above the links
   - argument: section_title_url
     description: Optional. A link for the section title
-  - argument: section_links
-    description: 'Required, an array of hashes, each with the following:'
-  - argument: 'section_link[:url]'
-    description: '→ Required, url for the section link'
-  - argument: 'section_link[:title]'
-    description: '→ Required, title for the section link'
+section_links_links_slot:
+  - argument: url
+    description: 'Required, url for the section link'
+  - argument: title
+    description: 'Required, title for the section link'
 error_summary:
   - argument: heading_level
-    description: Optional, sets the heading level of the title. Defaults to 2
-  - argument: errors
-    description: 'Required, array of error messages and links, each with the following:'
-  - argument: 'error[:href]'
-    description: '→ Required, error href'
-  - argument: 'error[:message]'
-    description: '→ Required, error message'
+    description: 'Optional, sets the heading level of the title. Defaults to <code>2</code>'
+error_summary_errors_slot:
+  - argument: href
+    description: 'Required, error href'
+  - argument: message
+    description: 'Required, error message'
 disclosure:
   - argument: closed_summary
     description: 'Required, the button text when the component is closed'
@@ -190,14 +188,14 @@ text_input:
   - argument: 'options[:value]'
     description: '→ Optional, the value of the input'
   - argument: 'options[:additional_attributes]'
-    description: 'Optional, a hash of additional attributes rendered onto the input, eg <code>{ autocomplete: "name" }</code>'
+    description: '→ Optional, a hash of additional attributes rendered onto the input, eg <code>{ autocomplete: "name" }</code>'
 textarea:
   - argument: name
     description: Required, field name
   - argument: label
     description: Required, the text for the label associated with the input
   - argument: rows
-    description: 'Optional, the number of rows for the textarea. Defaults to 8'
+    description: 'Optional, the number of rows for the textarea. Defaults to <code>8</code>'
   - argument: options
     description: 'Optional, a hash with one or more of the following values:'
   - argument: 'options[:hint]'
@@ -214,7 +212,7 @@ checkbox:
   - argument: name
     description: Required, field name
   - argument: error_message
-    description: Optional, an error_message for the input
+    description: Optional, an error message for the input
 checkbox_group:
   - argument: name
     description: Required, field name
@@ -222,9 +220,9 @@ checkbox_group:
     description: Required, the text for the fieldset legend associated with the inputs
   - argument: options
     description: Optional, a hash with one or more of the following values
-  - argument: '→ hint'
-    description: Optional, hint text for the input
-  - argument: '→ error_message'
-    description: Optional, an error_message for the input
-  - argument: '→ optional'
-    description: Optional, boolean indicating the field is optional (ie not required)
+  - argument: hint
+    description: '→ Optional, hint text for the input'
+  - argument: error_message
+    description: '→ Optional, an error message for the input'
+  - argument: optional
+    description: '→ Optional, boolean indicating the field is optional (ie not required)'

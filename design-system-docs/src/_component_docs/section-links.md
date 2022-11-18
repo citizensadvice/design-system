@@ -28,4 +28,12 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 <%= render Shared::ArgumentsTable.new(:section_links) %>
 
+### Links slot
+
+The section links component accepts a required `links` slot. Links are an array of the following options:
+
+<%= render Shared::ArgumentsTable.new(:section_links_links_slot) %>
+
+### Custom content
+
 The component accepts a `custom_content` slot for additional content such as adviser only links. Please note that content will be rendered into a nav element which accepts flow content elements.
