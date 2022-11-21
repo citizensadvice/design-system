@@ -14,3 +14,7 @@ Foundations including colours, fonts, spacing, icons, and borders.
 ### [Components](/components)
 
 Documentation for each component in the design system e.g. targeted content.
+
+### [Accessibility](/accessibility)
+
+Accessibility guidance and general accessibility information.

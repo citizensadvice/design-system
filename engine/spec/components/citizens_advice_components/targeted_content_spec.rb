@@ -1,99 +1,85 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "public_targeted_content" do
-  it "renders" do
-    expect(component.at(".cads-targeted-content")).to be_present
-  end
-
-  it "has no label" do
-    expect(component.at(".cads-badge")).not_to be_present
-  end
-end
-
-RSpec.shared_examples "adviser_targeted_content" do
-  let(:badge) { component.at(".cads-badge") }
-
-  it "renders an adviser variant" do
-    expect(component.at(".cads-targeted-content--adviser")).to be_present
-  end
-
-  it "has adviser label" do
-    expect(badge.text).to eq "Adviser"
-  end
-
-  context "when welsh language" do
-    before { I18n.locale = :cy }
-
-    it "has translated label" do
-      expect(badge.text).to eq "Cynghorydd"
-    end
-  end
-end
-
 RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
-  subject(:component) do
-    render_inline(
-      described_class.new(
+  subject { page }
+
+  context "with default arguments" do
+    before do
+      render_inline described_class.new(
         id: "targeted-content-example",
-        type: type.presence,
-        title: title.presence,
-        heading_level: heading_level.presence
-      )
-    ) do
-      "Example content"
-    end
-  end
-
-  let(:type) { :public }
-  let(:title) { "Example title" }
-  let(:heading_level) { nil }
-
-  it "renders content block" do
-    expect(component.text).to include "Example content"
-  end
-
-  it_behaves_like "public_targeted_content"
-
-  it "has a h2 title by default" do
-    expect(component.at("h2").text.strip).to eq(title)
-  end
-
-  context "when missing type" do
-    let(:type) { nil }
-
-    around do |example|
-      without_fetch_or_fallback_raises do
-        example.run
+        title: "Example title",
+        type: :public
+      ) do
+        "Example content"
       end
     end
 
-    it "renders public targeted content" do
-      expect(component.at(".cads-targeted-content")).to be_present
+    it { is_expected.to have_selector ".cads-targeted-content", text: "Example content" }
+    it { is_expected.to have_selector "h2", text: "Example title" }
+    it { is_expected.to have_no_selector ".cads-badge" }
+  end
+
+  context "when missing type" do
+    before do
+      without_fetch_or_fallback_raises do
+        render_inline described_class.new(
+          id: "targeted-content-example",
+          title: "Example title",
+          type: nil
+        ) do
+          "Example content"
+        end
+      end
     end
 
-    it "does not have badge" do
-      expect(component.at(".cads-badge")).not_to be_present
-    end
+    it { is_expected.to have_selector ".cads-targeted-content" }
+    it { is_expected.to have_no_selector ".cads-badge" }
   end
 
   context "when type is adviser" do
-    let(:type) { :adviser }
+    before do
+      render_inline described_class.new(
+        id: "targeted-content-example",
+        title: "Example title",
+        type: :adviser
+      ) do
+        "Example content"
+      end
+    end
 
-    it_behaves_like "adviser_targeted_content"
+    it { is_expected.to have_selector ".cads-targeted-content--adviser" }
+    it { is_expected.to have_selector ".cads-badge", text: "Adviser" }
+
+    context "when welsh language" do
+      around { |example| I18n.with_locale(:cy) { example.run } }
+
+      it { is_expected.to have_selector ".cads-badge", text: "Cynghorydd" }
+    end
   end
 
   context "with custom heading_level" do
-    let(:heading_level) { 3 }
+    before do
+      render_inline described_class.new(
+        id: "targeted-content-example",
+        title: "Example title",
+        type: :public,
+        heading_level: heading_level
+      ) do
+        "Example content"
+      end
+    end
 
-    it "has h3 heading" do
-      expect(component.at("h3")).to be_present
+    context "with valid heading_level" do
+      let(:heading_level) { 3 }
+
+      it { is_expected.to have_selector "h3", text: "Example title" }
     end
 
     context "with heading_level under limit" do
       let(:heading_level) { 1 }
 
       it "has heading clamped to minimum" do
-        expect(component.at("h2")).to be_present
+        expect(page).to have_selector "h2", text: "Example title"
       end
     end
 
@@ -101,7 +87,7 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       let(:heading_level) { 7 }
 
       it "has heading clamped to maximum" do
-        expect(component.at("h6")).to be_present
+        expect(page).to have_selector "h6", text: "Example title"
       end
     end
 
@@ -109,18 +95,20 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       let(:heading_level) { "not_a_heading_level" }
 
       it "has heading set to default" do
-        expect(component.at("h2")).to be_present
+        expect(page).to have_selector "h2", text: "Example title"
       end
     end
   end
 
   context "when no content present" do
     subject(:component) do
-      render_inline(CitizensAdviceComponents::Callout.new(type: :standard))
+      render_inline described_class.new(
+        id: "targeted-content-example",
+        title: "Example title",
+        type: :public
+      )
     end
 
-    it "does not render" do
-      expect(component.at("section")).not_to be_present
-    end
+    it { is_expected.to have_no_selector ".cads-targeted-content" }
   end
 end

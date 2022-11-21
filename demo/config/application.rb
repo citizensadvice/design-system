@@ -23,9 +23,22 @@ Bundler.require(*Rails.groups)
 
 module Demo
   class Application < Rails::Application
-    config.load_defaults 6.1
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 7.0
+
     config.view_component.show_previews = true
     config.view_component.default_preview_layout = "component_preview"
-    config.view_component.preview_paths << "#{Rails.root}/spec/components/previews"
+    config.view_component.preview_paths << Rails.root.join("spec/components/previews")
+
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
+
+    # Don't generate system test files.
+    config.generators.system_tests = nil
   end
 end

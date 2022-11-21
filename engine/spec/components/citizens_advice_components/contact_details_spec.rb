@@ -1,21 +1,17 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::ContactDetails, type: :component do
-  context "when content is present" do
-    subject(:component) { described_class.new.with_content("Example content") }
+  subject { page }
 
-    it "renders content block" do
-      render_inline component
-      expect(page).to have_selector ".cads-contact-details", text: "Example content"
-    end
+  context "when content is present" do
+    before { render_inline described_class.new.with_content("Example content") }
+
+    it { is_expected.to have_selector ".cads-contact-details", text: "Example content" }
   end
 
   context "when no content present" do
-    subject(:component) { described_class.new }
+    before { render_inline described_class.new }
 
-    it "does not render" do
-      render_inline component
-      expect(page).to have_no_selector ".cads-contact-details"
-    end
+    it { is_expected.to have_no_selector ".cads-contact-details" }
   end
 end

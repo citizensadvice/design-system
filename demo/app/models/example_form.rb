@@ -42,7 +42,7 @@ class ExampleForm
   )
 
   def formatted_errors
-    errors.keys.map do |attr|
+    errors.attribute_names.map do |attr|
       { href: id_for(attr), message: errors[attr].first }
     end
   end
