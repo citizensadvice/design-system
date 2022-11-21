@@ -22,8 +22,8 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
       expect(page).to have_selector "#example-input-input"
     end
 
-    it "includes required attribute" do
-      expect(page).to have_selector "input[required]"
+    it "includes aria-required attribute" do
+      expect(page).to have_selector "input[aria-required=true]"
     end
 
     it "does not have an aria-describedby attribute by default" do
@@ -84,8 +84,8 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
 
     it { is_expected.to have_text "(optional)" }
 
-    it "does not add required to the input" do
-      expect(page).to have_no_selector "input[required]"
+    it "does not add aria-required to the input" do
+      expect(page).to have_selector "input[aria-required=false]"
     end
 
     context "when in Cymraeg" do
