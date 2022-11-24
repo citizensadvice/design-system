@@ -19,8 +19,8 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
       expect(page).to have_selector "#example-textarea-input"
     end
 
-    it "includes required attribute" do
-      expect(page).to have_selector "textarea[required]"
+    it "includes aria-required attribute" do
+      expect(page).to have_selector "textarea[aria-required=true]"
     end
 
     it "does not have an aria-describedby attribute by default" do
