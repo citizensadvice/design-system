@@ -2,7 +2,7 @@
 
 [![Continuous Integration](https://github.com/citizensadvice/design-system/actions/workflows/ci-workflow.yml/badge.svg)](https://github.com/citizensadvice/design-system/actions/workflows/ci-workflow.yml)
 
-[View the documentation site](https://citizensadvice.github.io/design-system/)
+[View the documentation site](https://citizens-advice-design-system.netlify.app/)
 
 ## Getting started
 
