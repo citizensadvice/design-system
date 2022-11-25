@@ -219,7 +219,6 @@ DEPENDENCIES
   htmlbeautifier
   nokogiri
   puma (~> 5.6)
-  view_component (= 2.74.1)
 
 BUNDLED WITH
    2.3.21

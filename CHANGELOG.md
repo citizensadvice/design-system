@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- Includes a fix for ViewComponent `TypeError: no implicit conversion of nil into String` errors when used outside of Rails
+
 **New**
 
 - Input: Replace the `required` attribute on inputs with `aria-required`
