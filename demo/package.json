@@ -24,7 +24,7 @@
     "cypress": "^10.11.0",
     "cypress-axe": "^1.0.0",
     "cypress-plugin-tab": "^1.0.5",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.0",
     "start-server-and-test": "^1.14.0"
   }
 }
