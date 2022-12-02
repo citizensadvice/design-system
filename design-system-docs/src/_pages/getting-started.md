@@ -3,7 +3,7 @@ title: Getting started
 layout: basic
 ---
 
-👋🏼 Hi there! Let's get you started.
+👋 Hi there! Let's get you started.
 
 The design system component library is made up of two packages:
 

@@ -22,7 +22,7 @@ task generate_examples: :environment do
         @session.get "/rails/view_components/#{preview.preview_name}/#{example}"
         doc = Nokogiri::HTML.parse(@session.response.body)
         component_html = doc.css("#content").inner_html
-        output_path = Rails.application.root.join("../styleguide/examples/#{component_key}.html")
+        output_path = Rails.application.root.join("../examples/#{component_key}.html")
         FileUtils.mkdir_p(output_path.dirname)
         puts "Generated #{component_key}"
         File.write output_path, component_html.to_s.strip
@@ -34,7 +34,7 @@ task generate_examples: :environment do
     @session.get "/#{slug}"
     doc = Nokogiri::HTML.parse(@session.response.body)
     component_html = doc.css("#content").inner_html
-    output_path = Rails.application.root.join("../styleguide/examples/sample_pages/#{slug}.html")
+    output_path = Rails.application.root.join("../examples/sample_pages/#{slug}.html")
     FileUtils.mkdir_p(output_path.dirname)
     puts "Writing sample page to #{output_path}"
     File.write output_path, component_html.to_s.strip

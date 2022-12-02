@@ -9,7 +9,7 @@ Error summary and messages are used to highlight where users need to change info
 - entered the wrong username and/or password and can’t log in to AdviserNet
 - haven’t filled in all the required fields in a tool or form
 - haven’t entered a required character, like ‘@’ in an email address
-- They’re important because they help users quickly work out what they need to change to finish their task. - They also help you get the right information from them.
+- They’re important because they help users quickly work out what they need to change to finish their task. They also help you get the right information from them.
 
 The error summary contains a title and a list of errors. The list contains anchor page links that will take users to the answer or field they relate to. Always show an error summary when there is a validation error, even if there’s only one.
 
@@ -63,3 +63,9 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 ### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:error_summary) %>
+
+### Errors slot
+
+The error summary component accepts a required `errors` slot. Errors are an array of the following options:
+
+<%= render Shared::ArgumentsTable.new(:error_summary_errors_slot) %>

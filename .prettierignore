@@ -1,5 +1,4 @@
 # Ignore vendor files
-.storybook/vendor/
 vendor/
 
 # Ignore generated files

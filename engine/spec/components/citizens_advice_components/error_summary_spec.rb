@@ -4,9 +4,7 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
   subject { page }
 
   context "when there are no errors provided" do
-    before do
-      render_inline described_class.new
-    end
+    before { render_inline described_class.new }
 
     it { is_expected.not_to have_selector "cads-error-summary" }
   end

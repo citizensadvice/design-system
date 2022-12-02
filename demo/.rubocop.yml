@@ -1,0 +1,18 @@
+inherit_gem:
+  citizens-advice-style:
+    - default.yml
+    - default-rails.yml
+
+Metrics/MethodLength:
+  CountAsOne: ['hash', 'array']
+
+Metrics/ClassLength:
+  Exclude:
+    - spec/components/previews/**/*
+
+Layout/LineLength:
+  Exclude:
+    - spec/components/previews/**/*
+
+Rails/I18nLocaleTexts:
+  Enabled: false

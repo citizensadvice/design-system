@@ -16,6 +16,6 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 <%= render(Shared::ComponentExampleSource.new(:pagination, :default)) %>
 
-### View Component Options
+### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:pagination) %>

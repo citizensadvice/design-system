@@ -59,7 +59,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: '2.7.4'
+          ruby-version: '3.0.4'
           working-directory: engine
       - run: bundle exec rubocop --format github
       - run: bundle exec erblint --lint-all
@@ -85,7 +85,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.4'
+          ruby-version: '3.0.4'
           bundler-cache: true
           working-directory: demo
 
@@ -101,7 +101,7 @@ jobs:
           working-directory: demo
 
       # Run asset build
-      - run: ./bin/webpack
+      - run: ./bin/rails assets:precompile
         working-directory: demo
 
       # Run cypress tests
@@ -138,7 +138,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.4'
+          ruby-version: '3.0.4'
           bundler-cache: true
           working-directory: demo
 
@@ -159,26 +159,35 @@ jobs:
             demo/visual-regression/backstop_data/bitmaps_test
           retention-days: 3
 
-  # Actions can run in parallel at the job or the workflow level.
-  # In order to run our build-dependent tests in parallel we need a way
-  # to build the docs and then "seed" each stage with a copy.
-  # We can do this using using artifacts along with a `needs` clause on each job
-  # See: https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#sharing-data-between-jobs
-  #      https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs
-  build:
+  # Runs a build of the docs website as a smoke test
+  # to check there's no build failures
+  # This is in addition to any builds run when adding the
+  # "docs preview" label to a pull request.
+  docs-build:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
+
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
       - uses: bahmutov/npm-install@v1
       - run: npm run build
-      - run: npm run docs:build
-      - uses: actions/upload-artifact@v3
+
+      # Setup docs site
+      - uses: ruby/setup-ruby@v1
         with:
-          name: docs-build
-          path: |
-            docs
-            lib
-          retention-days: 1
+          ruby-version: '2.7.4'
+          bundler-cache: true
+          working-directory: design-system-docs
+
+      # Yarn install
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: design-system-docs
+
+      - run: ./bin/bridgetown build
+        working-directory: design-system-docs

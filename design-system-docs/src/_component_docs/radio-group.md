@@ -75,6 +75,6 @@ Used for one question per page forms. Using similar approach to the one describe
 
 <%= render(Shared::ComponentExample.new(:radio_group, :legend_heading)) %>
 
-### View Component Options
+### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:radio_group) %>

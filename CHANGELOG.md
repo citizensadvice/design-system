@@ -1,5 +1,22 @@
 **New**
 
+- Input: Replace the `required` attribute on inputs with `aria-required`
+
+## v5.5.0-alpha.2
+
+### 10 November 2022
+
+**Bugfixes**
+
+- Fix: Pin `rails-i18n` to `7.0.5` as `7.0.6` removes Welsh language locales due to lack of support. Temporary fix to maintain support.
+
+## v5.5.0-alpha.1
+
+### 13 October 2022
+
+**New**
+
+- Fix label being assigned as checkbox attribute in Ruby 3+
 - SCSS: Allows nav link colours to be customised using dedicated language variables.
 - Engine: Haml is no longer a dependency of the Rails engine. All component templates now use ERB internally. This doesn't affect the ability to use Haml in app code. If you were unintentionally relying on `haml-rails` being present in your app you will need to add it to your project Gemfile. 
 - Page form: Introducing a new `.cads-page-form` class to be used mainly for form pages.

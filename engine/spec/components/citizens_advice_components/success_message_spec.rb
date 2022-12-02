@@ -1,26 +1,21 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::SuccessMessage, type: :component do
-  subject(:component) do
-    rendered = render_inline(described_class.new(message: message))
-    rendered.at(".cads-success-message")
-  end
+  subject { page }
 
-  let(:message) { "Thank you for your feedback" }
+  context "with default arguments" do
+    before do
+      render_inline described_class.new(message: "Thank you for your feedback")
+    end
 
-  it "renders message" do
-    expect(component.text.strip).to include message
-  end
+    it { is_expected.to have_selector ".cads-success-message", text: "Thank you for your feedback" }
 
-  it "renders aria-live region" do
-    expect(component.attr("aria-live")).to eq "polite"
+    it { is_expected.to have_selector "[aria-live=polite]" }
   end
 
   context "when no message present" do
-    let(:message) { nil }
+    before { render_inline described_class.new(message: nil) }
 
-    it "does not render" do
-      expect(component).not_to be_present
-    end
+    it { is_expected.to have_no_selector ".cads-success-message" }
   end
 end

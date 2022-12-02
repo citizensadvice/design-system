@@ -24,6 +24,9 @@ module TestHelpers
   end
 end
 
+# enable [aria-label] support for field finders
+Capybara.enable_aria_label = true
+
 RSpec.configure do |config|
   config.include ActiveSupport::Testing::TimeHelpers
   config.include ViewComponent::TestHelpers, type: :component

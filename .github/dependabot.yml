@@ -15,10 +15,6 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-    ignore:
-      - dependency-name: '@storybook/*'
-      # Requires webpack v5 but storybook bundles v4
-      - dependency-name: 'sass-loader'
 
   ##
   # Rails engine

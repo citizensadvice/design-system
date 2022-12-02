@@ -92,7 +92,7 @@ module CitizensAdviceComponents
         id: input_id,
         name: name,
         value: value,
-        required: required?,
+        "aria-required": required?,
         "aria-invalid": error?,
         "aria-describedby": described_by
       }
