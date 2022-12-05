@@ -28,7 +28,7 @@ gem "citizens_advice_components", path: "../engine"
 # @FIXME: Pin view_component to a fixed version due to
 # a view_component_path error in v2.75.0 when used with bridgetown
 # See: https://github.com/bridgetownrb/bridgetown-view-component/issues/3
-gem "view_component", "2.74.1"
+gem "view_component", "2.78.0"
 
 group :bridgetown_plugins do
   gem "bridgetown-seo-tag"
