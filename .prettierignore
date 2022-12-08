@@ -7,11 +7,6 @@ CHANGELOG.md
 docs/
 lib/
 
-# Ignore locale files from prettier
-# formatted by i18n-tasks
-/engine/config/locales/
-/demo/config/locales/
-
 # Ignore Rails demo app files
 /demo/public/
 /demo/visual-regression/backstop_data/

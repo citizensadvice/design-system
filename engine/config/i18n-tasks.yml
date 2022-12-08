@@ -19,3 +19,10 @@ search:
     - 'app/components'
   relative_roots:
     - 'app/components'
+
+# Ignore core locale translations from linting rules as
+# they are already included by Rails for the default en locale.
+ignore_missing:
+  - 'date.*'
+ignore_unused:
+  - 'date.*'

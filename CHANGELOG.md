@@ -1,7 +1,7 @@
-
 **Bugfixes**
 
 - On this page: Fix css columns overflow bug with expandable on this-page elements.
+- Bundle Welsh translations for core date formats. The rails-i18n gem historically provided these but the cy locale was removed in `7.0.6` due to lack of support
 
 ## v5.5.0-alpha.2
 
