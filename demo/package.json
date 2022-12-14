@@ -15,15 +15,15 @@
   },
   "dependencies": {
     "esbuild": "^0.15.15",
-    "sass": "^1.55.0"
+    "sass": "^1.56.2"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.3",
-    "axe-core": "^4.5.1",
+    "axe-core": "^4.6.0",
     "backstopjs": "^6.1.4",
     "cypress": "^10.11.0",
     "cypress-axe": "^1.1.0",
     "cypress-plugin-tab": "^1.0.5",
-    "start-server-and-test": "^1.14.0"
+    "start-server-and-test": "^1.15.2"
   }
 }
