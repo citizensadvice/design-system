@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.3",
-    "axe-core": "^4.6.0",
+    "axe-core": "^4.6.1",
     "backstopjs": "^6.1.4",
     "cypress": "^10.11.0",
     "cypress-axe": "^1.2.0",
