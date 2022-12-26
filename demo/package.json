@@ -14,7 +14,7 @@
     "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "dependencies": {
-    "esbuild": "^0.16.9",
+    "esbuild": "^0.16.10",
     "sass": "^1.56.2"
   },
   "devDependencies": {
