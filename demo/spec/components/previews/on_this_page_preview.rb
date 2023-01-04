@@ -1,9 +1,25 @@
 # frozen_string_literal: true
 
 class OnThisPagePreview < ViewComponent::Preview
-  def example
+  def with_columns
     render CitizensAdviceComponents::OnThisPage.new do |c|
-      c.links(links)
+      c.links([
+        { label: "Link 1", id: "link-1" },
+        { label: "Link 2", id: "link-2" },
+        { label: "Link 3", id: "link-3" },
+        { label: "Link 4", id: "link-4" }
+      ])
+    end
+  end
+
+  def with_no_columns
+    # Fewer than four links should not use multi-column layout
+    render CitizensAdviceComponents::OnThisPage.new do |c|
+      c.links([
+        { label: "Link 1", id: "link-1" },
+        { label: "Link 2", id: "link-2" },
+        { label: "Link 3", id: "link-3" }
+      ])
     end
   end
 

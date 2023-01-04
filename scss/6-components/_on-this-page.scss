@@ -8,29 +8,19 @@
   padding: $cads-spacing-4;
   margin: 0 0 $cads-spacing-5 0;
 
-  &__title {
+  .cads-on-this-page__title {
     @extend %cads-h4;
 
     margin: 0 0 $cads-spacing-4 0;
     color: $cads-language__secondary-text-colour;
   }
 
-  &__list {
+  .cads-on-this-page__list {
     @extend %cads-list-no-bullet;
 
     padding: 0;
     margin: 0;
     list-style-type: none;
-  }
-
-  &__list-item {
-    position: relative;
-
-    @include cads-media-breakpoint-up(md) {
-      -webkit-column-break-inside: avoid;
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
   }
 }
 
@@ -47,6 +37,12 @@
 
   .cads-on-this-page__list-item {
     @include cads-media-breakpoint-up(md) {
+      // Avoid breaks within css column items
+      // https://css-tricks.com/almanac/properties/b/break-inside/
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+
       // the two column layout extends the inline bottom border of a focused link
       // into the next column.
       // We can compensate for this by adding some additional padding to this containing
@@ -63,12 +59,15 @@
 ///
 .cads-on-this-page--expandable {
   .cads-on-this-page__list {
-    columns: 1;
     padding-left: cads-rem(18px);
 
     @include cads-media-breakpoint-up(md) {
       padding-left: $cads-spacing-5;
     }
+  }
+
+  .cads-on-this-page__list-item {
+    position: relative;
   }
 
   .cads-on-this-page__list-item:last-of-type {

@@ -136,8 +136,12 @@ module.exports = function backstopCommon(baseUrl) {
         misMatchThreshold: 0.4,
       },
       {
-        label: 'Components/On this page (example)',
-        url: componentUrlFor('on_this_page/example'),
+        label: 'Components/On this page (with columns)',
+        url: componentUrlFor('on_this_page/with_columns'),
+      },
+      {
+        label: 'Components/On this page (with no columns)',
+        url: componentUrlFor('on_this_page/with_no_columns'),
       },
       {
         label: 'Components/On this page (with nested links)',

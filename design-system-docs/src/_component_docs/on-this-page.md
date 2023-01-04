@@ -4,11 +4,21 @@ title: On this page
 
 ## Examples
 
-### Default
+### With columns
 
-<%= render(Shared::ComponentExample.new(:on_this_page, :default)) %>
+By default the on this page component will display using a column based layout collapsing to a single column on small screens.
+
+<%= render(Shared::ComponentExample.new(:on_this_page, :with_columns)) %>
+
+### With no columns
+
+If there are fewer than four link then the component will always display in a single column.
+
+<%= render(Shared::ComponentExample.new(:on_this_page, :with_no_columns)) %>
 
 ### With nested links
+
+The component supports a variant with nested links. In this configuration the component is always displayed in a single column with the option to expand nested links.
 
 <%= render(Shared::ComponentExample.new(:on_this_page, :with_nested_links)) %>
 
@@ -20,6 +30,8 @@ On this page requires some additional JavaScript behaviour which can be initiali
 import initOnThisPage from '@citizensadvice/design-system/lib/on-this-page/on-this-page';
 initOnThisPage();
 ```
+
+The JavaScript behaviour is only required if you are using the version of the component with nested links. If you are not using this you don't need to include this code.
 
 ## Using with Rails
 

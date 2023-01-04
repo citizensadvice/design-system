@@ -1,3 +1,8 @@
+
+**Bugfixes**
+
+- On this page: Fix css columns overflow bug with expandable on this-page elements.
+
 ## v5.5.0-alpha.2
 
 ### 2 December 2022
