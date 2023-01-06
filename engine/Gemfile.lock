@@ -12,7 +12,6 @@ PATH
   specs:
     citizens_advice_components (0.1.0)
       actionpack (>= 6.0.0, < 8.0)
-      rails-i18n (= 7.0.5)
       railties (>= 6.0.0, < 8.0)
       view_component (>= 2.0.0, < 3.0)
 
