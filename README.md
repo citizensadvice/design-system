@@ -6,7 +6,7 @@
 
 ## Getting started
 
-You can check out the [getting started guide](https://citizensadvice.github.io/design-system/?path=/docs/getting-started--page) for a quick start.
+You can check out the [getting started guide](https://citizens-advice-design-system.netlify.app/getting-started/) for a quick start.
 
 ## Build & contributing
 
