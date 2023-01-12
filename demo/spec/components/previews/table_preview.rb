@@ -126,4 +126,29 @@ class TablePreview < ViewComponent::Preview
 
     render_with_template(locals: { subject: subject })
   end
+
+  def with_paragraph_content
+    caption = "Example table with paragraph content"
+    header = [
+      "Table header 1",
+      "Table header 2"
+    ]
+    rows = [
+      [
+        "No paragraph",
+        "Plain text example"
+      ],
+      [
+        "Single paragraph",
+        tag.p("Single paragraph example")
+      ],
+      [
+        "Multiple paragraphs",
+        safe_join([tag.p("Paragraph one"), tag.p("Paragraph two")])
+      ]
+    ]
+    render(
+      CitizensAdviceComponents::Table.new(caption: caption, header: header, rows: rows)
+    )
+  end
 end

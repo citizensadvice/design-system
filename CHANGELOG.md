@@ -1,3 +1,7 @@
+**New**
+
+- Tables: Support paragraph content in table cells
+
 ## v5.5.0-alpha.3
 
 ### 6 January 2023
