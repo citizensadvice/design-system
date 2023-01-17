@@ -55,7 +55,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
         render_inline(described_class.new(hide_logo: true))
       end
 
-      it { is_expected.to have_no_selector ".cads-footer__logo"}
+      it { is_expected.to have_no_selector ".cads-footer__logo" }
     end
   end
 

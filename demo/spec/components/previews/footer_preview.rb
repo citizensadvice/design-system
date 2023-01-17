@@ -4,7 +4,8 @@ class FooterPreview < ViewComponent::Preview
   def default
     render CitizensAdviceComponents::Footer.new do |c|
       c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
-      c.with_column(columns)
+      c.with_logo
+      c.with_columns(columns)
     end
   end
 
