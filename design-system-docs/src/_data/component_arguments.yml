@@ -114,6 +114,8 @@ footer:
     description: '<strong>(Deprecated: use feedback_link slot)</strong> If present, a link to this feedback form will be displayed'
   - argument: homepage_url
     description: 'Optional, defaults to <code>/</code>'
+  - argument: hide_logo
+    description: 'Optional, defaults to <code>false</code>. If set to <code>true</code>, removes the footer logo'
 footer_feedback_link_slot:
   - argument: title
     description: 'Optional, title for the column'

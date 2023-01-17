@@ -2,9 +2,10 @@
 
 module CitizensAdviceComponents
   class Footer < Base
-    attr_reader :homepage_url, :feedback_url
+    attr_reader :homepage_url, :feedback_url, :hide_logo
 
     renders_one :feedback_link, "FooterFeedbackLink"
+    renders_one :logo, "FooterLogo"
 
     renders_one :legal_summary, lambda { |text|
       text.presence || t("citizens_advice_components.footer.legal_summary")
@@ -12,10 +13,11 @@ module CitizensAdviceComponents
 
     renders_many :columns, "FooterColumn"
 
-    def initialize(homepage_url: nil, feedback_url: nil)
+    def initialize(homepage_url: nil, feedback_url: nil, hide_logo: false)
       super
       @homepage_url = homepage_url || "/"
       @feedback_url = feedback_url.to_s
+      @hide_logo = hide_logo
 
       feedback_url_deprecation
     end
@@ -30,6 +32,16 @@ module CitizensAdviceComponents
 
     def feedback
       feedback_link.presence || feedback_link_fallback.presence
+    end
+
+    def render_logo
+      return if hide_logo
+
+      logo.presence || fallback_logo.presence
+    end
+
+    def fallback_logo
+      link_to("", homepage_url, title: t("citizens_advice_components.footer.logo_title"), class: "cads-logo")
     end
 
     def feedback_link_fallback
@@ -62,6 +74,22 @@ module CitizensAdviceComponents
       return if legal_summary
 
       t("citizens_advice_components.footer.legal_summary")
+    end
+
+    class FooterLogo < Base
+      attr_reader :title, :url
+
+      def initialize(title: nil, url: "/")
+        super
+        @title = title || t("citizens_advice_components.footer.logo_title")
+        @url = url
+      end
+
+      def call
+        # Renders a block if provided to allow passing a custom logo SVG,
+        # otherwise renders the standard logo.
+        content.presence || link_to("", url, title: title, class: "cads-logo")
+      end
     end
 
     class FooterColumn < Base

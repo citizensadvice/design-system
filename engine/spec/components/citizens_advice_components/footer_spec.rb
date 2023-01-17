@@ -21,6 +21,44 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
   end
 
+  describe "logo" do
+    context "with default logo" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.with_logo(title: "Logo title", url: "/homepage")
+        end
+      end
+
+      it { is_expected.to have_link "Logo title", href: "/homepage" }
+    end
+
+    context "with fallback logo" do
+      before do
+        render_inline(described_class.new)
+      end
+
+      it { is_expected.to have_link "Citizens Advice homepage", href: "/" }
+    end
+
+    context "with custom block" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.with_logo { "Custom logo HTML" }
+        end
+      end
+
+      it { is_expected.to have_text "Custom logo HTML" }
+    end
+
+    context "without logo" do
+      before do
+        render_inline(described_class.new(hide_logo: true))
+      end
+
+      it { is_expected.to have_no_selector ".cads-footer__logo"}
+    end
+  end
+
   describe "custom legal summary" do
     context "when valid legal summary" do
       before do

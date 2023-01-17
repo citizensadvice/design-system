@@ -1,3 +1,6 @@
+**New**
+- Footer: Add `logo` slot and `hide_logo` attribute.
+
 ## v5.5.0
 
 ### 5 September 2023
