@@ -98,7 +98,7 @@ GEM
     date (3.3.3)
     erubi (1.12.0)
     ffi (1.15.5)
-    globalid (1.0.0)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     haml (6.1.1)
       temple (>= 0.8.2)
