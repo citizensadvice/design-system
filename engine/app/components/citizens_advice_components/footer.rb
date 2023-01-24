@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   class Footer < Base
-    attr_reader :homepage_url, :feedback_url, :hide_logo
+    attr_reader :feedback_url
 
     renders_one :feedback_link, "FooterFeedbackLink"
     renders_one :logo, "FooterLogo"
@@ -13,11 +13,9 @@ module CitizensAdviceComponents
 
     renders_many :columns, "FooterColumn"
 
-    def initialize(homepage_url: nil, feedback_url: nil, hide_logo: false)
+    def initialize(feedback_url: nil)
       super
-      @homepage_url = homepage_url || "/"
       @feedback_url = feedback_url.to_s
-      @hide_logo = hide_logo
 
       feedback_url_deprecation
     end
@@ -32,16 +30,6 @@ module CitizensAdviceComponents
 
     def feedback
       feedback_link.presence || feedback_link_fallback.presence
-    end
-
-    def render_logo
-      return if hide_logo
-
-      logo.presence || fallback_logo.presence
-    end
-
-    def fallback_logo
-      link_to("", homepage_url, title: t("citizens_advice_components.footer.logo_title"), class: "cads-logo")
     end
 
     def feedback_link_fallback

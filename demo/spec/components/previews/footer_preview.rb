@@ -4,7 +4,7 @@ class FooterPreview < ViewComponent::Preview
   def default
     render CitizensAdviceComponents::Footer.new do |c|
       c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
-      c.with_logo
+      c.with_logo(url: "/")
       c.with_columns(columns)
     end
   end
@@ -12,15 +12,18 @@ class FooterPreview < ViewComponent::Preview
   def feedback_link_only
     render CitizensAdviceComponents::Footer.new do |c|
       c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+      c.with_logo(url: "/")
     end
   end
 
   def minimal
-    render CitizensAdviceComponents::Footer.new
+    render CitizensAdviceComponents::Footer.new do |c|
+      c.with_logo(url: "/")
+    end
   end
 
   def without_logo
-    render CitizensAdviceComponents::Footer.new(hide_logo: true) do |c|
+    render CitizensAdviceComponents::Footer.new do |c|
       c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
       c.with_columns(columns)
     end

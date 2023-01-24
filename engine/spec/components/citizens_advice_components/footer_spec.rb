@@ -32,14 +32,6 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       it { is_expected.to have_link "Logo title", href: "/homepage" }
     end
 
-    context "with fallback logo" do
-      before do
-        render_inline(described_class.new)
-      end
-
-      it { is_expected.to have_link "Citizens Advice homepage", href: "/" }
-    end
-
     context "with custom block" do
       before do
         render_inline(described_class.new) do |c|
@@ -52,7 +44,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
     context "without logo" do
       before do
-        render_inline(described_class.new(hide_logo: true))
+        render_inline(described_class.new)
       end
 
       it { is_expected.to have_no_selector ".cads-footer__logo" }

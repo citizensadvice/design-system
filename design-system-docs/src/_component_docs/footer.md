@@ -64,6 +64,6 @@ Or by passing a custom block to render your own HTML:
 
 <%= render(Shared::ComponentExampleSource.new(:footer, :with_custom_logo)) %>
 
-It is also possible to hide the footer logo using the `hide_logo` component argument.
+If the logo slot is not configured, no logo will be shown in the footer: 
 
 <%= render(Shared::ComponentExample.new(:footer, :without_logo)) %>

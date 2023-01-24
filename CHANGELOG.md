@@ -1,5 +1,6 @@
-**New**
-- Footer: Add `logo` slot and `hide_logo` attribute.
+**Breaking changes**
+
+- Footer: Replaced the logo background with a `logo` slot. Removed the `homepage_url`.
 
 ## v5.5.0
 

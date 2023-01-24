@@ -44,11 +44,11 @@
       </nav>
     <% end %>
     <div class="cads-footer__company-info">
-      <% if render_logo.present? %>
-        <div class="cads-footer__logo">
-          <%= render_logo %>
-        </div>
-      <% end %>
+        <% if logo.present? %>
+          <div class="cads-footer__logo">
+            <%= logo %>
+          </div>
+        <% end %>
       <div class="cads-footer__meta">
         <p class="cads-footer__meta-text" data-testid="copyright"><%= t("citizens_advice_components.footer.copyright", year: current_year) %></p>
         <p class="cads-footer__meta-text" data-testid="legal-summary"><%= legal_summary_text %></p>
