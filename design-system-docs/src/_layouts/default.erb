@@ -29,7 +29,9 @@
     <div class="site-content">
       <%= yield %>
     </div>
-    <%= render CitizensAdviceComponents::Footer.new %>
+    <%= render CitizensAdviceComponents::Footer.new do |c| %>
+      <% c.logo(url: "/") %>
+    <% end %>
     <script src="<%= webpack_path "theme.js" %>" defer></script>
   </body>
 </html>

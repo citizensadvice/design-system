@@ -64,6 +64,6 @@ Or by passing a custom block to render your own HTML:
 
 <%= render(Shared::ComponentExampleSource.new(:footer, :with_custom_logo)) %>
 
-If the logo slot is not configured, no logo will be shown in the footer: 
+If the logo slot is not configured, no logo will be shown in the footer:
 
 <%= render(Shared::ComponentExample.new(:footer, :without_logo)) %>
