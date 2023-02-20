@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "clipboard-copy": "^4.0.1",
-    "iframe-resizer": "^4.3.3"
+    "iframe-resizer": "^4.3.4"
   }
 }
