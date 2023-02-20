@@ -39,5 +39,5 @@ end
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v9.0.0"
+      tag: "v10.0.1"
 end
