@@ -27,7 +27,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
 
     it "does not have an aria-describedby attribute by default" do
-      expect(page).to have_no_selector "input[aria-describedby]"
+      expect(page).not_to have_selector "input[aria-describedby]"
     end
   end
 

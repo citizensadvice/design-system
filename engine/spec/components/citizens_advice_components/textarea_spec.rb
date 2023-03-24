@@ -24,7 +24,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it "does not have an aria-describedby attribute by default" do
-      expect(page).to have_no_selector "textarea[aria-describedby]"
+      expect(page).not_to have_selector "textarea[aria-describedby]"
     end
 
     it "renders a textarea with 8 rows" do
@@ -44,7 +44,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     it { is_expected.to have_field "Example textarea", with: "Example value" }
 
     it "does not set value as attribute" do
-      expect(page).to have_no_selector "textarea[value='Example value']"
+      expect(page).not_to have_selector "textarea[value='Example value']"
     end
   end
 
@@ -60,7 +60,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     it { is_expected.to have_text "(optional)" }
 
     it "does not add required to the input" do
-      expect(page).to have_no_selector "textarea[required]"
+      expect(page).not_to have_selector "textarea[required]"
     end
 
     context "when in Cymraeg" do
@@ -119,7 +119,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it "does not render the type attribute" do
-      expect(page).to have_no_selector "textarea[type]"
+      expect(page).not_to have_selector "textarea[type]"
     end
   end
 

@@ -11,7 +11,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
       )
     end
 
-    it { is_expected.to have_no_table }
+    it { is_expected.not_to have_table }
   end
 
   context "when missing rows" do
@@ -22,7 +22,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
       )
     end
 
-    it { is_expected.to have_no_table }
+    it { is_expected.not_to have_table }
   end
 
   context "when valid table" do
@@ -35,7 +35,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
 
     it { is_expected.to have_selector ".cads-table-container" }
     it { is_expected.to have_selector ".cads-table" }
-    it { is_expected.to have_no_selector "caption" }
+    it { is_expected.not_to have_selector "caption" }
 
     it { is_expected.to have_selector "thead", count: 1 }
     it { is_expected.to have_selector "tbody", count: 1 }
@@ -68,7 +68,7 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
     before do
       render_inline described_class.new(
         header: sample_header,
-        rows: sample_rows.concat([["", ""], [nil, nil], ["", nil]])
+        rows: sample_rows.push(["", ""], [nil, nil], ["", nil])
       )
     end
 

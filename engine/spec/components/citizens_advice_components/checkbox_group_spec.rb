@@ -17,11 +17,11 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
     it { is_expected.to have_field "Option 2", with: "2" }
 
     it "has the expected number of checkboxes" do
-      expect(page).to have_selector "input[type=checkbox]", count: 2
+      expect(page).to have_field "checkbox-group", count: 2
     end
 
     it "has no checked inputs by default" do
-      expect(page).to have_no_selector "input[checked]"
+      expect(page).not_to have_selector "input[checked]"
     end
 
     it "constructs the ids of the inputs correctly" do
@@ -41,7 +41,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector ".cads-form-field" }
+    it { is_expected.not_to have_selector ".cads-form-field" }
   end
 
   context "when invalid optional parameter is passed" do
@@ -55,7 +55,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
       end
     end
 
-    it { is_expected.to have_no_text "(optional}" }
+    it { is_expected.not_to have_text "(optional}" }
   end
 
   context "when an error message is provided" do
@@ -126,8 +126,8 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
 
   def sample_inputs
     [
-      { label: "Option 1", value: "1", name: "radio-group" },
-      { label: "Option 2", value: "2", name: "radio-group" }
+      { label: "Option 1", value: "1", name: "checkbox-group" },
+      { label: "Option 2", value: "2", name: "checkbox-group" }
     ]
   end
 end

@@ -16,6 +16,6 @@ RSpec.describe CitizensAdviceComponents::SuccessMessage, type: :component do
   context "when no message present" do
     before { render_inline described_class.new(message: nil) }
 
-    it { is_expected.to have_no_selector ".cads-success-message" }
+    it { is_expected.not_to have_selector ".cads-success-message" }
   end
 end

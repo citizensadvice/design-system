@@ -24,7 +24,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
       render_inline described_class.new(page_review_date: nil)
     end
 
-    it { is_expected.to have_no_selector ".cads-page-review" }
+    it { is_expected.not_to have_selector ".cads-page-review" }
   end
 
   context "when custom date format" do

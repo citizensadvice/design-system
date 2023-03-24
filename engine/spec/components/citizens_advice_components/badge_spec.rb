@@ -10,7 +10,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
       end
     end
 
-    it { is_expected.to have_no_selector ".cads-badge" }
+    it { is_expected.not_to have_selector ".cads-badge" }
   end
 
   context "when type is example" do

@@ -136,7 +136,7 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector "nav" }
+    it { is_expected.not_to have_selector "nav" }
   end
 
   context "when custom param_name" do
