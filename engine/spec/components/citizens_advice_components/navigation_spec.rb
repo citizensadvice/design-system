@@ -32,6 +32,6 @@ RSpec.describe CitizensAdviceComponents::Navigation, type: :component do
       render_inline described_class.new(links: nil)
     end
 
-    it { is_expected.to have_no_selector ".cads-navigation" }
+    it { is_expected.not_to have_selector ".cads-navigation" }
   end
 end

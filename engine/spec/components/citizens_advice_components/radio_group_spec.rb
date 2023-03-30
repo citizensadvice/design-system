@@ -17,11 +17,11 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     it { is_expected.to have_field "Option 2", with: "2" }
 
     it "has the expected number of options" do
-      expect(page).to have_selector "input[type=radio]", count: 2
+      expect(page).to have_field "radio-group", count: 2
     end
 
     it "has no checked inputs by default" do
-      expect(page).to have_no_selector "input[checked]"
+      expect(page).not_to have_selector "input[checked]"
     end
 
     it "constructs the ids of the inputs correctly" do
@@ -41,7 +41,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector ".cads-form-field" }
+    it { is_expected.not_to have_selector ".cads-form-field" }
   end
 
   context "when an error message is provided" do

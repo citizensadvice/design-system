@@ -82,7 +82,7 @@ module CitizensAdviceComponents
         max = (@current_page + 2).clamp(1, @num_pages)
       else
         min = 1
-        max = @num_pages > 3 ? 3 : @num_pages
+        max = [@num_pages, 3].min
       end
 
       min..max

@@ -12,6 +12,6 @@ RSpec.describe CitizensAdviceComponents::ContactDetails, type: :component do
   context "when no content present" do
     before { render_inline described_class.new }
 
-    it { is_expected.to have_no_selector ".cads-contact-details" }
+    it { is_expected.not_to have_selector ".cads-contact-details" }
   end
 end

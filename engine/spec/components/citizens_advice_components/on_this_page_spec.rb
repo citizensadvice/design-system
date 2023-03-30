@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
   context "when no links present" do
     before { render_inline described_class.new }
 
-    it { is_expected.to have_no_selector ".cads-on-this-page" }
+    it { is_expected.not_to have_selector ".cads-on-this-page" }
   end
 
   context "when there are links present" do
@@ -28,11 +28,11 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
     it { is_expected.to have_link "Link 4", href: "#link-4" }
 
     it "does not render toggle buttons" do
-      expect(page).to have_no_selector "[data-testid='on-this-page-toggle']"
+      expect(page).not_to have_selector "[data-testid='on-this-page-toggle']"
     end
 
     it "does not render nested links" do
-      expect(page).to have_no_selector "[data-testid='on-this-page-children']"
+      expect(page).not_to have_selector "[data-testid='on-this-page-children']"
     end
   end
 
@@ -50,11 +50,11 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
       end
 
       it "does not render toggle buttons" do
-        expect(page).to have_no_selector "[data-testid='on-this-page-toggle']"
+        expect(page).not_to have_selector "[data-testid='on-this-page-toggle']"
       end
 
       it "does not render nested links" do
-        expect(page).to have_no_selector "[data-testid='on-this-page-children']"
+        expect(page).not_to have_selector "[data-testid='on-this-page-children']"
       end
     end
 

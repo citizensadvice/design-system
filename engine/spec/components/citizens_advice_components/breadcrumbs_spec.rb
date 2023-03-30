@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "when no links are present" do
     before { render_inline described_class.new(links: []) }
 
-    it { is_expected.to have_no_selector ".cads-breadcrumbs" }
+    it { is_expected.not_to have_selector ".cads-breadcrumbs" }
   end
 
   context "when there is only one item" do
@@ -16,7 +16,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector ".cads-breadcrumbs" }
+    it { is_expected.not_to have_selector ".cads-breadcrumbs" }
   end
 
   context "when links are provided" do
@@ -68,7 +68,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector "span[aria-current=location]" }
+    it { is_expected.not_to have_selector "span[aria-current=location]" }
   end
 
   context "when not in full width mode" do
@@ -80,7 +80,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector ".cads-breadcrumb-wrapper" }
+    it { is_expected.not_to have_selector ".cads-breadcrumb-wrapper" }
   end
 
   context "when links are passed with the old style hash format" do

@@ -116,7 +116,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     end
 
     it "does not render section title as a link" do
-      expect(page).to have_no_selector "[data-testid='section-title-link']"
+      expect(page).not_to have_selector "[data-testid='section-title-link']"
     end
   end
 

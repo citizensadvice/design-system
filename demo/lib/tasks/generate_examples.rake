@@ -30,7 +30,7 @@ task generate_examples: :environment do
     end
   end
 
-  HighVoltage.page_ids.each.each do |slug|
+  HighVoltage.page_ids.each do |slug|
     @session.get "/#{slug}"
     doc = Nokogiri::HTML.parse(@session.response.body)
     component_html = doc.css("#content").inner_html

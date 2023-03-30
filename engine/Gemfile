@@ -24,13 +24,11 @@ end
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v9.0.0"
+      tag: "v10.0.1"
 
   gem "capybara"
   gem "erb_lint"
   gem "i18n-tasks"
   gem "rspec"
   gem "rspec-rails"
-  gem "rubocop-rails", require: false
-  gem "rubocop-rspec", require: false
 end

@@ -16,7 +16,7 @@ RSpec.describe CitizensAdviceComponents::Search, type: :component do
     end
 
     it "has default param name" do
-      expect(page).to have_selector "input[name=q]"
+      expect(page).to have_field "q"
     end
 
     context "when welsh language" do
@@ -36,7 +36,7 @@ RSpec.describe CitizensAdviceComponents::Search, type: :component do
     before { render_inline(described_class.new(param_name: :query)) }
 
     it "has custom param name" do
-      expect(page).to have_selector "input[name=query]"
+      expect(page).to have_field "query"
     end
   end
 end

@@ -49,7 +49,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
       ).with_content("Example content")
     end
 
-    it { is_expected.to have_no_selector ".cads-disclosure" }
+    it { is_expected.not_to have_selector ".cads-disclosure" }
   end
 
   context "when there is no disclosure content" do
@@ -60,7 +60,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector ".cads-disclosure" }
+    it { is_expected.not_to have_selector ".cads-disclosure" }
   end
 
   context "when there is custom id" do

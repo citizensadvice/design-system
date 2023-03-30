@@ -16,7 +16,7 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
 
     it { is_expected.to have_selector ".cads-targeted-content", text: "Example content" }
     it { is_expected.to have_selector "h2", text: "Example title" }
-    it { is_expected.to have_no_selector ".cads-badge" }
+    it { is_expected.not_to have_selector ".cads-badge" }
   end
 
   context "when missing type" do
@@ -33,7 +33,7 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
     end
 
     it { is_expected.to have_selector ".cads-targeted-content" }
-    it { is_expected.to have_no_selector ".cads-badge" }
+    it { is_expected.not_to have_selector ".cads-badge" }
   end
 
   context "when type is adviser" do
@@ -109,6 +109,6 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       )
     end
 
-    it { is_expected.to have_no_selector ".cads-targeted-content" }
+    it { is_expected.not_to have_selector ".cads-targeted-content" }
   end
 end
