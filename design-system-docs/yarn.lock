@@ -815,10 +815,10 @@ icss-utils@^5.0.0, icss-utils@^5.1.0:
   resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-5.1.0.tgz#c6be6858abd013d768e98366ae47e25d5887b1ae"
   integrity sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==
 
-iframe-resizer@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/iframe-resizer/-/iframe-resizer-4.3.3.tgz#0f0d7ff4bb2bc604076b64344028428b285c58a6"
-  integrity sha512-emI63nkTCaQrAoHMLpl+1gDGL4VjexameFoUKoE7bSudf2//n0KdwMyKXtvScqzps9KR68TrVLjFNw+Qo6rLaw==
+iframe-resizer@^4.3.6:
+  version "4.3.6"
+  resolved "https://registry.yarnpkg.com/iframe-resizer/-/iframe-resizer-4.3.6.tgz#61d92c1adefe5d416bff4fbf80c7f1f74be70ec0"
+  integrity sha512-wz0WodRIF6eP0oGQa5NIP1yrITAZ59ZJvVaVJqJRjaeCtfm461vy2C3us6CKx0e7pooqpIGLpVMSTzrfAjX9Sg==
 
 immutable@^4.0.0:
   version "4.0.0"
