@@ -2,16 +2,17 @@
 
 module CitizensAdviceComponents
   class Footer < Base
-    attr_reader :homepage_url, :feedback_url
+    attr_reader :homepage_url, :feedback_url, :legal_summary
 
     renders_one :feedback_link, "FooterFeedbackLink"
 
     renders_many :columns, "FooterColumn"
 
-    def initialize(homepage_url: nil, feedback_url: nil)
+    def initialize(homepage_url: nil, feedback_url: nil, legal_summary: nil)
       super
       @homepage_url = homepage_url || "/"
       @feedback_url = feedback_url.to_s
+      @legal_summary = legal_summary || t("citizens_advice_components.footer.legal_summary")
 
       feedback_url_deprecation
     end

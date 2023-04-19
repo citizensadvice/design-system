@@ -21,6 +21,12 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
   end
 
+  describe "custom legal summary" do
+    before { render_inline described_class.new(legal_summary: "Legal summary custom text") }
+
+    it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Legal summary custom text" }
+  end
+
   describe "columns" do
     before do
       allow(ActiveSupport::Deprecation).to receive(:warn)
