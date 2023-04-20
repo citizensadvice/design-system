@@ -1,3 +1,7 @@
+**New**
+
+- Footer: allows customising the `legal_summary`
+
 ## v5.5.0-alpha.3
 
 ### 6 January 2023

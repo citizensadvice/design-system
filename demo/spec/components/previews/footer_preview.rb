@@ -63,7 +63,19 @@ class FooterPreview < ViewComponent::Preview
     end
   end
 
+  def custom_legal_summary
+    render CitizensAdviceComponents::Footer.new(legal_summary: legal_summary_text) do |c|
+      c.feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+    end
+  end
+
   def minimal
     render CitizensAdviceComponents::Footer.new
+  end
+
+  private
+
+  def legal_summary_text
+    "Custom legal summary text. Citizens Advice is an operating name of the National Association of Citizens Advice Bureaux. Registered charity number 279057. VAT number 726 0202 76. Company limited by guarantee. Registered number 01436945 England. Registered office: Citizens Advice, 3rd Floor North, 200 Aldersgate, London, EC1A 4HD."
   end
 end

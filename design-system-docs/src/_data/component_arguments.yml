@@ -112,6 +112,8 @@ footer:
     description: '<strong>(Deprecated: use feedback_link slot)</strong> If present, a link to this feedback form will be displayed'
   - argument: homepage_url
     description: 'Optional, defaults to <code>/</code>'
+  - argument: legal_summary
+    description: 'Optional, allows customising the legal summary that appears at the bottom of the footer'
 footer_feedback_link_slot:
   - argument: title
     description: 'Optional, title for the column'
