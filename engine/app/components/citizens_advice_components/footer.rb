@@ -2,17 +2,18 @@
 
 module CitizensAdviceComponents
   class Footer < Base
-    attr_reader :homepage_url, :feedback_url, :legal_summary
+    attr_reader :homepage_url, :feedback_url
 
     renders_one :feedback_link, "FooterFeedbackLink"
 
+    renders_one :legal_summary_slot, "FooterLegalSummarySlot"
+
     renders_many :columns, "FooterColumn"
 
-    def initialize(homepage_url: nil, feedback_url: nil, legal_summary: nil)
+    def initialize(homepage_url: nil, feedback_url: nil)
       super
       @homepage_url = homepage_url || "/"
       @feedback_url = feedback_url.to_s
-      @legal_summary = legal_summary || t("citizens_advice_components.footer.legal_summary")
 
       feedback_url_deprecation
     end
@@ -29,6 +30,10 @@ module CitizensAdviceComponents
       feedback_link.presence || feedback_link_fallback.presence
     end
 
+    def legal_summary
+      legal_summary_slot.presence || legal_summary_fallback.presence
+    end
+
     def feedback_link_fallback
       return if @feedback_url.blank?
 
@@ -40,6 +45,14 @@ module CitizensAdviceComponents
         title: t("citizens_advice_components.footer.website_feedback"),
         external: true,
         new_tab: true
+      )
+    end
+
+    def legal_summary_fallback
+      return if legal_summary_slot
+
+      FooterLegalSummarySlot.new(
+        text: t("citizens_advice_components.footer.legal_summary")
       )
     end
 
@@ -99,6 +112,16 @@ module CitizensAdviceComponents
           rel: "noopener",
           "aria-label": "#{title} (opens in a new tab)"
         }
+      end
+    end
+
+    class FooterLegalSummarySlot < Base
+      attr_reader :text
+
+      def initialize(text: nil)
+        super
+
+        @text = text
       end
     end
   end

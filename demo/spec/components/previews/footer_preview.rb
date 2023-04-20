@@ -64,8 +64,9 @@ class FooterPreview < ViewComponent::Preview
   end
 
   def custom_legal_summary
-    render CitizensAdviceComponents::Footer.new(legal_summary: legal_summary_text) do |c|
+    render CitizensAdviceComponents::Footer.new do |c|
       c.feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+      c.legal_summary_slot(text: legal_summary_text)
     end
   end
 
