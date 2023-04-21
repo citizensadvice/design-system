@@ -46,6 +46,8 @@ Each slot accepts the following named arguments:
 
 ### Legal summary slot
 
-The component accepts `legal_summary_slot` slot to render a customised legal summary. The slot accepts the following named arguments:
+The component accepts `legal_summary_slot` to render a customised legal summary. The slot accepts the following named argument:
 
 <%= render Shared::ArgumentsTable.new(:footer_legal_summary_slot) %>
+
+If the slot is not provided, the legal summary will display default text.

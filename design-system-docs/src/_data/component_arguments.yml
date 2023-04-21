@@ -134,7 +134,7 @@ footer_column_slot:
     description: '→ Optional, should this link open in a new tab?'
 footer_legal_summary_slot:
   - argument: text
-    description: 'Optional, allows customising the legal summary. If not provided, a default legal summary would appear'
+    description: 'Required, legal summary text'
 navigation:
   - argument: links
     description: 'Required, an array of hashes, each with the following:'

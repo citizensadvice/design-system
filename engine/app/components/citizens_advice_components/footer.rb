@@ -30,10 +30,6 @@ module CitizensAdviceComponents
       feedback_link.presence || feedback_link_fallback.presence
     end
 
-    def legal_summary
-      legal_summary_slot.presence || legal_summary_fallback.presence
-    end
-
     def feedback_link_fallback
       return if @feedback_url.blank?
 
@@ -48,20 +44,22 @@ module CitizensAdviceComponents
       )
     end
 
-    def legal_summary_fallback
-      return if legal_summary_slot
-
-      FooterLegalSummarySlot.new(
-        text: t("citizens_advice_components.footer.legal_summary")
-      )
-    end
-
     def feedback_url_deprecation
       return if @feedback_url.blank?
 
       ActiveSupport::Deprecation.warn(
         "feedback_url argument is deprecated used feedback_link slot instead"
       )
+    end
+
+    def legal_summary
+      legal_summary_slot.presence || legal_summary_fallback.presence
+    end
+
+    def legal_summary_fallback
+      return if legal_summary_slot
+
+      FooterLegalSummarySlot.new(text: t("citizens_advice_components.footer.legal_summary"))
     end
 
     class FooterColumn < Base
@@ -118,10 +116,11 @@ module CitizensAdviceComponents
     class FooterLegalSummarySlot < Base
       attr_reader :text
 
-      def initialize(text: nil)
+      def initialize(text:)
         super
 
-        @text = text
+        # Prevents adding empty string like "" or " "
+        @text = text.presence || t("citizens_advice_components.footer.legal_summary")
       end
     end
   end
