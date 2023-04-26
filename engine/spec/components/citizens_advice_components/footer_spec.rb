@@ -25,7 +25,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "when valid legal summary" do
       before do
         render_inline(described_class.new) do |c|
-          c.legal_summary_slot(text: "Legal summary custom text")
+          c.legal_summary("Legal summary custom text")
         end
       end
 
@@ -35,7 +35,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "when whitespace legal summary" do
       before do
         render_inline(described_class.new) do |c|
-          c.legal_summary_slot(text: " ")
+          c.legal_summary(" ")
         end
       end
 
@@ -45,7 +45,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "when empty legal summary" do
       before do
         render_inline(described_class.new) do |c|
-          c.legal_summary_slot(text: "")
+          c.legal_summary("")
         end
       end
 

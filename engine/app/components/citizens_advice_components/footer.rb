@@ -6,7 +6,9 @@ module CitizensAdviceComponents
 
     renders_one :feedback_link, "FooterFeedbackLink"
 
-    renders_one :legal_summary_slot, "FooterLegalSummarySlot"
+    renders_one :legal_summary, lambda { |text|
+      text.presence || t("citizens_advice_components.footer.legal_summary")
+    }
 
     renders_many :columns, "FooterColumn"
 
@@ -52,14 +54,14 @@ module CitizensAdviceComponents
       )
     end
 
-    def legal_summary
-      legal_summary_slot.presence || legal_summary_fallback.presence
+    def legal_summary_text
+      legal_summary.presence || legal_summary_fallback.presence
     end
 
     def legal_summary_fallback
-      return if legal_summary_slot
+      return if legal_summary
 
-      FooterLegalSummarySlot.new(text: t("citizens_advice_components.footer.legal_summary"))
+      t("citizens_advice_components.footer.legal_summary")
     end
 
     class FooterColumn < Base
@@ -110,17 +112,6 @@ module CitizensAdviceComponents
           rel: "noopener",
           "aria-label": "#{title} (opens in a new tab)"
         }
-      end
-    end
-
-    class FooterLegalSummarySlot < Base
-      attr_reader :text
-
-      def initialize(text:)
-        super
-
-        # Prevents adding empty string like "" or " "
-        @text = text.presence || t("citizens_advice_components.footer.legal_summary")
       end
     end
   end

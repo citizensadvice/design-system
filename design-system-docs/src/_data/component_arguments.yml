@@ -132,9 +132,6 @@ footer_column_slot:
     description: '→ Optional, is this an external link?'
   - argument: 'link[:new_tab]'
     description: '→ Optional, should this link open in a new tab?'
-footer_legal_summary_slot:
-  - argument: text
-    description: 'Required, legal summary text'
 navigation:
   - argument: links
     description: 'Required, an array of hashes, each with the following:'
