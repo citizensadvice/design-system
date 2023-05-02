@@ -25,7 +25,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "when valid legal summary" do
       before do
         render_inline(described_class.new) do |c|
-          c.legal_summary("Legal summary custom text")
+          c.with_legal_summary("Legal summary custom text")
         end
       end
 
@@ -35,7 +35,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "when whitespace legal summary" do
       before do
         render_inline(described_class.new) do |c|
-          c.legal_summary(" ")
+          c.with_legal_summary(" ")
         end
       end
 
@@ -45,7 +45,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "when empty legal summary" do
       before do
         render_inline(described_class.new) do |c|
-          c.legal_summary("")
+          c.with_legal_summary("")
         end
       end
 
@@ -58,7 +58,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       allow(ActiveSupport::Deprecation).to receive(:warn)
 
       render_inline(described_class.new) do |c|
-        c.columns(columns)
+        c.with_columns(columns)
       end
     end
 
@@ -103,7 +103,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "with url only" do
       before do
         render_inline(described_class.new) do |c|
-          c.feedback_link(url: "https://example.com/")
+          c.with_feedback_link(url: "https://example.com/")
         end
       end
 
@@ -114,7 +114,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "with custom title" do
       before do
         render_inline(described_class.new) do |c|
-          c.feedback_link(title: "Custom link title", url: "https://example.com/")
+          c.with_feedback_link(title: "Custom link title", url: "https://example.com/")
         end
       end
 
@@ -124,7 +124,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "with new_tab set to true" do
       before do
         render_inline(described_class.new) do |c|
-          c.feedback_link(url: "https://example.com/", new_tab: true)
+          c.with_feedback_link(url: "https://example.com/", new_tab: true)
         end
       end
 
@@ -134,7 +134,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "with URI builder object" do
       before do
         render_inline(described_class.new) do |c|
-          c.feedback_link(url: URI::HTTPS.build(host: "example.com", path: "/example-path"))
+          c.with_feedback_link(url: URI::HTTPS.build(host: "example.com", path: "/example-path"))
         end
       end
 

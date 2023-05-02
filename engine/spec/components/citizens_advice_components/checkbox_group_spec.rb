@@ -9,7 +9,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
         legend: "Checkbox group field",
         name: "checkboxes"
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -51,7 +51,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
         name: "checkboxes",
         options: { optional: "bananas" }
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -65,7 +65,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
         name: "checkboxes",
         options: { error_message: "This is the error message" }
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -80,7 +80,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
         name: "checkboxes",
         options: { hint: "This is the hint text" }
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -94,7 +94,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
         name: "checkboxes",
         options: { optional: true }
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -113,7 +113,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
         legend: "Checkbox group field",
         name: "checkboxes"
       ) do |c|
-        c.inputs([
+        c.with_inputs([
           { label: "Option 1", value: "1", name: "checkbox-1", "data-additional": "example" }
         ])
       end

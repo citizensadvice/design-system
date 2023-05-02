@@ -12,7 +12,7 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
   context "when there are links present" do
     before do
       render_inline described_class.new do |c|
-        c.links([
+        c.with_links([
           { label: "Link 1", id: "link-1" },
           { label: "Link 2", id: "link-2" },
           { label: "Link 3", id: "link-3" },
@@ -40,7 +40,7 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
     context "when there are only top-level links present" do
       before do
         render_inline described_class.new(show_nested_links: true) do |c|
-          c.links([
+          c.with_links([
             { label: "Link 1", id: "link-1" },
             { label: "Link 2", id: "link-2" },
             { label: "Link 3", id: "link-3" },
@@ -61,7 +61,7 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
     context "when there are nested links present" do
       before do
         render_inline described_class.new(show_nested_links: true) do |c|
-          c.links([
+          c.with_links([
             { label: "Link 1", id: "link-1" },
             { label: "Link 2", id: "link-2", children: [
               { label: "Link 2.1", id: "link-2-1" },

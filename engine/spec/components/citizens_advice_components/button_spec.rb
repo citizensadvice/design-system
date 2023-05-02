@@ -85,7 +85,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
 
     it "renders left icon slot" do
       render_inline(component) do |c|
-        c.icon_left { "Left slot" }
+        c.with_icon_left { "Left slot" }
       end
 
       expect(page).to have_selector ".cads-button__icon-left", text: "Left slot"
@@ -93,7 +93,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
 
     it "renders right icon slot" do
       render_inline(component) do |c|
-        c.icon_right { "Right slot" }
+        c.with_icon_right { "Right slot" }
       end
 
       expect(page).to have_selector ".cads-button__icon-right", text: "Right slot"
