@@ -43,3 +43,9 @@ end %>
 Each slot accepts the following named arguments:
 
 <%= render Shared::ArgumentsTable.new(:footer_column_slot) %>
+
+### Legal summary slot
+
+The component accepts `legal_summary` to render a customised text at the bottom of the footer. The slot requires a text string.
+
+If the slot is not provided, the legal summary will display default text.

@@ -6,6 +6,10 @@ module CitizensAdviceComponents
 
     renders_one :feedback_link, "FooterFeedbackLink"
 
+    renders_one :legal_summary, lambda { |text|
+      text.presence || t("citizens_advice_components.footer.legal_summary")
+    }
+
     renders_many :columns, "FooterColumn"
 
     def initialize(homepage_url: nil, feedback_url: nil)
@@ -48,6 +52,16 @@ module CitizensAdviceComponents
       ActiveSupport::Deprecation.warn(
         "feedback_url argument is deprecated used feedback_link slot instead"
       )
+    end
+
+    def legal_summary_text
+      legal_summary.presence || legal_summary_fallback.presence
+    end
+
+    def legal_summary_fallback
+      return if legal_summary
+
+      t("citizens_advice_components.footer.legal_summary")
     end
 
     class FooterColumn < Base

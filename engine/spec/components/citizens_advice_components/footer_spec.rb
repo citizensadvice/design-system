@@ -21,6 +21,38 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
   end
 
+  describe "custom legal summary" do
+    context "when valid legal summary" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.legal_summary("Legal summary custom text")
+        end
+      end
+
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Legal summary custom text" }
+    end
+
+    context "when whitespace legal summary" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.legal_summary(" ")
+        end
+      end
+
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Citizens Advice is an operating name of" }
+    end
+
+    context "when empty legal summary" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.legal_summary("")
+        end
+      end
+
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Citizens Advice is an operating name of" }
+    end
+  end
+
   describe "columns" do
     before do
       allow(ActiveSupport::Deprecation).to receive(:warn)
