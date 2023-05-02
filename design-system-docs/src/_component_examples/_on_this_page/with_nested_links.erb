@@ -3,7 +3,7 @@ title: with nested links
 ---
 
 <%= render CitizensAdviceComponents::OnThisPage.new(show_nested_links: true) do |c|
-  c.links([
+  c.with_links([
     { label: "Link 1", id: "link-1" },
     { label: "Link 2", id: "link-2", children: [
       { label: "Link 2.1", id: "link-2-1" },

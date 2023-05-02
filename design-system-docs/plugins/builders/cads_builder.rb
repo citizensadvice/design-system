@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "view_component/engine"
 require "citizens_advice_components"
 
 require_relative "cads_theme"
@@ -9,6 +8,10 @@ require_relative "cads_theme"
 I18n.load_path << Dir[
   "#{CitizensAdviceComponents::Engine.root.join('config/locales')}/*.yml"
 ]
+
+# https://github.com/bridgetownrb/bridgetown-view-component/issues/3
+# https://github.com/ViewComponent/view_component/pull/1659
+ViewComponent::Base.config.view_component_path = "src/_components"
 
 module Builders
   class CadsBuilder < SiteBuilder

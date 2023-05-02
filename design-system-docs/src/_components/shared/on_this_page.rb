@@ -13,7 +13,7 @@ module Shared
 
     def call
       render CitizensAdviceComponents::OnThisPage.new do |c|
-        c.links(@headings)
+        c.with_links(@headings)
       end
     end
 
