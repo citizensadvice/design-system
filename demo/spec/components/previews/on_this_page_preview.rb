@@ -3,7 +3,7 @@
 class OnThisPagePreview < ViewComponent::Preview
   def with_columns
     render CitizensAdviceComponents::OnThisPage.new do |c|
-      c.links([
+      c.with_links([
         { label: "Link 1", id: "link-1" },
         { label: "Link 2", id: "link-2" },
         { label: "Link 3", id: "link-3" },
@@ -15,7 +15,7 @@ class OnThisPagePreview < ViewComponent::Preview
   def with_no_columns
     # Fewer than four links should not use multi-column layout
     render CitizensAdviceComponents::OnThisPage.new do |c|
-      c.links([
+      c.with_links([
         { label: "Link 1", id: "link-1" },
         { label: "Link 2", id: "link-2" },
         { label: "Link 3", id: "link-3" }
@@ -25,7 +25,7 @@ class OnThisPagePreview < ViewComponent::Preview
 
   def with_nested_links
     render CitizensAdviceComponents::OnThisPage.new(show_nested_links: true) do |c|
-      c.links(links_nested)
+      c.with_links(links_nested)
     end
   end
 

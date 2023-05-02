@@ -3,7 +3,7 @@
   links: [{ url: root_path, title: "Home" }, { url: example_form_new_path, title: "Form" }, { title: "Thank you for your submission" }]
 ) %>
 <%= render PageLayoutComponent.new do |c| %>
-  <% c.main do %>
+  <% c.with_main do %>
     <h1 class="cads-page-title">Thank you for your submission</h1>
 
     <div class="cads-prose">

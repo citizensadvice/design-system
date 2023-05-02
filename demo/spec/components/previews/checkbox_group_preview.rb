@@ -6,7 +6,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
       legend: "This is the group legend",
       name: "my-radio-group"
     ) do |c|
-      c.inputs(checkboxes)
+      c.with_inputs(checkboxes)
     end
   end
 
@@ -18,7 +18,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
         error_message: "Select an option"
       }
     ) do |c|
-      c.inputs(checkboxes)
+      c.with_inputs(checkboxes)
     end
   end
 
@@ -30,7 +30,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
         optional: true
       }
     ) do |c|
-      c.inputs(checkboxes)
+      c.with_inputs(checkboxes)
     end
   end
 
@@ -42,7 +42,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
         hint: "This is the hint text"
       }
     ) do |c|
-      c.inputs(checkboxes)
+      c.with_inputs(checkboxes)
     end
   end
 
@@ -51,7 +51,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
       legend: "Example radio group",
       name: "radio-buttons-long"
     ) do |c|
-      c.inputs(long_checkboxes)
+      c.with_inputs(long_checkboxes)
     end
   end
 
@@ -60,7 +60,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
       legend: "Example radio group",
       name: "radio-buttons-attrs"
     ) do |c|
-      c.inputs(additional_attribute_checkboxes)
+      c.with_inputs(additional_attribute_checkboxes)
     end
   end
 

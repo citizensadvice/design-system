@@ -2,7 +2,7 @@
 - my_radio_buttons = [{ label: "Option 1", value: "1", checked: true }, { label: "Option 2", value: "2" }, { label: "Option 3", value: "3", "data-testid": "my-test-id" }]
 
 = render CitizensAdviceComponents::ErrorSummary.new do |c|
-  - c.errors([{ href: "#email-input", message: "Enter an email address in the correct format, like name@example.com" }, { href: "#radio-buttons-0", message: "Enter a value" }])
+  - c.with_errors([{ href: "#email-input", message: "Enter an email address in the correct format, like name@example.com" }, { href: "#radio-buttons-0", message: "Enter a value" }])
 
 - 3.times do
   %p= lorem
@@ -10,7 +10,7 @@
 = render CitizensAdviceComponents::Input.new(name: "email", label: "Email address", type: :email, options: { value: "helloexample.com", error_message: "Enter a valid email address, like name@example.com" })
 
 = render CitizensAdviceComponents::RadioGroup.new(legend: "Example radio buttons", name: "radio-buttons", options: {error_message: "Enter a value"}) do |i|
-  - i.inputs(my_radio_buttons)
+  - i.with_inputs(my_radio_buttons)
 
 - 5.times do
   %p= lorem

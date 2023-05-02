@@ -3,9 +3,9 @@
   links: [{ url: root_path, title: "Home" }, { title: "Form" }]
 ) %>
 <%= render PageLayoutComponent.new do |c| %>
-  <% c.main do %>
+  <% c.with_main do %>
     <%= render CitizensAdviceComponents::ErrorSummary.new do |c| %>
-      <% c.errors(@form.formatted_errors) %>
+      <% c.with_errors(@form.formatted_errors) %>
     <% end %>
 
     <h1 class="cads-page-title">Consumer Query</h1>
@@ -51,8 +51,8 @@
         legend: "Have you contacted the trader about this complaint?",
         name: :contacted_trader
       ) do |c| %>
-        <% c.input(label: "Yes", value: "yes") %>
-        <% c.input(label: "No", value: "no") %>
+        <% c.with_input(label: "Yes", value: "yes") %>
+        <% c.with_input(label: "No", value: "no") %>
       <% end %>
 
       <%= render CitizensAdviceComponents::Textarea.new(
@@ -65,7 +65,7 @@
 
       <%= render CitizensAdviceComponents::Button.new(variant: :primary, type: :submit) do |c| %>
         Submit complaint
-        <% c.icon_right do %>
+        <% c.with_icon_right do %>
           <%= render CitizensAdviceComponents::Icons::ArrowRight.new %>
         <% end %>
       <% end %>
