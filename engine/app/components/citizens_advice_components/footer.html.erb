@@ -5,7 +5,7 @@
         <div class="cads-grid-col">
           <p class="cads-footer__feedback">
             <%= link_to(
-              feedback.title,
+              feedback.title || t("citizens_advice_components.footer.website_feedback"),
               feedback.url,
               class: "cads-footer__hyperlink js-cads-footer-feedback",
               **feedback.new_tab_attributes

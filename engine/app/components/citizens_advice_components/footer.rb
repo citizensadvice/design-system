@@ -91,7 +91,7 @@ module CitizensAdviceComponents
         super
 
         @url = url.to_s
-        @title = title || t("citizens_advice_components.footer.website_feedback")
+        @title = title
         @external = external
         @new_tab = new_tab
       end
