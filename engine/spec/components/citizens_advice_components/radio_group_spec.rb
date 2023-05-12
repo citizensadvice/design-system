@@ -9,7 +9,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
         legend: "Radio button group field",
         name: "radio-group"
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -51,7 +51,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
         name: "radio-group",
         options: { error_message: "This is the error message" }
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -66,7 +66,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
         name: "radio-group",
         options: { hint: "This is the hint text" }
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -80,7 +80,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
         name: "radio-group",
         options: { optional: true }
       ) do |c|
-        c.inputs(sample_inputs)
+        c.with_inputs(sample_inputs)
       end
     end
 
@@ -102,7 +102,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
             name: "radio-group",
             options: { layout: :invalid }
           ) do |c|
-            c.inputs(sample_inputs)
+            c.with_inputs(sample_inputs)
           end
         end
       end
@@ -119,7 +119,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
           name: "radio-group",
           options: { layout: :list }
         ) do |c|
-          c.inputs(sample_inputs)
+          c.with_inputs(sample_inputs)
         end
       end
 
@@ -135,7 +135,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
           name: "radio-group",
           options: { layout: :inline }
         ) do |c|
-          c.inputs(sample_inputs)
+          c.with_inputs(sample_inputs)
         end
       end
 
@@ -154,7 +154,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
             name: "radio-group",
             options: { size: :invalid }
           ) do |c|
-            c.inputs(sample_inputs)
+            c.with_inputs(sample_inputs)
           end
         end
       end
@@ -171,7 +171,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
           name: "radio-group",
           options: { size: :regular }
         ) do |c|
-          c.inputs(sample_inputs)
+          c.with_inputs(sample_inputs)
         end
       end
 
@@ -187,7 +187,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
           name: "radio-group",
           options: { size: :small }
         ) do |c|
-          c.inputs(sample_inputs)
+          c.with_inputs(sample_inputs)
         end
       end
 

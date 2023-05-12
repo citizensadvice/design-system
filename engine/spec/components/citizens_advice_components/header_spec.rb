@@ -13,7 +13,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     context "with default logo" do
       before do
         render_inline(described_class.new) do |c|
-          c.logo(title: "Logo title", url: "/homepage")
+          c.with_logo(title: "Logo title", url: "/homepage")
         end
       end
 
@@ -27,7 +27,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     context "with custom block" do
       before do
         render_inline(described_class.new) do |c|
-          c.logo { "Custom logo HTML" }
+          c.with_logo { "Custom logo HTML" }
         end
       end
 
@@ -39,7 +39,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     context "with default skip_links" do
       before do
         render_inline(described_class.new) do |c|
-          c.logo(title: "Logo title", url: "/")
+          c.with_logo(title: "Logo title", url: "/")
         end
       end
 
@@ -52,8 +52,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     context "with custom skip links" do
       before do
         render_inline(described_class.new) do |c|
-          c.logo(title: "Logo title", url: "/")
-          c.skip_links([{ title: "Skip to main content", url: "#content" }])
+          c.with_logo(title: "Logo title", url: "/")
+          c.with_skip_links([{ title: "Skip to main content", url: "#content" }])
         end
       end
 
@@ -65,8 +65,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
   describe "header_links slot" do
     before do
       render_inline(described_class.new) do |c|
-        c.logo(title: "Logo title", url: "/")
-        c.header_links([
+        c.with_logo(title: "Logo title", url: "/")
+        c.with_header_links([
           { title: "Public site", url: "/", current_site: true },
           { title: "Intranet", url: "/intranet" },
           { title: "Cymraeg", url: "/cymraeg" }
@@ -84,8 +84,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     context "with plain link" do
       before do
         render_inline(described_class.new) do |c|
-          c.logo(title: "Logo title", url: "/")
-          c.account_link(title: "Sign out", url: "/sign-out")
+          c.with_logo(title: "Logo title", url: "/")
+          c.with_account_link(title: "Sign out", url: "/sign-out")
         end
       end
 
@@ -95,8 +95,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     context "with custom block" do
       before do
         render_inline(described_class.new) do |c|
-          c.logo(title: "Logo title", url: "/")
-          c.account_link do
+          c.with_logo(title: "Logo title", url: "/")
+          c.with_account_link do
             "Custom account link HTML"
           end
         end
@@ -109,8 +109,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
   describe "search_form slot" do
     before do
       render_inline(described_class.new) do |c|
-        c.logo(title: "Logo title", url: "/")
-        c.search_form(search_action_url: "/search")
+        c.with_logo(title: "Logo title", url: "/")
+        c.with_search_form(search_action_url: "/search")
       end
     end
 

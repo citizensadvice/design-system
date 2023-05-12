@@ -8,7 +8,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
       render_inline described_class.new(
         name: "my-checkbox"
       ) do |c|
-        c.checkbox(label: "Option 1", value: "1")
+        c.with_checkbox(label: "Option 1", value: "1")
       end
     end
 
@@ -35,7 +35,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
         name: "my-checkbox",
         error_message: "This is the error message"
       ) do |c|
-        c.checkbox(label: "Option 1", value: "1")
+        c.with_checkbox(label: "Option 1", value: "1")
       end
     end
 
@@ -50,7 +50,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
         name: "my-checkbox",
         error_message: "This is the error message"
       ) do |c|
-        c.checkbox(label: "Option 1", value: "1", "data-additional": "example")
+        c.with_checkbox(label: "Option 1", value: "1", "data-additional": "example")
       end
     end
 

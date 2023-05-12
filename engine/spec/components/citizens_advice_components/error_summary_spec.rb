@@ -12,7 +12,7 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
   context "when errors are provided" do
     before do
       render_inline described_class.new do |c|
-        c.errors(sample_error_messages)
+        c.with_errors(sample_error_messages)
       end
     end
 
@@ -25,7 +25,7 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
   context "when custom heading_level is provided" do
     before do
       render_inline described_class.new(heading_level: 3) do |c|
-        c.errors(sample_error_messages)
+        c.with_errors(sample_error_messages)
       end
     end
 
@@ -35,7 +35,7 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
   context "when custom autofocus option is provided" do
     before do
       render_inline described_class.new(autofocus: false) do |c|
-        c.errors(sample_error_messages)
+        c.with_errors(sample_error_messages)
       end
     end
 

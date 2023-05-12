@@ -10,7 +10,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
         section_title: "Applying to the EU settlement scheme",
         section_title_url: "#"
       ) do |c|
-        c.section_links(sample_section_links)
+        c.with_section_links(sample_section_links)
       end
     end
 
@@ -30,8 +30,8 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
         section_title: "Applying to the EU settlement scheme",
         section_title_url: "#"
       ) do |c|
-        c.section_links(additional_attribute_links)
-        c.custom_content { "Example content" }
+        c.with_section_links(additional_attribute_links)
+        c.with_custom_content { "Example content" }
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
         section_title: "Applying to the EU settlement scheme",
         section_title_url: "#"
       ) do |c|
-        c.section_links(additional_attribute_links)
+        c.with_section_links(additional_attribute_links)
         "Example content"
       end
     end
@@ -67,7 +67,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   context "when additional link attributes are present" do
     before do
       render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme") do |c|
-        c.section_links(additional_attribute_links)
+        c.with_section_links(additional_attribute_links)
       end
     end
 
@@ -79,7 +79,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   context "when only section links are present" do
     before do
       render_inline described_class.new(title: nil, section_title: nil, section_title_url: nil) do |c|
-        c.section_links(sample_section_links)
+        c.with_section_links(sample_section_links)
       end
     end
 
@@ -88,9 +88,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
 
   context "when only section title is present" do
     before do
-      render_inline described_class.new(title: nil, section_title: "Applying to the EU settlement scheme", section_title_url: nil) do |c|
-        c.section_links(nil)
-      end
+      render_inline described_class.new(title: nil, section_title: "Applying to the EU settlement scheme", section_title_url: nil)
     end
 
     it { is_expected.to have_selector ".cads-section-links" }
@@ -99,8 +97,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   context "when only content is present" do
     before do
       render_inline described_class.new(title: nil, section_title: nil, section_title_url: nil) do |c|
-        c.section_links(nil)
-        c.custom_content { "Example content" }
+        c.with_custom_content { "Example content" }
       end
     end
 
@@ -110,8 +107,8 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
   context "when no section title url present" do
     before do
       render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme") do |c|
-        c.section_links(sample_section_links)
-        c.custom_content { "Example content" }
+        c.with_section_links(sample_section_links)
+        c.with_custom_content { "Example content" }
       end
     end
 
