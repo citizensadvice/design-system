@@ -1,0 +1,27 @@
+---
+title: Getting started with Rails
+---
+
+Hello this is how Rails works:
+
+```erb
+<!DOCTYPE html>
+<html class="no-js" lang="<%%= I18n.locale %>">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <link href="/assets/fonts/open-sans-v26-latin-700.woff2" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="/assets/fonts/open-sans-v26-latin-regular.woff2" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="/assets/fonts/cads.woff" rel="preload" as="font" type="font/woff" crossorigin="true" />
+    <%%= csp_meta_tag %>
+    <%%= stylesheet_link_tag "application", media: "all" %>
+    <%%= yield :custom_head %>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+  </head>
+  <body<%- if @body_class.present? %> class="<%%= @body_class %>"<%- end -%>>
+    <div id="content"><%%= yield %></div>
+    <%%= javascript_include_tag "application", defer: true %>
+  </body>
+</html>
+```

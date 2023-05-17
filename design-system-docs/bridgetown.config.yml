@@ -20,6 +20,9 @@ permalink: pretty
 template_engine: erb
 
 collections:
+  guides:
+    output: true
+    name: Guides
   foundations:
     output: true
     name: Foundations

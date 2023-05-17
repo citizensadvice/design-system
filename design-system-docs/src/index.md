@@ -3,9 +3,9 @@ layout: home
 title: Citizens Advice Design System
 ---
 
-### [Getting started](/getting-started)
+### [Guides](/guides)
 
-Get started using the Citizens Advice Design System in your product.
+Guides on how to use the Citizens Advice Design System in your product.
 
 ### [Foundations](/foundations)
 
