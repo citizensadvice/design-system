@@ -1,6 +1,5 @@
 @use 'sass:list';
 @use 'sass:map';
-
 @use '../1-settings/breakpoints' as breakpoint-settings;
 
 // Name of the next breakpoint (null for the last one)
