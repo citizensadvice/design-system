@@ -13,7 +13,7 @@ PATH
     citizens_advice_components (0.1.0)
       actionpack (>= 6.0.0, < 8.0)
       railties (>= 6.0.0, < 8.0)
-      view_component (>= 2.0.0, < 3.0)
+      view_component (>= 2.0.0, < 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -114,7 +114,7 @@ GEM
     hash_with_dot_access (1.2.0)
       activesupport (>= 5.0.0, < 8.0)
     htmlbeautifier (1.4.2)
-    i18n (1.12.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     kramdown (2.4.0)
       rexml
@@ -195,7 +195,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
-    view_component (2.82.0)
+    view_component (3.1.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -215,7 +215,7 @@ DEPENDENCIES
   htmlbeautifier
   nokogiri
   puma (~> 5.6)
-  view_component (~> 2.82.0)
+  view_component (~> 3.1.0)
 
 BUNDLED WITH
    2.3.21
