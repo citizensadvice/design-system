@@ -16,7 +16,7 @@ Cypress.Commands.add('scrolledIntoView', (selector) => {
         .window()
         .its('scrollY')
         .should('be.gte', offset - 1)
-        .should('be.lte', offset + 1)
+        .should('be.lte', offset + 1),
     );
 });
 
@@ -32,7 +32,7 @@ function terminalLog(violations) {
       impact,
       description,
       nodes: nodes.length,
-    })
+    }),
   );
 
   cy.task('table', violationData);

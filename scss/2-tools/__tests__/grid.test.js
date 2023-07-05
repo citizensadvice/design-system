@@ -38,7 +38,7 @@ describe('cads-grid-col-width', () => {
     `;
 
     expect(() => sass.renderSync({ data })).toThrow(
-      `Column count can't be greater than $cads-grid-columns`
+      `Column count can't be greater than $cads-grid-columns`,
     );
   });
 });

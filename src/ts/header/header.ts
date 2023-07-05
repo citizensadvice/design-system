@@ -11,7 +11,7 @@ const initHeader = (): void => {
       controlButton.setAttribute('aria-expanded', 'false');
 
       const showLabel = controlButton.getAttribute(
-        'data-descriptive-label-show'
+        'data-descriptive-label-show',
       );
       if (showLabel) {
         controlButton.setAttribute('aria-label', showLabel);
@@ -23,7 +23,7 @@ const initHeader = (): void => {
       controlButton.setAttribute('aria-expanded', 'true');
 
       const hideLabel = controlButton.getAttribute(
-        'data-descriptive-label-hide'
+        'data-descriptive-label-hide',
       );
       if (hideLabel) {
         controlButton.setAttribute('aria-label', hideLabel);

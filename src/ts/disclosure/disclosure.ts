@@ -35,11 +35,11 @@ function initDisclosureToggle(disclosure: Element) {
     if (toggle && summary && details) {
       if (details.classList.contains(classes.elementIsOpen)) {
         summary.textContent = toggle.getAttribute(
-          disclosureAttributes.openSummary
+          disclosureAttributes.openSummary,
         );
       } else {
         summary.textContent = toggle.getAttribute(
-          disclosureAttributes.closedSummary
+          disclosureAttributes.closedSummary,
         );
       }
     }

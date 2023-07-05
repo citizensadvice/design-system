@@ -14,7 +14,7 @@ module.exports = async (page, scenario) => {
     document.fonts.ready.then(() => {
       console.log('Fonts loaded');
       return true;
-    })
+    }),
   );
 
   const keyPressSelector =
@@ -24,7 +24,7 @@ module.exports = async (page, scenario) => {
       await page.waitForSelector(keyPressSelectorItem.selector);
       await page.type(
         keyPressSelectorItem.selector,
-        keyPressSelectorItem.keyPress
+        keyPressSelectorItem.keyPress,
       );
     }
   }

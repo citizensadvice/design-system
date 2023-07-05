@@ -36,11 +36,11 @@ type ShowHideAttributes = {
 const initShowHideWithToggle = (
   selectors: ShowHideSelectors,
   classes: ShowHideClasses,
-  attributes: ShowHideAttributes
+  attributes: ShowHideAttributes,
 ): void => {
   function toggleElementState(
     toggle: Element,
-    ariaDescriptionSelector: string
+    ariaDescriptionSelector: string,
   ): void {
     const targetSelector = toggle.getAttribute(attributes.target);
     if (targetSelector) {
@@ -63,7 +63,7 @@ const initShowHideWithToggle = (
   // Used during setup - logic is inverse of toggle
   function initAriaDescription(toggle: Element) {
     const ariaDescriptionSelector = toggle.classList.contains(
-      classes.toggleWhenHidden
+      classes.toggleWhenHidden,
     )
       ? attributes.labelWhenHidden
       : attributes.labelWhenShowing;

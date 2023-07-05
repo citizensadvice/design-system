@@ -16,7 +16,7 @@ test.each(glob.sync('scss/1-settings/_*.scss'))(
       sass.renderSync({
         includePaths: ['scss/'],
         file,
-      })
+      }),
     ).not.toThrow();
-  }
+  },
 );

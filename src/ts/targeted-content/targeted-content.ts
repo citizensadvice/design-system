@@ -40,7 +40,7 @@ function setState(el: HTMLElement, state: string) {
   const label = el.getAttribute(
     state === 'open'
       ? 'data-descriptive-label-hide'
-      : 'data-descriptive-label-show'
+      : 'data-descriptive-label-show',
   );
 
   if (label) {
@@ -114,8 +114,8 @@ function initTargetedContentFor(el: HTMLElement): void {
     const ariaLabel = el.getAttribute('data-descriptive-label-hide');
     const closeButton = `<hr class="cads-separator" />
         <button type="button" aria-label="${ariaLabel}" class="cads-linkbutton ${
-      CLASS_NAMES.closeButton
-    }">
+          CLASS_NAMES.closeButton
+        }">
           ${el.getAttribute('data-close-label')}
         </button>`;
 
@@ -126,7 +126,7 @@ function initTargetedContentFor(el: HTMLElement): void {
   createToggleButton();
 
   const toggleButtonEl = el.querySelector(
-    `.${CLASS_NAMES.button}`
+    `.${CLASS_NAMES.button}`,
   ) as HTMLElement;
 
   toggleButtonEl.addEventListener('click', () => {

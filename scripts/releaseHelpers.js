@@ -25,7 +25,7 @@ function checkRepoStatus(repo, testRun) {
 
     if (branch !== 'main') {
       showError(
-        `${error} You must be in the main branch to release. Currently you are in ${branch}.`
+        `${error} You must be in the main branch to release. Currently you are in ${branch}.`,
       );
       err = true;
     }
@@ -44,7 +44,7 @@ function checkRepoStatus(repo, testRun) {
       showError(
         `${error} There ${
           untracked === 1 ? 'is' : 'are'
-        } ${untracked} untracked file${untracked === 1 ? '' : 's'}.`
+        } ${untracked} untracked file${untracked === 1 ? '' : 's'}.`,
       );
       err = true;
     }
@@ -52,7 +52,7 @@ function checkRepoStatus(repo, testRun) {
     if (err) {
       showError(
         'Please ensure you are in the main branch and that the repo is in a clean state.',
-        !testRun
+        !testRun,
       );
     }
 

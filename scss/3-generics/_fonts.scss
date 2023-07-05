@@ -7,7 +7,9 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+  src:
+    local('Open Sans Regular'),
+    local('OpenSans-Regular'),
     url('../../assets/fonts/open-sans-v26-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../../assets/fonts/open-sans-v26-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
@@ -20,7 +22,9 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+  src:
+    local('Open Sans Bold'),
+    local('OpenSans-Bold'),
     url('../../assets/fonts/open-sans-v26-latin-700.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../../assets/fonts/open-sans-v26-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
@@ -34,7 +38,8 @@
 
 @font-face {
   font-family: cads;
-  src: url('../../assets/fonts/cads.eot?d7dccfce9cf3c38908cc8e38fb40341b?#iefix')
+  src:
+    url('../../assets/fonts/cads.eot?d7dccfce9cf3c38908cc8e38fb40341b?#iefix')
       format('embedded-opentype'),
     url('../../assets/fonts/cads.woff?d7dccfce9cf3c38908cc8e38fb40341b')
       format('woff'),

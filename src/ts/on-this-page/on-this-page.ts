@@ -21,7 +21,7 @@ const initOnThisPage = (): void => {
   initShowHideWithToggle(
     onThisPageSelectors,
     onThisPageClasses,
-    onThisPageAttributes
+    onThisPageAttributes,
   );
 };
 

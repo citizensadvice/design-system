@@ -32,15 +32,15 @@ const showHideHtml = `
             <button class="${
               classes.toggleWhenHidden
             } cads-linkbutton ${selectors.toggle.replace(
-  '.',
-  ''
-)} cads-icon_plus" ${
-  attributes.labelWhenHidden
-}="Show sub-headings for HEADING_NAME" ${
-  attributes.labelWhenShowing
-}="Hide sub-headings for HEADING_NAME" ${
-  attributes.target
-}="CHILD_LIST" aria-expanded="false"></button>
+              '.',
+              '',
+            )} cads-icon_plus" ${
+              attributes.labelWhenHidden
+            }="Show sub-headings for HEADING_NAME" ${
+              attributes.labelWhenShowing
+            }="Hide sub-headings for HEADING_NAME" ${
+              attributes.target
+            }="CHILD_LIST" aria-expanded="false"></button>
             <a href="#h-id">Is the intending visitor a visa national lorem ipsum dolor sit amet</a>
             <ul data-testid="list" class="on-this-page__list on-this-page__list--nested" id="CHILD_LIST">
                 <li class="on-this-page__list-item">
@@ -57,7 +57,7 @@ function expectClosed() {
   expect(toggle).toHaveClass(classes.toggleWhenHidden);
   expect(toggle).toHaveAttribute(
     'aria-label',
-    'Show sub-headings for HEADING_NAME'
+    'Show sub-headings for HEADING_NAME',
   );
 }
 
@@ -79,7 +79,7 @@ describe('the show / hide module', () => {
     expect(toggle).toHaveClass(classes.toggleWhenShowing);
     expect(toggle).toHaveAttribute(
       'aria-label',
-      'Hide sub-headings for HEADING_NAME'
+      'Hide sub-headings for HEADING_NAME',
     );
   });
 

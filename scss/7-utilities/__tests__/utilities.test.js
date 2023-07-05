@@ -9,9 +9,9 @@ test.each(glob.sync('scss/7-utilities/_*.scss'))(
       sass.renderSync({
         includePaths: ['scss/'],
         file,
-      })
+      }),
     ).not.toThrow();
-  }
+  },
 );
 
 test('visibility styles match snapshot', () => {
