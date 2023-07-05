@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-typescript": "^7.21.5",
-    "@size-limit/file": "^8.2.4",
+    "@size-limit/file": "^8.2.6",
     "@testing-library/dom": "^8.20.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^14.4.3",
@@ -58,7 +58,7 @@
     "sass": "^1.62.1",
     "semver": "^7.3.8",
     "simple-git": "^3.18.0",
-    "size-limit": "^8.1.2",
+    "size-limit": "^8.2.6",
     "stylelint": "^15.6.2",
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1",
