@@ -59,7 +59,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: '3.0.4'
+          ruby-version: '3.1.4'
           working-directory: engine
       - run: bundle exec rubocop --format github
       - run: bundle exec erblint --lint-all
@@ -85,7 +85,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0.4'
+          ruby-version: '3.1.4'
           bundler-cache: true
           working-directory: demo
 
@@ -138,7 +138,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0.4'
+          ruby-version: '3.1.4'
           bundler-cache: true
           working-directory: demo
 
