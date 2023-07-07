@@ -12,6 +12,6 @@ test('can use typography mixins standalone', () => {
         .example-small { @include typography.cads-typographic-scale-text-small(); }
         .adjacent { @include typography.cads-adjacent-heading-margin(2em); }`,
       })
-      .css.toString()
+      .css.toString(),
   ).not.toThrow();
 });

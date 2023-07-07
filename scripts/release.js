@@ -66,8 +66,8 @@ prompt([
   const packageSemver = semver.parse(packageVersion);
   log(
     `The latest published version of ${FULL_PACKAGE_NAME} is currently ${chalk.bold(
-      packageVersion
-    )}`
+      packageVersion,
+    )}`,
   );
 
   // Setup the available versions
@@ -84,7 +84,7 @@ prompt([
       packageSemver.inc('minor').toString(),
       packageSemver.inc('premajor', 'alpha').toString(),
       packageSemver.inc('patch').toString(),
-    ]
+    ],
   );
   choices.push(DO_NOT_RELEASE);
 
@@ -162,8 +162,8 @@ prompt([
 
                   log(
                     chalk.green(
-                      `${ok} Changes committed and pushed. You must now create a pull request for branch v${newVersion}.`
-                    )
+                      `${ok} Changes committed and pushed. You must now create a pull request for branch v${newVersion}.`,
+                    ),
                   );
                 });
             } else {

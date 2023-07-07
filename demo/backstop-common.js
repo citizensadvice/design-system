@@ -65,7 +65,7 @@ module.exports = function backstopCommon(baseUrl) {
       ...buildButtonScenarios('Components/Buttons/Primary', 'button/primary'),
       ...buildButtonScenarios(
         'Components/Buttons/Secondary',
-        'button/secondary'
+        'button/secondary',
       ),
       ...buildButtonScenarios('Components/Buttons/Tertiary', 'button/tertiary'),
       {

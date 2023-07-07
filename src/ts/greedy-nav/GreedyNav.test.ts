@@ -13,7 +13,7 @@ import { showToggle, updateLabel, GreedyNavMenu } from './GreedyNav';
 
 const menuFixture = fs.readFileSync(
   path.join(__dirname, './__fixtures__/menu.html'),
-  'utf8'
+  'utf8',
 );
 
 class ResizeObserver {
@@ -55,10 +55,10 @@ describe('Greedy Nav', () => {
                 </div></div>`;
 
       const wrapper = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav-dropdown'
+        '.cads-greedy-nav-dropdown',
       )!;
       const navWrapper = wrapper.querySelector<HTMLElement>(
-        '.cads-greedy-nav__wrapper'
+        '.cads-greedy-nav__wrapper',
       );
       const toggle = document.querySelector<HTMLElement>(selector)!;
 
@@ -78,10 +78,10 @@ describe('Greedy Nav', () => {
                 </div></div>`;
 
       const wrapper = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav-dropdown'
+        '.cads-greedy-nav-dropdown',
       )!;
       const navWrapper = wrapper.querySelector<HTMLElement>(
-        '.cads-greedy-nav__wrapper'
+        '.cads-greedy-nav__wrapper',
       );
       const toggle = document.querySelector<HTMLElement>(selector)!;
 
@@ -139,7 +139,7 @@ describe('Greedy Nav', () => {
       const nav = document.querySelector<HTMLElement>('nav')!;
       const menu = document.querySelector<HTMLElement>('.menu')!;
       const dropdown = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav__dropdown'
+        '.cads-greedy-nav__dropdown',
       )!;
 
       const greedyNavMenu = new GreedyNavMenu();
@@ -159,7 +159,7 @@ describe('Greedy Nav', () => {
 
       const nav = document.querySelector<HTMLElement>('nav')!;
       const dropdown = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav__dropdown'
+        '.cads-greedy-nav__dropdown',
       )!;
 
       const greedyNavMenu = new GreedyNavMenu();
@@ -181,7 +181,7 @@ describe('Greedy Nav', () => {
       const nav = document.querySelector<HTMLElement>('nav')!;
       const menu = document.querySelector<HTMLElement>('.menu')!;
       const dropdown = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav__dropdown'
+        '.cads-greedy-nav__dropdown',
       )!;
 
       const greedyNavMenu = new GreedyNavMenu();
@@ -217,7 +217,7 @@ describe('Greedy Nav', () => {
       expect(nav.navDropdownToggle!.innerHTML).toContain('Close');
       expect(nav.navDropdownToggle).toHaveAttribute(
         'aria-label',
-        'Close navigation options'
+        'Close navigation options',
       );
     });
 
@@ -230,7 +230,7 @@ describe('Greedy Nav', () => {
       expect(nav.navDropdownToggle!.innerHTML).toContain('More');
       expect(nav.navDropdownToggle).toHaveAttribute(
         'aria-label',
-        'More navigation options'
+        'More navigation options',
       );
     });
   });

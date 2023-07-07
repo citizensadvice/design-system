@@ -26,13 +26,13 @@ describe('Targeted content', () => {
 
   function assertOpen() {
     cy.findByText(/You should apply to the EU Settlement Scheme if/).should(
-      'be.visible'
+      'be.visible',
     );
   }
 
   function assertClosed() {
     cy.findByText(/You should apply to the EU Settlement Scheme if/).should(
-      'not.be.visible'
+      'not.be.visible',
     );
   }
 });

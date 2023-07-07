@@ -133,7 +133,7 @@ module.exports = {
         rootDir,
         '.bridgetown-cache',
         'frontend-bundling',
-        'manifest.json'
+        'manifest.json',
       ),
     }),
   ],

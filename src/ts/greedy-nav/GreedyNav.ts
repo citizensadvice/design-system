@@ -14,7 +14,7 @@ const supports = !!document.querySelector && !!window.addEventListener; // Featu
  */
 const blurEventName = Object.prototype.hasOwnProperty.call(
   MouseEvent,
-  'relatedTarget'
+  'relatedTarget',
 )
   ? 'focusout'
   : 'blur';
@@ -72,11 +72,11 @@ const parent = (element: Nullable<HTMLElement>, parentNode: Nullable<Node>) => {
 export const showToggle = (
   navWrapperElement: HTMLElement,
   navDropdownToggleSelector: string,
-  breaks: number[]
+  breaks: number[],
 ): void => {
   if (breaks.length < 1) {
     const navDropdownToggle = navWrapperElement.querySelector<HTMLElement>(
-      navDropdownToggleSelector
+      navDropdownToggleSelector,
     );
 
     if (navDropdownToggle === null) {
@@ -92,7 +92,7 @@ export const showToggle = (
      */
 
     const navWrapper = navWrapperElement.querySelector<HTMLElement>(
-      '.cads-greedy-nav__wrapper'
+      '.cads-greedy-nav__wrapper',
     );
 
     if (navWrapper) {
@@ -100,7 +100,7 @@ export const showToggle = (
     }
   } else {
     const navDropdownToggle = navWrapperElement.querySelector<HTMLElement>(
-      navDropdownToggleSelector
+      navDropdownToggleSelector,
     );
 
     if (navDropdownToggle === null) {
@@ -114,7 +114,7 @@ export const showToggle = (
      * Set aria attributes for accessibility
      */
     const navWrapper = navWrapperElement.querySelector<HTMLElement>(
-      '.cads-greedy-nav__wrapper'
+      '.cads-greedy-nav__wrapper',
     );
 
     if (navWrapper) {
@@ -129,7 +129,7 @@ export const showToggle = (
 const updateCount = (
   _this: HTMLElement,
   navDropdownToggleSelector: string,
-  breaks: number[]
+  breaks: number[],
 ): void => {
   // eslint-disable-next-line no-unused-expressions
   _this
@@ -141,7 +141,7 @@ export const updateLabel = (
   menu: HTMLElement,
   label: string,
   navDropdownToggleSelector: string,
-  navDropdownLabelActive: string
+  navDropdownLabelActive: string,
 ): void => {
   const toggle = menu.querySelector<HTMLElement>(navDropdownToggleSelector);
 
@@ -237,7 +237,7 @@ const calculateWidths = (_this: HTMLElement, offsetPixels: number) => {
 
 const relatedTarget = (
   e: Nullable<FocusEvent>,
-  document: HTMLDocument
+  document: HTMLDocument,
 ): Nullable<HTMLElement> =>
   <HTMLElement>e?.relatedTarget || document.activeElement;
 
@@ -311,7 +311,7 @@ export class GreedyNavMenu {
       !checkForSymbols(this.settings.navDropdownToggleClassName)
     ) {
       console.warn(
-        'No symbols allowed in navDropdownClassName & navDropdownToggleClassName. These are not selectors.'
+        'No symbols allowed in navDropdownClassName & navDropdownToggleClassName. These are not selectors.',
       );
       return;
     }
@@ -321,7 +321,7 @@ export class GreedyNavMenu {
      * @type {NodeList}
      */
     const navWrapperList = this.document.querySelectorAll<HTMLElement>(
-      this.settings.mainNavWrapper
+      this.settings.mainNavWrapper,
     );
 
     /**
@@ -430,7 +430,7 @@ export class GreedyNavMenu {
     this.navDropdownToggle.setAttribute('type', 'button');
     this.navDropdownToggle.setAttribute(
       'aria-label',
-      this.settings.navDropdownToggleAriaLabel
+      this.settings.navDropdownToggleAriaLabel,
     );
     this.navDropdown.setAttribute('aria-hidden', 'true');
 
@@ -440,7 +440,7 @@ export class GreedyNavMenu {
       const closeNavOnBlur =
         headerLinks.lastElementChild?.querySelectorAll('a, button');
       closeNavOnBlur?.forEach((el) =>
-        el.classList.add('js-cads-close-on-blur')
+        el.classList.add('js-cads-close-on-blur'),
       );
 
       const headerLinksClone = headerLinks.cloneNode(true);
@@ -459,7 +459,7 @@ export class GreedyNavMenu {
     if (mainNav) {
       if (mainNav.parentNode !== _this) {
         console.warn(
-          'mainNav is not a direct child of mainNavWrapper, double check please'
+          'mainNav is not a direct child of mainNavWrapper, double check please',
         );
         return;
       }
@@ -477,7 +477,7 @@ export class GreedyNavMenu {
     this.navDropdown.classList.add('cads-greedy-nav__dropdown');
 
     this.navDropdownToggle.classList.add(
-      this.settings.navDropdownToggleClassName
+      this.settings.navDropdownToggleClassName,
     );
     this.navDropdownToggle.classList.add('cads-greedy-nav__dropdown-toggle');
 
@@ -485,7 +485,7 @@ export class GreedyNavMenu {
     this.navDropdownToggle.setAttribute('type', 'button');
 
     this.toggleWrapper.classList.add(
-      `${this.settings.navDropdownClassName}-wrapper`
+      `${this.settings.navDropdownClassName}-wrapper`,
     );
     this.toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
@@ -499,7 +499,7 @@ export class GreedyNavMenu {
     const observer = new ResizeObserver(
       debounce(() => {
         this.doesItFit(navWrapper);
-      }, this.settings.throttleDelay)
+      }, this.settings.throttleDelay),
     );
 
     const nav = document.querySelector('.js-cads-greedy-nav');
@@ -515,13 +515,13 @@ export class GreedyNavMenu {
       () => {
         this.doesItFit(navWrapper);
       },
-      true
+      true,
     );
 
     const { navDropdownClassName } = this.settings;
 
     const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownToggleSelector
+      this.navDropdownToggleSelector,
     );
 
     if (navDropdownToggle) {
@@ -543,13 +543,13 @@ export class GreedyNavMenu {
         this.closeDropDown(navWrapper);
 
         const navLastDropdownLink = navWrapper.querySelector<HTMLElement>(
-          `${this.navDropdownSelector} li:last-child a`
+          `${this.navDropdownSelector} li:last-child a`,
         );
 
         if (navLastDropdownLink) {
           navLastDropdownLink.removeEventListener(
             blurEventName,
-            lastItemCloseHandler
+            lastItemCloseHandler,
           );
         }
       }
@@ -570,18 +570,18 @@ export class GreedyNavMenu {
         (e: FocusEvent): void => {
           let lastItem: HTMLElement | null | undefined;
           const headerLinksInNav: HTMLElement | null = document.querySelector(
-            `${this.navDropdownSelector} .js-cads-copy-into-nav`
+            `${this.navDropdownSelector} .js-cads-copy-into-nav`,
           );
 
           if (headerLinksInNav?.offsetParent) {
             lastItem = headerLinksInNav?.querySelector<HTMLElement>(
-              '.js-cads-close-on-blur'
+              '.js-cads-close-on-blur',
             );
           } else if (headerLinksInNav?.offsetParent === null) {
             // offsetParent returns null in this case as the header links in the nav have display: none
             // using nth-last-child(2) as the last-child in this case is the hidden header nav links
             lastItem = this.navDropdown?.querySelector(
-              `li:nth-last-child(2) a`
+              `li:nth-last-child(2) a`,
             );
           } else {
             lastItem = this.navDropdown?.querySelector(`li:last-child a`);
@@ -596,7 +596,7 @@ export class GreedyNavMenu {
             // tabbing forwards
             lastItem?.addEventListener(blurEventName, lastItemCloseHandler);
           }
-        }
+        },
       );
     }
 
@@ -634,7 +634,7 @@ export class GreedyNavMenu {
 
   toDropdown(navigation: HTMLElement): void {
     const navDropdown = navigation.querySelector<HTMLElement>(
-      this.navDropdownSelector
+      this.navDropdownSelector,
     );
     const mainNav = navigation.querySelector<HTMLElement>(this.mainNavSelector);
 
@@ -649,7 +649,7 @@ export class GreedyNavMenu {
       ) {
         navDropdown.insertBefore(
           mainNav.lastElementChild,
-          navDropdown.firstChild
+          navDropdown.firstChild,
         );
       } else if (mainNav.children.length > 0 && mainNav.lastElementChild) {
         navDropdown.appendChild(mainNav.lastElementChild);
@@ -683,7 +683,7 @@ export class GreedyNavMenu {
    */
   toMenu(_this: HTMLElement): void {
     const navDropdown = _this.querySelector<HTMLElement>(
-      this.navDropdownSelector
+      this.navDropdownSelector,
     );
     const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
 
@@ -765,7 +765,7 @@ export class GreedyNavMenu {
           _this,
           this.settings.navDropdownBreakpointLabel,
           this.navDropdownToggleSelector,
-          this.settings.navDropdownLabelActive
+          this.settings.navDropdownLabelActive,
         );
       }
     }
@@ -785,7 +785,7 @@ export class GreedyNavMenu {
           _this,
           this.settings.navDropdownLabel,
           this.navDropdownToggleSelector,
-          this.settings.navDropdownLabelActive
+          this.settings.navDropdownLabelActive,
         );
       }
     }
@@ -795,7 +795,7 @@ export class GreedyNavMenu {
      */
 
     const navDropdown = _this.querySelector<HTMLElement>(
-      this.navDropdownSelector
+      this.navDropdownSelector,
     );
     if (navDropdown && this.breaks.length < 1) {
       navDropdown.classList.remove('show');
@@ -804,7 +804,7 @@ export class GreedyNavMenu {
         _this,
         this.settings.navDropdownLabel,
         this.navDropdownToggleSelector,
-        this.settings.navDropdownLabelActive
+        this.settings.navDropdownLabelActive,
       );
     }
 
@@ -818,7 +818,7 @@ export class GreedyNavMenu {
         _this,
         this.settings.navDropdownBreakpointLabel,
         this.navDropdownToggleSelector,
-        this.settings.navDropdownLabelActive
+        this.settings.navDropdownLabelActive,
       );
     } else {
       _this.classList.remove('is-empty');
@@ -847,11 +847,11 @@ export class GreedyNavMenu {
     const { navDropdownLabelActive } = this.settings;
 
     const navDropdown = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownSelector
+      this.navDropdownSelector,
     );
 
     const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownToggleSelector
+      this.navDropdownToggleSelector,
     );
 
     if (navDropdown && navDropdownToggle) {
@@ -865,7 +865,7 @@ export class GreedyNavMenu {
         navWrapper,
         navDropdownLabelActive,
         this.navDropdownToggleSelector,
-        navDropdownLabelActive
+        navDropdownLabelActive,
       );
     }
   }
@@ -874,11 +874,11 @@ export class GreedyNavMenu {
     const { navDropdownLabel, navDropdownLabelActive } = this.settings;
 
     const navDropdown = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownSelector
+      this.navDropdownSelector,
     );
 
     const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownToggleSelector
+      this.navDropdownToggleSelector,
     );
 
     if (navDropdown && navDropdownToggle) {
@@ -892,7 +892,7 @@ export class GreedyNavMenu {
         navWrapper,
         navDropdownLabel,
         this.navDropdownToggleSelector,
-        navDropdownLabelActive
+        navDropdownLabelActive,
       );
     }
   }
