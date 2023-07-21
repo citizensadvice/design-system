@@ -118,10 +118,8 @@ Or by passing a custom block to render your own HTML:
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c| %>
   <%% c.account_link do %>
-    <%% c.account_link(title: "Sign in", url: "/sign-in") do %>
-      <%%= form_tag("/sign-out", class: "cads-header__account-form", authenticity_token: false) do %>
-        <%%= button_tag("Sign out", class: %w[cads-button__tertiary cads-header__sign-out js-cads-close-on-blur]) %>
-      <%% end %>
+    <%%= form_tag("/sign-out", class: "cads-header__account-form", authenticity_token: false) do %>
+      <%%= button_tag("Sign out", class: %w[cads-button__tertiary cads-header__sign-out js-cads-close-on-blur]) %>
     <%% end %>
   <%% end %>
 <%% end %>
