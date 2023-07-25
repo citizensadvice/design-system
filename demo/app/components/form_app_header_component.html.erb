@@ -2,7 +2,7 @@
   <% c.logo(title: "Citizens Advice homepage", url: "/") %>
   <% c.header_links(header_links) %>
   <% c.search_form(search_action_url: "/search") %>
-  <% c.account_link(title: "Sign in", url: "/sign-in") do %>
+  <% c.account_link do %>
     <% form_tag("/sign-out", class: "cads-header__account-form", authenticity_token: false) do %>
       <% button_tag("Sign out", class: %w[cads-button__tertiary cads-header__sign-out js-cads-close-on-blur]) %>
     <% end %>
