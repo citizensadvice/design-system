@@ -3,8 +3,8 @@
 class FooterPreview < ViewComponent::Preview
   def default
     render CitizensAdviceComponents::Footer.new do |c|
-      c.feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
-      c.column(
+      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+      c.with_column(
         title: "Advice",
         links: [
           { url: "/benefits/", title: "Benefits" },
@@ -18,7 +18,7 @@ class FooterPreview < ViewComponent::Preview
           { url: "/health/", title: "Health" }
         ]
       )
-      c.column(
+      c.with_column(
         title: "Resources and tools",
         links: [
           { url: "/about-us/how-citizens-advice-works/products-and-services/adviser-resources/", title: "Advisor resources" },
@@ -28,7 +28,7 @@ class FooterPreview < ViewComponent::Preview
           { url: "/resources-and-tools/search-navigation-tools/a-to-z-of-advice/", title: "A-Z of advice" }
         ]
       )
-      c.column(
+      c.with_column(
         title: "More from us",
         links: [
           { url: "/about-us/", title: "About us" },
@@ -42,7 +42,7 @@ class FooterPreview < ViewComponent::Preview
           { url: "/about-us/how-citizens-advice-works/job-and-voluntary-opportunities/", title: "Jobs" }
         ]
       )
-      c.column(
+      c.with_column(
         title: "About Citizens Advice",
         links: [
           { url: "/about-us/how-we-provide-advice/", title: "How we provide advice" },
@@ -59,7 +59,7 @@ class FooterPreview < ViewComponent::Preview
 
   def feedback_link_only
     render CitizensAdviceComponents::Footer.new do |c|
-      c.feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
     end
   end
 

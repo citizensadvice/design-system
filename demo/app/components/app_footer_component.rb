@@ -3,8 +3,8 @@
 class AppFooterComponent < ViewComponent::Base
   def call
     render CitizensAdviceComponents::Footer.new do |c|
-      c.columns(columns)
-      c.feedback_link(url: "https://example.com/", external: true)
+      c.with_columns(columns)
+      c.with_feedback_link(url: "https://example.com/", external: true)
     end
   end
 
