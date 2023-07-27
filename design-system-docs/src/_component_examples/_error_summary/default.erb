@@ -7,7 +7,7 @@ title: default
   # For example purposes only, in production you should leave this enabled
   autofocus: false
 ) do |c|
-  c.errors([
+  c.with_errors([
     { href: "#your-name-input", message: "Enter your full name" },
     { href: "#your-email-input", message: "Enter an email address in the correct format, like name@example.com" }
   ])
