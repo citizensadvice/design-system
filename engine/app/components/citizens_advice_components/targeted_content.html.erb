@@ -5,9 +5,9 @@
     ("cads-targeted-content--adviser" if adviser?),
     ("cads-no-close" unless show_close_button?)
   ].compact,
-  "data-descriptive-label-show": "#{t('.descriptive_label_show')}, #{title}",
-  "data-descriptive-label-hide": "#{t('.descriptive_label_hide')}, #{title}",
-  "data-close-label": t(".close_label")
+  "data-descriptive-label-show": "#{t('citizens_advice_components.targeted_content.descriptive_label_show')}, #{title}",
+  "data-descriptive-label-hide": "#{t('citizens_advice_components.targeted_content.descriptive_label_hide')}, #{title}",
+  "data-close-label": t("citizens_advice_components.targeted_content.close_label")
 ) do %>
   <%= content_tag(
     "h#{heading_level}".to_sym,
