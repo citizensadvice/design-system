@@ -5,18 +5,18 @@ a,
 .cads-hyperlink,
 .cads-linkbutton,
 .cads-linkbutton__regular {
-  color: $cads-language__link-colour;
+  color: $cads-color-link;
   text-decoration: underline;
   outline: none;
   overflow-wrap: break-word;
 
   &:visited {
-    color: $cads-language__link-visited-colour;
+    color: $cads-color-link-visited;
   }
 
   &:hover {
-    color: $cads-language__link-hover-colour;
-    background-color: $cads-language__hover-background-colour;
+    color: $cads-color-link-hover;
+    background-color: $cads-color-background-hover;
     cursor: pointer;
   }
 
@@ -26,7 +26,7 @@ a,
 
   &:focus {
     color: $cads-palette__black;
-    background-color: $cads-language__focus-colour;
+    background-color: $cads-color-focus;
     text-decoration: none;
     border-bottom: 2px solid $cads-palette__black;
   }

@@ -5,7 +5,7 @@
 .cads-navigation {
   display: flex;
   justify-content: space-between;
-  background-color: $cads-language__nav-background-colour;
+  background-color: $cads-color-nav-background;
   width: 100%;
   padding: 0;
   margin-bottom: 0;
@@ -36,7 +36,7 @@
 
 /* stylelint-disable  plugin/selector-bem-pattern */
 .cads-navigation-full-width-wrapper {
-  background-color: $cads-language__nav-background-colour;
+  background-color: $cads-color-nav-background;
 
   .cads-navigation {
     @include cads-restrict-content-width;

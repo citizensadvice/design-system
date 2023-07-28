@@ -10,7 +10,7 @@
     font-size: 1rem;
     line-height: 1.15rem;
     font-weight: $cads-font-weight__regular;
-    color: $cads-language__secondary-text-colour;
+    color: $cads-color-text-secondary;
     margin: $cads-spacing-4 0;
   }
 
@@ -29,7 +29,7 @@
   &__section-title {
     @extend %cads-h3;
 
-    color: $cads-language__secondary-text-colour;
+    color: $cads-color-text-secondary;
     margin-top: 0;
     margin-bottom: $cads-spacing-4;
   }

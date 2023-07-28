@@ -1,0 +1,138 @@
+@import './legacy-colours';
+@import './colour-palette';
+
+@function cads-colors($color, $legacy: false) {
+  @if $legacy and $cads-use-legacy-color-names {
+    @if type-of($legacy) == 'color' {
+      @return $legacy;
+    }
+  }
+
+  @return $color;
+}
+
+$cads-use-legacy-color-names: true !default;
+
+// ${component}-{element}-{state}
+
+// Brand
+$cads-color-brand-primary: cads-colors(
+  $cads-palette__heritage-blue,
+  $legacy: $cads-language__brand-primary
+) !default;
+$cads-color-brand-primary-dark: cads-colors(
+  $cads-palette__heritage-blue-dark,
+  $legacy: $cads-language__tertiary-button-dark-hover-background-colour
+) !default;
+$cads-color-brand-secondary: cads-colors(
+  $cads-palette__heritage-yellow,
+  $legacy: $cads-language__brand-secondary
+) !default;
+$cads-color-brand-primary-contrast: cads-colors(
+  $cads-palette__white,
+  $legacy: $cads-language__brand-primary-contrast
+) !default;
+$cads-color-brand-adviser: cads-colors(
+  $cads-palette__blue-adviser,
+  $legacy: $cads-language__brand-adviser
+) !default;
+
+// Focus
+$cads-color-focus: cads-colors(
+  $cads-palette__yellow,
+  $legacy: $cads-language__focus-colour
+) !default;
+$cads-color-text-focus: cads-colors(
+  $cads-palette__black,
+  $legacy: $cads-language__focus-text-colour
+) !default;
+
+// Text
+$cads-color-text: cads-colors(
+  $cads-palette__black,
+  $legacy: $cads-language__text-colour
+) !default;
+$cads-color-text-secondary: cads-colors(
+  $cads-palette__dark-grey,
+  $legacy: $cads-language__secondary-text-colour
+) !default;
+
+// Nav
+$cads-color-nav: cads-colors(
+  $cads-palette__white,
+  $cads-language__nav-colour
+) !default;
+$cads-color-nav-background: cads-colors(
+  $cads-palette__heritage-blue,
+  $cads-language__nav-background-colour
+) !default;
+$cads-color-nav-background-hover: cads-colors(
+  $cads-palette__heritage-blue-dark,
+  $cads-language__nav-hover-background-colour
+) !default;
+$cads-color-nav-border-hover: cads-colors(
+  $cads-palette__heritage-blue-dark,
+  $cads-language__nav-hover-border-colour
+) !default;
+$cads-color-nav-focus: cads-colors(
+  $cads-palette__heritage-blue-dark,
+  $cads-language__nav-focus-colour
+) !default;
+$cads-color-nav-background-focus: cads-colors(
+  $cads-palette__white,
+  $cads-language__nav-focus-background-colour
+) !default;
+$cads-color-nav-border-focus: cads-colors(
+  $cads-palette__yellow,
+  $cads-language__nav-focus-border-colour
+) !default;
+
+// Links
+$cads-color-link: cads-colors(
+  $cads-palette__heritage-blue,
+  $legacy: $cads-language__link-colour
+) !default;
+$cads-color-link-hover: cads-colors(
+  $cads-palette__heritage-blue-dark,
+  $legacy: $cads-language__link-hover-colour
+) !default;
+$cads-color-link-visited: cads-colors(
+  $cads-palette__purple,
+  $legacy: $cads-language__link-visited-colour
+) !default;
+$cads-color-link-active: cads-colors(
+  $cads-palette__dark-grey,
+  $legacy: $cads-language__link-active-colour
+) !default;
+$cads-color-background-hover: cads-colors(
+  $cads-palette__blue-light,
+  $legacy: $cads-language__hover-background-colour
+) !default;
+
+// Border
+$cads-color-border: cads-colors(
+  $cads-palette__light-grey,
+  $legacy: $cads-language__border-colour
+) !default;
+$cads-color-border-focus: cads-colors(
+  $cads-palette__dark-grey,
+  $legacy: $cads-language__focus-border-colour
+) !default;
+$cads-color-input-border: cads-colors(
+  $cads-palette__mid-grey,
+  $legacy: $cads-language__input-border-colour
+) !default;
+
+// Messages
+$cads-color-error: cads-colors(
+  $cads-palette__red,
+  $legacy: $cads-language__error-colour
+) !default;
+$cads-color-important: cads-colors(
+  $cads-palette__red,
+  $legacy: $cads-language__warning-colour
+) !default;
+$cads-color-success: cads-colors(
+  $cads-palette__green,
+  $legacy: $cads-language__success-colour
+) !default;

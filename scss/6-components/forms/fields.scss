@@ -38,14 +38,14 @@
 }
 
 .cads-form-field__optional {
-  color: $cads-language__secondary-text-colour;
+  color: $cads-color-text-secondary;
   font-weight: normal;
 }
 
 .cads-form-field__hint {
   display: block;
   margin: 0 0 $cads-spacing-3 0;
-  color: $cads-language__secondary-text-colour;
+  color: $cads-color-text-secondary;
 }
 
 .cads-form-field__label + .cads-form-field__hint {
@@ -59,7 +59,7 @@
 
 .cads-form-field__error-message {
   display: none;
-  color: $cads-language__warning-colour;
+  color: $cads-color-error;
   font-weight: $cads-font-weight__bold;
   margin: 0 0 $cads-spacing-3 0;
 }
@@ -77,7 +77,7 @@
     position: relative;
     padding: 0;
     width: 0;
-    border: $cads-border-width-small solid $cads-language__warning-colour;
+    border: $cads-border-width-small solid $cads-color-error;
 
     &::before {
       content: '';

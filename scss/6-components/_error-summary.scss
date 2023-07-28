@@ -4,21 +4,21 @@
 
 /* @define error-summary; weak */
 .cads-error-summary {
-  border: solid $cads-border-width-medium $cads-language__border-colour;
+  border: solid $cads-border-width-medium $cads-color-border;
   border-radius: $cads-border-radius;
   padding: $cads-spacing-4;
-  color: $cads-language__warning-colour;
+  color: $cads-color-error;
   margin-bottom: $cads-spacing-4;
 
   &:focus {
-    outline: 2px solid $cads-language__focus-colour;
-    border-color: $cads-language__error-colour;
+    outline: 2px solid $cads-color-focus;
+    border-color: $cads-color-error;
   }
 
   &__title {
     @extend %cads-h3;
 
-    color: $cads-language__text-colour;
+    color: $cads-color-text;
     margin-bottom: $cads-spacing-4;
   }
 
@@ -33,12 +33,12 @@
       }
 
       a {
-        color: $cads-language__warning-colour;
+        color: $cads-color-error;
         font-weight: $cads-font-weight__bold;
         text-decoration: underline;
 
         &:focus {
-          color: $cads-language__text-colour;
+          color: $cads-color-text;
           text-decoration: none;
           outline: none;
         }

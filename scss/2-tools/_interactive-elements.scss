@@ -1,14 +1,13 @@
 @mixin cads-interactive-focus() {
-  outline: $cads-border-width-medium solid $cads-language__focus-colour;
-  border-color: $cads-language__focus-text-colour;
+  outline: $cads-border-width-medium solid $cads-color-focus;
+  border-color: $cads-color-text-focus;
 
   // We need to use box-shadow instead of outline as outline does not have a radius
-  box-shadow: inset 0 0 0 $cads-border-width-small
-    $cads-language__focus-text-colour;
+  box-shadow: inset 0 0 0 $cads-border-width-small $cads-color-text-focus;
 }
 
 @mixin cads-interactive-element() {
-  border: solid $cads-border-width-medium $cads-language__input-border-colour;
+  border: solid $cads-border-width-medium $cads-color-input-border;
   border-radius: $cads-border-radius;
   box-shadow: none;
   outline: none;
@@ -19,16 +18,15 @@
 }
 
 @mixin cads-nav-link-focus() {
-  background-color: $cads-language__nav-focus-background-colour;
-  color: $cads-language__nav-focus-colour;
-  border: $cads-border-width-medium solid
-    $cads-language__nav-focus-border-colour;
+  background-color: $cads-color-nav-background-focus;
+  color: $cads-color-nav-focus;
+  border: $cads-border-width-medium solid $cads-color-nav-border-focus;
   outline: none;
 }
 
 @mixin cads-nav-link() {
   font-size: $cads-font-size;
-  color: $cads-language__nav-colour;
+  color: $cads-color-nav;
   padding: $cads-spacing-3 $cads-spacing-2;
   display: inline-block;
   text-decoration: none;
@@ -41,13 +39,13 @@
   }
 
   &:visited {
-    color: $cads-language__brand-primary-contrast;
+    color: $cads-color-brand-primary-contrast;
   }
 
   &:hover {
-    background-color: $cads-language__nav-hover-background-colour;
-    border-color: $cads-language__nav-hover-border-colour;
-    color: $cads-language__brand-primary-contrast;
+    background-color: $cads-color-nav-background-hover;
+    border-color: $cads-color-nav-border-hover;
+    color: $cads-color-brand-primary-contrast;
   }
 
   &:active,

@@ -12,7 +12,7 @@
     @extend %cads-h4;
 
     margin: 0 0 $cads-spacing-4 0;
-    color: $cads-language__secondary-text-colour;
+    color: $cads-color-text-secondary;
   }
 
   .cads-on-this-page__list {
@@ -78,7 +78,7 @@
     border-bottom: $cads-border-width-medium solid transparent;
 
     &:focus {
-      border-color: $cads-language__focus-border-colour;
+      border-color: $cads-color-border-focus;
     }
   }
 
@@ -105,10 +105,10 @@
     padding: $cads-spacing-1 cads-rem(6px);
 
     &:focus {
-      background-color: $cads-language__focus-colour;
-      border-color: $cads-language__focus-border-colour;
+      background-color: $cads-color-focus;
+      border-color: $cads-color-border-focus;
       border-width: $cads-border-width-medium;
-      color: $cads-language__focus-text-colour;
+      color: $cads-color-text-focus;
     }
 
     &:hover {
