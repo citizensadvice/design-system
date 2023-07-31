@@ -29,7 +29,7 @@ gem "citizens_advice_components", path: "../engine"
 # between versions  v2.75.0  and  v2.81.0. Make sure we are using a version
 # that includes https://github.com/ViewComponent/view_component/pull/1626
 # Original issues: https://github.com/bridgetownrb/bridgetown-view-component/issues/3
-gem "view_component", "~> 2.82.0"
+gem "view_component", "~> 3.5.0"
 
 group :bridgetown_plugins do
   gem "bridgetown-seo-tag"
