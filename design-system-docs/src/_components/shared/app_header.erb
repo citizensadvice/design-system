@@ -1,5 +1,5 @@
 <%= render CitizensAdviceComponents::Header.new do |c| %>
-  <%- c.logo(title: @site.metadata.title) do %>
+  <%- c.with_logo(title: @site.metadata.title) do %>
     <a href="/" title="<%= @site.metadata.title %>" class="docs-logo">
       <svg viewBox="0 0 284 52" xmlns="http://www.w3.org/2000/svg">
         <path d="M48.9997 24.3939C48.9997 39.4659 36.1697 51.9999 23.0087 51.9999C23.0087 51.9999 24.5213 47.997 24.5 47.997C10.972 47.997 0 38.0058 0 24.421C0 10.934 10.969 0 24.5 0C38.031 0 49 10.934 49 24.421" />

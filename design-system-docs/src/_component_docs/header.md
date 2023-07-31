@@ -37,7 +37,7 @@ Slots that have plural names like `skip_links` and `header_links` can be configu
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
-  c.header_links([{ title: "Example link", url: "/some-url" }])
+  c.with_header_links([{ title: "Example link", url: "/some-url" }])
 end %>
 ```
 
@@ -45,8 +45,8 @@ Or by calling the singular method name multiple times:
 
 ```rb
 <%%= render CitizensAdviceComponents::Header.new do |c|
-  c.header_link(title: "Example link 1", url: "/some-url")
-  c.header_link(title: "Example link 2", url: "/another-url")
+  c.with_header_link(title: "Example link 1", url: "/some-url")
+  c.with_header_link(title: "Example link 2", url: "/another-url")
 end %>
 ```
 
@@ -56,7 +56,7 @@ This is the only slot required by default. The logo slot can be configured in tw
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
-  c.logo(title: "Citizens Advice homepage", url: "/")
+  c.with_logo(title: "Citizens Advice homepage", url: "/")
 end %>
 ```
 
@@ -70,7 +70,7 @@ Skip links are optional. We provide a default set for you but you can provide yo
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
-  c.skip_links([
+  c.with_skip_links([
     { title: "Skip to content", url: "#content" },
     { title: "Skip to footer", url: "#footer" }
   ])
@@ -85,7 +85,7 @@ Header links can be configured either by passing a list of hashes to `header_lin
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
-  c.header_links([
+  c.with_header_links([
     { title: "Public site", url: "/", current_site: true },
     { title: "AdviserNet", url: "/advisernet" },
     { title: "Cymraeg", url: "?lang=cy" }
@@ -99,7 +99,7 @@ The search form is optional. In order to configure it you need to provide a `sea
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
-  c.search_form(search_action_url: "/search", search_param: :search)
+  c.with_search_form(search_action_url: "/search", search_param: :search)
 end %>
 ```
 
@@ -109,7 +109,7 @@ The account link slot can be configured in two different ways. Either as a plain
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
-  c.account_link(title: "Sign in", url: "/sign-in")
+  c.with_account_link(title: "Sign in", url: "/sign-in")
 end %>
 ```
 
@@ -117,7 +117,7 @@ Or by passing a custom block to render your own HTML:
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c| %>
-  <%% c.account_link do %>
+  <%% c.with_account_link do %>
     <%%= form_tag("/sign-out", class: "cads-header__account-form", authenticity_token: false) do %>
       <%%= button_tag("Sign out", class: %w[cads-button__tertiary cads-header__sign-out js-cads-close-on-blur]) %>
     <%% end %>

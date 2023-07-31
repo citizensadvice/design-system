@@ -28,7 +28,7 @@ extra_breadcrumbs:
           section_title: resource.collection.metadata.name,
           section_title_url: "/components"
         )) do |c|
-          c.section_links(collections.component_docs.resources.map do |foundation|
+          c.with_section_links(collections.component_docs.resources.map do |foundation|
             { url: foundation.relative_url, title: foundation.data.title }
           end)
         end

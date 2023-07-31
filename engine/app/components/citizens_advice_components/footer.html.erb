@@ -5,7 +5,7 @@
         <div class="cads-grid-col">
           <p class="cads-footer__feedback">
             <%= link_to(
-              feedback.title,
+              feedback.title || t("citizens_advice_components.footer.website_feedback"),
               feedback.url,
               class: "cads-footer__hyperlink js-cads-footer-feedback",
               **feedback.new_tab_attributes
@@ -20,7 +20,7 @@
       </div>
     <% end %>
     <% if columns_to_show.any? %>
-      <nav class="cads-footer__navigation" aria-label="<%= t(".navigation_title") %>">
+      <nav class="cads-footer__navigation" aria-label="<%= t("citizens_advice_components.footer.navigation_title") %>">
         <div class="cads-grid-row">
           <% columns_to_show.each do |column| %>
             <div class="cads-grid-col-md-3" data-testid="footer-column">
@@ -45,10 +45,10 @@
     <% end %>
     <div class="cads-footer__company-info">
       <div class="cads-footer__logo">
-        <a class="cads-logo" href="<%= homepage_url %>" title="<%= t(".logo_title") %>"></a>
+        <a class="cads-logo" href="<%= homepage_url %>" title="<%= t("citizens_advice_components.footer.logo_title") %>"></a>
       </div>
       <div class="cads-footer__meta">
-        <p class="cads-footer__meta-text" data-testid="copyright"><%= t(".copyright", year: current_year) %></p>
+        <p class="cads-footer__meta-text" data-testid="copyright"><%= t("citizens_advice_components.footer.copyright", year: current_year) %></p>
         <p class="cads-footer__meta-text" data-testid="legal-summary"><%= legal_summary_text %></p>
       </div>
     </div>

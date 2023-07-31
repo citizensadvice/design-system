@@ -4,14 +4,14 @@ class SectionLinksPreview < ViewComponent::Preview
   def example
     render CitizensAdviceComponents::SectionLinks.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
                                                       section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
-      c.section_links(section_links)
+      c.with_section_links(section_links)
     end
   end
 
   def with_additional_attributes
     render CitizensAdviceComponents::SectionLinks.new(title: "Related Content", section_title: "Applying to the EU settlement scheme",
                                                       section_title_url: "/immigration#h-applying-to-the-eu-settlement-scheme") do |c|
-      c.section_links(additional_attribute_links)
+      c.with_section_links(additional_attribute_links)
     end
   end
 

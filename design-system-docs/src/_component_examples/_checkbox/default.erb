@@ -2,6 +2,6 @@
 title: default
 ---
 
-<%=  render CitizensAdviceComponents::CheckboxSingle.new(name: "a-single-checkbox") do |c|
-  c.checkbox(label: "I agree to the great terms and conditions", value: "agreed-to-tcs")
+<%= render CitizensAdviceComponents::CheckboxSingle.new(name: "a-single-checkbox") do |c|
+  c.with_checkbox(label: "I agree to the great terms and conditions", value: "agreed-to-tcs")
 end %>

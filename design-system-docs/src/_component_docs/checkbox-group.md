@@ -46,7 +46,7 @@ Any additional key/value pairs (beyond `label` and `value`) in your checkbox but
 ### Checkbox ids (View component only)
 
 The `id` attribute for each input will be automatically generated for you by the view component. They will take the form of:
-`[name]-[index]`, where `[index]` is the position of the checkbox in the array passed into `c.inputs` above. eg `my-checkbox-0`, `my-checkbox-1`, etc.
+`[name]-[index]`, where `[index]` is the position of the checkbox in the array passed into `c.with_inputs` above. eg `my-checkbox-0`, `my-checkbox-1`, etc.
 
 ## Implementation
 

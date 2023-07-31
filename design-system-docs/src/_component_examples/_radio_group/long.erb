@@ -5,8 +5,8 @@ title: Long
   legend: "Example radio group",
   name: "radio-buttons-long"
 ) do |c|
-  c.inputs([
-             { label: "This option is pretty long and will probably wrap over multiple lines", value: "1" },
-             { label: "This option is also pretty long, too long even, and will almost definitely wrap over multiple lines", value: "2" }
-           ])
+  c.with_inputs([
+    { label: "This option is pretty long and will probably wrap over multiple lines", value: "1" },
+    { label: "This option is also pretty long, too long even, and will almost definitely wrap over multiple lines", value: "2" }
+  ])
 end %>

@@ -5,6 +5,7 @@ source "https://rubygems.org"
 gemspec
 
 rails_version = ENV.fetch("RAILS_VERSION", "~> 7").to_s
+view_component_version = ENV.fetch("VIEW_COMPONENT_VERSION", "~> 3").to_s
 
 # rubocop:disable Bundler/DuplicatedGem
 if rails_version == "main"
@@ -20,6 +21,8 @@ else
   gem "railties", rails_version
 end
 # rubocop:enable Bundler/DuplicatedGem
+
+gem "view_component", view_component_version
 
 group :development, :test do
   gem "citizens-advice-style",

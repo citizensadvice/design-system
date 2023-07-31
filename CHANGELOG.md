@@ -1,3 +1,7 @@
+**New**
+
+- Add support for ViewComponent 3
+
 ## v5.5.0-alpha.4
 
 ### 9 May 2023

@@ -6,7 +6,7 @@ class RadioGroupPreview < ViewComponent::Preview
       legend: "Example radio group",
       name: "radio-buttons"
     ) do |c|
-      c.inputs(radios)
+      c.with_inputs(radios)
     end
   end
 
@@ -18,7 +18,7 @@ class RadioGroupPreview < ViewComponent::Preview
         error_message: "Select an option"
       }
     ) do |c|
-      c.inputs(radios)
+      c.with_inputs(radios)
     end
   end
 
@@ -30,7 +30,7 @@ class RadioGroupPreview < ViewComponent::Preview
         optional: true
       }
     ) do |c|
-      c.inputs(radios)
+      c.with_inputs(radios)
     end
   end
 
@@ -42,7 +42,7 @@ class RadioGroupPreview < ViewComponent::Preview
         hint: "This is the hint text"
       }
     ) do |c|
-      c.inputs(radios)
+      c.with_inputs(radios)
     end
   end
 
@@ -54,7 +54,7 @@ class RadioGroupPreview < ViewComponent::Preview
         size: :small
       }
     ) do |c|
-      c.inputs(radios)
+      c.with_inputs(radios)
     end
   end
 
@@ -66,7 +66,7 @@ class RadioGroupPreview < ViewComponent::Preview
         layout: :inline
       }
     ) do |c|
-      c.inputs(radios)
+      c.with_inputs(radios)
     end
   end
 
@@ -75,7 +75,7 @@ class RadioGroupPreview < ViewComponent::Preview
       legend: "Example radio group",
       name: "radio-buttons-long"
     ) do |c|
-      c.inputs(long_radios)
+      c.with_inputs(long_radios)
     end
   end
 
@@ -84,7 +84,7 @@ class RadioGroupPreview < ViewComponent::Preview
       legend: "Example radio group",
       name: "radio-buttons-attrs"
     ) do |c|
-      c.inputs(additional_attribute_radios)
+      c.with_inputs(additional_attribute_radios)
     end
   end
 
@@ -96,7 +96,7 @@ class RadioGroupPreview < ViewComponent::Preview
         legend_heading: true
       }
     ) do |c|
-      c.inputs(radios)
+      c.with_inputs(radios)
     end
   end
 
