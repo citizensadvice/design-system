@@ -1,6 +1,6 @@
 **New**
 
-- Add support for ViewComponent 3
+- Add support for ViewComponent 3. The `citizens_advice_components` engine now supports both ViewComponent 2 and 3.
 
 ## v5.5.0-alpha.4
 
