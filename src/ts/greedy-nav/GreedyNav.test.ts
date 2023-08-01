@@ -4,10 +4,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom';
-import { fireEvent } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
 import path from 'path';
 import fs from 'fs';
+import { fireEvent } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 
 import { showToggle, updateLabel, GreedyNavMenu } from './GreedyNav';
 

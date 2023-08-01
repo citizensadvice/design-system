@@ -1,9 +1,9 @@
-const simpleGit = require('simple-git');
 const fs = require('fs');
-const chalk = require('chalk');
 const path = require('path');
-const { prompt } = require('inquirer');
 const { execSync, spawnSync } = require('child_process');
+const simpleGit = require('simple-git');
+const chalk = require('chalk');
+const { prompt } = require('inquirer');
 const semver = require('semver');
 const { checkRepoStatus, ok, showError } = require('./releaseHelpers');
 
