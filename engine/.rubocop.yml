@@ -3,10 +3,8 @@ inherit_gem:
     - default.yml
     - default-rails.yml
 
-require:
-  - rubocop-rspec
-
 AllCops:
+  SuggestExtensions: false
   # Match minimum target version to gemspec
   TargetRubyVersion: 2.7
 
@@ -17,12 +15,6 @@ AllCops:
 Lint/MissingSuper:
   Exclude:
     - 'app/components/**/*'
-
-Metrics/MethodLength:
-  CountAsOne: ['array', 'hash']
-
-Metrics/ClassLength:
-  CountAsOne: ['array', 'hash']
 
 RSpec/ExampleLength:
   CountAsOne: ['array', 'hash']
