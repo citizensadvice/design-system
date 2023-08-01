@@ -59,9 +59,9 @@
     "semver": "^7.3.8",
     "simple-git": "^3.18.0",
     "size-limit": "^8.2.6",
-    "stylelint": "^15.6.2",
+    "stylelint": "^15.10.2",
     "stylelint-config-standard-scss": "^10.0.0",
-    "stylelint-selector-bem-pattern": "^2.1.1",
+    "stylelint-selector-bem-pattern": "^3.0.0",
     "typescript": "^4.9.5"
   },
   "size-limit": [
