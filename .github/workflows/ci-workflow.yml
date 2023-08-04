@@ -195,5 +195,9 @@ jobs:
         with:
           working-directory: design-system-docs
 
+      # Run rubocop against docs code
+      - run: bundle exec rubocop --format github
+        working-directory: design-system-docs
+
       - run: ./bin/bridgetown build
         working-directory: design-system-docs
