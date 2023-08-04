@@ -35,7 +35,6 @@ namespace :frontend do
   desc "Watch the frontend with Webpack during development"
   task :dev do
     sh "yarn run webpack-dev --color"
-  rescue Interrupt
   end
 end
 
@@ -44,7 +43,7 @@ end
 # in order to write automations or other commands requiring a loaded site.
 
 desc "Generate component docs"
-task :generate_component_docs => :environment do
+task generate_component_docs: :environment do
   automation do
     component_name = ask("Component name")
 
@@ -77,7 +76,7 @@ task :generate_component_docs => :environment do
       YAML
     end
 
-    create_file "src/_component_docs/#{component_id.gsub("_", "-")}.md" do
+    create_file "src/_component_docs/#{component_id.gsub('_', '-')}.md" do
       <<~MARKDOWN
         ---
         title: #{component_name}

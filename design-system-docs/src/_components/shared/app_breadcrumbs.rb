@@ -9,12 +9,14 @@ module Shared
     end
 
     def call
-      render(CitizensAdviceComponents::Breadcrumbs.new(
-        links: [{ title: "Home", url: "/"}]
-          .concat(@resource.layout.data.extra_breadcrumbs.to_a)
-          .concat(@resource.data.extra_breadcrumbs.to_a)
-          .concat([{ title: @resource.data.title }]).compact
-      ))
+      render CitizensAdviceComponents::Breadcrumbs.new(links: build_links)
+    end
+
+    def build_links
+      [{ title: "Home", url: "/" }]
+        .concat(@resource.layout.data.extra_breadcrumbs.to_a)
+        .concat(@resource.data.extra_breadcrumbs.to_a)
+        .push({ title: @resource.data.title }).compact
     end
 
     def render?

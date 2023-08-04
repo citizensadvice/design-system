@@ -20,7 +20,7 @@ module Shared
           "Variable",
           "Hex code"
         ],
-        rows: rows
+        rows:
       )
     end
 
