@@ -45,8 +45,28 @@ class TablePreview < ViewComponent::Preview
         "9am to 5.30pm"
       ]
     ]
-
     render(CitizensAdviceComponents::Table.new(header: header, rows: rows))
+  end
+
+  def no_responsive_headers
+    caption = "Post box collection times (Monday to Friday)"
+
+    header = [
+      "Your location",
+      "Post box collection times"
+    ]
+    rows = [
+      [
+        "City or town",
+        "9am to 6.30pm"
+      ],
+      [
+        "Rest of the UK",
+        "9am to 5.30pm"
+      ]
+    ]
+
+    render(CitizensAdviceComponents::Table.new(caption: caption, header: header, rows: rows, responsive_headers: false))
   end
 
   def long_table
