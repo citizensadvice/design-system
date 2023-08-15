@@ -186,7 +186,7 @@ jobs:
       # Setup docs site
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.4'
+          ruby-version: '3.1.4'
           bundler-cache: true
           working-directory: design-system-docs
 
@@ -194,6 +194,10 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: design-system-docs
+
+      # Run rubocop against docs code
+      - run: bundle exec rubocop --format github
+        working-directory: design-system-docs
 
       - run: ./bin/bridgetown build
         working-directory: design-system-docs

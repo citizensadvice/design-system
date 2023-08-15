@@ -3,35 +3,18 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Hello! This is where you manage which Bridgetown version is used to run.
-# When you want to use a different version, change it below, save the
-# file and run `bundle install`. Run Bridgetown like so:
-#
-#   bin/bridgetown start (or console, etc.)
-#
-# This will help ensure the proper Bridgetown version is running.
-#
-# To install a plugin, simply run bundle add and specify the group
-# "bridgetown_plugins". For example:
-#
-#   bundle add some-new-plugin -g bridgetown_plugins
-#
-# Happy Bridgetowning!
+gem "bridgetown", "~> 1.3"
+gem "bridgetown-seo-tag"
+gem "bridgetown-view-component"
 
-gem "bridgetown", "~> 1.1"
 gem "htmlbeautifier"
 gem "nokogiri"
 gem "puma", "~> 5.6"
 
 gem "citizens_advice_components", path: "../engine"
 
-group :bridgetown_plugins do
-  gem "bridgetown-seo-tag"
-  gem "bridgetown-view-component", "~> 1.0"
-end
-
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v9.0.0"
+      tag: "v10.0.1"
 end

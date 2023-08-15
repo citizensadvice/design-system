@@ -25,8 +25,9 @@ module Foundations
               "$cads-border-width-large",
               tag.div(class: "sizing-border sizing-border--large"),
               "4px"
-            ],
-          ])
+            ]
+          ]
+        )
       )
     end
   end

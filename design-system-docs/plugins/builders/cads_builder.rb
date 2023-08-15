@@ -14,7 +14,7 @@ module Builders
   class CadsBuilder < SiteBuilder
     def build
       load_cads
-      CadsTheme.register('cads-theme')
+      CadsTheme.register("cads-theme")
     end
 
     def load_cads
