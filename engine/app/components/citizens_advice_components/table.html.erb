@@ -1,5 +1,5 @@
 <div class="cads-table-container">
-  <table class="cads-table<% if caption? %> cads-table--captioned<% end %>">
+  <table class="cads-table<% if caption? %> cads-table--captioned<% end %> <% if responsive_headers? %>cads-table--responsive-headers<% end %>">
     <% if caption? %>
       <caption><%= caption %></caption>
     <% end %>
@@ -17,7 +17,9 @@
         <tr>
           <% header.zip(row).each do |(head, cell)| %>
             <td>
-              <span class="cads-table__th-heading"><%= head %></span>
+              <% if responsive_headers? %>
+                <span class="cads-table__th-heading"><%= head %></span>
+              <% end %>
               <span class="cads-table__content"><%= cell %></span>
             </td>
           <% end %>

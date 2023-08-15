@@ -4,11 +4,12 @@ module CitizensAdviceComponents
   class Table < Base
     attr_reader :header, :caption
 
-    def initialize(header:, rows:, caption: nil)
+    def initialize(header:, rows:, caption: nil, responsive_headers: true)
       super
       @header = header
       @rows = rows
       @caption = caption
+      @responsive_headers = responsive_headers
     end
 
     def rows
@@ -19,6 +20,10 @@ module CitizensAdviceComponents
 
     def caption?
       caption.present?
+    end
+
+    def responsive_headers?
+      @responsive_headers.present?
     end
 
     def render?
