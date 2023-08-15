@@ -1,6 +1,6 @@
 **New**
 
-- Tables: adding `responsive_headers` optional argument. It defaults to `true` and toggling the responsive stacking functionality.
+- Tables: adding `responsive_headers` optional argument. It defaults to `true` and toggles the responsive stacking functionality.
 
 ## v5.5.0-alpha.5
 

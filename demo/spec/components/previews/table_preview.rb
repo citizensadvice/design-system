@@ -49,20 +49,22 @@ class TablePreview < ViewComponent::Preview
   end
 
   def no_responsive_headers
-    caption = "Post box collection times (Monday to Friday)"
+    caption = "Office times"
 
-    header = [
-      "Your location",
-      "Post box collection times"
-    ]
+    header = %w[Day Time]
     rows = [
       [
-        "City or town",
-        "9am to 6.30pm"
-      ],
-      [
-        "Rest of the UK",
-        "9am to 5.30pm"
+        "Monday",
+        "9.15am to 5.15pm"
+      ], [
+        "Tuesday",
+        "9.15am to 5.15pm"
+      ], [
+        "Wednesday",
+        "9.15am to 5.15pm"
+      ], [
+        "Thursday",
+        "9.15am to 5.15pm"
       ]
     ]
 
