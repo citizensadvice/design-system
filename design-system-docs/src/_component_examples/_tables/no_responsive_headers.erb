@@ -1,0 +1,24 @@
+---
+title: No responsive headers
+---
+
+<%= render(CitizensAdviceComponents::Table.new(
+  caption: "Office times",
+  header: %w[Day Time],
+  rows: [
+    [
+      "Monday",
+      "9.15am to 5.15pm"
+    ], [
+      "Tuesday",
+      "9.15am to 5.15pm"
+    ], [
+      "Wednesday",
+      "9.15am to 5.15pm"
+    ], [
+      "Thursday",
+      "9.15am to 5.15pm"
+    ]
+  ],
+  responsive_headers: false
+)) %>
