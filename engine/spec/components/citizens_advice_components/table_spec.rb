@@ -77,6 +77,49 @@ RSpec.describe CitizensAdviceComponents::Table, type: :component do
     end
   end
 
+  describe "responsive_headers" do
+    context "when the responsive_headers option is not set" do
+      before do
+        render_inline described_class.new(
+          header: sample_header,
+          rows: sample_rows,
+          caption: "Example caption"
+        )
+      end
+
+      it { is_expected.to have_selector "[data-testid='table-inline-heading']" }
+      it { is_expected.to have_selector ".cads-table--responsive-headers" }
+    end
+
+    context "when the responsive_headers option is set to true" do
+      before do
+        render_inline described_class.new(
+          header: sample_header,
+          rows: sample_rows,
+          caption: "Example caption",
+          responsive_headers: true
+        )
+      end
+
+      it { is_expected.to have_selector "[data-testid='table-inline-heading']" }
+      it { is_expected.to have_selector ".cads-table--responsive-headers" }
+    end
+
+    context "when the responsive_headers option is set to false" do
+      before do
+        render_inline described_class.new(
+          header: sample_header,
+          rows: sample_rows,
+          caption: "Example caption",
+          responsive_headers: false
+        )
+      end
+
+      it { is_expected.not_to have_selector "[data-testid='table-inline-heading']" }
+      it { is_expected.not_to have_selector ".cads-table--responsive-headers" }
+    end
+  end
+
   private
 
   def sample_header
