@@ -45,8 +45,30 @@ class TablePreview < ViewComponent::Preview
         "9am to 5.30pm"
       ]
     ]
-
     render(CitizensAdviceComponents::Table.new(header: header, rows: rows))
+  end
+
+  def no_responsive_headers
+    caption = "Office times"
+
+    header = %w[Day Time]
+    rows = [
+      [
+        "Monday",
+        "9.15am to 5.15pm"
+      ], [
+        "Tuesday",
+        "9.15am to 5.15pm"
+      ], [
+        "Wednesday",
+        "9.15am to 5.15pm"
+      ], [
+        "Thursday",
+        "9.15am to 5.15pm"
+      ]
+    ]
+
+    render(CitizensAdviceComponents::Table.new(caption: caption, header: header, rows: rows, responsive_headers: false))
   end
 
   def long_table

@@ -293,6 +293,10 @@ module.exports = function backstopCommon(baseUrl) {
         label: 'Components/Tables (no caption)',
         url: componentUrlFor('table/no_caption'),
       },
+      {
+        label: 'Components/Tables (no responsive headers)',
+        url: componentUrlFor('table/no_responsive_headers'),
+      },
 
       // Forms
       {

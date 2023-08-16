@@ -19,10 +19,6 @@
 
     margin-bottom: $cads-spacing-2;
     text-align: left;
-
-    @include cads-media-breakpoint-only(sm) {
-      margin-bottom: 0;
-    }
   }
 
   th,
@@ -49,14 +45,10 @@
 
     display: none;
   }
+}
 
+.cads-table--responsive-headers {
   @include cads-media-breakpoint-only(sm) {
-    &--captioned {
-      border-top: none;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-
     caption {
       background-color: $cads-palette__white;
       border: solid $cads-border-width-small $cads-language__input-border-colour;
@@ -102,6 +94,14 @@
       display: inline;
       font-weight: bold;
       text-align: left;
+    }
+
+    &.cads-table--captioned {
+      @include cads-media-breakpoint-only(sm) {
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
     }
   }
 }

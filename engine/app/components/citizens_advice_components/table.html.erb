@@ -1,5 +1,5 @@
 <div class="cads-table-container">
-  <table class="cads-table<% if caption? %> cads-table--captioned<% end %>">
+  <%= tag.table(class: table_class_names) do %>
     <% if caption? %>
       <caption><%= caption %></caption>
     <% end %>
@@ -17,12 +17,14 @@
         <tr>
           <% header.zip(row).each do |(head, cell)| %>
             <td>
-              <span class="cads-table__th-heading"><%= head %></span>
+              <% if responsive_headers? %>
+                <span class="cads-table__th-heading" data-testid="table-inline-heading"><%= head %></span>
+              <% end %>
               <span class="cads-table__content"><%= cell %></span>
             </td>
           <% end %>
         </tr>
       <% end %>
     </tbody>
-  </table>
+  <% end %>
 </div>

@@ -97,6 +97,8 @@ tables:
     description: 'Required, nested array of row contents'
   - argument: caption
     description: 'Optional, <code>&lt;caption&gt;</code> text'
+  - argument: responsive_headers
+    description: 'Optional. Defaults to <code>true</code>. If set to <code>false</code> the table will use the desktop structure on smaller devices.'
 on_this_page:
   - argument: show_nested_links
     description: 'Optional, will display nested links if there are any. Defaults to <code>false</code>'
