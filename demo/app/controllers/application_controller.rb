@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   around_action :with_locale
 
-  def with_locale(&action)
-    I18n.with_locale(params[:locale] || I18n.default_locale, &action)
+  def with_locale(&)
+    I18n.with_locale(params[:locale] || I18n.default_locale, &)
   end
 end

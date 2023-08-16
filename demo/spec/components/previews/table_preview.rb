@@ -26,7 +26,7 @@ class TablePreview < ViewComponent::Preview
       ]
     ]
     render(
-      CitizensAdviceComponents::Table.new(caption: caption, header: header, rows: rows)
+      CitizensAdviceComponents::Table.new(caption:, header:, rows:)
     )
   end
 
@@ -45,7 +45,7 @@ class TablePreview < ViewComponent::Preview
         "9am to 5.30pm"
       ]
     ]
-    render(CitizensAdviceComponents::Table.new(header: header, rows: rows))
+    render(CitizensAdviceComponents::Table.new(header:, rows:))
   end
 
   def no_responsive_headers
@@ -68,7 +68,7 @@ class TablePreview < ViewComponent::Preview
       ]
     ]
 
-    render(CitizensAdviceComponents::Table.new(caption: caption, header: header, rows: rows, responsive_headers: false))
+    render(CitizensAdviceComponents::Table.new(caption:, header:, rows:, responsive_headers: false))
   end
 
   def long_table
@@ -144,8 +144,8 @@ class TablePreview < ViewComponent::Preview
       ]
     ]
 
-    subject = CitizensAdviceComponents::Table.new(header: header, rows: rows, caption: caption)
+    subject = CitizensAdviceComponents::Table.new(header:, rows:, caption:)
 
-    render_with_template(locals: { subject: subject })
+    render_with_template(locals: { subject: })
   end
 end

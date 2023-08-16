@@ -31,6 +31,6 @@ class TargetedContentPreview < ViewComponent::Preview
       ]
     ]
 
-    render_with_template(locals: { header: header, rows: rows, caption: caption })
+    render_with_template(locals: { header:, rows:, caption: })
   end
 end

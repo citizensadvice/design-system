@@ -66,7 +66,7 @@ class TextareaPreview < ViewComponent::Preview
         type: :text,
         options: {
           hint: "This input has additional attributes (spellcheck)",
-          additional_attributes: additional_attributes
+          additional_attributes:
         }
       )
     )

@@ -22,8 +22,8 @@ class HeaderPreview < ViewComponent::Preview
   def with_custom_logo
     render_with_template(
       locals: {
-        skip_links: skip_links,
-        header_links: header_links
+        skip_links:,
+        header_links:
       }
     )
   end
@@ -31,8 +31,8 @@ class HeaderPreview < ViewComponent::Preview
   def with_custom_account_link
     render_with_template(
       locals: {
-        skip_links: skip_links,
-        header_links: header_links
+        skip_links:,
+        header_links:
       }
     )
   end
@@ -40,9 +40,9 @@ class HeaderPreview < ViewComponent::Preview
   def with_navigation
     render_with_template(
       locals: {
-        skip_links: skip_links,
-        header_links: header_links,
-        navigation_links: navigation_links
+        skip_links:,
+        header_links:,
+        navigation_links:
       }
     )
   end

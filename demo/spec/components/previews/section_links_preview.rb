@@ -18,7 +18,7 @@ class SectionLinksPreview < ViewComponent::Preview
   def with_additional_content
     render_with_template(
       locals: {
-        section_links: section_links
+        section_links:
       }
     )
   end
