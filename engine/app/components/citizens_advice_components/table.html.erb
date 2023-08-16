@@ -1,5 +1,5 @@
 <div class="cads-table-container">
-  <table class="cads-table<% if caption? %> cads-table--captioned<% end %><% if responsive_headers? %> cads-table--responsive-headers<% end %>">
+  <%= tag.table(class: table_class_names) do %>
     <% if caption? %>
       <caption><%= caption %></caption>
     <% end %>
@@ -26,5 +26,5 @@
         </tr>
       <% end %>
     </tbody>
-  </table>
+  <% end %>
 </div>

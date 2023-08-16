@@ -29,5 +29,11 @@ module CitizensAdviceComponents
     def render?
       header.present? && rows.present?
     end
+
+    def table_class_names
+      classes = ["cads-table"]
+      classes << "cads-table--captioned" if caption?
+      classes << "cads-table--responsive-headers" if responsive_headers?
+    end
   end
 end
