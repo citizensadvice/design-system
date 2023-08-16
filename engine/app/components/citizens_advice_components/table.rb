@@ -34,6 +34,7 @@ module CitizensAdviceComponents
       classes = ["cads-table"]
       classes << "cads-table--captioned" if caption?
       classes << "cads-table--responsive-headers" if responsive_headers?
+      classes
     end
   end
 end
