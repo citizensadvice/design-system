@@ -1,3 +1,7 @@
+## v5.5.0-alpha.6
+
+### 16 August 2023
+
 **New**
 
 - Tables: adding `responsive_headers` optional argument. It defaults to `true` and toggles the responsive stacking functionality.
