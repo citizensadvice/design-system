@@ -106,6 +106,10 @@ jobs:
         with:
           working-directory: demo
 
+      # Run rubocop against demo app code
+      - run: bundle exec rubocop --format github
+        working-directory: demo
+
       # Run asset build
       - run: ./bin/rails assets:precompile
         working-directory: demo
