@@ -67,7 +67,7 @@ jobs:
           bundler-cache: true
           ruby-version: '3.1.4'
           working-directory: engine
-      - run: bundle exec rubocop --format github
+      - run: bundle exec rubocop --format progress --format github
       - run: bundle exec erblint --lint-all
 
   demo-app:
@@ -105,6 +105,10 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: demo
+
+      # Run rubocop against demo app code
+      - run: bundle exec rubocop --format progress --format github
+        working-directory: demo
 
       # Run asset build
       - run: ./bin/rails assets:precompile
@@ -196,7 +200,7 @@ jobs:
           working-directory: design-system-docs
 
       # Run rubocop against docs code
-      - run: bundle exec rubocop --format github
+      - run: bundle exec rubocop --format progress --format github
         working-directory: design-system-docs
 
       - run: ./bin/bridgetown build

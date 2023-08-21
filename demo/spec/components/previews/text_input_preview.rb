@@ -82,7 +82,7 @@ class TextInputPreview < ViewComponent::Preview
         type: :text,
         options: {
           hint: "This input has the additional attributes (autocomplete and data-testid)",
-          additional_attributes: additional_attributes
+          additional_attributes:
         }
       )
     )

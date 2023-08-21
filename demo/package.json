@@ -14,16 +14,16 @@
     "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "dependencies": {
-    "esbuild": "^0.18.17",
-    "sass": "^1.64.1"
+    "esbuild": "^0.19.2",
+    "sass": "^1.65.1"
   },
   "devDependencies": {
     "@testing-library/cypress": "^9.0.0",
     "axe-core": "^4.7.2",
     "backstopjs": "^6.1.4",
-    "cypress": "^12.17.2",
+    "cypress": "^12.17.4",
     "cypress-axe": "^1.4.0",
     "cypress-plugin-tab": "^1.0.5",
-    "start-server-and-test": "^1.15.2"
+    "start-server-and-test": "^2.0.0"
   }
 }
