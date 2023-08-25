@@ -69,14 +69,14 @@ module CitizensAdviceComponents
 
       def initialize(title: nil, url: "/")
         super
-        @title = title || t("citizens_advice_components.footer.logo_title")
+        @title = title
         @url = url
       end
 
       def call
         # Renders a block if provided to allow passing a custom logo SVG,
         # otherwise renders the standard logo.
-        content.presence || link_to("", url, title: title, class: "cads-logo")
+        content.presence || link_to("", url, title: title || t("citizens_advice_components.footer.logo_title"), class: "cads-logo")
       end
     end
 
