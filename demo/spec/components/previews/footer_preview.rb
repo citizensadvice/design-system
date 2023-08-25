@@ -37,19 +37,19 @@ class FooterPreview < ViewComponent::Preview
 
   def columns
     [{
-       title: "Advice",
-       links: [
-         { url: "/benefits/", title: "Benefits" },
-         { url: "/work/", title: "Work" },
-         { url: "/debt-and-money/", title: "Debt and Money" },
-         { url: "/consumer/", title: "Consumer" },
-         { url: "/family/", title: "Family" },
-         { url: "/housing/", title: "Housing" },
-         { url: "/law-and-courts/", title: "Law and courts" },
-         { url: "/immigration/", title: "Immigration" },
-         { url: "/health/", title: "Health" }
-       ]
-     },
+      title: "Advice",
+      links: [
+        { url: "/benefits/", title: "Benefits" },
+        { url: "/work/", title: "Work" },
+        { url: "/debt-and-money/", title: "Debt and Money" },
+        { url: "/consumer/", title: "Consumer" },
+        { url: "/family/", title: "Family" },
+        { url: "/housing/", title: "Housing" },
+        { url: "/law-and-courts/", title: "Law and courts" },
+        { url: "/immigration/", title: "Immigration" },
+        { url: "/health/", title: "Health" }
+      ]
+    },
      {
        title: "Resources and tools",
        links: [
