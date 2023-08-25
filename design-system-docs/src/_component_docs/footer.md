@@ -36,6 +36,7 @@ The component accepts up to four column slots. These can either be passed on at 
 
 ```erb
 <%%= render CitizensAdviceComponents::Footer.new do |c|
+  c.with_logo(url: "/")
   c.with_columns(columns)
 end %>
 ```
