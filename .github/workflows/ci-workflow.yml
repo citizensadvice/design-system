@@ -9,7 +9,7 @@ on:
 
 jobs:
   node-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -20,7 +20,7 @@ jobs:
       - run: npm test
 
   engine-specs:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -56,7 +56,7 @@ jobs:
 
   engine-lint:
     needs: engine-specs
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: engine
@@ -71,7 +71,7 @@ jobs:
       - run: bundle exec erblint --lint-all
 
   demo-app:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
       PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
@@ -128,7 +128,7 @@ jobs:
         if: ${{ failure() }}
 
   demo-app-backstop:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
       CYPRESS_INSTALL_BINARY: 0
@@ -174,7 +174,7 @@ jobs:
   # This is in addition to any builds run when adding the
   # "docs preview" label to a pull request.
   docs-build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
