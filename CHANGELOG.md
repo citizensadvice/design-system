@@ -1,3 +1,7 @@
+**Bugfixes**
+
+- Notice banner: when the content spreads over multiple lines, then the label remains vertically centred against the content.
+
 ## v5.5.0-alpha.6
 
 ### 16 August 2023
