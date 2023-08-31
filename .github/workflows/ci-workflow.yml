@@ -9,7 +9,7 @@ on:
 
 jobs:
   node-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -20,22 +20,22 @@ jobs:
       - run: npm test
 
   engine-specs:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         ruby_version: ['2.7', '3.0', '3.1', '3.2']
-        rails_version: ['6.0.6', '6.1.7', '7.0.6']
-        view_component_version: ['2.82.0']
+        rails_version: ['~> 6.0', '~> 6.1', '~> 7.0']
+        view_component_version: ['~> 2.82']
         exclude:
-          - rails_version: '6.0.6'
+          - rails_version: '~> 6.0'
             ruby_version: '3.0'
-          - rails_version: '6.0.6'
+          - rails_version: '~> 6.0'
             ruby_version: '3.1'
         include:
           - ruby_version: '3.1'
-            rails_version: '7.0.6'
-            view_component_version: '3.0'
+            rails_version: '~> 7.0'
+            view_component_version: '~> 3'
     env:
       RAILS_VERSION: ${{ matrix.rails_version }}
       VIEW_COMPONENT_VERSION: ${{ matrix.view_component_version }}
@@ -56,7 +56,7 @@ jobs:
 
   engine-lint:
     needs: engine-specs
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: engine
@@ -65,13 +65,13 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: '3.1.4'
+          ruby-version: '3.2.2'
           working-directory: engine
       - run: bundle exec rubocop --format progress --format github
       - run: bundle exec erblint --lint-all
 
   demo-app:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
       PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
@@ -91,7 +91,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4'
+          ruby-version: '3.2.2'
           bundler-cache: true
           working-directory: demo
 
@@ -128,7 +128,7 @@ jobs:
         if: ${{ failure() }}
 
   demo-app-backstop:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
       CYPRESS_INSTALL_BINARY: 0
@@ -148,7 +148,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4'
+          ruby-version: '3.2.2'
           bundler-cache: true
           working-directory: demo
 
@@ -174,7 +174,7 @@ jobs:
   # This is in addition to any builds run when adding the
   # "docs preview" label to a pull request.
   docs-build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -190,7 +190,7 @@ jobs:
       # Setup docs site
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4'
+          ruby-version: '3.2.2'
           bundler-cache: true
           working-directory: design-system-docs
 
