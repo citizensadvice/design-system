@@ -45,14 +45,12 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/${url}`,
         onReadyScript: 'onReadyEmulatePrint.js',
         viewports: [{ label: 'print', width: 1024, height: 1024 }],
-        selectors: ['document'],
-        excludeFromA11yTest: true,
+        selectors: ['#content'],
       },
       {
         label: `${labelPrefix}`,
         url: `${baseUrl}/${url}`,
         readySelector: '.cads-greedy-nav-has-dropdown',
-        excludeFromA11yTest: true,
       },
     ];
   }
