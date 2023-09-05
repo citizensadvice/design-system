@@ -2,94 +2,30 @@
 
 ### 5 September 2023
 
-## v5.5.0-alpha.7
-
-### 31 August 2023
-
-**Bugfixes**
-
-- Notice banner: when the content spreads over multiple lines, then the label remains vertically centred against the content.
-
-## v5.5.0-alpha.6
-
-### 16 August 2023
-
-**New**
-
-- Tables: adding `responsive_headers` optional argument. It defaults to `true` and toggles the responsive stacking functionality.
-
-## v5.5.0-alpha.5
-
-### 31 July 2023
-
-**New**
-
-- Add support for ViewComponent 3. The `citizens_advice_components` engine now supports both ViewComponent 2 and 3.
-
-## v5.5.0-alpha.4
-
-### 9 May 2023
-
 **New**
 
 - Footer: allows customising the `legal_summary`
-
-## v5.5.0-alpha.3
-
-### 6 January 2023
-
-**Bugfixes**
-
-- On this page: Fix css columns overflow bug with expandable on this-page elements.
-- Bundle Welsh translations for core date formats. The rails-i18n gem historically provided these but the cy locale was removed in `7.0.6` due to lack of support
-
-## v5.5.0-alpha.2
-
-### 2 December 2022
-
-**New**
-
+- Header: Fix error if header javascript is initialised when no search form is present
 - Input: Replace the `required` attribute on inputs with `aria-required`
 - Page form: Introducing a new `.cads-page-form` class to be used mainly for form pages.
-
-**Bugfixes**
-
-- Fix: Pin `rails-i18n` to `7.0.5` as `7.0.6` removes Welsh language locales due to lack of support. Temporary fix to maintain support.
-
-## v5.5.0-alpha.1
-
-### 13 October 2022
-
-**New**
-
-- Fix label being assigned as checkbox attribute in Ruby 3+
-- SCSS: Allows nav link colours to be customised using dedicated language variables.
-- Engine: Haml is no longer a dependency of the Rails engine. All component templates now use ERB internally. This doesn't affect the ability to use Haml in app code. If you were unintentionally relying on `haml-rails` being present in your app you will need to add it to your project Gemfile.
-
-## v5.5.0-alpha.0
-
-### 8 September 2022
-
-**New**
-
-- Utilities: Add `.cads-visually-hidden` class as alias to `.cads-sr-only` to match Sass mixin name.
-- Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
 - Search: Add `autocomplete="off"` to search field
+- Section links: Add new `custom_content` slot and deprecate use of standard `content` block, use slots for whole API.
+- Tables: adding `responsive_headers` optional argument. It defaults to `true` and toggles the responsive stacking functionality.
+- SCSS: Allows nav link colours to be customised using dedicated language variables.
+- SCSS: Adds a new `cads-grid-col-width` function which allows us to get the percentage width for a given number of grid columns.
+- SCSS: Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
+- SCSS: Add `.cads-visually-hidden` class as alias to `.cads-sr-only` to match Sass mixin name.
+- Engine: Fix label being assigned as checkbox attribute in Ruby 3+
+- Engine: Haml is no longer a dependency of the Rails engine. All component templates now use ERB internally. This doesn't affect the ability to use Haml in app code. If you were unintentionally relying on `haml-rails` being present in your app you will need to add it to your project Gemfile.
+- Engine: Add support for ViewComponent 3. The `citizens_advice_components` engine now supports both ViewComponent 2 and 3.
 
 **Bugfixes**
 
 - Footer: Fix borders when using minimal footer
 - Greedy nav: use theme colour for the background, not the brand colour
-
-## <sub>v5.4.1-alpha.0</sub>
-
-#### _Aug. 31, 2022_
-
-**New**
-
-- 👤 Header: Fix error if header javascript is initialised when no search form is present
-- 📃 Add a new `cads-prose-direct-descendants` class which scopes prose styles to direct descendants using the `>` child combinator selector
-- SCSS: Adds a new `cads-grid-col-width` function which allows us to get the percentage width for a given number of grid columns.
+- Notice banner: when the content spreads over multiple lines, then the label remains vertically centred against the content.
+- On this page: Fix css columns overflow bug with expandable on this-page elements.
+- Engine: Bundle Welsh translations for core date formats. The rails-i18n gem historically provided these but the cy locale was removed in `7.0.6` due to lack of support
 
 ## <sub>v5.4.0</sub>
 
