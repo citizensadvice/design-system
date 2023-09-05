@@ -15,6 +15,12 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
+    groups:
+      dev-dependencies:
+        patterns:
+          - 'eslint*'
+          - 'jest*'
+          - 'stylelint*'
 
   ##
   # Rails engine
