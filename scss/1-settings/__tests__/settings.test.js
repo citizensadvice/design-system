@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const glob = require('glob');
+const { globSync } = require('glob');
 const sass = require('sass');
 
 test('importing settings does not output css', () => {
@@ -9,7 +9,7 @@ test('importing settings does not output css', () => {
   expect(output.css.toString()).toEqual('');
 });
 
-test.each(glob.sync('scss/1-settings/_*.scss'))(
+test.each(globSync('scss/1-settings/_*.scss'))(
   '%p can be imported standalone',
   (file) => {
     expect(() =>
