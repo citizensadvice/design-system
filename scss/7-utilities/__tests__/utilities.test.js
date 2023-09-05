@@ -1,8 +1,8 @@
 /* eslint-env jest */
-const glob = require('glob');
+const { globSync } = require('glob');
 const sass = require('sass');
 
-test.each(glob.sync('scss/7-utilities/_*.scss'))(
+test.each(globSync('scss/7-utilities/_*.scss'))(
   '%p can be imported standalone',
   (file) => {
     expect(() =>
