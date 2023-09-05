@@ -11,7 +11,7 @@ jobs:
   node-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
@@ -43,7 +43,7 @@ jobs:
       run:
         working-directory: engine
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
@@ -61,7 +61,7 @@ jobs:
       run:
         working-directory: engine
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
@@ -77,7 +77,7 @@ jobs:
       PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
       PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
@@ -134,7 +134,7 @@ jobs:
       CYPRESS_INSTALL_BINARY: 0
       PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
@@ -176,7 +176,7 @@ jobs:
   docs-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
