@@ -1,3 +1,7 @@
+## v5.5.0
+
+### 5 September 2023
+
 ## v5.5.0-alpha.7
 
 ### 31 August 2023
