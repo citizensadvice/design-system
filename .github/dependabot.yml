@@ -20,6 +20,7 @@ updates:
         patterns:
           - 'eslint*'
           - 'jest*'
+          - 'prettier'
           - 'stylelint*'
 
   ##
