@@ -5,7 +5,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { screen } from '@testing-library/dom';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import initShowHide from './show-hide';
 
