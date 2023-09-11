@@ -5,7 +5,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { screen, getByRole } from '@testing-library/dom';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import initTargetedContent from './targeted-content';
 
