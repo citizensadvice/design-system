@@ -18,20 +18,18 @@ updates:
     groups:
       dev-dependencies:
         patterns:
+          - '@size-limit/*'
+          - '@testing-library/*'
           - 'eslint*'
           - 'jest*'
           - 'prettier'
+          - 'size-limit'
           - 'stylelint*'
 
   ##
   # Rails engine
   ##
   - package-ecosystem: bundler
-    directory: '/engine'
-    schedule:
-      interval: weekly
-
-  - package-ecosystem: npm
     directory: '/engine'
     schedule:
       interval: weekly
