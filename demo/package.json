@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "esbuild": "^0.19.2",
-    "sass": "^1.65.1"
+    "sass": "^1.67.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^9.0.0",
