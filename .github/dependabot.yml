@@ -18,9 +18,12 @@ updates:
     groups:
       dev-dependencies:
         patterns:
+          - '@size-limit/*'
+          - '@testing-library/*'
           - 'eslint*'
           - 'jest*'
           - 'prettier'
+          - 'size-limit'
           - 'stylelint*'
 
   ##
