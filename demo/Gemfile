@@ -17,7 +17,7 @@ gem "sprockets-rails"
 gem "cssbundling-rails", "~> 1.1"
 
 # Bundle and process JS [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails", "~> 1.1.1"
+gem "jsbundling-rails", "~> 1.2.1"
 
 # Used for static sample pages [https://github.com/thoughtbot/high_voltage]
 gem "high_voltage", "~> 3.1"
