@@ -18,7 +18,7 @@
     "sass": "^1.65.1"
   },
   "devDependencies": {
-    "@testing-library/cypress": "^9.0.0",
+    "@testing-library/cypress": "^10.0.1",
     "axe-core": "^4.8.1",
     "backstopjs": "^6.2.2",
     "cypress": "^12.17.4",
