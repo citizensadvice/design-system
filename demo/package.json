@@ -14,8 +14,8 @@
     "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "dependencies": {
-    "esbuild": "^0.19.2",
-    "sass": "^1.65.1"
+    "esbuild": "^0.19.3",
+    "sass": "^1.67.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^10.0.1",
