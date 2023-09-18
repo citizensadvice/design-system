@@ -3,9 +3,7 @@
     <h1 class="cads-page-title">citizens_advice_components demo app</h1>
     <div class="cads-prose">
       <ul>
-        <% HighVoltage.page_ids.each do |page| %>
-          <li><%= link_to page.titleize, page_path(id: page) %></li>
-        <% end %>
+        <li><%= link_to("Content sample", content_sample_path) %></li>
         <li><%= link_to("Form sample", example_form_new_path) %></li>
         <li><%= link_to("View Component previews", preview_view_components_path) %></li>
       </ul>

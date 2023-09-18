@@ -19,9 +19,6 @@ gem "cssbundling-rails"
 # Bundle and process JS [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
-# Used for static sample pages [https://github.com/thoughtbot/high_voltage]
-gem "high_voltage", "~> 3.1"
-
 # Bundle the design system engine
 gem "citizens_advice_components", path: "../engine"
 
