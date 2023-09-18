@@ -16,7 +16,14 @@ updates:
     schedule:
       interval: weekly
     groups:
-      dev-dependencies:
+      css-dependencies:
+        patterns:
+          - 'autoprefixer'
+          - 'cssnano'
+          - 'postcss-*'
+          - 'postcss'
+          - 'sass'
+      testing-dependencies:
         patterns:
           - '@size-limit/*'
           - '@testing-library/*'
