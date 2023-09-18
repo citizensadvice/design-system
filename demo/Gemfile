@@ -14,13 +14,10 @@ gem "puma", "~> 5.6"
 gem "sprockets-rails"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem "cssbundling-rails", "~> 1.1"
+gem "cssbundling-rails"
 
 # Bundle and process JS [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails", "~> 1.1.1"
-
-# Used for static sample pages [https://github.com/thoughtbot/high_voltage]
-gem "high_voltage", "~> 3.1"
+gem "jsbundling-rails"
 
 # Bundle the design system engine
 gem "citizens_advice_components", path: "../engine"
