@@ -6,7 +6,11 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   before { travel_to Time.zone.local(2049) }
 
   describe "common elements" do
-    before { render_inline described_class.new }
+    before do
+      render_inline described_class.new do |c|
+        c.with_logo(url: "/")
+      end
+    end
 
     it { is_expected.to have_selector ".cads-logo" }
     it { is_expected.to have_text "Copyright ©2049 Citizens Advice" }
@@ -18,6 +22,36 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
       it { is_expected.to have_text "Hawlfraint ©2049 Cyngor ar Bopeth" }
       it { is_expected.to have_text "Cyngor ar Bopeth yn enw gweithredol ar" }
+    end
+  end
+
+  describe "logo" do
+    context "with default logo" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.with_logo(title: "Logo title", url: "/homepage")
+        end
+      end
+
+      it { is_expected.to have_link "Logo title", href: "/homepage" }
+    end
+
+    context "with custom block" do
+      before do
+        render_inline(described_class.new) do |c|
+          c.with_logo { "Custom logo HTML" }
+        end
+      end
+
+      it { is_expected.to have_text "Custom logo HTML" }
+    end
+
+    context "without logo" do
+      before do
+        render_inline(described_class.new)
+      end
+
+      it { is_expected.not_to have_selector ".cads-footer__logo" }
     end
   end
 
