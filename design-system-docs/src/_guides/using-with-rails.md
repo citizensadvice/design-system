@@ -48,18 +48,16 @@ You can then run the application using the included dev script:
 
 Before we add any design system specific code we'll also need a basic controller and view to use.
 
-Add the following controller at `app/controllers/home_controller.rb`:
+We'll first generate a basic home controller using:
 
-```rb
-class HomeController < ApplicationController
-  def index; end
-end
+```sh
+./bin/rails g controller home index --no-helper --skip-routes
 ```
 
-And the following template at `app/views/home/index.html.erb`:
+Then, replace the contents of `app/views/home/index.html.erb` with:
 
 ```erb
-Hello Design System!
+<h1>Hello Design System!</h1>
 ```
 
 And finally add the following to `config/routes.rb`:
@@ -67,6 +65,10 @@ And finally add the following to `config/routes.rb`:
 ```rb
 root "home#index", as: :home
 ```
+
+At this point running the application should look like this:
+
+<img src="/images/guides/using-with-rails-01.png" alt="A Rails application showing Hello Design System!"/>
 
 ## Using the Design System assets
 
@@ -92,6 +94,8 @@ And finally, add the following to your `app/assets/stylesheets/application.sass.
 ```
 
 If this has worked you should be able to restart your application and see the words "Hello Design System!" using the Citizens Advice brand font (Open Sans).
+
+<img src="/images/guides/using-with-rails-02.png" alt="A Rails application showing Hello Design System! and using Open Sans as the typeface"/>
 
 ## Setting up an application layout
 
@@ -120,11 +124,11 @@ The following is an annotated layout template including any Rails defaults which
 
     <%%# This script pairs with the no-js class on the HTML element and is needed for fallback styles. %>
     <script>document.querySelector('html').classList.remove('no-js');</script>
+    <%%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
     <%%# This ID is required when using the skip links provided by the header component %>
     <div id="cads-main-content"><%%= yield %></div>
-    <%%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </body>
 </html>
 ```
@@ -145,6 +149,10 @@ Once you've done this we can also update our sample view at `app/views/home/inde
   </div>
 </div>
 ```
+
+At this point you should have something like this:
+
+<img src="/images/guides/using-with-rails-03.png" alt="A Rails application showing Hello Design System! with a basic application layout"/>
 
 ## Using the Design System components
 
@@ -173,36 +181,25 @@ Followed by:
 bundle install
 ```
 
-After restarting the application, try updating your home page template with the following:
+After restarting the application, try adding the following to your home page view:
 
 ```erb
-<%%# The cads-page-content represents the main page wrapper %>
-<div class="cads-page-content">
-  <%%# See https://citizens-advice-design-system.netlify.app/foundations/grid/ %>
-  <div class="cads-grid-container">
-    <div class="cads-grid-row">
-      <%%# Using the `md` variant here ensures the colum is responsive %>
-      <main class="cads-grid-col-md-8">
-        <h1 class="cads-page-title">Hello Design System!</h1>
-
-        <%%# See https://citizens-advice-design-system.netlify.app/foundations/typography/ %>
-        <%%# Wrap any plain HTML prose text you want to style in a cads-prose class %>
-        <div class="cads-prose">
-          <p>Thanks for following along with the design system guide</p>
-          <h2>Example components<h2>
-          <p>A callout is included below for reference, try rendering a few other components yourself.</p>
-        </div>
-
-        <%%= render CitizensAdviceComponents::Callout.new(type: :standard) do %>
-          <p>This is an example callout</p>
-        <%% end %>
-      </main>
-    </div>
-  </div>
+<%%# See https://citizens-advice-design-system.netlify.app/foundations/typography/ %>
+<%%# Wrap any plain HTML prose text you want to style in a cads-prose class %>
+<div class="cads-prose">
+  <p>Thanks for following along with the design system guide</p>
+  <h2>Example components<h2>
+  <p>A callout is included below for reference, try rendering a few other components yourself.</p>
 </div>
+
+<%%= render CitizensAdviceComponents::Callout.new(type: :standard) do %>
+  <p>This is an example callout</p>
+<%% end %>
 ```
 
 If everything has worked as expected you should see a [callout](/components/callout/) rendered on the page.
+
+<img src="/images/guides/using-with-rails-04.png" alt="A Rails application with some basic design system components including a callout"/>
 
 ## Adding your own components
 
@@ -242,10 +239,9 @@ And a corresponding template file at `app/components/app_header_component.html.e
   <%% c.with_search_form(search_action_url: "/search") %>
 <%% end %>
 <%%= render CitizensAdviceComponents::Navigation.new(links: navigation_links) %>
-
 ```
 
-You can view the [ViewComponent](https://viewcomponent.org/) for more information on how this library works but essentially this defines a custom component which _wraps_ the Design System header component and configures it to suit our application.
+You can view the [ViewComponent guides](https://viewcomponent.org/) for more information on how this library works but essentially this defines a custom component which _wraps_ the Design System header component and configures it to suit our application.
 
 After restarting the application you can then add the following to your `application.html.erb` layout:
 
@@ -276,6 +272,10 @@ Just like the header component we can then call this from our `application.html.
 ```erb
 <%%= render AppFooterComponent.new %>
 ```
+
+After you've done this you should have a page that looks something like this:
+
+<img src="/images/guides/using-with-rails-05.png" alt="A Rails application using the design system header and footer"/>
 
 ## Using JavaScript components
 

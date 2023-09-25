@@ -17,3 +17,13 @@ body {
 .site-content {
   flex: 1 1 auto;
 }
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+/* Fluid images if you omit the `width` attribute. */
+img:not([width]) {
+  width: 100%;
+}
