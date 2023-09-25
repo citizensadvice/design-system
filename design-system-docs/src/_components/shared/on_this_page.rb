@@ -18,7 +18,7 @@ module Shared
     end
 
     def render?
-      @headings.any?
+      @headings.size > 1
     end
 
     private
