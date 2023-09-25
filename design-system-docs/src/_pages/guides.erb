@@ -3,17 +3,15 @@ title: Guides
 layout: default
 ---
 
-<main id="cads-main-content" class="cads-grid-container cads-page-content">
-  <div class="cads-grid-row">
-    <div class="cads-grid-col-md-8">
-      <h1 class="cads-page-title"><%= resource.data.title %></h1>
-      <div class="text-list">
-        <ul class="text-list__links">
-          <% collections.guides.resources.each do |resource| %>
-            <li><a href="<%= resource.relative_url %>"><%= resource.data.title %></a></li>
-          <% end %>
-        </ul>
-      </div>
+<%= render Shared::PageLayout.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= resource.data.title %></h1>
+    <div class="text-list">
+      <ul class="text-list__links">
+        <% collections.guides.resources.each do |resource| %>
+          <li><a href="<%= resource.relative_url %>"><%= resource.data.title %></a></li>
+        <% end %>
+      </ul>
     </div>
-  </div>
-</main>
+  <% end %>
+<% end %>
