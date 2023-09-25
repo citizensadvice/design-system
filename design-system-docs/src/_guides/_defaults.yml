@@ -1,0 +1,5 @@
+layout: guides
+show_on_this_page: false
+extra_breadcrumbs:
+  - title: 'Guides'
+    url: '/guides'

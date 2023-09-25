@@ -1,9 +1,7 @@
 ---
-title: Getting started
-layout: basic
+title: Overview
+order: 1
 ---
-
-👋 Hi there! Let's get you started.
 
 The design system component library is made up of two packages:
 
@@ -86,35 +84,3 @@ Some components require polyfills for older browsers. Components which require p
 We don't include the polyfills by default in order to avoid double bundling if you have your own.
 
 If you are not using either of these components then you may not need any polyfills.
-
-## Using with Rails
-
-Along side the core npm package we also provide a ruby gem which distributes component templates as part of a Rails engine. This can be installed by adding the following to your `Gemfile`
-
-```
-gem "citizens_advice_components",
-    github: "citizensadvice/design-system",
-    tag: "v4.2.0",
-    glob: "engine/*.gemspec"
-```
-
-### Using components
-
-Components are provided as [view components](https://viewcomponent.org/).
-
-Once installed you can call them within your application by passing the component to `render`.
-
-```erb
-<%%= raw render(
-  CitizensAdviceComponents::Pagination.new(
-    current_params: { "q" => "debt and money" },
-    num_pages: 100,
-    current_page: 1
-  )
-) %>
-```
-
-## Changelog
-
-- Release notes for each version (starting with v2.0.0) can be seen at [https://github.com/citizensadvice/design-system/releases](https://github.com/citizensadvice/design-system/releases)
-- The full changelog can be found at [https://github.com/citizensadvice/design-system/blob/main/CHANGELOG.md](https://github.com/citizensadvice/design-system/blob/main/CHANGELOG.md)
