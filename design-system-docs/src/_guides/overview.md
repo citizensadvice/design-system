@@ -3,84 +3,43 @@ title: Overview
 order: 1
 ---
 
-The design system component library is made up of two packages:
+The Citizens Advice Design System is a set of accessible and reusable foundations, and components used across our digital products.
 
-- `@citizensadvice/design-system` — An npm package containing styles, JavaScript modules, fonts, and icons.
-- `citizens_advice_components` — A companion ruby gem which provides a way of using design system components in a Rails app.
+The design system guidance is broadly split into two main areas:
 
-## Installing the npm package
+- [Foundations](/foundations) - Core design foundations including colours, fonts, spacing, grids, and an icon system.
+- [Components](/components) — Individual components that make up the bulk of the design system. Includes lower-level components such as buttons and tables up to larger patterns like our global header or footer.
 
-You can install the core package from npm:
+## Using the Design System
 
-```sh
-npm install @citizensadvice/design-system
-```
+The design system is implemented and distributed as a component library made up of two parts:
 
-### CSS
+- An npm package containing styles, JavaScript modules, fonts, and icons.
+- A companion ruby gem which provides a way of using design system components in a Rails app.
 
-The recommended way of using CSS from the design system is through SCSS.
+### NPM package
 
-If you are using Webpacker for your assets you can load the design-system SCSS files by adding the following to your stylesheet:
+The central part of the design system is the `@citizensadvice/design-system` package.
 
-```scss
-@import '~@citizensadvice/design-system/scss/lib.scss';
-```
+At its heart the design system is a set of CSS styles, HTML patterns, and minimal JavaScript behaviour.
 
-The design system uses [Dart Sass](https://sass-lang.com/dart-sass). If you're using webpacker, please use v5.2.2+ as previous versions use `node-sass`.
+The `@citizensadvice/design-system` package bundles the following:
 
-The distributed package includes compiled CSS in `lib/lib.css` if you are not using SCSS.
+- A set of SCSS files
+- A set of JavaScript modules
+- Our brand font
+- A set of custom icons (as an icon font and SVGs)
 
-### Fonts
+This package—alongside companion HTML patterns—is the minimum requirement when using the design system.
 
-The design system uses distributes two sets of fonts. Open Sans, our brand font, and a custom icon font. These are included with the npm package and can be found under the `fonts` directory.
+### Rails Engine
 
-If you are using SCSS files through Webpacker with Rails then place the following in `config/webpack/environment.js`:
+We also provide a Rails Engine which bundles up our components as a set of view components which is easy to integrate with Ruby on Rails.
 
-```js
-// resolve-url-loader must be used before sass-loader
-environment.loaders.get('sass').use.splice(-1, 0, {
-  loader: 'resolve-url-loader',
-});
-```
+This gives us a way of distributing our component templates for use in our main internal applications so that we don't need to copy and paste HTML examples around and can call component using a clear interface.
 
-This requires that you have `resolve-url-loader` installed:
+Think of the Rails Engine as the reference implementation of all our component templates. If you are using Rails then great, you can require this gem and use the provided interfaces. You can still use the design system with other frameworks but you'll need to maintain your own templates.
 
-```sh
-npm install -D resolve-url-loader
-```
+View Components can contain logic so this allows us to provide richer components like pagination where you would otherwise need to reimplement the logic behind the component each time.
 
-### Javascript components
-
-JavaScript components can be included as part of your application bundle.
-
-Components which require JavaScript include the expected usage in their documentation. Typical usage is as follows:
-
-```js
-import header from '@citizensadvice/design-system/lib/header';
-import greedyNav from '@citizensadvice/design-system/lib/greedy-nav/index';
-import targetedContent from '@citizensadvice/design-system/lib/targeted-content';
-window.addEventListener('load', () => {
-  header();
-  greedyNav.init();
-  targetedContent();
-});
-```
-
-### Polyfills
-
-Some components require polyfills for older browsers. Components which require polyfills note this in their documentation. The full list is:
-
-#### Targeted content:
-
-- [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest)
-- [Scroll behaviour (Element.prototype.scrollIntoView) polyfill](https://github.com/wessberg/scroll-behavior-polyfill)
-
-#### Navigation (specifically the greedy nav behaviour):
-
-- [Element.prototype.closest polyfill](https://www.npmjs.com/package/element-closest)
-- [ResizeObserver polyfill](https://www.npmjs.com/package/resize-observer-polyfill)
-- Note: this polyfill is not a global polyfill, you will need to assign it to window.ResizeObserver.
-
-We don't include the polyfills by default in order to avoid double bundling if you have your own.
-
-If you are not using either of these components then you may not need any polyfills.
+See the [Using with Rails](/guides/using-with-rails) for more information about using the Design System in a Rails application.
