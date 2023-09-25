@@ -30,7 +30,33 @@ The `@citizensadvice/design-system` package bundles the following:
 - Our brand font
 - A set of custom icons (as an icon font and SVGs)
 
+You can install the core package from npm. We recommend pinning to an exact version. If you are also using the Rails components these versions need to match.
+
+```sh
+npm install --save-exact @citizensadvice/design-system@5.5.0
+```
+
 This package—alongside companion HTML patterns—is the minimum requirement when using the design system.
+
+#### CSS
+
+The recommended way of using CSS from the design system is through SCSS.
+
+The styles can be loaded by adding the following to your SCSS stylesheet:
+
+```scss
+@import '@citizensadvice/design-system/scss/lib.scss';
+```
+
+The design system requires the use of [Dart Sass](https://sass-lang.com/dart-sass).
+
+The distributed package includes compiled CSS in `lib/lib.css` if you are not using SCSS.
+
+#### Web fonts
+
+The design system distributes two sets of fonts. Open Sans, our brand font, and a custom icon font. These are included with the npm package.
+
+You may need to configure your build tool to resolve `@citizensadvice/design-system/assets/fonts` using something like [resolve-url-loader](https://www.npmjs.com/package/resolve-url-loader).
 
 ### Rails Engine
 
@@ -40,6 +66,23 @@ This gives us a way of distributing our component templates for use in our main 
 
 Think of the Rails Engine as the reference implementation of all our component templates. If you are using Rails then great, you can require this gem and use the provided interfaces. You can still use the design system with other frameworks but you'll need to maintain your own templates.
 
-View Components can contain logic so this allows us to provide richer components like pagination where you would otherwise need to reimplement the logic behind the component each time.
+These components contain logic so this allows us to provide richer components like pagination where you would otherwise need to reimplement the logic behind the component each time.
+
+The Rails components can be installed by adding the following to your `Gemfile`:
+
+```
+# Use the Citizens Advice Design System
+# Pin to the same version as the npm package
+gem "citizens_advice_components",
+    github: "citizensadvice/design-system",
+    tag: "v5.5.0",
+    glob: "engine/*.gemspec"
+
+# This line is optional. The citizens_advice_components gem is built
+# on top of view_component and bundles this as a dependency but it
+# is encouraged that you also use this for writing your own application
+# components so it can be helpful to explicitly name this as a dependency.
+gem "view_component", "~> 3"
+```
 
 See the [Using with Rails](/guides/using-with-rails) for more information about using the Design System in a Rails application.

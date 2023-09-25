@@ -293,7 +293,7 @@ initHeader();
 greedyNav.init();
 ```
 
-Each of the [component guides](http://localhost:4000/components) tell you if the require any additional JavaScript along with any polyfills they might require for older browsers.
+Each of the [component guides](/components) tell you if the require any additional JavaScript along with any polyfills they might require for older browsers.
 
 If everything has worked as expected you should be able to resize your browser window and see some additional behaviour in the header and navigation.
 
