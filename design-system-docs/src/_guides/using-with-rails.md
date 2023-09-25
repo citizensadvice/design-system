@@ -154,7 +154,7 @@ At this point you should have something like this:
 
 <img src="/images/guides/using-with-rails-03.png" alt="A Rails application showing Hello Design System! with a basic application layout"/>
 
-## Using the Design System components
+## Using components
 
 The second part of the Design System is the `citizens_advice_components` gem. This is a Rails engine which bundles a set of [ViewComponents](https://viewcomponent.org/).
 
