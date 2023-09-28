@@ -31,3 +31,7 @@ title: Date input
 ### With values
 
 <%= render(Shared::ComponentExample.new(:date_input, :with_values)) %>
+
+### Component arguments
+
+<%= render Shared::ArgumentsTable.new(:date_input) %>

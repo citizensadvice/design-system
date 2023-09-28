@@ -228,3 +228,20 @@ checkbox_group:
     description: '→ Optional, an error message for the input'
   - argument: optional
     description: '→ Optional, boolean indicating the field is optional (ie not required)'
+date_input:
+  - argument: name
+    description: Required, field name
+  - argument: label
+    description: Required, the text for the label associated with the input
+  - argument: errors
+    description: 'Optional, an array of which fields should be hightlighted when an error message appears. Options are <code>day</code>, <code>month</code> and <code>year</code>.'
+  - argument: values
+    description: Optional, placeholder values
+  - argument: options
+    description: 'Optional, a hash with one or more of the following values:'
+  - argument: hint
+    description: '→ Optional, hint text for the input'
+  - argument: error_message
+    description: '→ Optional, an error message for the input'
+  - argument: optional
+    description: '→ Optional, boolean indicating the field is optional (ie not required)'
