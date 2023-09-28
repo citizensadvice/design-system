@@ -51,7 +51,7 @@ module CitizensAdviceComponents
     end
 
     def timespan_error?(timespan)
-      return if errors.blank?
+      return false if errors.blank?
 
       errors.any? { |e| e == timespan }
     end
