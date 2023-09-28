@@ -1,0 +1,14 @@
+/** @define date-input */
+.cads-date-input {
+  display: flex;
+  flex-direction: row;
+
+  &__item {
+    margin-right: $cads-spacing-5;
+  }
+}
+
+/* stylelint-disable  plugin/selector-bem-pattern */
+.cads-input--error {
+  border-color: $cads-language__error-colour;
+}
