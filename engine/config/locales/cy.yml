@@ -21,6 +21,10 @@ cy:
       skip_to_navigation: Neidio i’r llywio
     input:
       optional: dewisol
+    date_input:
+      year: Blwyddyn
+      month: Mis
+      day: Dydd
     on_this_page:
       title: Ar y dudalen hon
     page_review:
