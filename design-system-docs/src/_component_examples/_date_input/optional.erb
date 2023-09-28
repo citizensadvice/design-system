@@ -1,0 +1,13 @@
+---
+title: optional
+---
+
+<%= render(
+     CitizensAdviceComponents::DateInput.new(
+       name: "bday",
+       label: "Date of birth",
+       options: {
+         optional: true
+       }
+     )
+    ) %>
