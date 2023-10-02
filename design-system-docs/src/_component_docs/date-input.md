@@ -2,6 +2,8 @@
 title: Date input
 ---
 
+A date input field allows the user to enter a date they remember.
+
 ## Examples
 
 ### Default
@@ -31,6 +33,12 @@ title: Date input
 ### With values
 
 <%= render(Shared::ComponentExample.new(:date_input, :with_values)) %>
+
+## Using with Rails
+
+If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+
+<%= render(Shared::ComponentExampleSource.new(:date_input, :default)) %>
 
 ### Component arguments
 
