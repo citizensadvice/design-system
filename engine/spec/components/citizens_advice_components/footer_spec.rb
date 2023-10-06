@@ -53,50 +53,6 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
   end
 
-  describe "columns" do
-    before do
-      allow(ActiveSupport::Deprecation).to receive(:warn)
-
-      render_inline(described_class.new) do |c|
-        c.with_columns(columns)
-      end
-    end
-
-    let(:columns) { generate_columns(3) }
-
-    it { is_expected.to have_selector "[data-testid='footer-column']", count: 3 }
-    it { is_expected.to have_selector "h2", text: "Example column 1" }
-    it { is_expected.to have_selector "h2", text: "Example column 2" }
-    it { is_expected.to have_selector "h2", text: "Example column 3" }
-    it { is_expected.to have_selector "[data-testid='footer-column']:first-of-type a", count: 3 }
-
-    context "when number of columns exceeds limit" do
-      let(:columns) { generate_columns(6) }
-
-      it "has number of columns limited to maximum" do
-        expect(page).to have_selector "[data-testid='footer-column']", count: 4
-      end
-    end
-
-    context "when a link includes deprecated icon property" do
-      let(:columns) do
-        [{
-          title: "Example column",
-          links: [
-            { url: "#", title: "Link 1" },
-            { url: "#", title: "Link 2" },
-            { url: "#", title: "Link 3", icon: "external-link" }
-          ]
-        }]
-      end
-
-      it "logs deprecation warning" do
-        expect(ActiveSupport::Deprecation).to have_received(:warn)
-          .with(/generic `icon` property for column links is deprecated/)
-      end
-    end
-  end
-
   describe "feedback_link" do
     let(:default_text) { "Is there anything wrong" }
 
