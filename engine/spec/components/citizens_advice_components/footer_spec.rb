@@ -3,10 +3,11 @@
 RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   subject { page }
 
-  before { travel_to Time.zone.local(2049) }
-
   describe "common elements" do
-    before { render_inline described_class.new }
+    before do
+      travel_to Time.zone.local(2049)
+      render_inline described_class.new
+    end
 
     it { is_expected.to have_selector ".cads-logo" }
     it { is_expected.to have_text "Copyright ©2049 Citizens Advice" }
