@@ -16,6 +16,10 @@ updates:
     schedule:
       interval: weekly
     groups:
+      build-dependencies:
+        patterns:
+          - '@babel/*'
+          - 'typescript'
       css-dependencies:
         patterns:
           - 'autoprefixer'
@@ -27,6 +31,7 @@ updates:
         patterns:
           - '@size-limit/*'
           - '@testing-library/*'
+          - '@typescript-eslint/*'
           - 'eslint*'
           - 'jest*'
           - 'prettier'
