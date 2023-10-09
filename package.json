@@ -30,14 +30,14 @@
     "test:watch": "jest --watch --notify"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.21.5",
-    "@babel/preset-typescript": "^7.22.15",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-typescript": "^7.23.0",
     "@size-limit/file": "^9.0.0",
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/user-event": "^14.4.3",
-    "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^6.7.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
     "autoprefixer": "^10.4.15",
     "chalk": "^4.1.2",
     "cssnano": "^6.0.1",
