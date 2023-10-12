@@ -6,7 +6,7 @@ inherit_gem:
 AllCops:
   SuggestExtensions: false
   # Match minimum target version to gemspec
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
 
 # Calls to super in subclasses of ViewComponent::Base aren't needed
 # by default and can change the behaviour of **kwargs so we

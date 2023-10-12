@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Citizens Advice"]
 
   spec.summary = "Citizens Advice Design System components distributed as a Rails engine"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.7")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.0")
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
