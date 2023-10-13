@@ -10,4 +10,4 @@ You can check out the [getting started guide](https://citizens-advice-design-sys
 
 ## Build & contributing
 
-For any dev related information, including contributing and building locally see the [contribution guide](CONTRIBUTING.md).
+For any developer related information, including contributing and building locally see the [contribution guide](CONTRIBUTING.md).
