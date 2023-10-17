@@ -1,3 +1,7 @@
+**New**
+
+- Date input component: Adds a new date input component.
+
 ## v5.5.0
 
 ### 5 September 2023
