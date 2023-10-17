@@ -8,6 +8,7 @@ class ExampleForm
     :last_name,
     :your_enquiry,
     :total_amount,
+    :date_of_purchase,
     :contacted_trader,
     :trader_response
   )
@@ -30,6 +31,11 @@ class ExampleForm
   validates(
     :total_amount,
     presence: { message: "Tell us the total amount paid for the goods or services" }
+  )
+
+  validates(
+    :date_of_purchase,
+    presence: { message: "Tell us the date you purchased the goods or services" }
   )
 
   validates(

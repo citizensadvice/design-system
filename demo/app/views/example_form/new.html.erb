@@ -47,6 +47,8 @@
         }
       ) %>
 
+      <%= render CitizensAdviceComponents::DateInput.new(name: :date_of_purchase, label: "When did you purchase the goods or services?") %>
+
       <%= render CitizensAdviceComponents::RadioGroup.new(
         legend: "Have you contacted the trader about this complaint?",
         name: :contacted_trader
