@@ -456,6 +456,11 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
+        label: `Forms/Select (optional)`,
+        url: componentUrlFor(`select/optional`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
         label: `Forms/Select (error)`,
         url: componentUrlFor(`select/error`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],

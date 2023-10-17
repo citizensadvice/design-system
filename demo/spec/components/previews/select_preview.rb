@@ -20,6 +20,16 @@ class SelectPreview < ViewComponent::Preview
                                                 options: { value: "FYLCA", hint: "Choose a product from the list below" })
   end
 
+  def optional
+    render CitizensAdviceComponents::Select.new(select_options: options,
+                                                name: "product",
+                                                label: "Choose a product",
+                                                type: :text,
+                                                options: {
+                                                  optional: true
+                                                })
+  end
+
   private
 
   def options
