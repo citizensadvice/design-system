@@ -59,6 +59,8 @@ class ExampleForm
     case attr
     when :contacted_trader
       "##{attr}-0"
+    when :date_of_purchase
+      "##{attr}-day"
     else
       "##{attr}-input"
     end
