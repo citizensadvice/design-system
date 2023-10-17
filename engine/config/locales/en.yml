@@ -21,6 +21,10 @@ en:
       skip_to_navigation: Skip to navigation
     input:
       optional: optional
+    date_input:
+      year: Year
+      month: Month
+      day: Day
     on_this_page:
       title: On this page
     page_review:

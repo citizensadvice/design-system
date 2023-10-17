@@ -416,6 +416,41 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
+        label: `Forms/Date Input (basic)`,
+        url: componentUrlFor(`date_input/example`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Date Input (error)`,
+        url: componentUrlFor(`date_input/error`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Date Input (hint)`,
+        url: componentUrlFor(`date_input/hint`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Date Input (incomplete_error)`,
+        url: componentUrlFor(`date_input/incomplete_error`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Date Input (optional)`,
+        url: componentUrlFor(`date_input/optional`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Date Input (validation_error)`,
+        url: componentUrlFor(`date_input/validation_error`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Date Input (values)`,
+        url: componentUrlFor(`date_input/values`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
         label: 'Example links',
         url: componentUrlFor('links/example_links'),
       },

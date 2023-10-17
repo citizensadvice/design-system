@@ -1,0 +1,12 @@
+---
+title: with error
+---
+
+<%= render CitizensAdviceComponents::DateInput.new(
+      name: "bday",
+      label: "Date of birth",
+      errors: %i[day month year],
+      options: {
+        error_message: "Enter your date of birth, like 01 02 1990"
+      }
+    ) %>

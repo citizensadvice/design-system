@@ -8,7 +8,7 @@ A radio allows a user to select only one option from a group of exclusive choice
 
 ## When not to use
 
-Do not use a radio group if the userL
+Do not use a radio group if the user:
 
 - should be able to select one or more choices from a list of options (use a checkbox group for this)
 - there is only one checkbox in the list of options, for example agreeing to terms and conditions (use checkbox for this)

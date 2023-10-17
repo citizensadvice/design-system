@@ -1,0 +1,16 @@
+---
+title: with incomplete error
+---
+
+<%= render CitizensAdviceComponents::DateInput.new(
+      name: "bday",
+      label: "Date of birth",
+      errors: %i[year],
+      values: {
+        day: 1,
+        month: 1
+      },
+      options: {
+        error_message: "Date of birth must include a year"
+      }
+    ) %>

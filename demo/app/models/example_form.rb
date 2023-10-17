@@ -8,6 +8,7 @@ class ExampleForm
     :last_name,
     :your_enquiry,
     :total_amount,
+    :date_of_purchase,
     :contacted_trader,
     :trader_response
   )
@@ -33,6 +34,11 @@ class ExampleForm
   )
 
   validates(
+    :date_of_purchase,
+    presence: { message: "Tell us the date you purchased the goods or services" }
+  )
+
+  validates(
     :contacted_trader,
     presence: { message: "Tell us if you have contacted the trader about this complaint" },
     inclusion: {
@@ -53,6 +59,8 @@ class ExampleForm
     case attr
     when :contacted_trader
       "##{attr}-0"
+    when :date_of_purchase
+      "##{attr}-day"
     else
       "##{attr}-input"
     end
