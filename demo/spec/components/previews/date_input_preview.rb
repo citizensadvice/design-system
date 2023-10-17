@@ -13,7 +13,6 @@ class DateInputPreview < ViewComponent::Preview
         hint: "Enter your date of birth, like 01 02 1990"
       }
     )
-
   end
 
   def optional
