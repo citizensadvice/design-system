@@ -2,14 +2,12 @@
 title: with values
 ---
 
-<%= render(
-      CitizensAdviceComponents::DateInput.new(
-        name: "bday",
-        label: "Date of birth",
-        values: {
-          day: 1,
-          month: 1,
-          year: 1990
-        }
-      )
+<%= render CitizensAdviceComponents::DateInput.new(
+      name: "bday",
+      label: "Date of birth",
+      values: {
+        day: 1,
+        month: 1,
+        year: 1990
+      }
     ) %>
