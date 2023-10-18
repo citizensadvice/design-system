@@ -1,6 +1,7 @@
 **New**
 
 - Date input component: Adds a new date input component.
+- Select: Adds a new 'Select' component.
 
 ## v5.5.0
 

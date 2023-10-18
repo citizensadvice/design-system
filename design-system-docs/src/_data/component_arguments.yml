@@ -245,3 +245,18 @@ date_input:
     description: '→ Optional, an error message for the input'
   - argument: optional
     description: '→ Optional, boolean indicating the field is optional (ie not required)'
+select:
+  - argument: name
+    description: Required, field name
+  - argument: legend
+    description: Required, the text for the fieldset legend associated with the inputs
+  - argument: select_options
+    description: Required, an array of options to be displayed in a dropdown list
+  - argument: options
+    description: Optional, a hash with one or more of the following values
+  - argument: hint
+    description: '→ Optional, hint text for the input'
+  - argument: error_message
+    description: '→ Optional, an error message for the input'
+  - argument: optional
+    description: '→ Optional, boolean indicating the field is optional (ie not required)'
