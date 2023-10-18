@@ -10,6 +10,10 @@ A select component allows the user to choose an option from a list which is disp
 
 <%= render(Shared::ComponentExample.new(:select, :default)) %>
 
+### Optional
+
+<%= render(Shared::ComponentExample.new(:select, :optional)) %>
+
 ### With error
 
 <%= render(Shared::ComponentExample.new(:select, :with_error)) %>
