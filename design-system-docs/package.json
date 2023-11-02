@@ -22,9 +22,6 @@
     "webpack-manifest-plugin": "~5.0.0",
     "webpack-merge": "^5.9.0"
   },
-  "resolutions": {
-    "postcss-focus-within": "^4.0.0"
-  },
   "dependencies": {
     "clipboard-copy": "^4.0.1",
     "iframe-resizer": "^4.3.7"
