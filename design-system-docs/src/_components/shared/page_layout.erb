@@ -1,0 +1,12 @@
+<div class="cads-page-content">
+  <div class="cads-grid-container">
+    <div class="cads-grid-row">
+      <main class="cads-grid-col-md-8" id="cads-main-content">
+        <%= main %>
+      </main>
+      <% if sidebar.present? %>
+        <div class="cads-grid-col-4 sidebar"><%= sidebar %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,6 @@
-layout: foundations
+layout: guide
 show_on_this_page: true
+extra_breadcrumbs:
+  - title: 'Foundations'
+    url: '/foundations'
+section_title_url: '/foundations'

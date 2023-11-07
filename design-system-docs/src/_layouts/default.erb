@@ -18,7 +18,7 @@
     <%= render Shared::AppHeader.new %>
     <%= render CitizensAdviceComponents::Navigation.new(
       links: [
-        { url: "/getting-started", title: "Getting started" },
+        { url: "/guides", title: "Guides" },
         { url: "/foundations", title: "Foundations" },
         { url: "/components", title: "Components" },
         { url: "/accessibility", title: "Accessibility" }
@@ -26,7 +26,7 @@
     ) %>
     <%= render Shared::AppBreadcrumbs.new(resource) %>
     <%= render "notice_banner" %>
-    <div class="site-content">
+    <div class="site-content" id="cads-main-content">
       <%= yield %>
     </div>
     <%= render CitizensAdviceComponents::Footer.new %>

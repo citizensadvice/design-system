@@ -1,7 +1,7 @@
 import copy from 'clipboard-copy';
 
 export default function initCodeCopy() {
-  const highlights = document.querySelectorAll('pre.highlight');
+  const highlights = document.querySelectorAll('.js-code-copy pre.highlight');
   if (highlights) {
     highlights.forEach((h) => addCopyButton(h));
   }
