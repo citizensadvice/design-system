@@ -1,5 +1,6 @@
 **New**
 
+- Document error and success colours in foundations
 - Include Rails 7.1 in supported version
 - Remove Rails 6.0 from supported versions
 - Remove support for Ruby 2.7
