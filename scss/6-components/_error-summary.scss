@@ -7,7 +7,7 @@
   border: solid $cads-border-width-medium $cads-language__border-colour;
   border-radius: $cads-border-radius;
   padding: $cads-spacing-4;
-  color: $cads-language__warning-colour;
+  color: $cads-language__error-colour;
   margin-bottom: $cads-spacing-4;
 
   &:focus {
@@ -33,7 +33,7 @@
       }
 
       a {
-        color: $cads-language__warning-colour;
+        color: $cads-language__error-colour;
         font-weight: $cads-font-weight__bold;
         text-decoration: underline;
 

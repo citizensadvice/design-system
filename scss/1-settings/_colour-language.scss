@@ -1,22 +1,32 @@
 @use '../1-settings/colour-palette' as palette;
 
+// Brand
 $cads-language__brand-primary: palette.$cads-palette__heritage-blue !default;
 $cads-language__brand-secondary: palette.$cads-palette__heritage-yellow !default;
 $cads-language__brand-primary-contrast: palette.$cads-palette__white !default;
 $cads-language__brand-adviser: palette.$cads-palette__blue-adviser !default;
+
+// Text
 $cads-language__text-colour: palette.$cads-palette__black !default;
 $cads-language__secondary-text-colour: palette.$cads-palette__dark-grey !default;
+
+// Links
 $cads-language__link-colour: palette.$cads-palette__heritage-blue !default;
 $cads-language__link-hover-colour: palette.$cads-palette__heritage-blue-dark !default;
 $cads-language__link-visited-colour: palette.$cads-palette__purple !default;
 $cads-language__link-active-colour: palette.$cads-palette__dark-grey !default;
 $cads-language__hover-background-colour: palette.$cads-palette__blue-light !default;
+
+// Focus
 $cads-language__focus-colour: palette.$cads-palette__yellow !default;
 $cads-language__focus-border-colour: palette.$cads-palette__dark-grey !default;
 $cads-language__focus-text-colour: palette.$cads-palette__black !default;
+
+// Borders
 $cads-language__input-border-colour: palette.$cads-palette__mid-grey !default;
 $cads-language__border-colour: palette.$cads-palette__light-grey !default;
-$cads-language__error-colour: palette.$cads-palette__red !default;
+
+// Buttons
 $cads-language__primary-button-colour: palette.$cads-palette__teal !default;
 $cads-language__primary-button-text-colour: palette.$cads-palette__white !default;
 $cads-language__primary-button-hover-colour: palette.$cads-palette__teal-dark !default;
@@ -25,7 +35,10 @@ $cads-language__tertiary-button-dark-hover-background-colour: palette.$cads-pale
 $cads-language__tertiary-button-dark-hover-colour: $cads-language__brand-primary-contrast !default;
 $cads-language__tertiary-button-dark-hover-border-colour: $cads-language__brand-primary-contrast !default;
 $cads-language__button-shadow-colour: palette.$cads-palette__teal-dark !default;
-$cads-language__warning-colour: palette.$cads-palette__red !default;
+
+// Statuses
+$cads-language__warning-colour: palette.$cads-palette__red !default; // @deprecated: Historically identical to the error colour
+$cads-language__error-colour: palette.$cads-palette__red !default;
 $cads-language__success-colour: palette.$cads-palette__green !default;
 
 // Navigation colours
