@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe CitizensAdviceComponents::Callout, type: :component do
+  include ActionView::Helpers::TagHelper
+
   subject { page }
 
   context "with default arguments" do
@@ -49,14 +51,31 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     it { is_expected.to have_selector ".cads-badge--adviser", text: "Adviser" }
   end
 
+  context "with custom attributes" do
+    before do
+      render_inline described_class.new(
+        type: :adviser,
+        attributes: { "aria-labelledby": "my-custom-title" }
+      ) do
+        safe_join([
+          tag.h2("Callout title", id: "my-custom-title"),
+          tag.p("Example content")
+        ])
+      end
+    end
+
+    it { is_expected.to have_selector "section[aria-labelledby='my-custom-title']" }
+
+    it { is_expected.to have_selector "h2#my-custom-title", text: "Callout title" }
+
+    it { is_expected.to have_text "Example content" }
+  end
+
   context "when deprecated title is provided" do
     before do
       allow(ActiveSupport::Deprecation).to receive(:warn)
 
-      render_inline(described_class.new(
-        type: :adviser,
-        title: "Deprecated title"
-      )) { "Example content" }
+      render_inline(described_class.new(type: :standard, title: "Deprecated title")) { "Example content" }
     end
 
     it "logs deprecation warning" do
