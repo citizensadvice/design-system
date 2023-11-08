@@ -29,7 +29,7 @@ module CitizensAdviceComponents
       if custom_content.present?
         custom_content
       elsif content.respond_to?(:to_str) && content.present?
-        ActiveSupport::Deprecation.warn(
+        CitizensAdviceComponents.deprecator.warn(
           "Use custom_content slot instead of default content block"
         )
 

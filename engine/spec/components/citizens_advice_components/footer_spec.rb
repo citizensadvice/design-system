@@ -55,7 +55,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
   describe "columns" do
     before do
-      allow(ActiveSupport::Deprecation).to receive(:warn)
+      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
 
       render_inline(described_class.new) do |c|
         c.with_columns(columns)
@@ -91,7 +91,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
 
       it "logs deprecation warning" do
-        expect(ActiveSupport::Deprecation).to have_received(:warn)
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
           .with(/generic `icon` property for column links is deprecated/)
       end
     end
@@ -144,7 +144,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
   describe "deprecated feedback_url" do
     before do
-      allow(ActiveSupport::Deprecation).to receive(:warn)
+      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
 
       render_inline(described_class.new(feedback_url: "https://example.com/"))
     end
@@ -152,7 +152,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     it { is_expected.to have_link "Is there anything wrong", href: "https://example.com/" }
 
     it "logs deprecation warning" do
-      expect(ActiveSupport::Deprecation).to have_received(:warn)
+      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
         .with(/feedback_url argument is deprecated/)
     end
 
