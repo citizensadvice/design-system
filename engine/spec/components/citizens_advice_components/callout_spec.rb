@@ -49,15 +49,20 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     it { is_expected.to have_selector ".cads-badge--adviser", text: "Adviser" }
   end
 
-  context "when title is provided" do
+  context "when deprecated title is provided" do
     before do
+      allow(ActiveSupport::Deprecation).to receive(:warn)
+
       render_inline(described_class.new(
-                      type: :adviser,
-                      title: "Descriptive title"
-                    )) { "Example content" }
+        type: :adviser,
+        title: "Deprecated title"
+      )) { "Example content" }
     end
 
-    it { is_expected.to have_selector "section[aria-label='Descriptive title']" }
+    it "logs deprecation warning" do
+      expect(ActiveSupport::Deprecation).to have_received(:warn)
+        .with(/title attribute is deprecated/)
+    end
   end
 
   context "when no content present" do
