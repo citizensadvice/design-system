@@ -28,7 +28,7 @@ module CitizensAdviceComponents
     def title_deprecation
       return if @title.blank?
 
-      ActiveSupport::Deprecation.warn(
+      CitizensAdviceComponents.deprecator.warn(
         "The title attribute is deprecated, use attributes instead"
       )
     end

@@ -42,7 +42,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
 
   describe "deprecated content block" do
     before do
-      allow(ActiveSupport::Deprecation).to receive(:warn)
+      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
 
       render_inline described_class.new(
         title: "Related Content",
@@ -59,7 +59,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     end
 
     it "logs deprecation warning" do
-      expect(ActiveSupport::Deprecation).to have_received(:warn)
+      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
         .with(/Use custom_content slot instead of default content block/)
     end
   end

@@ -49,7 +49,7 @@ module CitizensAdviceComponents
     def feedback_url_deprecation
       return if @feedback_url.blank?
 
-      ActiveSupport::Deprecation.warn(
+      CitizensAdviceComponents.deprecator.warn(
         "feedback_url argument is deprecated used feedback_link slot instead"
       )
     end
@@ -78,7 +78,7 @@ module CitizensAdviceComponents
       def icon_option_deprecation
         return unless links.any? { |link| link[:icon].present? }
 
-        ActiveSupport::Deprecation.warn(
+        CitizensAdviceComponents.deprecator.warn(
           "generic `icon` property for column links is deprecated use `external: true` instead"
         )
       end
