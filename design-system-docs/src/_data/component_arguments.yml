@@ -83,8 +83,10 @@ breadcrumbs:
 callout:
   - argument: type
     description: 'Optional type. One of <code>:standard</code>, <code>:example</code>, <code>:important</code>, or <code>:adviser</code>. Defaults to <code>:standard</code>.'
-  - argument: label
-    description: Optional, title used as aria-label
+  - argument: attributes
+    description: Optional, attributes passed on to callout container element
+  - argument: title
+    description: '<strong>(Deprecated: use attributes hash instead)</strong> This previously set an aria-label which is not supported on non-interactive elements'
 search:
   - argument: value
     description: Optional, current value
