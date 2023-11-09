@@ -37,8 +37,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
+  # Raise deprecation errors to ensure no
+  # examples use deprecated design system methods
+  config.active_support.deprecation = :raise
 
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
