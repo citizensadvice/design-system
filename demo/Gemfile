@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 # Rails
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 7.1.2"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
