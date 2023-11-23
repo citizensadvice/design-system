@@ -58,12 +58,6 @@ updates:
     directory: '/demo'
     schedule:
       interval: weekly
-    groups:
-      cypress:
-        patterns:
-          - '@testing-library/cypress'
-          - 'cypress'
-          - 'cypress-*'
 
   ##
   # Documentation website
