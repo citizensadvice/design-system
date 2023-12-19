@@ -40,6 +40,12 @@ Error messages are used to highlight where users need to change information. The
 
 <%= render(Shared::ComponentExample.new(:text_input, :with_custom_type)) %>
 
+### With custom id
+
+By default the id is based on the `name`. This can be customised by passing an `id` argument.
+
+<%= render(Shared::ComponentExample.new(:text_input, :with_custom_id)) %>
+
 ## Implementation
 
 You must always have a `label` associated with the input element.

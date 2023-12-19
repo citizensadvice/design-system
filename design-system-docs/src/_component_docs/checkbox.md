@@ -25,6 +25,12 @@ Error messages are used to highlight where users need to change information. The
 
 <%= render(Shared::ComponentExample.new(:checkbox, :with_error_message)) %>
 
+### With custom id
+
+By default, the checkbox id is generated based on the `name`. If the name and the id need to use a different naming convention, a custom id can be passed.
+
+<%= render(Shared::ComponentExample.new(:checkbox, :with_custom_id)) %>
+
 ## Using with Rails
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
