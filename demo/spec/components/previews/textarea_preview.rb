@@ -71,4 +71,10 @@ class TextareaPreview < ViewComponent::Preview
       )
     )
   end
+
+  def custom_id
+    render(
+      CitizensAdviceComponents::Textarea.new(name: "example-input[basic]", id: "test-id", label: "Example input")
+    )
+  end
 end
