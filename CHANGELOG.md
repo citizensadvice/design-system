@@ -4,6 +4,7 @@
 - Remove Rails 6.0 from supported versions
 - Remove support for Ruby 2.7
 - Callout: Deprecate `title` attribute; replace with more general  `attributes`
+- Inputs: added optional `id` attribute
 
 ## v5.6.0
 
