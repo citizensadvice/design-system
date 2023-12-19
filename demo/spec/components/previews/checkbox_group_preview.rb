@@ -12,8 +12,8 @@ class CheckboxGroupPreview < ViewComponent::Preview
 
   def error
     render CitizensAdviceComponents::CheckboxGroup.new(
-      legend: "Example radio group",
-      name: "radio-buttons-error",
+      legend: "Example checkbox group",
+      name: "checkbox-buttons-error",
       options: {
         error_message: "Select an option"
       }
@@ -24,8 +24,8 @@ class CheckboxGroupPreview < ViewComponent::Preview
 
   def optional
     render CitizensAdviceComponents::CheckboxGroup.new(
-      legend: "Example radio group",
-      name: "radio-buttons-optional",
+      legend: "Example checkbox group",
+      name: "checkbox-buttons-optional",
       options: {
         optional: true
       }
@@ -36,8 +36,8 @@ class CheckboxGroupPreview < ViewComponent::Preview
 
   def hint
     render CitizensAdviceComponents::CheckboxGroup.new(
-      legend: "Example radio group",
-      name: "radio-buttons-hint",
+      legend: "Example checkbox group",
+      name: "checkbox-buttons-hint",
       options: {
         hint: "This is the hint text"
       }
@@ -48,8 +48,8 @@ class CheckboxGroupPreview < ViewComponent::Preview
 
   def long
     render CitizensAdviceComponents::CheckboxGroup.new(
-      legend: "Example radio group",
-      name: "radio-buttons-long"
+      legend: "Example checkbox group",
+      name: "checkbox-buttons-long"
     ) do |c|
       c.with_inputs(long_checkboxes)
     end
@@ -57,8 +57,8 @@ class CheckboxGroupPreview < ViewComponent::Preview
 
   def additional_attributes
     render CitizensAdviceComponents::CheckboxGroup.new(
-      legend: "Example radio group",
-      name: "radio-buttons-attrs"
+      legend: "Example checkbox group",
+      name: "checkbox-buttons-attrs"
     ) do |c|
       c.with_inputs(additional_attribute_checkboxes)
     end
