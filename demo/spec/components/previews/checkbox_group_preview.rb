@@ -4,9 +4,18 @@ class CheckboxGroupPreview < ViewComponent::Preview
   def basic
     render CitizensAdviceComponents::CheckboxGroup.new(
       legend: "This is the group legend",
-      name: "my-radio-group"
+      name: "my-checkbox-group"
     ) do |c|
       c.with_inputs(checkboxes)
+    end
+  end
+
+  def custom_id
+    render CitizensAdviceComponents::CheckboxGroup.new(
+      legend: "Example checkbox group",
+      name: "checkbox-buttons-attrs[test][]"
+    ) do |c|
+      c.with_inputs(custom_id_checkboxes)
     end
   end
 
@@ -85,6 +94,13 @@ class CheckboxGroupPreview < ViewComponent::Preview
     [
       { label: "Option 1", value: "1", "data-testid": "first-input" },
       { label: "Option 2", value: "2", "data-testid": "second-input" }
+    ]
+  end
+
+  def custom_id_checkboxes
+    [
+      { label: "Option 1", value: "1", id: "test-id-first" },
+      { label: "Option 2", value: "2", id: "test-id-second" }
     ]
   end
 end
