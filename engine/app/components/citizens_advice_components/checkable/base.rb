@@ -5,10 +5,11 @@ module CitizensAdviceComponents
     class Base < CitizensAdviceComponents::Base
       attr_reader :label
 
-      def initialize(label:, value:, checked: false, **additional_attributes)
+      def initialize(label:, value:, checked: false, id: nil, **additional_attributes)
         @label = label
         @value = value
         @checked = fetch_or_fallback_boolean(checked, fallback: false)
+        @id = id
         @additional_attributes = additional_attributes
       end
 
@@ -43,6 +44,8 @@ module CitizensAdviceComponents
       end
 
       def format_button_id
+        return "#{@id}-#{@index}" if @id.present?
+
         "#{@name}-#{@index}"
       end
     end
