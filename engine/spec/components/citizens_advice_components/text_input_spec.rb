@@ -31,6 +31,39 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     end
   end
 
+  context "when an id is provided" do
+    before do
+      render_inline described_class.new(
+        name: "example-input[test]",
+        id: "test-id",
+        label: "Example input",
+        type: :text,
+        options: { hint: "This is the hint text",
+                   error_message: "Enter your name" }
+      )
+    end
+
+    it "adds the correct name to the input" do
+      expect(page).to have_field "Example input", name: "example-input[test]"
+    end
+
+    it "adds the correct id to the input" do
+      expect(page).to have_selector "#test-id-input"
+    end
+
+    it "adds the correct id to the label" do
+      expect(page).to have_selector "#test-id-label"
+    end
+
+    it "adds the correct id to the hint" do
+      expect(page).to have_selector "#test-id-hint"
+    end
+
+    it "adds the correct id to the error message" do
+      expect(page).to have_selector "#test-id-error"
+    end
+  end
+
   context "when a value is provided" do
     before do
       render_inline described_class.new(

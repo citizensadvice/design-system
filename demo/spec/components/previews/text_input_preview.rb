@@ -87,4 +87,10 @@ class TextInputPreview < ViewComponent::Preview
       )
     )
   end
+
+  def custom_id
+    render(
+      CitizensAdviceComponents::TextInput.new(name: "example-input[custom-id]", label: "Example input", id: "test-id", type: :text)
+    )
+  end
 end
