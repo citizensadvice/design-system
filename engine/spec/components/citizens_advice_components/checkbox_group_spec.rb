@@ -37,18 +37,19 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
     before do
       render_inline described_class.new(
         legend: "Checkbox group field",
-        name: "checkboxes[test][]"
+        name: "checkboxes",
+        id: "test-id"
       ) do |c|
-        c.with_inputs(sample_inputs_with_id)
+        c.with_inputs(sample_inputs)
       end
     end
 
     it "adds the correct name to the input" do
-      expect(page).to have_field "Option 1", name: "checkboxes[test][]"
+      expect(page).to have_field "Option 1", name: "checkbox-group"
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#test-id-first-0"
+      expect(page).to have_selector "#test-id-0"
     end
   end
 
@@ -147,13 +148,6 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
     [
       { label: "Option 1", value: "1", name: "checkbox-group" },
       { label: "Option 2", value: "2", name: "checkbox-group" }
-    ]
-  end
-
-  def sample_inputs_with_id
-    [
-      { label: "Option 1", value: "1", id: "test-id-first" },
-      { label: "Option 2", value: "2", id: "test-id-second" }
     ]
   end
 end

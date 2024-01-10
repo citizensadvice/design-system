@@ -37,18 +37,19 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     before do
       render_inline described_class.new(
         legend: "Radio button group field",
-        name: "radio-group[test][]"
+        name: "radio-group",
+        id: "test-id"
       ) do |c|
-        c.with_inputs(sample_inputs_with_id)
+        c.with_inputs(sample_inputs)
       end
     end
 
     it "adds the correct name to the input" do
-      expect(page).to have_field "Option 1", name: "radio-group[test][]"
+      expect(page).to have_field "Option 1", name: "radio-group"
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#test-id-first-0"
+      expect(page).to have_selector "#test-id-0"
     end
   end
 
@@ -222,13 +223,6 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     [
       { label: "Option 1", value: "1", name: "radio-group" },
       { label: "Option 2", value: "2", name: "radio-group" }
-    ]
-  end
-
-  def sample_inputs_with_id
-    [
-      { label: "Option 1", value: "1", id: "test-id-first" },
-      { label: "Option 2", value: "2", id: "test-id-second" }
     ]
   end
 end

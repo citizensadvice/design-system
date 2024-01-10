@@ -5,16 +5,16 @@ module CitizensAdviceComponents
     class Base < CitizensAdviceComponents::Base
       attr_reader :label
 
-      def initialize(label:, value:, checked: false, id: nil, **additional_attributes)
+      def initialize(label:, value:, checked: false, **additional_attributes)
         @label = label
         @value = value
         @checked = fetch_or_fallback_boolean(checked, fallback: false)
-        @id = id
         @additional_attributes = additional_attributes
       end
 
-      def attributes(name, index = 0, error: false)
+      def attributes(name, id, index = 0, error: false)
         @name = name
+        @id = id
         @index = index
         attrs = base_attributes
         attrs = base_attributes.merge(@additional_attributes) if @additional_attributes.present?

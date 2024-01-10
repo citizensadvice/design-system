@@ -13,9 +13,10 @@ class RadioGroupPreview < ViewComponent::Preview
   def custom_id
     render CitizensAdviceComponents::RadioGroup.new(
       legend: "Example radio group",
-      name: "radio-buttons[test][]"
+      name: "radio-buttons[test][]",
+      id: "test-id"
     ) do |c|
-      c.with_inputs(radios_custom_ids)
+      c.with_inputs(radios)
     end
   end
 
@@ -115,13 +116,6 @@ class RadioGroupPreview < ViewComponent::Preview
     [
       { label: "Option 1", value: "1" },
       { label: "Option 2", value: "2" }
-    ]
-  end
-
-  def radios_custom_ids
-    [
-      { label: "Option 1", value: "1", id: "test-id-first" },
-      { label: "Option 2", value: "2", id: "test-id-second" }
     ]
   end
 

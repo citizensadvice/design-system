@@ -19,8 +19,8 @@
     <% end %>
     <% inputs.each_with_index do |input, index| %>
       <div class="cads-form-group__item">
-        <%= tag.input(class: "cads-form-group__input", **input.attributes(name, index)) %>
-        <label class="cads-form-group__label" for="<%= input.attributes(name, index)[:id] %>">
+        <%= tag.input(class: "cads-form-group__input", **input.attributes(name, id, index)) %>
+        <label class="cads-form-group__label" for="<%= input.attributes(name, id, index)[:id] %>">
           <%= input.label %>
         </label>
       </div>
