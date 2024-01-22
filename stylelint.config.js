@@ -39,10 +39,10 @@ module.exports = {
     'scss/comment-no-empty': null,
 
     // Additional stylelint-scss rules
-    'scss/selector-no-redundant-nesting-selector': true,
-    'scss/at-import-no-partial-leading-underscore': true,
-    'scss/at-import-partial-extension-blacklist': ['scss'],
     'scss/at-extend-no-missing-placeholder': true,
+    'scss/at-import-partial-extension-blacklist': ['scss'],
+    'scss/load-no-partial-leading-underscore': true,
+    'scss/selector-no-redundant-nesting-selector': true,
 
     // Require that class names, @function, and @mixin rules
     // are prefixed with cads-
