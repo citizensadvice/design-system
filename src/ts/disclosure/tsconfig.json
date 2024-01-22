@@ -5,9 +5,9 @@
     "module": "CommonJS",
     "rootDir": ".",
     "declaration": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   },
   "references": [{ "path": "../utils/" }],
   "include": ["./**/*.ts"],
-  "exclude": ["./**/*.test.ts"]
+  "exclude": ["./**/*.test.ts"],
 }
