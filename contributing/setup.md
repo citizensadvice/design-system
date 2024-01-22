@@ -8,15 +8,9 @@ Running the project locally requires a few dependencies.
 
 Ruby version 3.2 is required. We include a `.ruby-version` file in the root of the project so if you are using a version manager like [rbenv](https://github.com/rbenv/rbenv) it should pick this up.
 
-### Node and Yarn
+### Node
 
 Node 18+ is required. We include a `.nvmrc` file in the root of the project so if you are using [nvm](https://github.com/nvm-sh/nvm) it should pick this up.
-
-The project uses `yarn` for both the demo app and the design-system-docs projects. Recent versions of node include a tool called `corepack` which [includes yarn](https://nodejs.org/tr/blog/release/v14.19.0#corepack). You can enable yarn on your system by running the following:
-
-```
-corepack enable
-```
 
 ## Install dependencies
 

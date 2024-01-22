@@ -16,12 +16,6 @@ This guide assumes you have some existing Rails knowledge. It also assumes you h
 - Ruby version 3.2 or later
 - Node version 18 or later
 
-At the time of writing Rails assumes that `yarn` is present so you'll also need that installed. Recent versions of node include a tool called `corepack` which [includes yarn](https://nodejs.org/tr/blog/release/v14.19.0#corepack). You can enable yarn on your system by running the following:
-
-```
-corepack enable
-```
-
 ## Creating the application
 
 We'll start by creating a new Rails application. We're going to be creating an application with a few constraints:
@@ -74,10 +68,10 @@ At this point running the application should look like this:
 
 The main component of the Design System is `@citizensadvice/design-system` which is an npm package containing styles, JavaScript modules, fonts, and icons.
 
-You can install the core package from npm. As we are using Rails we'll install this using `yarn`. We'll also make sure to pin to an exact version. The npm package and the gem versions need to match so it's important to specify an exact version here.
+You can install the core package from npm. We'll also make sure to pin to an exact version. The npm package and the gem versions need to match so it's important to specify an exact version here.
 
 ```sh
-yarn add --exact @citizensadvice/design-system@5.5.0
+npm install --save-exact @citizensadvice/design-system@5.5.0
 ```
 
 After you've done this you'll need to add the following to your `config/initializers/assets.rb` file:
