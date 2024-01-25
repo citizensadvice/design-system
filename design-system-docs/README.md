@@ -4,9 +4,8 @@ This is the documentation website for the Citizens Advice Design System. The sit
 
 ## Prerequisites
 
-- [Ruby 2.7](https://www.ruby-lang.org/en/downloads/)
-- [Node 14](https://nodejs.org)
-- [yarn](https://yarnpkg.com/getting-started/install)
+- [Ruby 3.2](https://www.ruby-lang.org/en/downloads/)
+- [Node 18](https://nodejs.org)
 
 ## Setup
 
