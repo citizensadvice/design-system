@@ -2,6 +2,7 @@
 
 module CitizensAdviceComponents
   class DateInput < Input
+    renders_many :date_fields, "DateField"
     attr_reader :name, :label, :errors, :values
 
     def initialize(values: nil, errors: nil, **args)
@@ -10,44 +11,41 @@ module CitizensAdviceComponents
       @errors = errors
     end
 
-    def input_attributes(timespan)
+    def render?
+      date_fields.present?
+    end
+
+    def input_attributes(date_field)
       {
-        class: input_classes(timespan),
-        name: input_id(timespan),
-        id: input_id(timespan),
+        class: input_classes(date_field),
+        name: date_field.name,
+        id: input_id(date_field),
         inputmode: "numeric",
-        value: value_for(timespan),
-        "aria-invalid": timespan_error?(timespan),
-        "data-testid": "#{timespan}-input"
+        value: date_field.value,
+        "data-testid": "#{date_field.timespan}-input"
       }
     end
 
-    def label_attributes(timespan)
+    def label_attributes(date_field)
       {
         class: "cads-form-field__label",
-        id: "#{input_id(timespan)}-label",
-        for: input_id(timespan)
+        id: "#{input_id(date_field)}-label",
+        for: input_id(date_field)
       }
     end
 
     private
 
-    def value_for(timespan)
-      return if values.blank?
-
-      values[timespan].presence
+    def input_id(date_field)
+      date_field.id
     end
 
-    def input_id(timespan)
-      "#{name}-#{timespan}"
+    def input_classes(date_field)
+      "cads-input #{width_class(date_field.timespan)} #{error_class(date_field)}"
     end
 
-    def input_classes(timespan)
-      "cads-input #{width_class(timespan)} #{error_class(timespan)}"
-    end
-
-    def error_class(timespan)
-      "cads-input--error" if timespan_error?(timespan)
+    def error_class(date_field)
+      "cads-input--error" if timespan_error?(date_field.timespan)
     end
 
     def timespan_error?(timespan)
@@ -62,6 +60,17 @@ module CitizensAdviceComponents
         "cads-input--4ch"
       else
         "cads-input--2ch"
+      end
+    end
+
+    class DateField
+      attr_reader :name, :id, :timespan, :value
+
+      def initialize(name:, id:, timespan:, value: nil)
+        @name = name
+        @id = id
+        @timespan = timespan
+        @value = value
       end
     end
   end

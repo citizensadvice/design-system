@@ -15,12 +15,12 @@
         <p class="cads-form-field__error-message"><%= error_message %></p>
       <% end %>
       <div class="cads-date-input">
-        <% %i[day month year].each do |timespan| %>
+        <% date_fields.each do |date_field| %>
           <div class="cads-date-input__item">
-            <%= tag.label(**label_attributes(timespan)) do %>
-              <%= t("citizens_advice_components.date_input.#{timespan}") %>
+            <%= tag.label(**label_attributes(date_field)) do %>
+              <%= t("citizens_advice_components.date_input.#{date_field.timespan}") %>
             <% end %>
-            <%= tag.input(**input_attributes(timespan)) %>
+            <%= tag.input(**input_attributes(date_field)) %>
           </div>
         <% end %>
       </div>

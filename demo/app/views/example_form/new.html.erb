@@ -47,7 +47,11 @@
         }
       ) %>
 
-      <%= render CitizensAdviceComponents::DateInput.new(name: :date_of_purchase, label: "When did you purchase the goods or services?") %>
+      <%= render CitizensAdviceComponents::DateInput.new(
+        name: :date_of_purchase,
+        label: "When did you purchase the goods or services?") do |c| %>
+        <% c.with_date_fields([{ name: "purchase[day]", id: "day-id", timespan: :day}, { name: "purchase[month]", id: "month-id", timespan: :month }, { name: "purchase[year]", id: "year-id", timespan: :year, }]) %>
+      <% end %>
 
       <%= render CitizensAdviceComponents::RadioGroup.new(
         legend: "Have you contacted the trader about this complaint?",
