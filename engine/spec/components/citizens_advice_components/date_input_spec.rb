@@ -3,6 +3,49 @@
 RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
   subject { page }
 
+  let(:date_fields) do
+    [
+      {
+        name: "day",
+        id: "day-id",
+        timespan: :day
+      },
+      {
+        name: "month",
+        id: "month-id",
+        timespan: :month
+      },
+      {
+        name: "year",
+        id: "year-id",
+        timespan: :year
+      }
+    ]
+  end
+
+  let(:date_fields_with_values) do
+    [
+      {
+        name: "day",
+        id: "day-id",
+        timespan: :day,
+        value: 1
+      },
+      {
+        name: "month",
+        id: "month-id",
+        timespan: :month,
+        value: 2
+      },
+      {
+        name: "year",
+        id: "year-id",
+        timespan: :year,
+        value: 1990
+      }
+    ]
+  end
+
   context "with default arguments" do
     before do
       render_inline described_class.new(
@@ -10,7 +53,9 @@ RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
         label: "Example date input",
         errors: nil,
         values: nil
-      )
+      ) do |c|
+        c.with_date_fields(date_fields)
+      end
     end
 
     it { is_expected.to have_field "Day" }
@@ -27,25 +72,35 @@ RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
   end
 
   context "with errors" do
+    let(:error_message) { "Enter your date of birth, like 01 02 1990" }
+
     before do
       render_inline described_class.new(
         name: "example-date-input",
         label: "Example date input",
         errors: %i[day month year],
-        values: nil
-      )
+        options: {
+          error_message: error_message
+        }
+      ) do |c|
+        c.with_date_fields(date_fields)
+      end
+    end
+
+    it "renders the error message" do
+      expect(page).to have_text error_message
     end
 
     it "renders the day input as error" do
-      expect(page).to have_selector "[data-testid=day-input][aria-invalid=true]"
+      expect(page).to have_selector "[data-testid=day-id-input].cads-input--error"
     end
 
     it "renders the month input as error" do
-      expect(page).to have_selector "[data-testid=month-input][aria-invalid=true]"
+      expect(page).to have_selector "[data-testid=month-id-input].cads-input--error"
     end
 
     it "renders the year input as error" do
-      expect(page).to have_selector "[data-testid=year-input][aria-invalid=true]"
+      expect(page).to have_selector "[data-testid=year-id-input].cads-input--error"
     end
   end
 
@@ -54,13 +109,10 @@ RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
       render_inline described_class.new(
         name: "example-date-input",
         label: "Example date input",
-        errors: %i[day month year],
-        values: {
-          day: 1,
-          month: 2,
-          year: 1990
-        }
-      )
+        errors: %i[day month year]
+      ) do |c|
+        c.with_date_fields(date_fields_with_values)
+      end
     end
 
     it { is_expected.to have_field "Day", with: "1" }
