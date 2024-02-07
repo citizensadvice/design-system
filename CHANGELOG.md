@@ -1,3 +1,6 @@
+**BREAKING CHANGE**
+- Date input component: add date_field slot instead of auto generating date input fields 
+
 **New**
 
 - Include Rails 7.1 in supported version
