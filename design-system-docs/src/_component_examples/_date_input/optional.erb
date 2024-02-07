@@ -8,4 +8,22 @@ title: optional
      options: {
        optional: true
      }
-   ) %>
+   ) do |c|
+      c.with_date_fields([
+                           {
+                             name: "day",
+                             id: "day-id",
+                             timespan: :day
+                           },
+                           {
+                             name: "month",
+                             id: "month-id",
+                             timespan: :month
+                           },
+                           {
+                             name: "year",
+                             id: "year-id",
+                             timespan: :year
+                           }
+                         ])
+end %>

@@ -6,12 +6,28 @@ title: with error message
       name: "bday",
       label: "Date of birth",
       errors: %i[day],
-      values: {
-        day: 99,
-        month: 1,
-        year: 1990
-      },
       options: {
         error_message: "Date of birth must be a real date"
       }
-    ) %>
+    ) do |c|
+        c.with_date_fields([
+                             {
+                               name: "day",
+                               id: "day-id",
+                               timespan: :day,
+                               value: 99
+                             },
+                             {
+                               name: "month",
+                               id: "month-id",
+                               timespan: :month,
+                               value: 1
+                             },
+                             {
+                               name: "year",
+                               id: "year-id",
+                               timespan: :year,
+                               value: 1990
+                             }
+                           ])
+end %>

@@ -43,3 +43,9 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 ### Component arguments
 
 <%= render Shared::ArgumentsTable.new(:date_input) %>
+
+### Date fields slot
+The component requires a date fields slot. Usually there are three date fields - day, month and year.
+
+<%= render Shared::ArgumentsTable.new(:date_field) %>
+

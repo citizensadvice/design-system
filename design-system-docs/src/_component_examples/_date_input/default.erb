@@ -2,4 +2,22 @@
 title: default
 ---
 
-<%= render CitizensAdviceComponents::DateInput.new(name: "dob", label: "Date of birth") %>
+<%= render CitizensAdviceComponents::DateInput.new(name: "dob", label: "Date of birth") do |c|
+  c.with_date_fields([
+                       {
+                         name: "day",
+                         id: "day-id",
+                         timespan: :day
+                       },
+                       {
+                         name: "month",
+                         id: "month-id",
+                         timespan: :month
+                       },
+                       {
+                         name: "year",
+                         id: "year-id",
+                         timespan: :year
+                       }
+                     ])
+end %>

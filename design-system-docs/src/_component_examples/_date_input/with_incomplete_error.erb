@@ -13,4 +13,24 @@ title: with incomplete error
       options: {
         error_message: "Date of birth must include a year"
       }
-    ) %>
+    ) do |c|
+        c.with_date_fields([
+                             {
+                               name: "day",
+                               id: "day-id",
+                               timespan: :day,
+                               value: 1
+                             },
+                             {
+                               name: "month",
+                               id: "month-id",
+                               timespan: :month,
+                               value: 1
+                             },
+                             {
+                               name: "year",
+                               id: "year-id",
+                               timespan: :year
+                             }
+                           ])
+end %>

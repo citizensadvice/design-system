@@ -10,4 +10,25 @@ title: with values
         month: 1,
         year: 1990
       }
-    ) %>
+    ) do |c|
+        c.with_date_fields([
+                             {
+                               name: "day",
+                               id: "day-id",
+                               timespan: :day,
+                               value: 1
+                             },
+                             {
+                               name: "month",
+                               id: "month-id",
+                               timespan: :month,
+                               value: 1
+                             },
+                             {
+                               name: "year",
+                               id: "year-id",
+                               timespan: :year,
+                               value: 1990
+                             }
+                           ])
+end %>
