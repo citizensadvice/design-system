@@ -34,6 +34,10 @@ A date input field allows the user to enter a date they remember.
 
 <%= render(Shared::ComponentExample.new(:date_input, :with_values)) %>
 
+### With autocomplete
+
+<%= render(Shared::ComponentExample.new(:date_input, :with_autocomplete)) %>
+
 ## Using with Rails
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
@@ -45,7 +49,7 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 <%= render Shared::ArgumentsTable.new(:date_input) %>
 
 ### Date fields slot
+
 The component requires a date fields slot. Usually there are three date fields - day, month and year.
 
 <%= render Shared::ArgumentsTable.new(:date_field) %>
-

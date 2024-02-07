@@ -46,6 +46,29 @@ RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
     ]
   end
 
+  let(:date_fields_with_autocomplete) do
+    [
+      {
+        name: "day",
+        id: "day-id",
+        timespan: :day,
+        autocomplete: "bday-day"
+      },
+      {
+        name: "month",
+        id: "month-id",
+        timespan: :month,
+        autocomplete: "bday-month"
+      },
+      {
+        name: "year",
+        id: "year-id",
+        timespan: :year,
+        autocomplete: "bday-year"
+      }
+    ]
+  end
+
   context "with default arguments" do
     before do
       render_inline described_class.new(
@@ -118,5 +141,20 @@ RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
     it { is_expected.to have_field "Day", with: "1" }
     it { is_expected.to have_field "Month", with: "2" }
     it { is_expected.to have_field "Year", with: "1990" }
+  end
+
+  context "with autocomplete" do
+    before do
+      render_inline described_class.new(
+        name: "example-date-input",
+        label: "Example date input"
+      ) do |c|
+        c.with_date_fields(date_fields_with_autocomplete)
+      end
+    end
+
+    it { is_expected.to have_selector "input[autocomplete=bday-day]" }
+    it { is_expected.to have_selector "input[autocomplete=bday-month]" }
+    it { is_expected.to have_selector "input[autocomplete=bday-year]" }
   end
 end

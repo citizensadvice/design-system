@@ -79,6 +79,15 @@ class DateInputPreview < ViewComponent::Preview
     end
   end
 
+  def autocomplete
+    render CitizensAdviceComponents::DateInput.new(
+      name: "bday",
+      label: "Date of birth"
+    ) do |c|
+      c.with_date_fields(date_fields_autocomplete)
+    end
+  end
+
   private
 
   def date_fields
@@ -143,6 +152,29 @@ class DateInputPreview < ViewComponent::Preview
         id: "year-id",
         timespan: :year,
         value: 1990
+      }
+    ]
+  end
+
+  def date_fields_autocomplete
+    [
+      {
+        name: "day",
+        id: "day-id",
+        timespan: :day,
+        autocomplete: "bday-day"
+      },
+      {
+        name: "month",
+        id: "month-id",
+        timespan: :month,
+        autocomplete: "bday-month"
+      },
+      {
+        name: "year",
+        id: "year-id",
+        timespan: :year,
+        autocomplete: "bday-year"
       }
     ]
   end

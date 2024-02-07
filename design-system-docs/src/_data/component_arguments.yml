@@ -254,6 +254,8 @@ date_field:
     description: 'Required, one of: <code>:day</code>, <code>:month</code>, <code>:year</code>'
   - argument: value
     description: 'Optional, a pre-filled value'
+  - argument: autocomplete
+    description: 'Optional, adding an input purpose'
 select:
   - argument: name
     description: Required, field name

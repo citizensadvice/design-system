@@ -22,7 +22,8 @@ module CitizensAdviceComponents
         id: input_id(date_field),
         inputmode: "numeric",
         value: date_field.value,
-        "data-testid": "#{date_field.timespan}-input"
+        "data-testid": "#{input_id(date_field)}-input",
+        autocomplete: date_field.autocomplete
       }
     end
 
@@ -64,13 +65,14 @@ module CitizensAdviceComponents
     end
 
     class DateField
-      attr_reader :name, :id, :timespan, :value
+      attr_reader :name, :id, :timespan, :value, :autocomplete
 
-      def initialize(name:, id:, timespan:, value: nil)
+      def initialize(name:, id:, timespan:, value: nil, autocomplete: nil)
         @name = name
         @id = id
         @timespan = timespan
         @value = value
+        @autocomplete = autocomplete
       end
     end
   end
