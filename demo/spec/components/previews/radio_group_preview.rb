@@ -13,7 +13,7 @@ class RadioGroupPreview < ViewComponent::Preview
   def custom_id
     render CitizensAdviceComponents::RadioGroup.new(
       legend: "Example radio group",
-      name: "radio-buttons[test][]",
+      name: "radio-buttons[test]",
       id: "test-id"
     ) do |c|
       c.with_inputs(radios)
