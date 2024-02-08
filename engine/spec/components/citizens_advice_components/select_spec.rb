@@ -20,7 +20,6 @@ RSpec.describe CitizensAdviceComponents::Select, type: :component do
       select_options: select_options,
       name: name.presence,
       label: label.presence,
-      type: nil,
       options: options
     )
   end

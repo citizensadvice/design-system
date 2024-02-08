@@ -6,7 +6,7 @@ module CitizensAdviceComponents
 
     def initialize(select_options:, **args)
       @select_options = select_options
-      @base_input_args = args
+      @base_input_args = args.merge(type: nil)
       super(**@base_input_args)
     end
 
