@@ -4,8 +4,8 @@
     "module": "CommonJS",
     "outDir": "../../../lib/greedy-nav",
     "rootDir": ".",
-    "declaration": true,
+    "declaration": true
   },
   "include": ["./**/*.ts"],
-  "exclude": ["./**/*.test.ts", "./**/__mocks__/"],
+  "exclude": ["./**/*.test.ts", "./**/__mocks__/"]
 }

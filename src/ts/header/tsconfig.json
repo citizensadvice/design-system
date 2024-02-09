@@ -4,8 +4,8 @@
     "outDir": "../../../lib/",
     "module": "CommonJS",
     "rootDir": ".",
-    "declaration": true,
+    "declaration": true
   },
   "include": ["./**/*.ts"],
-  "exclude": ["./**/*.test.ts"],
+  "exclude": ["./**/*.test.ts"]
 }
