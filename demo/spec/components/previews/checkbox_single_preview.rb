@@ -12,4 +12,10 @@ class CheckboxSinglePreview < ViewComponent::Preview
       c.with_checkbox(label: "I agree to the great terms and conditions", value: "agreed-to-tcs")
     end
   end
+
+  def custom_id
+    render CitizensAdviceComponents::CheckboxSingle.new(name: "a-single-checkbox[test]", id: "test-id") do |c|
+      c.with_checkbox(label: "I agree to the great terms and conditions", value: "agreed-to-tcs")
+    end
+  end
 end

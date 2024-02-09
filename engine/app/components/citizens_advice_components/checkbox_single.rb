@@ -2,13 +2,14 @@
 
 module CitizensAdviceComponents
   class CheckboxSingle < Base
-    attr_reader :name, :error_message
+    attr_reader :name, :id, :error_message
 
     renders_one :checkbox, Checkable::Checkbox
 
-    def initialize(name:, error_message: nil)
+    def initialize(name:, id: nil, error_message: nil)
       super
       @name = name
+      @id = id
       @error_message = error_message
     end
 
@@ -21,7 +22,7 @@ module CitizensAdviceComponents
     end
 
     def label_id
-      checkbox.attributes(name)[:id]
+      checkbox.attributes(name, id)[:id]
     end
 
     def render?

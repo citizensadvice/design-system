@@ -2,11 +2,12 @@
 
 module CitizensAdviceComponents
   class Input < Base
-    attr_reader :name, :label, :error_message, :hint, :value
+    attr_reader :name, :label, :error_message, :hint, :value, :id
 
-    def initialize(name:, label:, type:, options: nil)
+    def initialize(name:, label:, type:, options: nil, id: nil)
       super
       @name = name
+      @id = id
       @label = label
       @type = fetch_or_fallback(
         allowed_values: allowed_type_values,
@@ -70,20 +71,26 @@ module CitizensAdviceComponents
       @hint.present?
     end
 
+    def general_id
+      return id if @id.present?
+
+      name
+    end
+
     def label_id
-      "#{name}-label"
+      "#{general_id}-label"
     end
 
     def input_id
-      "#{name}-input"
+      "#{general_id}-input"
     end
 
     def error_id
-      "#{name}-error"
+      "#{general_id}-error"
     end
 
     def hint_id
-      "#{name}-hint"
+      "#{general_id}-hint"
     end
 
     def base_input_attributes

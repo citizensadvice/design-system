@@ -7,7 +7,7 @@
       </p>
     <% end %>
     <div class="cads-form-group__item">
-      <%= tag.input(class:"cads-form-group__input", **checkbox.attributes(name, error: error?)) %>
+      <%= tag.input(class:"cads-form-group__input", **checkbox.attributes(name, id, error: error?)) %>
       <label class="cads-form-group__label"
              for="<%= label_id %>">
         <%= checkbox.label %>

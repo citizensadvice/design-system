@@ -2,12 +2,13 @@
 
 module CitizensAdviceComponents
   class FormGroup < Base
-    attr_reader :legend, :name, :error_message, :hint, :size, :layout
+    attr_reader :legend, :name, :id, :error_message, :hint, :size, :layout
 
-    def initialize(legend:, name:, options: nil)
+    def initialize(legend:, name:, id: nil, options: nil)
       super
       @legend = legend
       @name = name
+      @id = id
 
       set_options(options)
     end
