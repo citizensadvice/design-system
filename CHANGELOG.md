@@ -5,6 +5,7 @@
 - Remove support for Ruby 2.7
 - Callout: Deprecate `title` attribute; replace with more general  `attributes`
 - Inputs: added optional `id` attribute
+- Selects: remove unused (but required) `type` attribute
 
 ## v5.6.0
 
