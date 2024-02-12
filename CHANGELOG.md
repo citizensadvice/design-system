@@ -1,3 +1,7 @@
+## v5.7.0
+
+### 12 February 2024
+
 **New**
 
 - Include Rails 7.1 in supported version
