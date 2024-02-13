@@ -20,7 +20,7 @@ There are 2 icon sizes in our Design System:
 
 ### 16px (small)
 
-We use small icons in our components such as "Chevron" in the buttons or a "Plus" in the targeted content. We also use an "External link" in the content whenever it’s needed.
+We use small icons in our components such as "Chevron" in the buttons or a "Plus" in the targeted content.
 
 ### 24px (medium)
 

@@ -144,14 +144,6 @@ Links are blue and underlined by default. Avoid opening links in a new tab, as i
 
 Read our guidance about using <a href ="?path=/docs/components-buttons--primary">buttons as links</a>.
 
-### External links
-
-When you link to a page external to your website add the `.cads-hyperlink--external` class to display an icon after the link.
-
-If your links appear within a `.cads-prose` container this style is automatically applied for all links with a `rel=external` attribute or that don't match the value set for `$cads-internal-link-domain` (defaults to `https:/www.citizensadvice.org.uk`).
-
-<%= render(Shared::ComponentExample.new(:foundations, :typography_external_link)) %>
-
 ## Lists
 
 ### Unordered lists

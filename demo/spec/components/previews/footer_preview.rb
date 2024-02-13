@@ -3,7 +3,7 @@
 class FooterPreview < ViewComponent::Preview
   def default
     render CitizensAdviceComponents::Footer.new do |c|
-      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", new_tab: true)
       c.with_column(
         title: "Advice",
         links: [
@@ -50,8 +50,7 @@ class FooterPreview < ViewComponent::Preview
           { url: "/about-us/support-us/", title: "Support us" },
           { url: "/about-us/how-citizens-advice-works/", title: "How Citizens Advice works" },
           { url: "/resources-and-tools/about-this-site/disclaimer-and-copyright/", title: "Disclaimer and Copyright" },
-          { url: "/about-us/citizens-advice-privacy-policy/", title: "Privacy and cookies" },
-          { url: "http://example.com", title: "External link", external: true }
+          { url: "/about-us/citizens-advice-privacy-policy/", title: "Privacy and cookies" }
         ]
       )
     end
@@ -59,13 +58,13 @@ class FooterPreview < ViewComponent::Preview
 
   def feedback_link_only
     render CitizensAdviceComponents::Footer.new do |c|
-      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", new_tab: true)
     end
   end
 
   def custom_legal_summary
     render CitizensAdviceComponents::Footer.new do |c|
-      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", external: true, new_tab: true)
+      c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", new_tab: true)
       c.with_legal_summary(legal_summary_text)
     end
   end

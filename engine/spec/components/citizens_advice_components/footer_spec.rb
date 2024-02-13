@@ -77,24 +77,6 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
         expect(page).to have_selector "[data-testid='footer-column']", count: 4
       end
     end
-
-    context "when a link includes deprecated icon property" do
-      let(:columns) do
-        [{
-          title: "Example column",
-          links: [
-            { url: "#", title: "Link 1" },
-            { url: "#", title: "Link 2" },
-            { url: "#", title: "Link 3", icon: "external-link" }
-          ]
-        }]
-      end
-
-      it "logs deprecation warning" do
-        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with(/generic `icon` property for column links is deprecated/)
-      end
-    end
   end
 
   describe "feedback_link" do
