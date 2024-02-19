@@ -95,7 +95,7 @@ GEM
     ffi (1.15.5)
     hash_with_dot_access (1.2.0)
       activesupport (>= 5.0.0, < 8.0)
-    htmlbeautifier (1.4.2)
+    htmlbeautifier (1.4.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     json (2.6.3)
