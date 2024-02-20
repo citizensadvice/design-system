@@ -4,14 +4,16 @@
   "description": "Citizens Advice Design System",
   "repository": "https://github.com/citizensadvice/design-system",
   "author": "Citizens Advice",
-  "license": "UNLICENCED",
+  "license": "Apache-2.0",
   "files": [
     "assets",
     "scss",
     "lib",
     "!scss/**/__tests__",
     "CHANGELOG.md",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "NOTICE"
   ],
   "scripts": {
     "release": "npm run lint && npm run build && node ./scripts/release",
