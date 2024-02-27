@@ -1,3 +1,7 @@
+**New**
+
+- Remove support for end-of-life Ruby 3.0.x versions
+
 ## v5.7.0
 
 ### 12 February 2024
