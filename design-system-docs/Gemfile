@@ -13,6 +13,9 @@ gem "puma", "~> 5.6"
 
 gem "citizens_advice_components", path: "../engine"
 
+# https://github.com/citizensadvice/design-system/issues/3145
+gem "view_component", "3.8.0"
+
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
