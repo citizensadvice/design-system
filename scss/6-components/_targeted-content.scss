@@ -94,8 +94,8 @@
 // Behaviour added when JavaScript is enabled
 ///
 .cads-targeted-content--open {
-  .cads-targeted-content__icon-vert {
-    display: none;
+  .cads-targeted-content__icon {
+    transform: rotate(180deg);
   }
 
   .cads-targeted-content__content {
