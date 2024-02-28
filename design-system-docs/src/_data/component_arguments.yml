@@ -123,8 +123,6 @@ footer_feedback_link_slot:
     description: 'Optional, title for the column'
   - argument: url
     description: 'Required, feedback URL'
-  - argument: external
-    description: 'Optional. Is this an external link? Defaults to <code>false</code>'
 footer_column_slot:
   - argument: title
     description: 'Required, title for the column'
@@ -134,8 +132,6 @@ footer_column_slot:
     description: '→ Required, url for the link'
   - argument: 'link[:title]'
     description: '→ Required, title for the link'
-  - argument: 'link[:external]'
-    description: '→ Optional, is this an external link?'
   - argument: 'link[:new_tab]'
     description: '→ Optional, should this link open in a new tab?'
 navigation:

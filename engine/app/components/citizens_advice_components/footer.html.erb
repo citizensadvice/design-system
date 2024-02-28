@@ -10,11 +10,6 @@
               class: "cads-footer__hyperlink js-cads-footer-feedback",
               **feedback.new_tab_attributes
             ) %>
-            <% if feedback.external? %>
-              <span class="cads-footer__feedback-icon">
-                <%= render CitizensAdviceComponents::Icons::ExternalLink.new %>
-              </span>
-            <% end %>
           </p>
         </div>
       </div>
@@ -29,12 +24,6 @@
                 <% column.links.each do |link| %>
                   <li class="cads-footer__link">
                     <%= link_to link[:title], link[:url], class: "cads-footer__hyperlink" %>
-                    <%# Support old "icon" key but assume external link %>
-                    <% if link[:external].present? || link[:icon].present? %>
-                      <span class="cads-footer__icon">
-                        <%= render CitizensAdviceComponents::Icons::ExternalLink.new %>
-                      </span>
-                    <% end %>
                   </li>
                 <% end %>
               </ul>

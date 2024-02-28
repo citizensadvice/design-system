@@ -32,19 +32,6 @@ a,
   }
 }
 
-@mixin cads-hyperlink--external-icon {
-  @include cads-icon;
-
-  display: inline-block;
-  white-space: pre;
-  content: ' \0045';
-  font-size: $cads-spacing-3;
-}
-
-.cads-hyperlink--external::after {
-  @include cads-hyperlink--external-icon;
-}
-
 // Reset button styles when styled like a link
 %cads-linkbutton-base {
   appearance: none;

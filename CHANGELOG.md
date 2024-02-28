@@ -1,7 +1,10 @@
+## Unreleased
+
 **New**
 
 - Remove support for end-of-life Ruby 3.0.x versions
 - Targeted content: changed icon from plus/minus to chevron
+- Removes the icon from external links
 
 ## v5.7.0
 

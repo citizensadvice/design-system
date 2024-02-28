@@ -11,7 +11,6 @@ module Foundations
         CitizensAdviceComponents::Icons::Close,
         CitizensAdviceComponents::Icons::Email,
         CitizensAdviceComponents::Icons::Error,
-        CitizensAdviceComponents::Icons::ExternalLink,
         CitizensAdviceComponents::Icons::File,
         CitizensAdviceComponents::Icons::Minus,
         CitizensAdviceComponents::Icons::Plus,
