@@ -10,6 +10,7 @@ cy:
     footer:
       copyright: Hawlfraint ©%{year} Cyngor ar Bopeth. Cedwir pob hawl.
       legal_summary: 'Cyngor ar Bopeth yn enw gweithredol ar Gymdeithas Genedlaethol Cyngor ar Bopeth. Rhif elusen gofrestredig 279057. Rhif TAW 726 0202 76. Cwmni cyfyngedig drwy warant. Rhif cofrestredig 0143694 Lloegr. Swyddfa gofrestredig: Cyngor ar Bopeth, 3ydd Llawr Gogledd, 200 Aldersgate, Llundain, EC1A 4HD'
+      legal_summary_new_address: 'Cyngor ar Bopeth yn enw gweithredol ar Gymdeithas Genedlaethol Cyngor ar Bopeth. Rhif elusen gofrestredig 279057. Rhif TAW 726 0202 76. Cwmni cyfyngedig drwy warant. Rhif cofrestredig 0143694 Lloegr. Swyddfa gofrestredig: Cyngor ar Bopeth, 3ydd Llawr, 1 Easton Street, Llundain, WC1X 0DW'
       logo_title: Hafan Cyngor ar Bopeth
       navigation_title: Llywio Troedyn
       website_feedback: A oes unrhyw beth o'i le ar y dudalen hon? Gadewch i ni wybod
