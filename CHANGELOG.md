@@ -5,6 +5,7 @@
 - Remove support for end-of-life Ruby 3.0.x versions
 - Targeted content: changed icon from plus/minus to chevron
 - Removes the icon from external links
+- Footer component: Updated fallback legal summary to automatically reflect the new registered office on moving day
 
 ## v5.7.0
 

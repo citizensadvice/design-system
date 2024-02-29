@@ -60,7 +60,12 @@ module CitizensAdviceComponents
     def legal_summary_fallback
       return if legal_summary
 
-      t("citizens_advice_components.footer.legal_summary")
+      # Change to new registered address following office move
+      if Time.current.to_date >= Date.new(2024, 3, 15)
+        t("citizens_advice_components.footer.legal_summary_new_address")
+      else
+        t("citizens_advice_components.footer.legal_summary")
+      end
     end
 
     class FooterColumn < Base
