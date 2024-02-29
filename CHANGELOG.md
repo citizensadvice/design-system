@@ -1,4 +1,6 @@
-## Unreleased
+## v5.8.0
+
+### 29 February 2024
 
 **New**
 
