@@ -59,7 +59,7 @@
 
 .cads-form-field__error-message {
   display: none;
-  color: $cads-language__warning-colour;
+  color: $cads-language__error-colour;
   font-weight: $cads-font-weight__bold;
   margin: 0 0 $cads-spacing-3 0;
 }
@@ -77,7 +77,7 @@
     position: relative;
     padding: 0;
     width: 0;
-    border: $cads-border-width-small solid $cads-language__warning-colour;
+    border: $cads-border-width-small solid $cads-language__error-colour;
 
     &::before {
       content: '';

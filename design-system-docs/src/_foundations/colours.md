@@ -59,6 +59,15 @@ Use the ‘Input border’ for interactive elements like input boxes so it meets
 ['Button hover', 'primary-button-hover-colour'],
 ])) %>
 
+## Statuses
+
+Used for error and success statues.
+
+<%= render(Shared::ColourTable.new([
+['Error', 'error'],
+['Success', 'success']
+])) %>
+
 ### Adviser
 
 Only use ‘Adviser’ colours for adviser-related components, like ‘Adviser callout’. This is also the brand colour for AdviserNet.
