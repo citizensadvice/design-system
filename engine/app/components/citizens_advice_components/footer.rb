@@ -7,7 +7,7 @@ module CitizensAdviceComponents
     renders_one :feedback_link, "FooterFeedbackLink"
 
     renders_one :legal_summary, lambda { |text|
-      text.presence || t("citizens_advice_components.footer.legal_summary")
+      text.presence || legal_summary_default
     }
 
     renders_many :columns, "FooterColumn"
@@ -60,6 +60,10 @@ module CitizensAdviceComponents
     def legal_summary_fallback
       return if legal_summary
 
+      legal_summary_default
+    end
+
+    def legal_summary_default
       # Change to new registered address following office move
       if Time.current.to_date >= Date.new(2024, 3, 15)
         t("citizens_advice_components.footer.legal_summary_new_address")

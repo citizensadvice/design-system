@@ -21,35 +21,66 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     end
   end
 
-  describe "custom legal summary" do
-    context "when valid legal summary" do
-      before do
-        render_inline(described_class.new) do |c|
-          c.with_legal_summary("Legal summary custom text")
-        end
+  describe "custom legal summary valid" do
+    before do
+      travel_to fake_date
+      render_inline(described_class.new) do |c|
+        c.with_legal_summary("Legal summary custom text")
       end
+    end
+
+    context "when before the office move" do
+      let(:fake_date) { Date.new(2024, 2, 28) }
 
       it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Legal summary custom text" }
     end
 
-    context "when whitespace legal summary" do
-      before do
-        render_inline(described_class.new) do |c|
-          c.with_legal_summary(" ")
-        end
-      end
+    context "when after the office move" do
+      let(:fake_date) { Date.new(2024, 3, 15) }
 
-      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Citizens Advice is an operating name of" }
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Legal summary custom text" }
+    end
+  end
+
+  describe "custom legal summary whitespace" do
+    before do
+      travel_to fake_date
+      render_inline(described_class.new) do |c|
+        c.with_legal_summary(" ")
+      end
     end
 
-    context "when empty legal summary" do
-      before do
-        render_inline(described_class.new) do |c|
-          c.with_legal_summary("")
-        end
-      end
+    context "when before the office move" do
+      let(:fake_date) { Date.new(2024, 2, 28) }
 
-      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Citizens Advice is an operating name of" }
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "200 Aldersgate" }
+    end
+
+    context "when after the office move" do
+      let(:fake_date) { Date.new(2024, 3, 15) }
+
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "1 Easton Street" }
+    end
+  end
+
+  describe "custom legal summary empty" do
+    before do
+      travel_to fake_date
+      render_inline(described_class.new) do |c|
+        c.with_legal_summary("")
+      end
+    end
+
+    context "when before the office move" do
+      let(:fake_date) { Date.new(2024, 2, 28) }
+
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "200 Aldersgate" }
+    end
+
+    context "when after the office move" do
+      let(:fake_date) { Date.new(2024, 3, 15) }
+
+      it { is_expected.to have_selector "[data-testid='legal-summary']", text: "1 Easton Street" }
     end
   end
 

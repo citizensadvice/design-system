@@ -1,3 +1,9 @@
+## Unreleased
+
+**Fix**
+
+- Footer component: commonise legal summary fallback text
+
 ## v5.8.0
 
 ### 29 February 2024
