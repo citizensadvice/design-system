@@ -2,9 +2,9 @@
 
 module CitizensAdviceComponents
   class Callout < Base
-    attr_reader :type, :title, :attributes
+    attr_reader :type, :attributes
 
-    def initialize(type: nil, title: nil, attributes: nil)
+    def initialize(type: nil, attributes: nil)
       super
       @type = fetch_or_fallback(
         allowed_values: %i[standard example important adviser],
@@ -12,9 +12,6 @@ module CitizensAdviceComponents
         fallback: :standard
       )
       @attributes = attributes.to_h
-      @title = title
-
-      title_deprecation
     end
 
     def show_badge?
@@ -23,14 +20,6 @@ module CitizensAdviceComponents
 
     def render?
       content.present?
-    end
-
-    def title_deprecation
-      return if @title.blank?
-
-      CitizensAdviceComponents.deprecator.warn(
-        "The title attribute is deprecated, use attributes instead"
-      )
     end
   end
 end

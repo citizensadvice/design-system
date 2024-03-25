@@ -1,5 +1,6 @@
 **New**
 
+- Remove deprecated callout title attribute
 - Footer: Make new office address the default and remove conditional address logic
 
 ## v5.8.1
