@@ -1,5 +1,6 @@
 **New**
 
+- Remove deprecated content slot from section links
 - Remove deprecated callout title attribute
 - Footer: Make new office address the default and remove conditional address logic
 
