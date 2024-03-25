@@ -1,26 +1,15 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./src/ts/greedy-nav/tsconfig.json"
-    },
-    {
-      "path": "./src/ts/header/tsconfig.json"
-    },
-    {
-      "path": "./src/ts/targeted-content/tsconfig.json"
-    },
-    {
-      "path": "./src/ts/on-this-page/tsconfig.json"
-    },
-    {
-      "path": "./src/ts/disclosure/tsconfig.json"
-    },
-    {
-      "path": "./src/ts/error-summary/tsconfig.json"
-    },
-    {
-      "path": "./src/ts/utils/tsconfig.json"
-    }
-  ]
+  "compilerOptions": {
+    "outDir": "./lib",
+    "module": "CommonJS",
+    "target": "es5",
+    "strict": true,
+    "declaration": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./src/**/*.test.ts"]
 }

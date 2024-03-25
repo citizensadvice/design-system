@@ -1,5 +1,6 @@
 **New**
 
+- Allow all modules to be imported via `import { initMyModule } from "@citizensadvice/design-system/lib/my-module"` or `import { initModuleA, initModuleB } from "@citizensadvice/design-system/lib"`
 - Footer: Make new office address the default and remove conditional address logic
 
 ## v5.8.1
