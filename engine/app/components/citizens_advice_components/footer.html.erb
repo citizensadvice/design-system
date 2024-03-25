@@ -1,14 +1,14 @@
 <footer id="cads-footer" class="cads-footer">
   <div class="cads-grid-container">
-    <% if feedback&.url.present? %>
+    <% if feedback_link&.url.present? %>
       <div class="cads-grid-row">
         <div class="cads-grid-col">
           <p class="cads-footer__feedback">
             <%= link_to(
-              feedback.title || t("citizens_advice_components.footer.website_feedback"),
-              feedback.url,
+              feedback_link.title || t("citizens_advice_components.footer.website_feedback"),
+              feedback_link.url,
               class: "cads-footer__hyperlink js-cads-footer-feedback",
-              **feedback.new_tab_attributes
+              **feedback_link.new_tab_attributes
             ) %>
           </p>
         </div>
