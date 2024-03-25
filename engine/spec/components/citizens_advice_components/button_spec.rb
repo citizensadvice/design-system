@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
 
     it "renders button" do
       render_inline component
-      expect(page).to have_selector ".cads-button", text: "Example"
+      expect(page).to have_css ".cads-button", text: "Example"
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
       it "renders a primary button" do
         without_fetch_or_fallback_raises do
           render_inline component
-          expect(page).to have_selector ".cads-button__primary"
+          expect(page).to have_css ".cads-button__primary"
         end
       end
     end
@@ -29,7 +29,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
 
       it "renders a primary button" do
         render_inline component
-        expect(page).to have_selector ".cads-button__primary"
+        expect(page).to have_css ".cads-button__primary"
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
 
       it "renders a secondary button" do
         render_inline component
-        expect(page).to have_selector ".cads-button__secondary"
+        expect(page).to have_css ".cads-button__secondary"
       end
     end
   end
@@ -52,7 +52,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
       it "renders a button type" do
         without_fetch_or_fallback_raises do
           render_inline component
-          expect(page).to have_selector("[type='button']")
+          expect(page).to have_css("[type='button']")
         end
       end
     end
@@ -62,7 +62,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
 
       it "renders a submit button" do
         render_inline component
-        expect(page).to have_selector("[type='submit']")
+        expect(page).to have_css("[type='submit']")
       end
     end
   end
@@ -76,7 +76,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
 
     it "allows additional attributes" do
       render_inline component
-      expect(page).to have_selector("[data-testid='example']")
+      expect(page).to have_css("[data-testid='example']")
     end
   end
 
@@ -88,7 +88,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
         c.with_icon_left { "Left slot" }
       end
 
-      expect(page).to have_selector ".cads-button__icon-left", text: "Left slot"
+      expect(page).to have_css ".cads-button__icon-left", text: "Left slot"
     end
 
     it "renders right icon slot" do
@@ -96,7 +96,7 @@ RSpec.describe CitizensAdviceComponents::Button, type: :component do
         c.with_icon_right { "Right slot" }
       end
 
-      expect(page).to have_selector ".cads-button__icon-right", text: "Right slot"
+      expect(page).to have_css ".cads-button__icon-right", text: "Right slot"
     end
   end
 end

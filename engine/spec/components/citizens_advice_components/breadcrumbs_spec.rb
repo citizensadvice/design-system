@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "when no links are present" do
     before { render_inline described_class.new(links: []) }
 
-    it { is_expected.not_to have_selector ".cads-breadcrumbs" }
+    it { is_expected.to have_no_css ".cads-breadcrumbs" }
   end
 
   context "when there is only one item" do
@@ -16,7 +16,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector ".cads-breadcrumbs" }
+    it { is_expected.to have_no_css ".cads-breadcrumbs" }
   end
 
   context "when links are provided" do
@@ -27,11 +27,11 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "li", count: 3 }
-    it { is_expected.to have_selector "span[aria-current=location]", text: "Staying in the UK" }
+    it { is_expected.to have_css "li", count: 3 }
+    it { is_expected.to have_css "span[aria-current=location]", text: "Staying in the UK" }
 
     it "renders the breadcrumbs in full width mode by default" do
-      expect(page).to have_selector ".cads-breadcrumbs-wrapper"
+      expect(page).to have_css ".cads-breadcrumbs-wrapper"
     end
   end
 
@@ -43,7 +43,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.to have_selector ".cads-breadcrumbs--no-collapse" }
+    it { is_expected.to have_css ".cads-breadcrumbs--no-collapse" }
   end
 
   context "when no type is provided" do
@@ -56,7 +56,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-breadcrumbs--collapse" }
+    it { is_expected.to have_css ".cads-breadcrumbs--collapse" }
   end
 
   context "when not rendered on the current page" do
@@ -68,7 +68,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector "span[aria-current=location]" }
+    it { is_expected.to have_no_css "span[aria-current=location]" }
   end
 
   context "when not in full width mode" do
@@ -80,7 +80,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector ".cads-breadcrumb-wrapper" }
+    it { is_expected.to have_no_css ".cads-breadcrumb-wrapper" }
   end
 
   context "when links are passed with the old style hash format" do
@@ -95,8 +95,8 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "li", count: 3 }
-    it { is_expected.to have_selector "span[aria-current=location]", text: "Staying in the UK" }
+    it { is_expected.to have_css "li", count: 3 }
+    it { is_expected.to have_css "span[aria-current=location]", text: "Staying in the UK" }
   end
 
   private

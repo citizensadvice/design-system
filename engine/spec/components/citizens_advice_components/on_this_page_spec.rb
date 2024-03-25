@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
   context "when no links present" do
     before { render_inline described_class.new }
 
-    it { is_expected.not_to have_selector ".cads-on-this-page" }
+    it { is_expected.to have_no_css ".cads-on-this-page" }
   end
 
   context "when there are links present" do
@@ -21,18 +21,18 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "a", count: "4" }
+    it { is_expected.to have_css "a", count: "4" }
     it { is_expected.to have_link "Link 1", href: "#link-1" }
     it { is_expected.to have_link "Link 2", href: "#link-2" }
     it { is_expected.to have_link "Link 3", href: "#link-3" }
     it { is_expected.to have_link "Link 4", href: "#link-4" }
 
     it "does not render toggle buttons" do
-      expect(page).not_to have_selector "[data-testid='on-this-page-toggle']"
+      expect(page).to have_no_css "[data-testid='on-this-page-toggle']"
     end
 
     it "does not render nested links" do
-      expect(page).not_to have_selector "[data-testid='on-this-page-children']"
+      expect(page).to have_no_css "[data-testid='on-this-page-children']"
     end
   end
 
@@ -50,11 +50,11 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
       end
 
       it "does not render toggle buttons" do
-        expect(page).not_to have_selector "[data-testid='on-this-page-toggle']"
+        expect(page).to have_no_css "[data-testid='on-this-page-toggle']"
       end
 
       it "does not render nested links" do
-        expect(page).not_to have_selector "[data-testid='on-this-page-children']"
+        expect(page).to have_no_css "[data-testid='on-this-page-children']"
       end
     end
 
@@ -86,7 +86,7 @@ RSpec.describe CitizensAdviceComponents::OnThisPage, type: :component do
       it { is_expected.to have_link "Link 5", href: "#link-5" }
 
       it "renders the correct number of toggle buttons" do
-        expect(page).to have_selector "[data-testid='on-this-page-toggle']", count: 2
+        expect(page).to have_css "[data-testid='on-this-page-toggle']", count: 2
       end
     end
   end

@@ -37,15 +37,15 @@ RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
     end
 
     it "renders the day input as error" do
-      expect(page).to have_selector "[data-testid=day-input][aria-invalid=true]"
+      expect(page).to have_css "[data-testid=day-input][aria-invalid=true]"
     end
 
     it "renders the month input as error" do
-      expect(page).to have_selector "[data-testid=month-input][aria-invalid=true]"
+      expect(page).to have_css "[data-testid=month-input][aria-invalid=true]"
     end
 
     it "renders the year input as error" do
-      expect(page).to have_selector "[data-testid=year-input][aria-invalid=true]"
+      expect(page).to have_css "[data-testid=year-input][aria-invalid=true]"
     end
   end
 

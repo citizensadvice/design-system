@@ -15,7 +15,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
     it { is_expected.to have_field "Option 1", type: :checkbox, count: 1, checked: false }
 
     it "does not pass label through to input" do
-      expect(page).not_to have_selector "input[label]"
+      expect(page).to have_no_css "input[label]"
     end
   end
 
@@ -26,7 +26,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector ".cads-checkbox-single" }
+    it { is_expected.to have_no_css ".cads-checkbox-single" }
   end
 
   context "when there is an error message" do
@@ -39,9 +39,9 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "#my-checkbox-error", text: "This is the error message" }
-    it { is_expected.to have_selector "input[aria-invalid]", count: 1 }
-    it { is_expected.to have_selector "input[aria-describedby=my-checkbox-error]", count: 1 }
+    it { is_expected.to have_css "#my-checkbox-error", text: "This is the error message" }
+    it { is_expected.to have_css "input[aria-invalid]", count: 1 }
+    it { is_expected.to have_css "input[aria-describedby=my-checkbox-error]", count: 1 }
   end
 
   context "when there are additional attributes provided" do
@@ -54,6 +54,6 @@ RSpec.describe CitizensAdviceComponents::CheckboxSingle, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "[data-additional=example]" }
+    it { is_expected.to have_css "[data-additional=example]" }
   end
 end

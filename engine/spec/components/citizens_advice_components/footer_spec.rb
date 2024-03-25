@@ -8,10 +8,10 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
   describe "common elements" do
     before { render_inline described_class.new }
 
-    it { is_expected.to have_selector ".cads-logo" }
+    it { is_expected.to have_css ".cads-logo" }
     it { is_expected.to have_text "Copyright ©#{year} Citizens Advice" }
     it { is_expected.to have_text "Citizens Advice is an operating name of" }
-    it { is_expected.not_to have_selector "nav" }
+    it { is_expected.to have_no_css "nav" }
 
     context "when welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }
@@ -28,7 +28,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "[data-testid='legal-summary']", text: "Legal summary custom text" }
+    it { is_expected.to have_css "[data-testid='legal-summary']", text: "Legal summary custom text" }
   end
 
   describe "custom legal summary whitespace" do
@@ -38,7 +38,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "[data-testid='legal-summary']", text: "1 Easton Street" }
+    it { is_expected.to have_css "[data-testid='legal-summary']", text: "1 Easton Street" }
   end
 
   describe "custom legal summary empty" do
@@ -48,7 +48,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "[data-testid='legal-summary']", text: "1 Easton Street" }
+    it { is_expected.to have_css "[data-testid='legal-summary']", text: "1 Easton Street" }
   end
 
   describe "fallback legal summary" do
@@ -56,7 +56,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       render_inline(described_class.new)
     end
 
-    it { is_expected.to have_selector "[data-testid='legal-summary']", text: "1 Easton Street" }
+    it { is_expected.to have_css "[data-testid='legal-summary']", text: "1 Easton Street" }
   end
 
   describe "columns" do
@@ -70,17 +70,17 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
     let(:columns) { generate_columns(3) }
 
-    it { is_expected.to have_selector "[data-testid='footer-column']", count: 3 }
-    it { is_expected.to have_selector "h2", text: "Example column 1" }
-    it { is_expected.to have_selector "h2", text: "Example column 2" }
-    it { is_expected.to have_selector "h2", text: "Example column 3" }
-    it { is_expected.to have_selector "[data-testid='footer-column']:first-of-type a", count: 3 }
+    it { is_expected.to have_css "[data-testid='footer-column']", count: 3 }
+    it { is_expected.to have_css "h2", text: "Example column 1" }
+    it { is_expected.to have_css "h2", text: "Example column 2" }
+    it { is_expected.to have_css "h2", text: "Example column 3" }
+    it { is_expected.to have_css "[data-testid='footer-column']:first-of-type a", count: 3 }
 
     context "when number of columns exceeds limit" do
       let(:columns) { generate_columns(6) }
 
       it "has number of columns limited to maximum" do
-        expect(page).to have_selector "[data-testid='footer-column']", count: 4
+        expect(page).to have_css "[data-testid='footer-column']", count: 4
       end
     end
   end
@@ -96,7 +96,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
 
       it { is_expected.to have_link default_text, href: "https://example.com/" }
-      it { is_expected.not_to have_selector "[target=_blank]", text: default_text }
+      it { is_expected.to have_no_css "[target=_blank]", text: default_text }
     end
 
     context "with custom title" do
@@ -116,7 +116,7 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
         end
       end
 
-      it { is_expected.to have_selector "[target=_blank]", text: default_text }
+      it { is_expected.to have_css "[target=_blank]", text: default_text }
     end
 
     context "with URI builder object" do

@@ -8,14 +8,14 @@ RSpec.describe CitizensAdviceComponents::SuccessMessage, type: :component do
       render_inline described_class.new(message: "Thank you for your feedback")
     end
 
-    it { is_expected.to have_selector ".cads-success-message", text: "Thank you for your feedback" }
+    it { is_expected.to have_css ".cads-success-message", text: "Thank you for your feedback" }
 
-    it { is_expected.to have_selector "[aria-live=polite]" }
+    it { is_expected.to have_css "[aria-live=polite]" }
   end
 
   context "when no message present" do
     before { render_inline described_class.new(message: nil) }
 
-    it { is_expected.not_to have_selector ".cads-success-message" }
+    it { is_expected.to have_no_css ".cads-success-message" }
   end
 end

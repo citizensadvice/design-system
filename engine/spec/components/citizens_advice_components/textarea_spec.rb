@@ -12,23 +12,23 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it "links the label to the input" do
-      expect(page).to have_selector "label[for=example-textarea-input]"
+      expect(page).to have_css "label[for=example-textarea-input]"
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#example-textarea-input"
+      expect(page).to have_css "#example-textarea-input"
     end
 
     it "includes aria-required attribute" do
-      expect(page).to have_selector "textarea[aria-required=true]"
+      expect(page).to have_css "textarea[aria-required=true]"
     end
 
     it "does not have an aria-describedby attribute by default" do
-      expect(page).not_to have_selector "textarea[aria-describedby]"
+      expect(page).to have_no_css "textarea[aria-describedby]"
     end
 
     it "renders a textarea with 8 rows" do
-      expect(page).to have_selector "textarea[rows=8]"
+      expect(page).to have_css "textarea[rows=8]"
     end
   end
 
@@ -49,19 +49,19 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#test-id-input"
+      expect(page).to have_css "#test-id-input"
     end
 
     it "adds the correct id to the label" do
-      expect(page).to have_selector "#test-id-label"
+      expect(page).to have_css "#test-id-label"
     end
 
     it "adds the correct id to the hint" do
-      expect(page).to have_selector "#test-id-hint"
+      expect(page).to have_css "#test-id-hint"
     end
 
     it "adds the correct id to the error message" do
-      expect(page).to have_selector "#test-id-error"
+      expect(page).to have_css "#test-id-error"
     end
   end
 
@@ -77,7 +77,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     it { is_expected.to have_field "Example textarea", with: "Example value" }
 
     it "does not set value as attribute" do
-      expect(page).not_to have_selector "textarea[value='Example value']"
+      expect(page).to have_no_css "textarea[value='Example value']"
     end
   end
 
@@ -93,7 +93,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     it { is_expected.to have_text "(optional)" }
 
     it "does not add required to the input" do
-      expect(page).not_to have_selector "textarea[required]"
+      expect(page).to have_no_css "textarea[required]"
     end
 
     context "when in Cymraeg" do
@@ -112,9 +112,9 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "#example-textarea-error", text: "Enter your name" }
-    it { is_expected.to have_selector "textarea[aria-invalid=true]" }
-    it { is_expected.to have_selector "textarea[aria-describedby=example-textarea-error]" }
+    it { is_expected.to have_css "#example-textarea-error", text: "Enter your name" }
+    it { is_expected.to have_css "textarea[aria-invalid=true]" }
+    it { is_expected.to have_css "textarea[aria-describedby=example-textarea-error]" }
   end
 
   context "when there is hint text" do
@@ -127,7 +127,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it { is_expected.to have_text "This is the hint text" }
-    it { is_expected.to have_selector "textarea[aria-describedby=example-textarea-hint]" }
+    it { is_expected.to have_css "textarea[aria-describedby=example-textarea-hint]" }
   end
 
   context "when there is hint text and an error" do
@@ -139,7 +139,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "textarea[aria-describedby='example-textarea-error example-textarea-hint']" }
+    it { is_expected.to have_css "textarea[aria-describedby='example-textarea-error example-textarea-hint']" }
   end
 
   context "when a type is specified" do
@@ -152,7 +152,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it "does not render the type attribute" do
-      expect(page).not_to have_selector "textarea[type]"
+      expect(page).to have_no_css "textarea[type]"
     end
   end
 
@@ -165,8 +165,8 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "textarea[autocomplete=name]" }
-    it { is_expected.to have_selector "textarea[data-additional=example]" }
+    it { is_expected.to have_css "textarea[autocomplete=name]" }
+    it { is_expected.to have_css "textarea[data-additional=example]" }
   end
 
   context "when a valid number of rows is specified" do
@@ -179,7 +179,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it "renders the textarea with the correct number of rows" do
-      expect(page).to have_selector "textarea[rows=10]"
+      expect(page).to have_css "textarea[rows=10]"
     end
   end
 
@@ -195,7 +195,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     let(:rows) { "banana" }
 
     it "renders the default number of rows" do
-      expect(page).to have_selector "textarea[rows=8]"
+      expect(page).to have_css "textarea[rows=8]"
     end
   end
 end

@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::Search, type: :component do
   context "with no arguments" do
     before { render_inline(described_class.new) }
 
-    it { is_expected.to have_selector ".cads-search" }
+    it { is_expected.to have_css ".cads-search" }
     it { is_expected.to have_field "Search through site content" }
     it { is_expected.to have_button "Search" }
 

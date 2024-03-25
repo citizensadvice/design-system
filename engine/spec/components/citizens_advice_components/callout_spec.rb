@@ -10,7 +10,7 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       render_inline(described_class.new(type: :standard)) { "Example content" }
     end
 
-    it { is_expected.to have_selector ".cads-callout", text: "Example content" }
+    it { is_expected.to have_css ".cads-callout", text: "Example content" }
   end
 
   context "when missing type" do
@@ -20,8 +20,8 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-callout--standard" }
-    it { is_expected.not_to have_selector ".cads-badge" }
+    it { is_expected.to have_css ".cads-callout--standard" }
+    it { is_expected.to have_no_css ".cads-badge" }
   end
 
   context "when type is example" do
@@ -29,8 +29,8 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       render_inline(described_class.new(type: :example)) { "Example content" }
     end
 
-    it { is_expected.to have_selector ".cads-callout--example" }
-    it { is_expected.to have_selector ".cads-badge", text: "Example" }
+    it { is_expected.to have_css ".cads-callout--example" }
+    it { is_expected.to have_css ".cads-badge", text: "Example" }
   end
 
   context "when type is important" do
@@ -38,8 +38,8 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       render_inline(described_class.new(type: :important)) { "Example content" }
     end
 
-    it { is_expected.to have_selector ".cads-callout--important" }
-    it { is_expected.to have_selector ".cads-badge--important", text: "Important" }
+    it { is_expected.to have_css ".cads-callout--important" }
+    it { is_expected.to have_css ".cads-badge--important", text: "Important" }
   end
 
   context "when type is adviser" do
@@ -47,8 +47,8 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       render_inline(described_class.new(type: :adviser)) { "Example content" }
     end
 
-    it { is_expected.to have_selector ".cads-callout--adviser" }
-    it { is_expected.to have_selector ".cads-badge--adviser", text: "Adviser" }
+    it { is_expected.to have_css ".cads-callout--adviser" }
+    it { is_expected.to have_css ".cads-badge--adviser", text: "Adviser" }
   end
 
   context "with custom attributes" do
@@ -64,9 +64,9 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "section[aria-labelledby='my-custom-title']" }
+    it { is_expected.to have_css "section[aria-labelledby='my-custom-title']" }
 
-    it { is_expected.to have_selector "h2#my-custom-title", text: "Callout title" }
+    it { is_expected.to have_css "h2#my-custom-title", text: "Callout title" }
 
     it { is_expected.to have_text "Example content" }
   end
@@ -89,6 +89,6 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
       render_inline(described_class.new(type: :standard))
     end
 
-    it { is_expected.not_to have_selector ".cads-callout" }
+    it { is_expected.to have_no_css ".cads-callout" }
   end
 end

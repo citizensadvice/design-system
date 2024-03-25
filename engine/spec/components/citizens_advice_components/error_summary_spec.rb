@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
   context "when there are no errors provided" do
     before { render_inline described_class.new }
 
-    it { is_expected.not_to have_selector "cads-error-summary" }
+    it { is_expected.to have_no_css "cads-error-summary" }
   end
 
   context "when errors are provided" do
@@ -16,9 +16,9 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "h2", text: "There is a problem" }
-    it { is_expected.to have_selector "[autofocus=autofocus]" }
-    it { is_expected.to have_selector "a", count: 1 }
+    it { is_expected.to have_css "h2", text: "There is a problem" }
+    it { is_expected.to have_css "[autofocus=autofocus]" }
+    it { is_expected.to have_css "a", count: 1 }
     it { is_expected.to have_link "Enter your full name", href: "#name-input" }
   end
 
@@ -29,7 +29,7 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "h3", text: "There is a problem" }
+    it { is_expected.to have_css "h3", text: "There is a problem" }
   end
 
   context "when custom autofocus option is provided" do
@@ -39,7 +39,7 @@ RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
       end
     end
 
-    it { is_expected.not_to have_selector "[autofocus=autofocus]" }
+    it { is_expected.to have_no_css "[autofocus=autofocus]" }
   end
 
   private
