@@ -2,7 +2,7 @@
 // On this page
 // ============================================================================
 
-/** @define on-this-page */
+/** @define on-this-page; weak */
 .cads-on-this-page {
   background-color: cads-colour-to-bg($cads-palette__blue-adviser);
   padding: $cads-spacing-4;
@@ -92,17 +92,18 @@
     }
   }
 
-  .cads-on-this-page__list--open {
-    display: block;
-  }
-
-  .cads-on-this-page__hide,
-  .cads-on-this-page__show {
+  .cads-on-this-page__toggle {
     position: absolute;
     left: -25px;
     font-size: cads-rem(12px);
     text-decoration: none;
     padding: $cads-spacing-1 cads-rem(6px);
+
+    .cads-icon {
+      display: inline-block;
+      vertical-align: middle;
+      height: 14px;
+    }
 
     &:focus {
       background-color: $cads-language__focus-colour;
@@ -127,6 +128,13 @@
       padding: $cads-spacing-1 cads-rem(6px);
     }
   }
+
+  // Open state
+  .cads-on-this-page__list-item[data-on-this-page-state='open'] {
+    .cads-on-this-page__list--nested {
+      display: block;
+    }
+  }
 }
 
 ///
@@ -137,8 +145,7 @@
 /* stylelint-disable plugin/selector-bem-pattern, no-descending-specificity */
 .no-js {
   .cads-on-this-page--expandable {
-    .cads-on-this-page__show,
-    .cads-on-this-page__hide {
+    .cads-on-this-page__toggle {
       display: none;
     }
 
