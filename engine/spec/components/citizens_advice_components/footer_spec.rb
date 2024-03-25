@@ -61,8 +61,6 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
 
   describe "columns" do
     before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
       render_inline(described_class.new) do |c|
         c.with_columns(columns)
       end
@@ -127,27 +125,6 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
 
       it { is_expected.to have_link "Is there anything wrong", href: "https://example.com/example-path" }
-    end
-  end
-
-  describe "deprecated feedback_url" do
-    before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-      render_inline(described_class.new(feedback_url: "https://example.com/"))
-    end
-
-    it { is_expected.to have_link "Is there anything wrong", href: "https://example.com/" }
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/feedback_url argument is deprecated/)
-    end
-
-    it "allows passing a URI builder object" do
-      render_inline(described_class.new(feedback_url: URI::HTTPS.build(host: "example.com", path: "/example-path")))
-
-      expect(page).to have_link "Is there anything wrong", href: "https://example.com/example-path"
     end
   end
 
