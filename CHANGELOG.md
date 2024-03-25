@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Remove deprecations
+
+Remove a number of deprecations from the view components.
+
+- Remove deprecated callout title attribute
+
 ### Consistent javascript module imports
 
 Allow all modules to be imported using a consistent interface, either via:
