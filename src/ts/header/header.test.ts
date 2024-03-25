@@ -21,7 +21,7 @@ const minimalHeaderHtml = `<header class='cads-header' data-testid="header">
         <a class='cads-logo' href='root_path'
           title='Citizens Advice homepage'></a>
         <button type="button"
-          class="cads-header__search-reveal js-cads-search-reveal cads-icon_search"
+          class="cads-header__search-reveal js-cads-search-reveal"
           data-descriptive-label-hide="Close search"
           data-descriptive-label-show="Open search"
           data-testid="expand-button"
