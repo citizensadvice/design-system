@@ -16,7 +16,7 @@ import { initModuleA, initModuleB } from "@citizensadvice/design-system/lib
 
 For backwards compatibility all existing entrypoints are still supported by may be removed in future versions.
 
-### Make new office address the default
+#### Make new office address the default
 
 The new office address is now the default in the footer component and the old address has been removed.
 
