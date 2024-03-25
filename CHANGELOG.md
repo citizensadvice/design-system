@@ -4,6 +4,7 @@
 
 Remove a number of deprecations from the view components.
 
+- Remove deprecated content slot from section links
 - Remove deprecated callout title attribute
 
 ### Consistent javascript module imports
