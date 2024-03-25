@@ -158,7 +158,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Disclosure (open)',
         url: componentUrlFor('disclosure/example'),
-        clickSelector: '.js-disclosure-summary',
+        clickSelector: '.js-cads-disclosure-summary',
       },
       {
         label: 'Components/Disclosure (without open summary)',
@@ -167,7 +167,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Disclosure (without open summary - open)',
         url: componentUrlFor('disclosure/without_open_summary'),
-        clickSelector: '.js-disclosure-summary',
+        clickSelector: '.js-cads-disclosure-summary',
       },
       {
         label: 'Components/Disclosure (fallback)',
