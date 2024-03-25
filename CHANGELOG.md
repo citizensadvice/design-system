@@ -1,3 +1,7 @@
+**New**
+
+- Footer: Make new office address the default and remove conditional address logic
+
 ## v5.8.1
 
 ### 8 March 2024
