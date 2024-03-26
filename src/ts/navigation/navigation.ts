@@ -8,14 +8,6 @@ import {
   getChildrenOffsetWidth,
 } from './helpers';
 
-interface LegacyConfig {
-  navDropdownClassName: string;
-}
-
-const legacyDefaultConfig: LegacyConfig = {
-  navDropdownClassName: 'cads-greedy-nav__dropdown',
-};
-
 function isExpanded(toggle: Element) {
   const ariaExpanded = toggle.getAttribute('aria-expanded');
   return ariaExpanded === 'true';
@@ -89,8 +81,6 @@ export function showToggle(navWrapperElement: HTMLElement, breaks: number[]) {
 }
 
 export class GreedyNavMenu {
-  settings: LegacyConfig;
-
   breaks: number[];
 
   navDropdown: Nullable<HTMLUListElement>;
@@ -99,17 +89,12 @@ export class GreedyNavMenu {
 
   toggleWrapper: Nullable<HTMLDivElement>;
 
-  navDropdownSelector: string;
-
-  constructor(config: LegacyConfig = legacyDefaultConfig) {
-    this.settings = { ...legacyDefaultConfig, ...config };
+  constructor() {
     this.breaks = [];
 
     this.navDropdown = null;
     this.navDropdownToggle = null;
     this.toggleWrapper = null;
-
-    this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
   }
 
   init(navWrapperElement: HTMLElement) {
@@ -125,7 +110,6 @@ export class GreedyNavMenu {
     this.navDropdown = document.createElement('ul');
     this.navDropdown.setAttribute('id', dropdownId);
     this.navDropdown.setAttribute('data-testid', dropdownId);
-    this.navDropdown.classList.add(this.settings.navDropdownClassName);
     this.navDropdown.classList.add('cads-greedy-nav__dropdown');
 
     const headerLinks = document.querySelector('.js-cads-copy-into-nav');
@@ -154,9 +138,6 @@ export class GreedyNavMenu {
 
     this.toggleWrapper.appendChild(this.navDropdownToggle);
     this.toggleWrapper.appendChild(this.navDropdown);
-    this.toggleWrapper.classList.add(
-      `${this.settings.navDropdownClassName}-wrapper`,
-    );
     this.toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
     _this.classList.add('cads-greedy-nav');
@@ -185,8 +166,6 @@ export class GreedyNavMenu {
       true,
     );
 
-    const { navDropdownClassName } = this.settings;
-
     const navDropdownToggle = getToggleEl(navWrapper);
 
     if (navDropdownToggle) {
@@ -208,7 +187,7 @@ export class GreedyNavMenu {
         this.closeDropDown(navWrapper);
 
         const navLastDropdownLink = navWrapper.querySelector<HTMLElement>(
-          `${this.navDropdownSelector} li:last-child a`,
+          `#cads-greedy-nav-dropdown li:last-child a`,
         );
 
         if (navLastDropdownLink) {
@@ -233,7 +212,7 @@ export class GreedyNavMenu {
       navDropdownToggle.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
         let lastItem: HTMLElement | null | undefined;
         const headerLinksInNav: HTMLElement | null = document.querySelector(
-          `${this.navDropdownSelector} .js-cads-copy-into-nav`,
+          `#cads-greedy-nav-dropdown .js-cads-copy-into-nav`,
         );
 
         if (headerLinksInNav?.offsetParent) {
@@ -264,7 +243,7 @@ export class GreedyNavMenu {
       const targetEl = <HTMLElement>event.target;
       if (
         targetEl &&
-        targetEl.closest(`.${navDropdownClassName}`) &&
+        targetEl.closest('#cads-greedy-nav-dropdown') &&
         navDropdownToggle &&
         targetEl !== navDropdownToggle &&
         navWrapper.classList.contains('is-open')
@@ -283,9 +262,7 @@ export class GreedyNavMenu {
   }
 
   toDropdown(navigation: HTMLElement) {
-    const navDropdown = navigation.querySelector<HTMLElement>(
-      this.navDropdownSelector,
-    );
+    const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
     const mainNav = navigation.firstElementChild;
 
     if (navDropdown && mainNav) {
@@ -305,9 +282,7 @@ export class GreedyNavMenu {
   }
 
   toMenu(_this: HTMLElement) {
-    const navDropdown = _this.querySelector<HTMLElement>(
-      this.navDropdownSelector,
-    );
+    const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
 
     const mainNav = _this.firstElementChild;
 
@@ -355,9 +330,8 @@ export class GreedyNavMenu {
       setDropdownLabel(_this);
     }
 
-    const navDropdown = _this.querySelector<HTMLElement>(
-      this.navDropdownSelector,
-    );
+    const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
+
     if (navDropdown && this.breaks.length < 1) {
       navDropdown.classList.remove('show');
       setDropdownLabel(_this);
@@ -367,9 +341,7 @@ export class GreedyNavMenu {
   }
 
   openDropDown(navWrapper: HTMLElement) {
-    const navDropdown = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownSelector,
-    );
+    const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
 
     const navDropdownToggle = getToggleEl(navWrapper);
 
@@ -386,9 +358,7 @@ export class GreedyNavMenu {
   }
 
   closeDropDown(navWrapper: HTMLElement) {
-    const navDropdown = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownSelector,
-    );
+    const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
 
     const navDropdownToggle = getToggleEl(navWrapper);
 
@@ -405,15 +375,13 @@ export class GreedyNavMenu {
   }
 }
 
-export default function initNavigation(
-  options: LegacyConfig = legacyDefaultConfig,
-) {
+export default function initNavigation() {
   const containerEl = document.querySelector<HTMLElement>(
     '.js-cads-greedy-nav',
   );
 
   if (containerEl) {
-    const menu = new GreedyNavMenu(options);
+    const menu = new GreedyNavMenu();
     menu.init(containerEl);
   }
 }
