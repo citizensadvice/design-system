@@ -11,13 +11,11 @@ import {
 interface LegacyConfig {
   mainNav: string;
   navDropdownClassName: string;
-  navDropdownToggleClassName: string;
 }
 
 const legacyDefaultConfig: LegacyConfig = {
   mainNav: 'ul',
   navDropdownClassName: 'cads-greedy-nav__dropdown',
-  navDropdownToggleClassName: 'cads-greedy-nav__dropdown-toggle',
 };
 
 function isExpanded(toggle: Element) {
@@ -64,11 +62,7 @@ function buildToggleEl(containerEl: HTMLElement, dropdownId: string) {
   return toggleEl;
 }
 
-export function showToggle(
-  navWrapperElement: HTMLElement,
-  navDropdownToggleSelector: string,
-  breaks: number[],
-) {
+export function showToggle(navWrapperElement: HTMLElement, breaks: number[]) {
   const navDropdownToggle = getToggleEl(navWrapperElement);
 
   if (breaks.length < 1) {
@@ -109,8 +103,6 @@ export class GreedyNavMenu {
 
   navDropdownSelector: string;
 
-  navDropdownToggleSelector: string;
-
   mainNavSelector: string;
 
   constructor(config: LegacyConfig = legacyDefaultConfig) {
@@ -122,7 +114,6 @@ export class GreedyNavMenu {
     this.toggleWrapper = null;
 
     this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
-    this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
     this.mainNavSelector = this.settings.mainNav;
   }
 
@@ -335,7 +326,7 @@ export class GreedyNavMenu {
 
     this.breaks.pop();
 
-    showToggle(_this, this.navDropdownToggleSelector, this.breaks);
+    showToggle(_this, this.breaks);
   }
 
   doesItFit(_this: HTMLElement) {
@@ -356,7 +347,7 @@ export class GreedyNavMenu {
 
       this.breaks.push(currentRestWidth);
 
-      showToggle(_this, this.navDropdownToggleSelector, this.breaks);
+      showToggle(_this, this.breaks);
 
       currentTotalWidth = getElementContentWidth(_this);
       currentRestWidth = getChildrenOffsetWidth(_this);
@@ -376,7 +367,7 @@ export class GreedyNavMenu {
       setDropdownLabel(_this);
     }
 
-    showToggle(_this, this.navDropdownToggleSelector, this.breaks);
+    showToggle(_this, this.breaks);
   }
 
   openDropDown(navWrapper: HTMLElement) {
@@ -384,9 +375,7 @@ export class GreedyNavMenu {
       this.navDropdownSelector,
     );
 
-    const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownToggleSelector,
-    );
+    const navDropdownToggle = getToggleEl(navWrapper);
 
     if (navDropdown && navDropdownToggle) {
       navDropdown.classList.add('show');
@@ -405,9 +394,7 @@ export class GreedyNavMenu {
       this.navDropdownSelector,
     );
 
-    const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownToggleSelector,
-    );
+    const navDropdownToggle = getToggleEl(navWrapper);
 
     if (navDropdown && navDropdownToggle) {
       navDropdown.classList.remove('show');
