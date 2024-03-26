@@ -9,12 +9,10 @@ import {
 } from './helpers';
 
 interface LegacyConfig {
-  mainNav: string;
   navDropdownClassName: string;
 }
 
 const legacyDefaultConfig: LegacyConfig = {
-  mainNav: 'ul',
   navDropdownClassName: 'cads-greedy-nav__dropdown',
 };
 
@@ -103,8 +101,6 @@ export class GreedyNavMenu {
 
   navDropdownSelector: string;
 
-  mainNavSelector: string;
-
   constructor(config: LegacyConfig = legacyDefaultConfig) {
     this.settings = { ...legacyDefaultConfig, ...config };
     this.breaks = [];
@@ -114,7 +110,6 @@ export class GreedyNavMenu {
     this.toggleWrapper = null;
 
     this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
-    this.mainNavSelector = this.settings.mainNav;
   }
 
   init(navWrapperElement: HTMLElement) {
@@ -149,7 +144,7 @@ export class GreedyNavMenu {
       this.navDropdown.appendChild(headerLinksContainer);
     }
 
-    const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
+    const mainNav = _this.firstElementChild;
 
     if (mainNav) {
       mainNav.insertAdjacentElement('afterend', this.toggleWrapper);
@@ -291,7 +286,7 @@ export class GreedyNavMenu {
     const navDropdown = navigation.querySelector<HTMLElement>(
       this.navDropdownSelector,
     );
-    const mainNav = navigation.querySelector<HTMLElement>(this.mainNavSelector);
+    const mainNav = navigation.firstElementChild;
 
     if (navDropdown && mainNav) {
       if (
@@ -313,7 +308,8 @@ export class GreedyNavMenu {
     const navDropdown = _this.querySelector<HTMLElement>(
       this.navDropdownSelector,
     );
-    const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
+
+    const mainNav = _this.firstElementChild;
 
     if (
       mainNav &&
@@ -333,7 +329,7 @@ export class GreedyNavMenu {
     let currentTotalWidth = getElementContentWidth(_this);
     let currentRestWidth = getChildrenOffsetWidth(_this);
 
-    const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
+    const mainNav = _this.firstElementChild;
 
     if (!mainNav) {
       throw new Error('main nav not found');
