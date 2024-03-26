@@ -11,7 +11,6 @@ interface LegacyConfig {
   navDropdownToggleAriaLabel: string;
   navDropdownLabel: string;
   navDropdownLabelActive: string;
-  throttleDelay: number;
   offsetPixels: number;
 }
 
@@ -23,7 +22,6 @@ const legacyDefaultConfig: LegacyConfig = {
   navDropdownToggleAriaLabel: 'More navigation options',
   navDropdownLabel: 'More',
   navDropdownLabelActive: 'Close',
-  throttleDelay: 50,
   /* Offset pixels add a tolerance to when an item is removed from the nav and put in the dropdown.
    * Aligning the nav with the grid in NP-1026 makes the contents of the nav 2px too wide for
    * GreedyNav's calculations and puts the last nav item in the dropdown at lg.  This offset prevents
@@ -424,7 +422,7 @@ export class GreedyNavMenu {
     const observer = new ResizeObserver(
       debounce(() => {
         this.doesItFit(navWrapper);
-      }, this.settings.throttleDelay),
+      }, 50),
     );
 
     const nav = document.querySelector('.js-cads-greedy-nav');
