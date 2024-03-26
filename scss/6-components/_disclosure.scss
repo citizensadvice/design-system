@@ -1,33 +1,44 @@
-/** @define disclosure **/
+// ============================================================================
+// Disclosure
+// ============================================================================
+
+/** @define disclosure; weak **/
 .cads-disclosure {
-  &__details {
+  .cads-disclosure__details {
     display: none;
     margin-top: $cads-spacing-4;
-
-    &--open {
-      display: block;
-    }
   }
 
-  &__summary {
+  .cads-disclosure__summary {
     text-decoration: underline;
   }
 
-  &__toggle {
+  .cads-disclosure__toggle {
     text-decoration: none;
 
     @include cads-media-breakpoint-up(md) {
       font-size: cads-rem(18px);
     }
 
-    &::before {
-      font-size: 0.75em;
+    .cads-icon {
+      // Optically align icon
+      // Using vertical-align here results in
+      // an icon that is visually aligned too low
+      position: relative;
+      top: 2px;
+    }
+
+    &:focus .cads-disclosure__summary {
+      text-decoration: none;
     }
   }
 }
 
-.cads-disclosure__toggle:focus .cads-disclosure__summary {
-  text-decoration: none;
+// Open state
+.cads-disclosure[data-disclosure-state='open'] {
+  .cads-disclosure__details {
+    display: block;
+  }
 }
 
 .cads-disclosure + .cads-disclosure {
