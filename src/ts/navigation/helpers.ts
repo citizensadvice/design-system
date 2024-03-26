@@ -27,7 +27,11 @@ export function parent(
   return false;
 }
 
-function getElementContentWidth(element: HTMLElement) {
+export function relatedTarget(e: Nullable<FocusEvent>): Nullable<HTMLElement> {
+  return <HTMLElement>e?.relatedTarget || document.activeElement;
+}
+
+export function getElementContentWidth(element: HTMLElement) {
   const styles = window.getComputedStyle(element);
   const padding =
     parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
@@ -48,17 +52,8 @@ function getChildrenWidth(e: HTMLElement) {
   return sum;
 }
 
-export function calculateWidths(element: HTMLElement) {
-  const totalWidth = getElementContentWidth(element);
-
+export function getChildrenOffsetWidth(containerEl: HTMLElement) {
   // Adds a tolerance to account for alignment to the layout grid.
   const offsetPixels = -10;
-
-  const restWidth = getChildrenWidth(element) + offsetPixels;
-
-  return { totalWidth, restWidth };
-}
-
-export function relatedTarget(e: Nullable<FocusEvent>): Nullable<HTMLElement> {
-  return <HTMLElement>e?.relatedTarget || document.activeElement;
+  return getChildrenWidth(containerEl) + offsetPixels;
 }

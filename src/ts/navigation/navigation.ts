@@ -3,8 +3,9 @@ import {
   BLUR_EVENT,
   debounce,
   parent,
-  calculateWidths,
   relatedTarget,
+  getElementContentWidth,
+  getChildrenOffsetWidth,
 } from './helpers';
 
 interface LegacyConfig {
@@ -356,8 +357,8 @@ export class GreedyNavMenu {
   }
 
   doesItFit(_this: HTMLElement) {
-    let currentTotalWidth = calculateWidths(_this).totalWidth;
-    let currentRestWidth = calculateWidths(_this).restWidth;
+    let currentTotalWidth = getElementContentWidth(_this);
+    let currentRestWidth = getChildrenOffsetWidth(_this);
 
     const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
 
@@ -375,8 +376,8 @@ export class GreedyNavMenu {
 
       showToggle(_this, this.navDropdownToggleSelector, this.breaks);
 
-      currentTotalWidth = calculateWidths(_this).totalWidth;
-      currentRestWidth = calculateWidths(_this).restWidth;
+      currentTotalWidth = getElementContentWidth(_this);
+      currentRestWidth = getChildrenOffsetWidth(_this);
     }
 
     while (currentTotalWidth >= this.breaks[this.breaks.length - 1]) {
