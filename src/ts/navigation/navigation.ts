@@ -135,11 +135,8 @@ function toDropdown(containerEl: HTMLElement) {
 export class GreedyNavMenu {
   navDropdown: Nullable<HTMLUListElement>;
 
-  navDropdownToggle: Nullable<HTMLElement>;
-
   constructor() {
     this.navDropdown = null;
-    this.navDropdownToggle = null;
   }
 
   init(containerEl: HTMLElement) {
@@ -176,9 +173,7 @@ export class GreedyNavMenu {
 
     const mainNav = containerEl.firstElementChild;
 
-    this.navDropdownToggle = buildToggleEl(containerEl, dropdownId);
-
-    toggleWrapper.appendChild(this.navDropdownToggle);
+    toggleWrapper.appendChild(buildToggleEl(containerEl, dropdownId));
     toggleWrapper.appendChild(this.navDropdown);
     toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
