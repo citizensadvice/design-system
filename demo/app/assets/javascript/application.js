@@ -1,14 +1,14 @@
 import {
   initHeader,
-  initGreedyNav,
+  initNavigation,
   initTargetedContent,
   initOnThisPage,
   initDisclosure,
-  initErrorSummary
+  initErrorSummary,
 } from '../../../../lib';
 
 initHeader();
-initGreedyNav();
+initNavigation();
 initTargetedContent();
 initOnThisPage();
 initDisclosure();

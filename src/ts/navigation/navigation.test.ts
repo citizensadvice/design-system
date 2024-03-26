@@ -9,7 +9,7 @@ import fs from 'fs';
 import { fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
-import { showToggle, GreedyNavMenu } from './greedy-nav';
+import { showToggle, GreedyNavMenu } from './navigation';
 
 const menuFixture = fs.readFileSync(
   path.join(__dirname, './__fixtures__/menu.html'),

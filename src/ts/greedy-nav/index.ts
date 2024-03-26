@@ -1,6 +1,9 @@
 import GreedyNav, { GreedyNavMenu } from './GreedyNav';
 import { defaultConfig, Config } from './Config';
-import { initGreedyNav } from './greedy-nav';
 
-export { initGreedyNav, defaultConfig, Config, GreedyNav, GreedyNavMenu };
+export function initGreedyNav(options: Config = defaultConfig) {
+  GreedyNav.init(options);
+}
+
+export { defaultConfig, Config, GreedyNav, GreedyNavMenu };
 export default GreedyNav;

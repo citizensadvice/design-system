@@ -444,12 +444,15 @@ export class GreedyNavMenu {
   }
 }
 
-export function initGreedyNav(options: LegacyConfig = legacyDefaultConfig) {
+export default function initNavigation(
+  options: LegacyConfig = legacyDefaultConfig,
+) {
   const containerEl = document.querySelector<HTMLElement>(
     '.js-cads-greedy-nav',
   );
 
   if (containerEl) {
+    console.info('Initialising navigation component');
     const menu = new GreedyNavMenu(options);
     menu.init(containerEl);
   }
