@@ -118,14 +118,6 @@ export const updateLabel = (
   }
 };
 
-const checkForSymbols = (str: string) => {
-  const firstChar = str.charAt(0);
-  if (firstChar === '.' || firstChar === '#') {
-    return false;
-  }
-  return true;
-};
-
 /**
  * Get innerwidth without padding
  * @param element
