@@ -4,7 +4,6 @@ import { debounce, parent } from './helpers';
 const supports = !!document.querySelector && !!window.addEventListener; // Feature test
 
 interface LegacyConfig {
-  initClass: string;
   mainNavWrapper: string;
   mainNav: string;
   navDropdownClassName: string;
@@ -17,7 +16,6 @@ interface LegacyConfig {
 }
 
 const legacyDefaultConfig: LegacyConfig = {
-  initClass: 'js-CadsGreedyNav',
   mainNavWrapper: '.js-cads-greedy-nav',
   mainNav: 'ul',
   navDropdownClassName: 'cads-greedy-nav__dropdown',
@@ -266,23 +264,6 @@ export class GreedyNavMenu {
   }
 
   init(): void {
-    // Feature test.
-    if (!supports && typeof Node === 'undefined') {
-      console.warn("This browser doesn't support GreedyNav");
-      return;
-    }
-
-    // Options check
-    if (
-      !checkForSymbols(this.settings.navDropdownClassName) ||
-      !checkForSymbols(this.settings.navDropdownToggleClassName)
-    ) {
-      console.warn(
-        'No symbols allowed in navDropdownClassName & navDropdownToggleClassName. These are not selectors.',
-      );
-      return;
-    }
-
     /**
      * Store nodes
      * @type {NodeList}
@@ -328,30 +309,17 @@ export class GreedyNavMenu {
        * Store the dropdown element
        */
       this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
-      if (!navWrapperElement.querySelector(this.navDropdownSelector)) {
-        console.warn("couldn't find the specified navDropdown element");
-        return;
-      }
 
       /**
        * Store the dropdown toggle element
        */
       this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
-      if (!navWrapperElement.querySelector(this.navDropdownToggleSelector)) {
-        console.warn("couldn't find the specified navDropdownToggle element");
-        return;
-      }
 
       /**
        * Event listeners
        */
       this.listeners(navWrapperElement);
     });
-
-    /**
-     * Add class to HTML element to activate conditional CSS
-     */
-    this.document.documentElement.classList.add(this.settings.initClass);
   }
 
   /**
@@ -728,19 +696,6 @@ export class GreedyNavMenu {
     showToggle(_this, this.navDropdownToggleSelector, this.breaks);
   }
 
-  /**
-   * Destroy the current initialization.
-   * @public
-   */
-  destroy(): void {
-    // Remove feedback class
-    this.document.documentElement.classList.remove(this.settings.initClass);
-    // Remove toggle
-    if (this.toggleWrapper) {
-      this.toggleWrapper.remove();
-    }
-  }
-
   openDropDown(navWrapper: HTMLElement): void {
     const { navDropdownLabelActive } = this.settings;
 
@@ -797,6 +752,9 @@ export class GreedyNavMenu {
 }
 
 export function initGreedyNav(options: LegacyConfig = legacyDefaultConfig) {
-  const menu = new GreedyNavMenu(options);
-  menu.init();
+  if (supports) {
+    console.log('Initialising refactored greedy navigation');
+    const menu = new GreedyNavMenu(options);
+    menu.init();
+  }
 }
