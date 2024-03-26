@@ -49,10 +49,11 @@ describe('Greedy Nav', () => {
   describe('showToggle', () => {
     test('displays toggle if breaks is empty', () => {
       const selector = '.cads-greedy-nav-dropdown-toggle';
-      document.body.innerHTML = `<div class="cads-greedy-nav-dropdown cads-greedy-nav-has-dropdown">
-                <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
-                <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-visible"></button>
-                </div></div>`;
+      document.body.innerHTML = `<div class="cads-greedy-nav-dropdown">
+        <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
+        <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-visible"></button>
+        </div>
+      </div>`;
 
       const wrapper = document.querySelector<HTMLElement>(
         '.cads-greedy-nav-dropdown',
@@ -66,7 +67,6 @@ describe('Greedy Nav', () => {
 
       expect(toggle.classList).toContain('cads-greedy-nav-is-hidden');
       expect(toggle.classList).not.toContain('cads-greedy-nav-is-visible');
-      expect(wrapper.classList).not.toContain('cads-greedy-nav-has-dropdown');
       expect(navWrapper?.getAttribute('aria-haspopup')).toBe('false');
     });
 
@@ -89,7 +89,6 @@ describe('Greedy Nav', () => {
 
       expect(toggle.classList).not.toContain('cads-greedy-nav-is-hidden');
       expect(toggle.classList).toContain('cads-greedy-nav-is-visible');
-      expect(wrapper.classList).toContain('cads-greedy-nav-has-dropdown');
       expect(navWrapper?.getAttribute('aria-haspopup')).toBe('true');
     });
   });

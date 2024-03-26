@@ -50,7 +50,6 @@ export const showToggle = (
 
     navDropdownToggle.classList.add('cads-greedy-nav-is-hidden');
     navDropdownToggle.classList.remove('cads-greedy-nav-is-visible');
-    navWrapperElement.classList.remove('cads-greedy-nav-has-dropdown');
 
     /**
      * Set aria attributes for accessibility
@@ -73,7 +72,6 @@ export const showToggle = (
     }
     navDropdownToggle.classList.add('cads-greedy-nav-is-visible');
     navDropdownToggle.classList.remove('cads-greedy-nav-is-hidden');
-    navWrapperElement.classList.add('cads-greedy-nav-has-dropdown');
 
     /**
      * Set aria attributes for accessibility

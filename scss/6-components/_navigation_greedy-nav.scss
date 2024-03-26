@@ -147,12 +147,6 @@
     visibility: hidden;
   }
 
-  &.cads-greedy-nav-has-dropdown {
-    .cads-greedy-nav__dropdown-toggle {
-      position: relative;
-    }
-  }
-
   &__header-links,
   &__header-links li:first-child {
     margin-top: $cads-spacing-2;
