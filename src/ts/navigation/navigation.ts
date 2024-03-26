@@ -137,12 +137,9 @@ export class GreedyNavMenu {
 
   navDropdownToggle: Nullable<HTMLElement>;
 
-  toggleWrapper: Nullable<HTMLDivElement>;
-
   constructor() {
     this.navDropdown = null;
     this.navDropdownToggle = null;
-    this.toggleWrapper = null;
   }
 
   init(containerEl: HTMLElement) {
@@ -153,7 +150,7 @@ export class GreedyNavMenu {
   }
 
   prepareHtml(containerEl: HTMLElement) {
-    this.toggleWrapper = document.createElement('div');
+    const toggleWrapper = document.createElement('div');
 
     const dropdownId = 'cads-greedy-nav-dropdown';
     this.navDropdown = document.createElement('ul');
@@ -179,15 +176,15 @@ export class GreedyNavMenu {
 
     const mainNav = containerEl.firstElementChild;
 
-    if (mainNav) {
-      mainNav.insertAdjacentElement('afterend', this.toggleWrapper);
-    }
-
     this.navDropdownToggle = buildToggleEl(containerEl, dropdownId);
 
-    this.toggleWrapper.appendChild(this.navDropdownToggle);
-    this.toggleWrapper.appendChild(this.navDropdown);
-    this.toggleWrapper.classList.add('cads-greedy-nav__wrapper');
+    toggleWrapper.appendChild(this.navDropdownToggle);
+    toggleWrapper.appendChild(this.navDropdown);
+    toggleWrapper.classList.add('cads-greedy-nav__wrapper');
+
+    if (mainNav) {
+      mainNav.insertAdjacentElement('afterend', toggleWrapper);
+    }
 
     containerEl.classList.add('cads-greedy-nav');
   }
@@ -215,10 +212,10 @@ export class GreedyNavMenu {
       true,
     );
 
-    const navDropdownToggle = getToggleEl(containerEl);
+    const toggleEl = getToggleEl(containerEl);
 
-    navDropdownToggle.addEventListener('mouseup', (event: MouseEvent) => {
-      if (isExpanded(navDropdownToggle)) {
+    toggleEl.addEventListener('mouseup', (event: MouseEvent) => {
+      if (isExpanded(toggleEl)) {
         closeDropDown(containerEl);
       } else {
         openDropDown(containerEl);
@@ -226,11 +223,7 @@ export class GreedyNavMenu {
     });
 
     const lastItemCloseHandler = (event: FocusEvent) => {
-      if (this.toggleWrapper === null) {
-        return;
-      }
-
-      if (!parent(relatedTarget(event), this.toggleWrapper)) {
+      if (!parent(relatedTarget(event), toggleEl.parentElement)) {
         closeDropDown(containerEl);
 
         const navLastDropdownLink = containerEl.querySelector<HTMLElement>(
@@ -247,52 +240,50 @@ export class GreedyNavMenu {
     };
 
     /* Open when tabbing into the toggle */
-    if (navDropdownToggle) {
-      navDropdownToggle.addEventListener('keyup', (event) => {
+    if (toggleEl) {
+      toggleEl.addEventListener('keyup', (event) => {
         if (!event.shiftKey && event.key === 'Tab') {
           openDropDown(containerEl);
         }
       });
     }
 
-    if (navDropdownToggle && this.toggleWrapper) {
-      navDropdownToggle.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
-        let lastItem: HTMLElement | null | undefined;
-        const headerLinksInNav: HTMLElement | null = document.querySelector(
-          `#cads-greedy-nav-dropdown .js-cads-copy-into-nav`,
+    toggleEl.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
+      let lastItem: HTMLElement | null | undefined;
+      const headerLinksInNav: HTMLElement | null = document.querySelector(
+        `#cads-greedy-nav-dropdown .js-cads-copy-into-nav`,
+      );
+
+      if (headerLinksInNav?.offsetParent) {
+        lastItem = headerLinksInNav?.querySelector<HTMLElement>(
+          '.js-cads-close-on-blur',
         );
+      } else if (headerLinksInNav?.offsetParent === null) {
+        // offsetParent returns null in this case as the header links in the nav have display: none
+        // using nth-last-child(2) as the last-child in this case is the hidden header nav links
+        lastItem = this.navDropdown?.querySelector(`li:nth-last-child(2) a`);
+      } else {
+        lastItem = this.navDropdown?.querySelector(`li:last-child a`);
+      }
 
-        if (headerLinksInNav?.offsetParent) {
-          lastItem = headerLinksInNav?.querySelector<HTMLElement>(
-            '.js-cads-close-on-blur',
-          );
-        } else if (headerLinksInNav?.offsetParent === null) {
-          // offsetParent returns null in this case as the header links in the nav have display: none
-          // using nth-last-child(2) as the last-child in this case is the hidden header nav links
-          lastItem = this.navDropdown?.querySelector(`li:nth-last-child(2) a`);
-        } else {
-          lastItem = this.navDropdown?.querySelector(`li:last-child a`);
-        }
+      if (!parent(relatedTarget(e), toggleEl.parentElement)) {
+        // tabbing backwards
+        lastItem?.removeEventListener(BLUR_EVENT, lastItemCloseHandler);
 
-        if (!parent(relatedTarget(e), this.toggleWrapper)) {
-          // tabbing backwards
-          lastItem?.removeEventListener(BLUR_EVENT, lastItemCloseHandler);
-
-          closeDropDown(containerEl);
-        } else {
-          // tabbing forwards
-          lastItem?.addEventListener(BLUR_EVENT, lastItemCloseHandler);
-        }
-      });
-    }
+        closeDropDown(containerEl);
+      } else {
+        // tabbing forwards
+        lastItem?.addEventListener(BLUR_EVENT, lastItemCloseHandler);
+      }
+    });
 
     document.addEventListener('click', (event: MouseEvent) => {
       const targetEl = <HTMLElement>event.target;
       if (
         targetEl &&
         targetEl.closest('#cads-greedy-nav-dropdown') &&
-        targetEl !== navDropdownToggle &&
-        isExpanded(navDropdownToggle)
+        targetEl !== toggleEl &&
+        isExpanded(toggleEl)
       ) {
         closeDropDown(containerEl);
       }
