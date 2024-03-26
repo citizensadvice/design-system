@@ -9,14 +9,12 @@ import {
 } from './helpers';
 
 interface LegacyConfig {
-  mainNavWrapper: string;
   mainNav: string;
   navDropdownClassName: string;
   navDropdownToggleClassName: string;
 }
 
 const legacyDefaultConfig: LegacyConfig = {
-  mainNavWrapper: '.js-cads-greedy-nav',
   mainNav: 'ul',
   navDropdownClassName: 'cads-greedy-nav__dropdown',
   navDropdownToggleClassName: 'cads-greedy-nav__dropdown-toggle',
@@ -115,8 +113,6 @@ export class GreedyNavMenu {
 
   breaks: number[];
 
-  mainNavWrapper: Nullable<HTMLElement>;
-
   navDropdown: Nullable<HTMLUListElement>;
 
   navDropdownToggle: Nullable<HTMLElement>;
@@ -132,7 +128,6 @@ export class GreedyNavMenu {
   constructor(config: LegacyConfig = legacyDefaultConfig) {
     this.settings = { ...legacyDefaultConfig, ...config };
     this.breaks = [];
-    this.mainNavWrapper = null;
 
     this.navDropdown = null;
     this.navDropdownToggle = null;
@@ -145,7 +140,6 @@ export class GreedyNavMenu {
 
   init(navWrapperElement: HTMLElement) {
     this.breaks = [];
-    this.mainNavWrapper = navWrapperElement;
     this.prepareHtml(navWrapperElement);
     this.listeners(navWrapperElement);
   }
