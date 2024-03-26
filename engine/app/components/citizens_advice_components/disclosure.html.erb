@@ -1,10 +1,11 @@
-<div class="cads-disclosure js-disclosure">
+<div class="cads-disclosure js-cads-disclosure">
   <%= tag.button(**button_attrs) do %>
-    <span class="cads-disclosure__summary js-disclosure-summary">
+    <%= render CitizensAdviceComponents::Icons::PlusMinus.new %>
+    <span class="cads-disclosure__summary js-cads-disclosure-summary">
       <%= closed_summary %>
     </span>
   <% end %>
-  <div class="cads-disclosure__details js-disclosure-details" id="<%= id %>">
+  <div class="cads-disclosure__details js-cads-disclosure-details" id="<%= id %>">
     <%= content %>
   </div>
 </div>
