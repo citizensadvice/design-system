@@ -4,53 +4,15 @@ import { debounce, parent } from './helpers';
 const supports = !!document.querySelector && !!window.addEventListener; // Feature test
 
 interface LegacyConfig {
-  /**
-   * Class that will be printed on html element to allow conditional css styling.
-   */
   initClass: string;
-  /**
-   * mainnav wrapper selector (must be direct parent from mainNav)
-   */
   mainNavWrapper: string;
-  /**
-   * mainnav selector. (must be inline-block)
-   */
   mainNav: string;
-  /**
-   * class used for the dropdown.
-   */
   navDropdownClassName: string;
-  /**
-   * class used for the dropdown toggle.
-   */
   navDropdownToggleClassName: string;
-  /**
-   * Aria text label for the dropdown toggle button
-   */
   navDropdownToggleAriaLabel: string;
-  /**
-   * Text that is used for the dropdown toggle.
-   */
   navDropdownLabel: string;
-  /**
-   * Text that is used for the dropdown toggle when menu is open
-   */
   navDropdownLabelActive: string;
-  /**
-   * button label for navDropdownToggle when the breakPoint is reached.
-   */
-  navDropdownBreakpointLabel: string;
-  /**
-   * amount of pixels when all menu items should be moved to dropdown to simulate a mobile menu
-   */
-  breakPoint: number;
-  /**
-   * this will throttle the calculating logic on resize because i'm a responsible dev.
-   */
   throttleDelay: number;
-  /**
-   * increase to decrease the time it takes to move an item.
-   */
   offsetPixels: number;
 }
 
@@ -63,8 +25,6 @@ const legacyDefaultConfig: LegacyConfig = {
   navDropdownToggleAriaLabel: 'More navigation options',
   navDropdownLabel: 'More',
   navDropdownLabelActive: 'Close',
-  navDropdownBreakpointLabel: 'menu',
-  breakPoint: 0,
   throttleDelay: 50,
   /* Offset pixels add a tolerance to when an item is removed from the nav and put in the dropdown.
    * Aligning the nav with the grid in NP-1026 makes the contents of the nav 2px too wide for
@@ -718,44 +678,30 @@ export class GreedyNavMenu {
     /**
      * Keep executing until all menu items that are overflowing are moved
      */
-    while (
-      (this.totalWidth <= this.restWidth && mainNav.children.length > 0) ||
-      (this.viewportWidth < this.settings.breakPoint &&
-        mainNav.children.length > 0)
-    ) {
+    while (this.totalWidth <= this.restWidth && mainNav.children.length > 0) {
       // move item to dropdown
       this.toDropdown(_this);
+
       // recalculate widths
       Object.assign(this, calculateWidths(_this, this.settings.offsetPixels));
-      // update dropdownToggle label
-      if (this.viewportWidth < this.settings.breakPoint) {
-        updateLabel(
-          _this,
-          this.settings.navDropdownBreakpointLabel,
-          this.navDropdownToggleSelector,
-          this.settings.navDropdownLabelActive,
-        );
-      }
     }
 
     /**
      * Keep executing until all menu items that are able to move back are moved
      */
-    while (
-      this.totalWidth >= this.breaks[this.breaks.length - 1] &&
-      this.viewportWidth > this.settings.breakPoint
-    ) {
+    while (this.totalWidth >= this.breaks[this.breaks.length - 1]) {
       // move item to menu
       this.toMenu(_this);
-      // update dropdownToggle label
-      if (this.viewportWidth > this.settings.breakPoint) {
-        updateLabel(
-          _this,
-          this.settings.navDropdownLabel,
-          this.navDropdownToggleSelector,
-          this.settings.navDropdownLabelActive,
-        );
-      }
+
+      // // update dropdownToggle label
+      // if (this.viewportWidth > this.settings.breakPoint) {
+      updateLabel(
+        _this,
+        this.settings.navDropdownLabel,
+        this.navDropdownToggleSelector,
+        this.settings.navDropdownLabelActive,
+      );
+      // }
     }
 
     /**
@@ -774,22 +720,6 @@ export class GreedyNavMenu {
         this.navDropdownToggleSelector,
         this.settings.navDropdownLabelActive,
       );
-    }
-
-    /**
-     * If there are no items in menu
-     */
-    if (mainNav && mainNav.children.length < 1) {
-      // show navDropdownBreakpointLabel
-      _this.classList.add('is-empty');
-      updateLabel(
-        _this,
-        this.settings.navDropdownBreakpointLabel,
-        this.navDropdownToggleSelector,
-        this.settings.navDropdownLabelActive,
-      );
-    } else {
-      _this.classList.remove('is-empty');
     }
 
     /**
