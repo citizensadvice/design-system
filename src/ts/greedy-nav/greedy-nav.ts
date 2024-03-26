@@ -31,14 +31,55 @@ const blurEventName = Object.prototype.hasOwnProperty.call(
   ? 'focusout'
   : 'blur';
 
+function isExpanded(toggle: Element) {
+  const ariaExpanded = toggle.getAttribute('aria-expanded');
+  return ariaExpanded === 'true';
+}
+
+function getToggleEl(containerEl: HTMLElement) {
+  return containerEl.querySelector(
+    'button[aria-controls="cads-greedy-nav-dropdown"]',
+  ) as HTMLButtonElement;
+}
+
+function setDropdownLabel(containerEl: HTMLElement) {
+  const toggle = getToggleEl(containerEl);
+
+  if (isExpanded(toggle)) {
+    toggle.innerHTML =
+      containerEl.getAttribute('data-dropdown-label-close') || 'Close';
+    toggle.setAttribute('aria-label', `Close navigation options`);
+  } else {
+    toggle.innerHTML =
+      containerEl.getAttribute('data-dropdown-label') || 'More';
+    toggle.setAttribute('aria-label', `More navigation options`);
+  }
+}
+
+function buildToggleEl(containerEl: HTMLElement, dropdownId: string) {
+  const toggleEl = document.createElement('button');
+  toggleEl.innerHTML =
+    containerEl.getAttribute('data-dropdown-label') || 'More';
+  toggleEl.setAttribute('aria-label', 'More navigation options');
+
+  toggleEl.setAttribute('aria-expanded', 'false');
+  toggleEl.setAttribute('id', 'cads-greedy-nav-toggle');
+  toggleEl.setAttribute('aria-controls', dropdownId);
+  toggleEl.setAttribute('type', 'button');
+
+  toggleEl.classList.add('cads-greedy-nav__dropdown-toggle');
+
+  return toggleEl;
+}
+
 /**
  * Show/hide toggle button
  */
-export const showToggle = (
+export function showToggle(
   navWrapperElement: HTMLElement,
   navDropdownToggleSelector: string,
   breaks: number[],
-): void => {
+) {
   if (breaks.length < 1) {
     const navDropdownToggle = navWrapperElement.querySelector<HTMLElement>(
       navDropdownToggleSelector,
@@ -54,7 +95,6 @@ export const showToggle = (
     /**
      * Set aria attributes for accessibility
      */
-
     const navWrapper = navWrapperElement.querySelector<HTMLElement>(
       '.cads-greedy-nav__wrapper',
     );
@@ -84,31 +124,7 @@ export const showToggle = (
       navWrapper.setAttribute('aria-haspopup', 'true');
     }
   }
-};
-
-function isExpanded(toggle: Element) {
-  const ariaExpanded = toggle.getAttribute('aria-expanded');
-  return ariaExpanded === 'true';
 }
-
-export const updateLabel = (
-  menu: HTMLElement,
-  navDropdownToggleSelector: string,
-): void => {
-  const toggle = menu.querySelector<HTMLElement>(navDropdownToggleSelector);
-
-  if (toggle === null) {
-    return;
-  }
-
-  if (isExpanded(toggle)) {
-    toggle.innerHTML = 'Close';
-    toggle.setAttribute('aria-label', `Close navigation options`);
-  } else {
-    toggle.innerHTML = 'More';
-    toggle.setAttribute('aria-label', `More navigation options`);
-  }
-};
 
 export class GreedyNavMenu {
   settings: LegacyConfig;
@@ -157,39 +173,18 @@ export class GreedyNavMenu {
   init(navWrapperElement: HTMLElement): void {
     this.breaks = [];
     this.mainNavWrapper = navWrapperElement;
-    this.mainNavSelector = this.settings.mainNav;
     this.prepareHtml(navWrapperElement);
-    this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
-    this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
     this.listeners(navWrapperElement);
   }
 
-  /**
-   * Check if dropdown menu is already on page before creating it
-   * @param mainNavWrapper
-   */
   prepareHtml(_this: HTMLElement): void {
-    /**
-     * Create dropdown menu
-     * @type {HTMLElement}
-     */
     this.toggleWrapper = document.createElement('div');
 
-    const dropdownId = 'greedy-nav-dropdown';
+    const dropdownId = 'cads-greedy-nav-dropdown';
     this.navDropdown = document.createElement('ul');
     this.navDropdown.setAttribute('id', dropdownId);
-
-    this.navDropdownToggle = document.createElement('button');
-    this.navDropdownToggle.innerHTML = 'More';
-    this.navDropdownToggle.setAttribute('id', 'greedy-nav-toggle');
-    this.navDropdownToggle.setAttribute('aria-expanded', 'false');
-    this.navDropdownToggle.setAttribute('aria-controls', dropdownId);
-    this.navDropdownToggle.setAttribute('type', 'button');
-    this.navDropdownToggle.setAttribute(
-      'aria-label',
-      'More navigation options',
-    );
-    this.navDropdown.setAttribute('aria-hidden', 'true');
+    this.navDropdown.classList.add(this.settings.navDropdownClassName);
+    this.navDropdown.classList.add('cads-greedy-nav__dropdown');
 
     const headerLinks = document.querySelector('.js-cads-copy-into-nav');
     if (headerLinks) {
@@ -207,40 +202,16 @@ export class GreedyNavMenu {
       this.navDropdown.appendChild(headerLinksContainer);
     }
 
-    /**
-     * Move elements to the right spot
-     */
-
     const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
 
     if (mainNav) {
-      if (mainNav.parentNode !== _this) {
-        console.warn(
-          'mainNav is not a direct child of mainNavWrapper, double check please',
-        );
-        return;
-      }
-
       mainNav.insertAdjacentElement('afterend', this.toggleWrapper);
     }
 
+    this.navDropdownToggle = buildToggleEl(_this, dropdownId);
+
     this.toggleWrapper.appendChild(this.navDropdownToggle);
     this.toggleWrapper.appendChild(this.navDropdown);
-
-    /**
-     * Add classes so we can target elements
-     */
-    this.navDropdown.classList.add(this.settings.navDropdownClassName);
-    this.navDropdown.classList.add('cads-greedy-nav__dropdown');
-
-    this.navDropdownToggle.classList.add(
-      this.settings.navDropdownToggleClassName,
-    );
-    this.navDropdownToggle.classList.add('cads-greedy-nav__dropdown-toggle');
-
-    // fix so button is type="button" and do not submit forms
-    this.navDropdownToggle.setAttribute('type', 'button');
-
     this.toggleWrapper.classList.add(
       `${this.settings.navDropdownClassName}-wrapper`,
     );
@@ -249,9 +220,6 @@ export class GreedyNavMenu {
     _this.classList.add('cads-greedy-nav');
   }
 
-  /**
-   * Bind eventlisteners
-   */
   listeners(navWrapper: HTMLElement): void {
     const observer = new ResizeObserver(
       debounce(() => {
@@ -493,7 +461,7 @@ export class GreedyNavMenu {
       // move item to menu
       this.toMenu(_this);
 
-      updateLabel(_this, this.navDropdownToggleSelector);
+      setDropdownLabel(_this);
     }
 
     /**
@@ -506,7 +474,7 @@ export class GreedyNavMenu {
     if (navDropdown && this.breaks.length < 1) {
       navDropdown.classList.remove('show');
       // show navDropdownLabel
-      updateLabel(_this, this.navDropdownToggleSelector);
+      setDropdownLabel(_this);
     }
 
     /**
@@ -532,7 +500,7 @@ export class GreedyNavMenu {
       navDropdown.setAttribute('aria-hidden', 'false');
       navDropdownToggle.setAttribute('aria-expanded', 'true');
 
-      updateLabel(navWrapper, this.navDropdownToggleSelector);
+      setDropdownLabel(navWrapper);
     }
   }
 
@@ -553,7 +521,7 @@ export class GreedyNavMenu {
       navDropdown.setAttribute('aria-hidden', 'true');
       navDropdownToggle.setAttribute('aria-expanded', 'false');
 
-      updateLabel(navWrapper, this.navDropdownToggleSelector);
+      setDropdownLabel(navWrapper);
     }
   }
 }
