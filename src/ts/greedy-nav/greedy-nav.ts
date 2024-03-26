@@ -1,7 +1,91 @@
 /* eslint-disable no-console */
-import { Config, defaultConfig } from './Config';
+import { debounce, parent } from './helpers';
 
 const supports = !!document.querySelector && !!window.addEventListener; // Feature test
+
+interface LegacyConfig {
+  /**
+   * Class that will be printed on html element to allow conditional css styling.
+   */
+  initClass: string;
+  /**
+   * mainnav wrapper selector (must be direct parent from mainNav)
+   */
+  mainNavWrapper: string;
+  /**
+   * mainnav selector. (must be inline-block)
+   */
+  mainNav: string;
+  /**
+   * class used for the dropdown.
+   */
+  navDropdownClassName: string;
+  /**
+   * class used for the dropdown toggle.
+   */
+  navDropdownToggleClassName: string;
+  /**
+   * Aria text label for the dropdown toggle button
+   */
+  navDropdownToggleAriaLabel: string;
+  /**
+   * Text that is used for the dropdown toggle.
+   */
+  navDropdownLabel: string;
+  /**
+   * Text that is used for the dropdown toggle when menu is open
+   */
+  navDropdownLabelActive: string;
+  /**
+   * button label for navDropdownToggle when the breakPoint is reached.
+   */
+  navDropdownBreakpointLabel: string;
+  /**
+   * amount of pixels when all menu items should be moved to dropdown to simulate a mobile menu
+   */
+  breakPoint: number;
+  /**
+   * this will throttle the calculating logic on resize because i'm a responsible dev.
+   */
+  throttleDelay: number;
+  /**
+   * increase to decrease the time it takes to move an item.
+   */
+  offsetPixels: number;
+  /**
+   * prints the amount of items are moved to the attribute data-count to style with css counter.
+   */
+  count: true;
+
+  // Callbacks
+  moved: () => void;
+  movedBack: () => void;
+}
+
+const legacyDefaultConfig: LegacyConfig = {
+  initClass: 'js-CadsGreedyNav',
+  mainNavWrapper: '.js-cads-greedy-nav',
+  mainNav: 'ul',
+  navDropdownClassName: 'cads-greedy-nav__dropdown',
+  navDropdownToggleClassName: 'cads-greedy-nav__dropdown-toggle',
+  navDropdownToggleAriaLabel: 'More navigation options',
+  navDropdownLabel: 'More',
+  navDropdownLabelActive: 'Close',
+  navDropdownBreakpointLabel: 'menu',
+  breakPoint: 0,
+  throttleDelay: 50,
+  /* Offset pixels add a tolerance to when an item is removed from the nav and put in the dropdown.
+   * Aligning the nav with the grid in NP-1026 makes the contents of the nav 2px too wide for
+   * GreedyNav's calculations and puts the last nav item in the dropdown at lg.  This offset prevents
+   * that from occuring whilst maintainng the otherwise correct behaviour of GreedyNav.
+   */
+  offsetPixels: -10,
+  count: true,
+
+  // Callbacks
+  moved: () => null,
+  movedBack: () => null,
+};
 
 /**
  * Provides backwards compatibility with IE 11.
@@ -18,53 +102,6 @@ const blurEventName = Object.prototype.hasOwnProperty.call(
 )
   ? 'focusout'
   : 'blur';
-
-/**
- * Debounced resize to throttle execution
- * @param func
- * @param wait
- * @param immediate
- * @returns {Function}
- */
-function debounce<Return>(func: () => Return, wait: number, immediate = false) {
-  let timeout: Nullable<number>;
-
-  return function debounced(this: Return, ...args: []) {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const context = this;
-
-    const later = () => {
-      timeout = null;
-      if (!immediate) {
-        func.apply(context, args);
-      }
-    };
-
-    if (timeout) {
-      window.clearTimeout(timeout);
-    } else if (immediate) {
-      func.apply(context, args);
-    }
-
-    timeout = window.setTimeout(later, wait);
-  };
-}
-
-/**
- * return true if el has a parent
- * @param el
- * @param parent
- */
-const parent = (element: Nullable<HTMLElement>, parentNode: Nullable<Node>) => {
-  let el: Nullable<Node & ParentNode> = element;
-  while (el !== null) {
-    if (el.parentNode === parentNode) {
-      return true;
-    }
-    el = el.parentNode;
-  }
-  return false;
-};
 
 /**
  * Show/hide toggle button
@@ -242,7 +279,7 @@ const relatedTarget = (
   <HTMLElement>e?.relatedTarget || document.activeElement;
 
 export class GreedyNavMenu {
-  settings: Config;
+  settings: LegacyConfig;
 
   count: number;
 
@@ -276,8 +313,11 @@ export class GreedyNavMenu {
   document: HTMLDocument;
 
   // eslint-disable-next-line default-param-last
-  constructor(config: Config = defaultConfig, document?: HTMLDocument) {
-    this.settings = { ...defaultConfig, ...config };
+  constructor(
+    config: LegacyConfig = legacyDefaultConfig,
+    document?: HTMLDocument,
+  ) {
+    this.settings = { ...legacyDefaultConfig, ...config };
     this.count = 0;
     this.breaks = [];
     this.instance = 0;
@@ -898,7 +938,7 @@ export class GreedyNavMenu {
   }
 }
 
-export function initGreedyNav(options: Config = defaultConfig) {
+export function initGreedyNav(options: LegacyConfig = legacyDefaultConfig) {
   const menu = new GreedyNavMenu(options);
   menu.init();
 }
