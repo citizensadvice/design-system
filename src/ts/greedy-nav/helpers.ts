@@ -1,3 +1,10 @@
+export const BLUR_EVENT = Object.prototype.hasOwnProperty.call(
+  MouseEvent,
+  'relatedTarget',
+)
+  ? 'focusout'
+  : 'blur';
+
 export function debounce<Return>(fn: () => Return, ms = 300) {
   let timeoutId: ReturnType<typeof setTimeout>;
   return function callable(this: Return, ...args: []) {
