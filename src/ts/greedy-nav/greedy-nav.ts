@@ -11,7 +11,6 @@ interface LegacyConfig {
   navDropdownToggleAriaLabel: string;
   navDropdownLabel: string;
   navDropdownLabelActive: string;
-  offsetPixels: number;
 }
 
 const legacyDefaultConfig: LegacyConfig = {
@@ -22,12 +21,6 @@ const legacyDefaultConfig: LegacyConfig = {
   navDropdownToggleAriaLabel: 'More navigation options',
   navDropdownLabel: 'More',
   navDropdownLabelActive: 'Close',
-  /* Offset pixels add a tolerance to when an item is removed from the nav and put in the dropdown.
-   * Aligning the nav with the grid in NP-1026 makes the contents of the nav 2px too wide for
-   * GreedyNav's calculations and puts the last nav item in the dropdown at lg.  This offset prevents
-   * that from occuring whilst maintainng the otherwise correct behaviour of GreedyNav.
-   */
-  offsetPixels: -10,
 };
 
 /**
@@ -192,10 +185,13 @@ const getChildrenWidth = (e: HTMLElement) => {
  * @param elem
  * @returns {number}
  */
-const calculateWidths = (_this: HTMLElement, offsetPixels: number) => {
-  const totalWidth = getElementContentWidth(_this);
+const calculateWidths = (element: HTMLElement) => {
+  const totalWidth = getElementContentWidth(element);
 
-  const restWidth = getChildrenWidth(_this) + offsetPixels;
+  // Adds a tolerance to account for alignment to the layout grid.
+  const offsetPixels = -10;
+
+  const restWidth = getChildrenWidth(element) + offsetPixels;
   const viewportWidth = viewportSize().width;
 
   return { totalWidth, restWidth, viewportWidth };
@@ -633,7 +629,7 @@ export class GreedyNavMenu {
     /**
      * Update width
      */
-    Object.assign(this, calculateWidths(_this, this.settings.offsetPixels));
+    Object.assign(this, calculateWidths(_this));
 
     const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
 
@@ -649,7 +645,7 @@ export class GreedyNavMenu {
       this.toDropdown(_this);
 
       // recalculate widths
-      Object.assign(this, calculateWidths(_this, this.settings.offsetPixels));
+      Object.assign(this, calculateWidths(_this));
     }
 
     /**
