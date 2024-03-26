@@ -133,12 +133,6 @@ function toDropdown(containerEl: HTMLElement) {
 }
 
 export class GreedyNavMenu {
-  navDropdown: Nullable<HTMLUListElement>;
-
-  constructor() {
-    this.navDropdown = null;
-  }
-
   init(containerEl: HTMLElement) {
     // Track navigation breakpoint state
     const breaks: number[] = [];
@@ -150,10 +144,10 @@ export class GreedyNavMenu {
     const toggleWrapper = document.createElement('div');
 
     const dropdownId = 'cads-greedy-nav-dropdown';
-    this.navDropdown = document.createElement('ul');
-    this.navDropdown.setAttribute('id', dropdownId);
-    this.navDropdown.setAttribute('data-testid', dropdownId);
-    this.navDropdown.classList.add('cads-greedy-nav__dropdown');
+    const navDropdown = document.createElement('ul');
+    navDropdown.setAttribute('id', dropdownId);
+    navDropdown.setAttribute('data-testid', dropdownId);
+    navDropdown.classList.add('cads-greedy-nav__dropdown');
 
     const headerLinks = document.querySelector('.js-cads-copy-into-nav');
     if (headerLinks) {
@@ -168,13 +162,13 @@ export class GreedyNavMenu {
       const headerLinksContainer = document.createElement('li');
       headerLinksContainer.className = 'cads-greedy-nav__header-links';
       headerLinksContainer.appendChild(headerLinksClone);
-      this.navDropdown.appendChild(headerLinksContainer);
+      navDropdown.appendChild(headerLinksContainer);
     }
 
     const mainNav = containerEl.firstElementChild;
 
     toggleWrapper.appendChild(buildToggleEl(containerEl, dropdownId));
-    toggleWrapper.appendChild(this.navDropdown);
+    toggleWrapper.appendChild(navDropdown);
     toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
     if (mainNav) {
@@ -208,6 +202,8 @@ export class GreedyNavMenu {
     );
 
     const toggleEl = getToggleEl(containerEl);
+
+    const navDropdownEl = getDropdownEl(containerEl);
 
     toggleEl.addEventListener('mouseup', (event: MouseEvent) => {
       if (isExpanded(toggleEl)) {
@@ -244,21 +240,22 @@ export class GreedyNavMenu {
     }
 
     toggleEl.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
-      let lastItem: HTMLElement | null | undefined;
-      const headerLinksInNav: HTMLElement | null = document.querySelector(
-        `#cads-greedy-nav-dropdown .js-cads-copy-into-nav`,
+      let lastItem: HTMLElement | null;
+
+      const headerLinksInNav = navDropdownEl.querySelector<HTMLElement>(
+        `.js-cads-copy-into-nav`,
       );
 
       if (headerLinksInNav?.offsetParent) {
-        lastItem = headerLinksInNav?.querySelector<HTMLElement>(
+        lastItem = headerLinksInNav.querySelector<HTMLElement>(
           '.js-cads-close-on-blur',
         );
       } else if (headerLinksInNav?.offsetParent === null) {
         // offsetParent returns null in this case as the header links in the nav have display: none
         // using nth-last-child(2) as the last-child in this case is the hidden header nav links
-        lastItem = this.navDropdown?.querySelector(`li:nth-last-child(2) a`);
+        lastItem = navDropdownEl.querySelector(`li:nth-last-child(2) a`);
       } else {
-        lastItem = this.navDropdown?.querySelector(`li:last-child a`);
+        lastItem = navDropdownEl.querySelector(`li:last-child a`);
       }
 
       if (!parent(relatedTarget(e), toggleEl.parentElement)) {
