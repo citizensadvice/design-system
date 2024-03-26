@@ -132,221 +132,203 @@ function toDropdown(containerEl: HTMLElement) {
   }
 }
 
-export class GreedyNavMenu {
-  init(containerEl: HTMLElement) {
-    // Track navigation breakpoint state
-    const breaks: number[] = [];
-    this.prepareHtml(containerEl);
-    this.listeners(containerEl, breaks);
+function toMenu(containerEl: HTMLElement, breaks: number[]) {
+  const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
+  const mainNav = containerEl.firstElementChild;
+
+  if (
+    mainNav &&
+    navDropdown &&
+    navDropdown.children.length > 0 &&
+    navDropdown.firstElementChild
+  ) {
+    mainNav.appendChild(navDropdown.firstElementChild);
   }
 
-  prepareHtml(containerEl: HTMLElement) {
-    const toggleWrapper = document.createElement('div');
+  breaks.pop();
 
-    const dropdownId = 'cads-greedy-nav-dropdown';
-    const navDropdown = document.createElement('ul');
-    navDropdown.setAttribute('id', dropdownId);
-    navDropdown.setAttribute('data-testid', dropdownId);
-    navDropdown.classList.add('cads-greedy-nav__dropdown');
+  showToggle(containerEl, breaks);
+}
 
-    const headerLinks = document.querySelector('.js-cads-copy-into-nav');
-    if (headerLinks) {
-      // prepare items that can close the more dropdown on blur
-      const closeNavOnBlur =
-        headerLinks.lastElementChild?.querySelectorAll('a, button');
-      closeNavOnBlur?.forEach((el) =>
-        el.classList.add('js-cads-close-on-blur'),
+function doesItFit(containerEl: HTMLElement, breaks: number[]) {
+  let currentTotalWidth = getElementContentWidth(containerEl);
+  let currentRestWidth = getChildrenOffsetWidth(containerEl);
+
+  const mainNav = containerEl.firstElementChild;
+
+  if (!mainNav) {
+    throw new Error('main nav not found');
+  }
+
+  while (currentTotalWidth <= currentRestWidth && mainNav.children.length > 0) {
+    toDropdown(containerEl);
+
+    breaks.push(currentRestWidth);
+
+    showToggle(containerEl, breaks);
+
+    currentTotalWidth = getElementContentWidth(containerEl);
+    currentRestWidth = getChildrenOffsetWidth(containerEl);
+  }
+
+  while (currentTotalWidth >= breaks[breaks.length - 1]) {
+    toMenu(containerEl, breaks);
+
+    setDropdownLabel(containerEl);
+  }
+
+  const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
+
+  if (navDropdown && breaks.length < 1) {
+    navDropdown.classList.remove('show');
+    setDropdownLabel(containerEl);
+  }
+
+  showToggle(containerEl, breaks);
+}
+
+function prepareHtml(containerEl: HTMLElement) {
+  const toggleWrapper = document.createElement('div');
+
+  const dropdownId = 'cads-greedy-nav-dropdown';
+  const navDropdown = document.createElement('ul');
+  navDropdown.setAttribute('id', dropdownId);
+  navDropdown.setAttribute('data-testid', dropdownId);
+  navDropdown.classList.add('cads-greedy-nav__dropdown');
+
+  const headerLinks = document.querySelector('.js-cads-copy-into-nav');
+  if (headerLinks) {
+    // prepare items that can close the more dropdown on blur
+    const closeNavOnBlur =
+      headerLinks.lastElementChild?.querySelectorAll('a, button');
+    closeNavOnBlur?.forEach((el) => el.classList.add('js-cads-close-on-blur'));
+
+    const headerLinksClone = headerLinks.cloneNode(true);
+    const headerLinksContainer = document.createElement('li');
+    headerLinksContainer.className = 'cads-greedy-nav__header-links';
+    headerLinksContainer.appendChild(headerLinksClone);
+    navDropdown.appendChild(headerLinksContainer);
+  }
+
+  const mainNav = containerEl.firstElementChild;
+
+  toggleWrapper.appendChild(buildToggleEl(containerEl, dropdownId));
+  toggleWrapper.appendChild(navDropdown);
+  toggleWrapper.classList.add('cads-greedy-nav__wrapper');
+
+  if (mainNav) {
+    mainNav.insertAdjacentElement('afterend', toggleWrapper);
+  }
+
+  containerEl.classList.add('cads-greedy-nav');
+}
+
+function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
+  const observer = new ResizeObserver(
+    debounce(() => {
+      doesItFit(containerEl, breaks);
+    }, 50),
+  );
+
+  // This will fire when observed, which is desirable.
+  // Use this to set up the initial state of the dropdown.
+  observer.observe(containerEl);
+
+  window.addEventListener(
+    'orientationchange',
+    () => {
+      doesItFit(containerEl, breaks);
+    },
+    true,
+  );
+
+  const toggleEl = getToggleEl(containerEl);
+
+  const navDropdownEl = getDropdownEl(containerEl);
+
+  toggleEl.addEventListener('mouseup', (event: MouseEvent) => {
+    if (isExpanded(toggleEl)) {
+      closeDropDown(containerEl);
+    } else {
+      openDropDown(containerEl);
+    }
+  });
+
+  const lastItemCloseHandler = (event: FocusEvent) => {
+    if (!parent(relatedTarget(event), toggleEl.parentElement)) {
+      closeDropDown(containerEl);
+
+      const navLastDropdownLink = containerEl.querySelector<HTMLElement>(
+        `#cads-greedy-nav-dropdown li:last-child a`,
       );
 
-      const headerLinksClone = headerLinks.cloneNode(true);
-      const headerLinksContainer = document.createElement('li');
-      headerLinksContainer.className = 'cads-greedy-nav__header-links';
-      headerLinksContainer.appendChild(headerLinksClone);
-      navDropdown.appendChild(headerLinksContainer);
+      if (navLastDropdownLink) {
+        navLastDropdownLink.removeEventListener(
+          BLUR_EVENT,
+          lastItemCloseHandler,
+        );
+      }
     }
+  };
 
-    const mainNav = containerEl.firstElementChild;
-
-    toggleWrapper.appendChild(buildToggleEl(containerEl, dropdownId));
-    toggleWrapper.appendChild(navDropdown);
-    toggleWrapper.classList.add('cads-greedy-nav__wrapper');
-
-    if (mainNav) {
-      mainNav.insertAdjacentElement('afterend', toggleWrapper);
-    }
-
-    containerEl.classList.add('cads-greedy-nav');
-  }
-
-  listeners(containerEl: HTMLElement, breaks: number[]) {
-    const observer = new ResizeObserver(
-      debounce(() => {
-        this.doesItFit(containerEl, breaks);
-      }, 50),
-    );
-
-    const nav = document.querySelector('.js-cads-greedy-nav');
-
-    if (nav) {
-      // this will fire when observed - which is desirable. We
-      // use this to set up the initial state of the dropdown.
-      observer.observe(nav);
-    }
-
-    window.addEventListener(
-      'orientationchange',
-      () => {
-        this.doesItFit(containerEl, breaks);
-      },
-      true,
-    );
-
-    const toggleEl = getToggleEl(containerEl);
-
-    const navDropdownEl = getDropdownEl(containerEl);
-
-    toggleEl.addEventListener('mouseup', (event: MouseEvent) => {
-      if (isExpanded(toggleEl)) {
-        closeDropDown(containerEl);
-      } else {
+  /* Open when tabbing into the toggle */
+  if (toggleEl) {
+    toggleEl.addEventListener('keyup', (event) => {
+      if (!event.shiftKey && event.key === 'Tab') {
         openDropDown(containerEl);
       }
     });
+  }
 
-    const lastItemCloseHandler = (event: FocusEvent) => {
-      if (!parent(relatedTarget(event), toggleEl.parentElement)) {
-        closeDropDown(containerEl);
+  toggleEl.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
+    let lastItem: HTMLElement | null;
 
-        const navLastDropdownLink = containerEl.querySelector<HTMLElement>(
-          `#cads-greedy-nav-dropdown li:last-child a`,
-        );
+    const headerLinksInNav = navDropdownEl.querySelector<HTMLElement>(
+      `.js-cads-copy-into-nav`,
+    );
 
-        if (navLastDropdownLink) {
-          navLastDropdownLink.removeEventListener(
-            BLUR_EVENT,
-            lastItemCloseHandler,
-          );
-        }
-      }
-    };
-
-    /* Open when tabbing into the toggle */
-    if (toggleEl) {
-      toggleEl.addEventListener('keyup', (event) => {
-        if (!event.shiftKey && event.key === 'Tab') {
-          openDropDown(containerEl);
-        }
-      });
-    }
-
-    toggleEl.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
-      let lastItem: HTMLElement | null;
-
-      const headerLinksInNav = navDropdownEl.querySelector<HTMLElement>(
-        `.js-cads-copy-into-nav`,
+    if (headerLinksInNav?.offsetParent) {
+      lastItem = headerLinksInNav.querySelector<HTMLElement>(
+        '.js-cads-close-on-blur',
       );
+    } else if (headerLinksInNav?.offsetParent === null) {
+      // offsetParent returns null in this case as the header links in the nav have display: none
+      // using nth-last-child(2) as the last-child in this case is the hidden header nav links
+      lastItem = navDropdownEl.querySelector(`li:nth-last-child(2) a`);
+    } else {
+      lastItem = navDropdownEl.querySelector(`li:last-child a`);
+    }
 
-      if (headerLinksInNav?.offsetParent) {
-        lastItem = headerLinksInNav.querySelector<HTMLElement>(
-          '.js-cads-close-on-blur',
-        );
-      } else if (headerLinksInNav?.offsetParent === null) {
-        // offsetParent returns null in this case as the header links in the nav have display: none
-        // using nth-last-child(2) as the last-child in this case is the hidden header nav links
-        lastItem = navDropdownEl.querySelector(`li:nth-last-child(2) a`);
-      } else {
-        lastItem = navDropdownEl.querySelector(`li:last-child a`);
-      }
+    if (!parent(relatedTarget(e), toggleEl.parentElement)) {
+      // tabbing backwards
+      lastItem?.removeEventListener(BLUR_EVENT, lastItemCloseHandler);
 
-      if (!parent(relatedTarget(e), toggleEl.parentElement)) {
-        // tabbing backwards
-        lastItem?.removeEventListener(BLUR_EVENT, lastItemCloseHandler);
+      closeDropDown(containerEl);
+    } else {
+      // tabbing forwards
+      lastItem?.addEventListener(BLUR_EVENT, lastItemCloseHandler);
+    }
+  });
 
-        closeDropDown(containerEl);
-      } else {
-        // tabbing forwards
-        lastItem?.addEventListener(BLUR_EVENT, lastItemCloseHandler);
-      }
-    });
-
-    document.addEventListener('click', (event: MouseEvent) => {
-      const targetEl = <HTMLElement>event.target;
-      if (
-        targetEl &&
-        targetEl.closest('#cads-greedy-nav-dropdown') &&
-        targetEl !== toggleEl &&
-        isExpanded(toggleEl)
-      ) {
-        closeDropDown(containerEl);
-      }
-    });
-
-    document.onkeydown = (evt: KeyboardEvent) => {
-      const event = evt || window.event;
-
-      if (event.keyCode === 27) {
-        closeDropDown(containerEl);
-      }
-    };
-  }
-
-  toMenu(containerEl: HTMLElement, breaks: number[]) {
-    const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
-    const mainNav = containerEl.firstElementChild;
-
+  document.addEventListener('click', (event: MouseEvent) => {
+    const targetEl = <HTMLElement>event.target;
     if (
-      mainNav &&
-      navDropdown &&
-      navDropdown.children.length > 0 &&
-      navDropdown.firstElementChild
+      targetEl &&
+      targetEl.closest('#cads-greedy-nav-dropdown') &&
+      targetEl !== toggleEl &&
+      isExpanded(toggleEl)
     ) {
-      mainNav.appendChild(navDropdown.firstElementChild);
+      closeDropDown(containerEl);
     }
+  });
 
-    breaks.pop();
+  document.onkeydown = (evt: KeyboardEvent) => {
+    const event = evt || window.event;
 
-    showToggle(containerEl, breaks);
-  }
-
-  doesItFit(containerEl: HTMLElement, breaks: number[]) {
-    let currentTotalWidth = getElementContentWidth(containerEl);
-    let currentRestWidth = getChildrenOffsetWidth(containerEl);
-
-    const mainNav = containerEl.firstElementChild;
-
-    if (!mainNav) {
-      throw new Error('main nav not found');
+    if (event.keyCode === 27) {
+      closeDropDown(containerEl);
     }
-
-    while (
-      currentTotalWidth <= currentRestWidth &&
-      mainNav.children.length > 0
-    ) {
-      toDropdown(containerEl);
-
-      breaks.push(currentRestWidth);
-
-      showToggle(containerEl, breaks);
-
-      currentTotalWidth = getElementContentWidth(containerEl);
-      currentRestWidth = getChildrenOffsetWidth(containerEl);
-    }
-
-    while (currentTotalWidth >= breaks[breaks.length - 1]) {
-      this.toMenu(containerEl, breaks);
-
-      setDropdownLabel(containerEl);
-    }
-
-    const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
-
-    if (navDropdown && breaks.length < 1) {
-      navDropdown.classList.remove('show');
-      setDropdownLabel(containerEl);
-    }
-
-    showToggle(containerEl, breaks);
-  }
+  };
 }
 
 export default function initNavigation() {
@@ -355,7 +337,9 @@ export default function initNavigation() {
   );
 
   if (containerEl) {
-    const menu = new GreedyNavMenu();
-    menu.init(containerEl);
+    // Track navigation breakpoint state
+    const breaks: number[] = [];
+    prepareHtml(containerEl);
+    addEventListeners(containerEl, breaks);
   }
 }
