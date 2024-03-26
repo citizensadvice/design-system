@@ -6,9 +6,6 @@ interface LegacyConfig {
   mainNav: string;
   navDropdownClassName: string;
   navDropdownToggleClassName: string;
-  navDropdownToggleAriaLabel: string;
-  navDropdownLabel: string;
-  navDropdownLabelActive: string;
 }
 
 const legacyDefaultConfig: LegacyConfig = {
@@ -16,9 +13,6 @@ const legacyDefaultConfig: LegacyConfig = {
   mainNav: 'ul',
   navDropdownClassName: 'cads-greedy-nav__dropdown',
   navDropdownToggleClassName: 'cads-greedy-nav__dropdown-toggle',
-  navDropdownToggleAriaLabel: 'More navigation options',
-  navDropdownLabel: 'More',
-  navDropdownLabelActive: 'Close',
 };
 
 /**
@@ -94,11 +88,14 @@ export const showToggle = (
   }
 };
 
+function isExpanded(toggle: Element) {
+  const ariaExpanded = toggle.getAttribute('aria-expanded');
+  return ariaExpanded === 'true';
+}
+
 export const updateLabel = (
   menu: HTMLElement,
-  label: string,
   navDropdownToggleSelector: string,
-  navDropdownLabelActive: string,
 ): void => {
   const toggle = menu.querySelector<HTMLElement>(navDropdownToggleSelector);
 
@@ -106,13 +103,12 @@ export const updateLabel = (
     return;
   }
 
-  toggle.innerHTML = label;
-  toggle.setAttribute('aria-label', `${label} navigation options`);
-
-  if (label === navDropdownLabelActive) {
-    toggle.setAttribute('aria-expanded', 'true');
+  if (isExpanded(toggle)) {
+    toggle.innerHTML = 'Close';
+    toggle.setAttribute('aria-label', `Close navigation options`);
   } else {
-    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = 'More';
+    toggle.setAttribute('aria-label', `More navigation options`);
   }
 };
 
@@ -229,30 +225,20 @@ export class GreedyNavMenu {
      * @type {HTMLElement}
      */
     this.toggleWrapper = document.createElement('div');
-    this.navDropdown = document.createElement('ul');
-    this.navDropdownToggle = document.createElement('button');
 
-    /**
-     * Set ID on nav dropdown so we can reference it later
-     */
     const dropdownId = 'greedy-nav-dropdown';
+    this.navDropdown = document.createElement('ul');
     this.navDropdown.setAttribute('id', dropdownId);
 
-    /**
-     * Set label for dropdown toggle
-     * @type {string}
-     */
-    this.navDropdownToggle.innerHTML = this.settings.navDropdownLabel;
-
-    /**
-     * Set aria attributes for accessibility
-     */
+    this.navDropdownToggle = document.createElement('button');
+    this.navDropdownToggle.innerHTML = 'More';
+    this.navDropdownToggle.setAttribute('id', 'greedy-nav-toggle');
     this.navDropdownToggle.setAttribute('aria-expanded', 'false');
     this.navDropdownToggle.setAttribute('aria-controls', dropdownId);
     this.navDropdownToggle.setAttribute('type', 'button');
     this.navDropdownToggle.setAttribute(
       'aria-label',
-      this.settings.navDropdownToggleAriaLabel,
+      'More navigation options',
     );
     this.navDropdown.setAttribute('aria-hidden', 'true');
 
@@ -558,15 +544,7 @@ export class GreedyNavMenu {
       // move item to menu
       this.toMenu(_this);
 
-      // // update dropdownToggle label
-      // if (this.viewportWidth > this.settings.breakPoint) {
-      updateLabel(
-        _this,
-        this.settings.navDropdownLabel,
-        this.navDropdownToggleSelector,
-        this.settings.navDropdownLabelActive,
-      );
-      // }
+      updateLabel(_this, this.navDropdownToggleSelector);
     }
 
     /**
@@ -579,12 +557,7 @@ export class GreedyNavMenu {
     if (navDropdown && this.breaks.length < 1) {
       navDropdown.classList.remove('show');
       // show navDropdownLabel
-      updateLabel(
-        _this,
-        this.settings.navDropdownLabel,
-        this.navDropdownToggleSelector,
-        this.settings.navDropdownLabelActive,
-      );
+      updateLabel(_this, this.navDropdownToggleSelector);
     }
 
     /**
@@ -594,8 +567,6 @@ export class GreedyNavMenu {
   }
 
   openDropDown(navWrapper: HTMLElement): void {
-    const { navDropdownLabelActive } = this.settings;
-
     const navDropdown = navWrapper.querySelector<HTMLElement>(
       this.navDropdownSelector,
     );
@@ -610,19 +581,13 @@ export class GreedyNavMenu {
       navWrapper.classList.add('is-open');
 
       navDropdown.setAttribute('aria-hidden', 'false');
+      navDropdownToggle.setAttribute('aria-expanded', 'true');
 
-      updateLabel(
-        navWrapper,
-        navDropdownLabelActive,
-        this.navDropdownToggleSelector,
-        navDropdownLabelActive,
-      );
+      updateLabel(navWrapper, this.navDropdownToggleSelector);
     }
   }
 
   closeDropDown(navWrapper: HTMLElement): void {
-    const { navDropdownLabel, navDropdownLabelActive } = this.settings;
-
     const navDropdown = navWrapper.querySelector<HTMLElement>(
       this.navDropdownSelector,
     );
@@ -637,19 +602,15 @@ export class GreedyNavMenu {
       navWrapper.classList.remove('is-open');
 
       navDropdown.setAttribute('aria-hidden', 'true');
+      navDropdownToggle.setAttribute('aria-expanded', 'false');
 
-      updateLabel(
-        navWrapper,
-        navDropdownLabel,
-        this.navDropdownToggleSelector,
-        navDropdownLabelActive,
-      );
+      updateLabel(navWrapper, this.navDropdownToggleSelector);
     }
   }
 }
 
 export function initGreedyNav(options: LegacyConfig = legacyDefaultConfig) {
-  console.log('Initialising refactored greedy navigation');
+  console.log('Initialising refactored greedy navigation with inlined labels');
   const menu = new GreedyNavMenu(options);
   menu.init();
 }

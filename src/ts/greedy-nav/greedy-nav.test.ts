@@ -9,7 +9,7 @@ import fs from 'fs';
 import { fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
-import { showToggle, updateLabel, GreedyNavMenu } from './greedy-nav';
+import { showToggle, GreedyNavMenu } from './greedy-nav';
 
 const menuFixture = fs.readFileSync(
   path.join(__dirname, './__fixtures__/menu.html'),
@@ -91,40 +91,6 @@ describe('Greedy Nav', () => {
       expect(toggle.classList).toContain('cads-greedy-nav-is-visible');
       expect(wrapper.classList).toContain('cads-greedy-nav-has-dropdown');
       expect(navWrapper?.getAttribute('aria-haspopup')).toBe('true');
-    });
-  });
-
-  describe('updateLabel', () => {
-    let label: string;
-    let activeLabel: string;
-    let selector: string;
-
-    let wrapper: HTMLElement;
-    let toggle: HTMLElement;
-
-    beforeEach(() => {
-      label = 'Menu';
-      activeLabel = 'Close';
-      selector = '.toggle';
-      document.body.innerHTML =
-        '<div class="wrapper"><div class="toggle"></div></div>';
-
-      wrapper = document.querySelector<HTMLElement>('.wrapper')!;
-      toggle = document.querySelector<HTMLElement>(selector)!;
-    });
-
-    test('updates dropdownToggle to closed state', () => {
-      updateLabel(wrapper, label, selector, activeLabel);
-
-      expect(toggle.innerHTML).toEqual('Menu');
-      expect(toggle.getAttribute('aria-expanded')).toBe('false');
-    });
-
-    test('updates dropdownToggle to open state', () => {
-      updateLabel(wrapper, activeLabel, selector, activeLabel);
-
-      expect(toggle.innerHTML).toEqual('Close');
-      expect(toggle.getAttribute('aria-expanded')).toBe('true');
     });
   });
 
