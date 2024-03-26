@@ -127,8 +127,6 @@ export class GreedyNavMenu {
 
   mainNavSelector: string;
 
-  restWidth: number;
-
   constructor(config: LegacyConfig = legacyDefaultConfig) {
     this.settings = { ...legacyDefaultConfig, ...config };
     this.breaks = [];
@@ -141,8 +139,6 @@ export class GreedyNavMenu {
     this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
     this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
     this.mainNavSelector = this.settings.mainNav;
-
-    this.restWidth = 0;
   }
 
   init(navWrapperElement: HTMLElement) {
@@ -337,10 +333,6 @@ export class GreedyNavMenu {
         navDropdown.appendChild(mainNav.lastElementChild);
       }
     }
-
-    this.breaks.push(this.restWidth);
-
-    showToggle(navigation, this.navDropdownToggleSelector, this.breaks);
   }
 
   toMenu(_this: HTMLElement) {
@@ -364,9 +356,8 @@ export class GreedyNavMenu {
   }
 
   doesItFit(_this: HTMLElement) {
-    Object.assign(this, calculateWidths(_this));
-
     let currentTotalWidth = calculateWidths(_this).totalWidth;
+    let currentRestWidth = calculateWidths(_this).restWidth;
 
     const mainNav = _this.querySelector<HTMLElement>(this.mainNavSelector);
 
@@ -374,11 +365,18 @@ export class GreedyNavMenu {
       throw new Error('main nav not found');
     }
 
-    while (currentTotalWidth <= this.restWidth && mainNav.children.length > 0) {
+    while (
+      currentTotalWidth <= currentRestWidth &&
+      mainNav.children.length > 0
+    ) {
       this.toDropdown(_this);
 
+      this.breaks.push(currentRestWidth);
+
+      showToggle(_this, this.navDropdownToggleSelector, this.breaks);
+
       currentTotalWidth = calculateWidths(_this).totalWidth;
-      Object.assign(this, calculateWidths(_this));
+      currentRestWidth = calculateWidths(_this).restWidth;
     }
 
     while (currentTotalWidth >= this.breaks[this.breaks.length - 1]) {
