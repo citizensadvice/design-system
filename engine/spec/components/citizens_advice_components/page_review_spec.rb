@@ -10,7 +10,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
       )
     end
 
-    it { is_expected.to have_selector ".cads-page-review", text: "Page last reviewed on 12 June 2021" }
+    it { is_expected.to have_css ".cads-page-review", text: "Page last reviewed on 12 June 2021" }
 
     context "when welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }
@@ -24,7 +24,7 @@ RSpec.describe CitizensAdviceComponents::PageReview, type: :component do
       render_inline described_class.new(page_review_date: nil)
     end
 
-    it { is_expected.not_to have_selector ".cads-page-review" }
+    it { is_expected.to have_no_css ".cads-page-review" }
   end
 
   context "when custom date format" do

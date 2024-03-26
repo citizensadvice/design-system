@@ -14,12 +14,12 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "h2", text: "Related Content" }
+    it { is_expected.to have_css "h2", text: "Related Content" }
 
-    it { is_expected.to have_selector "h3", text: "Applying to the EU settlement scheme" }
+    it { is_expected.to have_css "h3", text: "Applying to the EU settlement scheme" }
 
     it "renders a link for each sibling" do
-      expect(page).to have_selector "[data-testid='section-links-link']", count: sample_section_links.count
+      expect(page).to have_css "[data-testid='section-links-link']", count: sample_section_links.count
     end
   end
 
@@ -72,7 +72,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     end
 
     it "renders the additional attributes" do
-      expect(page).to have_selector "[data-testid='section-links-link'][aria-current='page']"
+      expect(page).to have_css "[data-testid='section-links-link'][aria-current='page']"
     end
   end
 
@@ -83,7 +83,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-section-links" }
+    it { is_expected.to have_css ".cads-section-links" }
   end
 
   context "when only section title is present" do
@@ -91,7 +91,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
       render_inline described_class.new(title: nil, section_title: "Applying to the EU settlement scheme", section_title_url: nil)
     end
 
-    it { is_expected.to have_selector ".cads-section-links" }
+    it { is_expected.to have_css ".cads-section-links" }
   end
 
   context "when only content is present" do
@@ -101,7 +101,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-section-links" }
+    it { is_expected.to have_css ".cads-section-links" }
   end
 
   context "when no section title url present" do
@@ -113,7 +113,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     end
 
     it "does not render section title as a link" do
-      expect(page).not_to have_selector "[data-testid='section-title-link']"
+      expect(page).to have_no_css "[data-testid='section-title-link']"
     end
   end
 

@@ -26,19 +26,19 @@ RSpec.describe CitizensAdviceComponents::Select, type: :component do
 
   context "with default arguments" do
     it "links the label to the select" do
-      expect(page).to have_selector "label[for=example-input-input]"
+      expect(page).to have_css "label[for=example-input-input]"
     end
 
     it "adds the correct id to the select" do
-      expect(page).to have_selector "#example-input-input"
+      expect(page).to have_css "#example-input-input"
     end
 
     it "includes aria-required attribute" do
-      expect(page).to have_selector "select[aria-required]"
+      expect(page).to have_css "select[aria-required]"
     end
 
     it "does not have an aria-describedby attribute by default" do
-      expect(page).not_to have_selector "select[aria-describedby]"
+      expect(page).to have_no_css "select[aria-describedby]"
     end
   end
 
@@ -54,35 +54,35 @@ RSpec.describe CitizensAdviceComponents::Select, type: :component do
     it { is_expected.to have_text "(optional)" }
 
     it "does not add required to the input" do
-      expect(page).not_to have_selector "select[required]"
+      expect(page).to have_no_css "select[required]"
     end
   end
 
   context "when an error is present" do
     let(:options) { { error_message: "Enter your name" } }
 
-    it { is_expected.to have_selector "#example-input-error", text: "Enter your name" }
-    it { is_expected.to have_selector "select[aria-invalid]" }
-    it { is_expected.to have_selector "select[aria-describedby=example-input-error]" }
+    it { is_expected.to have_css "#example-input-error", text: "Enter your name" }
+    it { is_expected.to have_css "select[aria-invalid]" }
+    it { is_expected.to have_css "select[aria-describedby=example-input-error]" }
   end
 
   context "when there is hint text" do
     let(:options) { { hint: "This is the hint text" } }
 
     it { is_expected.to have_text "This is the hint text" }
-    it { is_expected.to have_selector "select[aria-describedby=example-input-hint]" }
+    it { is_expected.to have_css "select[aria-describedby=example-input-hint]" }
   end
 
   context "when there is hint text and an error" do
     let(:options) { { hint: "This is the hint text", error_message: "Enter your name" } }
 
-    it { is_expected.to have_selector "select[aria-describedby='example-input-error example-input-hint']" }
+    it { is_expected.to have_css "select[aria-describedby='example-input-error example-input-hint']" }
   end
 
   context "when additional attributes are provided" do
     let(:options) { { additional_attributes: { autocomplete: "name", "data-additional": "example" } } }
 
-    it { is_expected.to have_selector "select[autocomplete=name]" }
-    it { is_expected.to have_selector "select[data-additional=example]" }
+    it { is_expected.to have_css "select[autocomplete=name]" }
+    it { is_expected.to have_css "select[data-additional=example]" }
   end
 end

@@ -10,7 +10,7 @@
   "data-close-label": t("citizens_advice_components.targeted_content.close_label")
 ) do %>
   <%= content_tag(
-    "h#{heading_level}".to_sym,
+    :"h#{heading_level}",
     class: "cads-targeted-content__title js-cads-targeted-content__title",
     id: "h-#{id}",
     "data-testid": "targeted-content-title"

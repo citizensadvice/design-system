@@ -14,19 +14,19 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
     it { is_expected.to have_text "Example content" }
 
     it "renders the closed summary text" do
-      expect(page).to have_selector "[data-label-when-hiding='Show']"
+      expect(page).to have_css "[data-label-when-hiding='Show']"
     end
 
     it "renders the open summary text" do
-      expect(page).to have_selector "[data-label-when-showing='Hide']"
+      expect(page).to have_css "[data-label-when-showing='Hide']"
     end
 
     it "has aria-expand set to false on initial render" do
-      expect(page).to have_selector "[aria-expanded=false]"
+      expect(page).to have_css "[aria-expanded=false]"
     end
 
     it "has aria-controls set to the id of the disclosure content" do
-      expect(page).to have_selector "[aria-controls=show-disclosure-details]"
+      expect(page).to have_css "[aria-controls=show-disclosure-details]"
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
     end
 
     it "shows the closed summary text when open" do
-      expect(page).to have_selector "[data-label-when-showing='Hide this section, Show']"
+      expect(page).to have_css "[data-label-when-showing='Hide this section, Show']"
     end
   end
 
@@ -49,7 +49,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
       ).with_content("Example content")
     end
 
-    it { is_expected.not_to have_selector ".cads-disclosure" }
+    it { is_expected.to have_no_css ".cads-disclosure" }
   end
 
   context "when there is no disclosure content" do
@@ -60,7 +60,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector ".cads-disclosure" }
+    it { is_expected.to have_no_css ".cads-disclosure" }
   end
 
   context "when there is custom id" do
@@ -72,7 +72,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
       ).with_content("Example content")
     end
 
-    it { is_expected.to have_selector "[data-toggle-target-id='my-id']" }
+    it { is_expected.to have_css "[data-toggle-target-id='my-id']" }
   end
 
   context "when additional attributes are provided" do
@@ -84,6 +84,6 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
       ).with_content("Example content")
     end
 
-    it { is_expected.to have_selector "[data-additional='example']" }
+    it { is_expected.to have_css "[data-additional='example']" }
   end
 end

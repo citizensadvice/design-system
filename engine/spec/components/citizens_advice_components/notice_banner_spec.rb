@@ -10,8 +10,8 @@ RSpec.describe CitizensAdviceComponents::NoticeBanner, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-notice-banner" }
-    it { is_expected.to have_selector "span", text: "Example label" }
+    it { is_expected.to have_css ".cads-notice-banner" }
+    it { is_expected.to have_css "span", text: "Example label" }
     it { is_expected.to have_text "Example content" }
   end
 
@@ -20,6 +20,6 @@ RSpec.describe CitizensAdviceComponents::NoticeBanner, type: :component do
       render_inline(described_class.new(label: "Example label"))
     end
 
-    it { is_expected.not_to have_selector ".cads-notice-banner" }
+    it { is_expected.to have_no_css ".cads-notice-banner" }
   end
 end

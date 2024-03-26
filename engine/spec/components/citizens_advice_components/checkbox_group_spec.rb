@@ -21,15 +21,15 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
     end
 
     it "has no checked inputs by default" do
-      expect(page).not_to have_selector "input[checked]"
+      expect(page).to have_no_css "input[checked]"
     end
 
     it "constructs the ids of the inputs correctly" do
-      expect(page).to have_selector "#checkboxes-1"
+      expect(page).to have_css "#checkboxes-1"
     end
 
     it "associates the labels with the inputs correctly" do
-      expect(page).to have_selector "label[for=checkboxes-1]"
+      expect(page).to have_css "label[for=checkboxes-1]"
     end
   end
 
@@ -49,7 +49,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#test-id-0"
+      expect(page).to have_css "#test-id-0"
     end
   end
 
@@ -61,7 +61,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector ".cads-form-field" }
+    it { is_expected.to have_no_css ".cads-form-field" }
   end
 
   context "when invalid optional parameter is passed" do
@@ -75,7 +75,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
       end
     end
 
-    it { is_expected.not_to have_text "(optional}" }
+    it { is_expected.to have_no_text "(optional}" }
   end
 
   context "when an error message is provided" do
@@ -89,7 +89,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-form-field--has-error" }
+    it { is_expected.to have_css ".cads-form-field--has-error" }
     it { is_expected.to have_text "This is the error message" }
   end
 
@@ -139,7 +139,7 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "[data-additional=example]" }
+    it { is_expected.to have_css "[data-additional=example]" }
   end
 
   private

@@ -21,15 +21,15 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     end
 
     it "has no checked inputs by default" do
-      expect(page).not_to have_selector "input[checked]"
+      expect(page).to have_no_css "input[checked]"
     end
 
     it "constructs the ids of the inputs correctly" do
-      expect(page).to have_selector "#radio-group-1"
+      expect(page).to have_css "#radio-group-1"
     end
 
     it "associates the labels with the inputs correctly" do
-      expect(page).to have_selector "label[for=radio-group-1]"
+      expect(page).to have_css "label[for=radio-group-1]"
     end
   end
 
@@ -49,7 +49,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#test-id-0"
+      expect(page).to have_css "#test-id-0"
     end
   end
 
@@ -61,7 +61,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector ".cads-form-field" }
+    it { is_expected.to have_no_css ".cads-form-field" }
   end
 
   context "when an error message is provided" do
@@ -75,7 +75,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-form-field--has-error" }
+    it { is_expected.to have_css ".cads-form-field--has-error" }
     it { is_expected.to have_text "This is the error message" }
   end
 
@@ -128,7 +128,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
 
       it "renders the radio group in list layout" do
-        expect(page).to have_selector ".cads-radio-group--list"
+        expect(page).to have_css ".cads-radio-group--list"
       end
     end
 
@@ -144,7 +144,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
 
       it "renders the radio group in list layout" do
-        expect(page).to have_selector ".cads-radio-group--list"
+        expect(page).to have_css ".cads-radio-group--list"
       end
     end
 
@@ -160,7 +160,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
 
       it "renders the radio group in list layout" do
-        expect(page).to have_selector ".cads-radio-group--inline"
+        expect(page).to have_css ".cads-radio-group--inline"
       end
     end
   end
@@ -180,7 +180,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
 
       it "renders the regular size radio group" do
-        expect(page).to have_selector ".cads-radio-group--regular"
+        expect(page).to have_css ".cads-radio-group--regular"
       end
     end
 
@@ -196,7 +196,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
 
       it "renders the regular size radio group" do
-        expect(page).to have_selector ".cads-radio-group--regular"
+        expect(page).to have_css ".cads-radio-group--regular"
       end
     end
 
@@ -212,7 +212,7 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
       end
 
       it "renders the small size radio group" do
-        expect(page).to have_selector ".cads-radio-group--small"
+        expect(page).to have_css ".cads-radio-group--small"
       end
     end
   end

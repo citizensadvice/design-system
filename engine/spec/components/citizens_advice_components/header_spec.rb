@@ -6,7 +6,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
   describe "no slots" do
     before { render_inline described_class.new }
 
-    it { is_expected.not_to have_selector "header" }
+    it { is_expected.to have_no_css "header" }
   end
 
   describe "logo slot" do
@@ -20,7 +20,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       it { is_expected.to have_link "Logo title", href: "/homepage" }
 
       it "does not show right column when only logo is present" do
-        expect(page).not_to have_selector ".cads-header__search-row"
+        expect(page).to have_no_css ".cads-header__search-row"
       end
     end
 
@@ -43,7 +43,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
         end
       end
 
-      it { is_expected.to have_selector ".cads-skip-links a", count: 3 }
+      it { is_expected.to have_css ".cads-skip-links a", count: 3 }
       it { is_expected.to have_link "Skip to navigation", href: "#cads-navigation" }
       it { is_expected.to have_link "Skip to main content", href: "#cads-main-content" }
       it { is_expected.to have_link "Skip to footer", href: "#cads-footer" }
@@ -57,7 +57,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
         end
       end
 
-      it { is_expected.to have_selector ".cads-skip-links a", count: 1 }
+      it { is_expected.to have_css ".cads-skip-links a", count: 1 }
       it { is_expected.to have_link "Skip to main content", href: "#content" }
     end
   end
@@ -74,8 +74,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-header__links a", count: 2 }
-    it { is_expected.to have_selector "span", text: "Public site" }
+    it { is_expected.to have_css ".cads-header__links a", count: 2 }
+    it { is_expected.to have_css "span", text: "Public site" }
     it { is_expected.to have_link "Intranet", href: "/intranet" }
     it { is_expected.to have_link "Cymraeg", href: "/cymraeg" }
   end
@@ -114,8 +114,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       end
     end
 
-    it { is_expected.to have_selector "form[role=search]" }
-    it { is_expected.to have_selector "form[action='/search']" }
+    it { is_expected.to have_css "form[role=search]" }
+    it { is_expected.to have_css "form[action='/search']" }
 
     it { is_expected.to have_field "Search through site content" }
 

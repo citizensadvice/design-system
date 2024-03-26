@@ -15,19 +15,19 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     it { is_expected.to have_field "Example input", type: :text }
 
     it "links the label to the input" do
-      expect(page).to have_selector "label[for=example-input-input]"
+      expect(page).to have_css "label[for=example-input-input]"
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#example-input-input"
+      expect(page).to have_css "#example-input-input"
     end
 
     it "includes aria-required attribute" do
-      expect(page).to have_selector "input[aria-required=true]"
+      expect(page).to have_css "input[aria-required=true]"
     end
 
     it "does not have an aria-describedby attribute by default" do
-      expect(page).not_to have_selector "input[aria-describedby]"
+      expect(page).to have_no_css "input[aria-describedby]"
     end
   end
 
@@ -48,19 +48,19 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     end
 
     it "adds the correct id to the input" do
-      expect(page).to have_selector "#test-id-input"
+      expect(page).to have_css "#test-id-input"
     end
 
     it "adds the correct id to the label" do
-      expect(page).to have_selector "#test-id-label"
+      expect(page).to have_css "#test-id-label"
     end
 
     it "adds the correct id to the hint" do
-      expect(page).to have_selector "#test-id-hint"
+      expect(page).to have_css "#test-id-hint"
     end
 
     it "adds the correct id to the error message" do
-      expect(page).to have_selector "#test-id-error"
+      expect(page).to have_css "#test-id-error"
     end
   end
 
@@ -118,7 +118,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     it { is_expected.to have_text "(optional)" }
 
     it "does not add required to the input" do
-      expect(page).not_to have_selector "input[required]"
+      expect(page).to have_no_css "input[required]"
     end
 
     context "when in Cymraeg" do
@@ -138,9 +138,9 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "#example-input-error", text: "Enter your name" }
-    it { is_expected.to have_selector "input[aria-invalid]" }
-    it { is_expected.to have_selector "input[aria-describedby=example-input-error]" }
+    it { is_expected.to have_css "#example-input-error", text: "Enter your name" }
+    it { is_expected.to have_css "input[aria-invalid]" }
+    it { is_expected.to have_css "input[aria-describedby=example-input-error]" }
   end
 
   context "when there is hint text" do
@@ -154,7 +154,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     end
 
     it { is_expected.to have_text "This is the hint text" }
-    it { is_expected.to have_selector "input[aria-describedby=example-input-hint]" }
+    it { is_expected.to have_css "input[aria-describedby=example-input-hint]" }
   end
 
   context "when there is hint text and an error" do
@@ -167,7 +167,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "input[aria-describedby='example-input-error example-input-hint']" }
+    it { is_expected.to have_css "input[aria-describedby='example-input-error example-input-hint']" }
   end
 
   context "when additional attributes are provided" do
@@ -180,8 +180,8 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
       )
     end
 
-    it { is_expected.to have_selector "input[autocomplete=name]" }
-    it { is_expected.to have_selector "input[data-additional=example]" }
+    it { is_expected.to have_css "input[autocomplete=name]" }
+    it { is_expected.to have_css "input[data-additional=example]" }
   end
 
   context "when a valid width is specified" do
@@ -195,7 +195,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     end
 
     it "renders the input at the correct width" do
-      expect(page).to have_selector ".cads-input--four-chars"
+      expect(page).to have_css ".cads-input--four-chars"
     end
   end
 
@@ -212,7 +212,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     end
 
     it "renders a full width version" do
-      expect(page).to have_selector ".cads-input"
+      expect(page).to have_css ".cads-input"
     end
   end
 end

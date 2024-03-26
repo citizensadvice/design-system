@@ -21,8 +21,8 @@ RSpec.describe CitizensAdviceComponents::Navigation, type: :component do
       )
     end
 
-    it { is_expected.to have_selector ".cads-navigation" }
-    it { is_expected.to have_selector "a", count: 10 }
+    it { is_expected.to have_css ".cads-navigation" }
+    it { is_expected.to have_css "a", count: 10 }
     it { is_expected.to have_link "Benefits", href: "/benefits/" }
     it { is_expected.to have_link "Work", href: "/work/" }
   end
@@ -32,6 +32,6 @@ RSpec.describe CitizensAdviceComponents::Navigation, type: :component do
       render_inline described_class.new(links: nil)
     end
 
-    it { is_expected.not_to have_selector ".cads-navigation" }
+    it { is_expected.to have_no_css ".cads-navigation" }
   end
 end

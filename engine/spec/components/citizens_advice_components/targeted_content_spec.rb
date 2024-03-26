@@ -14,9 +14,9 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-targeted-content", text: "Example content" }
-    it { is_expected.to have_selector "h2", text: "Example title" }
-    it { is_expected.not_to have_selector ".cads-badge" }
+    it { is_expected.to have_css ".cads-targeted-content", text: "Example content" }
+    it { is_expected.to have_css "h2", text: "Example title" }
+    it { is_expected.to have_no_css ".cads-badge" }
   end
 
   context "when missing type" do
@@ -32,8 +32,8 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-targeted-content" }
-    it { is_expected.not_to have_selector ".cads-badge" }
+    it { is_expected.to have_css ".cads-targeted-content" }
+    it { is_expected.to have_no_css ".cads-badge" }
   end
 
   context "when type is adviser" do
@@ -47,13 +47,13 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       end
     end
 
-    it { is_expected.to have_selector ".cads-targeted-content--adviser" }
-    it { is_expected.to have_selector ".cads-badge", text: "Adviser" }
+    it { is_expected.to have_css ".cads-targeted-content--adviser" }
+    it { is_expected.to have_css ".cads-badge", text: "Adviser" }
 
     context "when welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }
 
-      it { is_expected.to have_selector ".cads-badge", text: "Cynghorydd" }
+      it { is_expected.to have_css ".cads-badge", text: "Cynghorydd" }
     end
   end
 
@@ -72,14 +72,14 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
     context "with valid heading_level" do
       let(:heading_level) { 3 }
 
-      it { is_expected.to have_selector "h3", text: "Example title" }
+      it { is_expected.to have_css "h3", text: "Example title" }
     end
 
     context "with heading_level under limit" do
       let(:heading_level) { 1 }
 
       it "has heading clamped to minimum" do
-        expect(page).to have_selector "h2", text: "Example title"
+        expect(page).to have_css "h2", text: "Example title"
       end
     end
 
@@ -87,7 +87,7 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       let(:heading_level) { 7 }
 
       it "has heading clamped to maximum" do
-        expect(page).to have_selector "h6", text: "Example title"
+        expect(page).to have_css "h6", text: "Example title"
       end
     end
 
@@ -95,7 +95,7 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       let(:heading_level) { "not_a_heading_level" }
 
       it "has heading set to default" do
-        expect(page).to have_selector "h2", text: "Example title"
+        expect(page).to have_css "h2", text: "Example title"
       end
     end
   end
@@ -109,6 +109,6 @@ RSpec.describe CitizensAdviceComponents::TargetedContent, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector ".cads-targeted-content" }
+    it { is_expected.to have_no_css ".cads-targeted-content" }
   end
 end

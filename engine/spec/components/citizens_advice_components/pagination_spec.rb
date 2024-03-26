@@ -15,8 +15,8 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
     context "when on first page" do
       let(:current_page) { 1 }
 
-      it { is_expected.to have_selector "a", count: 5 }
-      it { is_expected.to have_selector "a[aria-current]", count: 1 }
+      it { is_expected.to have_css "a", count: 5 }
+      it { is_expected.to have_css "a[aria-current]", count: 1 }
 
       it { is_expected.to have_link "1", href: "?page=1&q=debt+and+money" }
       it { is_expected.to have_link "2", href: "?page=2&q=debt+and+money" }
@@ -34,7 +34,7 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
         ]
       end
 
-      it { is_expected.to have_selector "nav[aria-label='Pagination navigation']" }
+      it { is_expected.to have_css "nav[aria-label='Pagination navigation']" }
     end
 
     context "when on second page" do
@@ -136,7 +136,7 @@ RSpec.describe CitizensAdviceComponents::Pagination, type: :component do
       )
     end
 
-    it { is_expected.not_to have_selector "nav" }
+    it { is_expected.to have_no_css "nav" }
   end
 
   context "when custom param_name" do

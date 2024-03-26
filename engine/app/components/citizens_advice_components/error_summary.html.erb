@@ -8,7 +8,7 @@
   autofocus: autofocus?
 ) do %>
   <%= content_tag(
-    "h#{heading_level}".to_sym,
+    :"h#{heading_level}",
     id: "error-summary-title",
     class: "cads-error-summary__title"
   ) do %>

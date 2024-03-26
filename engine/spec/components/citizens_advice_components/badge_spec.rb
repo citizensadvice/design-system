@@ -10,13 +10,13 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
       end
     end
 
-    it { is_expected.not_to have_selector ".cads-badge" }
+    it { is_expected.to have_no_css ".cads-badge" }
   end
 
   context "when type is example" do
     before { render_inline described_class.new(type: :example) }
 
-    it { is_expected.to have_selector ".cads-badge--example", text: "Example" }
+    it { is_expected.to have_css ".cads-badge--example", text: "Example" }
 
     context "when welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }
@@ -28,7 +28,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
   context "when type is important" do
     before { render_inline described_class.new(type: :important) }
 
-    it { is_expected.to have_selector ".cads-badge--important", text: "Important" }
+    it { is_expected.to have_css ".cads-badge--important", text: "Important" }
 
     context "when welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }
@@ -40,7 +40,7 @@ RSpec.describe CitizensAdviceComponents::Badge, type: :component do
   context "when type is adviser" do
     before { render_inline described_class.new(type: :adviser) }
 
-    it { is_expected.to have_selector ".cads-badge--adviser", text: "Adviser" }
+    it { is_expected.to have_css ".cads-badge--adviser", text: "Adviser" }
 
     context "when welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }
