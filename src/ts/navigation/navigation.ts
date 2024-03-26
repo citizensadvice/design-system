@@ -48,13 +48,14 @@ function setDropdownLabel(containerEl: HTMLElement) {
 }
 
 function buildToggleEl(containerEl: HTMLElement, dropdownId: string) {
+  const toggleId = 'cads-greedy-nav-toggle';
   const toggleEl = document.createElement('button');
   toggleEl.innerHTML =
     containerEl.getAttribute('data-dropdown-label') || 'More';
   toggleEl.setAttribute('aria-label', 'More navigation options');
-
   toggleEl.setAttribute('aria-expanded', 'false');
-  toggleEl.setAttribute('id', 'cads-greedy-nav-toggle');
+  toggleEl.setAttribute('id', toggleId);
+  toggleEl.setAttribute('data-testid', toggleId);
   toggleEl.setAttribute('aria-controls', dropdownId);
   toggleEl.setAttribute('type', 'button');
 
@@ -155,6 +156,7 @@ export class GreedyNavMenu {
     const dropdownId = 'cads-greedy-nav-dropdown';
     this.navDropdown = document.createElement('ul');
     this.navDropdown.setAttribute('id', dropdownId);
+    this.navDropdown.setAttribute('data-testid', dropdownId);
     this.navDropdown.classList.add(this.settings.navDropdownClassName);
     this.navDropdown.classList.add('cads-greedy-nav__dropdown');
 

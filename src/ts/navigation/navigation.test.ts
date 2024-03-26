@@ -6,7 +6,7 @@
 import '@testing-library/jest-dom';
 import path from 'path';
 import fs from 'fs';
-import { fireEvent } from '@testing-library/dom';
+import { screen, fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
 import { showToggle, GreedyNavMenu } from './navigation';
@@ -175,28 +175,35 @@ describe('Greedy Nav', () => {
     });
 
     test('toggles the menu open', () => {
-      fireEvent.keyUp(nav.navDropdownToggle, { key: 'Tab' });
+      const containerEl = screen.getByRole('navigation');
+      const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
+      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
-      expect(nav.navDropdown!.className).toContain('show');
-      expect(nav.mainNavWrapper!.className).toContain('is-open');
-      expect(nav.navDropdownToggle!.innerHTML).toContain('Close');
-      expect(nav.navDropdownToggle).toHaveAttribute(
+      expect(toggleEl).toHaveTextContent('More');
+
+      fireEvent.keyUp(toggleEl, { key: 'Tab' });
+
+      expect(navDropdown).toHaveClass('show');
+      expect(containerEl).toHaveClass('is-open');
+      expect(toggleEl).toHaveTextContent('Close');
+      expect(toggleEl).toHaveAttribute(
         'aria-label',
         'Close navigation options',
       );
     });
 
     test('when tabbing backwards through the dropdown menu', () => {
-      fireEvent.focus(nav.navDropdownToggle);
-      fireEvent.blur(nav.navDropdownToggle);
+      const containerEl = screen.getByRole('navigation');
+      const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
+      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
-      expect(nav.navDropdown!.className).not.toContain('show');
-      expect(nav.mainNavWrapper!.className).not.toContain('is-open');
-      expect(nav.navDropdownToggle!.innerHTML).toContain('More');
-      expect(nav.navDropdownToggle).toHaveAttribute(
-        'aria-label',
-        'More navigation options',
-      );
+      fireEvent.focus(toggleEl);
+      fireEvent.blur(toggleEl);
+
+      expect(navDropdown).not.toHaveClass('show');
+      expect(containerEl).not.toHaveClass('is-open');
+      expect(toggleEl).toHaveTextContent('More');
+      expect(toggleEl).toHaveAttribute('aria-label', 'More navigation options');
     });
   });
 
@@ -207,26 +214,30 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = menuFixture;
 
       nav = new GreedyNavMenu();
-      nav.init(document.querySelector('.js-cads-greedy-nav'));
+      nav.init(document.querySelector('.js-cads-greedy-nav') as HTMLElement);
     });
 
     test('opens the dropdown menu', async () => {
       const user = userEvent.setup();
 
+      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
+
       await user.click(nav.navDropdownToggle);
 
-      expect(nav.navDropdown.classList).toContain('show');
-      expect(nav.navDropdown!).toHaveAttribute('aria-hidden', 'false');
+      expect(navDropdown).toHaveClass('show');
+      expect(navDropdown).toHaveAttribute('aria-hidden', 'false');
     });
 
     test('closes the dropdown menu', async () => {
       const user = userEvent.setup();
 
+      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
+
       await user.click(nav.navDropdownToggle);
       await user.click(nav.navDropdownToggle);
 
-      expect(nav.navDropdown).not.toContain('show');
-      expect(nav.navDropdown).toHaveAttribute('aria-hidden', 'true');
+      expect(navDropdown).not.toHaveClass('show');
+      expect(navDropdown).toHaveAttribute('aria-hidden', 'true');
     });
   });
 });
