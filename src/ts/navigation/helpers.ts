@@ -35,26 +35,6 @@ function getElementContentWidth(element: HTMLElement) {
   return element.clientWidth - padding;
 }
 
-function viewportSize() {
-  const doc = document;
-  const w = window;
-  const docEl =
-    doc.compatMode && doc.compatMode === 'CSS1Compat'
-      ? doc.documentElement
-      : doc.body;
-
-  let width = docEl.clientWidth;
-  let height = docEl.clientHeight;
-
-  // mobile zoomed in?
-  if (w.innerWidth && width > w.innerWidth) {
-    width = w.innerWidth;
-    height = w.innerHeight;
-  }
-
-  return { width, height };
-}
-
 function getChildrenWidth(e: HTMLElement) {
   const children = e.childNodes;
   let sum = 0;
@@ -75,9 +55,8 @@ export function calculateWidths(element: HTMLElement) {
   const offsetPixels = -10;
 
   const restWidth = getChildrenWidth(element) + offsetPixels;
-  const viewportWidth = viewportSize().width;
 
-  return { totalWidth, restWidth, viewportWidth };
+  return { totalWidth, restWidth };
 }
 
 export function relatedTarget(e: Nullable<FocusEvent>): Nullable<HTMLElement> {
