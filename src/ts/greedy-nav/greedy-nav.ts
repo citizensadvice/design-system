@@ -1,7 +1,5 @@
 /* eslint-disable no-console */
-import { debounce, parent } from './helpers';
-
-const supports = !!document.querySelector && !!window.addEventListener; // Feature test
+import { debounce, parent, calculateWidths, relatedTarget } from './helpers';
 
 interface LegacyConfig {
   mainNavWrapper: string;
@@ -117,83 +115,6 @@ export const updateLabel = (
     toggle.setAttribute('aria-expanded', 'false');
   }
 };
-
-/**
- * Get innerwidth without padding
- * @param element
- * @returns {number}
- */
-const getElementContentWidth = (element: HTMLElement) => {
-  const styles = window.getComputedStyle(element);
-  const padding =
-    parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
-
-  return element.clientWidth - padding;
-};
-
-/**
- * Get viewport size
- * @returns {{width: number, height: number}}
- */
-const viewportSize = () => {
-  const doc = document;
-  const w = window;
-  const docEl =
-    doc.compatMode && doc.compatMode === 'CSS1Compat'
-      ? doc.documentElement
-      : doc.body;
-
-  let width = docEl.clientWidth;
-  let height = docEl.clientHeight;
-
-  // mobile zoomed in?
-  if (w.innerWidth && width > w.innerWidth) {
-    width = w.innerWidth;
-    height = w.innerHeight;
-  }
-
-  return { width, height };
-};
-
-/**
- * Count width of children and return the value
- * @param e
- */
-const getChildrenWidth = (e: HTMLElement) => {
-  const children = e.childNodes;
-  let sum = 0;
-  for (let i = 0; i < children.length; i++) {
-    if (children[i].nodeType !== 3) {
-      if (!Number.isNaN((<HTMLElement>children[i]).offsetWidth)) {
-        sum += (<HTMLElement>children[i]).offsetWidth;
-      }
-    }
-  }
-  return sum;
-};
-
-/**
- * Get width
- * @param elem
- * @returns {number}
- */
-const calculateWidths = (element: HTMLElement) => {
-  const totalWidth = getElementContentWidth(element);
-
-  // Adds a tolerance to account for alignment to the layout grid.
-  const offsetPixels = -10;
-
-  const restWidth = getChildrenWidth(element) + offsetPixels;
-  const viewportWidth = viewportSize().width;
-
-  return { totalWidth, restWidth, viewportWidth };
-};
-
-const relatedTarget = (
-  e: Nullable<FocusEvent>,
-  document: HTMLDocument,
-): Nullable<HTMLElement> =>
-  <HTMLElement>e?.relatedTarget || document.activeElement;
 
 export class GreedyNavMenu {
   settings: LegacyConfig;
@@ -450,7 +371,7 @@ export class GreedyNavMenu {
         return;
       }
 
-      if (!parent(relatedTarget(event, document), this.toggleWrapper)) {
+      if (!parent(relatedTarget(event), this.toggleWrapper)) {
         this.closeDropDown(navWrapper);
 
         const navLastDropdownLink = navWrapper.querySelector<HTMLElement>(
@@ -498,7 +419,7 @@ export class GreedyNavMenu {
             lastItem = this.navDropdown?.querySelector(`li:last-child a`);
           }
 
-          if (!parent(relatedTarget(e, this.document), this.toggleWrapper)) {
+          if (!parent(relatedTarget(e), this.toggleWrapper)) {
             // tabbing backwards
             lastItem?.removeEventListener(blurEventName, lastItemCloseHandler);
 
@@ -738,9 +659,7 @@ export class GreedyNavMenu {
 }
 
 export function initGreedyNav(options: LegacyConfig = legacyDefaultConfig) {
-  if (supports) {
-    console.log('Initialising refactored greedy navigation');
-    const menu = new GreedyNavMenu(options);
-    menu.init();
-  }
+  console.log('Initialising refactored greedy navigation');
+  const menu = new GreedyNavMenu(options);
+  menu.init();
 }
