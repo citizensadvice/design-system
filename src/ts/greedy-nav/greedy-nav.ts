@@ -141,16 +141,8 @@ export class GreedyNavMenu {
 
   viewportWidth: number;
 
-  /**
-   * Only insert the document when using JSDOM for testing.
-   */
-  document: HTMLDocument;
-
   // eslint-disable-next-line default-param-last
-  constructor(
-    config: LegacyConfig = legacyDefaultConfig,
-    document?: HTMLDocument,
-  ) {
+  constructor(config: LegacyConfig = legacyDefaultConfig) {
     this.settings = { ...legacyDefaultConfig, ...config };
     this.breaks = [];
     this.mainNavWrapper = null;
@@ -166,8 +158,6 @@ export class GreedyNavMenu {
     this.totalWidth = 0;
     this.restWidth = 0;
     this.viewportWidth = 0;
-
-    this.document = document || window.document;
   }
 
   init(): void {
@@ -175,7 +165,7 @@ export class GreedyNavMenu {
      * Store nodes
      * @type {NodeList}
      */
-    const navWrapperList = this.document.querySelectorAll<HTMLElement>(
+    const navWrapperList = document.querySelectorAll<HTMLElement>(
       this.settings.mainNavWrapper,
     );
 
@@ -238,9 +228,9 @@ export class GreedyNavMenu {
      * Create dropdown menu
      * @type {HTMLElement}
      */
-    this.toggleWrapper = this.document.createElement('div');
-    this.navDropdown = this.document.createElement('ul');
-    this.navDropdownToggle = this.document.createElement('button');
+    this.toggleWrapper = document.createElement('div');
+    this.navDropdown = document.createElement('ul');
+    this.navDropdownToggle = document.createElement('button');
 
     /**
      * Set ID on nav dropdown so we can reference it later
@@ -435,7 +425,7 @@ export class GreedyNavMenu {
     /*
      * Remove when clicked outside dropdown
      */
-    this.document.addEventListener('click', (event: MouseEvent) => {
+    document.addEventListener('click', (event: MouseEvent) => {
       const targetEl = <HTMLElement>event.target;
       if (
         targetEl &&
@@ -451,7 +441,7 @@ export class GreedyNavMenu {
     /**
      * Remove when escape key is pressed
      */
-    this.document.onkeydown = (evt: KeyboardEvent) => {
+    document.onkeydown = (evt: KeyboardEvent) => {
       const event = evt || window.event;
 
       if (event.keyCode === 27) {
