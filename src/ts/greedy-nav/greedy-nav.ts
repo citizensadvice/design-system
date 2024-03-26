@@ -52,14 +52,6 @@ interface LegacyConfig {
    * increase to decrease the time it takes to move an item.
    */
   offsetPixels: number;
-  /**
-   * prints the amount of items are moved to the attribute data-count to style with css counter.
-   */
-  count: true;
-
-  // Callbacks
-  moved: () => void;
-  movedBack: () => void;
 }
 
 const legacyDefaultConfig: LegacyConfig = {
@@ -80,11 +72,6 @@ const legacyDefaultConfig: LegacyConfig = {
    * that from occuring whilst maintainng the otherwise correct behaviour of GreedyNav.
    */
   offsetPixels: -10,
-  count: true,
-
-  // Callbacks
-  moved: () => null,
-  movedBack: () => null,
 };
 
 /**
@@ -158,20 +145,6 @@ export const showToggle = (
       navWrapper.setAttribute('aria-haspopup', 'true');
     }
   }
-};
-
-/**
- * Update count on dropdown toggle button
- */
-const updateCount = (
-  _this: HTMLElement,
-  navDropdownToggleSelector: string,
-  breaks: number[],
-): void => {
-  // eslint-disable-next-line no-unused-expressions
-  _this
-    .querySelector<HTMLElement>(navDropdownToggleSelector)
-    ?.setAttribute('cadsGreedyNav-count', `${breaks.length}`);
 };
 
 export const updateLabel = (
@@ -281,11 +254,7 @@ const relatedTarget = (
 export class GreedyNavMenu {
   settings: LegacyConfig;
 
-  count: number;
-
   breaks: number[];
-
-  instance: number;
 
   mainNavWrapper: Nullable<HTMLElement>;
 
@@ -318,9 +287,7 @@ export class GreedyNavMenu {
     document?: HTMLDocument,
   ) {
     this.settings = { ...legacyDefaultConfig, ...config };
-    this.count = 0;
     this.breaks = [];
-    this.instance = 0;
     this.mainNavWrapper = null;
 
     this.navDropdown = null;
@@ -375,11 +342,6 @@ export class GreedyNavMenu {
       this.breaks = [];
 
       /**
-       * Set the instance number as data attribute
-       */
-      navWrapperElement.setAttribute('instance', `${this.count++}`);
-
-      /**
        * Store the wrapper element
        */
       this.mainNavWrapper = navWrapperElement;
@@ -425,11 +387,6 @@ export class GreedyNavMenu {
        */
       this.listeners(navWrapperElement);
     });
-
-    /**
-     * Count amount of instances
-     */
-    this.instance++;
 
     /**
      * Add class to HTML element to activate conditional CSS
@@ -704,18 +661,6 @@ export class GreedyNavMenu {
      * check if we need to show toggle menu button
      */
     showToggle(navigation, this.navDropdownToggleSelector, this.breaks);
-
-    /**
-     * update count on dropdown toggle button
-     */
-    if (mainNav && mainNav.children.length > 0 && this.settings.count) {
-      updateCount(navigation, this.navDropdownToggleSelector, this.breaks);
-    }
-
-    /**
-     * If item has been moved to dropdown trigger the callback
-     */
-    this.settings.moved();
   }
 
   /**
@@ -748,18 +693,6 @@ export class GreedyNavMenu {
      * Check if we need to show toggle menu button
      */
     showToggle(_this, this.navDropdownToggleSelector, this.breaks);
-
-    /**
-     * update count on dropdown toggle button
-     */
-    if (mainNav && mainNav.children.length > 0 && this.settings.count) {
-      updateCount(_this, this.navDropdownToggleSelector, this.breaks);
-    }
-
-    /**
-     * If item has been moved back to the main menu trigger the callback
-     */
-    this.settings.movedBack();
   }
 
   /**
@@ -767,11 +700,6 @@ export class GreedyNavMenu {
    * @param item
    */
   doesItFit(_this: HTMLElement): void {
-    /**
-     * Increase instance
-     */
-    this.instance++;
-
     /**
      * Debounced execution of the main logic
      */
