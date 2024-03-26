@@ -156,63 +156,14 @@ export class GreedyNavMenu {
     this.viewportWidth = 0;
   }
 
-  init(): void {
-    /**
-     * Store nodes
-     * @type {NodeList}
-     */
-    const navWrapperList = document.querySelectorAll<HTMLElement>(
-      this.settings.mainNavWrapper,
-    );
-
-    /**
-     * Loop over every instance and reference _this
-     */
-    navWrapperList.forEach((navWrapperElement) => {
-      /**
-       * Create breaks array
-       * @type {number}
-       */
-      this.breaks = [];
-
-      /**
-       * Store the wrapper element
-       */
-      this.mainNavWrapper = navWrapperElement;
-      if (!this.mainNavWrapper) {
-        console.warn("couldn't find the specified mainNavWrapper element");
-        return;
-      }
-
-      /**
-       * Store the menu elementStore the menu element
-       */
-      this.mainNavSelector = this.settings.mainNav;
-      if (!navWrapperElement.querySelector(this.mainNavSelector)) {
-        console.warn("couldn't find the specified mainNav element");
-        return;
-      }
-
-      /**
-       * Check if we need to create the dropdown elements
-       */
-      this.prepareHtml(navWrapperElement);
-
-      /**
-       * Store the dropdown element
-       */
-      this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
-
-      /**
-       * Store the dropdown toggle element
-       */
-      this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
-
-      /**
-       * Event listeners
-       */
-      this.listeners(navWrapperElement);
-    });
+  init(navWrapperElement: HTMLElement): void {
+    this.breaks = [];
+    this.mainNavWrapper = navWrapperElement;
+    this.mainNavSelector = this.settings.mainNav;
+    this.prepareHtml(navWrapperElement);
+    this.navDropdownSelector = `.${this.settings.navDropdownClassName}`;
+    this.navDropdownToggleSelector = `.${this.settings.navDropdownToggleClassName}`;
+    this.listeners(navWrapperElement);
   }
 
   /**
@@ -610,7 +561,13 @@ export class GreedyNavMenu {
 }
 
 export function initGreedyNav(options: LegacyConfig = legacyDefaultConfig) {
-  console.log('Initialising refactored greedy navigation with inlined labels');
-  const menu = new GreedyNavMenu(options);
-  menu.init();
+  const containerEl = document.querySelector<HTMLElement>(
+    '.js-cads-greedy-nav',
+  );
+
+  if (containerEl) {
+    console.log('Initialising greedy navigation');
+    const menu = new GreedyNavMenu(options);
+    menu.init(containerEl);
+  }
 }

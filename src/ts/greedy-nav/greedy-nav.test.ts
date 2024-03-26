@@ -166,7 +166,7 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = menuFixture;
 
       nav = new GreedyNavMenu();
-      nav.init();
+      nav.init(document.querySelector('.js-cads-greedy-nav'));
 
       // Change the viewport to 300px.
       global.innerWidth = 300;
@@ -208,7 +208,7 @@ describe('Greedy Nav', () => {
       document.body.innerHTML = menuFixture;
 
       nav = new GreedyNavMenu();
-      nav.init();
+      nav.init(document.querySelector('.js-cads-greedy-nav'));
     });
 
     test('opens the dropdown menu', async () => {
