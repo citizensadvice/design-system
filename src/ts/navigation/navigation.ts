@@ -294,9 +294,8 @@ export class GreedyNavMenu {
       if (
         targetEl &&
         targetEl.closest('#cads-greedy-nav-dropdown') &&
-        navDropdownToggle &&
         targetEl !== navDropdownToggle &&
-        containerEl.classList.contains('is-open')
+        isExpanded(navDropdownToggle)
       ) {
         closeDropDown(containerEl);
       }
