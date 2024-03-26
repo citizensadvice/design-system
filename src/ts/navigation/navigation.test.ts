@@ -1,20 +1,12 @@
 /**
  * @jest-environment jsdom
  */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom';
-import path from 'path';
-import fs from 'fs';
 import { screen, fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
-import { showToggle, GreedyNavMenu } from './navigation';
-
-const menuFixture = fs.readFileSync(
-  path.join(__dirname, './__fixtures__/menu.html'),
-  'utf8',
-);
+import initNavigation from './navigation';
 
 class ResizeObserver {
   /* eslint-disable class-methods-use-this */
@@ -37,207 +29,97 @@ class ResizeObserver {
   }
 }
 
-describe('Greedy Nav', () => {
-  beforeAll(() => {
-    window.ResizeObserver = ResizeObserver;
-  });
+beforeAll(() => {
+  window.ResizeObserver = ResizeObserver;
+});
 
-  afterAll(() => {
-    delete window.ResizeObserver;
-  });
+afterAll(() => {
+  delete window.ResizeObserver;
+});
 
-  describe('showToggle', () => {
-    test('displays toggle if breaks is empty', () => {
-      const selector = '.cads-greedy-nav-dropdown-toggle';
-      document.body.innerHTML = `<div class="cads-greedy-nav-dropdown">
-        <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
-        <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-visible"></button>
-        </div>
-      </div>`;
+beforeEach(async () => {
+  /**
+   * These component tests use a minimal navigation fixture to test
+   * basic behaviour and initialisation. Full test scenarios are handled
+   * in a navigation.cy.js using Cypress
+   */
+  const componentHtml = `<div class="cads-navigation-full-width-wrapper">
+    <nav class="cads-navigation js-cads-greedy-nav">
+      <ul class="cads-navigation__list">
+        <li class="cads-navigation__list-item">
+          <a class="cads-navigation__link" href="#">Link 1</a>
+        </li>
+        <li class="cads-navigation__list-item">
+          <a class="cads-navigation__link" href="#">Link 2</a>
+        </li>
+        <li class="cads-navigation__list-item">
+          <a class="cads-navigation__link" href="#">Link 3</a>
+        </li>
+        <li class="cads-navigation__list-item">
+          <a class="cads-navigation__link" href="#">Link 4</a>
+        </li>
+        <li class="cads-navigation__list-item">
+          <a class="cads-navigation__link" href="#">Link 5</a>
+        </li>
+      </ul>
+    </nav>
+  </div>`;
 
-      const wrapper = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav-dropdown',
-      )!;
-      const navWrapper = wrapper.querySelector<HTMLElement>(
-        '.cads-greedy-nav__wrapper',
-      );
-      const toggle = document.querySelector<HTMLElement>(selector)!;
+  document.body.innerHTML = componentHtml;
 
-      showToggle(wrapper, selector, []);
+  initNavigation();
+});
 
-      expect(toggle.classList).toContain('cads-greedy-nav-is-hidden');
-      expect(toggle.classList).not.toContain('cads-greedy-nav-is-visible');
-      expect(navWrapper?.getAttribute('aria-haspopup')).toBe('false');
-    });
+test('toggles the menu open', () => {
+  const containerEl = screen.getByRole('navigation');
+  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
+  const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
-    test('hides toggle if breaks is populated', () => {
-      const selector = '.cads-greedy-nav-dropdown-toggle';
-      document.body.innerHTML = `<div class="cads-greedy-nav-dropdown ">
-                <div class="cads-greedy-nav__wrapper" aria-haspopup="false">
-                <button class="cads-greedy-nav-dropdown-toggle cads-greedy-nav-is-hidden"></button>
-                </div></div>`;
+  expect(toggleEl).toHaveTextContent('More');
 
-      const wrapper = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav-dropdown',
-      )!;
-      const navWrapper = wrapper.querySelector<HTMLElement>(
-        '.cads-greedy-nav__wrapper',
-      );
-      const toggle = document.querySelector<HTMLElement>(selector)!;
+  fireEvent.keyUp(toggleEl, { key: 'Tab' });
 
-      showToggle(wrapper, selector, [1]);
+  expect(navDropdown).toHaveClass('show');
+  expect(containerEl).toHaveClass('is-open');
+  expect(toggleEl).toHaveTextContent('Close');
+  expect(toggleEl).toHaveAttribute('aria-label', 'Close navigation options');
+});
 
-      expect(toggle.classList).not.toContain('cads-greedy-nav-is-hidden');
-      expect(toggle.classList).toContain('cads-greedy-nav-is-visible');
-      expect(navWrapper?.getAttribute('aria-haspopup')).toBe('true');
-    });
-  });
+test('when tabbing backwards through the dropdown menu', () => {
+  const containerEl = screen.getByRole('navigation');
+  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
+  const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
-  describe('toDropdown', () => {
-    test('moves last menu child to dropdown', () => {
-      document.body.innerHTML = `<nav>
-                <ul class="menu">
-                <li>one</li><li>two></li><li>three</li>
-                </ul>
-                <ul class="cads-greedy-nav__dropdown"></ul></nav>`;
+  fireEvent.focus(toggleEl);
+  fireEvent.blur(toggleEl);
 
-      const nav = document.querySelector<HTMLElement>('nav')!;
-      const menu = document.querySelector<HTMLElement>('.menu')!;
-      const dropdown = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav__dropdown',
-      )!;
+  expect(navDropdown).not.toHaveClass('show');
+  expect(containerEl).not.toHaveClass('is-open');
+  expect(toggleEl).toHaveTextContent('More');
+  expect(toggleEl).toHaveAttribute('aria-label', 'More navigation options');
+});
 
-      const greedyNavMenu = new GreedyNavMenu();
+test('opens the dropdown menu', async () => {
+  const user = userEvent.setup();
 
-      greedyNavMenu.toDropdown(nav);
+  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
+  const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
-      expect(menu.querySelectorAll('li')).toHaveLength(2);
-      expect(dropdown.querySelectorAll('li')).toHaveLength(1);
-    });
+  await user.click(toggleEl);
 
-    test('moves menu items to the dop of dropdown', () => {
-      document.body.innerHTML = `<nav>
-                <ul class="menu">
-                <li>one</li><li>two</li>
-                </ul>
-                <ul class="cads-greedy-nav__dropdown"><li>three</li></ul></nav>`;
+  expect(navDropdown).toHaveClass('show');
+  expect(navDropdown).toHaveAttribute('aria-hidden', 'false');
+});
 
-      const nav = document.querySelector<HTMLElement>('nav')!;
-      const dropdown = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav__dropdown',
-      )!;
+test('closes the dropdown menu', async () => {
+  const user = userEvent.setup();
 
-      const greedyNavMenu = new GreedyNavMenu();
+  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
+  const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
-      greedyNavMenu.toDropdown(nav);
+  await user.click(toggleEl);
+  await user.click(toggleEl);
 
-      expect(dropdown.innerHTML).toBe('<li>two</li><li>three</li>');
-    });
-  });
-
-  describe('toMenu', () => {
-    test('moves items from dropdown to menu', () => {
-      document.body.innerHTML = `<nav>
-                <ul class="menu">
-                <li>one</li>
-                </ul>
-                <ul class="cads-greedy-nav__dropdown"><li>two></li><li>three</li></ul></nav>`;
-
-      const nav = document.querySelector<HTMLElement>('nav')!;
-      const menu = document.querySelector<HTMLElement>('.menu')!;
-      const dropdown = document.querySelector<HTMLElement>(
-        '.cads-greedy-nav__dropdown',
-      )!;
-
-      const greedyNavMenu = new GreedyNavMenu();
-
-      greedyNavMenu.toMenu(nav);
-
-      expect(menu.querySelectorAll('li')).toHaveLength(2);
-      expect(dropdown.querySelectorAll('li')).toHaveLength(1);
-    });
-  });
-
-  describe('listeners', () => {
-    let nav: GreedyNavMenu;
-
-    beforeEach(async () => {
-      document.body.innerHTML = menuFixture;
-
-      nav = new GreedyNavMenu();
-      nav.init(document.querySelector('.js-cads-greedy-nav'));
-
-      // Change the viewport to 300px.
-      global.innerWidth = 300;
-
-      // Trigger the window resize event.
-      global.dispatchEvent(new Event('resize'));
-    });
-
-    test('toggles the menu open', () => {
-      const containerEl = screen.getByRole('navigation');
-      const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
-      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
-
-      expect(toggleEl).toHaveTextContent('More');
-
-      fireEvent.keyUp(toggleEl, { key: 'Tab' });
-
-      expect(navDropdown).toHaveClass('show');
-      expect(containerEl).toHaveClass('is-open');
-      expect(toggleEl).toHaveTextContent('Close');
-      expect(toggleEl).toHaveAttribute(
-        'aria-label',
-        'Close navigation options',
-      );
-    });
-
-    test('when tabbing backwards through the dropdown menu', () => {
-      const containerEl = screen.getByRole('navigation');
-      const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
-      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
-
-      fireEvent.focus(toggleEl);
-      fireEvent.blur(toggleEl);
-
-      expect(navDropdown).not.toHaveClass('show');
-      expect(containerEl).not.toHaveClass('is-open');
-      expect(toggleEl).toHaveTextContent('More');
-      expect(toggleEl).toHaveAttribute('aria-label', 'More navigation options');
-    });
-  });
-
-  describe('menu opening and closing', () => {
-    let nav: GreedyNavMenu;
-
-    beforeEach(async () => {
-      document.body.innerHTML = menuFixture;
-
-      nav = new GreedyNavMenu();
-      nav.init(document.querySelector('.js-cads-greedy-nav') as HTMLElement);
-    });
-
-    test('opens the dropdown menu', async () => {
-      const user = userEvent.setup();
-
-      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
-
-      await user.click(nav.navDropdownToggle);
-
-      expect(navDropdown).toHaveClass('show');
-      expect(navDropdown).toHaveAttribute('aria-hidden', 'false');
-    });
-
-    test('closes the dropdown menu', async () => {
-      const user = userEvent.setup();
-
-      const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
-
-      await user.click(nav.navDropdownToggle);
-      await user.click(nav.navDropdownToggle);
-
-      expect(navDropdown).not.toHaveClass('show');
-      expect(navDropdown).toHaveAttribute('aria-hidden', 'true');
-    });
-  });
+  expect(navDropdown).not.toHaveClass('show');
+  expect(navDropdown).toHaveAttribute('aria-hidden', 'true');
 });

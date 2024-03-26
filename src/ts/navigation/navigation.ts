@@ -25,10 +25,12 @@ function isExpanded(toggle: Element) {
   return ariaExpanded === 'true';
 }
 
+function getToggleElSelector() {
+  return `button[aria-controls='cads-greedy-nav-dropdown']`;
+}
+
 function getToggleEl(containerEl: HTMLElement) {
-  return containerEl.querySelector(
-    'button[aria-controls="cads-greedy-nav-dropdown"]',
-  ) as HTMLButtonElement;
+  return containerEl.querySelector(getToggleElSelector()) as HTMLButtonElement;
 }
 
 function setDropdownLabel(containerEl: HTMLElement) {
@@ -67,15 +69,9 @@ export function showToggle(
   navDropdownToggleSelector: string,
   breaks: number[],
 ) {
+  const navDropdownToggle = getToggleEl(navWrapperElement);
+
   if (breaks.length < 1) {
-    const navDropdownToggle = navWrapperElement.querySelector<HTMLElement>(
-      navDropdownToggleSelector,
-    );
-
-    if (navDropdownToggle === null) {
-      return;
-    }
-
     navDropdownToggle.classList.add('cads-greedy-nav-is-hidden');
     navDropdownToggle.classList.remove('cads-greedy-nav-is-visible');
 
@@ -87,14 +83,6 @@ export function showToggle(
       navWrapper.setAttribute('aria-haspopup', 'false');
     }
   } else {
-    const navDropdownToggle = navWrapperElement.querySelector<HTMLElement>(
-      navDropdownToggleSelector,
-    );
-
-    if (navDropdownToggle === null) {
-      return;
-    }
-
     navDropdownToggle.classList.add('cads-greedy-nav-is-visible');
     navDropdownToggle.classList.remove('cads-greedy-nav-is-hidden');
 
@@ -213,9 +201,7 @@ export class GreedyNavMenu {
 
     const { navDropdownClassName } = this.settings;
 
-    const navDropdownToggle = navWrapper.querySelector<HTMLElement>(
-      this.navDropdownToggleSelector,
-    );
+    const navDropdownToggle = getToggleEl(navWrapper);
 
     if (navDropdownToggle) {
       navDropdownToggle.addEventListener('mouseup', (event: MouseEvent) => {
@@ -444,7 +430,6 @@ export default function initNavigation(
   );
 
   if (containerEl) {
-    console.info('Initialising navigation component');
     const menu = new GreedyNavMenu(options);
     menu.init(containerEl);
   }

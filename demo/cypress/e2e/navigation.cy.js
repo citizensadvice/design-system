@@ -37,7 +37,7 @@ describe('Navigation', () => {
       .should('be.visible')
       .click()
       .should('have.attr', 'aria-expanded', 'true')
-      .should('have.attr', 'aria-controls', 'greedy-nav-dropdown');
+      .should('have.attr', 'aria-controls', 'cads-greedy-nav-dropdown');
   }
 
   function closeNavigation() {
