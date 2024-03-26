@@ -133,8 +133,6 @@ function toDropdown(containerEl: HTMLElement) {
 }
 
 export class GreedyNavMenu {
-  breaks: number[];
-
   navDropdown: Nullable<HTMLUListElement>;
 
   navDropdownToggle: Nullable<HTMLElement>;
@@ -142,17 +140,16 @@ export class GreedyNavMenu {
   toggleWrapper: Nullable<HTMLDivElement>;
 
   constructor() {
-    this.breaks = [];
-
     this.navDropdown = null;
     this.navDropdownToggle = null;
     this.toggleWrapper = null;
   }
 
   init(containerEl: HTMLElement) {
-    this.breaks = [];
+    // Track navigation breakpoint state
+    const breaks: number[] = [];
     this.prepareHtml(containerEl);
-    this.listeners(containerEl);
+    this.listeners(containerEl, breaks);
   }
 
   prepareHtml(containerEl: HTMLElement) {
@@ -195,10 +192,10 @@ export class GreedyNavMenu {
     containerEl.classList.add('cads-greedy-nav');
   }
 
-  listeners(containerEl: HTMLElement) {
+  listeners(containerEl: HTMLElement, breaks: number[]) {
     const observer = new ResizeObserver(
       debounce(() => {
-        this.doesItFit(containerEl);
+        this.doesItFit(containerEl, breaks);
       }, 50),
     );
 
@@ -213,7 +210,7 @@ export class GreedyNavMenu {
     window.addEventListener(
       'orientationchange',
       () => {
-        this.doesItFit(containerEl);
+        this.doesItFit(containerEl, breaks);
       },
       true,
     );
@@ -310,7 +307,7 @@ export class GreedyNavMenu {
     };
   }
 
-  toMenu(containerEl: HTMLElement) {
+  toMenu(containerEl: HTMLElement, breaks: number[]) {
     const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
     const mainNav = containerEl.firstElementChild;
 
@@ -323,12 +320,12 @@ export class GreedyNavMenu {
       mainNav.appendChild(navDropdown.firstElementChild);
     }
 
-    this.breaks.pop();
+    breaks.pop();
 
-    showToggle(containerEl, this.breaks);
+    showToggle(containerEl, breaks);
   }
 
-  doesItFit(containerEl: HTMLElement) {
+  doesItFit(containerEl: HTMLElement, breaks: number[]) {
     let currentTotalWidth = getElementContentWidth(containerEl);
     let currentRestWidth = getChildrenOffsetWidth(containerEl);
 
@@ -344,28 +341,28 @@ export class GreedyNavMenu {
     ) {
       toDropdown(containerEl);
 
-      this.breaks.push(currentRestWidth);
+      breaks.push(currentRestWidth);
 
-      showToggle(containerEl, this.breaks);
+      showToggle(containerEl, breaks);
 
       currentTotalWidth = getElementContentWidth(containerEl);
       currentRestWidth = getChildrenOffsetWidth(containerEl);
     }
 
-    while (currentTotalWidth >= this.breaks[this.breaks.length - 1]) {
-      this.toMenu(containerEl);
+    while (currentTotalWidth >= breaks[breaks.length - 1]) {
+      this.toMenu(containerEl, breaks);
 
       setDropdownLabel(containerEl);
     }
 
     const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
 
-    if (navDropdown && this.breaks.length < 1) {
+    if (navDropdown && breaks.length < 1) {
       navDropdown.classList.remove('show');
       setDropdownLabel(containerEl);
     }
 
-    showToggle(containerEl, this.breaks);
+    showToggle(containerEl, breaks);
   }
 }
 
