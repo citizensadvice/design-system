@@ -15,6 +15,7 @@
   margin-bottom: 0;
   position: relative;
   font-size: 0;
+  overflow: hidden;
 
   .cads-navigation-toggle-label {
     @include cads-visually-hidden;
@@ -39,6 +40,8 @@
 }
 
 .cads-navigation-full-width-wrapper {
+  max-height: 44px;
+  overflow: hidden;
   background-color: $cads-language__nav-background-colour;
 
   .cads-navigation {
@@ -51,26 +54,6 @@
         padding-left: $gutter;
       }
     }
-  }
-}
-
-.no-js {
-  .cads-navigation {
-    height: auto;
-
-    &__list {
-      margin-bottom: 0;
-    }
-
-    &__list-item {
-      margin-bottom: 0;
-    }
-  }
-}
-
-@media print {
-  .cads-navigation {
-    display: none;
   }
 }
 
@@ -245,6 +228,41 @@
 
 .cads-greedy-nav__dropdown .cads-greedy-nav__header-links {
   @include cads-media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+// Fallback styles
+
+
+.no-js,
+.cads-has-greedy-nav {
+  .cads-navigation-full-width-wrapper {
+    max-height: none;
+    overflow: initial;
+
+    .cads-navigation {
+      overflow: initial;
+    }
+  }
+}
+
+.no-js {
+  .cads-navigation {
+    height: auto;
+
+    &__list {
+      margin-bottom: 0;
+    }
+
+    &__list-item {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media print {
+  .cads-navigation {
     display: none;
   }
 }
