@@ -209,6 +209,7 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
 }
 
 function addResizeObserver(containerEl: HTMLElement) {
+  let isInitialised = false;
   const breaks: number[] = [];
 
   let timer: number;
@@ -216,6 +217,14 @@ function addResizeObserver(containerEl: HTMLElement) {
     clearTimeout(timer);
     timer = window.setTimeout(() => {
       doesItFit(containerEl, breaks);
+
+      // Only add initialised class once we've actually
+      // moved some items into the navigation for the
+      // first time.
+      if (!isInitialised) {
+        document.body.classList.add('cads-has-greedy-nav');
+        isInitialised = true;
+      }
     }, 50);
   });
 
@@ -301,7 +310,5 @@ export default function initNavigation() {
     prepareHtml(containerEl);
 
     addEventListeners(containerEl);
-
-    document.body.classList.add('cads-has-greedy-nav');
   }
 }
