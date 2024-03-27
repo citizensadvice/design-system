@@ -2,8 +2,12 @@ import '@testing-library/cypress/add-commands';
 import 'cypress-axe';
 import 'cypress-plugin-tab';
 
-Cypress.Commands.add('visitComponentUrl', (urlPart) => {
-  cy.visit(`/rails/view_components/${urlPart}`);
+Cypress.Commands.add('visitComponentUrl', (urlPart, locale = 'en') => {
+  if (locale === 'cy') {
+    cy.visit(`/rails/view_components/${urlPart}?locale=cy`);
+  } else {
+    cy.visit(`/rails/view_components/${urlPart}`);
+  }
 });
 
 Cypress.Commands.add('scrolledIntoView', (selector) => {

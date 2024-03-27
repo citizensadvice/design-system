@@ -1,6 +1,6 @@
 import {
   initHeader,
-  initGreedyNav,
+  initNavigation,
   initTargetedContent,
   initOnThisPage,
   initDisclosure,
@@ -8,7 +8,7 @@ import {
 } from '../../../../lib';
 
 initHeader();
-initGreedyNav();
+initNavigation();
 initTargetedContent();
 initOnThisPage();
 initDisclosure();

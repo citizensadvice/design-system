@@ -1,5 +1,32 @@
 ## Unreleased
 
+### New greedy navigation implementation
+
+Introduces a new greedy navigation implementation with a number of improvements:
+
+1. Switches the icon to an SVG version
+2. Improves keyboard and mouse support (tabbing and clicking in and out of the menu now behaves more consistently)
+3. Minimises flash of unstyled content (fix ported from the public website)
+4. Bundles welsh translations for UI text
+
+For backwards compatibility the old greedy navigation entrypoint will continue to work but will be removed in a future version. The existing code should look something like this:
+
+```js
+import greedyNav from '@citizensadvice/design-system/lib/greedy-nav/index';
+
+greedyNav.init();
+```
+
+To switch to the new entrypoint update your application to use the following code:
+
+```js
+import { initNavigation } from "@citizensadvice/design-system/lib/navigation"
+
+initNavigation();
+```
+
+Or you can import directly from `@citizensadvice/design-system/lib` (see "Consistent javascript module imports") change below.
+
 ### Consistent javascript module imports
 
 Allow all modules to be imported using a consistent interface, either via:
@@ -16,7 +43,7 @@ import { initModuleA, initModuleB } from "@citizensadvice/design-system/lib
 
 For backwards compatibility all existing entrypoints are still supported by may be removed in future versions.
 
-#### Make new office address the default
+### Make new office address the default
 
 The new office address is now the default in the footer component and the old address has been removed.
 
