@@ -112,19 +112,6 @@ function prepareHtml(containerEl: HTMLElement) {
   mainNavEl.insertAdjacentElement('afterend', toggleWrapper);
 }
 
-function setToggleLabel(containerEl: HTMLElement) {
-  const toggle = getToggleEl(containerEl);
-  const data = extractDataAttributes(containerEl);
-
-  if (isExpanded(toggle)) {
-    toggle.innerHTML = data.labelClose;
-    toggle.setAttribute('aria-label', data.ariaLabelClose);
-  } else {
-    toggle.innerHTML = data.label;
-    toggle.setAttribute('aria-label', data.ariaLabel);
-  }
-}
-
 function setToggleVisibility(containerEl: HTMLElement, breaks: number[]) {
   const toggleEl = getToggleEl(containerEl);
 
@@ -136,23 +123,27 @@ function setToggleVisibility(containerEl: HTMLElement, breaks: number[]) {
 }
 
 function openDropDown(containerEl: HTMLElement) {
+  const data = extractDataAttributes(containerEl);
   const toggleEl = getToggleEl(containerEl);
   const dropdownEl = getDropdownEl(containerEl);
 
   toggleEl.setAttribute('aria-expanded', 'true');
   dropdownEl.setAttribute('aria-hidden', 'false');
 
-  setToggleLabel(containerEl);
+  toggleEl.innerHTML = data.labelClose;
+  toggleEl.setAttribute('aria-label', data.ariaLabelClose);
 }
 
 function closeDropDown(containerEl: HTMLElement) {
+  const data = extractDataAttributes(containerEl);
   const toggleEl = getToggleEl(containerEl);
   const dropdownEl = getDropdownEl(containerEl);
 
   toggleEl.setAttribute('aria-expanded', 'false');
   dropdownEl.setAttribute('aria-hidden', 'true');
 
-  setToggleLabel(containerEl);
+  toggleEl.innerHTML = data.label;
+  toggleEl.setAttribute('aria-label', data.ariaLabel);
 }
 
 function toDropdown(containerEl: HTMLElement) {
@@ -208,12 +199,6 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
     breaks.pop();
 
     setToggleVisibility(containerEl, breaks);
-
-    setToggleLabel(containerEl);
-  }
-
-  if (breaks.length < 1) {
-    setToggleLabel(containerEl);
   }
 
   setToggleVisibility(containerEl, breaks);
@@ -308,12 +293,7 @@ function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
 
   document.addEventListener('click', (event: MouseEvent) => {
     const targetEl = <HTMLElement>event.target;
-    if (
-      targetEl &&
-      targetEl.closest('#cads-greedy-nav-dropdown') &&
-      targetEl !== toggleEl &&
-      isExpanded(toggleEl)
-    ) {
+    if (targetEl !== toggleEl) {
       closeDropDown(containerEl);
     }
   });
