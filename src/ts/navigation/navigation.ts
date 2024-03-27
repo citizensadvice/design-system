@@ -29,6 +29,62 @@ function getDropdownEl(containerEl: HTMLElement) {
   return containerEl.querySelector(getDropdownSelector()) as HTMLElement;
 }
 
+function buildToggleEl(containerEl: HTMLElement, dropdownId: string) {
+  const toggleId = 'cads-greedy-nav-toggle';
+  const textContent = containerEl.getAttribute('data-dropdown-label') || 'More';
+
+  return `<button type="button"
+    class="cads-greedy-nav__dropdown-toggle"
+    id="${toggleId}"
+    data-testid="${toggleId}"
+    aria-controls="${dropdownId}"
+    aria-expanded="false"
+    aria-label="More navigation options"
+  >
+    ${textContent}
+  </button>`;
+}
+
+function prepareHtml(containerEl: HTMLElement) {
+  const toggleWrapper = document.createElement('div');
+  toggleWrapper.classList.add('cads-greedy-nav__wrapper');
+
+  const dropdownId = 'cads-greedy-nav-dropdown';
+  const navDropdown = document.createElement('ul');
+  navDropdown.setAttribute('id', dropdownId);
+  navDropdown.setAttribute('data-testid', dropdownId);
+  navDropdown.classList.add('cads-greedy-nav__dropdown');
+
+  const headerLinks = document.querySelector('.js-cads-copy-into-nav');
+  if (headerLinks) {
+    // prepare items that can close the more dropdown on blur
+    const closeNavOnBlur =
+      headerLinks.lastElementChild?.querySelectorAll('a, button');
+    closeNavOnBlur?.forEach((el) => el.classList.add('js-cads-close-on-blur'));
+
+    const headerLinksClone = headerLinks.cloneNode(true);
+    const headerLinksContainer = document.createElement('li');
+    headerLinksContainer.className = 'cads-greedy-nav__header-links';
+    headerLinksContainer.appendChild(headerLinksClone);
+    navDropdown.appendChild(headerLinksContainer);
+  }
+
+  const mainNav = containerEl.firstElementChild;
+
+  toggleWrapper.insertAdjacentHTML(
+    'beforeend',
+    buildToggleEl(containerEl, dropdownId),
+  );
+
+  toggleWrapper.appendChild(navDropdown);
+
+  if (mainNav) {
+    mainNav.insertAdjacentElement('afterend', toggleWrapper);
+  }
+
+  containerEl.classList.add('cads-greedy-nav');
+}
+
 function setDropdownLabel(containerEl: HTMLElement) {
   const toggle = getToggleEl(containerEl);
 
@@ -43,24 +99,7 @@ function setDropdownLabel(containerEl: HTMLElement) {
   }
 }
 
-function buildToggleEl(containerEl: HTMLElement, dropdownId: string) {
-  const toggleId = 'cads-greedy-nav-toggle';
-  const toggleEl = document.createElement('button');
-  toggleEl.innerHTML =
-    containerEl.getAttribute('data-dropdown-label') || 'More';
-  toggleEl.setAttribute('aria-label', 'More navigation options');
-  toggleEl.setAttribute('aria-expanded', 'false');
-  toggleEl.setAttribute('id', toggleId);
-  toggleEl.setAttribute('data-testid', toggleId);
-  toggleEl.setAttribute('aria-controls', dropdownId);
-  toggleEl.setAttribute('type', 'button');
-
-  toggleEl.classList.add('cads-greedy-nav__dropdown-toggle');
-
-  return toggleEl;
-}
-
-export function showToggle(containerEl: HTMLElement, breaks: number[]) {
+function showToggle(containerEl: HTMLElement, breaks: number[]) {
   const navDropdownToggle = getToggleEl(containerEl);
 
   if (breaks.length < 1) {
@@ -185,42 +224,6 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
   }
 
   showToggle(containerEl, breaks);
-}
-
-function prepareHtml(containerEl: HTMLElement) {
-  const toggleWrapper = document.createElement('div');
-
-  const dropdownId = 'cads-greedy-nav-dropdown';
-  const navDropdown = document.createElement('ul');
-  navDropdown.setAttribute('id', dropdownId);
-  navDropdown.setAttribute('data-testid', dropdownId);
-  navDropdown.classList.add('cads-greedy-nav__dropdown');
-
-  const headerLinks = document.querySelector('.js-cads-copy-into-nav');
-  if (headerLinks) {
-    // prepare items that can close the more dropdown on blur
-    const closeNavOnBlur =
-      headerLinks.lastElementChild?.querySelectorAll('a, button');
-    closeNavOnBlur?.forEach((el) => el.classList.add('js-cads-close-on-blur'));
-
-    const headerLinksClone = headerLinks.cloneNode(true);
-    const headerLinksContainer = document.createElement('li');
-    headerLinksContainer.className = 'cads-greedy-nav__header-links';
-    headerLinksContainer.appendChild(headerLinksClone);
-    navDropdown.appendChild(headerLinksContainer);
-  }
-
-  const mainNav = containerEl.firstElementChild;
-
-  toggleWrapper.appendChild(buildToggleEl(containerEl, dropdownId));
-  toggleWrapper.appendChild(navDropdown);
-  toggleWrapper.classList.add('cads-greedy-nav__wrapper');
-
-  if (mainNav) {
-    mainNav.insertAdjacentElement('afterend', toggleWrapper);
-  }
-
-  containerEl.classList.add('cads-greedy-nav');
 }
 
 function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
