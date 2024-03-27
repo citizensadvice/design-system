@@ -68,6 +68,8 @@ function buildNavDropdown(dropdownId: string) {
     const headerLinksContainer = document.createElement('li');
     headerLinksContainer.className = 'cads-greedy-nav__header-links';
     headerLinksContainer.appendChild(headerLinksClone);
+
+    navDropdown.appendChild(headerLinksContainer);
   }
 
   return navDropdown;
