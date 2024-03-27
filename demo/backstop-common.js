@@ -50,7 +50,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: `${labelPrefix}`,
         url: `${baseUrl}/${url}`,
-        readySelector: '.cads-greedy-nav-has-dropdown',
+        readySelector: '.cads-has-greedy-nav',
       },
     ];
   }
@@ -259,14 +259,14 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: ' Components/Navigation',
         url: componentUrlFor('navigation/example'),
-        readySelector: '.cads-greedy-nav-has-dropdown',
+        readySelector: '.cads-has-greedy-nav',
         clickSelector: '.cads-greedy-nav__dropdown-toggle',
         viewports: [{ label: 'desktop', width: 800, height: 200 }],
       },
       {
         label: 'Components/Navigation (focus)',
         url: componentUrlFor('navigation/example'),
-        readySelector: '.cads-greedy-nav-has-dropdown',
+        readySelector: '.cads-has-greedy-nav',
         keyPressSelectors: [
           { selector: '.cads-navigation__link', keyPress: 'Tab' },
         ],
@@ -275,7 +275,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Navigation mobile',
         url: componentUrlFor('navigation/example'),
-        readySelector: '.cads-greedy-nav-has-dropdown',
+        readySelector: '.cads-has-greedy-nav',
         clickSelector: '.cads-greedy-nav__dropdown-toggle',
         viewports: [{ label: 'mobile', width: 320, height: 400 }],
       },

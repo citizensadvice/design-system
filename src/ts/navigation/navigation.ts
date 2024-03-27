@@ -49,9 +49,7 @@ function buildToggle(containerEl: HTMLElement, dropdownId: string) {
     aria-controls="${dropdownId}"
     aria-expanded="false"
     aria-label="${data.ariaLabel}"
-  >
-    ${data.label}
-  </button>`;
+  >${data.label}</button>`;
 }
 
 function buildNavDropdown(dropdownId: string) {
