@@ -122,7 +122,7 @@
       font-weight: normal;
     }
 
-    &[aria-hidden=false] {
+    &[aria-hidden='false'] {
       visibility: visible;
     }
 
@@ -183,7 +183,7 @@
       cursor: pointer;
     }
 
-    &[aria-expanded=true] {
+    &[aria-expanded='true'] {
       &::after {
         transform: rotate(90deg);
       }
@@ -194,7 +194,7 @@
     position: relative;
     visibility: hidden;
 
-    &[aria-haspopup=true] {
+    &[aria-haspopup='true'] {
       visibility: visible;
     }
 
