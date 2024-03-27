@@ -29,9 +29,16 @@ function getDropdownEl(containerEl: HTMLElement) {
   return containerEl.querySelector(getDropdownSelector()) as HTMLElement;
 }
 
-function buildToggle(containerEl: HTMLElement, dropdownId: string) {
+function buildToggle({
+  label,
+  ariaLabel,
+  dropdownId,
+}: {
+  label: string;
+  ariaLabel: string;
+  dropdownId: string;
+}) {
   const toggleId = 'cads-greedy-nav-toggle';
-  const textContent = containerEl.getAttribute('data-dropdown-label') || 'More';
 
   return `<button type="button"
     class="cads-greedy-nav__dropdown-toggle"
@@ -39,9 +46,9 @@ function buildToggle(containerEl: HTMLElement, dropdownId: string) {
     data-testid="${toggleId}"
     aria-controls="${dropdownId}"
     aria-expanded="false"
-    aria-label="More navigation options"
+    aria-label="${ariaLabel}"
   >
-    ${textContent}
+    ${label}
   </button>`;
 }
 
@@ -81,12 +88,32 @@ function buildNavDropdown(dropdownId: string) {
   return navDropdown;
 }
 
+function extractDataAttributes(containerEl: HTMLElement) {
+  return {
+    label: containerEl.getAttribute('data-dropdown-label') || 'More',
+    labelClose:
+      containerEl.getAttribute('data-dropdown-label-close') || 'Close',
+
+    // @TODO: Translated aria-labels
+    ariaLabel: 'More navigation options',
+    ariaLabelClose: 'Close navigation options',
+  };
+}
+
 function prepareHtml(containerEl: HTMLElement) {
   const toggleWrapper = document.createElement('div');
   toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
+  const data = extractDataAttributes(containerEl);
+
   const dropdownId = 'cads-greedy-nav-dropdown';
-  const toggle = buildToggle(containerEl, dropdownId);
+
+  const toggle = buildToggle({
+    label: data.label,
+    ariaLabel: data.ariaLabel,
+    dropdownId,
+  });
+
   const navDropdown = buildNavDropdown(dropdownId);
 
   const mainNav = containerEl.firstElementChild;
@@ -104,15 +131,14 @@ function prepareHtml(containerEl: HTMLElement) {
 
 function setDropdownLabel(containerEl: HTMLElement) {
   const toggle = getToggleEl(containerEl);
+  const data = extractDataAttributes(containerEl);
 
   if (isExpanded(toggle)) {
-    toggle.innerHTML =
-      containerEl.getAttribute('data-dropdown-label-close') || 'Close';
-    toggle.setAttribute('aria-label', `Close navigation options`);
+    toggle.innerHTML = data.labelClose;
+    toggle.setAttribute('aria-label', data.ariaLabelClose);
   } else {
-    toggle.innerHTML =
-      containerEl.getAttribute('data-dropdown-label') || 'More';
-    toggle.setAttribute('aria-label', `More navigation options`);
+    toggle.innerHTML = data.label;
+    toggle.setAttribute('aria-label', data.ariaLabel);
   }
 }
 

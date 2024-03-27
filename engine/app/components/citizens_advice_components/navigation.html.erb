@@ -1,5 +1,10 @@
 <div class="cads-navigation-full-width-wrapper">
-  <nav id="cads-navigation" class="cads-navigation js-cads-greedy-nav">
+  <nav
+    id="cads-navigation"
+    class="cads-navigation js-cads-greedy-nav"
+    data-dropdown-label="<%= t('citizens_advice_components.navigation.dropdown_label') %>"
+    data-dropdown-label-close="<%= t('citizens_advice_components.navigation.dropdown_label_close') %>"
+  >
     <ul class="cads-navigation__list">
       <% links.each do |link| %>
         <li class="cads-navigation__list-item">
