@@ -163,9 +163,6 @@ function computeContentWidth(containerEl: HTMLElement) {
 }
 
 function computeChildrenOffsetWidth(containerEl: HTMLElement) {
-  // Adds a tolerance to account for alignment to the layout grid.
-  const offsetPixels = -10;
-
   const children = containerEl.childNodes;
 
   let sum = 0;
@@ -177,7 +174,7 @@ function computeChildrenOffsetWidth(containerEl: HTMLElement) {
     }
   }
 
-  return sum + offsetPixels;
+  return sum;
 }
 
 function doesItFit(containerEl: HTMLElement, breaks: number[]) {
