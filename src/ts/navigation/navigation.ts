@@ -29,15 +29,21 @@ function getDropdownEl(containerEl: HTMLElement) {
   return containerEl.querySelector(getDropdownSelector()) as HTMLElement;
 }
 
-function buildToggle({
-  label,
-  ariaLabel,
-  dropdownId,
-}: {
-  label: string;
-  ariaLabel: string;
-  dropdownId: string;
-}) {
+function extractDataAttributes(containerEl: HTMLElement) {
+  return {
+    label: containerEl.getAttribute('data-dropdown-label') || 'More',
+    labelClose:
+      containerEl.getAttribute('data-dropdown-label-close') || 'Close',
+
+    // @TODO: Translated aria-labels
+    ariaLabel: 'More navigation options',
+    ariaLabelClose: 'Close navigation options',
+  };
+}
+
+function buildToggle(containerEl: HTMLElement, dropdownId: string) {
+  const data = extractDataAttributes(containerEl);
+
   const toggleId = 'cads-greedy-nav-toggle';
 
   return `<button type="button"
@@ -46,9 +52,9 @@ function buildToggle({
     data-testid="${toggleId}"
     aria-controls="${dropdownId}"
     aria-expanded="false"
-    aria-label="${ariaLabel}"
+    aria-label="${data.ariaLabel}"
   >
-    ${label}
+    ${data.label}
   </button>`;
 }
 
@@ -88,50 +94,30 @@ function buildNavDropdown(dropdownId: string) {
   return navDropdown;
 }
 
-function extractDataAttributes(containerEl: HTMLElement) {
-  return {
-    label: containerEl.getAttribute('data-dropdown-label') || 'More',
-    labelClose:
-      containerEl.getAttribute('data-dropdown-label-close') || 'Close',
-
-    // @TODO: Translated aria-labels
-    ariaLabel: 'More navigation options',
-    ariaLabelClose: 'Close navigation options',
-  };
-}
-
 function prepareHtml(containerEl: HTMLElement) {
   const toggleWrapper = document.createElement('div');
   toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
-  const data = extractDataAttributes(containerEl);
-
   const dropdownId = 'cads-greedy-nav-dropdown';
 
-  const toggle = buildToggle({
-    label: data.label,
-    ariaLabel: data.ariaLabel,
-    dropdownId,
-  });
+  toggleWrapper.insertAdjacentHTML(
+    'beforeend',
+    buildToggle(containerEl, dropdownId),
+  );
 
-  const navDropdown = buildNavDropdown(dropdownId);
+  toggleWrapper.appendChild(buildNavDropdown(dropdownId));
 
-  const mainNav = containerEl.firstElementChild;
-
-  toggleWrapper.insertAdjacentHTML('beforeend', toggle);
-
-  toggleWrapper.appendChild(navDropdown);
-
-  if (mainNav) {
-    mainNav.insertAdjacentElement('afterend', toggleWrapper);
-  }
+  containerEl.firstElementChild?.insertAdjacentElement(
+    'afterend',
+    toggleWrapper,
+  );
 
   containerEl.classList.add('cads-greedy-nav');
 
   document.body.classList.add('cads-has-greedy-nav');
 }
 
-function setDropdownLabel(containerEl: HTMLElement) {
+function setToggleLabel(containerEl: HTMLElement) {
   const toggle = getToggleEl(containerEl);
   const data = extractDataAttributes(containerEl);
 
@@ -155,23 +141,23 @@ function setToggleVisibility(containerEl: HTMLElement, breaks: number[]) {
 }
 
 function openDropDown(containerEl: HTMLElement) {
-  const navDropdown = getDropdownEl(containerEl);
-  const navDropdownToggle = getToggleEl(containerEl);
+  const toggleEl = getToggleEl(containerEl);
+  const dropdownEl = getDropdownEl(containerEl);
 
-  navDropdown.setAttribute('aria-hidden', 'false');
-  navDropdownToggle.setAttribute('aria-expanded', 'true');
+  toggleEl.setAttribute('aria-expanded', 'true');
+  dropdownEl.setAttribute('aria-hidden', 'false');
 
-  setDropdownLabel(containerEl);
+  setToggleLabel(containerEl);
 }
 
 function closeDropDown(containerEl: HTMLElement) {
-  const navDropdown = getDropdownEl(containerEl);
-  const navDropdownToggle = getToggleEl(containerEl);
+  const toggleEl = getToggleEl(containerEl);
+  const dropdownEl = getDropdownEl(containerEl);
 
-  navDropdown.setAttribute('aria-hidden', 'true');
-  navDropdownToggle.setAttribute('aria-expanded', 'false');
+  toggleEl.setAttribute('aria-expanded', 'false');
+  dropdownEl.setAttribute('aria-hidden', 'true');
 
-  setDropdownLabel(containerEl);
+  setToggleLabel(containerEl);
 }
 
 function toDropdown(containerEl: HTMLElement) {
@@ -190,8 +176,8 @@ function toDropdown(containerEl: HTMLElement) {
   }
 }
 
-function toMenu(containerEl: HTMLElement, breaks: number[]) {
-  const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
+function toMenu(containerEl: HTMLElement) {
+  const navDropdown = getDropdownEl(containerEl);
   const mainNav = containerEl.firstElementChild;
 
   if (
@@ -202,10 +188,6 @@ function toMenu(containerEl: HTMLElement, breaks: number[]) {
   ) {
     mainNav.appendChild(navDropdown.firstElementChild);
   }
-
-  breaks.pop();
-
-  setToggleVisibility(containerEl, breaks);
 }
 
 function doesItFit(containerEl: HTMLElement, breaks: number[]) {
@@ -230,15 +212,17 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
   }
 
   while (currentTotalWidth >= breaks[breaks.length - 1]) {
-    toMenu(containerEl, breaks);
+    toMenu(containerEl);
 
-    setDropdownLabel(containerEl);
+    breaks.pop();
+
+    setToggleVisibility(containerEl, breaks);
+
+    setToggleLabel(containerEl);
   }
 
-  const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
-
-  if (navDropdown && breaks.length < 1) {
-    setDropdownLabel(containerEl);
+  if (breaks.length < 1) {
+    setToggleLabel(containerEl);
   }
 
   setToggleVisibility(containerEl, breaks);
@@ -358,7 +342,6 @@ export default function initNavigation() {
   );
 
   if (containerEl) {
-    // Track navigation breakpoint state
     const breaks: number[] = [];
     prepareHtml(containerEl);
     addEventListeners(containerEl, breaks);
