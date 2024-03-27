@@ -29,7 +29,7 @@ function getDropdownEl(containerEl: HTMLElement) {
   return containerEl.querySelector(getDropdownSelector()) as HTMLElement;
 }
 
-function buildToggleEl(containerEl: HTMLElement, dropdownId: string) {
+function buildToggle(containerEl: HTMLElement, dropdownId: string) {
   const toggleId = 'cads-greedy-nav-toggle';
   const textContent = containerEl.getAttribute('data-dropdown-label') || 'More';
 
@@ -45,36 +45,53 @@ function buildToggleEl(containerEl: HTMLElement, dropdownId: string) {
   </button>`;
 }
 
-function prepareHtml(containerEl: HTMLElement) {
-  const toggleWrapper = document.createElement('div');
-  toggleWrapper.classList.add('cads-greedy-nav__wrapper');
+function buildHeaderLinks() {
+  const headerLinks = document.querySelector('.js-cads-copy-into-nav');
 
-  const dropdownId = 'cads-greedy-nav-dropdown';
+  if (!headerLinks) {
+    return null;
+  }
+
+  // prepare items that can close the more dropdown on blur
+  const closeNavOnBlur =
+    headerLinks.lastElementChild?.querySelectorAll('a, button');
+  closeNavOnBlur?.forEach((el) => el.classList.add('js-cads-close-on-blur'));
+
+  // Clone header links into navigation
+  const headerLinksClone = headerLinks.cloneNode(true);
+  const headerLinksContainer = document.createElement('li');
+  headerLinksContainer.className = 'cads-greedy-nav__header-links';
+  headerLinksContainer.appendChild(headerLinksClone);
+
+  return headerLinksContainer;
+}
+
+function buildNavDropdown(dropdownId: string) {
   const navDropdown = document.createElement('ul');
   navDropdown.setAttribute('id', dropdownId);
   navDropdown.setAttribute('data-testid', dropdownId);
   navDropdown.classList.add('cads-greedy-nav__dropdown');
 
-  const headerLinks = document.querySelector('.js-cads-copy-into-nav');
-  if (headerLinks) {
-    // prepare items that can close the more dropdown on blur
-    const closeNavOnBlur =
-      headerLinks.lastElementChild?.querySelectorAll('a, button');
-    closeNavOnBlur?.forEach((el) => el.classList.add('js-cads-close-on-blur'));
+  const headerLinks = buildHeaderLinks();
 
-    const headerLinksClone = headerLinks.cloneNode(true);
-    const headerLinksContainer = document.createElement('li');
-    headerLinksContainer.className = 'cads-greedy-nav__header-links';
-    headerLinksContainer.appendChild(headerLinksClone);
-    navDropdown.appendChild(headerLinksContainer);
+  if (headerLinks) {
+    navDropdown.appendChild(headerLinks);
   }
+
+  return navDropdown;
+}
+
+function prepareHtml(containerEl: HTMLElement) {
+  const toggleWrapper = document.createElement('div');
+  toggleWrapper.classList.add('cads-greedy-nav__wrapper');
+
+  const dropdownId = 'cads-greedy-nav-dropdown';
+  const toggle = buildToggle(containerEl, dropdownId);
+  const navDropdown = buildNavDropdown(dropdownId);
 
   const mainNav = containerEl.firstElementChild;
 
-  toggleWrapper.insertAdjacentHTML(
-    'beforeend',
-    buildToggleEl(containerEl, dropdownId),
-  );
+  toggleWrapper.insertAdjacentHTML('beforeend', toggle);
 
   toggleWrapper.appendChild(navDropdown);
 
