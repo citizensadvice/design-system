@@ -1,55 +1,78 @@
 describe('Navigation', () => {
-  beforeEach(() => {
-    cy.visitComponentUrl('header/with_navigation');
-    cy.viewport('iphone-6');
-  });
-
-  it('navigation links can be viewed by opening/closing the dropdown', () => {
+  it('allows opening and closing the greedy navigation', () => {
+    setupComponent();
     openNavigation();
     assertNavigationOpen();
     closeNavigation();
     assertNavigationClosed();
   });
 
-  it('tabbing into the dropdown toggle automatically opens the dropdown menu', () => {
+  it('supports opening the greedy navigation with the tab key', () => {
+    setupComponent();
     tabIntoNavigation();
     assertNavigationOpen();
   });
 
-  // NP-1755
-  it.skip('tabbing out of the dropdown menu automatically closes it');
+  it('closes the greedy navigation when tabbing out', () => {
+    setupComponent();
+    openNavigation();
+    cy.findByTestId('cads-greedy-nav-dropdown').within(() => {
+      cy.findByText('Sign in').focus().tab();
+      assertNavigationClosed();
+    });
+  });
 
-  it('can close the dropdown menu using your keyboard', () => {
+  it('closes the greedy navigation when pressing the escape key', () => {
+    setupComponent();
     openNavigation().type('{esc}');
     assertNavigationClosed();
   });
 
-  it('can close the dropdown menu by clicking outside it', () => {
+  it('closes the greedy navigation when clicking outside it', () => {
+    setupComponent();
     openNavigation();
     assertNavigationOpen();
     cy.get('body').click();
     assertNavigationClosed();
   });
 
-  function openNavigation() {
+  it('has translated labels when viewing in welsh locale', () => {
+    setupComponent('cy');
+    openNavigation(/Mwy/i);
+    assertNavigationOpen();
+    closeNavigation(/Cau/i);
+    assertNavigationClosed();
+  });
+
+  function setupComponent(locale = 'en') {
+    cy.visitComponentUrl('header/with_navigation', locale);
+    cy.viewport('iphone-6');
+  }
+
+  function openNavigation(name = /More/i) {
     return cy
-      .findByText('More')
+      .findByRole('button', { name: name })
       .should('be.visible')
       .click()
       .should('have.attr', 'aria-expanded', 'true')
       .should('have.attr', 'aria-controls', 'cads-greedy-nav-dropdown');
   }
 
-  function closeNavigation() {
+  function closeNavigation(name = /Close/i) {
     return cy
-      .findByText('Close')
+      .findByRole('button', { name: name })
       .should('be.visible')
       .click()
       .should('have.attr', 'aria-expanded', 'false');
   }
 
-  function tabIntoNavigation() {
-    cy.findByText('More').should('be.visible').focus().tab().tab();
+  function tabIntoNavigation(name = /More/i) {
+    return cy
+      .findByRole('button', { name: name })
+      .should('be.visible')
+      .focus()
+      .tab()
+      .tab();
   }
 
   function assertNavigationOpen() {
