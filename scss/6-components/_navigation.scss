@@ -117,11 +117,17 @@
 // Greedy navigation behaviour
 ////
 
+// Navigation overrides when greedy navigation is initialised
+/* stylelint-disable plugin/selector-bem-pattern */
+.cads-has-greedy-nav {
+  .cads-navigation {
+    white-space: nowrap; // prevent flash of unstyled content
+  }
+}
+/* stylelint-enable plugin/selector-bem-pattern */
+
 /** @define greedy-nav; weak */
 .cads-greedy-nav {
-  white-space: nowrap; // prevent flash of unstyled content
-}
-.cads-greedy-nav__wrapper {
   position: relative;
   display: none;
 
@@ -264,16 +270,17 @@
     }
   }
 
-  .cads-header__links-item,
+  .cads-header__links-item {
+    display: block;
+    padding-left: 0;
+    margin-left: 0;
+    font-weight: $cads-font-weight__bold;
+  }
+
   .cads-header__account-link {
     padding-left: 0;
     margin-left: 0;
-    border-left: none; // only on .cads-header__account-link
-  }
-
-  .cads-header__links-item {
-    display: block;
-    font-weight: $cads-font-weight__bold;
+    border-left: none;
   }
 
   .cads-header__hyperlink {

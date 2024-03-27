@@ -76,7 +76,7 @@ function prepareHtml(containerEl: HTMLElement) {
   const mainNavEl = getMainNavEl(containerEl);
 
   const toggleWrapper = document.createElement('div');
-  toggleWrapper.classList.add('cads-greedy-nav__wrapper');
+  toggleWrapper.classList.add('cads-greedy-nav');
 
   const dropdownId = 'cads-greedy-nav-dropdown';
 
@@ -290,25 +290,18 @@ function addEscapeKeyHandler(containerEl: HTMLElement) {
   });
 }
 
-function addEventListeners(containerEl: HTMLElement) {
-  addResizeObserver(containerEl);
-  addToggleHandler(containerEl);
-  addFocusoutHandler(containerEl);
-  addClickOutsideHandler(containerEl);
-  addTabKeyHandler(containerEl);
-  addEscapeKeyHandler(containerEl);
-}
-
 export default function initNavigation() {
   const containerEl = document.querySelector<HTMLElement>(
     '.js-cads-greedy-nav',
   );
 
   if (containerEl) {
-    containerEl.classList.add('cads-greedy-nav');
-
     prepareHtml(containerEl);
-
-    addEventListeners(containerEl);
+    addResizeObserver(containerEl);
+    addToggleHandler(containerEl);
+    addFocusoutHandler(containerEl);
+    addClickOutsideHandler(containerEl);
+    addTabKeyHandler(containerEl);
+    addEscapeKeyHandler(containerEl);
   }
 }
