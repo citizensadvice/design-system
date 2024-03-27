@@ -122,7 +122,7 @@
       font-weight: normal;
     }
 
-    &.show {
+    &[aria-hidden=false] {
       visibility: visible;
     }
 
@@ -183,17 +183,9 @@
       cursor: pointer;
     }
 
-    &.is-open {
+    &[aria-expanded=true] {
       &::after {
         transform: rotate(90deg);
-      }
-    }
-
-    &.cads-greedy-nav-is-hidden {
-      padding: 0;
-
-      &::after {
-        display: none;
       }
     }
   }
@@ -202,19 +194,15 @@
     position: relative;
     visibility: hidden;
 
+    &[aria-haspopup=true] {
+      visibility: visible;
+    }
+
     @include cads-media-breakpoint-up(sm) {
       position: absolute;
       right: 0;
       height: 100%;
     }
-  }
-
-  &-is-visible {
-    visibility: visible;
-  }
-
-  &-is-hidden {
-    visibility: hidden;
   }
 
   &__header-links,

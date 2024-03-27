@@ -144,41 +144,19 @@ function setDropdownLabel(containerEl: HTMLElement) {
   }
 }
 
-function showToggle(containerEl: HTMLElement, breaks: number[]) {
-  const navDropdownToggle = getToggleEl(containerEl);
+function setToggleVisibility(containerEl: HTMLElement, breaks: number[]) {
+  const toggleEl = getToggleEl(containerEl);
 
   if (breaks.length < 1) {
-    navDropdownToggle.classList.add('cads-greedy-nav-is-hidden');
-    navDropdownToggle.classList.remove('cads-greedy-nav-is-visible');
-
-    const navWrapper = containerEl.querySelector<HTMLElement>(
-      '.cads-greedy-nav__wrapper',
-    );
-
-    if (navWrapper) {
-      navWrapper.setAttribute('aria-haspopup', 'false');
-    }
+    toggleEl.parentElement?.setAttribute('aria-haspopup', 'false');
   } else {
-    navDropdownToggle.classList.add('cads-greedy-nav-is-visible');
-    navDropdownToggle.classList.remove('cads-greedy-nav-is-hidden');
-
-    const navWrapper = containerEl.querySelector<HTMLElement>(
-      '.cads-greedy-nav__wrapper',
-    );
-
-    if (navWrapper) {
-      navWrapper.setAttribute('aria-haspopup', 'true');
-    }
+    toggleEl.parentElement?.setAttribute('aria-haspopup', 'true');
   }
 }
 
 function openDropDown(containerEl: HTMLElement) {
   const navDropdown = getDropdownEl(containerEl);
   const navDropdownToggle = getToggleEl(containerEl);
-
-  navDropdown.classList.add('show');
-  navDropdownToggle.classList.add('is-open');
-  containerEl.classList.add('is-open');
 
   navDropdown.setAttribute('aria-hidden', 'false');
   navDropdownToggle.setAttribute('aria-expanded', 'true');
@@ -189,10 +167,6 @@ function openDropDown(containerEl: HTMLElement) {
 function closeDropDown(containerEl: HTMLElement) {
   const navDropdown = getDropdownEl(containerEl);
   const navDropdownToggle = getToggleEl(containerEl);
-
-  navDropdown.classList.remove('show');
-  navDropdownToggle.classList.remove('is-open');
-  containerEl.classList.remove('is-open');
 
   navDropdown.setAttribute('aria-hidden', 'true');
   navDropdownToggle.setAttribute('aria-expanded', 'false');
@@ -231,7 +205,7 @@ function toMenu(containerEl: HTMLElement, breaks: number[]) {
 
   breaks.pop();
 
-  showToggle(containerEl, breaks);
+  setToggleVisibility(containerEl, breaks);
 }
 
 function doesItFit(containerEl: HTMLElement, breaks: number[]) {
@@ -249,7 +223,7 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
 
     breaks.push(currentRestWidth);
 
-    showToggle(containerEl, breaks);
+    setToggleVisibility(containerEl, breaks);
 
     currentTotalWidth = getElementContentWidth(containerEl);
     currentRestWidth = getChildrenOffsetWidth(containerEl);
@@ -264,11 +238,10 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
   const navDropdown = document.getElementById('cads-greedy-nav-dropdown');
 
   if (navDropdown && breaks.length < 1) {
-    navDropdown.classList.remove('show');
     setDropdownLabel(containerEl);
   }
 
-  showToggle(containerEl, breaks);
+  setToggleVisibility(containerEl, breaks);
 }
 
 function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
