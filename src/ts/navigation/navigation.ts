@@ -296,10 +296,10 @@ export default function initNavigation() {
   if (containerEl) {
     containerEl.classList.add('cads-greedy-nav');
 
-    document.body.classList.add('cads-has-greedy-nav');
-
     prepareHtml(containerEl);
 
     addEventListeners(containerEl);
+
+    document.body.classList.add('cads-has-greedy-nav');
   }
 }

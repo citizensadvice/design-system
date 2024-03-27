@@ -260,7 +260,7 @@ module.exports = function backstopCommon(baseUrl) {
         label: ' Components/Navigation',
         url: componentUrlFor('navigation/example'),
         readySelector: '.cads-has-greedy-nav',
-        clickSelector: '.cads-greedy-nav__dropdown-toggle',
+        clickSelector: '#cads-greedy-nav-toggle',
         viewports: [{ label: 'desktop', width: 800, height: 200 }],
       },
       {
@@ -276,7 +276,7 @@ module.exports = function backstopCommon(baseUrl) {
         label: 'Components/Navigation mobile',
         url: componentUrlFor('navigation/example'),
         readySelector: '.cads-has-greedy-nav',
-        clickSelector: '.cads-greedy-nav__dropdown-toggle',
+        clickSelector: '#cads-greedy-nav-toggle',
         viewports: [{ label: 'mobile', width: 320, height: 400 }],
       },
       {
