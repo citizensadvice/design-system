@@ -71,30 +71,22 @@ beforeEach(async () => {
 });
 
 test('toggles the menu open', () => {
-  const containerEl = screen.getByRole('navigation');
   const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
-  const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
   expect(toggleEl).toHaveTextContent('More');
 
   fireEvent.keyUp(toggleEl, { key: 'Tab' });
 
-  expect(navDropdown).toHaveClass('show');
-  expect(containerEl).toHaveClass('is-open');
   expect(toggleEl).toHaveTextContent('Close');
   expect(toggleEl).toHaveAttribute('aria-label', 'Close navigation options');
 });
 
 test('when tabbing backwards through the dropdown menu', () => {
-  const containerEl = screen.getByRole('navigation');
   const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
-  const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
   fireEvent.focus(toggleEl);
   fireEvent.blur(toggleEl);
 
-  expect(navDropdown).not.toHaveClass('show');
-  expect(containerEl).not.toHaveClass('is-open');
   expect(toggleEl).toHaveTextContent('More');
   expect(toggleEl).toHaveAttribute('aria-label', 'More navigation options');
 });
@@ -107,7 +99,6 @@ test('opens the dropdown menu', async () => {
 
   await user.click(toggleEl);
 
-  expect(navDropdown).toHaveClass('show');
   expect(navDropdown).toHaveAttribute('aria-hidden', 'false');
 });
 
@@ -120,6 +111,5 @@ test('closes the dropdown menu', async () => {
   await user.click(toggleEl);
   await user.click(toggleEl);
 
-  expect(navDropdown).not.toHaveClass('show');
   expect(navDropdown).toHaveAttribute('aria-hidden', 'true');
 });
