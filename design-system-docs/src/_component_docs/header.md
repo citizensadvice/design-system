@@ -19,7 +19,7 @@ The header is intended to be used alongside the navigation, although it works st
 If you plan to use this component you will need to initialise the following JavaScript:
 
 ```js
-import initHeader from '@citizensadvice/design-system/lib/header';
+import { initHeader } from '@citizensadvice/design-system/lib';
 initHeader();
 ```
 

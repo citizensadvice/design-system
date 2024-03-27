@@ -1,6 +1,24 @@
-**New**
+## Unreleased
 
-- Footer: Make new office address the default and remove conditional address logic
+### Consistent javascript module imports
+
+Allow all modules to be imported using a consistent interface, either via:
+
+```js
+import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
+```
+
+Or directly via:
+
+```js
+import { initModuleA, initModuleB } from "@citizensadvice/design-system/lib
+```
+
+For backwards compatibility all existing entrypoints are still supported by may be removed in future versions.
+
+### Make new office address the default
+
+The new office address is now the default in the footer component and the old address has been removed.
 
 ## v5.8.1
 
