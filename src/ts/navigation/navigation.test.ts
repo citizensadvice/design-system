@@ -78,7 +78,7 @@ test('toggles the menu open', () => {
   fireEvent.keyUp(toggleEl, { key: 'Tab' });
 
   expect(toggleEl).toHaveTextContent('Close');
-  expect(toggleEl).toHaveAttribute('aria-label', 'Close navigation options');
+  expect(toggleEl).toHaveAttribute('aria-label', 'Close navigation');
 });
 
 test('when tabbing backwards through the dropdown menu', () => {
