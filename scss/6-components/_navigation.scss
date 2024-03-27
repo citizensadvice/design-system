@@ -84,7 +84,7 @@
   &__dropdown {
     z-index: 1000;
     position: absolute;
-    visibility: hidden;
+    display: none;
     background-color: $cads-language__nav-background-colour;
     border-top: $cads-border-width-small solid $cads-palette__white;
     right: 0;
@@ -123,7 +123,7 @@
     }
 
     &[aria-hidden='false'] {
-      visibility: visible;
+      display: block;
     }
 
     .cads-header__links-item,
@@ -188,10 +188,10 @@
 
   &__wrapper {
     position: relative;
-    visibility: hidden;
+    display: none;
 
     &[aria-haspopup='true'] {
-      visibility: visible;
+      display: block;
     }
 
     @include cads-media-breakpoint-up(sm) {
