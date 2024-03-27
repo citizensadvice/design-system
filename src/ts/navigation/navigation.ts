@@ -20,14 +20,14 @@ function getMainNavEl(containerEl: HTMLElement) {
 }
 
 function extractDataAttributes(containerEl: HTMLElement) {
-  return {
-    label: containerEl.getAttribute('data-dropdown-label') || 'More',
-    labelClose:
-      containerEl.getAttribute('data-dropdown-label-close') || 'Close',
+  const getData = (name: string) =>
+    containerEl.getAttribute(`data-dropdown-${name}`);
 
-    // @TODO: Translated aria-labels
-    ariaLabel: 'More navigation options',
-    ariaLabelClose: 'Close navigation options',
+  return {
+    label: getData('label') || 'More',
+    labelClose: getData('label-close') || 'Close',
+    ariaLabel: getData('aria-label') || 'More navigation options',
+    ariaLabelClose: getData('aria-label-close') || 'Close navigation',
   };
 }
 

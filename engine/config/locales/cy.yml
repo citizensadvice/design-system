@@ -22,6 +22,8 @@ cy:
     navigation:
       dropdown_label: Mwy
       dropdown_label_close: Cau
+      dropdown_aria_label: Mwy o eitemau llywio
+      dropdown_aria_label_close: Cau llywio
     input:
       optional: dewisol
     date_input:
