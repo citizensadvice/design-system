@@ -43,7 +43,12 @@ function buildToggle(containerEl: HTMLElement, dropdownId: string) {
     aria-controls="${dropdownId}"
     aria-expanded="false"
     aria-label="${data.ariaLabel}"
-  >${data.label}</button>`;
+  >
+    <span class="cads-greedy-nav__dropdown-toggle-label">${data.label}</span>
+    <svg class="cads-greedy-nav__dropdown-toggle-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+      <path d="m8 8.73 4.06-4.005a.57.57 0 0 1 .804 0l.97.956a.561.561 0 0 1 0 .794l-5.43 5.36a.567.567 0 0 1-.806 0l-5.43-5.36a.56.56 0 0 1 0-.794l.97-.956a.57.57 0 0 1 .803 0l4.06 4.005Z" />
+    </svg>
+  </button>`;
 }
 
 function buildNavDropdown(dropdownId: string) {
@@ -103,7 +108,7 @@ function openDropDown(containerEl: HTMLElement) {
   toggleEl.setAttribute('aria-expanded', 'true');
   dropdownEl.setAttribute('aria-hidden', 'false');
 
-  toggleEl.innerHTML = data.labelClose;
+  toggleEl.firstElementChild!.textContent = data.labelClose;
   toggleEl.setAttribute('aria-label', data.ariaLabelClose);
 }
 
@@ -115,7 +120,7 @@ function closeDropDown(containerEl: HTMLElement) {
   toggleEl.setAttribute('aria-expanded', 'false');
   dropdownEl.setAttribute('aria-hidden', 'true');
 
-  toggleEl.innerHTML = data.label;
+  toggleEl.firstElementChild!.textContent = data.label;
   toggleEl.setAttribute('aria-label', data.ariaLabel);
 }
 

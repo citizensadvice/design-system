@@ -167,25 +167,21 @@
       padding: 0 $cads-spacing-2;
     }
 
-    &::after {
-      @include cads-icon;
-
-      content: '\0044';
-      display: inline-block;
-      transform: rotate(270deg);
-      font-size: 0.75rem;
-      margin-left: $cads-spacing-1;
-      top: 1px;
-      position: relative;
-    }
-
     &:hover {
       cursor: pointer;
     }
 
+    .cads-greedy-nav__dropdown-toggle-icon {
+      height: 14px;
+      position: relative;
+      top: 2px;
+      fill: currentcolor;
+    }
+
+
     &[aria-expanded='true'] {
-      &::after {
-        transform: rotate(90deg);
+      .cads-greedy-nav__dropdown-toggle-icon {
+        transform: rotate(180deg);
       }
     }
   }
