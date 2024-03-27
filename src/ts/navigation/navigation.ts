@@ -58,37 +58,20 @@ function buildToggle(containerEl: HTMLElement, dropdownId: string) {
   </button>`;
 }
 
-function buildHeaderLinks() {
-  const headerLinks = document.querySelector('.js-cads-copy-into-nav');
-
-  if (!headerLinks) {
-    return null;
-  }
-
-  // prepare items that can close the more dropdown on blur
-  const closeNavOnBlur =
-    headerLinks.lastElementChild?.querySelectorAll('a, button');
-  closeNavOnBlur?.forEach((el) => el.classList.add('js-cads-close-on-blur'));
-
-  // Clone header links into navigation
-  const headerLinksClone = headerLinks.cloneNode(true);
-  const headerLinksContainer = document.createElement('li');
-  headerLinksContainer.className = 'cads-greedy-nav__header-links';
-  headerLinksContainer.appendChild(headerLinksClone);
-
-  return headerLinksContainer;
-}
-
 function buildNavDropdown(dropdownId: string) {
   const navDropdown = document.createElement('ul');
   navDropdown.setAttribute('id', dropdownId);
   navDropdown.setAttribute('data-testid', dropdownId);
   navDropdown.classList.add('cads-greedy-nav__dropdown');
 
-  const headerLinks = buildHeaderLinks();
+  const headerLinks = document.querySelector('.js-cads-copy-into-nav');
 
   if (headerLinks) {
-    navDropdown.appendChild(headerLinks);
+    // Clone header links into navigation
+    const headerLinksClone = headerLinks.cloneNode(true);
+    const headerLinksContainer = document.createElement('li');
+    headerLinksContainer.className = 'cads-greedy-nav__header-links';
+    headerLinksContainer.appendChild(headerLinksClone);
   }
 
   return navDropdown;
@@ -230,54 +213,30 @@ function addToggleHandler(containerEl: HTMLElement) {
   });
 }
 
-function addLastItemCloseHandler(containerEl: HTMLElement) {
-  const toggleEl = getToggleEl(containerEl);
+function addFocusoutHandler(containerEl: HTMLElement) {
   const navDropdownEl = getDropdownEl(containerEl);
 
-  const lastItemCloseHandler = (event: FocusEvent) => {
-    if (!parent(relatedTarget(event), toggleEl.parentElement)) {
-      closeDropDown(containerEl);
+  navDropdownEl.addEventListener('focusout', (event) => {
+    if (navDropdownEl.contains(relatedTarget(event))) {
+      return;
+    }
 
-      const navLastDropdownLink = containerEl.querySelector<HTMLElement>(
-        `#cads-greedy-nav-dropdown li:last-child a`,
-      );
+    closeDropDown(containerEl);
+  });
+}
 
-      if (navLastDropdownLink) {
-        navLastDropdownLink.removeEventListener(
-          BLUR_EVENT,
-          lastItemCloseHandler,
-        );
+function addClickOutsideHandler(containerEl: HTMLElement) {
+  const toggleEL = getToggleEl(containerEl);
+  const navDropdownEl = getDropdownEl(containerEl);
+
+  document.addEventListener('click', (event) => {
+    if ('composedPath' in event) {
+      const withinBoundaries =
+        event.composedPath().includes(toggleEL) ||
+        event.composedPath().includes(navDropdownEl);
+      if (!withinBoundaries) {
+        closeDropDown(containerEl);
       }
-    }
-  };
-
-  toggleEl.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
-    let lastItem: HTMLElement | null;
-
-    const headerLinksInNav = navDropdownEl.querySelector<HTMLElement>(
-      `.js-cads-copy-into-nav`,
-    );
-
-    if (headerLinksInNav?.offsetParent) {
-      lastItem = headerLinksInNav.querySelector<HTMLElement>(
-        '.js-cads-close-on-blur',
-      );
-    } else if (headerLinksInNav?.offsetParent === null) {
-      // offsetParent returns null in this case as the header links in the nav have display: none
-      // using nth-last-child(2) as the last-child in this case is the hidden header nav links
-      lastItem = navDropdownEl.querySelector(`li:nth-last-child(2) a`);
-    } else {
-      lastItem = navDropdownEl.querySelector(`li:last-child a`);
-    }
-
-    if (!parent(relatedTarget(e), toggleEl.parentElement)) {
-      // tabbing backwards
-      lastItem?.removeEventListener(BLUR_EVENT, lastItemCloseHandler);
-
-      closeDropDown(containerEl);
-    } else {
-      // tabbing forwards
-      lastItem?.addEventListener(BLUR_EVENT, lastItemCloseHandler);
     }
   });
 }
@@ -301,7 +260,8 @@ function addEscapeKeyHandler(containerEl: HTMLElement) {
 function addEventListeners(containerEl: HTMLElement) {
   addResizeObserver(containerEl);
   addToggleHandler(containerEl);
-  addLastItemCloseHandler(containerEl);
+  addFocusoutHandler(containerEl);
+  addClickOutsideHandler(containerEl);
   addTabKeyHandler(containerEl);
   addEscapeKeyHandler(containerEl);
 }
