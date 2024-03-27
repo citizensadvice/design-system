@@ -38,7 +38,6 @@
   }
 }
 
-/* stylelint-disable  plugin/selector-bem-pattern */
 .cads-navigation-full-width-wrapper {
   background-color: $cads-language__nav-background-colour;
 
@@ -150,6 +149,8 @@
     }
 
     .cads-header__sign-out {
+      @extend %cads-button__tertiary--dark;
+
       margin-left: $cads-spacing-4;
     }
   }
@@ -263,8 +264,4 @@
   @include cads-media-breakpoint-up(md) {
     display: none;
   }
-}
-
-.cads-greedy-nav__dropdown .cads-header__sign-out {
-  @extend %cads-button__tertiary--dark;
 }
