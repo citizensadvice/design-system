@@ -3,7 +3,6 @@
 // ============================================================================
 // Navigation
 // ============================================================================
-// stylelint-disable selector-class-pattern, plugin/selector-bem-pattern
 
 /** @define navigation */
 .cads-navigation {
@@ -16,6 +15,10 @@
   position: relative;
   font-size: 0;
   overflow: hidden;
+
+  @media print {
+    display: none;
+  }
 
   .cads-navigation-toggle-label {
     @include cads-visually-hidden;
@@ -39,6 +42,30 @@
   }
 }
 
+////
+// Navigation fallback styles
+///
+/* stylelint-disable plugin/selector-bem-pattern */
+.no-js {
+  .cads-navigation {
+    height: auto;
+
+    &__list {
+      margin-bottom: 0;
+    }
+
+    &__list-item {
+      margin-bottom: 0;
+    }
+  }
+}
+/* stylelint-enable plugin/selector-bem-pattern */
+
+////
+// Navigation wrapper
+////
+
+/** @define navigation-full-width-wrapper; weak */
 .cads-navigation-full-width-wrapper {
   max-height: 44px;
   overflow: hidden;
@@ -57,10 +84,11 @@
   }
 }
 
-// ============================================================================
+////
 // Greedy navigation behaviour
-// ============================================================================
+////
 
+/** @define greedy-nav; weak */
 .cads-greedy-nav {
   white-space: nowrap; // prevent flash of unstyled content
 
@@ -232,8 +260,10 @@
   }
 }
 
-// Fallback styles
-
+////
+// Greedy navigation fallback styles
+///
+/* stylelint-disable plugin/selector-bem-pattern */
 .no-js,
 .cads-has-greedy-nav {
   .cads-navigation-full-width-wrapper {
@@ -245,23 +275,4 @@
     }
   }
 }
-
-.no-js {
-  .cads-navigation {
-    height: auto;
-
-    &__list {
-      margin-bottom: 0;
-    }
-
-    &__list-item {
-      margin-bottom: 0;
-    }
-  }
-}
-
-@media print {
-  .cads-navigation {
-    display: none;
-  }
-}
+/* stylelint-enable plugin/selector-bem-pattern */
