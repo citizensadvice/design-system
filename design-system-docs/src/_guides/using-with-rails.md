@@ -280,11 +280,10 @@ However some components have some companion JavaScript behaviour. In our case th
 Add the following to your `app/javascript/application.js` entrypoint:
 
 ```
-import initHeader from '@citizensadvice/design-system/lib/header';
-import greedyNav from '@citizensadvice/design-system/lib/greedy-nav';
+import { initHeader, initGreedyNav } from '@citizensadvice/design-system/lib';
 
 initHeader();
-greedyNav.init();
+initGreedyNav();
 ```
 
 Each of the [component guides](/components) tell you if the require any additional JavaScript along with any polyfills they might require for older browsers.
