@@ -1,9 +1,3 @@
-import {
-  debounce,
-  getElementContentWidth,
-  getChildrenOffsetWidth,
-} from './helpers';
-
 function isExpanded(toggle: Element) {
   const ariaExpanded = toggle.getAttribute('aria-expanded');
   return ariaExpanded === 'true';
@@ -155,24 +149,53 @@ function toMenu(containerEl: HTMLElement) {
   }
 }
 
+function computeContentWidth(containerEl: HTMLElement) {
+  const styles = window.getComputedStyle(containerEl);
+  const padding =
+    parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+
+  return containerEl.clientWidth - padding;
+}
+
+function computeChildrenOffsetWidth(containerEl: HTMLElement) {
+  // Adds a tolerance to account for alignment to the layout grid.
+  const offsetPixels = -10;
+
+  const children = containerEl.childNodes;
+
+  let sum = 0;
+  for (let i = 0; i < children.length; i++) {
+    const child = <HTMLElement>children[i];
+
+    if (child.nodeType !== 3 && !Number.isNaN(child.offsetWidth)) {
+      sum += child.offsetWidth;
+    }
+  }
+
+  return sum + offsetPixels;
+}
+
 function doesItFit(containerEl: HTMLElement, breaks: number[]) {
   const mainNav = getMainNavEl(containerEl);
 
-  let currentTotalWidth = getElementContentWidth(containerEl);
-  let currentRestWidth = getChildrenOffsetWidth(containerEl);
+  let currentContentWidth = computeContentWidth(containerEl);
+  let currentChildrenOffsetWidth = computeChildrenOffsetWidth(containerEl);
 
-  while (currentTotalWidth <= currentRestWidth && mainNav.children.length > 0) {
+  while (
+    currentContentWidth <= currentChildrenOffsetWidth &&
+    mainNav.children.length > 0
+  ) {
     toDropdown(containerEl);
 
-    breaks.push(currentRestWidth);
+    breaks.push(currentChildrenOffsetWidth);
 
     setToggleVisibility(containerEl, breaks);
 
-    currentTotalWidth = getElementContentWidth(containerEl);
-    currentRestWidth = getChildrenOffsetWidth(containerEl);
+    currentContentWidth = computeContentWidth(containerEl);
+    currentChildrenOffsetWidth = computeChildrenOffsetWidth(containerEl);
   }
 
-  while (currentTotalWidth >= breaks[breaks.length - 1]) {
+  while (currentContentWidth >= breaks[breaks.length - 1]) {
     toMenu(containerEl);
 
     breaks.pop();
@@ -186,11 +209,13 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
 function addResizeObserver(containerEl: HTMLElement) {
   const breaks: number[] = [];
 
-  const observer = new ResizeObserver(
-    debounce(() => {
+  let timer: number;
+  const observer = new ResizeObserver(() => {
+    clearTimeout(timer);
+    timer = window.setTimeout(() => {
       doesItFit(containerEl, breaks);
-    }, 50),
-  );
+    }, 50);
+  });
 
   // This will fire when observed, which is desirable.
   // Use this to set up the initial state of the dropdown.
