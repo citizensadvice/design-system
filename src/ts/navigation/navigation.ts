@@ -13,20 +13,20 @@ function isExpanded(toggle: Element) {
   return ariaExpanded === 'true';
 }
 
-function getToggleElSelector() {
-  return `button[aria-controls='cads-greedy-nav-dropdown']`;
-}
-
 function getToggleEl(containerEl: HTMLElement) {
-  return containerEl.querySelector(getToggleElSelector()) as HTMLButtonElement;
-}
-
-function getDropdownSelector() {
-  return '#cads-greedy-nav-dropdown';
+  return containerEl.querySelector(
+    `button[aria-controls='cads-greedy-nav-dropdown']`,
+  ) as HTMLButtonElement;
 }
 
 function getDropdownEl(containerEl: HTMLElement) {
-  return containerEl.querySelector(getDropdownSelector()) as HTMLElement;
+  // The dropdown has a unique ID but query against the container for consistency
+  return containerEl.querySelector('#cads-greedy-nav-dropdown') as HTMLElement;
+}
+
+function getMainNavEl(containerEl: HTMLElement) {
+  // The menu is just the first element child of the container
+  return containerEl.firstElementChild as HTMLElement;
 }
 
 function extractDataAttributes(containerEl: HTMLElement) {
@@ -95,6 +95,8 @@ function buildNavDropdown(dropdownId: string) {
 }
 
 function prepareHtml(containerEl: HTMLElement) {
+  const mainNavEl = getMainNavEl(containerEl);
+
   const toggleWrapper = document.createElement('div');
   toggleWrapper.classList.add('cads-greedy-nav__wrapper');
 
@@ -107,14 +109,7 @@ function prepareHtml(containerEl: HTMLElement) {
 
   toggleWrapper.appendChild(buildNavDropdown(dropdownId));
 
-  containerEl.firstElementChild?.insertAdjacentElement(
-    'afterend',
-    toggleWrapper,
-  );
-
-  containerEl.classList.add('cads-greedy-nav');
-
-  document.body.classList.add('cads-has-greedy-nav');
+  mainNavEl.insertAdjacentElement('afterend', toggleWrapper);
 }
 
 function setToggleLabel(containerEl: HTMLElement) {
@@ -162,7 +157,7 @@ function closeDropDown(containerEl: HTMLElement) {
 
 function toDropdown(containerEl: HTMLElement) {
   const navDropdown = getDropdownEl(containerEl);
-  const mainNav = containerEl.firstElementChild;
+  const mainNav = getMainNavEl(containerEl);
 
   if (mainNav && mainNav.children.length > 0 && mainNav.lastElementChild) {
     if (navDropdown.firstChild) {
@@ -178,7 +173,7 @@ function toDropdown(containerEl: HTMLElement) {
 
 function toMenu(containerEl: HTMLElement) {
   const navDropdown = getDropdownEl(containerEl);
-  const mainNav = containerEl.firstElementChild;
+  const mainNav = getMainNavEl(containerEl);
 
   if (
     mainNav &&
@@ -191,14 +186,10 @@ function toMenu(containerEl: HTMLElement) {
 }
 
 function doesItFit(containerEl: HTMLElement, breaks: number[]) {
+  const mainNav = getMainNavEl(containerEl);
+
   let currentTotalWidth = getElementContentWidth(containerEl);
   let currentRestWidth = getChildrenOffsetWidth(containerEl);
-
-  const mainNav = containerEl.firstElementChild;
-
-  if (!mainNav) {
-    throw new Error('main nav not found');
-  }
 
   while (currentTotalWidth <= currentRestWidth && mainNav.children.length > 0) {
     toDropdown(containerEl);
@@ -342,8 +333,13 @@ export default function initNavigation() {
   );
 
   if (containerEl) {
-    const breaks: number[] = [];
+    containerEl.classList.add('cads-greedy-nav');
+
+    document.body.classList.add('cads-has-greedy-nav');
+
     prepareHtml(containerEl);
+
+    const breaks: number[] = [];
     addEventListeners(containerEl, breaks);
   }
 }
