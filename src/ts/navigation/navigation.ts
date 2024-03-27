@@ -37,15 +37,15 @@ function buildToggle(containerEl: HTMLElement, dropdownId: string) {
   const toggleId = 'cads-greedy-nav-toggle';
 
   return `<button type="button"
-    class="cads-greedy-nav__dropdown-toggle"
+    class="cads-greedy-nav__toggle"
     id="${toggleId}"
     data-testid="${toggleId}"
     aria-controls="${dropdownId}"
     aria-expanded="false"
     aria-label="${data.ariaLabel}"
   >
-    <span class="cads-greedy-nav__dropdown-toggle-label">${data.label}</span>
-    <svg class="cads-greedy-nav__dropdown-toggle-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+    <span class="cads-greedy-nav__toggle-label">${data.label}</span>
+    <svg class="cads-greedy-nav__toggle-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
       <path d="m8 8.73 4.06-4.005a.57.57 0 0 1 .804 0l.97.956a.561.561 0 0 1 0 .794l-5.43 5.36a.567.567 0 0 1-.806 0l-5.43-5.36a.56.56 0 0 1 0-.794l.97-.956a.57.57 0 0 1 .803 0l4.06 4.005Z" />
     </svg>
   </button>`;

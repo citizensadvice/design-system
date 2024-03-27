@@ -4,6 +4,44 @@
 // Navigation
 // ============================================================================
 
+@mixin cads-nav-link-focus() {
+  background-color: $cads-language__nav-focus-background-colour;
+  color: $cads-language__nav-focus-colour;
+  border: $cads-border-width-medium solid
+    $cads-language__nav-focus-border-colour;
+  outline: none;
+}
+
+@mixin cads-nav-link() {
+  font-size: $cads-font-size;
+  color: $cads-language__nav-colour;
+  padding: $cads-spacing-3 $cads-spacing-2;
+  display: inline-block;
+  text-decoration: none;
+  border: $cads-border-width-medium solid;
+  border-color: transparent;
+  line-height: $cads-font-size;
+
+  @include cads-media-breakpoint-up(md) {
+    padding: $cads-spacing-3 cads-rem(6px);
+  }
+
+  &:visited {
+    color: $cads-language__brand-primary-contrast;
+  }
+
+  &:hover {
+    background-color: $cads-language__nav-hover-background-colour;
+    border-color: $cads-language__nav-hover-border-colour;
+    color: $cads-language__brand-primary-contrast;
+  }
+
+  &:active,
+  &:focus {
+    @include cads-nav-link-focus;
+  }
+}
+
 /** @define navigation */
 .cads-navigation {
   display: flex;
@@ -82,138 +120,132 @@
 /** @define greedy-nav; weak */
 .cads-greedy-nav {
   white-space: nowrap; // prevent flash of unstyled content
+}
+.cads-greedy-nav__wrapper {
+  position: relative;
+  display: none;
 
-  &__dropdown {
-    z-index: 1000;
-    position: absolute;
-    display: none;
-    background-color: $cads-language__nav-background-colour;
-    border-top: $cads-border-width-small solid $cads-palette__white;
-    right: 0;
-    width: 100vw;
-    top: 100%;
-    padding: 0;
-    margin: 0;
-
-    @include cads-media-breakpoint-up(md) {
-      width: auto;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 0;
-      display: block;
-      padding: 0;
-    }
-
-    span,
-    a {
-      @include cads-nav-link;
-
-      display: block;
-      transition-property: none;
-      padding: $cads-spacing-3 $cads-spacing-4;
-
-      @include cads-media-breakpoint-up(md) {
-        padding: (cads-rem-to-px($cads-spacing-4) - $cads-border-width-medium)
-          $cads-spacing-4;
-      }
-    }
-
-    span {
-      font-weight: normal;
-    }
-
-    &[aria-hidden='false'] {
-      display: block;
-    }
-
-    .cads-header__links-item,
-    .cads-header__account-link {
-      padding-left: 0;
-      margin-left: 0;
-      border-left: none; // only on .cads-header__account-link
-    }
-
-    .cads-linkbutton__regular {
-      @include cads-nav-link;
-
-      font-weight: bold;
-      text-align: left;
-      display: block;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      width: 100%;
-
-      &:focus {
-        @include cads-nav-link-focus;
-      }
-    }
-
-    .cads-header__sign-out {
-      @extend %cads-button__tertiary--dark;
-
-      margin-left: $cads-spacing-4;
-    }
+  &[aria-haspopup='true'] {
+    display: block;
   }
 
-  &__dropdown-toggle {
+  @include cads-media-breakpoint-up(sm) {
+    position: absolute;
+    right: 0;
+    height: 100%;
+  }
+}
+.cads-greedy-nav__toggle {
+  @include cads-nav-link;
+
+  height: 100%;
+  font-weight: bold;
+  background-color: $cads-language__nav-background-colour;
+  border-left: $cads-border-width-small solid $cads-language__border-colour;
+
+  @include cads-media-breakpoint-up(md) {
+    padding: 0 $cads-spacing-2;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .cads-greedy-nav__toggle-icon {
+    height: 14px;
+    position: relative;
+    top: 2px;
+    fill: currentcolor;
+  }
+
+  &[aria-expanded='true'] {
+    .cads-greedy-nav__toggle-icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+.cads-greedy-nav__dropdown {
+  z-index: 1000;
+  position: absolute;
+  display: none;
+  background-color: $cads-language__nav-background-colour;
+  border-top: $cads-border-width-small solid $cads-palette__white;
+  right: 0;
+  width: 100vw;
+  top: 100%;
+  padding: 0;
+  margin: 0;
+
+  @include cads-media-breakpoint-up(md) {
+    width: auto;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+    display: block;
+    padding: 0;
+  }
+
+  span,
+  a {
     @include cads-nav-link;
 
-    height: 100%;
-    font-weight: bold;
-    background-color: $cads-language__nav-background-colour;
-    border-left: $cads-border-width-small solid $cads-language__border-colour;
+    display: block;
+    transition-property: none;
+    padding: $cads-spacing-3 $cads-spacing-4;
 
     @include cads-media-breakpoint-up(md) {
-      padding: 0 $cads-spacing-2;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    .cads-greedy-nav__dropdown-toggle-icon {
-      height: 14px;
-      position: relative;
-      top: 2px;
-      fill: currentcolor;
-    }
-
-    &[aria-expanded='true'] {
-      .cads-greedy-nav__dropdown-toggle-icon {
-        transform: rotate(180deg);
-      }
+      padding: (cads-rem-to-px($cads-spacing-4) - $cads-border-width-medium)
+        $cads-spacing-4;
     }
   }
 
-  &__wrapper {
-    position: relative;
-    display: none;
+  span {
+    font-weight: normal;
+  }
 
-    &[aria-haspopup='true'] {
-      display: block;
-    }
+  &[aria-hidden='false'] {
+    display: block;
+  }
 
-    @include cads-media-breakpoint-up(sm) {
-      position: absolute;
-      right: 0;
-      height: 100%;
+  .cads-header__links-item,
+  .cads-header__account-link {
+    padding-left: 0;
+    margin-left: 0;
+    border-left: none; // only on .cads-header__account-link
+  }
+
+  .cads-linkbutton__regular {
+    @include cads-nav-link;
+
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+
+    &:focus {
+      @include cads-nav-link-focus;
     }
   }
 
-  &__header-links,
-  &__header-links li:first-child {
+  .cads-header__sign-out {
+    @extend %cads-button__tertiary--dark;
+
+    margin-left: $cads-spacing-4;
+  }
+}
+.cads-greedy-nav__header-links {
+  margin-top: $cads-spacing-2;
+
+  li:first-child {
     margin-top: $cads-spacing-2;
   }
 
   .cads-header__links {
     text-align: left;
-  }
-}
-
-.cads-greedy-nav__header-links {
-  .cads-header__links {
     width: 100%;
     margin-bottom: 0;
     padding: 0;
@@ -232,6 +264,13 @@
     }
   }
 
+  .cads-header__links-item,
+  .cads-header__account-link {
+    padding-left: 0;
+    margin-left: 0;
+    border-left: none; // only on .cads-header__account-link
+  }
+
   .cads-header__links-item {
     display: block;
     font-weight: $cads-font-weight__bold;
@@ -242,6 +281,27 @@
 
     display: block;
     padding: $cads-spacing-3 $cads-spacing-4;
+  }
+
+  .cads-linkbutton__regular {
+    @include cads-nav-link;
+
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+
+    &:focus {
+      @include cads-nav-link-focus;
+    }
+  }
+
+  .cads-header__sign-out {
+    @extend %cads-button__tertiary--dark;
+
+    margin-left: $cads-spacing-4;
   }
 }
 
