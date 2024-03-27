@@ -127,6 +127,8 @@ function prepareHtml(containerEl: HTMLElement) {
   }
 
   containerEl.classList.add('cads-greedy-nav');
+
+  document.body.classList.add('cads-has-greedy-nav');
 }
 
 function setDropdownLabel(containerEl: HTMLElement) {
