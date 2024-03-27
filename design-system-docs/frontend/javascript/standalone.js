@@ -9,7 +9,7 @@ import 'iframe-resizer/js/iframeResizer.contentWindow';
 
 import {
   initHeader,
-  initGreedyNav,
+  initHeader,
   initTargetedContent,
   initDisclosure,
   initOnThisPage,
@@ -17,7 +17,7 @@ import {
 
 try {
   initHeader();
-  initGreedyNav();
+  initHeader();
   initTargetedContent();
   initDisclosure();
   initOnThisPage();

@@ -6,7 +6,7 @@ import '../styles/theme.scss';
 
 import {
   initHeader,
-  initGreedyNav,
+  initHeader,
   initTargetedContent,
   initDisclosure,
   initOnThisPage,
@@ -18,7 +18,7 @@ import initComponentExamples from './components/component-examples';
 
 try {
   initHeader();
-  initGreedyNav();
+  initHeader();
   initTargetedContent();
   initDisclosure();
   initOnThisPage();
