@@ -3,6 +3,7 @@
 // ============================================================================
 // Navigation
 // ============================================================================
+/* stylelint-disable plugin/selector-bem-pattern */
 
 @mixin cads-nav-link-focus() {
   background-color: $cads-language__nav-focus-background-colour;
@@ -42,7 +43,10 @@
   }
 }
 
-/** @define navigation */
+////
+// Core navigation styles
+////
+
 .cads-navigation {
   display: flex;
   justify-content: space-between;
@@ -58,37 +62,40 @@
     display: none;
   }
 }
+
 .cads-navigation__list {
   display: inline-block;
   margin: 0;
   list-style-type: none;
   padding: 0;
 }
+
 .cads-navigation__list-item {
   display: inline-block;
   font-weight: $cads-font-weight__bold;
   margin-bottom: 0;
 }
+
 .cads-navigation__link {
   @include cads-nav-link;
 }
 
 ////
 // Navigation fallback styles
-///
-/* stylelint-disable plugin/selector-bem-pattern */
+////
 .no-js {
   .cads-navigation {
     height: auto;
   }
+
   .cads-navigation__list {
     margin-bottom: 0;
   }
+
   .cads-navigation__list-item {
     margin-bottom: 0;
   }
 }
-/* stylelint-enable plugin/selector-bem-pattern */
 
 ////
 // Navigation wrapper
@@ -117,16 +124,6 @@
 // Greedy navigation behaviour
 ////
 
-// Navigation overrides when greedy navigation is initialised
-/* stylelint-disable plugin/selector-bem-pattern */
-.cads-has-greedy-nav {
-  .cads-navigation {
-    white-space: nowrap; // prevent flash of unstyled content
-  }
-}
-/* stylelint-enable plugin/selector-bem-pattern */
-
-/** @define greedy-nav; weak */
 .cads-greedy-nav {
   position: relative;
   display: none;
@@ -141,6 +138,7 @@
     height: 100%;
   }
 }
+
 .cads-greedy-nav__toggle {
   @include cads-nav-link;
 
@@ -170,6 +168,7 @@
     }
   }
 }
+
 .cads-greedy-nav__dropdown {
   z-index: 1000;
   position: absolute;
@@ -185,6 +184,10 @@
   @include cads-media-breakpoint-up(md) {
     width: auto;
     padding: 0;
+  }
+
+  &[aria-hidden='false'] {
+    display: block;
   }
 
   li {
@@ -211,10 +214,6 @@
     font-weight: normal;
   }
 
-  &[aria-hidden='false'] {
-    display: block;
-  }
-
   .cads-header__links-item,
   .cads-header__account-link {
     padding-left: 0;
@@ -231,10 +230,6 @@
     padding-left: 1rem;
     padding-right: 1rem;
     width: 100%;
-
-    &:focus {
-      @include cads-nav-link-focus;
-    }
   }
 
   .cads-header__sign-out {
@@ -243,8 +238,13 @@
     margin-left: $cads-spacing-4;
   }
 }
+
 .cads-greedy-nav__header-links {
   margin-top: $cads-spacing-2;
+
+  @include cads-media-breakpoint-up(md) {
+    display: none;
+  }
 
   li:first-child {
     margin-top: $cads-spacing-2;
@@ -312,16 +312,10 @@
   }
 }
 
-.cads-greedy-nav__dropdown .cads-greedy-nav__header-links {
-  @include cads-media-breakpoint-up(md) {
-    display: none;
-  }
-}
-
 ////
-// Greedy navigation fallback styles
+// Prevent overflowing navigation when loaded
+// or when javascript is disable
 ///
-/* stylelint-disable plugin/selector-bem-pattern */
 .no-js,
 .cads-has-greedy-nav {
   .cads-navigation-full-width-wrapper {
@@ -333,4 +327,3 @@
     }
   }
 }
-/* stylelint-enable plugin/selector-bem-pattern */

@@ -1,3 +1,20 @@
+/**
+ * The global navigation uses a "greedy" navigation pattern to allow as many
+ * links to be visible as possible. As the width of the viewport is restricted,
+ * navigation links fall into a collapsible section. On smaller viewports any links
+ * that appear in the header links section in the header are also copied into the navigation.
+ *
+ * import { initNavigation } from '@citizensadvice/design-system/lib';
+ * initNavigation();
+ *
+ * There is no configuration for the component. Labels are translated through
+ * data attributes on the the container element. Translations are provided by
+ * the ViewComponent and bundled as part of the Rails engine.
+ *
+ * This component uses an inline SVG icon for the toggle icon which a
+ * version of the ArrowDown component HTML. The icon is rotated in CSS when
+ * active rather than inlining two dedicated icons.
+ */
 function isExpanded(toggle: Element) {
   const ariaExpanded = toggle.getAttribute('aria-expanded');
   return ariaExpanded === 'true';
