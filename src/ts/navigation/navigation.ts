@@ -204,7 +204,9 @@ function doesItFit(containerEl: HTMLElement, breaks: number[]) {
   setToggleVisibility(containerEl, breaks);
 }
 
-function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
+function addResizeObserver(containerEl: HTMLElement) {
+  const breaks: number[] = [];
+
   const observer = new ResizeObserver(
     debounce(() => {
       doesItFit(containerEl, breaks);
@@ -214,18 +216,10 @@ function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
   // This will fire when observed, which is desirable.
   // Use this to set up the initial state of the dropdown.
   observer.observe(containerEl);
+}
 
-  window.addEventListener(
-    'orientationchange',
-    () => {
-      doesItFit(containerEl, breaks);
-    },
-    true,
-  );
-
+function addToggleHandler(containerEl: HTMLElement) {
   const toggleEl = getToggleEl(containerEl);
-
-  const navDropdownEl = getDropdownEl(containerEl);
 
   toggleEl.addEventListener('mouseup', (event: MouseEvent) => {
     if (isExpanded(toggleEl)) {
@@ -234,6 +228,11 @@ function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
       openDropDown(containerEl);
     }
   });
+}
+
+function addLastItemCloseHandler(containerEl: HTMLElement) {
+  const toggleEl = getToggleEl(containerEl);
+  const navDropdownEl = getDropdownEl(containerEl);
 
   const lastItemCloseHandler = (event: FocusEvent) => {
     if (!parent(relatedTarget(event), toggleEl.parentElement)) {
@@ -251,15 +250,6 @@ function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
       }
     }
   };
-
-  /* Open when tabbing into the toggle */
-  if (toggleEl) {
-    toggleEl.addEventListener('keyup', (event) => {
-      if (!event.shiftKey && event.key === 'Tab') {
-        openDropDown(containerEl);
-      }
-    });
-  }
 
   toggleEl.addEventListener(BLUR_EVENT, (e: FocusEvent) => {
     let lastItem: HTMLElement | null;
@@ -290,21 +280,30 @@ function addEventListeners(containerEl: HTMLElement, breaks: number[]) {
       lastItem?.addEventListener(BLUR_EVENT, lastItemCloseHandler);
     }
   });
+}
 
-  document.addEventListener('click', (event: MouseEvent) => {
-    const targetEl = <HTMLElement>event.target;
-    if (targetEl !== toggleEl) {
+function addTabKeyHandler(containerEl: HTMLElement) {
+  getToggleEl(containerEl).addEventListener('keyup', (event) => {
+    if (!event.shiftKey && event.key === 'Tab') {
+      openDropDown(containerEl);
+    }
+  });
+}
+
+function addEscapeKeyHandler(containerEl: HTMLElement) {
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
       closeDropDown(containerEl);
     }
   });
+}
 
-  document.onkeydown = (evt: KeyboardEvent) => {
-    const event = evt || window.event;
-
-    if (event.keyCode === 27) {
-      closeDropDown(containerEl);
-    }
-  };
+function addEventListeners(containerEl: HTMLElement) {
+  addResizeObserver(containerEl);
+  addToggleHandler(containerEl);
+  addLastItemCloseHandler(containerEl);
+  addTabKeyHandler(containerEl);
+  addEscapeKeyHandler(containerEl);
 }
 
 export default function initNavigation() {
@@ -319,7 +318,6 @@ export default function initNavigation() {
 
     prepareHtml(containerEl);
 
-    const breaks: number[] = [];
-    addEventListeners(containerEl, breaks);
+    addEventListeners(containerEl);
   }
 }
