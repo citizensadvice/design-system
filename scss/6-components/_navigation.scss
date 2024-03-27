@@ -127,6 +127,7 @@
 .cads-greedy-nav {
   position: relative;
   display: none;
+  white-space: nowrap;
 
   &[aria-haspopup='true'] {
     display: block;
