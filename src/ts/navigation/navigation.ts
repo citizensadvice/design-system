@@ -1,9 +1,5 @@
-/* eslint-disable no-console */
 import {
-  BLUR_EVENT,
   debounce,
-  parent,
-  relatedTarget,
   getElementContentWidth,
   getChildrenOffsetWidth,
 } from './helpers';
@@ -217,7 +213,8 @@ function addFocusoutHandler(containerEl: HTMLElement) {
   const navDropdownEl = getDropdownEl(containerEl);
 
   navDropdownEl.addEventListener('focusout', (event) => {
-    if (navDropdownEl.contains(relatedTarget(event))) {
+    const target = <HTMLElement>event.relatedTarget || document.activeElement;
+    if (navDropdownEl.contains(target)) {
       return;
     }
 
