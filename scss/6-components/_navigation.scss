@@ -19,27 +19,20 @@
   @media print {
     display: none;
   }
-
-  .cads-navigation-toggle-label {
-    @include cads-visually-hidden;
-  }
-
-  &__list {
-    display: inline-block;
-    margin: 0;
-    list-style-type: none;
-    padding: 0;
-  }
-
-  &__list-item {
-    display: inline-block;
-    font-weight: $cads-font-weight__bold;
-    margin-bottom: 0;
-  }
-
-  &__link {
-    @include cads-nav-link;
-  }
+}
+.cads-navigation__list {
+  display: inline-block;
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+.cads-navigation__list-item {
+  display: inline-block;
+  font-weight: $cads-font-weight__bold;
+  margin-bottom: 0;
+}
+.cads-navigation__link {
+  @include cads-nav-link;
 }
 
 ////
@@ -49,14 +42,12 @@
 .no-js {
   .cads-navigation {
     height: auto;
-
-    &__list {
-      margin-bottom: 0;
-    }
-
-    &__list-item {
-      margin-bottom: 0;
-    }
+  }
+  .cads-navigation__list {
+    margin-bottom: 0;
+  }
+  .cads-navigation__list-item {
+    margin-bottom: 0;
   }
 }
 /* stylelint-enable plugin/selector-bem-pattern */
