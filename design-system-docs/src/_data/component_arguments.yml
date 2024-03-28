@@ -87,8 +87,6 @@ callout:
     description: 'Optional type. One of <code>:standard</code>, <code>:example</code>, <code>:important</code>, or <code>:adviser</code>. Defaults to <code>:standard</code>.'
   - argument: attributes
     description: Optional, attributes passed on to callout container element
-  - argument: title
-    description: '<strong>(Deprecated: use attributes hash instead)</strong> This previously set an aria-label which is not supported on non-interactive elements'
 search:
   - argument: value
     description: Optional, current value
@@ -114,8 +112,6 @@ on_this_page_links_slot:
   - argument: children
     description: Optional, array for nested links
 footer:
-  - argument: feedback_url
-    description: '<strong>(Deprecated: use feedback_link slot)</strong> If present, a link to this feedback form will be displayed'
   - argument: homepage_url
     description: 'Optional, defaults to <code>/</code>'
 footer_feedback_link_slot:

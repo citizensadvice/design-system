@@ -71,19 +71,6 @@ RSpec.describe CitizensAdviceComponents::Callout, type: :component do
     it { is_expected.to have_text "Example content" }
   end
 
-  context "when deprecated title is provided" do
-    before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-      render_inline(described_class.new(type: :standard, title: "Deprecated title")) { "Example content" }
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/title attribute is deprecated/)
-    end
-  end
-
   context "when no content present" do
     before do
       render_inline(described_class.new(type: :standard))

@@ -1,5 +1,8 @@
 **New**
 
+- Remove deprecated feedback_url from footer
+- Remove deprecated content slot from section links
+- Remove deprecated title attribute from callout
 - Footer: Make new office address the default and remove conditional address logic
 
 ## v5.8.1
