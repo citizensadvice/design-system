@@ -10,13 +10,13 @@ The navigation is intended to be used alongside the header, although it works st
 
 The global navigation uses a "greedy" navigation pattern to allow as many links to be visible as possible. As the width of the viewport is restricted, navigation links fall into a collapsible section.
 
-On mobile devices, any links that appear in the `.js-cads-copy-into-nav` element in the header are copied into the collapsible more section too.
+On mobile devices, any links that appear in the header links section in the header are copied into the navigation too.
 
 If you plan to use this component you will need to initialise the following JavaScript:
 
 ```js
-import { initGreedyNav } from '@citizensadvice/design-system/lib';
-initGreedyNav();
+import { initNavigation } from '@citizensadvice/design-system/lib';
+initNavigation();
 ```
 
 ## Using with Rails
