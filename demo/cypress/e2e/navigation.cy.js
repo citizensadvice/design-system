@@ -7,6 +7,7 @@ describe('Navigation', () => {
 
     it('renders navigation with no greedy navigation', () => {
       cy.findByRole('button', { name: /More/i }).should('not.exist');
+      cy.get('.cads-greedy-nav').should('have.attr', 'aria-haspopup', 'false');
     });
   });
 
@@ -16,8 +17,17 @@ describe('Navigation', () => {
       cy.viewport(800, 600);
     });
 
+    it('has expected aria attributes', () => {
+      cy.get('.cads-greedy-nav').should('have.attr', 'aria-haspopup', 'true');
+      cy.findByRole('button', { name: /More/i }).should(
+        'have.attr',
+        'aria-controls',
+        'cads-greedy-nav-dropdown',
+      );
+    });
+
     it('moves navigation items into the greedy navigation', () => {
-      openNavigation();
+      cy.findByRole('button', { name: /More/i }).click();
       assertItemsInMainNavigation([
         'Benefits',
         'Work',
@@ -38,7 +48,7 @@ describe('Navigation', () => {
     });
 
     it('moves navigation items into the greedy navigation including header links', () => {
-      openNavigation();
+      cy.findByRole('button', { name: /More/i }).click();
       assertItemsInMainNavigation(['Benefits', 'Work']);
 
       assertItemsInGreedyNavigation([
@@ -57,42 +67,62 @@ describe('Navigation', () => {
     });
   });
 
-  context('when interacting with the greedy navigation', () => {
+  context('when interacting with a mouse', () => {
     beforeEach(() => {
       loadComponentExample();
       cy.viewport(375, 667);
     });
 
     it('allows opening and closing the greedy navigation', () => {
-      openNavigation();
+      cy.findByRole('button', { name: /More/i }).click();
       assertNavigationOpen();
-      closeNavigation();
+      cy.findByRole('button', { name: /Close/i }).click();
       assertNavigationClosed();
     });
 
-    it('supports opening the greedy navigation with the tab key', () => {
-      tabIntoNavigation();
+    it('closes the greedy navigation when clicking outside it', () => {
+      cy.findByRole('button', { name: /More/i }).click();
       assertNavigationOpen();
+      cy.get('body').click();
+      assertNavigationClosed();
+    });
+  });
+
+  // Note: Tab interaction is a bit fraught to test in Cypress
+  // We use https://github.com/dmtrKovalenko/cypress-real-events
+  // to approximate this but full keyboard testing should still be
+  // done manually when changing this behaviour.
+  context('when interacting with a keyboard', () => {
+    beforeEach(() => {
+      loadComponentExample();
+      cy.viewport(375, 667);
     });
 
     it('closes the greedy navigation when tabbing out', () => {
-      openNavigation();
+      cy.findByRole('button', { name: /More/i }).click();
       cy.findByTestId('cads-greedy-nav-dropdown').within(() => {
-        cy.findByText('Sign in').focus().tab();
+        cy.findByText('Sign in').focus().realPress('Tab');
         assertNavigationClosed();
       });
     });
 
     it('closes the greedy navigation when pressing the escape key', () => {
-      openNavigation().type('{esc}');
+      cy.findByRole('button', { name: /More/i }).click().type('{esc}');
       assertNavigationClosed();
     });
+  });
 
-    it('closes the greedy navigation when clicking outside it', () => {
-      openNavigation();
-      assertNavigationOpen();
-      cy.get('body').click();
-      assertNavigationClosed();
+  context('when in english', () => {
+    beforeEach(() => {
+      loadComponentExample('en');
+      cy.viewport(375, 667);
+    });
+
+    it('has translated labels when viewing in english locale', () => {
+      cy.findByRole('button', { name: /More/i })
+        .should('have.attr', 'aria-label', 'More navigation items')
+        .click();
+      cy.findByRole('button', { name: /Close/i }).click();
     });
   });
 
@@ -103,41 +133,15 @@ describe('Navigation', () => {
     });
 
     it('has translated labels when viewing in welsh locale', () => {
-      openNavigation(/Mwy/i);
+      cy.findByRole('button', { name: /Mwy/i }).click();
       assertNavigationOpen();
-      closeNavigation(/Cau/i);
+      cy.findByRole('button', { name: /Cau/i }).click();
       assertNavigationClosed();
     });
   });
 
   function loadComponentExample(locale = 'en') {
     cy.visitComponentUrl('header/with_navigation', locale);
-  }
-
-  function openNavigation(name = /More/i) {
-    return cy
-      .findByRole('button', { name: name })
-      .should('be.visible')
-      .click()
-      .should('have.attr', 'aria-expanded', 'true')
-      .should('have.attr', 'aria-controls', 'cads-greedy-nav-dropdown');
-  }
-
-  function closeNavigation(name = /Close/i) {
-    return cy
-      .findByRole('button', { name: name })
-      .should('be.visible')
-      .click()
-      .should('have.attr', 'aria-expanded', 'false');
-  }
-
-  function tabIntoNavigation(name = /More/i) {
-    return cy
-      .findByRole('button', { name: name })
-      .should('be.visible')
-      .focus()
-      .tab()
-      .tab();
   }
 
   function assertNavigationOpen() {

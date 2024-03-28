@@ -26,6 +26,10 @@ function getToggleEl(containerEl: HTMLElement) {
   ) as HTMLButtonElement;
 }
 
+function getWrapperEl(containerEl: HTMLElement) {
+  return containerEl.querySelector('.cads-greedy-nav') as HTMLElement;
+}
+
 function getDropdownEl(containerEl: HTMLElement) {
   // The dropdown has a unique ID but query against the container for consistency
   return containerEl.querySelector('#cads-greedy-nav-dropdown') as HTMLElement;
@@ -253,7 +257,7 @@ function addResizeObserver(containerEl: HTMLElement) {
 function addToggleHandler(containerEl: HTMLElement) {
   const toggleEl = getToggleEl(containerEl);
 
-  toggleEl.addEventListener('mouseup', (event: MouseEvent) => {
+  toggleEl.addEventListener('click', (event: MouseEvent) => {
     if (isExpanded(toggleEl)) {
       closeDropDown(containerEl);
     } else {
@@ -262,12 +266,13 @@ function addToggleHandler(containerEl: HTMLElement) {
   });
 }
 
-function addFocusoutHandler(containerEl: HTMLElement) {
-  const navDropdownEl = getDropdownEl(containerEl);
+function addFocusHandler(containerEl: HTMLElement) {
+  const wrapperEl = getWrapperEl(containerEl);
 
-  navDropdownEl.addEventListener('focusout', (event) => {
+  wrapperEl.addEventListener('focusout', (event) => {
     const target = <HTMLElement>event.relatedTarget || document.activeElement;
-    if (navDropdownEl.contains(target)) {
+
+    if (wrapperEl.contains(target)) {
       return;
     }
 
@@ -276,25 +281,17 @@ function addFocusoutHandler(containerEl: HTMLElement) {
 }
 
 function addClickOutsideHandler(containerEl: HTMLElement) {
-  const toggleEL = getToggleEl(containerEl);
+  const toggleEl = getToggleEl(containerEl);
   const navDropdownEl = getDropdownEl(containerEl);
 
   document.addEventListener('click', (event) => {
     if ('composedPath' in event) {
       const withinBoundaries =
-        event.composedPath().includes(toggleEL) ||
+        event.composedPath().includes(toggleEl) ||
         event.composedPath().includes(navDropdownEl);
       if (!withinBoundaries) {
         closeDropDown(containerEl);
       }
-    }
-  });
-}
-
-function addTabKeyHandler(containerEl: HTMLElement) {
-  getToggleEl(containerEl).addEventListener('keyup', (event) => {
-    if (!event.shiftKey && event.key === 'Tab') {
-      openDropDown(containerEl);
     }
   });
 }
@@ -316,9 +313,8 @@ export default function initNavigation() {
     prepareHtml(containerEl);
     addResizeObserver(containerEl);
     addToggleHandler(containerEl);
-    addFocusoutHandler(containerEl);
+    addFocusHandler(containerEl);
     addClickOutsideHandler(containerEl);
-    addTabKeyHandler(containerEl);
     addEscapeKeyHandler(containerEl);
   }
 }

@@ -1,6 +1,6 @@
 import '@testing-library/cypress/add-commands';
 import 'cypress-axe';
-import 'cypress-plugin-tab';
+import 'cypress-real-events';
 
 Cypress.Commands.add('visitComponentUrl', (urlPart, locale = 'en') => {
   if (locale === 'cy') {
