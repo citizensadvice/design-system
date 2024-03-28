@@ -3,7 +3,7 @@
  */
 /* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom';
-import { screen, fireEvent } from '@testing-library/dom';
+import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
 import initNavigation from './navigation';
@@ -38,78 +38,44 @@ afterAll(() => {
 });
 
 beforeEach(async () => {
-  /**
-   * These component tests use a minimal navigation fixture to test
-   * basic behaviour and initialisation. Full test scenarios are handled
-   * in a navigation.cy.js using Cypress
-   */
-  const componentHtml = `<div class="cads-navigation-full-width-wrapper">
-    <nav class="cads-navigation js-cads-greedy-nav">
-      <ul class="cads-navigation__list">
-        <li class="cads-navigation__list-item">
-          <a class="cads-navigation__link" href="#">Link 1</a>
-        </li>
-        <li class="cads-navigation__list-item">
-          <a class="cads-navigation__link" href="#">Link 2</a>
-        </li>
-        <li class="cads-navigation__list-item">
-          <a class="cads-navigation__link" href="#">Link 3</a>
-        </li>
-        <li class="cads-navigation__list-item">
-          <a class="cads-navigation__link" href="#">Link 4</a>
-        </li>
-        <li class="cads-navigation__list-item">
-          <a class="cads-navigation__link" href="#">Link 5</a>
-        </li>
-      </ul>
-    </nav>
-  </div>`;
+  const componentHtml = `<nav class="cads-navigation js-cads-greedy-nav">
+    <ul class="cads-navigation__list">
+      <li class="cads-navigation__list-item">
+        <a class="cads-navigation__link" href="#">Link 1</a>
+      </li>
+      <li class="cads-navigation__list-item">
+        <a class="cads-navigation__link" href="#">Link 2</a>
+      </li>
+      <li class="cads-navigation__list-item">
+        <a class="cads-navigation__link" href="#">Link 3</a>
+      </li>
+      <li class="cads-navigation__list-item">
+        <a class="cads-navigation__link" href="#">Link 4</a>
+      </li>
+      <li class="cads-navigation__list-item">
+        <a class="cads-navigation__link" href="#">Link 5</a>
+      </li>
+    </ul>
+  </nav>`;
 
   document.body.innerHTML = componentHtml;
 
   initNavigation();
 });
 
-test('toggles the menu open', () => {
-  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
-
-  expect(toggleEl).toHaveTextContent('More');
-
-  fireEvent.keyUp(toggleEl, { key: 'Tab' });
-
-  expect(toggleEl).toHaveTextContent('Close');
-  expect(toggleEl).toHaveAttribute('aria-label', 'Close navigation');
-});
-
-test('when tabbing backwards through the dropdown menu', () => {
-  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
-
-  fireEvent.focus(toggleEl);
-  fireEvent.blur(toggleEl);
-
-  expect(toggleEl).toHaveTextContent('More');
-  expect(toggleEl).toHaveAttribute('aria-label', 'More navigation options');
-});
-
-test('opens the dropdown menu', async () => {
+/**
+ * These component tests use a minimal navigation fixture to test
+ * basic behaviour and initialisation only. Full test scenarios are handled
+ * in a navigation.cy.js using Cypress.
+ */
+test('component initialises', async () => {
   const user = userEvent.setup();
 
-  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
   const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
 
-  await user.click(toggleEl);
-
+  await user.click(screen.getByRole('button', { name: /More/i }));
   expect(navDropdown).toHaveAttribute('aria-hidden', 'false');
-});
 
-test('closes the dropdown menu', async () => {
-  const user = userEvent.setup();
-
-  const toggleEl = screen.getByTestId('cads-greedy-nav-toggle');
-  const navDropdown = screen.getByTestId('cads-greedy-nav-dropdown');
-
-  await user.click(toggleEl);
-  await user.click(toggleEl);
-
+  await user.click(screen.getByRole('button', { name: /Close/i }));
   expect(navDropdown).toHaveAttribute('aria-hidden', 'true');
 });

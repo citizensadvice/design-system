@@ -1,52 +1,117 @@
 describe('Navigation', () => {
-  it('allows opening and closing the greedy navigation', () => {
-    setupComponent();
-    openNavigation();
-    assertNavigationOpen();
-    closeNavigation();
-    assertNavigationClosed();
+  context('when on a large screen', () => {
+    beforeEach(() => {
+      loadComponentExample();
+      cy.viewport(1440, 860);
+    });
+
+    it('renders navigation with no greedy navigation', () => {
+      cy.findByRole('button', { name: /More/i }).should('not.exist');
+    });
   });
 
-  it('supports opening the greedy navigation with the tab key', () => {
-    setupComponent();
-    tabIntoNavigation();
-    assertNavigationOpen();
+  context('when greedy navigation is first triggered', () => {
+    beforeEach(() => {
+      loadComponentExample();
+      cy.viewport(800, 600);
+    });
+
+    it('moves navigation items into the greedy navigation', () => {
+      openNavigation();
+      assertItemsInMainNavigation([
+        'Benefits',
+        'Work',
+        'Debt and money',
+        'Consumer',
+        'Housing',
+        'Family',
+        'Law and courts',
+      ]);
+      assertItemsInGreedyNavigation(['Immigration', 'Health', 'More from us']);
+    });
   });
 
-  it('closes the greedy navigation when tabbing out', () => {
-    setupComponent();
-    openNavigation();
-    cy.findByTestId('cads-greedy-nav-dropdown').within(() => {
-      cy.findByText('Sign in').focus().tab();
+  context('when on a small screen', () => {
+    beforeEach(() => {
+      loadComponentExample();
+      cy.viewport(375, 667);
+    });
+
+    it('moves navigation items into the greedy navigation including header links', () => {
+      openNavigation();
+      assertItemsInMainNavigation(['Benefits', 'Work']);
+
+      assertItemsInGreedyNavigation([
+        'Debt and money',
+        'Consumer',
+        'Housing',
+        'Family',
+        'Law and courts',
+        'Immigration',
+        'Health',
+        'More from us',
+        'AdviserNet',
+        'Cymraeg',
+        'Sign in',
+      ]);
+    });
+  });
+
+  context('when interacting with the greedy navigation', () => {
+    beforeEach(() => {
+      loadComponentExample();
+      cy.viewport(375, 667);
+    });
+
+    it('allows opening and closing the greedy navigation', () => {
+      openNavigation();
+      assertNavigationOpen();
+      closeNavigation();
+      assertNavigationClosed();
+    });
+
+    it('supports opening the greedy navigation with the tab key', () => {
+      tabIntoNavigation();
+      assertNavigationOpen();
+    });
+
+    it('closes the greedy navigation when tabbing out', () => {
+      openNavigation();
+      cy.findByTestId('cads-greedy-nav-dropdown').within(() => {
+        cy.findByText('Sign in').focus().tab();
+        assertNavigationClosed();
+      });
+    });
+
+    it('closes the greedy navigation when pressing the escape key', () => {
+      openNavigation().type('{esc}');
+      assertNavigationClosed();
+    });
+
+    it('closes the greedy navigation when clicking outside it', () => {
+      openNavigation();
+      assertNavigationOpen();
+      cy.get('body').click();
       assertNavigationClosed();
     });
   });
 
-  it('closes the greedy navigation when pressing the escape key', () => {
-    setupComponent();
-    openNavigation().type('{esc}');
-    assertNavigationClosed();
+  context('when in welsh', () => {
+    beforeEach(() => {
+      loadComponentExample('cy');
+      cy.viewport(375, 667);
+    });
+
+    it('has translated labels when viewing in welsh locale', () => {
+      openNavigation(/Mwy/i);
+      assertNavigationOpen();
+      closeNavigation(/Cau/i);
+      assertNavigationClosed();
+    });
   });
 
-  it('closes the greedy navigation when clicking outside it', () => {
-    setupComponent();
-    openNavigation();
-    assertNavigationOpen();
-    cy.get('body').click();
-    assertNavigationClosed();
-  });
-
-  it('has translated labels when viewing in welsh locale', () => {
-    setupComponent('cy');
-    openNavigation(/Mwy/i);
-    assertNavigationOpen();
-    closeNavigation(/Cau/i);
-    assertNavigationClosed();
-  });
-
-  function setupComponent(locale = 'en') {
+  function loadComponentExample(locale = 'en') {
     cy.visitComponentUrl('header/with_navigation', locale);
-    cy.viewport('iphone-6');
   }
 
   function openNavigation(name = /More/i) {
@@ -81,5 +146,21 @@ describe('Navigation', () => {
 
   function assertNavigationClosed() {
     cy.findByText('More from us').should('not.be.visible');
+  }
+
+  function assertItemsInMainNavigation(expected) {
+    const items = [];
+    cy.get('.cads-navigation > ul a:visible').each(($el) =>
+      items.push($el.text()),
+    );
+    cy.wrap(items).should('deep.equal', expected);
+  }
+
+  function assertItemsInGreedyNavigation(expected) {
+    const items = [];
+    cy.get('.cads-greedy-nav > ul a:visible').each(($el) =>
+      items.push($el.text()),
+    );
+    cy.wrap(items).should('deep.equal', expected);
   }
 });
