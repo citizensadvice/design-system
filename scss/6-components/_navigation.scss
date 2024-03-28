@@ -190,11 +190,6 @@
   padding: 0;
   margin: 0;
 
-  @include cads-media-breakpoint-up(md) {
-    width: auto;
-    padding: 0;
-  }
-
   &[aria-hidden='false'] {
     display: block;
   }
@@ -246,14 +241,20 @@
 
     margin-left: $cads-spacing-4;
   }
+
+  @include cads-media-breakpoint-up(md) {
+    width: auto;
+    padding: 0;
+
+    // Hide header link in dropdown on large viewports
+    .cads-greedy-nav__header-links {
+      display: none;
+    }
+  }
 }
 
 .cads-greedy-nav__header-links {
   margin-top: $cads-spacing-2;
-
-  @include cads-media-breakpoint-up(md) {
-    display: none;
-  }
 
   li:first-child {
     margin-top: $cads-spacing-2;
