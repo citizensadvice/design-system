@@ -1,61 +1,70 @@
-import initShowHideWithToggle from '../utils/show-hide';
-
-const selectors = {
-  component: '.js-disclosure',
-  toggle: '.js-disclosure-toggle',
-};
-
-const classes = {
-  toggleWhenHidden: 'cads-icon_plus',
-  toggleWhenShowing: 'cads-icon_minus',
-  elementIsOpen: 'cads-disclosure__details--open',
-};
-
-const attributes = {
-  labelWhenHidden: 'data-label-when-hiding',
-  labelWhenShowing: 'data-label-when-showing',
-  target: 'data-toggle-target-id',
-};
-
-const disclosureSelectors = {
-  summary: '.js-disclosure-summary',
-  details: '.js-disclosure-details',
-};
-
-const disclosureAttributes = {
-  closedSummary: 'data-closed-summary',
-  openSummary: 'data-open-summary',
-};
-function initDisclosureToggle(disclosure: Element) {
-  const toggle = disclosure.querySelector(selectors.toggle);
-  const summary = disclosure.querySelector(disclosureSelectors.summary);
-  const details = disclosure.querySelector(disclosureSelectors.details);
-
-  toggle?.addEventListener('click', () => {
-    if (toggle && summary && details) {
-      if (details.classList.contains(classes.elementIsOpen)) {
-        summary.textContent = toggle.getAttribute(
-          disclosureAttributes.openSummary,
-        );
-      } else {
-        summary.textContent = toggle.getAttribute(
-          disclosureAttributes.closedSummary,
-        );
-      }
-    }
-  });
+function isExpanded(toggle: Element) {
+  const ariaExpanded = toggle.getAttribute('aria-expanded');
+  return ariaExpanded === 'true';
 }
 
-const initDisclosure = (): void => {
-  if (selectors.component) {
-    initShowHideWithToggle(selectors, classes, attributes);
-  }
+function setAriaExpanded(toggle: Element, expanded: boolean) {
+  toggle.setAttribute('aria-expanded', expanded.toString());
+}
 
-  const disclosures = document.querySelectorAll(selectors.component);
-  for (let i = 0; i < disclosures.length; i++) {
-    const disclosure = disclosures[i];
-    initDisclosureToggle(disclosure);
-  }
-};
+function setAriaDescription(toggle: Element) {
+  const ariaDescription = isExpanded(toggle)
+    ? toggle.getAttribute('data-label-when-showing')
+    : toggle.getAttribute('data-label-when-hiding');
 
-export default initDisclosure;
+  if (ariaDescription) {
+    toggle.setAttribute('aria-label', ariaDescription);
+  }
+}
+
+function setTargetState(toggle: Element) {
+  const parentEl = toggle.parentElement;
+  const state = isExpanded(toggle) ? 'open' : 'closed';
+  parentEl?.setAttribute('data-disclosure-state', state);
+}
+
+function setIconClass(toggle: Element) {
+  const icon = toggle.querySelector('.cads-icon--plus-minus');
+  icon?.classList.toggle('show-minus');
+}
+
+function setSummaryText(toggle: Element) {
+  const summary = toggle.querySelector('.js-cads-disclosure-summary');
+
+  const newTextContent = isExpanded(toggle)
+    ? toggle.getAttribute('data-open-summary')
+    : toggle.getAttribute('data-closed-summary');
+
+  if (summary && newTextContent) {
+    summary.textContent = newTextContent;
+  }
+}
+
+function initDisclosureFor(component: Element) {
+  const toggles = component.querySelectorAll('.js-cads-disclosure-toggle');
+
+  for (let i = 0; i < toggles.length; i++) {
+    const toggle = toggles[i];
+
+    // Set status to false on load (in case not already set)
+    // Makes calculating the other states easier as we can rely on the default
+    setAriaExpanded(toggle, false);
+    setAriaDescription(toggle);
+    setTargetState(toggle);
+
+    toggle.addEventListener('click', () => {
+      setAriaExpanded(toggle, !isExpanded(toggle));
+      setAriaDescription(toggle);
+      setIconClass(toggle);
+      setSummaryText(toggle);
+      setTargetState(toggle);
+    });
+  }
+}
+
+export default function initDisclosure() {
+  const components = document.querySelectorAll('.js-cads-disclosure');
+  for (let i = 0; i < components.length; i++) {
+    initDisclosureFor(components[i]);
+  }
+}

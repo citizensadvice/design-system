@@ -7,7 +7,6 @@
     "declaration": true,
     "resolveJsonModule": true
   },
-  "references": [{ "path": "../utils/" }],
   "include": ["./**/*.ts"],
   "exclude": ["./**/*.test.ts"]
 }
