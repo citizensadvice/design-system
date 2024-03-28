@@ -112,7 +112,7 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'desktop', width: 800, height: 200 }],
       },
       {
-        label: 'Components/Header',
+        label: 'Components/Header (search open)',
         url: componentUrlFor('header/full_example'),
         clickSelector: '.js-cads-search-reveal',
         viewports: [{ label: 'small', width: 320, height: 480 }],
