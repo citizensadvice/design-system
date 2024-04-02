@@ -280,7 +280,7 @@ However some components have some companion JavaScript behaviour. In our case th
 Add the following to your `app/javascript/application.js` entrypoint:
 
 ```
-import { initHeader, initGreedyNav } from '@citizensadvice/design-system/lib';
+import { initHeader, initGreedyNav } from '@citizensadvice/design-system';
 
 initHeader();
 initGreedyNav();

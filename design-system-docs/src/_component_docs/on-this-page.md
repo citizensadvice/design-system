@@ -27,7 +27,7 @@ The component supports a variant with nested links. In this configuration the co
 On this page requires some additional JavaScript behaviour which can be initialised with:
 
 ```js
-import { initOnThisPage } from '@citizensadvice/design-system/lib';
+import { initOnThisPage } from '@citizensadvice/design-system';
 initOnThisPage();
 ```
 

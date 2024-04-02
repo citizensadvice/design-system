@@ -35,7 +35,7 @@ By default, the disclosure details id is generated based on the closed label. Ad
 Targeted content requires some additional JavaScript behaviour which can be initialised with:
 
 ```js
-import { initDisclosure } from '@citizensadvice/design-system/lib';
+import { initDisclosure } from '@citizensadvice/design-system';
 initDisclosure();
 ```
 

@@ -4,14 +4,15 @@
 
 Allow all modules to be imported using a consistent interface, either via:
 
+
 ```js
-import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
+import { initModuleA, initModuleB } from "@citizensadvice/design-system
 ```
 
 Or directly via:
 
 ```js
-import { initModuleA, initModuleB } from "@citizensadvice/design-system/lib
+import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
 ```
 
 For backwards compatibility all existing entrypoints are still supported by may be removed in future versions.

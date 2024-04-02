@@ -15,7 +15,7 @@ On mobile devices, any links that appear in the `.js-cads-copy-into-nav` element
 If you plan to use this component you will need to initialise the following JavaScript:
 
 ```js
-import { initGreedyNav } from '@citizensadvice/design-system/lib';
+import { initGreedyNav } from '@citizensadvice/design-system';
 initGreedyNav();
 ```
 
