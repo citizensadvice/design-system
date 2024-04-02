@@ -15,7 +15,7 @@ Or directly via:
 import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
 ```
 
-For backwards compatibility all existing entrypoints are still supported by may be removed in future versions.
+For backwards compatibility all existing entrypoints are still supported but may be removed in future versions.
 
 ### Make new office address the default
 
