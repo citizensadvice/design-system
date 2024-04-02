@@ -4,8 +4,8 @@ import {
   initTargetedContent,
   initOnThisPage,
   initDisclosure,
-  initErrorSummary
-} from '../../../../lib';
+  initErrorSummary,
+} from '@citizensadvice/design-system';
 
 initHeader();
 initGreedyNav();

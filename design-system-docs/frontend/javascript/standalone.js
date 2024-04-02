@@ -13,7 +13,7 @@ import {
   initTargetedContent,
   initDisclosure,
   initOnThisPage,
-} from '../../../lib';
+} from '@citizensadvice/design-system';
 
 try {
   initHeader();

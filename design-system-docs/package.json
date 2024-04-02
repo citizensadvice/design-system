@@ -23,6 +23,7 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
+    "@citizensadvice/design-system": "file:../",
     "clipboard-copy": "^4.0.1",
     "iframe-resizer": "^4.3.9"
   }

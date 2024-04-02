@@ -10,7 +10,7 @@ import {
   initTargetedContent,
   initDisclosure,
   initOnThisPage,
-} from '../../../lib';
+} from '@citizensadvice/design-system';
 
 import initCodeCopy from './components/code-copy';
 import initSampleCode from './components/sample-code';
