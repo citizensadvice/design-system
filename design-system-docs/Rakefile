@@ -76,7 +76,7 @@ task generate_component_docs: :environment do
       YAML
     end
 
-    create_file "src/_component_docs/#{component_id.gsub('_', '-')}.md" do
+    create_file "src/_component_docs/#{component_id.tr('_', '-')}.md" do
       <<~MARKDOWN
         ---
         title: #{component_name}
