@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/time"
 require "view_component/engine"
 require "citizens_advice_components"
 
@@ -9,6 +10,8 @@ require_relative "cads_theme"
 I18n.load_path << Dir[
   "#{CitizensAdviceComponents::Engine.root.join('config/locales')}/*.yml"
 ]
+
+Time.zone = "London"
 
 module Builders
   class CadsBuilder < SiteBuilder
