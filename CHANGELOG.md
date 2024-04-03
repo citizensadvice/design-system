@@ -25,6 +25,10 @@ import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
 
 For backwards compatibility all existing entrypoints are still supported but may be removed in future versions.
 
+### Remove compiled CSS from distributed package
+
+We historically bundled a compiled version of the CSS as lib.css in the distributed package. The intent was to provide an option for projects not using SCSS for styles. However no projects use this method of distributing the styles and font-loading was broken when using the compiled version of the styles so we've made the decision to remove this method of distribution.
+
 ### Make new office address the default
 
 The new office address is now the default in the footer component and the old address has been removed.

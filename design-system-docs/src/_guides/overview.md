@@ -40,17 +40,13 @@ This package—alongside companion HTML patterns—is the minimum requirement wh
 
 #### CSS
 
-The recommended way of using CSS from the design system is through SCSS.
-
-The styles can be loaded by adding the following to your SCSS stylesheet:
+The design system styles are distributed as SCSS files. The styles can be loaded by adding the following to your SCSS stylesheet:
 
 ```scss
 @import '@citizensadvice/design-system/scss/lib.scss';
 ```
 
 The design system requires the use of [Dart Sass](https://sass-lang.com/dart-sass).
-
-The distributed package includes compiled CSS in `lib/lib.css` if you are not using SCSS.
 
 #### Web fonts
 

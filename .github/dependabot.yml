@@ -20,13 +20,6 @@ updates:
         patterns:
           - '@babel/*'
           - 'typescript'
-      css-dependencies:
-        patterns:
-          - 'autoprefixer'
-          - 'cssnano'
-          - 'postcss-*'
-          - 'postcss'
-          - 'sass'
       testing-dependencies:
         patterns:
           - '@size-limit/*'
