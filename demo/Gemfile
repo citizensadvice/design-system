@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "3.2.2"
+ruby "3.2.3"
 
 # Rails
 gem "rails", "~> 7.1.2"
@@ -30,7 +30,7 @@ gem "haml-rails"
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v10.0.1"
+      tag: "v11.0.0"
 
   gem "cypress-rails"
 end
