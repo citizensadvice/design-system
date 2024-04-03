@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 import path from 'path';
 import fs from 'fs';
 import { fireEvent } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 
 import { showToggle, updateLabel, GreedyNavMenu } from './GreedyNav';
 
