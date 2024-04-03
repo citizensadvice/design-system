@@ -30,7 +30,7 @@ gem "haml-rails"
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v10.0.1"
+      tag: "v11.0.0"
 
   gem "cypress-rails"
 end

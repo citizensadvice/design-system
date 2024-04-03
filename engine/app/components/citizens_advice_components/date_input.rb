@@ -53,7 +53,7 @@ module CitizensAdviceComponents
     def timespan_error?(timespan)
       return false if errors.blank?
 
-      errors.any? { |e| e == timespan }
+      errors.any?(timespan)
     end
 
     def width_class(timespan)
