@@ -8,7 +8,7 @@
     "update-colour-data": "npx sass-export --dependencies='../scss/1-settings/' ../scss/1-settings/_colour-language.scss -o src/_data/colour_language.json"
   },
   "devDependencies": {
-    "css-loader": "~6.8.1",
+    "css-loader": "~7.0.0",
     "esbuild": "~0.20.2",
     "esbuild-loader": "~4.1.0",
     "file-loader": "^6.2.0",
