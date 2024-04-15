@@ -37,6 +37,10 @@ updates:
           - 'prettier'
           - 'size-limit'
           - 'stylelint*'
+    ignore:
+      # https://github.com/citizensadvice/design-system/issues/3297
+      - dependency-name: 'eslint'
+        versions: ['9.x']
 
   ##
   # Rails engine
