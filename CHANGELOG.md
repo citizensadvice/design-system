@@ -1,5 +1,13 @@
 ## Unreleased
 
+### Remove deprecations
+
+Remove a number of deprecations from the view components.
+
+- Remove deprecated callout title attribute
+- Remove deprecated feedback_url from footer
+- Remove deprecated content slot from section links
+
 ### Consistent javascript module imports
 
 Allow all modules to be imported using a consistent interface, either via:

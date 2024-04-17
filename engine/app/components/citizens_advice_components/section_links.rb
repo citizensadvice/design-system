@@ -16,25 +16,7 @@ module CitizensAdviceComponents
     end
 
     def render?
-      section_links.present? || section_title.present? || extra_content.present?
-    end
-
-    def extra_content
-      @extra_content ||= extra_content_with_deprecation
-    end
-
-    private
-
-    def extra_content_with_deprecation
-      if custom_content.present?
-        custom_content
-      elsif content.respond_to?(:to_str) && content.present?
-        CitizensAdviceComponents.deprecator.warn(
-          "Use custom_content slot instead of default content block"
-        )
-
-        content
-      end
+      section_links.present? || section_title.present? || custom_content.present?
     end
 
     class SectionLink

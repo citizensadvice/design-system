@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   class Footer < Base
-    attr_reader :homepage_url, :feedback_url
+    attr_reader :homepage_url
 
     renders_one :feedback_link, "FooterFeedbackLink"
 
@@ -12,12 +12,9 @@ module CitizensAdviceComponents
 
     renders_many :columns, "FooterColumn"
 
-    def initialize(homepage_url: nil, feedback_url: nil)
+    def initialize(homepage_url: nil)
       super
       @homepage_url = homepage_url || "/"
-      @feedback_url = feedback_url.to_s
-
-      feedback_url_deprecation
     end
 
     def current_year
@@ -26,31 +23,6 @@ module CitizensAdviceComponents
 
     def columns_to_show
       columns.take(4)
-    end
-
-    def feedback
-      feedback_link.presence || feedback_link_fallback.presence
-    end
-
-    def feedback_link_fallback
-      return if @feedback_url.blank?
-
-      # Provide a fallback FooterFeedbackLink instance
-      # using the previous defaults for backwards compatability
-      # with the deprecated @feedback_url param.
-      FooterFeedbackLink.new(
-        url: @feedback_url,
-        title: t("citizens_advice_components.footer.website_feedback"),
-        new_tab: true
-      )
-    end
-
-    def feedback_url_deprecation
-      return if @feedback_url.blank?
-
-      CitizensAdviceComponents.deprecator.warn(
-        "feedback_url argument is deprecated used feedback_link slot instead"
-      )
     end
 
     def legal_summary_text

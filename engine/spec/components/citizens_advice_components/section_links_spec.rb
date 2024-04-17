@@ -40,30 +40,6 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     end
   end
 
-  describe "deprecated content block" do
-    before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-      render_inline described_class.new(
-        title: "Related Content",
-        section_title: "Applying to the EU settlement scheme",
-        section_title_url: "#"
-      ) do |c|
-        c.with_section_links(additional_attribute_links)
-        "Example content"
-      end
-    end
-
-    it "renders the additional content" do
-      expect(page).to have_text "Example content"
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/Use custom_content slot instead of default content block/)
-    end
-  end
-
   context "when additional link attributes are present" do
     before do
       render_inline described_class.new(title: "Related Content", section_title: "Applying to the EU settlement scheme") do |c|
