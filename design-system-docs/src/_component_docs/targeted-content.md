@@ -36,7 +36,7 @@ If you find yourself using targeted content to do this, think about:
 Targeted content requires some additional JavaScript behaviour which can be initialised with:
 
 ```js
-import initTargetedContent from '@citizensadvice/design-system/lib/targeted-content';
+import { initTargetedContent } from '@citizensadvice/design-system';
 initTargetedContent();
 ```
 

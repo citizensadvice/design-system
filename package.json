@@ -5,6 +5,7 @@
   "repository": "https://github.com/citizensadvice/design-system",
   "author": "Citizens Advice",
   "license": "Apache-2.0",
+  "main": "lib/index.js",
   "files": [
     "assets",
     "scss",

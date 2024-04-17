@@ -18,6 +18,7 @@
     "sass": "^1.75.0"
   },
   "devDependencies": {
+    "@citizensadvice/design-system": "file:../",
     "@testing-library/cypress": "^10.0.1",
     "axe-core": "^4.9.0",
     "backstopjs": "^6.2.2",
