@@ -13,5 +13,5 @@ Rails.application.config.assets.version = "1.0"
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-# Add design system assets to the load path (for fonts)
-Rails.application.config.assets.paths << Rails.root.join("../assets")
+# Add design system fonts to the asset load path
+Rails.application.config.assets.paths << Rails.root.join("node_modules/@citizensadvice/design-system/assets/fonts")

@@ -77,8 +77,8 @@ npm install --save-exact @citizensadvice/design-system@5.5.0
 After you've done this you'll need to add the following to your `config/initializers/assets.rb` file:
 
 ```rb
-# Add design system assets to the load path (for fonts)
-Rails.application.config.assets.paths << Rails.root.join("node_modules/@citizensadvice/design-system/assets/")
+# Add design system fonts to the asset load path
+Rails.application.config.assets.paths << Rails.root.join("node_modules/@citizensadvice/design-system/assets/fonts")
 ```
 
 And finally, add the following to your `app/assets/stylesheets/application.sass.scss` entrypoint:
@@ -112,9 +112,9 @@ The following is an annotated layout template including any Rails defaults which
     <%%= stylesheet_link_tag "application", media: "all" %>
 
     <%%# Pre-loading the Design System fonts can help with flash of unstyled text %>
-    <link href="/assets/fonts/open-sans-v26-latin-700.woff2" rel="preload" as="font" type="font/woff2" crossorigin="true" />
-    <link href="/assets/fonts/open-sans-v26-latin-regular.woff2" rel="preload" as="font" type="font/woff2" crossorigin="true" />
-    <link href="/assets/fonts/cads.woff" rel="preload" as="font" type="font/woff" crossorigin="true" />
+    <link href="<%%= asset_path("open-sans-v26-latin-700.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="<%%= asset_path("open-sans-v26-latin-regular.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
+    <link href="<%%= asset_path("cads.woff") %> rel="preload" as="font) %>" type="font/woff" crossorigin="true" />
 
     <%%# This script pairs with the no-js class on the HTML element and is needed for fallback styles. %>
     <script>document.querySelector('html').classList.remove('no-js');</script>
