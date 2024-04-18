@@ -8,6 +8,13 @@ Remove a number of deprecations from the view components.
 - Remove deprecated feedback_url from footer
 - Remove deprecated content slot from section links
 
+### Improve control over font loading
+
+Provides two new configuration option when using the SCSS styles:
+
+- `$cads-font-path` to provide a custom path to control font loading in your application
+- `$cads-enable-icon-font` to enable or disable the legacy icon font (defaults to `true`)
+
 ### Consistent javascript module imports
 
 Allow all modules to be imported using a consistent interface, either via:

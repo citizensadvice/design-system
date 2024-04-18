@@ -1,6 +1,6 @@
 // This file loads just the design system components for use in isolated iframes
 // We use this when we need a clean base with no theme overrides
-@import '../scss/lib';
+@import '@citizensadvice/design-system/scss/lib';
 
 body {
   margin: 1em;
