@@ -1,8 +1,6 @@
 ## v6.0.0-alpha.0
 
-### 18 April 2024
-
-## Unreleased
+18 April 2024
 
 ### Remove deprecations
 
