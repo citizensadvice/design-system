@@ -197,5 +197,6 @@ jobs:
       - run: bundle exec rubocop --format progress --format github
         working-directory: design-system-docs
 
-      - run: ./bin/bridgetown build
+      # Run a production build to confirm that assets compile correctly
+      - run: ./bin/bridgetown deploy
         working-directory: design-system-docs
