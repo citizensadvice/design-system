@@ -6,11 +6,11 @@ Running the project locally requires a few dependencies.
 
 ### Ruby
 
-Ruby version 3.2 is required. We include a `.ruby-version` file in the root of the project so if you are using a version manager like [rbenv](https://github.com/rbenv/rbenv) it should pick this up.
+Ruby is required for the engine, demo app, and documentation website code. We include `.ruby-version` files in the appropriate directories project so if you are using a version manager like [rbenv](https://github.com/rbenv/rbenv) it should pick this up.
 
 ### Node
 
-Node 18+ is required. We include a `.nvmrc` file in the root of the project so if you are using [nvm](https://github.com/nvm-sh/nvm) it should pick this up.
+Node 20 is required. We include a `.nvmrc` file in the root of the project so if you are using [nvm](https://github.com/nvm-sh/nvm) it should pick this up.
 
 ## Install dependencies
 
