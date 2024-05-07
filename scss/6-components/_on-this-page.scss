@@ -6,12 +6,12 @@
 .cads-on-this-page {
   background-color: cads-colour-to-bg($cads-palette__blue-adviser);
   padding: $cads-spacing-4;
-  margin: 0 0 $cads-spacing-5 0;
+  margin: 0 0 $cads-spacing-5;
 
   .cads-on-this-page__title {
     @extend %cads-h4;
 
-    margin: 0 0 $cads-spacing-4 0;
+    margin: 0 0 $cads-spacing-4;
     color: $cads-language__secondary-text-colour;
   }
 

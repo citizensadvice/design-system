@@ -13,7 +13,7 @@
     @extend %cads-h4;
 
     color: $cads-footer__text-colour;
-    margin: 0 0 $cads-spacing-2 0;
+    margin: 0 0 $cads-spacing-2;
   }
 
   .cads-footer__feedback {
@@ -24,7 +24,7 @@
     color: $cads-footer__text-secondary-colour;
     border-bottom: 1px solid $cads-footer__divider-colour;
     padding-bottom: $cads-spacing-4;
-    margin: 0 0 $cads-spacing-4 0;
+    margin: 0 0 $cads-spacing-4;
 
     @media print {
       display: none;
@@ -116,7 +116,7 @@
     }
 
     .cads-footer__meta-text {
-      margin: 0 0 $cads-spacing-3 0;
+      margin: 0 0 $cads-spacing-3;
     }
   }
 

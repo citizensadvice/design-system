@@ -5,7 +5,7 @@
 /** @define notice-banner; weak */
 .cads-notice-banner {
   border-left: solid $cads-border-width-large $cads-language__brand-secondary;
-  margin: 0 0 $cads-spacing-5 0;
+  margin: 0 0 $cads-spacing-5;
 
   .cads-notice-banner__title {
     @extend %cads-h4;
