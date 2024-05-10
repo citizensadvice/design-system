@@ -168,4 +168,6 @@ jobs:
   # This is in addition to any builds run when adding the
   # "docs preview" label to a pull request.
   docs-build:
-    uses: ./.github/workflows/build-docs.yml
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/build-docs.yml
