@@ -22,31 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'docs preview')
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      # We link the @citizensadvice/design-system package
-      # from the root but we only build the lib/ directory
-      # when we publish to npm, so we need to build it first.
-      - uses: bahmutov/npm-install@v1
-      - run: npm run build
-
-      # Setup docs site
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3.1'
-          bundler-cache: true
-          working-directory: design-system-docs
-
-      # Install dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: design-system-docs
-
-      - run: ./bin/bridgetown deploy
-        working-directory: design-system-docs
+      - name: Build docs
+        uses: ./.github/workflows/build-docs.yml
 
       - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.1
