@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.21.2",
     "sass": "^1.75.0"
   },
   "devDependencies": {
