@@ -1,0 +1,62 @@
+name: Cypress
+
+on: workflow_call
+
+jobs:
+  cypress:
+    name: Run Cypress tests
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+
+      # Setup demo app
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.1'
+          bundler-cache: true
+          working-directory: demo
+
+      # Cache cypress binary
+      - uses: actions/cache@v4
+        with:
+          path: /home/runner/.cache/Cypress
+          key: cypress-binary-${{ hashFiles('package-lock.json') }}
+
+      # Npm install
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: demo
+
+      # Run rubocop against demo app code
+      - run: bundle exec rubocop --format progress --format github
+        working-directory: demo
+
+      # Run asset build
+      - run: ./bin/rails assets:precompile
+        working-directory: demo
+
+      # Run cypress tests
+      - run: ./bin/rails cypress:run
+        working-directory: demo
+        env:
+          CYPRESS_RAILS_CYPRESS_OPTS: '--browser chrome'
+
+      # Archive test screenshots
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: demo/cypress/screenshots
+        if: ${{ failure() }}

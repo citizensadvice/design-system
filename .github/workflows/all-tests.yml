@@ -1,0 +1,24 @@
+name: Run all tests
+
+on:
+  pull_request: {}
+  workflow_call: {}
+
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
+
+  jest:
+    uses: ./.github/workflows/jest.yml
+
+  engine:
+    uses: ./.github/workflows/engine.yml
+
+  cypress:
+    uses: ./.github/workflows/cypress.yml
+
+  backstop:
+    uses: ./.github/workflows/backstop.yml
+
+  docs-build:
+    uses: ./.github/workflows/docs-build.yml
