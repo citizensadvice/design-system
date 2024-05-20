@@ -48,7 +48,7 @@ If users correct some of the errors on the page but not all, update the error su
 Error summary requires some additional JavaScript behaviour which can be initialised with:
 
 ```js
-import { initErrorSummary } from '@citizensadvice/design-system';
+import initErrorSummary from '@citizensadvice/design-system/lib/error-summary';
 initErrorSummary();
 ```
 
