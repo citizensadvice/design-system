@@ -18,13 +18,13 @@ exports[`grid styles match snapshot 1`] = `
 }
 @media (min-width: 1024px) {
   .cads-grid-container {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }
 @media (min-width: 1024px) {
   .cads-grid-container {
-    max-width: 1090px;
+    max-width: 1280px;
   }
 }
 
@@ -42,8 +42,8 @@ exports[`grid styles match snapshot 1`] = `
 }
 @media (min-width: 1024px) {
   .cads-grid-row {
-    margin-right: -1.25rem;
-    margin-left: -1.25rem;
+    margin-right: -1rem;
+    margin-left: -1rem;
   }
 }
 
@@ -211,8 +211,8 @@ exports[`grid styles match snapshot 1`] = `
   .cads-grid-col-lg-auto, .cads-grid-col-lg-12, .cads-grid-col-lg-11, .cads-grid-col-lg-10, .cads-grid-col-lg-9, .cads-grid-col-lg-8, .cads-grid-col-lg-7, .cads-grid-col-lg-6, .cads-grid-col-lg-5, .cads-grid-col-lg-4, .cads-grid-col-lg-3, .cads-grid-col-lg-2, .cads-grid-col-lg-1, .cads-grid-col-1, .cads-grid-col-2, .cads-grid-col-3, .cads-grid-col-4, .cads-grid-col-5, .cads-grid-col-6, .cads-grid-col-7, .cads-grid-col-8, .cads-grid-col-9, .cads-grid-col-10, .cads-grid-col-11, .cads-grid-col-12, .cads-grid-col,
   .cads-grid-col-auto, .cads-grid-col-md-1, .cads-grid-col-md-2, .cads-grid-col-md-3, .cads-grid-col-md-4, .cads-grid-col-md-5, .cads-grid-col-md-6, .cads-grid-col-md-7, .cads-grid-col-md-8, .cads-grid-col-md-9, .cads-grid-col-md-10, .cads-grid-col-md-11, .cads-grid-col-md-12, .cads-grid-col-md,
   .cads-grid-col-md-auto {
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 }
 
