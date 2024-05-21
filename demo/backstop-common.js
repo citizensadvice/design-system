@@ -50,7 +50,13 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: `${labelPrefix}`,
         url: `${baseUrl}/${url}`,
+        viewports: [{ label: 'desktop', width: 800, height: 1024 }],
         readySelector: '.cads-greedy-nav-has-dropdown',
+      },
+      {
+        label: `${labelPrefix}`,
+        url: `${baseUrl}/${url}`,
+        viewports: [{ label: 'wide-desktop', width: 1440, height: 1024 }],
       },
     ];
   }
