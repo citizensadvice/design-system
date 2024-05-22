@@ -40,6 +40,9 @@ We historically bundled a compiled version of the CSS as lib.css in the distribu
 
 The new office address is now the default in the footer component and the old address has been removed.
 
+**Fix**
+- Make grid configurable by products
+
 ## v5.8.1
 
 ### 8 March 2024
