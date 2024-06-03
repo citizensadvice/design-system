@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@citizensadvice/design-system": "file:../",
-    "@testing-library/cypress": "^10.0.1",
+    "@testing-library/cypress": "^10.0.2",
     "axe-core": "^4.9.1",
     "backstopjs": "^6.2.2",
     "cypress": "^13.10.0",
