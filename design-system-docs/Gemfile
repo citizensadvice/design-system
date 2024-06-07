@@ -13,8 +13,10 @@ gem "puma"
 
 gem "citizens_advice_components", path: "../engine"
 
-# https://github.com/citizensadvice/design-system/issues/3145
-gem "view_component", "3.8.0"
+# citizens_advice_components bundles view component but we
+# also use this to write docs components so explicitly
+# name it as a dependency.
+gem "view_component", "~> 3.9"
 
 group :development, :test do
   gem "citizens-advice-style",
