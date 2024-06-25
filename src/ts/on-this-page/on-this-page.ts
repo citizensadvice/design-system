@@ -1,28 +1,57 @@
-import initShowHideWithToggle from '../utils/show-hide';
+function isExpanded(toggle: Element) {
+  const ariaExpanded = toggle.getAttribute('aria-expanded');
+  return ariaExpanded === 'true';
+}
 
-const initOnThisPage = (): void => {
-  const onThisPageSelectors = {
-    component: '.js-cads-on-this-page',
-    toggle: '.js-cads-on-this-page__toggle',
-  };
+function setAriaExpanded(toggle: Element, expanded: boolean) {
+  toggle.setAttribute('aria-expanded', expanded.toString());
+}
 
-  const onThisPageClasses = {
-    toggleWhenHidden: 'cads-icon_plus',
-    toggleWhenShowing: 'cads-icon_minus',
-    elementIsOpen: 'cads-on-this-page__list--open',
-  };
+function setAriaDescription(toggle: Element) {
+  const ariaDescription = isExpanded(toggle)
+    ? toggle.getAttribute('data-label-when-showing')
+    : toggle.getAttribute('data-label-when-hiding');
 
-  const onThisPageAttributes = {
-    labelWhenHidden: 'data-label-when-hiding',
-    labelWhenShowing: 'data-label-when-showing',
-    target: 'data-toggle-target-id',
-  };
+  if (ariaDescription) {
+    toggle.setAttribute('aria-label', ariaDescription);
+  }
+}
 
-  initShowHideWithToggle(
-    onThisPageSelectors,
-    onThisPageClasses,
-    onThisPageAttributes,
-  );
-};
+function setTargetState(toggle: Element) {
+  const parentEl = toggle.parentElement;
+  const state = isExpanded(toggle) ? 'open' : 'closed';
+  parentEl?.setAttribute('data-on-this-page-state', state);
+}
 
-export default initOnThisPage;
+function setIconClass(toggle: Element) {
+  const icon = toggle.querySelector('.cads-icon--plus-minus');
+  icon?.classList.toggle('show-minus');
+}
+
+function initOnThisPageFor(component: Element) {
+  const toggles = component.querySelectorAll('.js-cads-on-this-page-toggle');
+
+  for (let i = 0; i < toggles.length; i++) {
+    const toggle = toggles[i];
+
+    // Set status to false on load (in case not already set)
+    // Makes calculating the other states easier as we can rely on the default
+    setAriaExpanded(toggle, false);
+    setAriaDescription(toggle);
+    setTargetState(toggle);
+
+    toggle.addEventListener('click', () => {
+      setAriaExpanded(toggle, !isExpanded(toggle));
+      setAriaDescription(toggle);
+      setIconClass(toggle);
+      setTargetState(toggle);
+    });
+  }
+}
+
+export default function initOnThisPage() {
+  const components = document.querySelectorAll('.js-cads-on-this-page');
+  for (let i = 0; i < components.length; i++) {
+    initOnThisPageFor(components[i]);
+  }
+}

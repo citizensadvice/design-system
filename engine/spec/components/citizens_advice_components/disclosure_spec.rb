@@ -72,7 +72,7 @@ RSpec.describe CitizensAdviceComponents::Disclosure, type: :component do
       ).with_content("Example content")
     end
 
-    it { is_expected.to have_css "[data-toggle-target-id='my-id']" }
+    it { is_expected.to have_css "[aria-controls='my-id']" }
   end
 
   context "when additional attributes are provided" do
