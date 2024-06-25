@@ -1,22 +1,22 @@
-@use '../1-settings/spacing-sizing' as spacing;
+@import '../1-settings/spacing-sizing';
 
 $cads-grid-columns: 12 !default;
 $cads-grid-breakpoint-gutters: (
   // 16px
-  sm: spacing.$cads-spacing-4,
+  sm: $cads-spacing-4,
   // 32px
-  md: spacing.$cads-spacing-6,
+  md: $cads-spacing-6,
   // 32px
-  lg: spacing.$cads-spacing-7
+  lg: $cads-spacing-7
 ) !default;
 $cads-nav-breakpoint-gutters: (
   // 0px
-  sm: spacing.$cads-spacing-2,
+  sm: $cads-spacing-2,
   // 16px
-  md: spacing.$cads-spacing-5,
+  md: $cads-spacing-5,
   // 16px
-  lg: spacing.$cads-spacing-6
+  lg: $cads-spacing-6
 ) !default;
 $cads-container-max-widths: (
-  lg: spacing.$cads-max-content-size,
+  lg: $cads-max-content-size,
 ) !default;
