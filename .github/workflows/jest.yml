@@ -1,0 +1,15 @@
+name: Jest
+
+on: workflow_call
+
+jobs:
+  jest:
+    name: Run Jest tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - uses: bahmutov/npm-install@v1
+      - run: npm test

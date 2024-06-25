@@ -1,0 +1,47 @@
+name: Backstop
+
+on: workflow_call
+
+jobs:
+  backstop:
+    name: Run Backstop tests
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      CYPRESS_INSTALL_BINARY: 0
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+
+      # Setup demo app
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.1'
+          bundler-cache: true
+          working-directory: demo
+
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: demo
+
+      - run: npm run backstop:ci
+        working-directory: demo
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: backstop-report
+          path: |
+            demo/visual-regression/backstop_data/html_report
+            demo/visual-regression/backstop_data/bitmaps_reference
+            demo/visual-regression/backstop_data/bitmaps_test
+          retention-days: 3
