@@ -1,0 +1,8 @@
+<dl class="cads-summary-list">
+  <% items.each do |item| %>
+    <div class="cads-summary-list__group">
+      <dt class="cads-summary-list__name"><%= item[:name] %></dt>
+      <dd class="cads-summary-list__value"><%= item[:value] %></dd>
+    </div>
+  <% end %>
+</dl>
