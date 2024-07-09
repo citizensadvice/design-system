@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Summary List Component
+
+Introduction of the summary list component
+
 ### Remove deprecations
 
 Remove a number of deprecations from the view components.
