@@ -1,51 +1,37 @@
-## Unreleased
+## v6.0.0
 
-### Summary List Component
+### 11 July 2024
 
-Introduction of the summary list component
+**Breaking changes**
 
-### Remove deprecations
+- Remove a number of deprecations from the view components.
+  - Remove deprecated callout title attribute
+  - Remove deprecated feedback_url from footer
+  - Remove deprecated content slot from section links
+- Remove compiled CSS from distributed package: We historically bundled a compiled version of the CSS as lib.css in the distributed package. The intent was to provide an option for projects not using SCSS for styles. However no projects use this method of distributing the styles and font-loading was broken when using the compiled version of the styles so we've made the decision to remove this method of distribution.
 
-Remove a number of deprecations from the view components.
+**New**
+- Summary list component
+- Provides two new configuration option when using the SCSS styles:
+  - `$cads-font-path` to provide a custom path to control font loading in your application
+  - `$cads-enable-icon-font` to enable or disable the legacy icon font (defaults to `true`)
+- Consistent javascript module imports: Allow all modules to be imported using a consistent interface, either via:
+  ```js
+  import { initModuleA, initModuleB } from "@citizensadvice/design-system
+  ```
+  
+  Or directly via:
+  
+  ```js
+  import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
+  ```
 
-- Remove deprecated callout title attribute
-- Remove deprecated feedback_url from footer
-- Remove deprecated content slot from section links
-
-### Improve control over font loading
-
-Provides two new configuration option when using the SCSS styles:
-
-- `$cads-font-path` to provide a custom path to control font loading in your application
-- `$cads-enable-icon-font` to enable or disable the legacy icon font (defaults to `true`)
-
-### Consistent javascript module imports
-
-Allow all modules to be imported using a consistent interface, either via:
-
-
-```js
-import { initModuleA, initModuleB } from "@citizensadvice/design-system
-```
-
-Or directly via:
-
-```js
-import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
-```
-
-For backwards compatibility all existing entrypoints are still supported but may be removed in future versions.
-
-### Remove compiled CSS from distributed package
-
-We historically bundled a compiled version of the CSS as lib.css in the distributed package. The intent was to provide an option for projects not using SCSS for styles. However no projects use this method of distributing the styles and font-loading was broken when using the compiled version of the styles so we've made the decision to remove this method of distribution.
-
-### Make new office address the default
-
-The new office address is now the default in the footer component and the old address has been removed.
+  For backwards compatibility all existing entrypoints are still supported but may be removed in future versions.
 
 **Fix**
 - Make grid configurable by products
+- The new office address is now the default in the footer component and the old address has been removed.
+
 
 ## v5.8.1
 
