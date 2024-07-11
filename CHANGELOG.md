@@ -1,3 +1,7 @@
+## v6.0.0
+
+### 11 July 2024
+
 ## Unreleased
 
 ### Summary List Component
