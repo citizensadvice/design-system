@@ -264,3 +264,6 @@ select:
     description: '→ Optional, an error message for the input'
   - argument: optional
     description: '→ Optional, boolean indicating the field is optional (ie not required)'
+summary_list:
+  - argument: items
+    description: Required, an array of hashes with `name` and `value` keys which represent the pairs to be rendered

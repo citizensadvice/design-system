@@ -65,7 +65,7 @@ The tests are run inside of Docker to ensure consistency across different enviro
 First, run the demo app using:
 
 ```sh
-./bin rails server -e test
+./bin/rails server -e test
 ```
 
 With the demo app running, you can start the backstop tests using:
