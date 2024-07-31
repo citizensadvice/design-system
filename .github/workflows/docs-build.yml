@@ -1,0 +1,43 @@
+name: Docs build
+
+on: workflow_call
+
+jobs:
+  # Runs a build of the docs website as a smoke test
+  # to check there's no build failures
+  # This is in addition to any builds run when adding the
+  # "docs preview" label to a pull request.
+  docs-build:
+    name: Run docs build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # We link the @citizensadvice/design-system package
+      # from the root but we only build the lib/ directory
+      # when we publish to npm, so we need to build it first.
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+
+      # Setup docs site
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.1'
+          bundler-cache: true
+          working-directory: design-system-docs
+
+      # Install dependencies
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: design-system-docs
+
+      # Run rubocop against docs code
+      - run: bundle exec rubocop --format progress --format github
+        working-directory: design-system-docs
+
+      # Run a production build to confirm that assets compile correctly
+      - run: ./bin/bridgetown deploy
+        working-directory: design-system-docs
