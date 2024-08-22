@@ -183,7 +183,7 @@ GEM
     regexp_parser (2.9.0)
     reline (0.5.8)
       io-console (~> 0.5)
-    rexml (3.3.3)
+    rexml (3.3.6)
       strscan
     roda (3.78.0)
       rack
