@@ -6,7 +6,7 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'weekly'
+      interval: weekly
 
   ##
   # Top-level package
@@ -16,20 +16,11 @@ updates:
     schedule:
       interval: weekly
     groups:
-      build-dependencies:
-        patterns:
-          - '@babel/*'
-          - 'typescript'
-      testing-dependencies:
-        patterns:
-          - '@size-limit/*'
-          - '@testing-library/*'
-          - '@typescript-eslint/*'
-          - 'eslint*'
-          - 'jest*'
-          - 'prettier'
-          - 'size-limit'
-          - 'stylelint*'
+      # Group everything except major version updates and security vulnerabilities
+      regular-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
     ignore:
       # https://github.com/citizensadvice/design-system/issues/3297
       - dependency-name: 'eslint'
@@ -42,6 +33,12 @@ updates:
     directory: '/engine'
     schedule:
       interval: weekly
+    groups:
+      # Group everything except major version updates and security vulnerabilities
+      regular-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
 
   ##
   # Demo app
@@ -49,12 +46,24 @@ updates:
   - package-ecosystem: bundler
     directory: '/demo'
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      # Group everything except major version updates and security vulnerabilities
+      regular-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
 
   - package-ecosystem: npm
     directory: '/demo'
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      # Group everything except major version updates and security vulnerabilities
+      regular-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
 
   ##
   # Documentation website
@@ -62,9 +71,21 @@ updates:
   - package-ecosystem: bundler
     directory: '/design-system-docs'
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      # Group everything except major version updates and security vulnerabilities
+      regular-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
 
   - package-ecosystem: npm
     directory: '/design-system-docs'
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      # Group everything except major version updates and security vulnerabilities
+      regular-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
