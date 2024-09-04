@@ -6,10 +6,13 @@ layout: default
 <main id="cads-main-content" class="cads-grid-container">
   <div class="cads-grid-row">
     <div class="cads-grid-col-md-8 cads-page-content">
-      <h1 class="cads-page-title"><%= resource.data.title %></h1>
+      <h1 class="cads-page-title">Accessibility</h1>
       <div class="text-list">
         <h2 class="text-list__title" id="h-for-designers">Accessibility for designers</h2>
         <ul class="text-list__links">
+          <% collections.accessibility_for_designers.resources.each do |foundation| %>
+            <li><a href="<%= foundation.relative_url %>"><%= foundation.data.title %></a></li>
+          <% end %>
         </ul>
       </div>
     </div>
