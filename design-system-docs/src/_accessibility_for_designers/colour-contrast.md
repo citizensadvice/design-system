@@ -83,11 +83,11 @@ You should ensure that the colour contrast is effective in different modes and f
 
 ### Focus indication
 
-[WCAG 2.4.7](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html), requires that user interface elements have visible focus indications. 
+[WCAG 2.4.7](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html), requires that user interface elements have visible focus indications.
 
 High contrast focus indicators make it easier for individuals who rely on keyboard navigation or screen readers to identify where their focus is on the screen. Without clear focus indication, users might inadvertently interact with the wrong elements, leading to errors and frustration.
 
-We use the Focus colour (#FFD250) to highlight focus areas. 
+We use the Focus colour (#FFD250) to highlight focus areas.
 
 ![Four user interface components each highlighted with a glowing yellow outline to indicate that they are in focus.](/images/accessibility_for_designers/focus-states.png)
 
@@ -100,6 +100,7 @@ Desktop: [colourcontrast.cc](colourcontrast.cc)
 An online checker where you add the background and foreground colour. You can also test different fonts.
 
 ### Relevant WCAG information
+
 - [1.4.3: Contrast (minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum)
 - [1.4.6: Contrast (enhanced)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced)
 - [1.4.11: Contrast (non-text)](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast)

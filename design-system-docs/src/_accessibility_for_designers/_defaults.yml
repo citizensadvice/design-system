@@ -1,6 +1,7 @@
 layout: accessibility_for_designers
+show_on_this_page: true
 extra_breadcrumbs:
-  - title: "Accessibility"
-    url: "/accessibility"
-  - title: "Accessibility for designers"
-    url: "/accessibility/accessibility-for-designers"
+  - title: 'Accessibility'
+    url: '/accessibility'
+  - title: 'Accessibility for designers'
+    url: '/accessibility/accessibility-for-designers'

@@ -1,6 +1,10 @@
 ---
 title: Accessibility for content designers
 layout: basic
+show_on_this_page: true
+extra_breadcrumbs:
+  - title: 'Accessibility'
+    url: '/accessibility'
 ---
 
 Making content as easy to understand as possible makes it better for everybody.
