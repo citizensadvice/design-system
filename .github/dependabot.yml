@@ -64,6 +64,10 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+        exclude-patterns:
+          # Rails minor versions are more like major versions
+          # so should be handled separately
+          - 'rails'
 
   ##
   # Documentation website
