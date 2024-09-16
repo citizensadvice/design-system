@@ -23,9 +23,7 @@ Bundler.require(*Rails.groups)
 module Demo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.1
-
-    config.active_support.cache_format_version = 7.1
+    config.load_defaults 7.2
 
     config.view_component.show_previews = true
     config.view_component.default_preview_layout = "component_preview"
