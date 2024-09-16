@@ -1,5 +1,5 @@
 const path = require('path');
-const { prompt } = require('inquirer');
+const { prompt } = require('inquirer').default;
 const currentVersion = require('../package.json').version;
 const { checkRepoStatus } = require('./releaseHelpers');
 
