@@ -3,7 +3,7 @@ const path = require('path');
 const { execSync, spawnSync } = require('child_process');
 const simpleGit = require('simple-git');
 const chalk = require('chalk');
-const { prompt } = require('inquirer');
+const { prompt } = require('inquirer').default;
 const semver = require('semver');
 const { checkRepoStatus, ok, showError } = require('./releaseHelpers');
 
