@@ -200,6 +200,8 @@ textarea:
     description: 'Optional, the number of rows for the textarea. Defaults to <code>8</code>'
   - argument: options
     description: 'Optional, a hash with one or more of the following values:'
+  - argument: 'options[:page_heading]'
+    description: '→ Optional, boolean indicating the field label is a page heading'
   - argument: 'options[:hint]'
     description: '→ Optional, hint text for the input'
   - argument: 'options[:error_message]'

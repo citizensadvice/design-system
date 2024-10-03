@@ -363,6 +363,11 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
+        label: `Forms/Textarea (page heading)`,
+        url: componentUrlFor(`textarea/page_heading`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
         label: `Forms/Radio group (with hint)`,
         url: componentUrlFor(`radio_group/hint`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],

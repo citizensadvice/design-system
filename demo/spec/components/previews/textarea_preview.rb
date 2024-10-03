@@ -54,6 +54,19 @@ class TextareaPreview < ViewComponent::Preview
     )
   end
 
+  def page_heading
+    render(
+      CitizensAdviceComponents::Textarea.new(
+        name: "example-textarea-page-heading",
+        label: "Example text area with page heading",
+        options: {
+          page_heading: true,
+          hint: "This is the hint for the input"
+        }
+      )
+    )
+  end
+
   def additional_attributes
     additional_attributes = {
       spellcheck: "true"
