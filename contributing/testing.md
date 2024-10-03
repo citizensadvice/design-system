@@ -2,12 +2,32 @@
 
 ## Linting
 
+### JavaScript and CSS linting
+
 We run `eslint`, `stylelint`, and `prettier` as lint checks.
 
 From the project root run:
 
 ```sh
 npm run lint
+```
+
+### Ruby linting
+
+For ruby code we run `rubocop` and `erblint` as lint checks against our `engine` directory.
+
+From the `engine` directory run:
+
+```
+bundle exec rubocop && bundle exec erblint --lint-all
+```
+
+We also run `rubocop` checks against our `demo` and `design-system-docs` directories.
+
+From `demo` or `design-system-docs` directory run:
+
+```
+bundle exec rubocop
 ```
 
 ## Unit tests
