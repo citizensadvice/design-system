@@ -1,26 +1,16 @@
-# Citizens Advice Design System documentation website
+# Documentation website
 
 This is the documentation website for the Citizens Advice Design System. The site is build using [Bridgetown](https://www.bridgetownrb.com/)
 
-## Prerequisites
+## Running the documentation website
 
-- [Ruby 3.2](https://www.ruby-lang.org/en/downloads/)
-- [Node 18](https://nodejs.org)
+> [!NOTE]
+> This guide assumes you have first read [the setup guide](../contributing/02-local-setup.md) for the project as a whole and have run the top-level setup script
 
-## Setup
-
-All commands should be run within this directory, `design-system-docs/`, from within your terminal of choice.
-
-To set up the project run:
+Following this you should be able to run the dev server with:
 
 ```sh
-./bin/setup
-```
-
-To start your site in development mode run:
-
-```sh
-./bin/bridgetown start
+./bin/dev
 ```
 
 The docs should now be running on [localhost:4000](https://localhost:4000/)

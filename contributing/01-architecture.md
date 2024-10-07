@@ -32,3 +32,18 @@ View components can contain logic so this allows us to provide richer components
 The demo app is not distributed beyond this project but acts as an example of how to integrate the design system into a full Rails application.
 
 It is also used as a place to run all of our automated tests in an environment that is specifically designed for testing but still closely resembles our production applications.
+
+## Documentation website
+
+We have also include documentation website under `design-system-docs`. See the [design-system-docs README for instructions on how to run the documentation website locally](../design-system-docs/README.md)
+
+The documentation website is deployed via Netlify which allows us to access previews of work in progress changes. You can request a preview deploy for any pull request by adding the "docs preview" label.
+
+When the preview is ready a comment will be added to your pull request with a link to the preview site.
+
+> [!NOTE]
+> Pull requests from forks will not be able to deploy a preview to Netlify as the workflow will not have access to the required secrets.
+
+## Read next
+
+[Local setup →](./02-local-setup.md)

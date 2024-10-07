@@ -2,9 +2,9 @@
 
 This document outlines the steps to release the design-system packages.
 
-## Pre-requisites
+## Prerequisites
 
-**Note:** To perform a release you need:
+To perform a release you need:
 
 1. To be in the citizensadvice github org and have permissions to create releases for the design-system repo
 2. To be part of the citizensadvice npm org and have two-factor authentication enabled on your account.
