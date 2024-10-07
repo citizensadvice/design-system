@@ -2,10 +2,6 @@
 
 module Shared
   class ArgumentsTable < ViewComponent::Base
-    Bridgetown::ViewComponentHelpers.allow_rails_helpers :tag
-
-    include Bridgetown::ViewComponentHelpers
-
     def initialize(component_name)
       super
 
