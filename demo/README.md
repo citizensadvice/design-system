@@ -1,4 +1,4 @@
-# Rails engine demo app
+# Rails Engine demo app
 
 This app:
 
@@ -8,29 +8,10 @@ This app:
 
 ## Running the demo app
 
-### Run the setup script:
+> [!NOTE]
+> This guide assumes you have first read [the setup guide](../contributing/02-local-setup.md) for the project as a whole and have run the top-level setup script
 
-```sh
-./bin/setup
-```
-
-### Compile the packs:
-
-Ensure the build is up to date before compiling packs by running:
-
-```sh
-npm run build
-```
-
-from the project root and then:
-
-```sh
-./bin/rails assets:precompile
-```
-
-from the `demo` directory.
-
-### Start Rails:
+Following this you should be able to run the dev server with:
 
 ```sh
 ./bin/dev
@@ -40,29 +21,30 @@ The engine code bundles a set of component previews which can be seen at `http:/
 
 ## Running cypress tests
 
-Open the Cypress UI:
+We use [Cypress](https://www.cypress.io/) for two main things:
 
-```
+1. To run accessibility checks against every component example using [`cypress-axe`](https://github.com/component-driven/cypress-axe)
+2. For behavioural tests against any interactive components (e.g. targeted content)
+
+You can run both from within the `demo` directory by either running:
+
+```sh
 ./bin/rails cypress:open
 ```
 
-Run all tests in a headless browser:
+Which will open the Cypress UI for interactive testing, or by running:
 
-```
+```sh
 ./bin/rails cypress:run
 ```
 
+Which will run all tests in a headless browser.
+
 ## Running visual regression tests
 
-We use BackstopJS to automate visual regression testing of components by comparing DOM screenshots over time.
+We use [BackstopJS](https://github.com/garris/BackstopJS) to automate visual regression testing of components by comparing DOM screenshots over time. The tests are run inside of Docker to ensure rendering consistency across different environments.
 
-### Usage
-
-The tests are run inside of Docker to ensure consistency across different environments (mac, windows and linux). You can install Docker by following the instructions at [docker.com](https://www.docker.com/products/docker-desktop).
-
-#### Run tests
-
-First, run the demo app using:
+Firstly, run the demo app using:
 
 ```sh
 ./bin/rails server -e test
@@ -74,23 +56,17 @@ With the demo app running, you can start the backstop tests using:
 npm run backstop
 ```
 
-#### Open the report
-
 After a test run is complete you can run view the report in a browser using:
 
 ```sh
 npm run backstop:report
 ```
 
-#### Approve changes
-
 If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
 
 ```
 npm run backstop:approve
 ```
-
-### Run the tests for a specific set of scenarios:
 
 You can run tests for a specific set of scenarios by passing a filter to the backstop command where `Example` is the search term you want to filter by.
 

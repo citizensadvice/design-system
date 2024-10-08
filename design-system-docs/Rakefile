@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
+begin
+  require "bundler/setup"
+rescue LoadError
+  puts "You must `gem install bundler` and `bundle install` to run rake tasks"
+end
+
 require "bridgetown"
 
 Bridgetown.load_tasks
+
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
 
 # Run rake without specifying any command to execute a deploy build by default.
 task default: :deploy

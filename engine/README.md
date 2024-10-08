@@ -1,43 +1,19 @@
-# Rails engine
+# Design System Rails Engine
 
-The goal is to provide a set of [view components](https://viewcomponent.org/) for each design system component, distributed as a Rails engine.
+A Rails Engine packaged as a gem which provides a set of [view components](https://viewcomponent.org/) for each design system component. [See the published guidance on using this with your own Rails application](https://citizens-advice-design-system.netlify.app/guides/using-with-rails/). The rest of this document is about developing the engine code locally.
 
-## Installing the engine
+## Running engine checks
 
-The Rails engine can be installed as `citizens_advice_components` by adding the following to your project Gemfile:
-
-```
-gem "citizens_advice_components", github: "citizensadvice/design-system", glob: "engine/*.gemspec"
-```
-
-## Using components
-
-Components are provided as [view components](https://viewcomponent.org/).
-
-Once installed you can call them within your application by passing the component to `render`.
-
-```rb
-render(
-  CitizensAdviceComponents::Pagination.new(
-    current_params: { "q" => "debt and money" },
-    num_pages: 100,
-    current_page: 1
-  )
-)
-```
-
-For more details see [viewcomponent.org](https://viewcomponent.org/)
-
-## Running tests
-
-Install dependencies
+Install gem dependencies
 
 ```sh
 bundle install
 ```
 
-Run rspec
+Run rake
 
 ```sh
-bundle exec rspec
+rake
 ```
+
+By default this will run all rspec, rubocop, and erb-lint checks. You can view all available tasks with `rake -T`

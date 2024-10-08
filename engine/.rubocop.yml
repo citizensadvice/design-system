@@ -23,3 +23,8 @@ Style/HashSyntax:
 
 RSpec/ExampleLength:
   CountAsOne: ['array', 'hash']
+
+Rails/RakeEnvironment:
+  Exclude:
+    # Gem Rakefile is not used in a Rails context
+    - 'Rakefile'
