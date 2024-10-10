@@ -64,20 +64,21 @@ module CitizensAdviceComponents
     end
 
     class HeaderLink < Base
-      attr_reader :title, :url
+      attr_reader :title, :url, :lang
 
-      def initialize(title:, url:, current_site: false)
+      def initialize(title:, url:, current_site: false, lang: nil)
         super
         @title = title
         @url = url
         @current_site = current_site
+        @lang = lang
       end
 
       def call
         if current_site?
           tag.span(title, class: "cads-header__text")
         else
-          link_to title, url, class: "cads-header__hyperlink"
+          link_to title, url, class: "cads-header__hyperlink", lang: lang
         end
       end
 

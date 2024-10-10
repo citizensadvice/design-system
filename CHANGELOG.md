@@ -1,3 +1,7 @@
+## Unreleased
+
+- Header: allow `lang` attribute in the header links slot
+
 ## v6.0.0
 
 ### 11 July 2024
