@@ -68,7 +68,7 @@ class HeaderPreview < ViewComponent::Preview
     [
       { title: "Public site", url: "/", current_site: true },
       { title: "AdviserNet", url: "?advisernet" },
-      { title: "Cymraeg", url: "?lang=cy" }
+      { title: "Cymraeg", url: "?lang=cy", lang: "cy" }
     ]
   end
 

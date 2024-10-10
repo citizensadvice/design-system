@@ -81,14 +81,14 @@ If you use the defaults you'll need to be using the `Navigation` and `Footer` co
 
 ### Header links
 
-Header links can be configured either by passing a list of hashes to `header_links` or by calling `header_links` multiple times with a `title` and `url`. Header links also accept an optional `current_site` flag.
+Header links can be configured either by passing a list of hashes to `header_links` or by calling `header_links` multiple times with a `title` and `url`. There is also an optional `lang` attribute available. Header links also accept an optional `current_site` flag, which turns the link into a `span`.
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
   c.with_header_links([
     { title: "Public site", url: "/", current_site: true },
     { title: "AdviserNet", url: "/advisernet" },
-    { title: "Cymraeg", url: "?lang=cy" }
+    { title: "Cymraeg", url: "?lang=cy", lang: "cy" }
   ])
 end %>
 ```

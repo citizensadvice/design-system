@@ -69,7 +69,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
         c.with_header_links([
           { title: "Public site", url: "/", current_site: true },
           { title: "Intranet", url: "/intranet" },
-          { title: "Cymraeg", url: "/cymraeg" }
+          { title: "Cymraeg", url: "/cymraeg", lang: "cy" }
         ])
       end
     end
@@ -78,6 +78,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     it { is_expected.to have_css "span", text: "Public site" }
     it { is_expected.to have_link "Intranet", href: "/intranet" }
     it { is_expected.to have_link "Cymraeg", href: "/cymraeg" }
+    it { is_expected.to have_css "a[lang='cy']" }
   end
 
   describe "account_link slot" do
