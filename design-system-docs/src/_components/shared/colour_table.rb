@@ -2,10 +2,6 @@
 
 module Shared
   class ColourTable < ViewComponent::Base
-    Bridgetown::ViewComponentHelpers.allow_rails_helpers :tag
-
-    include Bridgetown::ViewComponentHelpers
-
     def initialize(colour_mappings)
       super
 

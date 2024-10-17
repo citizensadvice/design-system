@@ -2,10 +2,6 @@
 
 module Foundations
   class SpacingTable < ViewComponent::Base
-    include Bridgetown::ViewComponentHelpers
-
-    Bridgetown::ViewComponentHelpers.allow_rails_helpers :tag
-
     def call
       render(
         CitizensAdviceComponents::Table.new(

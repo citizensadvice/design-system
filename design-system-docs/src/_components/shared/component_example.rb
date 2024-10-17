@@ -2,8 +2,6 @@
 
 module Shared
   class ComponentExample < ViewComponent::Base
-    include Bridgetown::ViewComponentHelpers
-
     def initialize(category, slug)
       super
 

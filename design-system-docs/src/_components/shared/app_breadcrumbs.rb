@@ -2,8 +2,6 @@
 
 module Shared
   class AppBreadcrumbs < ViewComponent::Base
-    include Bridgetown::ViewComponentHelpers
-
     def initialize(resource)
       @resource = resource
     end
