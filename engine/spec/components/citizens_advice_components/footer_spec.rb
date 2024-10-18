@@ -100,11 +100,12 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
     context "with custom title" do
       before do
         render_inline(described_class.new) do |c|
-          c.with_feedback_link(title: "Custom link title", url: "https://example.com/")
+          c.with_feedback_link(title: "Custom link title", url: "https://example.com/", new_tab: true)
         end
       end
 
       it { is_expected.to have_link "Custom link title", href: "https://example.com/" }
+      it { is_expected.to have_css "a[aria-label='Custom link title (opens in a new tab)']" }
     end
 
     context "with new_tab set to true" do
@@ -115,6 +116,8 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
       end
 
       it { is_expected.to have_css "[target=_blank]", text: default_text }
+      it { is_expected.to have_css "[rel=noopener]" }
+      it { is_expected.to have_css "a[aria-label='Is there anything wrong with this page? Let us know (opens in a new tab)']" }
     end
 
     context "with URI builder object" do

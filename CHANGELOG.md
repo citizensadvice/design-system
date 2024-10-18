@@ -1,6 +1,10 @@
 ## Unreleased
 
+**New**
 - Header: allow `lang` attribute in the header links slot
+
+**Fix**
+- Footer: add default aria label fallback when no custom feedback link title is specified
 
 ## v6.0.0
 
