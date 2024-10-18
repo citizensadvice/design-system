@@ -4,12 +4,22 @@
       <div class="cads-grid-row">
         <div class="cads-grid-col">
           <p class="cads-footer__feedback">
-            <%= link_to(
-              feedback_link.title || t("citizens_advice_components.footer.website_feedback"),
-              feedback_link.url,
-              class: "cads-footer__hyperlink js-cads-footer-feedback",
-              **feedback_link.new_tab_attributes
-            ) %>
+            <% if feedback_link.new_tab? %>
+              <%= link_to(
+                feedback_link.title || t("citizens_advice_components.footer.website_feedback"),
+                feedback_link.url,
+                class: "cads-footer__hyperlink js-cads-footer-feedback",
+                target: "_blank",
+                rel: "noopener",
+                aria: { label: "#{feedback_link.title || t('citizens_advice_components.footer.website_feedback')} (opens in a new tab)" }
+              ) %>
+            <% else %>
+              <%= link_to(
+                feedback_link.title || t("citizens_advice_components.footer.website_feedback"),
+                feedback_link.url,
+                class: "cads-footer__hyperlink js-cads-footer-feedback"
+              ) %>
+            <% end %>
           </p>
         </div>
       </div>
