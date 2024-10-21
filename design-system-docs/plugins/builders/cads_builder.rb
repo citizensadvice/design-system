@@ -13,23 +13,15 @@ I18n.load_path << Dir[
 
 Time.zone = "London"
 
-# ViewComponent 3.9+ introduced a change which depends on there being an active Rails
-# request or controller in order to conditionally escape HTML. This causes an issue
-# when run in bridgetown as there's no request and we're always rendering static html.
-# Monkey patch the relevant method to remove the request format check.
-# https://github.com/citizensadvice/design-system/issues/3145
-# https://github.com/bridgetownrb/bridgetown-view-component/issues/8
+# Apply any additional patches to the ViewComponent::Base class
 module ViewComponent
   class Base
-    def maybe_escape_html(text)
-      return text if text.blank?
-
-      if text.html_safe?
-        text
-      else
-        yield
-        html_escape(text)
-      end
+    # ViewComponent depends on there being a Rails controller present.
+    # This causes an issue when run in a Bridgetown context.
+    # Define a view context and controller using ActionView::Base
+    def controller
+      view = ActionView::Base.new(ActionView::LookupContext.new([]), {}, nil)
+      view.controller
     end
   end
 end

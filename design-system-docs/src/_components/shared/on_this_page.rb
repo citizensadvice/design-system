@@ -4,8 +4,6 @@ require "nokogiri"
 
 module Shared
   class OnThisPage < ViewComponent::Base
-    include Bridgetown::ViewComponentHelpers
-
     def initialize(source_doc)
       @doc = Nokogiri::HTML::DocumentFragment.parse(source_doc)
       @headings = extract_headings

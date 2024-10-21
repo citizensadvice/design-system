@@ -16,8 +16,7 @@ gem "citizens_advice_components", path: "../engine"
 # citizens_advice_components bundles view component but we
 # also use this to write docs components so explicitly
 # name it as a dependency.
-# Pin version until https://github.com/citizensadvice/design-system/pull/3503 is merged
-gem "view_component", "3.14.0"
+gem "view_component", "~> 3.16"
 
 group :development, :test do
   gem "citizens-advice-style",

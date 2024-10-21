@@ -2,8 +2,6 @@
 
 module Foundations
   class IconGrid < ViewComponent::Base
-    include Bridgetown::ViewComponentHelpers
-
     def icons
       [
         CitizensAdviceComponents::Icons::ArrowLeft,
