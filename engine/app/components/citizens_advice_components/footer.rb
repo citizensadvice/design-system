@@ -57,16 +57,6 @@ module CitizensAdviceComponents
       def new_tab?
         @new_tab.present?
       end
-
-      def new_tab_attributes
-        return {} unless new_tab?
-
-        {
-          target: "_blank",
-          rel: "noopener",
-          "aria-label": "#{title} (opens in a new tab)"
-        }
-      end
     end
   end
 end
