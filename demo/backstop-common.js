@@ -447,6 +447,11 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
+        label: `Forms/Date Input (page heading)`,
+        url: componentUrlFor(`date_input/page_heading`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
         label: `Forms/Date Input (incomplete_error)`,
         url: componentUrlFor(`date_input/incomplete_error`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
