@@ -14,6 +14,10 @@ A date input field allows the user to enter a date they remember.
 
 <%= render(Shared::ComponentExample.new(:date_input, :optional)) %>
 
+### Page heading
+
+<%= render(Shared::ComponentExample.new(:date_input, :page_heading)) %>
+
 ### With hint
 
 <%= render(Shared::ComponentExample.new(:date_input, :with_hint)) %>

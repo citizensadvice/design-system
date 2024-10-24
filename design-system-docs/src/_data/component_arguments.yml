@@ -247,6 +247,8 @@ date_input:
     description: Optional, placeholder values
   - argument: options
     description: 'Optional, a hash with one or more of the following values:'
+  - argument: page_heading
+    description: '→ Optional, boolean indicating the field label is a page heading'
   - argument: hint
     description: '→ Optional, hint text for the input'
   - argument: error_message
