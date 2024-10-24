@@ -179,6 +179,8 @@ text_input:
     description: 'Optional, one of: <code>:two_char</code>, <code>:four_char</code>, <code>:eight_char</code>, <code>:sixteen_char</code>'
   - argument: options
     description: 'Optional, a hash with one or more of the following values:'
+  - argument: 'options[:page_heading]'
+    description: '→ Optional, boolean indicating the field label is a page heading'
   - argument: 'options[:hint]'
     description: '→ Optional, hint text for the input'
   - argument: 'options[:error_message]'
