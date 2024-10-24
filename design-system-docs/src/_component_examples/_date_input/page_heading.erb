@@ -1,0 +1,12 @@
+---
+title: page heading
+---
+
+<%= render CitizensAdviceComponents::DateInput.new(
+      name: "bday",
+      label: "Date of birth",
+      options: {
+        page_heading: true,
+        hint: "Enter your date of birth, like 01 02 1990"
+      }
+    ) %>

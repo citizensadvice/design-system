@@ -3,9 +3,15 @@
   <div class="cads-form-field__content">
     <fieldset class="cads-form-group">
       <legend class="cads-form-field__label">
-        <%= label %>
-        <% if optional? %>
-          <span class="cads-form-field__optional"><%= "(#{t('citizens_advice_components.input.optional')})" %></span>
+        <% if page_heading? %>
+          <h1 class="cads-page-title">
+            <%= label %>
+          </h1>
+        <% else %>
+          <%= label %>
+          <% if optional? %>
+            <span class="cads-form-field__optional"><%= "(#{t('citizens_advice_components.input.optional')})" %></span>
+          <% end %>
         <% end %>
       </legend>
       <% if hint? %>

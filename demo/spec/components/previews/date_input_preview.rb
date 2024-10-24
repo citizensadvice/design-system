@@ -15,6 +15,17 @@ class DateInputPreview < ViewComponent::Preview
     )
   end
 
+  def page_heading
+    render CitizensAdviceComponents::DateInput.new(
+      name: "bday",
+      label: "Date of birth",
+      options: {
+        page_heading: true,
+        hint: "Enter your date of birth, like 01 02 1990"
+      }
+    )
+  end
+
   def optional
     render CitizensAdviceComponents::DateInput.new(
       name: "bday",
