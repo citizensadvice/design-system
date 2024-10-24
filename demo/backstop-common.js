@@ -323,6 +323,11 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
+        label: `Forms/Input (page heading)`,
+        url: componentUrlFor(`text_input/page_heading`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
         label: `Forms/Input (optional field)`,
         url: componentUrlFor(`text_input/optional`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
