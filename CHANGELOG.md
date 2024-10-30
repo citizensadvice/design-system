@@ -22,6 +22,9 @@
   initNavigation();
   ```
 
+**Fix**
+- Improves screen reader experience when interacting with checkbox and radio groups in an error state
+
 ## v6.3.0
 
 ### 5 December 2024
