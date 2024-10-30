@@ -15,11 +15,11 @@
       <p class="cads-form-field__hint"><%= hint %></p>
     <% end %>
     <% if error? %>
-      <p class="cads-form-field__error-message"><%= error_message %></p>
+      <p class="cads-form-field__error-message"<% if error? %>id=<%= error_id %> <% end %>><%= error_message %></p>
     <% end %>
     <% inputs.each_with_index do |input, index| %>
       <div class="cads-form-group__item">
-        <%= tag.input(class: "cads-form-group__input", **input.attributes(name, id, index)) %>
+        <%= tag.input(class: "cads-form-group__input", **input.attributes(name, id, index, error: error?)) %>
         <label class="cads-form-group__label" for="<%= input.attributes(name, id, index)[:id] %>">
           <%= input.label %>
         </label>
