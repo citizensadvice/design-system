@@ -77,6 +77,9 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
 
     it { is_expected.to have_css ".cads-form-field--has-error" }
     it { is_expected.to have_text "This is the error message" }
+    it { is_expected.to have_css "[aria-describedby='radio-group-error']" }
+    it { is_expected.to have_css "#radio-group-error" }
+    it { is_expected.to have_css "input[aria-invalid]", count: 2 }
   end
 
   context "when an hint text is provided" do
