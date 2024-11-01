@@ -42,6 +42,10 @@ module CitizensAdviceComponents
       @error_message.present?
     end
 
+    def error_id
+      "#{name}-error"
+    end
+
     def optional?
       @optional.present?
     end
