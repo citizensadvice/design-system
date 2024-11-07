@@ -17,13 +17,13 @@ jobs:
       pull-requests: read
       statuses: write
     steps:
-      - uses: yykamei/block-merge-based-on-time@main
+      - uses: yykamei/block-merge-based-on-time@v3
         id: block
         with:
           timezone: Europe/London
           after: '17:00'
           before: '09:00'
           base-branches: '(default)'
-          prohibited-days-dates: 'Saturday, Sunday, 2024-12-24/2025-01-01'
+          prohibited-days-dates: 'Saturday, Sunday'
       - run: echo pr-blocked=${{ steps.block.outputs.pr-blocked }}
         if: github.event_name == 'pull_request'
