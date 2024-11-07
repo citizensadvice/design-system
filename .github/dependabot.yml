@@ -7,8 +7,6 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-      day: tuesday
-      time: 09:00
 
   ##
   # Top-level package
@@ -17,8 +15,6 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-      day: tuesday
-      time: 09:00
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
