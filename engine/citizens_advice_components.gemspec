@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.name = "citizens_advice_components"
   spec.version = CitizensAdviceComponents::VERSION
   spec.authors = ["Citizens Advice"]
+  spec.license = "Apache-2.0"
 
   spec.summary = "Citizens Advice Design System components distributed as a Rails engine"
   spec.required_ruby_version = Gem::Requirement.new(">= 3.1")
