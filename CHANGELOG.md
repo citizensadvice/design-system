@@ -1,4 +1,6 @@
-## Unreleased
+## v6.2.0
+
+### 13 November 2024
 
 **New**
 - Grid: updated grid on large viewports, changing the gutter from 40px to 32px
