@@ -1,3 +1,8 @@
+
+**New**
+- Add support for Rails 8
+- Drop support for Rails 6.1
+
 ## v6.2.0
 
 ### 13 November 2024

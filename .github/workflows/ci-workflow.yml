@@ -27,20 +27,14 @@ jobs:
         # Active Ruby versions (https://endoflife.date/ruby)
         ruby_version: ['3.1', '3.2', '3.3']
         # Active Rails versions (https://endoflife.date/rails)
-        rails_version: ['~> 7.0.0', '~> 7.1.0', '~> 7.2.0']
-        # Any supported ViewComponent versions
-        view_component_version: ['~> 3']
-        # Explicitly test a "legacy" configuration using an older Ruby, Rails,
-        # and ViewComponent version to represent applications that have not been
-        # upgraded yet with the expectation that we'll drop Rails 6.1 along with
-        # ViewComponent 2.x when Rails 6.1 goes end-of-life on October 1st 2024.
-        include:
+        rails_version: ['~> 7.0.0', '~> 7.1.0', '~> 7.2.0', '~> 8.0.0']
+        # Exclude certain ruby and rails combinations
+        exclude:
+          # Rails 8 supports ruby 3.2+
           - ruby_version: '3.1'
-            rails_version: '~> 6.1'
-            view_component_version: '~> 2.82'
+            rails_version: '~> 8.0.0'
     env:
       RAILS_VERSION: ${{ matrix.rails_version }}
-      VIEW_COMPONENT_VERSION: ${{ matrix.view_component_version }}
     defaults:
       run:
         working-directory: engine
@@ -67,7 +61,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: '3.3.1'
+          ruby-version: '3.3.5'
           working-directory: engine
       - run: bundle exec rubocop --format progress --format github
       - run: bundle exec erblint --lint-all
@@ -93,7 +87,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.1'
+          ruby-version: '3.3.5'
           bundler-cache: true
           working-directory: demo
 
@@ -150,7 +144,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.1'
+          ruby-version: '3.3.5'
           bundler-cache: true
           working-directory: demo
 
@@ -192,7 +186,7 @@ jobs:
       # Setup docs site
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.1'
+          ruby-version: '3.3.5'
           bundler-cache: true
           working-directory: design-system-docs
 
