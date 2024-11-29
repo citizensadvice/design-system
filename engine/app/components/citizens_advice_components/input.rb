@@ -28,6 +28,7 @@ module CitizensAdviceComponents
       @error_message = options[:error_message]
       @hint = options[:hint]
       @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
+      @page_heading = fetch_or_fallback_boolean(options[:page_heading], fallback: false)
 
       @value = options[:value]
       @additional_attributes = options[:additional_attributes]
@@ -53,6 +54,10 @@ module CitizensAdviceComponents
         :week,
         nil
       ]
+    end
+
+    def page_heading?
+      @page_heading
     end
 
     def optional?
