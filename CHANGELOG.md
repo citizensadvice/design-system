@@ -1,3 +1,7 @@
+## v6.3.0
+
+### 5 December 2024
+
 
 **New**
 - Add support for Rails 8
