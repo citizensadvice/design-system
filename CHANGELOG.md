@@ -1,3 +1,10 @@
+**New**
+
+- Improvements to summary list component:
+  - Improves default spacing around component
+  - Accounts for paragraph elements within rows
+  - Rails interface accepts a new `reject_blanks` option to remove rows with blank values
+
 ## v6.3.0
 
 ### 5 December 2024
