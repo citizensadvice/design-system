@@ -25,6 +25,17 @@
   @include cads-media-breakpoint-up(md) {
     margin-left: $cads-spacing-4;
   }
+
+  // Handle paragraph text inside summary list components
+  p {
+    @include cads-typographic-scale-text-small;
+
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: 0.75em;
+  }
 }
 
 .cads-summary-list__name {
