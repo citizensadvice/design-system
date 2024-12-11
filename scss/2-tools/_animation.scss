@@ -1,7 +1,8 @@
+@use 'sass:list';
 @use '../1-settings/animation' as animation-settings;
 
 @mixin cads-transition-animation($properties...) {
-  @if length($properties) == 0 {
+  @if list.length($properties) == 0 {
     $properties: background, border;
   }
 
