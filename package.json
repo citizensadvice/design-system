@@ -56,7 +56,7 @@
     "simple-git": "^3.18.0",
     "size-limit": "^11.0.0",
     "stylelint": "^16.6.1",
-    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-selector-bem-pattern": "^4.0.0",
     "typescript": "^5.2.2"
   },

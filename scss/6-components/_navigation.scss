@@ -41,7 +41,7 @@
   .cads-navigation {
     @include cads-restrict-content-width;
 
-    @each $breakpoint in map-keys($cads-breakpoints) {
+    @each $breakpoint in map.keys($cads-breakpoints) {
       $gutter: map.get($cads-nav-breakpoint-gutters, $breakpoint);
 
       @include cads-media-breakpoint-up($breakpoint) {
