@@ -12,6 +12,10 @@ title: Textarea
 
 <%= render(Shared::ComponentExample.new(:textarea, :optional)) %>
 
+### Page heading
+
+<%= render(Shared::ComponentExample.new(:textarea, :page_heading)) %>
+
 ### With hint
 
 <%= render(Shared::ComponentExample.new(:textarea, :with_hint)) %>

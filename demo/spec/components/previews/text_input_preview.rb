@@ -53,6 +53,20 @@ class TextInputPreview < ViewComponent::Preview
     )
   end
 
+  def page_heading
+    render(
+      CitizensAdviceComponents::TextInput.new(
+        name: "example-input-page-heading",
+        label: "Example input with page heading",
+        type: :text,
+        options: {
+          page_heading: true,
+          hint: "This is the hint for the input"
+        }
+      )
+    )
+  end
+
   def fixed_widths; end
 
   def type

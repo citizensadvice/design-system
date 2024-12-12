@@ -20,6 +20,10 @@ Use hint text for help that’s relevant to the majority of users, based on the 
 
 <%= render(Shared::ComponentExample.new(:text_input, :optional)) %>
 
+### Page heading
+
+<%= render(Shared::ComponentExample.new(:text_input, :page_heading)) %>
+
 ### Fixed widths
 
 Help users understand the purpose of the input by making the input size appropriate for the content it’s intended for.

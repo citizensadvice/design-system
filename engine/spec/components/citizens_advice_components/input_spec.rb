@@ -72,6 +72,19 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
     end
   end
 
+  context "when the input is a page heading" do
+    before do
+      render_inline described_class.new(
+        name: "example-input-page-heading",
+        label: "Example input with page heading",
+        type: :text,
+        options: { page_heading: true }
+      )
+    end
+
+    it { is_expected.to have_css "h1.cads-page-title", text: "Example input with page heading" }
+  end
+
   context "when the input is optional" do
     before do
       render_inline described_class.new(
