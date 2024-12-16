@@ -234,6 +234,12 @@ module.exports = function backstopCommon(baseUrl) {
         selectors: ['.cads-summary-list'],
       },
       {
+        label: 'Components/Summary List (with paragraph content)',
+        url: componentUrlFor('summary_list/with_paragraph_content'),
+        viewports: [commonViewports.small, commonViewports.large],
+        selectors: ['.cads-summary-list'],
+      },
+      {
         label: 'Components/Breadcrumbs/Collapsing',
         url: componentUrlFor('breadcrumbs/collapsing'),
         selectors: ['.cads-breadcrumbs-wrapper'],

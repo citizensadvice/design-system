@@ -1,6 +1,10 @@
-
 **New**
+
 - Add `page_heading` option to input fields, allowing users to make an input label a page heading.
+- Improvements to summary list component:
+  - Improves default spacing around component
+  - Accounts for paragraph elements within rows
+  - Rails interface accepts a new `reject_blanks` option to remove rows with blank values
 
 ## v6.3.0
 

@@ -2,15 +2,25 @@
 
 module CitizensAdviceComponents
   class SummaryList < Base
-    attr_reader :items
-
-    def initialize(items:)
-      super
+    def initialize(items:, reject_blanks: false)
       @items = items
+      @reject_blanks = reject_blanks
+    end
+
+    def items
+      if reject_blanks?
+        @items.reject { |field| field[:value].blank? }
+      else
+        @items
+      end
+    end
+
+    def reject_blanks?
+      @reject_blanks
     end
 
     def render?
-      @items.present?
+      items.present?
     end
   end
 end
