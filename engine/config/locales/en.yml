@@ -19,6 +19,11 @@ en:
       skip_to_content: Skip to main content
       skip_to_footer: Skip to footer
       skip_to_navigation: Skip to navigation
+    navigation:
+      dropdown_label: More
+      dropdown_label_close: Close
+      dropdown_aria_label: More navigation items
+      dropdown_aria_label_close: Close navigation
     input:
       optional: optional
     date_input:
