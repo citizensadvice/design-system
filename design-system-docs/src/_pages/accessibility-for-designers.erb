@@ -1,0 +1,21 @@
+---
+title: Accessibility for designers
+layout: default
+permalink: /accessibility/accessibility-for-designers/
+extra_breadcrumbs:
+- title: "Accessibility"
+  url: "/accessibility"
+---
+
+<main id="cads-main-content" class="cads-grid-container">
+  <div class="cads-grid-row">
+    <div class="cads-grid-col-md-8 cads-page-content">
+      <h1>Accessibility for designers</h1>
+      <ul class="text-list__links">
+        <% collections.accessibility_for_designers.resources.each do |foundation| %>
+          <li><a href="<%= foundation.relative_url %>"><%= foundation.data.title %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</main>
