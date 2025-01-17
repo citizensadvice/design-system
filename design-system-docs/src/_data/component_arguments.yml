@@ -123,7 +123,9 @@ footer_column_slot:
   - argument: title
     description: 'Required, title for the column'
   - argument: links
-    description: 'Required, an array of hashes, each with the following:'
+    description: 'Optional, an array of hashes, each with the following:'
+  - argument: text_lines
+    description: 'Optional, an array of lines of text to be included below the header'
   - argument: 'link[:url]'
     description: '→ Required, url for the link'
   - argument: 'link[:title]'

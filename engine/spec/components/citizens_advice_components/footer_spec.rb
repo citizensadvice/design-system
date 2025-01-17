@@ -81,6 +81,12 @@ RSpec.describe CitizensAdviceComponents::Footer, type: :component do
         expect(page).to have_css "[data-testid='footer-column']", count: 4
       end
     end
+
+    context "when a column has text lines" do
+      let(:columns) { [{ title: "Example column", text_lines: ["This is some body text"] }] }
+
+      it { is_expected.to have_css "p", text: "This is some body text" }
+    end
   end
 
   describe "feedback_link" do
