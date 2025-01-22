@@ -6,11 +6,25 @@
   - Accounts for paragraph elements within rows
   - Rails interface accepts a new `hide_empty_rows` option to control whether rows with blank values are shown
 - Add the ability to have text in a footer column
+- New greedy navigation implementation
+
+  For backwards compatibility the old greedy navigation entrypoint will continue to work but will be removed in a future version. The existing code should look something like this:
+
+  ```js
+  import greedyNav from '@citizensadvice/design-system/lib/greedy-nav/index';
+  greedyNav.init();
+  ```
+
+  To switch to the new entrypoint update your application to use the following code:
+
+  ```js
+  import { initNavigation } from "@citizensadvice/design-system"
+  initNavigation();
+  ```
 
 ## v6.3.0
 
 ### 5 December 2024
-
 
 **New**
 - Add support for Rails 8

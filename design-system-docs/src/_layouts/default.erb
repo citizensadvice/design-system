@@ -15,21 +15,23 @@
     </script>
   </head>
   <body class="site page-<%= resource.data.slug %>">
-    <%= render Shared::AppHeader.new %>
-    <%= render CitizensAdviceComponents::Navigation.new(
-      links: [
-        { url: "/guides", title: "Guides" },
-        { url: "/foundations", title: "Foundations" },
-        { url: "/components", title: "Components" },
-        { url: "/accessibility", title: "Accessibility" }
-      ]
-    ) %>
-    <%= render Shared::AppBreadcrumbs.new(resource) %>
-    <%= render "notice_banner" %>
+    <div class="site-header">
+      <%= render Shared::AppHeader.new %>
+      <%= render CitizensAdviceComponents::Navigation.new(
+        links: [
+          { url: "/guides", title: "Guides" },
+          { url: "/foundations", title: "Foundations" },
+          { url: "/components", title: "Components" },
+          { url: "/accessibility", title: "Accessibility" }
+        ]
+      ) %>
+      <%= render Shared::AppBreadcrumbs.new(resource) %>
+    </div>
     <div class="site-content" id="cads-main-content">
+      <%= render "notice_banner" %>
       <%= yield %>
     </div>
-    <%= render CitizensAdviceComponents::Footer.new %>
+    <div class="site-footer"><%= render CitizensAdviceComponents::Footer.new %></div>
     <script src="<%= webpack_path "theme.js" %>" defer></script>
   </body>
 </html>

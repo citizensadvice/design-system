@@ -7,17 +7,6 @@ body {
   height: 100%;
 }
 
-// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-.site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.site-content {
-  flex: 1 1 auto;
-}
-
 img {
   border: 0;
   max-width: 100%;
@@ -26,4 +15,30 @@ img {
 /* Fluid images if you omit the `width` attribute. */
 img:not([width]) {
   width: 100%;
+}
+
+.site {
+  display: grid;
+  min-height: 100vh;
+
+  // iOS Safari - compensate for the search box
+  min-height: 100dvh;
+  grid-template:
+    'header' minmax(min-content, max-content) 'main' auto
+    'footer' minmax(min-content, max-content) / 100%;
+
+  // Hide any additional automatically generated rows
+  grid-auto-rows: 0;
+}
+
+.site-header {
+  grid-area: header;
+}
+
+.site-content {
+  grid-area: main;
+}
+
+.site-footer {
+  grid-area: footer;
 }
