@@ -2,15 +2,25 @@
 
 module CitizensAdviceComponents
   class SummaryList < Base
-    attr_reader :items
-
-    def initialize(items:)
-      super
+    def initialize(items:, hide_empty_rows: false)
       @items = items
+      @hide_empty_rows = hide_empty_rows
+    end
+
+    def items
+      if hide_empty_rows?
+        @items.reject { |field| field[:value].blank? }
+      else
+        @items
+      end
+    end
+
+    def hide_empty_rows?
+      @hide_empty_rows
     end
 
     def render?
-      @items.present?
+      items.present?
     end
   end
 end

@@ -7,4 +7,6 @@ class SummaryListPreview < ViewComponent::Preview
       { name: "Hours per week", value: "37.5" }
     ])
   end
+
+  def with_paragraph_content; end
 end

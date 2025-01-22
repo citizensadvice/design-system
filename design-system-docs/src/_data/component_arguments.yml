@@ -273,3 +273,5 @@ select:
 summary_list:
   - argument: items
     description: Required, an array of hashes with `name` and `value` keys which represent the pairs to be rendered
+  - argument: hide_empty_rows
+    description: Determines if rows with blank values are shown (defaults to <code>false</code>)
