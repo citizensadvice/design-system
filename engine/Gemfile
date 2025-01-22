@@ -26,7 +26,7 @@ group :development, :test do
   # or we remove support for Rails 7.0.x whichever is sooner
   # (likely the latter as it is near EOL)
   # https://github.com/ruby-concurrency/concurrent-ruby/issues/1077
-  gem "concurrent-ruby", "1.3.5"
+  gem "concurrent-ruby", "1.3.4"
 
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
