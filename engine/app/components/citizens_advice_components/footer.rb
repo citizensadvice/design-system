@@ -34,12 +34,13 @@ module CitizensAdviceComponents
     end
 
     class FooterColumn < Base
-      attr_reader :title, :links
+      attr_reader :title, :links, :text_lines
 
-      def initialize(title:, links:)
+      def initialize(title:, links: [], text_lines: [])
         super
         @title = title
         @links = links
+        @text_lines = text_lines
       end
     end
 

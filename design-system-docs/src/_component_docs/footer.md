@@ -12,6 +12,10 @@ title: Footer
 
 <%= render(Shared::ComponentExample.new(:footer, :minimal)) %>
 
+### With text in a column
+
+<%= render(Shared::ComponentExample.new(:footer, :with_text)) %>
+
 ## Using with Rails
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:

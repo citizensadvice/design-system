@@ -30,13 +30,18 @@
           <% columns_to_show.each do |column| %>
             <div class="cads-grid-col-md-3" data-testid="footer-column">
               <h2 class="cads-footer__section-title"><%= column.title %></h2>
-              <ul class="cads-footer__links">
-                <% column.links.each do |link| %>
-                  <li class="cads-footer__link">
-                    <%= link_to link[:title], link[:url], class: "cads-footer__hyperlink" %>
-                  </li>
-                <% end %>
-              </ul>
+              <% column.text_lines.each do |line| %>
+                <p class="cads-footer__text"><%= line %></p>
+              <% end %>
+              <% unless column.links.empty? %>
+                <ul class="cads-footer__links">
+                  <% column.links.each do |link| %>
+                    <li class="cads-footer__link">
+                      <%= link_to link[:title], link[:url], class: "cads-footer__hyperlink" %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
             </div>
           <% end %>
         </div>

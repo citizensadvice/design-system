@@ -134,6 +134,11 @@ module.exports = function backstopCommon(baseUrl) {
         misMatchThreshold: 0.4,
       },
       {
+        label: 'Components/Footer (with text in column)',
+        url: componentUrlFor('footer/with_text_column'),
+        misMatchThreshold: 0.4,
+      },
+      {
         label: 'Components/On this page (with columns)',
         url: componentUrlFor('on_this_page/with_columns'),
       },

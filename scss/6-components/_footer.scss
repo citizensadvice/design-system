@@ -49,6 +49,10 @@
     border-bottom: 1px solid $cads-language__border-colour;
   }
 
+  .cads-footer__text {
+    @extend %cads-paragraph-small;
+  }
+
   .cads-footer__links {
     @extend %cads-list-no-bullet;
   }
