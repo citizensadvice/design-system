@@ -19,6 +19,11 @@ cy:
       skip_to_content: Neidio i’r prif gynnwys
       skip_to_footer: Neidio i’r troedyn
       skip_to_navigation: Neidio i’r llywio
+    navigation:
+      dropdown_label: Mwy
+      dropdown_label_close: Cau
+      dropdown_aria_label: Mwy o eitemau llywio
+      dropdown_aria_label_close: Cau llywio
     input:
       optional: dewisol
     date_input:

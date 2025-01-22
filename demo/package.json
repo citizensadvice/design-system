@@ -25,7 +25,7 @@
     "backstopjs": "^6.3.25",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.5.0",
-    "cypress-plugin-tab": "^1.0.5",
+    "cypress-real-events": "^1.14.0",
     "start-server-and-test": "^2.0.9"
   }
 }
