@@ -40,7 +40,7 @@ module.exports = {
 
     // Additional stylelint-scss rules
     'scss/at-extend-no-missing-placeholder': true,
-    'scss/at-import-partial-extension-blacklist': ['scss'],
+    'scss/at-import-partial-extension-disallowed-list': ['scss'],
     'scss/load-no-partial-leading-underscore': true,
     'scss/selector-no-redundant-nesting-selector': true,
 

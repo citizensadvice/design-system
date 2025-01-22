@@ -1,3 +1,9 @@
+@use 'sass:color';
+
 @function cads-colour-to-bg($colour) {
-  @return mix(rgb(red($colour), green($colour), blue($colour)), #fff, 10%);
+  @return color.mix(
+    rgb(color.red($colour), color.green($colour), color.blue($colour)),
+    #fff,
+    10%
+  );
 }
