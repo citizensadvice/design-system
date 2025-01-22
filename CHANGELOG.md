@@ -5,6 +5,7 @@
   - Improves default spacing around component
   - Accounts for paragraph elements within rows
   - Rails interface accepts a new `hide_empty_rows` option to control whether rows with blank values are shown
+- Add the ability to have text in a footer column
 - New greedy navigation implementation
 
   For backwards compatibility the old greedy navigation entrypoint will continue to work but will be removed in a future version. The existing code should look something like this:

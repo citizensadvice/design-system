@@ -1,0 +1,48 @@
+---
+title: With text in a column
+---
+
+<%= render CitizensAdviceComponents::Footer.new do |c|
+  c.with_column(
+    title: "Advice",
+    links: [
+      { url: "/benefits/", title: "Benefits" },
+      { url: "/work/", title: "Work" },
+      { url: "/debt-and-money/", title: "Debt and Money" },
+      { url: "/consumer/", title: "Consumer" },
+      { url: "/family/", title: "Family" },
+      { url: "/housing/", title: "Housing" },
+      { url: "/law-and-courts/", title: "Law and courts" },
+      { url: "/immigration/", title: "Immigration" },
+      { url: "/health/", title: "Health" }
+    ]
+  )
+  c.with_column(
+    title: "Connect with us",
+    links: [
+      { url: "https://twitter.com/edenbridgeca", title: "Twitter" },
+      { url: "https://www.facebook.com/citizensadvicedenbridgeandwesterham", title: "Facebook" },
+      { url: "https://www.youtube.com/user/CitizensAdvice", title: "YouTube" },
+    ]
+  )
+  c.with_column(
+    title: "Citizens Advice network",
+    text_lines: [
+      "Our network provides advice in 2,500 locations across England and Wales.",
+      "We have over 21,500 volunteers supporting the delivery of our work alongside 7,000 paid staff.",
+      "Our service is worth at least £750 million to society.",
+    ],
+    links: [
+      { url: "/about-us/", title: "More about Citizens Advice" },
+    ]
+  )
+  c.with_column(
+    title: "About this site",
+    links: [
+      { url: "/about-us/information/accessibility-statement/", title: "Accessibility statement" },
+      { url: "/about-us/information/terms-and-conditions/", title: "Terms and conditions" },
+      { url: "/about-us/browse/privacy-and-cookies/", title: "Privacy and cookies" }
+    ]
+  )
+  c.with_legal_summary("Citizens Advice Edenbridge & Westerham is the operating name of Edenbridge & Westerham Citizens Advice Bureau. Authorised and regulated by the Financial Conduct Authority. FRN: 620747. Charity registration number: 1155993. Company number: 8880174. Registered office: The Eden Centre, Four Elms Road, EDENBRIDGE, Kent, TN8 6BY")
+end %>

@@ -39,7 +39,8 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
-
+    ignore:
+      - dependency-name: 'concurrent-ruby'
   ##
   # Demo app
   ##
