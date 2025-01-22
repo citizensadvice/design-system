@@ -1,3 +1,7 @@
+## v6.4.0
+
+### 22 January 2025
+
 **New**
 
 - Add `page_heading` option to input fields, allowing users to make an input label a page heading.
