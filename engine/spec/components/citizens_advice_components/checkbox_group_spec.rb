@@ -91,6 +91,9 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
 
     it { is_expected.to have_css ".cads-form-field--has-error" }
     it { is_expected.to have_text "This is the error message" }
+    it { is_expected.to have_css "[aria-describedby='checkboxes-error']" }
+    it { is_expected.to have_css "#checkboxes-error" }
+    it { is_expected.to have_css "input[aria-invalid]", count: 2 }
   end
 
   context "when an hint text is provided" do
