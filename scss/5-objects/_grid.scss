@@ -1,8 +1,7 @@
+// stylelint-disable scss/percent-placeholder-pattern
+
 @use 'sass:map';
 @use 'sass:math';
-
-/* @use must be first, which conflicts with the import position rule */
-/* stylelint-disable no-invalid-position-at-import-rule */
 @import '../1-settings/breakpoints';
 @import '../1-settings/spacing-sizing';
 @import '../1-settings/grid';
@@ -23,7 +22,7 @@
   margin-right: auto;
   margin-left: auto;
 
-  @each $breakpoint in map-keys($cads-breakpoints) {
+  @each $breakpoint in map.keys($cads-breakpoints) {
     $gutter: map.get($cads-grid-breakpoint-gutters, $breakpoint);
 
     @include cads-media-breakpoint-up($breakpoint) {
@@ -43,7 +42,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  @each $breakpoint in map-keys($cads-breakpoints) {
+  @each $breakpoint in map.keys($cads-breakpoints) {
     $gutter: map.get($cads-grid-breakpoint-gutters, $breakpoint);
 
     @include cads-media-breakpoint-up($breakpoint) {
@@ -61,7 +60,7 @@
 }
 
 // Generate the correct number of grid classes
-@each $breakpoint in map-keys($cads-breakpoints) {
+@each $breakpoint in map.keys($cads-breakpoints) {
   $infix: cads-breakpoint-infix($breakpoint);
   $gutter: map.get($cads-grid-breakpoint-gutters, $breakpoint);
 

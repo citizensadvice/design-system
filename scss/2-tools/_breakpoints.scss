@@ -6,13 +6,13 @@
 @function cads-breakpoint-next(
   $name,
   $breakpoints: breakpoint-settings.$cads-breakpoints,
-  $breakpoint-names: map-keys(breakpoint-settings.$cads-breakpoints)
+  $breakpoint-names: map.keys(breakpoint-settings.$cads-breakpoints)
 ) {
   $n: list.index($breakpoint-names, $name);
 
   @return if(
-    $n < length($breakpoint-names),
-    nth($breakpoint-names, $n + 1),
+    $n < list.length($breakpoint-names),
+    list.nth($breakpoint-names, $n + 1),
     null
   );
 }

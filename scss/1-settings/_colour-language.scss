@@ -1,3 +1,5 @@
+// stylelint-disable scss/dollar-variable-pattern
+
 @use '../1-settings/colour-palette' as palette;
 
 $cads-language__brand-primary: palette.$cads-palette__heritage-blue !default;
