@@ -31,10 +31,9 @@ module CitizensAdviceComponents
     def base_button_attrs
       {
         type: "button",
-        class: %w[cads-disclosure__toggle cads-icon_plus cads-linkbutton js-disclosure-toggle],
+        class: %w[cads-disclosure__toggle cads-linkbutton js-cads-disclosure-toggle],
         "aria-expanded": "false",
         "aria-controls": id,
-        "data-toggle-target-id": id,
         "data-label-when-hiding": generate_label("Show this section", closed_summary),
         "data-label-when-showing": generate_label("Hide this section", open_summary),
         "data-open-summary": open_summary,
