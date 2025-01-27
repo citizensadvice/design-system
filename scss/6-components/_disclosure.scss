@@ -3,34 +3,32 @@
 // ============================================================================
 
 /** @define disclosure; weak **/
-.cads-disclosure {
-  .cads-disclosure__details {
-    display: none;
-    margin-top: $cads-spacing-4;
+.cads-disclosure__details {
+  display: none;
+  margin-top: $cads-spacing-4;
+}
+
+.cads-disclosure__summary {
+  text-decoration: underline;
+}
+
+.cads-disclosure__toggle {
+  text-decoration: none;
+
+  @include cads-media-breakpoint-up(md) {
+    font-size: cads-rem(18px);
   }
 
-  .cads-disclosure__summary {
-    text-decoration: underline;
+  .cads-icon {
+    // Optically align icon
+    // Using vertical-align here results in
+    // an icon that is visually aligned too low
+    position: relative;
+    top: 2px;
   }
 
-  .cads-disclosure__toggle {
+  &:focus .cads-disclosure__summary {
     text-decoration: none;
-
-    @include cads-media-breakpoint-up(md) {
-      font-size: cads-rem(18px);
-    }
-
-    .cads-icon {
-      // Optically align icon
-      // Using vertical-align here results in
-      // an icon that is visually aligned too low
-      position: relative;
-      top: 2px;
-    }
-
-    &:focus .cads-disclosure__summary {
-      text-decoration: none;
-    }
   }
 }
 
