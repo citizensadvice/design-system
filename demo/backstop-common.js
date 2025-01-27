@@ -154,7 +154,7 @@ module.exports = function backstopCommon(baseUrl) {
         label: 'Components/On this page (with nested links open)',
         url: componentUrlFor('on_this_page/with_nested_links'),
         readySelector: '.cads-on-this-page--expandable',
-        clickSelector: '.js-cads-on-this-page__toggle',
+        clickSelector: '.js-cads-on-this-page-toggle',
       },
       {
         label: 'Components/Disclosure',
