@@ -5,12 +5,13 @@
       <li class="cads-on-this-page__list-item">
         <% if show_children_for?(link) %>
           <button type="button"
-            class="cads-on-this-page__show cads-icon_plus cads-linkbutton js-cads-on-this-page__toggle"
+            class="cads-on-this-page__toggle cads-linkbutton js-cads-on-this-page-toggle"
             aria-expanded="false"
             data-testid="on-this-page-toggle"
-            data-toggle-target-id="<%= "#{link.id}-list" %>"
             data-label-when-hiding="<%= "Show sub-headings for #{link.label}" %>"
-            data-label-when-showing="<%= "Hide sub-headings for #{link.label}" %>"></button>
+            data-label-when-showing="<%= "Hide sub-headings for #{link.label}" %>">
+            <%= render CitizensAdviceComponents::Icons::PlusMinus.new %>
+          </button>
         <% end %>
         <a href="<%= "##{link.id}" %>"
           class="cads-on-this-page__link cads-hyperlink"
