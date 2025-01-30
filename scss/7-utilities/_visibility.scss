@@ -1,6 +1,6 @@
-@use '../1-settings/breakpoints' as breakpoint-settings;
-@use '../2-tools/breakpoints' as breakpoint-tools;
 @use '../2-tools/visibility' as visibility-tools;
+@import '../1-settings/breakpoints';
+@import '../2-tools/breakpoints';
 
 // @define hide
 .cads-hide {
@@ -41,7 +41,7 @@
 .cads-show-md-up {
   display: none !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-up(md) {
+  @include cads-media-breakpoint-up(md) {
     display: inherit !important;
   }
 }
@@ -50,7 +50,7 @@
 .cads-show-md-down {
   display: inherit !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-up(md) {
+  @include cads-media-breakpoint-up(md) {
     display: none !important;
   }
 }
@@ -59,14 +59,14 @@
 .cads-show-md-only {
   display: none !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-only(md) {
+  @include cads-media-breakpoint-only(md) {
     display: inherit !important;
   }
 }
 
 // @define hide-md-up
 .cads-hide-md-up {
-  @include breakpoint-tools.cads-media-breakpoint-up(md) {
+  @include cads-media-breakpoint-up(md) {
     display: none !important;
   }
 }
@@ -75,14 +75,14 @@
 .cads-hide-md-down {
   display: none !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-up(md) {
+  @include cads-media-breakpoint-up(md) {
     display: inherit !important;
   }
 }
 
 // @define hide-md-only
 .cads-hide-md-only {
-  @include breakpoint-tools.cads-media-breakpoint-only(md) {
+  @include cads-media-breakpoint-only(md) {
     display: none !important;
   }
 }
@@ -91,7 +91,7 @@
 .cads-show-lg-up {
   display: none !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-up(lg) {
+  @include cads-media-breakpoint-up(lg) {
     display: inherit !important;
   }
 }
@@ -100,7 +100,7 @@
 .cads-show-lg-down {
   display: inherit !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-up(lg) {
+  @include cads-media-breakpoint-up(lg) {
     display: none !important;
   }
 }
@@ -109,14 +109,14 @@
 .cads-show-lg-only {
   display: none !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-only(lg) {
+  @include cads-media-breakpoint-only(lg) {
     display: inherit !important;
   }
 }
 
 // @define hide-lg-up
 .cads-hide-lg-up {
-  @include breakpoint-tools.cads-media-breakpoint-up(lg) {
+  @include cads-media-breakpoint-up(lg) {
     display: none !important;
   }
 }
@@ -125,14 +125,14 @@
 .cads-hide-lg-down {
   display: none !important;
 
-  @include breakpoint-tools.cads-media-breakpoint-up(lg) {
+  @include cads-media-breakpoint-up(lg) {
     display: inherit !important;
   }
 }
 
 // @define hide-lg-only
 .cads-hide-lg-only {
-  @include breakpoint-tools.cads-media-breakpoint-only(lg) {
+  @include cads-media-breakpoint-only(lg) {
     display: none !important;
   }
 }
