@@ -23,8 +23,8 @@
     "@testing-library/cypress": "^10.0.3",
     "axe-core": "^4.10.2",
     "backstopjs": "^6.3.25",
-    "cypress": "^14.0.0",
-    "cypress-axe": "^1.5.0",
+    "cypress": "^14.0.1",
+    "cypress-axe": "^1.6.0",
     "cypress-real-events": "^1.14.0",
     "start-server-and-test": "^2.0.10"
   },
