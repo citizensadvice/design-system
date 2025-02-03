@@ -27,10 +27,5 @@
     "cypress-axe": "^1.6.0",
     "cypress-real-events": "^1.14.0",
     "start-server-and-test": "^2.0.10"
-  },
-  "overrides": {
-    "cypress-axe": {
-      "cypress": "$cypress"
-    }
   }
 }
