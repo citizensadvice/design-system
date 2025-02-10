@@ -33,7 +33,7 @@ The `@citizensadvice/design-system` package bundles the following:
 You can install the core package from npm. We recommend pinning to an exact version. If you are also using the Rails components these versions need to match.
 
 ```sh
-npm install --save-exact @citizensadvice/design-system@5.5.0
+npm install --save-exact @citizensadvice/design-system@<%= CitizensAdviceComponents::VERSION %>
 ```
 
 This package—alongside companion HTML patterns—is the minimum requirement when using the design system.
@@ -71,7 +71,7 @@ The Rails components can be installed by adding the following to your `Gemfile`:
 # Pin to the same version as the npm package
 gem "citizens_advice_components",
     github: "citizensadvice/design-system",
-    tag: "v5.5.0",
+    tag: "v<%= CitizensAdviceComponents::VERSION %>",
     glob: "engine/*.gemspec"
 
 # This line is optional. The citizens_advice_components gem is built
