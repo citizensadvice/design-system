@@ -154,7 +154,7 @@ module.exports = function backstopCommon(baseUrl) {
         label: 'Components/On this page (with nested links open)',
         url: componentUrlFor('on_this_page/with_nested_links'),
         readySelector: '.cads-on-this-page--expandable',
-        clickSelector: '.js-cads-on-this-page__toggle',
+        clickSelector: '.js-cads-on-this-page-toggle',
       },
       {
         label: 'Components/Disclosure',
@@ -163,7 +163,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Disclosure (open)',
         url: componentUrlFor('disclosure/example'),
-        clickSelector: '.js-disclosure-summary',
+        clickSelector: '.js-cads-disclosure-summary',
       },
       {
         label: 'Components/Disclosure (without open summary)',
@@ -172,7 +172,7 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: 'Components/Disclosure (without open summary - open)',
         url: componentUrlFor('disclosure/without_open_summary'),
-        clickSelector: '.js-disclosure-summary',
+        clickSelector: '.js-cads-disclosure-summary',
       },
       {
         label: 'Components/Disclosure (fallback)',

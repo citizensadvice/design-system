@@ -1,33 +1,42 @@
-/** @define disclosure **/
-.cads-disclosure {
-  &__details {
-    display: none;
-    margin-top: $cads-spacing-4;
+// ============================================================================
+// Disclosure
+// ============================================================================
 
-    &--open {
-      display: block;
-    }
+/** @define disclosure; weak **/
+.cads-disclosure__details {
+  display: none;
+  margin-top: $cads-spacing-4;
+}
+
+.cads-disclosure__summary {
+  text-decoration: underline;
+}
+
+.cads-disclosure__toggle {
+  text-decoration: none;
+
+  @include cads-media-breakpoint-up(md) {
+    font-size: cads-rem(18px);
   }
 
-  &__summary {
-    text-decoration: underline;
+  .cads-icon {
+    // Optically align icon
+    // Using vertical-align here results in
+    // an icon that is visually aligned too low
+    position: relative;
+    top: 2px;
   }
 
-  &__toggle {
+  &:focus .cads-disclosure__summary {
     text-decoration: none;
-
-    @include cads-media-breakpoint-up(md) {
-      font-size: cads-rem(18px);
-    }
-
-    &::before {
-      font-size: 0.75em;
-    }
   }
 }
 
-.cads-disclosure__toggle:focus .cads-disclosure__summary {
-  text-decoration: none;
+// Open state
+.cads-disclosure[data-disclosure-state='open'] {
+  .cads-disclosure__details {
+    display: block;
+  }
 }
 
 .cads-disclosure + .cads-disclosure {
