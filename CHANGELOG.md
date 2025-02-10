@@ -1,3 +1,7 @@
+## v6.4.1
+
+### 10 February 2025
+
 **Fix**
 - Make breakpoints configurable by products
 
