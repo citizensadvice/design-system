@@ -71,7 +71,7 @@ The main component of the Design System is `@citizensadvice/design-system` which
 You can install the core package from npm. We'll also make sure to pin to an exact version. The npm package and the gem versions need to match so it's important to specify an exact version here.
 
 ```sh
-npm install --save-exact @citizensadvice/design-system@5.5.0
+npm install --save-exact @citizensadvice/design-system@<%= CitizensAdviceComponents::VERSION %>
 ```
 
 After you've done this you'll need to add the following to your `config/initializers/assets.rb` file:
@@ -159,7 +159,7 @@ The Rails components can be installed by adding the following to your `Gemfile`:
 # Pin to the same version as the npm package
 gem "citizens_advice_components",
     github: "citizensadvice/design-system",
-    tag: "v5.5.0",
+    tag: "v<%= CitizensAdviceComponents::VERSION %>",
     glob: "engine/*.gemspec"
 
 # This line is optional. The citizens_advice_components gem is built
