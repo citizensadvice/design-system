@@ -12,11 +12,17 @@ To perform a release you need:
 
 ## Prepare the release
 
+We provide a npm run-script to start the process of preparing a release:
+
 ```sh
 npm run release
 ```
 
-This prepares the release and puts it in a branch with the appropriate version name, which needs a pull request to be merged into main. Once that is merged you can then do the actual release.
+This will run some checks, prompt you to select a new package version, and prepares a branch with the appropriate version name.
+
+Once this is done you will need to update the `CitizensAdviceComponents::VERSION` engine constant to match. There is a spec which checks the versions match in case you forget to do this.
+
+From here you should create a new pull request from the release branch and request a review on #design-system-dev in Slack.
 
 ## Publish to npm
 
