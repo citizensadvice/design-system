@@ -1,3 +1,8 @@
+**New**
+
+- Update on this page and disclosure components to use SVG icons
+- Remove internal `initShowHideWithToggle` helper which relied on icon font behaviour
+
 ## v6.4.1
 
 ### 10 February 2025
