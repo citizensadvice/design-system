@@ -1,3 +1,7 @@
+## v6.4.2
+
+### 5 March 2025
+
 **New**
 
 - Update on this page and disclosure components to use SVG icons
