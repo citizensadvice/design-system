@@ -20,7 +20,10 @@ npm run release
 
 This will run some checks, prompt you to select a new package version, and prepares a branch with the appropriate version name.
 
-Once this is done you will need to update the `CitizensAdviceComponents::VERSION` engine constant to match. There is a spec which checks the versions match in case you forget to do this.
+Once this is done you will need to:
+
+- update the `CitizensAdviceComponents::VERSION` engine constant to match. There is a spec which checks the versions match in case you forget to do this.
+- update the `Gemfile.lock` files for the `engine`, `demo` and `design-system-docs` apps. The easiest way to do this is run the [setup script](./02-local-setup.md)
 
 From here you should create a new pull request from the release branch and request a review on #design-system-dev in Slack.
 
