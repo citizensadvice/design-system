@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.license = "Apache-2.0"
 
   spec.summary = "Citizens Advice Design System components distributed as a Rails engine"
-  spec.required_ruby_version = Gem::Requirement.new(">= 3.1")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.2")
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,lib}/**/*", "README.md"]
 
   %w[actionpack railties].each do |rails_lib|
-    spec.add_dependency rails_lib, [">= 7.0.0", "< 9.0"]
+    spec.add_dependency rails_lib, [">= 7.1.0", "< 9.0"]
   end
 
   spec.add_dependency "view_component", [">= 2.0.0", "< 4.0"]
