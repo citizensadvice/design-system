@@ -9,6 +9,7 @@ module CitizensAdviceComponents
 
     config.autoload_paths = %W[
       #{CitizensAdviceComponents::Engine.root.join('app/components')}
+      #{CitizensAdviceComponents::Engine.root.join('app/helpers')}
       #{CitizensAdviceComponents::Engine.root.join('app/lib')}
     ]
 

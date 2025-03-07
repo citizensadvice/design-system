@@ -28,3 +28,9 @@ Rails/RakeEnvironment:
   Exclude:
     # Gem Rakefile is not used in a Rails context
     - 'Rakefile'
+
+RSpec/MultipleExpectations:
+  Max: 4
+  Exclude:
+    # Feature tests deliberately use multiple expectations
+    - 'spec/features/**/*.rb'
