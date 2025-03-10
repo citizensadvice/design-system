@@ -20,6 +20,10 @@ permalink: pretty
 template_engine: erb
 
 collections:
+  accessibility_for_designers:
+    output: true
+    name: Accessibility for designers
+    permalink: /accessibility/accessibility-for-designers/:slug/
   guides:
     output: true
     name: Guides

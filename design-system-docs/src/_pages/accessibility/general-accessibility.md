@@ -1,6 +1,10 @@
 ---
-title: Accessibility
+title: General Accessibility
 layout: basic
+show_on_this_page: true
+extra_breadcrumbs:
+  - title: 'Accessibility'
+    url: '/accessibility'
 ---
 
 ## Accessibility and Design System
