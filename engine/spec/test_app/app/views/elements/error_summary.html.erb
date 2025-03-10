@@ -1,0 +1,8 @@
+<%= form_with model: @person, url: request.path do |f| %>
+  <%= f.cads_error_summary %>
+
+  <%= f.cads_text_field :first_name, required: true %>
+  <%= f.cads_date_field :date_of_birth, required: true %>
+
+  <%= f.submit %>
+<% end %>
