@@ -1,8 +1,4 @@
-<%= render FormAppHeaderComponent.new %>
-<%= render CitizensAdviceComponents::Breadcrumbs.new(
-  links: [{ url: root_path, title: "Home" }, { title: "Form" }]
-) %>
-<%= render PageLayoutComponent.new do |c| %>
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
     <%= render CitizensAdviceComponents::ErrorSummary.new do |c| %>
       <% c.with_errors(@form.formatted_errors) %>
@@ -74,4 +70,3 @@
     <% end %>
   <% end %>
 <% end  %>
-<%= render AppFooterComponent.new %>
