@@ -17,11 +17,12 @@ class ExampleFormController < ApplicationController
   def success; end
 
   def form_params
-    params.permit(
+    params.require(:example_form).permit(
       :first_name,
       :last_name,
       :your_enquiry,
       :total_amount,
+      :date_of_purchase,
       :contacted_trader,
       :trader_response
     )

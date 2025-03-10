@@ -1,17 +1,22 @@
 # frozen_string_literal: true
 
+require "active_record/attribute_assignment"
+
 class ExampleForm
   include ActiveModel::Model
+  include ActiveModel::Attributes
+  include ActiveRecord::AttributeAssignment
 
   attr_accessor(
     :first_name,
     :last_name,
     :your_enquiry,
     :total_amount,
-    :date_of_purchase,
     :contacted_trader,
     :trader_response
   )
+
+  attribute :date_of_purchase, :date
 
   validates(
     :first_name,
@@ -35,7 +40,8 @@ class ExampleForm
 
   validates(
     :date_of_purchase,
-    presence: { message: "Tell us the date you purchased the goods or services" }
+    presence: { message: "Tell us the date you purchased the goods or services" },
+    comparison: { less_than: Time.zone.today, message: "Date of purchase must be in the past" }
   )
 
   validates(
@@ -46,23 +52,4 @@ class ExampleForm
       message: "Tell us if you have contacted the trader about this complaint"
     }
   )
-
-  def formatted_errors
-    errors.attribute_names.map do |attr|
-      { href: id_for(attr), message: errors[attr].first }
-    end
-  end
-
-  private
-
-  def id_for(attr)
-    case attr
-    when :contacted_trader
-      "##{attr}-0"
-    when :date_of_purchase
-      "##{attr}-day"
-    else
-      "##{attr}-input"
-    end
-  end
 end

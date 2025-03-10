@@ -10,6 +10,8 @@ require "capybara/rspec"
 require "rspec/rails"
 require "view_component/test_helpers"
 
+Dir[File.join("./spec", "support", "**", "*.rb")].each { |file| require file }
+
 module TestHelpers
   # For components using fetch_or_fallback,
   # we want to ensure that the correct

@@ -1,0 +1,7 @@
+<%= form_with model: @person, url: request.path do |f| %>
+  <div id="default_collection_check_boxes">
+    <%= f.cads_collection_check_boxes :pizza_toppings, collection: ["Anchovies", "Cheese", "Pepperoni", "Olives"], text_method: :itself %>
+  </div>
+
+  <%= f.cads_button %>
+<% end %>
