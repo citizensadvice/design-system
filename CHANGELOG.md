@@ -1,11 +1,14 @@
+**New**
+
+- Remove support for end-of-life Ruby 3.0.x versions
+- Remove support for end-of-life Rails 7.0.x versions
+
 ## v6.4.2
 
 ### 5 March 2025
 
 **New**
 
-- Remove support for end-of-life Ruby 3.0.x versions
-- Remove support for end-of-life Rails 7.0.x versions
 - Update on this page and disclosure components to use SVG icons
 - Remove internal `initShowHideWithToggle` helper which relied on icon font behaviour
 
