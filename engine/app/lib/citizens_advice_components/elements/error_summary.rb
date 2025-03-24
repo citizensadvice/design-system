@@ -22,13 +22,7 @@ module CitizensAdviceComponents
       end
 
       def field_id_for(attribute)
-        # We still support Rails 6.1 but rely on the use of field_name
-        # so we provide a shim for this method for older versions of Rails.
-        if Rails::VERSION::MAJOR < 7
-          field_id_shim(object_name, attribute)
-        else
-          @template.field_id(object_name, attribute)
-        end
+        @template.field_id(object_name, attribute)
       end
     end
   end
