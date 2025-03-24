@@ -1,5 +1,7 @@
 **New**
 
+- Remove support for end-of-life Ruby 3.0.x versions
+- Remove support for end-of-life Rails 7.0.x versions
 - Migrate rails form builder to design system engine
   
   This change migrates the external form builder library into the design system itself.
@@ -18,15 +20,12 @@
 
   And then remove the `citizens_advice_form_builder` gem from your Gemfile. Otherwise this is a drop-in replacement.
 
-
 ## v6.4.2
 
 ### 5 March 2025
 
 **New**
 
-- Remove support for end-of-life Ruby 3.0.x versions
-- Remove support for end-of-life Rails 7.0.x versions
 - Update on this page and disclosure components to use SVG icons
 - Remove internal `initShowHideWithToggle` helper which relied on icon font behaviour
 
