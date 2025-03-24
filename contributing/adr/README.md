@@ -8,5 +8,6 @@
 - [6. Define explicit supported version matrix for Ruby code](0006-define-explicit-supported-version-matrix-for-ruby-code.md)
 - [7. Remove external link icon](0007-remove-external-link-icon.md)
 - [8. Remove compiled CSS from distributed package](0008-remove-compiled-css-from-distributed-package.md)
+- [9. Migrate rails form builder to design system engine](0009-migrate-rails-form-builder-to-design-system-engine.md)
 
 We recommend installing and using [adr-tools](https://github.com/npryce/adr-tools) to create new decision records but you can also copy a previous one as a template.

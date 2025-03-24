@@ -1,0 +1,21 @@
+<%= form_with do |f| %>
+  <div id="default_button">
+    <%= f.cads_button "Default" %>
+  </div>
+
+  <div id="secondary_button">
+    <%= f.cads_button "Secondary", variant: :secondary %>
+  </div>
+
+  <div id="button_type">
+    <%= f.cads_button "Button", type: :button %>
+  </div>
+
+  <div id="icon_left">
+    <%= f.cads_button "Button", icon_left: :arrow_left %>
+  </div>
+
+  <div id="icon_right">
+    <%= f.cads_button "Icon Right", icon_right: :arrow_right %>
+  </div>
+<% end %>

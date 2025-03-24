@@ -1,3 +1,24 @@
+**New**
+
+- Migrate rails form builder to design system engine
+  
+  This change migrates the external form builder library into the design system itself.
+
+  If you are using the existing library in your application you'll need to replace:
+
+  ```rb
+  default_form_builder CitizensAdviceFormBuilder::FormBuilder
+  ```
+
+  with the following:
+
+  ```rb
+  default_form_builder CitizensAdviceComponents::FormBuilder
+  ```
+
+  And then remove the `citizens_advice_form_builder` gem from your Gemfile. Otherwise this is a drop-in replacement.
+
+
 ## v6.4.2
 
 ### 5 March 2025

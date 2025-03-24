@@ -1,68 +1,24 @@
 # frozen_string_literal: true
 
+require "active_record/attribute_assignment"
+
 class ExampleForm
   include ActiveModel::Model
+  include ActiveModel::Attributes
+  include ActiveRecord::AttributeAssignment
 
-  attr_accessor(
-    :first_name,
-    :last_name,
-    :your_enquiry,
-    :total_amount,
-    :date_of_purchase,
-    :contacted_trader,
-    :trader_response
-  )
+  attribute :first_name, :string
+  attribute :last_name, :string
+  attribute :your_enquiry, :string
+  attribute :total_amount, :string
+  attribute :date_of_purchase, :date
+  attribute :contacted_trader, :boolean
+  attribute :trader_response, :string
 
-  validates(
-    :first_name,
-    presence: { message: "Enter your first name" }
-  )
-
-  validates(
-    :last_name,
-    presence: { message: "Enter your last name" }
-  )
-
-  validates(
-    :your_enquiry,
-    presence: { message: "Provide details of your complaint or enquiry" }
-  )
-
-  validates(
-    :total_amount,
-    presence: { message: "Tell us the total amount paid for the goods or services" }
-  )
-
-  validates(
-    :date_of_purchase,
-    presence: { message: "Tell us the date you purchased the goods or services" }
-  )
-
-  validates(
-    :contacted_trader,
-    presence: { message: "Tell us if you have contacted the trader about this complaint" },
-    inclusion: {
-      in: %w[yes no],
-      message: "Tell us if you have contacted the trader about this complaint"
-    }
-  )
-
-  def formatted_errors
-    errors.attribute_names.map do |attr|
-      { href: id_for(attr), message: errors[attr].first }
-    end
-  end
-
-  private
-
-  def id_for(attr)
-    case attr
-    when :contacted_trader
-      "##{attr}-0"
-    when :date_of_purchase
-      "##{attr}-day"
-    else
-      "##{attr}-input"
-    end
-  end
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :your_enquiry, presence: true
+  validates :total_amount, presence: true
+  validates :date_of_purchase, comparison: { less_than: Time.zone.today }
+  validates :contacted_trader, presence: true
 end

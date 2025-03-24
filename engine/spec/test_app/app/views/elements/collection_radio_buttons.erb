@@ -1,0 +1,5 @@
+<%= form_with model: @person, url: request.path do |f| %>
+  <div id="default_collection_radio_buttons">
+    <%= f.cads_collection_radio_buttons :favourite_drink, label: "Favourite drink", collection: [["Tea", "0001"], ["Water", "0000"], ["Grog", "8888"]], text_method: :first, value_method: :last %>
+  </div>
+<% end %>
