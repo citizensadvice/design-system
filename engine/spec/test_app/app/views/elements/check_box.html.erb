@@ -1,0 +1,9 @@
+<%= form_with model: @person, url: request.path do |f| %>
+  <div id="default_check_box">
+    <%= f.cads_check_box :opted_in, label: "Opted in" %>
+  </div>
+
+  <div id="checked_check_box">
+    <%= f.cads_check_box :account_active, label: "Account active" %>
+  </div>
+<% end %>

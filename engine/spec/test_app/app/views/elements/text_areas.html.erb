@@ -1,0 +1,9 @@
+<%= form_with model: @person, url: request.path do |f| %>
+  <div id="default_text_area">
+    <%= f.cads_text_area :address %>
+  </div>
+
+  <div id="custom_rows_text_area">
+    <%= f.cads_text_area :address, rows: 12 %>
+  </div>
+<% end %>

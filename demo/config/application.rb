@@ -25,6 +25,8 @@ module Demo
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 
+    config.active_model.i18n_customize_full_message = true
+
     config.view_component.show_previews = true
     config.view_component.default_preview_layout = "component_preview"
     config.view_component.preview_paths << Rails.root.join("spec/components/previews")

@@ -10,6 +10,8 @@ require "capybara/rspec"
 require "rspec/rails"
 require "view_component/test_helpers"
 
+Rails.root.glob("../support/**/*.rb").each { |f| require f }
+
 module TestHelpers
   # For components using fetch_or_fallback,
   # we want to ensure that the correct

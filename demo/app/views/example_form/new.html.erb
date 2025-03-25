@@ -4,73 +4,41 @@
 ) %>
 <%= render PageLayoutComponent.new do |c| %>
   <% c.with_main do %>
-    <%= render CitizensAdviceComponents::ErrorSummary.new do |c| %>
-      <% c.with_errors(@form.formatted_errors) %>
-    <% end %>
+    <%= form_with model: @form, url: example_form_create_path, method: :post, novalidate: true do |f| %>
+      <%= f.cads_error_summary %>
 
-    <h1 class="cads-page-title">Consumer Query</h1>
+      <h1 class="cads-page-title">Example form</h1>
 
-    <div class="cads-prose">
-      <p>From 1 April 2019 we are only able to provide general consumer advice to residents of England and Wales. If you are resident in Scotland and have a general consumer enquiry please contact Advice Direct Scotland / 0808 164 6000</p>
-    </div>
+      <%= f.cads_text_field(:first_name, width: :sixteen_chars, required: true) %>
 
-    <%= form_tag(example_form_create_path, novalidate: true) do %>
-      <%= render CitizensAdviceComponents::TextInput.new(
-        type: :text,
-        name: :first_name,
-        label: "First name",
-        width: :sixteen_chars
+      <%= f.cads_text_field(:last_name, width: :sixteen_chars, required: true) %>
+
+      <%= f.cads_text_area(
+        :your_enquiry,
+        hint: "Please provide details of your complaint or enquiry.",
+        required: true
       ) %>
 
-      <%= render CitizensAdviceComponents::TextInput.new(
-        type: :text,
-        name: :last_name,
-        label: "Last name",
-        width: :sixteen_chars
-      ) %>
-
-      <%= render CitizensAdviceComponents::Textarea.new(
-        name: :your_enquiry,
-        label: "Your complaint or enquiry",
-        options: {
-          hint: "Please provide details of your complaint or enquiry."
-        }
-      ) %>
-
-      <%= render CitizensAdviceComponents::TextInput.new(
-        type: :text,
-        name: :total_amount,
-        label: "What was the total amount paid for the goods or services?",
+      <%= f.cads_text_field(
+        :total_amount,
+        hint: "Enter a value in pounds and pence only e.g. £112.00",
         width: :four_chars,
-        options: {
-          hint: "Enter a value in pounds and pence only e.g. £112.00"
-        }
+        required: true
       ) %>
 
-      <%= render CitizensAdviceComponents::DateInput.new(name: :date_of_purchase, label: "When did you purchase the goods or services?") %>
+      <%= f.cads_date_field :date_of_purchase, required: true %>
 
-      <%= render CitizensAdviceComponents::RadioGroup.new(
-        legend: "Have you contacted the trader about this complaint?",
-        name: :contacted_trader
-      ) do |c| %>
-        <% c.with_input(label: "Yes", value: "yes") %>
-        <% c.with_input(label: "No", value: "no") %>
-      <% end %>
+      <%= f.cads_collection_radio_buttons(
+        :contacted_trader,
+        collection: [["Yes", "yes"], ["No", "no"]],
+        text_method: :first,
+        value_method: :last,
+        required: true
+      )%>
 
-      <%= render CitizensAdviceComponents::Textarea.new(
-        name: :trader_response,
-        label: "Outline the trader's response to the complaint, if any",
-        options: {
-          optional: true
-        }
-      ) %>
+      <%= f.cads_text_area :trader_response %>
 
-      <%= render CitizensAdviceComponents::Button.new(variant: :primary, type: :submit) do |c| %>
-        Submit complaint
-        <% c.with_icon_right do %>
-          <%= render CitizensAdviceComponents::Icons::ArrowRight.new %>
-        <% end %>
-      <% end %>
+      <%= f.cads_button "Submit complaint", icon_right: :arrow_right %>
     <% end %>
   <% end %>
 <% end  %>

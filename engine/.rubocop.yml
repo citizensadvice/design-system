@@ -22,7 +22,17 @@ Style/HashSyntax:
   EnforcedShorthandSyntax: 'either'
 
 RSpec/ExampleLength:
+  Max: 12
   CountAsOne: ['array', 'hash']
+  Exclude:
+    # Feature tests deliberately use longer example blocks
+    - 'spec/features/**/*.rb'
+
+RSpec/MultipleExpectations:
+  Max: 3
+  Exclude:
+    # Feature tests deliberately use multiple expectations
+    - 'spec/features/**/*.rb'
 
 Rails/RakeEnvironment:
   Exclude:

@@ -1,0 +1,15 @@
+<%= form_with model: @person, url: request.path do |f| %>
+  <div id="default_date_input">
+    <%= f.cads_date_field :date_of_birth %>
+  </div>
+
+  <div id="date_input_with_hint">
+    <%= f.cads_date_field :date_with_hint, hint: "Hint text" %>
+  </div>
+
+  <div id="required_date_input">
+    <%= f.cads_date_field :required_date, required: true %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

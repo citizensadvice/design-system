@@ -1,0 +1,5 @@
+<%= form_with model: @person, url: request.path do |f| %>
+  <div id="default_collection_select">
+    <%= f.cads_collection_select :ice_cream, label: "Favourite ice cream", collection: [["Vanilla", "0000"], ["Chocolate", "0001"], ["Strawberry", "0002"], ["Pistachio", "0003"], ["Cookie dough", "0004"], ["Salted caramel", "0005"]], text_method: :first, value_method: :last %>
+  </div>
+<% end %>
