@@ -14,7 +14,8 @@ module CitizensAdviceComponents
             optional: optional,
             value: current_value,
             error_message: error_message,
-            additional_attributes: options[:additional_attributes]
+            additional_attributes: options[:additional_attributes],
+            page_heading: options[:page_heading].present?
           }
         )
 

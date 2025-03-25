@@ -11,5 +11,9 @@
     <%= f.cads_date_field :required_date, required: true %>
   </div>
 
+  <div id="page_heading_date_input">
+    <%= f.cads_date_field :purchase_date, required: true, page_heading: true %>
+  </div>
+
   <%= f.submit %>
 <% end %>

@@ -21,7 +21,11 @@ module CitizensAdviceComponents
       private
 
       def legend_html
-        tag.legend(class: "cads-form-field__label") { safe_join([label, " ", optional_html]) }
+        if options[:page_heading].present?
+          tag.h1(class: "cads-page-title") { label }
+        else
+          tag.legend(class: "cads-form-field__label") { safe_join([label, " ", optional_html]) }
+        end
       end
 
       def hint_html

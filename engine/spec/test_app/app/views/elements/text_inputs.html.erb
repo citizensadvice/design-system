@@ -10,4 +10,8 @@
   <div id="text_field_with_additional_attributes">
     <%= f.cads_text_field :first_name, additional_attributes: { "data-example": "custom-attribute" } %>
   </div>
+
+  <div id="page_heading_text_field">
+    <%= f.cads_text_area :first_name, page_heading: true %>
+  </div>
 <% end %>

@@ -19,4 +19,10 @@ RSpec.describe "text areas" do
       expect(page).to have_css("textarea[rows=12]")
     end
   end
+
+  it "renders a page heading" do
+    within "#page_heading_text_area" do
+      expect(page).to have_css("h1.cads-page-title", text: "Address")
+    end
+  end
 end
