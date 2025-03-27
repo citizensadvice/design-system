@@ -1,3 +1,7 @@
+**New**
+
+- Re-add rails-i18n as a dependency for welsh date translations
+
 ## v7.0.0
 
 ### 25 March 2025
