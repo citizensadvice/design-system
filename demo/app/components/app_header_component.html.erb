@@ -2,6 +2,14 @@
   <% c.with_logo(title: "Citizens Advice homepage", url: "/") %>
   <% c.with_header_links(header_links) %>
   <% c.with_search_form(search_action_url: "/search") %>
-  <% c.with_account_link(title: "Sign in", url: "/sign-in") %>
+  <% if signed_in? %>
+    <% c.with_account_link do %>
+      <% form_tag("/sign-out", class: "cads-header__account-form", authenticity_token: false) do %>
+        <% button_tag("Sign out", class: %w[cads-button__tertiary cads-header__sign-out js-cads-close-on-blur]) %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% c.with_account_link(title: "Sign in", url: "/sign-in") %>
+  <% end %>
 <% end %>
 <%= render CitizensAdviceComponents::Navigation.new(links: navigation_links) %>

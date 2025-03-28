@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 class AppHeaderComponent < ViewComponent::Base
+  def initialize(signed_in: false)
+    super
+
+    @signed_in = signed_in
+  end
+
+  private
+
+  def signed_in?
+    @signed_in.present?
+  end
+
   def navigation_links
     [
       { url: "/benefits/", title: "Benefits" },

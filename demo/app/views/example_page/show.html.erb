@@ -1,7 +1,3 @@
-<%= render AppHeaderComponent.new %>
-<%= render CitizensAdviceComponents::Breadcrumbs.new(
-  links: [{ url: root_path, title: "Home" }, { title: "Advice collection" }]
-) %>
 <div class="cads-grid-container">
   <div class="cads-grid-row">
     <div class="cads-grid-col-md-9">
@@ -14,7 +10,7 @@
     </div>
   </div>
 </div>
-<%= render PageLayoutComponent.new do |c| %>
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
     <h1 class="cads-page-title">Content sample page</h1>
     <div class="cads-prose">
@@ -109,4 +105,3 @@
     <%= render CitizensAdviceComponents::PageReview.new(page_review_date: Date.new(2021, 1, 12)) %>
   <% end %>
 <% end  %>
-<%= render AppFooterComponent.new %>

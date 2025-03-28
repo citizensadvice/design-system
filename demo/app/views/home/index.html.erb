@@ -1,7 +1,11 @@
-<%= render PageLayoutComponent.new do |c| %>
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
-    <h1 class="cads-page-title">citizens_advice_components demo app</h1>
+    <h1 class="cads-page-title">Welcome to the Citizens Advice Design System</h1>
     <div class="cads-prose">
+      <p>
+        This application acts as a reference implementation showing both how to configure the engine and
+        how to load design system styles as well as providing examples of all components for testing
+      </p>
       <ul>
         <li><%= link_to("Content sample", content_sample_path) %></li>
         <li><%= link_to("Form sample", example_form_new_path) %></li>
