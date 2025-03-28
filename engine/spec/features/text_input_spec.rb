@@ -20,6 +20,12 @@ RSpec.describe "text inputs" do
     end
   end
 
+  it "renders a page heading" do
+    within "#page_heading_text_field" do
+      expect(page).to have_css("h1.cads-page-title label", text: "First name")
+    end
+  end
+
   it "renders additional attributes passed to the field" do
     within "#text_field_with_additional_attributes" do
       expect(page).to have_css "input[data-example='custom-attribute']"

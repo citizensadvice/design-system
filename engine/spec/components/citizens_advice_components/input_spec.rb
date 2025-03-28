@@ -82,7 +82,7 @@ RSpec.describe CitizensAdviceComponents::Input, type: :component do
       )
     end
 
-    it { is_expected.to have_css "h1.cads-page-title", text: "Example input with page heading" }
+    it { is_expected.to have_css "h1.cads-page-title label", text: "Example input with page heading" }
   end
 
   context "when the input is optional" do

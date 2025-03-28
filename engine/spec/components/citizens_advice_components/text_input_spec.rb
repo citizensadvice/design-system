@@ -138,7 +138,7 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
       )
     end
 
-    it { is_expected.to have_css "h1.cads-page-title", text: "Example input with page heading" }
+    it { is_expected.to have_css "h1.cads-page-title label", text: "Example input with page heading" }
   end
 
   context "when an error is present" do

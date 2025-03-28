@@ -64,6 +64,12 @@ RSpec.describe "date inputs" do
     end
   end
 
+  it "renders a page heading" do
+    within "#page_heading_date_input" do
+      expect(page).to have_css("legend h1.cads-page-title", text: "Purchase date")
+    end
+  end
+
   it "renders the error message" do
     within "#default_date_input" do
       fill_in "person[date_of_birth(3i)]", with: 25
