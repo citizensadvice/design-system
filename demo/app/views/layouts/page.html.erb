@@ -1,0 +1,10 @@
+<div class="cads-page">
+  <div class="cads-page-header">
+    <%= render AppHeaderComponent.new(current_user) %>
+  </div>
+  <div class="cads-page-wrapper">
+    <%= render CitizensAdviceComponents::Breadcrumbs.new(links: breadcrumbs) %>
+    <div id="cads-main-content"><%= yield %></div>
+  </div>
+  <div class="cads-page-footer"><%= render AppFooterComponent.new %></div>
+</div>

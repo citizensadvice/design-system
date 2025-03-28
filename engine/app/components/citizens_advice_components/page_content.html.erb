@@ -1,0 +1,14 @@
+<div class="cads-page-content">
+  <div class="cads-grid-container">
+    <div class="cads-grid-row">
+      <% if full_width? %>
+        <main class="cads-grid-col-md-12 cads-page-content__main"><%= main %></main>
+      <% else %>
+        <main class="cads-grid-col-md-8 cads-page-content__main"><%= main %></main>
+        <% if sidebar.present? %>
+          <div class="cads-grid-col-md-4 cads-page-content__sidebar"><%= sidebar %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
