@@ -31,3 +31,5 @@ en:
             contacted_trader:
               blank: Tell us if you have contacted the trader about this complaint
               invalid: Tell us if you have contacted the trader about this complaint
+  global:
+    home: Home
