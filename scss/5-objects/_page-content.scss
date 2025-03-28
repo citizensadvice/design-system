@@ -2,6 +2,36 @@
 // Page content
 // ============================================================================
 
+/** @define page */
+.cads-page {
+  display: grid;
+  min-height: 100vh;
+
+  // iOS Safari - compensate for the search box
+  min-height: 100dvh;
+  grid-template:
+    'header' minmax(min-content, max-content) 'main' auto
+    'footer' minmax(min-content, max-content) / 100%;
+
+  // Hide any additional automatically generated rows
+  grid-auto-rows: 0;
+}
+
+/** @define page-header */
+.cads-page-header {
+  grid-area: header;
+}
+
+/** @define page-wrapper */
+.cads-page-wrapper {
+  grid-area: main;
+}
+
+/** @define page-footer */
+.cads-page-footer {
+  grid-area: footer;
+}
+
 /** @define page-title */
 .cads-page-title {
   @extend %cads-h1;
