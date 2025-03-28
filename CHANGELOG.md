@@ -1,3 +1,7 @@
+**New**
+
+- Support `page_heading` option when using the form builder
+
 ## v7.0.0
 
 ### 25 March 2025

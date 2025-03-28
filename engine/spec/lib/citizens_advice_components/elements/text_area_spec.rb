@@ -61,6 +61,14 @@ RSpec.describe CitizensAdviceComponents::Elements::TextArea do
       end
     end
 
+    context "with 'page_heading' parameter" do
+      it "passes hint to the text input component" do
+        builder.cads_text_area(:name, page_heading: true)
+
+        expect(component).to have_received(:new).with(hash_including(options: hash_including(page_heading: true)))
+      end
+    end
+
     context "when there is a validation error" do
       it "sets 'error_message'" do
         model.errors.add(:address, :presence, message: "is required")

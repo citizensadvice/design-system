@@ -112,7 +112,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
       )
     end
 
-    it { is_expected.to have_css "h1.cads-page-title", text: "Example textarea with page heading" }
+    it { is_expected.to have_css "h1.cads-page-title label", text: "Example textarea with page heading" }
   end
 
   context "when an error is present" do
