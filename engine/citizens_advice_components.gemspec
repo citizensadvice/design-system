@@ -29,5 +29,6 @@ Gem::Specification.new do |spec|
     spec.add_dependency rails_lib, [">= 7.1.0", "< 9.0"]
   end
 
+  spec.add_dependency "rails-i18n", ">= 7.0.10"
   spec.add_dependency "view_component", [">= 2.0.0", "< 4.0"]
 end
