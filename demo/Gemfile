@@ -28,7 +28,7 @@ gem "haml-rails"
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v11.0.0"
+      tag: "v12.0.0"
 
   gem "cypress-rails"
 end
