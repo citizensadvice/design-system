@@ -1,12 +1,31 @@
+@use 'sass:math';
 @use 'sass:map';
 
-// can't extend a placeholder across selectors (media query) so use a mixin instead.
-@mixin cads-breadcrumb-arrow {
-  @include cads-icon;
+// ============================================================================
+// Breadcrumbs
+// ============================================================================
 
-  color: $cads-language__input-border-colour;
-  margin-right: calc(#{$cads-spacing-3} - 6px);
-  font-size: 7px; // Fix size as this is a symbol
+$cads-breadcrumb-icon-size: 8px;
+
+@mixin cads-breadcrumb-arrow($direction: 'right') {
+  content: '';
+  display: block;
+  position: absolute;
+  margin: auto 0;
+  bottom: 0;
+  top: math.round($cads-breadcrumb-icon-size / 2);
+  left: -#{math.round($cads-breadcrumb-icon-size / 2)};
+  width: $cads-breadcrumb-icon-size - ($cads-border-width-small * 2);
+  height: $cads-breadcrumb-icon-size - ($cads-border-width-small * 2);
+  border-style: solid;
+  border-color: $cads-language__input-border-colour;
+  border-width: $cads-border-width-small $cads-border-width-small 0 0;
+
+  @if $direction == 'left' {
+    transform: rotate(45deg);
+  } @else {
+    transform: rotate(-135deg);
+  }
 }
 
 /** @define breadcrumbs */
@@ -18,76 +37,52 @@
   margin-bottom: $cads-spacing-5;
 
   &__list {
-    margin: 0 0 0 (-$cads-spacing-3); // account for left margin of breadcrumb__crumb
+    // account for left margin of breadcrumb
+    margin: 0 0 0 (-$cads-spacing-3);
     padding: 0;
     display: flex;
     flex-wrap: wrap;
   }
 
   &__crumb {
-    @extend %cads-list-item;
-
+    position: relative;
     list-style: none;
-    margin: 0;
     font-size: $cads-font-size;
-    margin-left: $cads-spacing-3;
+    line-height: 1.75rem;
+    margin: 0 0 0 $cads-spacing-3;
+    padding: 0 0 0 $cads-spacing-3;
+
+    &:first-child {
+      padding-left: 0;
+    }
 
     + .cads-breadcrumbs__crumb::before {
-      @include cads-breadcrumb-arrow;
-
-      content: '\0041';
+      @include cads-breadcrumb-arrow('left');
     }
   }
+}
 
+///
+// Variant: Collapse
+///
+.cads-breadcrumbs--collapse {
   @include cads-media-breakpoint-only(sm) {
-    &__crumb {
+    .cads-breadcrumbs__crumb {
       display: none;
     }
 
     // show only the second to last item in list - i.e. link to parent page.
-    &__crumb:nth-last-child(2) {
-      margin-left: 0;
+    .cads-breadcrumbs__crumb:nth-last-child(2) {
       display: flex;
+      padding-left: calc(#{$cads-spacing-4} - $cads-breadcrumb-icon-size);
+      margin-left: $cads-spacing-5;
 
       &::before {
-        @include cads-breadcrumb-arrow;
-
-        align-self: center;
-        content: '\0044';
-        margin: 0 calc(#{$cads-spacing-4} - 6px) 0 $cads-spacing-4;
-        color: $cads-language__input-border-colour;
+        @include cads-breadcrumb-arrow('right');
       }
     }
   }
 }
-
-///
-// Variant: No collapse
-///
-.cads-breadcrumbs--no-collapse {
-  @include cads-media-breakpoint-only(sm) {
-    .cads-breadcrumbs__crumb {
-      display: block;
-
-      &:nth-last-child(2) {
-        margin-left: 0;
-
-        a {
-          display: inline;
-        }
-
-        &::before {
-          @include cads-breadcrumb-arrow;
-
-          margin-left: $cads-spacing-3;
-          content: '\0041';
-        }
-      }
-    }
-  }
-}
-
-/** end **/
 
 /** @define breadcrumbs-wrapper; weak */
 .cads-breadcrumbs-wrapper {

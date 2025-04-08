@@ -3,6 +3,7 @@
 - Re-add rails-i18n as a dependency for welsh date translations
 - Support `page_heading` option when using the form builder
 - Adds new typography classes for paragraph and headings in addition to the existing extends
+- Update breadcrumbs component to remove dependency on the icon font
 - Adds new core page layout classes:
 
   ```html
