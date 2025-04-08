@@ -1,5 +1,6 @@
 **New**
 
+- Update breadcrumbs component to remove dependency on the icon font
 - Re-add rails-i18n as a dependency for welsh date translations
 
 ## v7.0.0
