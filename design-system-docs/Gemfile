@@ -16,7 +16,7 @@ gem "citizens_advice_components", path: "../engine"
 # citizens_advice_components bundles view component but we
 # also use this to write docs components so explicitly
 # name it as a dependency.
-gem "view_component", "~> 3.21"
+gem "view_component", "~> 3.22"
 
 group :development, :test do
   gem "citizens-advice-style",
