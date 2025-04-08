@@ -1,5 +1,6 @@
 **New**
 
+- Adds new typography classes for paragraph and headings in addition to the existing extends
 - Re-add rails-i18n as a dependency for welsh date translations
 
 ## v7.0.0

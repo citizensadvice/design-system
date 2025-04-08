@@ -1,3 +1,7 @@
+// ============================================================================
+// Typography
+// ============================================================================
+
 %cads-h1 {
   font-size: 2.5rem;
   line-height: 3.25rem;
@@ -11,6 +15,10 @@
     line-height: 2.5rem;
     margin: 0 0 $cads-spacing-5;
   }
+}
+
+.cads-h1 {
+  @extend %cads-h1;
 }
 
 %cads-h2 {
@@ -27,6 +35,10 @@
   }
 }
 
+.cads-h2 {
+  @extend %cads-h2;
+}
+
 %cads-h3 {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -39,6 +51,10 @@
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+}
+
+.cads-h3 {
+  @extend %cads-h3;
 }
 
 %cads-h4 {
@@ -54,11 +70,25 @@
   }
 }
 
+.cads-h4 {
+  @extend %cads-h4;
+}
+
+h2,
+h3,
+h4 {
+  @include cads-adjacent-heading-margin($cads-spacing-7);
+}
+
 %cads-paragraph {
   @include cads-typographic-scale-text;
 
   font-weight: $cads-font-weight__regular;
   margin: 0 0 $cads-spacing-5;
+}
+
+.cads-paragraph {
+  @extend %cads-paragraph;
 }
 
 %cads-paragraph-small {
@@ -68,10 +98,8 @@
   margin: 0 0 $cads-spacing-5;
 }
 
-h2,
-h3,
-h4 {
-  @include cads-adjacent-heading-margin($cads-spacing-7);
+.cads-paragraph-small {
+  @extend %cads-paragraph-small;
 }
 
 hr,
