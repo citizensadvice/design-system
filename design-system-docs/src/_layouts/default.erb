@@ -14,23 +14,27 @@
       document.querySelector('html').classList.remove('no-js');
     </script>
   </head>
-  <body class="site page-<%= resource.data.slug %>">
-    <div class="site-header">
-      <%= render Shared::AppHeader.new %>
-      <%= render CitizensAdviceComponents::Navigation.new(
-        links: [
-          { url: "/guides", title: "Guides" },
-          { url: "/foundations", title: "Foundations" },
-          { url: "/components", title: "Components" },
-          { url: "/accessibility", title: "Accessibility" }
-        ]
-      ) %>
-      <%= render Shared::AppBreadcrumbs.new(resource) %>
-    </div>
-    <div class="site-content" id="cads-main-content">
-      <%= yield %>
-    </div>
-    <div class="site-footer"><%= render CitizensAdviceComponents::Footer.new %></div>
+  <body class="page-<%= resource.data.slug %>">
+    <div class="cads-page">
+      <div class="cads-page-header">
+        <%= render Shared::AppHeader.new %>
+        <%= render CitizensAdviceComponents::Navigation.new(
+          links: [
+            { url: "/guides", title: "Guides" },
+            { url: "/foundations", title: "Foundations" },
+            { url: "/components", title: "Components" },
+            { url: "/accessibility", title: "Accessibility" }
+          ]
+        ) %>
+      </div>
+      <div class="cads-page-wrapper">
+        <%= render Shared::AppBreadcrumbs.new(resource) %>
+        <div id="cads-main-content">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="cads-page-footer"><%= render CitizensAdviceComponents::Footer.new %></div>
+    <div>
     <script src="<%= webpack_path "theme.js" %>" defer></script>
   </body>
 </html>

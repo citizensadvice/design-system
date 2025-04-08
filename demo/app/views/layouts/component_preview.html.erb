@@ -1,5 +1,17 @@
-<% content_for :custom_head do %>
-  <%= stylesheet_link_tag "previews", media: "all" %>
-<% end %>
-<% @body_class = "component-preview--#{@preview.preview_name.split("/").last}" if @preview.present? %>
-<%= render template: "layouts/application" %>
+<!DOCTYPE html>
+<html class="no-js" lang="<%= I18n.locale %>">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component preview</title>
+    <%= cads_meta_head %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= stylesheet_link_tag "previews", media: "all" %>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+  </head>
+  <body<%- if @preview.present? %> class="component-preview--<%=@preview.preview_name.split("/").last %>"<%- end -%>>
+    <div id="content"><%= yield %></div>
+    <%= javascript_include_tag "application", defer: true %>
+  </body>
+</html>
