@@ -1,7 +1,18 @@
 **New**
 
-- Update breadcrumbs component to remove dependency on the icon font
 - Re-add rails-i18n as a dependency for welsh date translations
+- Update breadcrumbs component to remove dependency on the icon font
+- Deprecate icon font. Disables `$cads-enable-icon-font` by default.
+
+  If you are still relying on the icon font in your application you can
+  add the following to your SCSS settings:
+
+  ```scss
+  $cads-enable-icon-font: true
+  ```
+
+  This will be removed completely in a future version, you should migrate
+  your application to use SVG icons instead.
 
 ## v7.0.0
 
