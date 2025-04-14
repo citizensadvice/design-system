@@ -58,7 +58,7 @@ RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
       )
     end
 
-    it { is_expected.to have_css "h1.cads-page-title", text: "Example date input with page heading" }
+    it { is_expected.to have_css "legend h1.cads-page-title", text: "Example date input with page heading" }
   end
 
   context "with values" do

@@ -10,6 +10,7 @@ class Person
   attr_accessor :first_name, :last_name, :address, :date_with_hint, :required_date, :favourite_drink, :pizza_toppings, :ice_cream
 
   attribute :date_of_birth, :date
+  attribute :purchase_date, :date
   attribute :pizza_toppings, array: true
   attribute :opted_in, :boolean
   attribute :account_active, :boolean, default: true
