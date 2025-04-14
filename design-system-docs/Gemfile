@@ -21,5 +21,5 @@ gem "view_component", "~> 3.21"
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v11.0.0"
+      tag: "v12.0.0"
 end

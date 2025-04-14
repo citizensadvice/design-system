@@ -1,6 +1,7 @@
 **New**
 
 - Support `page_heading` option when using the form builder
+- Re-add rails-i18n as a dependency for welsh date translations
 
 ## v7.0.0
 
