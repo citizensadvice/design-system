@@ -1,5 +1,10 @@
 ---
 en:
+  navigation:
+    submit: Submit
+    next: Next
+    previous: Previous
+    change: Change
   activemodel:
     attributes:
       example_form:
@@ -10,6 +15,10 @@ en:
         date_of_purchase: 'When did you purchase the goods or services?'
         contacted_trader: 'Have you contacted the trader about this complaint?'
         trader_response: "Outline the trader's response to the complaint, if any"
+      example_steps/text_area:
+        text_area_default: Default text area
+        text_area_required: Required text area
+        text_area_with_hint: Text area with hint
     errors:
       models:
         example_form:
@@ -31,3 +40,21 @@ en:
             contacted_trader:
               blank: Tell us if you have contacted the trader about this complaint
               invalid: Tell us if you have contacted the trader about this complaint
+  example_steps:
+    text_area:
+      title: Text area
+      text_area_default:
+        label: Default
+      text_area_required:
+        label: Required
+      text_area_with_hint:
+        label: With hint
+        hint: Example hint text
+    review_answers:
+      title: Review answers
+      subtitle: Check your answers before submitting
+      text_area:
+        heading: Text area
+        text_area_default: Default
+        text_area_required: Required
+        text_area_with_hint: With hint
