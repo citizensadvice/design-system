@@ -17,14 +17,16 @@ class ExampleFormController < ApplicationController
   def success; end
 
   def form_params
-    params.require(:example_form).permit(
-      :first_name,
-      :last_name,
-      :your_enquiry,
-      :total_amount,
-      :date_of_purchase,
-      :contacted_trader,
-      :trader_response
+    params.expect(
+      example_form: %i[
+        first_name
+        last_name
+        your_enquiry
+        total_amount
+        date_of_purchase
+        contacted_trader
+        trader_response
+      ]
     )
   end
 end
