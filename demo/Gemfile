@@ -25,6 +25,8 @@ gem "citizens_advice_components", path: "../engine"
 # once previews have been convered to erb this can be removed
 gem "haml-rails"
 
+gem "wizard_steps"
+
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
