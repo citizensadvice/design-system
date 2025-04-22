@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
 
     scope "/wizard-steps-example", as: "wizard_steps_example" do
+      root to: "example_steps#start"
       resources :steps, only: %i[index show update], controller: "example_steps"
     end
   end

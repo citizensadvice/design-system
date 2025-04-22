@@ -1,0 +1,17 @@
+<%= render AppHeaderComponent.new %>
+<%= render CitizensAdviceComponents::Breadcrumbs.new(
+  links: [{ url: root_path, title: "Home" }, { title: "Form" }]
+) %>
+<%= render PageLayoutComponent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= t(".title") %></h1>
+
+    <div class="cads-prose">
+      <%= t(".paragraphs_html") %>
+    </div>
+
+    <%= form_with url: wizard_steps_example_step_path(id: ExampleWizard.step_keys.first), method: :get do |form| %>
+      <%= form.cads_button t("navigation.start"), icon_right: :arrow_right %>
+    <% end %>
+  <% end %>
+<% end %>

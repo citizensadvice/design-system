@@ -4,6 +4,8 @@ class ExampleStepsController < ApplicationController
   include WizardSteps
   self.wizard_class = ExampleWizard
 
+  def start; end
+
   def show; end
 
   def completed
@@ -16,7 +18,7 @@ class ExampleStepsController < ApplicationController
     if wizard.previous_key
       wizard_steps_example_step_path(wizard.previous_key)
     else
-      wizard_steps_example_steps_path
+      wizard_steps_example_root_path
     end
   end
 

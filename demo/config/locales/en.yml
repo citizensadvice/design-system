@@ -41,6 +41,11 @@ en:
               blank: Tell us if you have contacted the trader about this complaint
               invalid: Tell us if you have contacted the trader about this complaint
   example_steps:
+    start:
+      title: Example wizard steps form
+      paragraphs_html:
+        <p>This is a multi-step form, created using the <a href="https://github.com/DFE-Digital/wizard_steps" target="_blank">wizard_steps</a> gem in combination with the Citizens Advice FormBuilder.</p>
+        <p>Each step in the form illustrates fields which can be created using the form builder.</p>
     text_area:
       title: Text area
       text_area_default:
