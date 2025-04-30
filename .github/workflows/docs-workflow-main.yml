@@ -16,12 +16,6 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      # We link the @citizensadvice/design-system package
-      # from the root but we only build the lib/ directory
-      # when we publish to npm, so we need to build it first.
-      - uses: bahmutov/npm-install@v1
-      - run: npm run build
-
       # Setup docs site
       - uses: ruby/setup-ruby@v1
         with:
