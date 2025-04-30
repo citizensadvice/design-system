@@ -1,7 +1,3 @@
-<%= render FormAppHeaderComponent.new %>
-<%= render CitizensAdviceComponents::Breadcrumbs.new(
-  links: [{ url: root_path, title: "Home" }, { url: example_form_new_path, title: "Form" }, { title: "Thank you for your submission" }]
-) %>
 <%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
     <h1 class="cads-page-title">Thank you for your submission</h1>
@@ -13,4 +9,3 @@
     </div>
   <% end %>
 <% end  %>
-<%= render AppFooterComponent.new %>

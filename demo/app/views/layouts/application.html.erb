@@ -13,7 +13,16 @@
     <script>document.querySelector('html').classList.remove('no-js');</script>
   </head>
   <body<%- if @body_class.present? %> class="<%= @body_class %>"<%- end -%>>
-    <div id="cads-main-content"><%= yield %></div>
+    <div class="cads-page">
+      <div class="cads-page-header">
+        <%= render AppHeaderComponent.new(signed_in: @signed_in.present?) %>
+      </div>
+      <div class="cads-page-wrapper">
+        <%= render CitizensAdviceComponents::Breadcrumbs.new(links: breadcrumbs) %>
+        <div id="cads-main-content"><%= yield %></div>
+      </div>
+      <div class="cads-page-footer"><%= render AppFooterComponent.new %></div>
+    </div>
     <%= javascript_include_tag "application", defer: true %>
   </body>
 </html>

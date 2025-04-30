@@ -45,7 +45,6 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/${url}`,
         onReadyScript: 'onReadyEmulatePrint.js',
         viewports: [{ label: 'print', width: 1024, height: 1024 }],
-        selectors: ['#cads-main-content'],
       },
       {
         label: `${labelPrefix}`,
