@@ -2,7 +2,7 @@
 <%= render CitizensAdviceComponents::Breadcrumbs.new(
   links: [{ url: root_path, title: "Home" }, { title: "Form" }]
 ) %>
-<%= render PageLayoutComponent.new do |c| %>
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
     <%= form_with model: @form, url: example_form_create_path, method: :post, novalidate: true do |f| %>
       <%= f.cads_error_summary %>
