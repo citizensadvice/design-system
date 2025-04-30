@@ -16,29 +16,3 @@ img {
 img:not([width]) {
   width: 100%;
 }
-
-.site {
-  display: grid;
-  min-height: 100vh;
-
-  // iOS Safari - compensate for the search box
-  min-height: 100dvh;
-  grid-template:
-    'header' minmax(min-content, max-content) 'main' auto
-    'footer' minmax(min-content, max-content) / 100%;
-
-  // Hide any additional automatically generated rows
-  grid-auto-rows: 0;
-}
-
-.site-header {
-  grid-area: header;
-}
-
-.site-content {
-  grid-area: main;
-}
-
-.site-footer {
-  grid-area: footer;
-}

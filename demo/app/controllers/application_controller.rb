@@ -3,6 +3,8 @@
 class ApplicationController < ActionController::Base
   default_form_builder CitizensAdviceComponents::FormBuilder
 
+  include Breadcrumbs
+
   around_action :with_locale
 
   def with_locale(&)

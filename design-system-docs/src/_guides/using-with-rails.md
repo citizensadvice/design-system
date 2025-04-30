@@ -146,8 +146,14 @@ The following is an annotated layout template including any Rails defaults which
     <%%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <%%# This ID is required when using the skip links provided by the header component %>
-    <div id="cads-main-content"><%%= yield %></div>
+    <div class="cads-page">
+      <div class="cads-page-header"><!-- We'll add our own own header here later --></div>
+      <div class="cads-page-wrapper">
+        <div id="cads-main-content"><%%= yield %></div>
+      </div>
+      <div class="cads-page-footer"><!-- We'll add our own own header here later --></div>
+    <div>
+    <%%= javascript_include_tag "application", async: true %>
   </body>
 </html>
 ```
@@ -253,7 +259,7 @@ You can view the [ViewComponent guides](https://viewcomponent.org/) for more inf
 After restarting the application you can then add the following to your `application.html.erb` layout:
 
 ```erb
-<%%= render AppHeaderComponent.new %>
+<div class="cads-page-header"><%%= render AppHeaderComponent.new %></div>
 ```
 
 If everything has worked you should see the Citizens Advice logo, a search form, and the navigation.
@@ -277,7 +283,7 @@ Here we're using ViewComponents ability to render without a template file, by de
 Just like the header component we can then call this from our `application.html.erb` layout using:
 
 ```erb
-<%%= render AppFooterComponent.new %>
+<div class="cads-page-footer"><%%= render AppFooterComponent.new %></div>
 ```
 
 After you've done this you should have a page that looks something like this:
