@@ -17,5 +17,4 @@ demo/visual-regression/backstop_data/bitmaps_test
 demo/visual-regression/backstop_data/html_report
 demo/visual-regression/backstop_data/ci_report
 vendor/**/*
-/lib
 *.code-workspace

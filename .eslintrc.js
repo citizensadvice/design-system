@@ -5,23 +5,21 @@ module.exports = {
   env: {
     node: true,
   },
-  settings: {
-    'import/resolver': {
-      node: { extensions: ['.js', '.ts'] },
-    },
+  rules: {
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
   overrides: [
     {
-      files: 'src/ts/**/**.ts',
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+      files: '*.test.js',
+      plugins: ['jest'],
+      env: {
+        'jest/globals': true,
+      },
+    },
+    {
+      files: 'lib/**/*.js',
       env: {
         browser: true,
-      },
-      rules: {
-        '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-empty-function': 'warn',
       },
     },
   ],

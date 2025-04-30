@@ -12,7 +12,6 @@ cd "$(dirname "$0")"
 function setup_npm_package() {
   echo_task "Installing and setting up the npm package"
   npm install
-  npm run build
 }
 
 function setup_engine() {
