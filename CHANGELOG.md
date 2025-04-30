@@ -3,6 +3,19 @@
 - Re-add rails-i18n as a dependency for welsh date translations
 - Support `page_heading` option when using the form builder
 - Adds new typography classes for paragraph and headings in addition to the existing extends
+- Update breadcrumbs component to remove dependency on the icon font
+- Deprecate icon font. Disables `$cads-enable-icon-font` by default.
+
+  If you are still relying on the icon font in your application you can
+  add the following to your SCSS settings:
+
+  ```scss
+  $cads-enable-icon-font: true
+  ```
+
+  This will be removed completely in a future version, you should migrate
+  your application to use SVG icons instead.
+
 - Adds new core page layout classes:
 
   ```html

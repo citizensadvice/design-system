@@ -139,7 +139,6 @@ The following is an annotated layout template including any Rails defaults which
     <%%# Pre-loading the Design System fonts can help with flash of unstyled text %>
     <link href="<%%= asset_path("open-sans-v26-latin-700.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
     <link href="<%%= asset_path("open-sans-v26-latin-regular.woff2") %>" rel="preload" as="font" type="font/woff2" crossorigin="true" />
-    <link href="<%%= asset_path("cads.woff") %> rel="preload" as="font) %>" type="font/woff" crossorigin="true" />
 
     <%%# This script pairs with the no-js class on the HTML element and is needed for fallback styles. %>
     <script>document.querySelector('html').classList.remove('no-js');</script>
