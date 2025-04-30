@@ -43,13 +43,6 @@
 
 // Typography
 
-// all foundation body copy is wrapped in a .cads-prose for the docs site
-.cads-prose {
-  .my-small-paragraph {
-    @extend %cads-paragraph-small;
-  }
-
-  .my-plain-list {
-    @extend %cads-list-no-bullet;
-  }
+.my-plain-list {
+  @extend %cads-list-no-bullet;
 }

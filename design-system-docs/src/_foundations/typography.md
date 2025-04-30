@@ -4,7 +4,45 @@ title: Typography
 
 Our typeface is Open Sans, it's modern, easy to read and available to download for free. We use font weight bold (700) and normal (400) on our websites.
 
-## Body
+By default the design system applies minimal global styling. In order to opt-in to prose styling you'll need to wrap your text in a `.cads-prose` container.
+
+```html
+<h1 class="cads-page-title">Your options if you're in the UK illegally</h1>
+<div class="class="cads-prose">
+  <h2>Get immigration advice</h2>
+  <h3>If you're a British citizen</h3>
+  <p>
+    Your family members who are citizens of countries outside the EU, EEA or
+    Switzerland might be able to apply to the EU Settlement Scheme if one of the
+    following applies
+  </p>
+</div>
+```
+
+This recommended as the preferred way to apply typographic styling but is particularly useful if you have content coming from a CMS or rich text editor.
+
+If you need to apply these styles to heading elements that you cannot add a class to but want more tightly scoped styles than the default `.cads-prose` class you can add a `.cads-prose-direct-descendants` class instead which will target direct descendants only using the `>` child combinator selector.
+
+This is useful when you are embedding lots of rich components within a prose block and you want to more narrowly scope the effects of the cascade.
+
+```html
+<main class="cads-prose-direct-descendants">
+  <h1>Your options if you're in the UK illegally</h1>
+  <h2>Get immigration advice</h2>
+  <h3>If you're a British citizen</h3>
+  <p>
+    Your family members who are citizens of countries outside the EU, EEA or
+    Switzerland might be able to apply to the EU Settlement Scheme if one of the
+    following applies
+  </p>
+
+  <div class="my-special-component">
+    <p>Prose styles are not applied here</p>
+  </div>
+</main>
+```
+
+## Body text
 
 <%= render(Shared::ComponentExample.new(:foundations, :typography_paragraph)) %>
 
@@ -12,9 +50,16 @@ Use small text for metadata and some UI components. The majority of your body co
 
 <%= render(Shared::ComponentExample.new(:foundations, :typography_small_paragraph)) %>
 
-Paragraph styles have been created using placeholders and extended into the relevant classes for components that consume them.
+### Available utilities for body text
 
-If you need to achieve these styles outside of a `.cads-prose` element, you will need to extend these placeholders.
+If you need to achieve these styles outside of a `.cads-prose` container, you can either add the relevant CSS class:
+
+```html
+<p class="cads-paragraph">A regular paragraph</p>
+<p class="cads-paragraph-small">A small paragraph</p>
+```
+
+Or use the styles directly by extending a placeholder selector in your SCSS:
 
 ```scss
 .my-paragraph {
@@ -26,31 +71,27 @@ If you need to achieve these styles outside of a `.cads-prose` element, you will
 }
 ```
 
-If you need to apply the `%cads-paragraph` styles to `p` elements that you cannot add a class to, for example content from a CMS or rich text editor, wrap them in a `.cads-prose` element:
-
-```html
-<main class="cads-prose">
-  <p>
-    Your family members who are citizens of countries outside the EU, EEA or
-    Switzerland might be able to apply to the EU Settlement Scheme if one of the
-    following applies
-  </p>
-</main>
-```
-
 ## Headings
 
-Make sure to use the appropriate <h#> level, and don't skip heading levels.
-
-H4s are available for custom designed components or pages. Do not use for advice content. If using an H4 in your designs, make sure to use correct heading levels.
+We provide styles for headings level 1-4, if you are using headings beyond this you'll need to provide your own styles. Make sure to use the appropriate heading level, and avoid skipping heading levels.
 
 <%= render(Shared::ComponentExample.new(:foundations, :typography_headings)) %>
 
 When building new components, avoid using line height for spacing and alignment. Use the typographic scale that is established.
 
-Heading styles have been created using placeholders and extended into the relevant classes for components that consume them.
+### Available utilities for headings
 
-If you need to achieve these styles outside of a `.cads-prose` element, you will need to extend these placeholders.
+If you need to achieve these styles outside of a `.cads-prose` container, you can either add the relevant CSS class:
+
+```html
+<h1 class="cads-h1">A level 1 heading</h1>
+<h2 class="cads-h2">A level 2 heading</h2>
+<h3 class="cads-h3">A level 3 heading</h3>
+<h4 class="cads-h4">A level 4 heading</h4>
+<h3 class="cads-h4">A h3 that visually looks like a h4</h3>
+```
+
+Or use the styles directly by extending a placeholder selector in your SCSS:
 
 ```scss
 .my-h1 {
@@ -70,39 +111,7 @@ If you need to achieve these styles outside of a `.cads-prose` element, you will
 }
 ```
 
-If you need to apply these styles to heading elements that you cannot add a class to, for example content from a CMS or rich text editor, wrap them in a `.cads-prose` element:
-
-```html
-<main class="cads-prose">
-  <h1>Your options if you're in the UK illegally</h1>
-  <h2>Get immigration advice</h2>
-  <h3>If you're a British citizen</h3>
-  <p>
-    Your family members who are citizens of countries outside the EU, EEA or
-    Switzerland might be able to apply to the EU Settlement Scheme if one of the
-    following applies
-  </p>
-</main>
-```
-
-If you need to apply these styles to heading elements that you cannot add a class to but want more tightly scoped styles than the default `.cads-prose` class you can add a `.cads-prose-direct-descendants` class instead which will target direct descendants only using the `>` child combinator selector. This is useful when you are embedding lots of rich components within a prose block and you want to more narrowly scope the effects of the cascade.
-
-```html
-<main class="cads-prose-direct-descendants">
-  <h1>Your options if you're in the UK illegally</h1>
-  <h2>Get immigration advice</h2>
-  <h3>If you're a British citizen</h3>
-  <p>
-    Your family members who are citizens of countries outside the EU, EEA or
-    Switzerland might be able to apply to the EU Settlement Scheme if one of the
-    following applies
-  </p>
-
-  <div class="my-special-component">
-    <p>Prose styles are not applied here</p>
-  </div>
-</main>
-```
+This can be particularly useful when you need to use a semantic heading level that doesn't match its visual presentation i.e. a `h3` which needs to look like a `h4`.
 
 ### Adjacent heading mixin
 
@@ -136,6 +145,12 @@ To ensure the appropriate margin between the `<p>` and the `<div>` in the above 
 }
 ```
 
+### How to mark up the page title
+
+The `h1` of the page should usually be the page title, we provide a dedicated class for this which should be used when marking up a page title specifically:
+
+<%= render(Shared::ComponentExample.new(:foundations, :typography_page_title)) %>
+
 ## Links
 
 Links are blue and underlined by default. Avoid opening links in a new tab, as it can confuse some users.
@@ -148,8 +163,6 @@ Read our guidance about using <a href ="?path=/docs/components-buttons--primary"
 
 ### Unordered lists
 
-#### Standard
-
 Unordered lists should be used to show collections of items where their order does not have meaning, for example the criteria for claiming a particular benefit.
 
 <%= render(Shared::ComponentExample.new(:foundations, :typography_unordered_list)) %>
@@ -161,8 +174,6 @@ You can extend the following placeholder to achieve the correct unordered list s
   @extend %cads-list-unordered;
 }
 ```
-
-#### Plain
 
 In some situations, you will want the styles of an unordered list without the bullet points - for example to present a list of links on a summary page.
 
