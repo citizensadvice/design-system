@@ -19,6 +19,12 @@ task :erblint do
   `erblint --lint-all`
 end
 
+task :sync_fonts do
+  source_files = Dir["../assets/fonts/*"]
+  dest_path = File.expand_path("./app/assets/fonts/citizens_advice_components/", __dir__)
+  FileUtils.cp_r source_files, dest_path
+end
+
 task lint: %i[rubocop erblint]
 
 task default: %i[spec lint]

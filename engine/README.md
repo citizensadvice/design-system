@@ -17,3 +17,13 @@ rake
 ```
 
 By default this will run all rspec, rubocop, and erb-lint checks. You can view all available tasks with `rake -T`
+
+## Utility tasks
+
+We provide some additional utility tasks for developing the engine.
+
+Font files can be synced between the package and the engine with:
+
+```
+rake sync_fonts
+```
