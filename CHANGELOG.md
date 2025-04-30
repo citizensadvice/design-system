@@ -16,6 +16,31 @@
   This will be removed completely in a future version, you should migrate
   your application to use SVG icons instead.
 
+- Bundle fonts as part of the Rails Engine
+
+  Allows applications to remove the previous manual config from `config/initializers/assets/rb`:
+
+  ```diff
+  - # Add design system fonts to the asset load path
+  - Rails.application.config.assets.paths << Rails.root.join("node_modules/@citizensadvice/design-system/assets/fonts")
+  ```
+
+  The Rails engine now bundles the fonts directly and adds them to the asset pipeline for you. As a convenience you can swap `lib.scss` out with `rails.scss` when importing the design system library:
+
+  ```scss
+  @import '@citizensadvice/design-system/scss/rails.scss';
+  ```
+
+  This is the equivalent to the following:
+
+  ```scss
+  // Configure the font-path for use with the Rails engine
+  // which bundles a copy of the fonts to allow them to be auto loaded.
+  $cads-font-path: './citizens_advice_components';
+
+  @import '@citizensadvice/design-system/scss/lib.scss';
+  ```
+
 - Adds new core page layout classes:
 
   ```html
