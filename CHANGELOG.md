@@ -3,6 +3,18 @@
 - Re-add rails-i18n as a dependency for welsh date translations
 - Support `page_heading` option when using the form builder
 - Adds new typography classes for paragraph and headings in addition to the existing extends
+- Adds new `PageContent` component for common layouts:
+
+  ```erb
+  <%= render CitizensAdviceComponents::PageContent.new do |c| %>
+    <% c.with_main do %>
+      <h1 class="cads-page-title">Hello Design System!</h1>
+    <% end %>
+    <% c.with_sidebar do %>
+      Some sidebar content
+    <% end %>
+  <% end %>
+  ```
 
 ## v7.0.0
 
