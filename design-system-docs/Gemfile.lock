@@ -67,9 +67,9 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     amazing_print (1.6.0)
     ast (2.4.3)
-    base64 (0.2.0)
-    benchmark (0.4.0)
-    bigdecimal (3.1.9)
+    base64 (0.3.0)
+    benchmark (0.4.1)
+    bigdecimal (3.2.1)
     bridgetown (1.3.4)
       bridgetown-builder (= 1.3.4)
       bridgetown-core (= 1.3.4)
@@ -109,12 +109,12 @@ GEM
       view_component (>= 2.49)
     builder (3.3.0)
     colorator (1.1.0)
-    concurrent-ruby (1.3.4)
-    connection_pool (2.5.0)
+    concurrent-ruby (1.3.5)
+    connection_pool (2.5.3)
     crass (1.0.6)
     csv (3.3.0)
     date (3.4.1)
-    drb (2.2.1)
+    drb (2.2.3)
     erubi (1.13.0)
     faraday (2.12.1)
       faraday-net_http (>= 2.0, < 3.5)
@@ -268,9 +268,9 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.3)
     useragent (0.16.11)
-    view_component (3.22.0)
+    view_component (3.23.2)
       activesupport (>= 5.2.0, < 8.1)
-      concurrent-ruby (= 1.3.4)
+      concurrent-ruby (~> 1)
       method_source (~> 1.0)
     zeitwerk (2.7.1)
 
@@ -288,7 +288,7 @@ DEPENDENCIES
   htmlbeautifier
   nokogiri
   puma
-  view_component (~> 3.22)
+  view_component (~> 3.23)
 
 BUNDLED WITH
    2.5.9
