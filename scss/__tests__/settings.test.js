@@ -1,4 +1,3 @@
-/* eslint-env jest */
 const { globSync } = require('glob');
 const sass = require('sass');
 

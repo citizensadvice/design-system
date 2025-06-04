@@ -1,4 +1,3 @@
-/* eslint-env jest */
 const sass = require('sass');
 
 test('grid styles match snapshot', () => {

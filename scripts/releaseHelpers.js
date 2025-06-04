@@ -1,7 +1,7 @@
 const gitState = require('git-state');
 const chalk = require('chalk');
 
-const log = console.log; // eslint-disable-line
+const log = console.log;
 const ok = '\u2713'; // The tick
 const error = '\u2716'; // The cross
 
