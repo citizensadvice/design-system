@@ -1,4 +1,3 @@
-/* eslint-env jest */
 const sass = require('sass');
 const path = require('path');
 

@@ -1,4 +1,3 @@
-/* eslint-env jest */
 const stylelintConfig = require('./stylelint.config');
 
 function testCadsPattern(pattern) {
