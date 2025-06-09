@@ -6,6 +6,7 @@ class HeaderPreview < ViewComponent::Preview
       c.with_logo(title: "Citizens Advice homepage", url: "/")
       c.with_skip_links(skip_links)
       c.with_header_links(header_links)
+      c.with_header_buttons(header_buttons)
       c.with_search_form(search_action_url: "/search")
       c.with_account_link(title: "Sign in", url: "/sign-in")
     end
@@ -69,6 +70,12 @@ class HeaderPreview < ViewComponent::Preview
       { title: "Public site", url: "/", current_site: true },
       { title: "AdviserNet", url: "?advisernet" },
       { title: "Cymraeg", url: "?lang=cy", lang: "cy" }
+    ]
+  end
+
+  def header_buttons
+    [
+      { title: "Donate", url: "/about-us/donate/" }
     ]
   end
 

@@ -4,6 +4,7 @@ module CitizensAdviceComponents
   class Header < Base
     renders_many :skip_links, "SkipLink"
     renders_many :header_links, "HeaderLink"
+    renders_many :header_buttons, "HeaderButton"
 
     renders_one :account_link, "AccountLink"
     renders_one :logo, "HeaderLogo"
@@ -14,7 +15,7 @@ module CitizensAdviceComponents
     end
 
     def show_right_column?
-      header_links.any? || account_link.present? || search_form.present?
+      header_links.any? || header_buttons.any? || account_link.present? || search_form.present?
     end
 
     def skip_links_to_show
@@ -84,6 +85,20 @@ module CitizensAdviceComponents
 
       def current_site?
         @current_site.present?
+      end
+    end
+
+    class HeaderButton < Base
+      attr_reader :title, :url
+
+      def initialize(title:, url:)
+        super
+        @title = title
+        @url = url
+      end
+
+      def call
+        link_to title, url, class: "cads-button cads-button__primary"
       end
     end
 
