@@ -93,6 +93,16 @@ Header links can be configured either by passing a list of hashes to `header_lin
 end %>
 ```
 
+### Header buttons
+
+Header buttons can be configured either by passing a list of hashes to `with_header_buttons` or by calling `with_header_button` multiple times with a `title` and `url`. They display as links which are styled like a button next to the search form.
+
+```erb
+<%%= render CitizensAdviceComponents::Header.new do |c|
+  c.with_header_button(title: "Donate", url: "/about-us/donate/")
+end %>
+```
+
 ### Search form slot
 
 The search form is optional. In order to configure it you need to provide a `search_action_url` and optionally a `search_param` name (defaults to `:q`).
