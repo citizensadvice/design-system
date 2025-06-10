@@ -15,8 +15,8 @@ require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
 desc "Run ERB Lint"
-task :erblint do
-  `erblint --lint-all`
+task :erb_lint do
+  `erb_lint --lint-all`
 end
 
 task :sync_fonts do
@@ -25,6 +25,6 @@ task :sync_fonts do
   FileUtils.cp_r source_files, dest_path
 end
 
-task lint: %i[rubocop erblint]
+task lint: %i[rubocop erb_lint]
 
 task default: %i[spec lint]
