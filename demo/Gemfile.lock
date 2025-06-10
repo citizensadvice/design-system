@@ -15,7 +15,7 @@ GIT
 PATH
   remote: ../engine
   specs:
-    citizens_advice_components (7.0.0)
+    citizens_advice_components (8.0.0)
       actionpack (>= 7.1.0, < 9.0)
       actionview (>= 7.1.0, < 9.0)
       activemodel (>= 7.1.0, < 9.0)
