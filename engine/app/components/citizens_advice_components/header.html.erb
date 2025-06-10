@@ -11,9 +11,9 @@
       <div class="cads-grid-col-md-2 cads-header__logo-row">
         <%= logo %>
 
-        <% if search_form.present? || header_buttons.present? %>
+        <% if search_form.present? || header_button.present? %>
           <div class="cads-header__actions">
-            <% header_buttons.each do |header_button| %>
+            <% if header_button.present? %>
               <div class="cads-header__button">
                 <%= header_button %>
               </div>
@@ -45,9 +45,9 @@
               <li class="cads-header__links-item"><%= account_link %></li>
             <% end %>
           </ul>
-          <% if search_form.present? || header_buttons.present? %>
+          <% if search_form.present? || header_button.present? %>
             <div class="cads-header__actions">
-              <% header_buttons.each do |header_button| %>
+              <% if header_button.present? %>
                 <div class="cads-header__button">
                   <%= header_button %>
                 </div>

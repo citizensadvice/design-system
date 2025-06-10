@@ -107,7 +107,7 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     end
   end
 
-  describe "header_buttons slot" do
+  describe "header_button slot" do
     before do
       render_inline(described_class.new) do |c|
         c.with_logo(title: "Logo title", url: "/")

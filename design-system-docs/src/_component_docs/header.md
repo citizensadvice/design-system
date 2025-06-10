@@ -93,9 +93,9 @@ Header links can be configured either by passing a list of hashes to `header_lin
 end %>
 ```
 
-### Header buttons
+### Header button
 
-Header buttons can be configured either by passing a list of hashes to `with_header_buttons` or by calling `with_header_button` multiple times with a `title` and `url`. They display as links which are styled like a button next to the search form.
+A button can added to the header by calling `with_header_button` with a `title` and `url`. The button is a links which is styled like a button next to the search form.
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|

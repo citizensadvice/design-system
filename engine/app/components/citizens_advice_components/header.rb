@@ -4,10 +4,10 @@ module CitizensAdviceComponents
   class Header < Base
     renders_many :skip_links, "SkipLink"
     renders_many :header_links, "HeaderLink"
-    renders_many :header_buttons, "HeaderButton"
 
     renders_one :account_link, "AccountLink"
     renders_one :logo, "HeaderLogo"
+    renders_one :header_button, "HeaderButton"
     renders_one :search_form, "HeaderSearch"
 
     def render?
@@ -15,7 +15,7 @@ module CitizensAdviceComponents
     end
 
     def show_right_column?
-      header_links.any? || header_buttons.any? || account_link.present? || search_form.present?
+      header_links.any? || header_button.present? || account_link.present? || search_form.present?
     end
 
     def skip_links_to_show
