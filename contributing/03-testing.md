@@ -40,12 +40,12 @@ rake rubocop
 
 You can also run `rake rubocop:autocorrect` or `rake rubocop:autocorrect_all` to handle auto-corrections.
 
-### ERBLint
+### ERB Lint
 
-We run `erblint` as templating lint check against our `engine` directory. From the `engine` directory run:
+We run `erb_lint` as templating lint check against our `engine` directory. From the `engine` directory run:
 
 ```sh
-rake erblint
+rake erb_lint
 ```
 
 ### RSpec
