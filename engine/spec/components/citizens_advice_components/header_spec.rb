@@ -107,6 +107,17 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
     end
   end
 
+  describe "header_button slot" do
+    before do
+      render_inline(described_class.new) do |c|
+        c.with_logo(title: "Logo title", url: "/")
+        c.with_header_button(title: "Donate", url: "/about-us/donate/")
+      end
+    end
+
+    it { is_expected.to have_link "Donate", href: "/about-us/donate/" }
+  end
+
   describe "search_form slot" do
     before do
       render_inline(described_class.new) do |c|
