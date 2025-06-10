@@ -23,3 +23,15 @@
     line-height: 1.75rem;
   }
 }
+
+/** @define character-count */
+.cads-character-count {
+  margin-top: $cads-spacing-2;
+  color: $cads-palette__dark-grey;
+  text-align: right;
+
+  &[data-character-count-state='invalid'] {
+    color: $cads-language__warning-colour;
+    font-weight: $cads-font-weight__bold;
+  }
+}

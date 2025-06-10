@@ -6,4 +6,5 @@ declare module '@citizensadvice/design-system' {
   export function initNavigation(): void;
   export function initOnThisPage(): void;
   export function initTargetedContent(): void;
+  export function initCharacterCount(): void;
 }

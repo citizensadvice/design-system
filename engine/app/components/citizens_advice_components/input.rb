@@ -111,10 +111,14 @@ module CitizensAdviceComponents
     end
 
     def described_by
+      described_by_ids.present? ? described_by_ids.join(" ") : nil
+    end
+
+    def described_by_ids
       ids = []
       ids << error_id if error?
       ids << hint_id if hint?
-      ids.present? ? ids.join(" ") : nil
+      ids
     end
 
     def input_attributes
