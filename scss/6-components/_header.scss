@@ -134,6 +134,10 @@
       padding-bottom: (
         cads-rem-to-px($cads-spacing-3) - 1px - $cads-border-width-medium
       );
+
+      &:focus {
+        color: $cads-language__focus-text-colour;
+      }
     }
   }
 
