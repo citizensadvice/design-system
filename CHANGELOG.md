@@ -1,3 +1,7 @@
+**Bugfix**
+
+- the focus colour of the new header button was incorrect, this fixes it
+
 ## v8.0.0
 
 ### 10 June 2025
