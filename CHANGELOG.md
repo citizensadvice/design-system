@@ -1,3 +1,11 @@
+## v8.0.2
+
+### 12 June 2025
+
+**Bugfix**
+
+- small visual tweaks to the new header button following designer review to best align with other elements in header
+
 ## v8.0.1
 
 ### 11 June 2025
