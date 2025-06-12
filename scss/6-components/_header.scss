@@ -129,13 +129,14 @@
       color: $cads-palette__white;
       margin-bottom: 0;
       padding-top: (
-        cads-rem-to-px($cads-spacing-3) - 1px - $cads-border-width-medium
+        cads-rem-to-px($cads-spacing-3) - 2px - $cads-border-width-medium
       );
       padding-bottom: (
         cads-rem-to-px($cads-spacing-3) - 1px - $cads-border-width-medium
       );
 
       &:focus {
+        border-bottom: none;
         color: $cads-language__focus-text-colour;
       }
     }
@@ -153,7 +154,7 @@
 
     .cads-header__button a.cads-button {
       padding-top: (
-        cads-rem-to-px($cads-spacing-3) - $cads-border-width-medium
+        cads-rem-to-px($cads-spacing-3) - $cads-border-width-medium - 0.5px
       );
       padding-bottom: (
         cads-rem-to-px($cads-spacing-3) - $cads-border-width-medium
