@@ -1,10 +1,12 @@
 import js from '@eslint/js';
 import globals from 'globals';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import eslintPluginJest from 'eslint-plugin-jest';
+import eslintPluginVitest from '@vitest/eslint-plugin';
 
 export default defineConfig([
+  eslintConfigPrettier,
+  globalIgnores(['docs/', 'vendor/', 'demo/', 'design-system-docs/']),
   {
     files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },
@@ -21,13 +23,12 @@ export default defineConfig([
   },
   {
     files: ['**/*.test.{js,mjs,cjs}'],
-    plugins: { jest: eslintPluginJest },
+    plugins: { vitest: eslintPluginVitest },
+    extends: [eslintPluginVitest.configs.recommended],
     languageOptions: {
-      globals: eslintPluginJest.environments.globals.globals,
+      globals: {
+        ...eslintPluginVitest.environments.env.globals,
+      },
     },
   },
-  {
-    ignores: ['docs/', 'vendor/', 'demo/', 'design-system-docs/'],
-  },
-  eslintConfigPrettier,
 ]);
