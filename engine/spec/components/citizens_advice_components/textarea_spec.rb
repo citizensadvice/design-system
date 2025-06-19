@@ -210,4 +210,24 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
       expect(page).to have_css "textarea[rows=8]"
     end
   end
+
+  context "when a character count is provided" do
+    before do
+      render_inline described_class.new(
+        name: "example-textarea",
+        label: "Example textarea",
+        options: { character_count: 500 }
+      )
+    end
+
+    let(:rows) { "banana" }
+
+    it "passes the character count onto the component" do
+      expect(page).to have_css "textarea[data-character-count=500]"
+    end
+
+    it "displays a fallback character count message" do
+      expect(page).to have_text "You can enter up to 500 characters"
+    end
+  end
 end

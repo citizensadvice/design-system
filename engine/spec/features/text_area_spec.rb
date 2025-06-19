@@ -25,4 +25,11 @@ RSpec.describe "text areas" do
       expect(page).to have_css("h1.cads-page-title label", text: "Address")
     end
   end
+
+  it "renders a page heading" do
+    within "#character_count_text_area" do
+      expect(page).to have_css "textarea[data-character-count=500]"
+      expect(page).to have_text "You can enter up to 500 characters"
+    end
+  end
 end
