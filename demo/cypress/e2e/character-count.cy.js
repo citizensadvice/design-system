@@ -1,33 +1,68 @@
 describe('Character count', () => {
-  it('has a character counter', () => {
-    cy.visitComponentUrl('textarea/with_character_count');
-    cy.findByTestId('character-count').should(
-      'have.text',
-      'You have 1000 characters remaining',
-    );
-  });
-
-  it('counts characters as the user types', () => {
-    cy.visitComponentUrl('textarea/with_character_count');
-    cy.findByLabelText('Example input').type('Some initial text.');
-
-    cy.findByTestId('character-count').should(
-      'have.text',
-      'You have 982 characters remaining',
-    );
-  });
-
-  it('displays the amount over if exceeding the limit', () => {
-    cy.visitComponentUrl('textarea/with_character_count');
-
-    cy.findByLabelText('Example input').type(tooMuchText().trim(), {
-      delay: 0,
+  describe('english language', () => {
+    it('has a character counter', () => {
+      cy.visitComponentUrl('textarea/with_character_count');
+      cy.findByTestId('character-count').should(
+        'have.text',
+        'You have 1000 characters remaining',
+      );
     });
 
-    cy.findByTestId('character-count').should(
-      'have.text',
-      'You have 412 characters too many',
-    );
+    it('counts characters as the user types', () => {
+      cy.visitComponentUrl('textarea/with_character_count');
+      cy.findByLabelText('Example input').type('Some initial text.');
+
+      cy.findByTestId('character-count').should(
+        'have.text',
+        'You have 982 characters remaining',
+      );
+    });
+
+    it('displays the amount over if exceeding the limit', () => {
+      cy.visitComponentUrl('textarea/with_character_count');
+
+      cy.findByLabelText('Example input').type(tooMuchText().trim(), {
+        delay: 0,
+      });
+
+      cy.findByTestId('character-count').should(
+        'have.text',
+        'You have 412 characters too many',
+      );
+    });
+  });
+
+  describe('welsh language', () => {
+    it('has a character counter', () => {
+      cy.visitComponentUrl('textarea/with_character_count?locale=cy');
+      cy.findByTestId('character-count').should(
+        'have.text',
+        'You have 1000 characters remaining (cy)',
+      );
+    });
+
+    it('counts characters as the user types', () => {
+      cy.visitComponentUrl('textarea/with_character_count?locale=cy');
+      cy.findByLabelText('Example input').type('Some initial text.');
+
+      cy.findByTestId('character-count').should(
+        'have.text',
+        'You have 982 characters remaining (cy)',
+      );
+    });
+
+    it('displays the amount over if exceeding the limit', () => {
+      cy.visitComponentUrl('textarea/with_character_count?locale=cy');
+
+      cy.findByLabelText('Example input').type(tooMuchText().trim(), {
+        delay: 0,
+      });
+
+      cy.findByTestId('character-count').should(
+        'have.text',
+        'You have 412 characters too many (cy)',
+      );
+    });
   });
 
   function tooMuchText() {

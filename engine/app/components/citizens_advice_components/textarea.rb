@@ -33,7 +33,19 @@ module CitizensAdviceComponents
     end
 
     def base_input_attributes
-      super.merge(rows: @rows, value: nil, "data-character-count": character_count.presence)
+      if character_count.present?
+        super.merge(
+          rows: @rows,
+          value: nil,
+          "data-character-count": character_count.presence,
+          "data-character-count-over-limit": t("citizens_advice_components.character_count.over_limit"),
+          "data-character-count-remaining-zero": t("citizens_advice_components.character_count.remaining_zero"),
+          "data-character-count-remaining-one": t("citizens_advice_components.character_count.remaining_one"),
+          "data-character-count-remaining-other": t("citizens_advice_components.character_count.remaining_other")
+        )
+      else
+        super.merge(rows: @rows, value: nil)
+      end
     end
   end
 end

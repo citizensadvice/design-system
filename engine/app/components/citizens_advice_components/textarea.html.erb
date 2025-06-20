@@ -2,7 +2,7 @@
   <%= content_tag(:textarea, value, class: ["cads-textarea", ("js-cads-character-count" if character_count?)], **input_attributes) %>
   <% if character_count? %>
     <div id="<%= character_count_id %>" class="cads-character-count js-cads-character-count-fallback">
-      You can enter up to <%= character_count %> characters
+      <%= t("citizens_advice_components.character_count.fallback", character_count: character_count) %>
     </div>
   <% end %>
 <% end %>

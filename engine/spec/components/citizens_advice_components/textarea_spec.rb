@@ -229,5 +229,13 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     it "displays a fallback character count message" do
       expect(page).to have_text "You can enter up to 500 characters"
     end
+
+    context "when welsh language" do
+      around { |example| I18n.with_locale(:cy) { example.run } }
+
+      it "displays a welsh language fallback character count message" do
+        expect(page).to have_text "You can enter up to 500 characters (cy)"
+      end
+    end
   end
 end

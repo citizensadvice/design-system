@@ -26,7 +26,7 @@ RSpec.describe "text areas" do
     end
   end
 
-  it "renders a page heading" do
+  it "renders a character count" do
     within "#character_count_text_area" do
       expect(page).to have_css "textarea[data-character-count=500]"
       expect(page).to have_text "You can enter up to 500 characters"

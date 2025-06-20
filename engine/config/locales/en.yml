@@ -26,6 +26,12 @@ en:
       dropdown_aria_label_close: Close navigation
     input:
       optional: optional
+    character_count:
+      fallback: You can enter up to %{character_count} characters
+      over_limit: You have CHARACTER_COUNT characters too many
+      remaining_zero: You have 0 characters remaining
+      remaining_one: You have 1 character remaining
+      remaining_other: You have CHARACTER_COUNT characters remaining
     date_input:
       year: Year
       month: Month
