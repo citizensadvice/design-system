@@ -12,10 +12,6 @@ title: Textarea
 
 <%= render(Shared::ComponentExample.new(:textarea, :optional)) %>
 
-### Page heading
-
-<%= render(Shared::ComponentExample.new(:textarea, :page_heading)) %>
-
 ### With hint
 
 <%= render(Shared::ComponentExample.new(:textarea, :with_hint)) %>
@@ -33,6 +29,14 @@ title: Textarea
 By default the id is based on the `name`. This can be customised by passing an `id` argument.
 
 <%= render(Shared::ComponentExample.new(:textarea, :with_custom_id)) %>
+
+### With character count
+
+<%= render(Shared::ComponentExample.new(:textarea, :with_character_count)) %>
+
+### Page heading
+
+<%= render(Shared::ComponentExample.new(:textarea, :page_heading)) %>
 
 ## Using with Rails
 

@@ -13,6 +13,7 @@ import {
   initTargetedContent,
   initDisclosure,
   initOnThisPage,
+  initCharacterCount,
 } from '@citizensadvice/design-system';
 
 try {
@@ -21,6 +22,7 @@ try {
   initTargetedContent();
   initDisclosure();
   initOnThisPage();
+  initCharacterCount();
 } catch (error) {
   document.querySelector('html').classList.add('no-js');
   throw error;
