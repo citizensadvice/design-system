@@ -5,7 +5,7 @@ class ExampleFormController < ApplicationController
 
   def new
     @form = ExampleForm.new
-    add_breadcrumbs([{ title: "Form" }])
+    cads_add_breadcrumb title: "Form"
   end
 
   def create
@@ -13,13 +13,14 @@ class ExampleFormController < ApplicationController
     if @form.valid?
       redirect_to example_form_success_path
     else
-      add_breadcrumbs([{ title: "Form" }])
+      cads_add_breadcrumb title: "Form"
       render :new
     end
   end
 
   def success
-    add_breadcrumbs([{ url: example_form_new_path, title: "Form" }, { title: "Thank you for your submission" }])
+    cads_add_breadcrumb title: "Form", url: example_form_new_path
+    cads_add_breadcrumb title: "Thank you for your submission"
   end
 
   private

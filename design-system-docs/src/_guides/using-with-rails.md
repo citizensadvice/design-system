@@ -147,43 +147,36 @@ To our `application.html.erb` layout we'll need to add the following:
     <script>document.querySelector('html').classList.remove('no-js');</script>
   </head>
   <body>
-    <%%# This ID is required when using the skip links provided by the header component %>
-    <div id="cads-main-content"><%%= yield %></div>
+    <div class="cads-page">
+      <div class="cads-page-header"><!-- Application header --></div>
+      <div class="cads-page-wrapper">
+        <div id="cads-main-content"><%%= yield %></div>
+      </div>
+      <div class="cads-page-footer"><!-- Application footer --></div>
+    <div>
   </body>
 </html>
 ```
-
-Once you've done this we can also update our sample view at `app/views/home/index.html.erb` to include some layout classes.
-
-```erb
-<div class="cads-page-content">
-  <div class="cads-grid-container">
-    <div class="cads-grid-row">
-      <main class="cads-grid-col-md-8">
-        <h1 class="cads-page-title">Hello Design System!</h1>
-      </main>
-    </div>
-  </div>
-</div>
-```
-
-At this point you should have something like this:
-
-<img src="/images/guides/using-with-rails-03.png" alt="A Rails application showing Hello Design System! with a basic application layout"/>
 
 ## Using components
 
 The design system Rails engine bundles a set a set of [ViewComponents](https://viewcomponent.org/) for all of the major components in the design system. Try adding the following to your home page view:
 
 ```erb
-<div class="cads-prose">
-  <p>Thanks for following along with the design system guide</p>
-  <h2>Example components<h2>
-  <p>A callout is included below for reference, try rendering a few other components yourself.</p>
-</div>
+<%%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <%% c.with_main do %>
+    <h1 class="cads-page-title">Hello Design System!</h1>
 
-<%%= render CitizensAdviceComponents::Callout.new(type: :standard) do %>
-  <p>This is an example callout</p>
+    <div class="cads-prose">
+      <p>Thanks for following along with the design system guide</p>
+      <h2>Example components<h2>
+      <p>A callout is included below for reference, try rendering a few other components yourself.</p>
+    </div>
+
+    <%%= render CitizensAdviceComponents::Callout.new(type: :standard) do %>
+      <p>This is an example callout</p>
+    <%% end %>
+  <%% end %>
 <%% end %>
 ```
 
@@ -200,6 +193,8 @@ Start by creating an `app/components` directory:
 ```sh
 mkdir -p app/components
 ```
+
+### Creating an application header
 
 Add a new file at `app/components/app_header_component.rb` with the following contents:
 
@@ -233,17 +228,19 @@ And a corresponding template file at `app/components/app_header_component.html.e
 
 You can view the [ViewComponent guides](https://viewcomponent.org/) for more information on how this library works but essentially this defines a custom component which _wraps_ the Design System header component and configures it to suit our application.
 
-After restarting the application you can then add the following to your `application.html.erb` layout:
+After restarting the application you can then update your `application.html.erb` layout with the following:
 
 ```erb
-<%%= render AppHeaderComponent.new %>
+<div class="cads-page-header">
+  <%%= render AppHeaderComponent.new %>
+</div>
 ```
 
 If everything has worked you should see the Citizens Advice logo, a search form, and the navigation.
 
-Let's repeat the process to add a global footer.
+### Creating an application footer
 
-Add a new file at `app/components/app_footer_component.rb` with the following contents:
+Let's repeat the process to add an application footer. Add a new file at `app/components/app_footer_component.rb` with the following contents:
 
 ```rb
 class AppFooterComponent < ViewComponent::Base
@@ -260,12 +257,66 @@ Here we're using ViewComponents ability to render without a template file, by de
 Just like the header component we can then call this from our `application.html.erb` layout using:
 
 ```erb
-<%%= render AppFooterComponent.new %>
+<div class="cads-page-footer">
+  <%%= render AppFooterComponent.new %>
+</div>
 ```
 
 After you've done this you should have a page that looks something like this:
 
 <img src="/images/guides/using-with-rails-05.png" alt="A Rails application using the design system header and footer"/>
+
+### Adding a breadcrumb trail
+
+We include some helpers as part of `CitizensAdviceComponents::Helpers` which can be used to add and render breadcrumbs from within your application.
+
+In our `ApplicationController` we can add something like:
+
+```rb
+class ApplicationController < ActionController::Base
+  include CitizensAdviceComponents::Helpers
+
+  protected
+
+  def cads_default_breadcrumbs
+    [{ title: "Home", url: home_path }]
+  end
+end
+```
+
+The `cads_default_breadcrumbs` method allows us to define some default breadcrumbs all pages will use. Typically this is used to define a home breadcrumb. If only one breadcrumb is set the breadcrumbs won't render so nothing will show until we define more in our controllers. For example in our `HomeController` we could add:
+
+```rb
+class HomeController < ApplicationController
+  def index
+    cads_add_breadcrumb title: "Example", url: "/example"
+  end
+end
+```
+
+In order to actually display the breadcrumbs we need to add the component to our template, we can do this by adding the following to our `application.html.erb` layout:
+
+```erb
+<div class="cads-page-wrapper">
+  <%%= render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs) %>
+  <div id="cads-main-content"><%%= yield %></div>
+</div>
+```
+
+Putting this all together our `application.html.erb` body should look something like this:
+
+```erb
+<div class="cads-page">
+  <div class="cads-page-header">
+    <%%= render AppHeaderComponent.new %>
+  </div>
+  <div class="cads-page-wrapper">
+    <%%= render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs) %>
+    <div id="cads-main-content"><%%= yield %></div>
+  </div>
+  <div class="cads-page-footer"><%%= render AppFooterComponent.new %></div>
+</div>
+```
 
 ## Using JavaScript components
 
@@ -282,7 +333,7 @@ initHeader();
 initGreedyNav();
 ```
 
-Each of the [component guides](/components) tell you if the require any additional JavaScript along with any polyfills they might require for older browsers.
+Each of the [component guides](/components) tell you if they require any additional JavaScript along with any polyfills they might require for older browsers.
 
 If everything has worked as expected you should be able to resize your browser window and see some additional behaviour in the header and navigation.
 
