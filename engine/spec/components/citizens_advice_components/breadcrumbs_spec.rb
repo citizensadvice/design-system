@@ -4,7 +4,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   subject { page }
 
   context "when no links are present" do
-    before { render_inline described_class.new(links: []) }
+    before { render_inline described_class.new([]) }
 
     it { is_expected.to have_no_css ".cads-breadcrumbs" }
   end
@@ -12,7 +12,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "when there is only one item" do
     before do
       render_inline described_class.new(
-        links: [{ title: "Home", url: "/" }]
+        [{ title: "Home", url: "/" }]
       )
     end
 
@@ -21,10 +21,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
 
   context "when links are provided" do
     before do
-      render_inline described_class.new(
-        type: :collapse,
-        links: sample_links
-      )
+      render_inline described_class.new(sample_links, type: :collapse)
     end
 
     it { is_expected.to have_css "li", count: 3 }
@@ -37,10 +34,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
 
   context "when no_collapse type is provided" do
     before do
-      render_inline described_class.new(
-        type: :no_collapse,
-        links: sample_links
-      )
+      render_inline described_class.new(sample_links, type: :no_collapse)
     end
 
     it { is_expected.to have_css ".cads-breadcrumbs--no-collapse" }
@@ -49,10 +43,7 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "when no type is provided" do
     before do
       without_fetch_or_fallback_raises do
-        render_inline described_class.new(
-          type: nil,
-          links: sample_links
-        )
+        render_inline described_class.new(sample_links, type: nil)
       end
     end
 
@@ -62,8 +53,8 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "when not rendered on the current page" do
     before do
       render_inline described_class.new(
+        sample_links,
         type: :collapse,
-        links: sample_links,
         current_page: false
       )
     end
@@ -74,8 +65,8 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "when not in full width mode" do
     before do
       render_inline described_class.new(
+        sample_links,
         type: :collapse,
-        links: sample_links,
         full_width: false
       )
     end
@@ -86,17 +77,32 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
   context "when links are passed with the old style hash format" do
     before do
       render_inline described_class.new(
-        type: :collapse,
-        links: [
+        [
           { "title" => "Home", "url" => "/" },
           { "title" => "Immigration", "url" => "/immigration" },
           { "title" => "Staying in the UK" }
-        ]
+        ],
+        type: :collapse
       )
     end
 
     it { is_expected.to have_css "li", count: 3 }
     it { is_expected.to have_css "span[aria-current=location]", text: "Staying in the UK" }
+  end
+
+  context "when deprecated links argument is provided" do
+    before do
+      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
+
+      render_inline described_class.new(
+        links: sample_links
+      )
+    end
+
+    it "logs deprecation warning" do
+      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+        .with(/links attribute is deprecated/)
+    end
   end
 
   private

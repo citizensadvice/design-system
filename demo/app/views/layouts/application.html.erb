@@ -16,7 +16,7 @@
         <%= render AppHeaderComponent.new(signed_in: @signed_in.present?) %>
       </div>
       <div class="cads-page-wrapper">
-        <%= render CitizensAdviceComponents::Breadcrumbs.new(links: breadcrumbs) %>
+        <%= render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs) %>
         <div id="cads-main-content"><%= yield %></div>
       </div>
       <div class="cads-page-footer"><%= render AppFooterComponent.new %></div>
