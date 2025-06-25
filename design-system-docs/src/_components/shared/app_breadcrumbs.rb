@@ -7,7 +7,7 @@ module Shared
     end
 
     def call
-      render CitizensAdviceComponents::Breadcrumbs.new(links: build_links)
+      render CitizensAdviceComponents::Breadcrumbs.new(build_links)
     end
 
     def build_links

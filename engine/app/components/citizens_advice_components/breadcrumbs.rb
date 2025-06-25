@@ -4,9 +4,14 @@ module CitizensAdviceComponents
   class Breadcrumbs < Base
     attr_reader :type
 
-    def initialize(links:, type: :collapse, current_page: true, full_width: true)
+    # Deprecation note: The links argument deprecated in favour of
+    # passing breadcrumbs in as the first argument for a cleaner API.
+    # Remove the links argument in v9.0.0
+    def initialize(breadcrumbs = nil, links: nil, type: :collapse, current_page: true, full_width: true)
       super
-      @links = links
+
+      @deprecated_links = links
+      @breadcrumbs = breadcrumbs.presence || links
       @type = fetch_or_fallback(
         allowed_values: %i[collapse no_collapse],
         given_value: type,
@@ -14,28 +19,40 @@ module CitizensAdviceComponents
       )
       @current_page = fetch_or_fallback_boolean(current_page, fallback: true)
       @full_width = fetch_or_fallback_boolean(full_width, fallback: true)
+
+      links_deprecation
     end
 
     def render?
-      @links.present? && @links.size > 1
+      @breadcrumbs.present? && @breadcrumbs.size > 1
     end
 
-    def crumbs
-      links.map.with_index do |link, index|
-        if index == links.size - 1
+    private
+
+    def links_deprecation
+      return if @deprecated_links.blank?
+
+      CitizensAdviceComponents.deprecator.warn(
+        "The links attribute is deprecated, pass breadcrumbs as the first argument instead"
+      )
+    end
+
+    def breadcrumbs_html
+      breadcrumbs.map.with_index do |breadcrumb, index|
+        if index == breadcrumbs.size - 1
           tag.span(
-            link[:title],
+            breadcrumb[:title],
             class: "cads-breadcrumb",
             "aria-current": ("location" if current_page?)
           )
         else
-          tag.a(link[:title], href: link[:url], class: "cads-breadcrumb")
+          tag.a(breadcrumb[:title], href: breadcrumb[:url], class: "cads-breadcrumb")
         end
       end
     end
 
-    def links
-      @links.map(&:symbolize_keys)
+    def breadcrumbs
+      @breadcrumbs.map(&:symbolize_keys)
     end
 
     def full_width?

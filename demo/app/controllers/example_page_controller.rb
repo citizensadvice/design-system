@@ -2,6 +2,6 @@
 
 class ExamplePageController < ApplicationController
   def show
-    add_breadcrumbs([{ title: "Advice collection" }])
+    cads_add_breadcrumb title: "Advice collection"
   end
 end
