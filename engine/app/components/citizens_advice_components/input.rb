@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :name, :label, :error_message, :hint, :value, :id
 
     def initialize(name:, label:, type:, options: nil, id: nil)
-      super
       @name = name
       @id = id
       @label = label

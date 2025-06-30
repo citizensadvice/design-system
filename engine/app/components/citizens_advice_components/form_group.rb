@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :legend, :name, :id, :error_message, :hint, :size, :layout
 
     def initialize(legend:, name:, id: nil, options: nil)
-      super
       @legend = legend
       @name = name
       @id = id

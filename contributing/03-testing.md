@@ -56,6 +56,20 @@ We run a suite of RSpec tests against our `engine` directory. From the `engine` 
 rake spec
 ```
 
+We use Appraisal for managing different gemfiles for older Rails versions as well as for testing new ViewComponent versions. You can run appraisals using:
+
+```sh
+bundle exec appraisal install
+```
+
+Followed by:
+
+```sh
+bundle exec appraisal rake spec
+```
+
+See the [Appraisal docs](https://github.com/thoughtbot/appraisal) for a full list of commands.
+
 ### Cypress
 
 We use [Cypress](https://www.cypress.io/) for two main things:

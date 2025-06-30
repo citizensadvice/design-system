@@ -13,7 +13,6 @@ module CitizensAdviceComponents
     renders_many :columns, "FooterColumn"
 
     def initialize(homepage_url: nil)
-      super
       @homepage_url = homepage_url || "/"
     end
 
@@ -37,7 +36,6 @@ module CitizensAdviceComponents
       attr_reader :title, :links, :text_lines
 
       def initialize(title:, links: [], text_lines: [])
-        super
         @title = title
         @links = links
         @text_lines = text_lines
@@ -48,8 +46,6 @@ module CitizensAdviceComponents
       attr_reader :title, :url
 
       def initialize(url:, title: nil, new_tab: false)
-        super
-
         @url = url.to_s
         @title = title
         @new_tab = new_tab

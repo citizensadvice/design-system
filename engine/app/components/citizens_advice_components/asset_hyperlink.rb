@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :href, :description
 
     def initialize(href:, description:, size:)
-      super
       @href = href
       @description = description
       @size = size

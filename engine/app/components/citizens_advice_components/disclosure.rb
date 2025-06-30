@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :closed_summary, :open_summary
 
     def initialize(closed_summary:, open_summary: nil, additional_attributes: nil, id: nil)
-      super
       @closed_summary = closed_summary
       @open_summary = open_summary || closed_summary
       @additional_attributes = additional_attributes
