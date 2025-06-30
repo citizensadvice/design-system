@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`allow toggling targeted content 1`] = `
 "<button type="button" class="cads-targeted-content__button" aria-expanded="false" aria-controls="targeted-content-123-content" aria-label="show this section">
