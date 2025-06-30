@@ -1,6 +1,7 @@
 **Bugfix**
 
 - when header links are collapsed into the nav menu, always show the nav menu when the header links are hidden
+- fix the colour of the text on the header button when focussed and active
 
 ## v8.0.2
 
