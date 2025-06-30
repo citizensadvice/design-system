@@ -139,6 +139,10 @@
         border-bottom: none;
         color: $cads-language__focus-text-colour;
       }
+
+      &:active {
+        color: $cads-palette__white;
+      }
     }
   }
 
