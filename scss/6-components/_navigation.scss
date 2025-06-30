@@ -267,7 +267,7 @@
     padding: 0;
 
     &::before {
-      display: block;
+      display: none;
       content: '';
       border-top: $cads-border-width-small solid $cads-palette__white;
       position: relative;
@@ -320,6 +320,12 @@
 
     margin-left: $cads-spacing-4;
   }
+}
+
+.cads-navigation__list-item
+  + .cads-greedy-nav__header-links
+  .cads-header__links::before {
+  display: block;
 }
 
 ////

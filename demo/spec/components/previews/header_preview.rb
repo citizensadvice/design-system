@@ -48,6 +48,17 @@ class HeaderPreview < ViewComponent::Preview
     )
   end
 
+  def with_short_navigation
+    render_with_template(
+      template: "header_preview/with_navigation",
+      locals: {
+        skip_links:,
+        header_links:,
+        navigation_links: short_navigation_links
+      }
+    )
+  end
+
   private
 
   def navigation_links
@@ -62,6 +73,12 @@ class HeaderPreview < ViewComponent::Preview
       { url: "/immigration/", title: "Immigration" },
       { url: "/health/", title: "Health" },
       { url: "/more", title: "More from us" }
+    ]
+  end
+
+  def short_navigation_links
+    [
+      { url: "/intranet/", title: "Home" }
     ]
   end
 

@@ -1,3 +1,7 @@
+**Bugfix**
+
+- when header links are collapsed into the nav menu, always show the nav menu when the header links are hidden
+
 ## v8.0.2
 
 ### 12 June 2025
