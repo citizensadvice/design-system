@@ -1,3 +1,4 @@
+/* eslint-disable vitest/expect-expect */
 const stylelintConfig = require('./stylelint.config');
 
 function testCadsPattern(pattern) {
