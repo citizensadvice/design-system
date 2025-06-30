@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     renders_many :errors, "Error"
 
     def initialize(heading_level: nil, autofocus: true)
-      super
       @heading_level = heading_level || 2
       @autofocus = autofocus
     end

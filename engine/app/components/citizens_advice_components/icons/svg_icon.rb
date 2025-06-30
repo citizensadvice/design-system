@@ -6,7 +6,6 @@ module CitizensAdviceComponents
       attr_reader :size, :icon_name
 
       def initialize(size:, icon_name:)
-        super
         @size = fetch_or_fallback(
           allowed_values: %i[small large],
           given_value: size,

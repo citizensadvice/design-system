@@ -8,7 +8,6 @@ module CitizensAdviceComponents
     attr_reader :variant, :type, :attributes
 
     def initialize(variant: :primary, type: :button, attributes: nil)
-      super
       @variant = fetch_or_fallback(
         allowed_values: %i[primary secondary tertiary],
         given_value: variant,

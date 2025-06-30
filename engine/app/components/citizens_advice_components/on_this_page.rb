@@ -7,7 +7,6 @@ module CitizensAdviceComponents
     renders_many :links, "Link"
 
     def initialize(show_nested_links: false)
-      super
       @show_nested_links = show_nested_links
     end
 

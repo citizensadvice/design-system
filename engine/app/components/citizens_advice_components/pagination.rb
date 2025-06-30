@@ -3,7 +3,6 @@
 module CitizensAdviceComponents
   class Pagination < Base
     def initialize(current_params:, num_pages:, current_page:, param_name: nil)
-      super
       @current_params = current_params
       @num_pages = num_pages
       @current_page = current_page

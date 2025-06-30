@@ -7,7 +7,6 @@ module CitizensAdviceComponents
     renders_one :checkbox, Checkable::Checkbox
 
     def initialize(name:, id: nil, error_message: nil)
-      super
       @name = name
       @id = id
       @error_message = error_message

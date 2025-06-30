@@ -7,9 +7,10 @@
     "backstop:reference": "npx backstop reference --docker --config=backstop-config.js",
     "backstop:approve": "npx backstop approve --config=backstop-config.js",
     "backstop:report": "npx backstop openReport --config=backstop-config.js",
-    "backstop:ci": "start-server-and-test start-test-server $(node backstop-test-url.js) backstop:actions",
+    "backstop:local": "start-server-and-test start-test-server $(node backstop-local-test-url.js) backstop",
+    "backstop:ci": "start-server-and-test start-test-server $(node backstop-actions-test-url.js) backstop:actions",
     "backstop:actions": "npx backstop test --docker --config=backstop-config-actions.js",
-    "start-test-server": "./bin/rails assets:precompile && ./bin/rails server -p 3001",
+    "start-test-server": "RAILS_ENV=test ./bin/rails assets:precompile && ./bin/rails server -e test",
     "build:css": "sass ./app/assets/stylesheets/:./app/assets/builds --no-source-map --load-path=node_modules",
     "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },

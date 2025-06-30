@@ -27,3 +27,19 @@ Font files can be synced between the package and the engine with:
 ```
 rake sync_fonts
 ```
+
+## Testing older library versions
+
+We use Appraisal for managing different gemfiles for older Rails versions as well as for testing new ViewComponent versions. You can run appraisals using:
+
+```sh
+bundle exec appraisal install
+```
+
+Followed by:
+
+```sh
+bundle exec appraisal rake spec
+```
+
+See the [Appraisal docs](https://github.com/thoughtbot/appraisal) for a full list of commands.

@@ -19,10 +19,13 @@ module CitizensAdviceComponents
     end
 
     def skip_links_to_show
-      skip_links.presence || default_skip_links
+      skip_links? ? skip_links : fallback_skip_links
     end
 
-    def default_skip_links
+    # Avoid conflicting with the default_slot_name
+    # method from ViewComponent 4+ designed to work for single slots
+    # https://viewcomponent.org/guide/slots.html#default_slot_name
+    def fallback_skip_links
       [
         SkipLink.new(
           title: t("citizens_advice_components.header.skip_to_navigation"),
@@ -43,7 +46,6 @@ module CitizensAdviceComponents
       attr_reader :title, :url
 
       def initialize(title: nil, url: "/")
-        super
         @title = title
         @url = url
       end
@@ -68,7 +70,6 @@ module CitizensAdviceComponents
       attr_reader :title, :url, :lang
 
       def initialize(title:, url:, current_site: false, lang: nil)
-        super
         @title = title
         @url = url
         @current_site = current_site
@@ -92,7 +93,6 @@ module CitizensAdviceComponents
       attr_reader :title, :url
 
       def initialize(title:, url:)
-        super
         @title = title
         @url = url
       end
@@ -106,7 +106,6 @@ module CitizensAdviceComponents
       attr_reader :title, :url
 
       def initialize(title: nil, url: nil)
-        super
         @title = title
         @url = url
       end
@@ -128,7 +127,6 @@ module CitizensAdviceComponents
       attr_reader :search_action_url, :search_param
 
       def initialize(search_action_url:, search_param: nil)
-        super
         @search_action_url = search_action_url
         @search_param = search_param || :q
       end

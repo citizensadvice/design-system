@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :message
 
     def initialize(message:)
-      super
       @message = message
     end
 

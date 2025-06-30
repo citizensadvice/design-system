@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :label
 
     def initialize(label:)
-      super
       @label = label
     end
 

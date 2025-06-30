@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :type
 
     def initialize(links:, type: :collapse, current_page: true, full_width: true)
-      super
       @links = links
       @type = fetch_or_fallback(
         allowed_values: %i[collapse no_collapse],

@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :header, :caption
 
     def initialize(header:, rows:, caption: nil, responsive_headers: true)
-      super
       @header = header
       @rows = rows
       @caption = caption

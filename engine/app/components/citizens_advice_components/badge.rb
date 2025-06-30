@@ -5,8 +5,6 @@ module CitizensAdviceComponents
     attr_reader :type
 
     def initialize(type:)
-      super
-
       # Fallback to nil if an invalid type is provided,
       # i.e. don't render the badge
       @type = fetch_or_fallback(
