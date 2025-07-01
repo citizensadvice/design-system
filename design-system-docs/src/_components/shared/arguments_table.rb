@@ -11,6 +11,7 @@ module Shared
 
     def call
       render CitizensAdviceComponents::Table.new(
+        caption: "Component arguments",
         header: %w[Argument Description],
         rows: data.map do |item|
           [tag.code(item[:argument]), item[:description].html_safe]
