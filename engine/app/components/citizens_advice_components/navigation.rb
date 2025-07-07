@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :links
 
     def initialize(links:)
-      super
       @links = links
     end
 

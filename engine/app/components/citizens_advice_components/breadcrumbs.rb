@@ -8,8 +8,6 @@ module CitizensAdviceComponents
     # passing breadcrumbs in as the first argument for a cleaner API.
     # Remove the links argument in v9.0.0
     def initialize(breadcrumbs = nil, links: nil, type: :collapse, current_page: true, full_width: true)
-      super
-
       @deprecated_links = links
       @breadcrumbs = breadcrumbs.presence || links
       @type = fetch_or_fallback(

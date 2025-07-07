@@ -11,7 +11,6 @@ module CitizensAdviceComponents
       heading_level: nil,
       show_close_button: nil
     )
-      super
       @title = title
       @id = id
       @type = fetch_or_fallback(allowed_values: %i[public adviser], given_value: type, fallback: :public)

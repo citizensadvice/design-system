@@ -9,7 +9,6 @@ module CitizensAdviceComponents
     attr_reader :title, :section_title, :section_title_url, :additional_attributes
 
     def initialize(title:, section_title:, section_title_url: nil)
-      super
       @title = title
       @section_title = section_title
       @section_title_url = section_title_url

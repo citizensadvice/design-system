@@ -3,7 +3,6 @@
 module CitizensAdviceComponents
   class PageReview < Base
     def initialize(page_review_date:, date_format: nil)
-      super
       @date_format = date_format || "%d %B %Y"
       @page_review_date = page_review_date
     end

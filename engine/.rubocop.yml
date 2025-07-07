@@ -7,6 +7,9 @@ AllCops:
   SuggestExtensions: false
   # Match minimum target version to gemspec
   TargetRubyVersion: 3.2
+  Exclude:
+    # Ignore generated appraisal gemfiles
+    - 'gemfiles/*'
 
 Lint/MissingSuper:
   Exclude:
