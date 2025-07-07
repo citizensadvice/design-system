@@ -70,12 +70,6 @@ radio_group:
   - argument: legend_heading
     description: '→ Optional, wraps the text inside the legend in <code>h1</code>'
 breadcrumbs:
-  - argument: links
-    description: Required, an array of hashes, each with the following
-  - argument: link[url]
-    description: → Required, url for the breadcrumb link
-  - argument: link[title]
-    description: → Required, title for the breadcrumb link
   - argument: type
     description: 'Optional, one of <code>:collapse</code> (default), <code>:no_collapse</code>'
   - argument: current_page

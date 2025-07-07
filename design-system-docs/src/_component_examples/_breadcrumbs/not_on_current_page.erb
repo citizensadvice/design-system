@@ -1,23 +1,12 @@
 ---
 title: Not on current page
 ---
-<%= render ( 
-  CitizensAdviceComponents::Breadcrumbs.new(
-      type: :no_collapse,
-      current_page: false,
-      links: [
-        {
-          title: "Home",
-          url: "/"
-        },
-        {
-          title: "Immigration",
-          url: "/immigration"
-        },
-        {
-          title: "Staying in the UK"
-        }
-      ]
-    )
-  )
-%>
+<%= render CitizensAdviceComponents::Breadcrumbs.new(
+  [
+    { title: "Home", url: "/" },
+    { title: "Immigration", url: "/immigration" },
+    { title: "Staying in the UK" }
+  ],
+  type: :no_collapse,
+  current_page: false,
+) %>

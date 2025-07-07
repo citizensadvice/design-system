@@ -1,3 +1,43 @@
+**New**
+
+- Add breadcrumb helpers for use in Rails applications.
+
+  Make the following helpers available in controllers:
+
+  - `cads_default_breadcrumbs` for defining an array of default breadcrumbs to use
+  - `cads_add_breadcrumb` for setting a breadcrumb from within a controller 
+  - `cads_add_breadcrumbs` for setting multiple breadcrumbs at once from within a controller
+
+  In addition breadcrumbs can be accessed via a `cads_breadcrumbs` view helper:
+
+  ```
+  render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs)
+  ```
+
+  Typically used from within your application layout:
+
+  ```erb
+  <div class="cads-page">
+    <div class="cads-page-header">
+      <%= render AppHeaderComponent.new %>
+    </div>
+    <div class="cads-page-wrapper">
+      <%= render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs) %>
+      <div id="cads-main-content"><%= yield %></div>
+    </div>
+    <div class="cads-page-footer"><%= render AppFooterComponent.new %></div>
+  </div>
+  ```
+
+  To provide a cleaner interface for the newly provided breadcrumbs helpers the breadcrumbs
+  component has also been updated to accept breadcrumbs as the first argument:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new([])
+  ```
+
+  The previous `links` positional argument will still work but will log a deprecation warning.
+
 ## v8.0.3
 
 ### 30 June 2025
