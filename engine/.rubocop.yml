@@ -24,6 +24,10 @@ Style/HashSyntax:
   # encourages greater readability so support either style
   EnforcedShorthandSyntax: "either"
 
+Metrics/ParameterLists:
+  # Prefer explicit parameters over compact interfaces
+  Max: 8
+
 RSpec/ExampleLength:
   Max: 12
   CountAsOne: ["array", "hash"]
