@@ -8,8 +8,8 @@ gem "rails", "~> 8.0.2"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# Rails asset pipeline [https://github.com/rails/propshaft]
+gem "propshaft"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"

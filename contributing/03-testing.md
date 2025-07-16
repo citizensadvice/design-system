@@ -14,21 +14,28 @@ We have a number of different layers of tests:
 - Cypress tests (component behaviour tests as well as accessibility checks)
 - Backstop (for visual regression testing)
 
-### Prettier, Stylelint, Eslint, and Jest
+For development purposes we provide a top-level script to run all checks:
 
-The repository is centred around a node-module which is managed by the `package.json` at the top-level of the repository. This provides commands for running prettier against the project as well as linting (eslint) and unit tests (jest) for client-side code.
+```
+./check-all
+```
+
+This can take a while to run so is most useful to check your local environment and to run once you've finished developing a new feature. The rest of this guide covers the each type of check in more detail and how to run them individually.
+
+### Prettier, Stylelint, ESLint, and Jest
+
+The repository is centred around a node module which is managed by the `package.json` at the top-level of the repository. This provides commands for running prettier against the project as well as linting (eslint) and unit tests (jest) for client-side code.
 
 All top-level package commands can be run using `npm run`:
 
-| Command       | Description                                                                 |
-| ------------- | --------------------------------------------------------------------------- |
-| `build`       | Runs a build of the npm package (`tsc -b` followed by a `size-limit` check) |
-| `test`        | Runs all jest tests                                                         |
-| `lint`        | Runs all linting checks (prettier, eslint, stylelint)                       |
-| `lint:css`    | Runs only `stylelint` on the project code                                   |
-| `lint:js`     | Runs only `eslint` on the project code                                      |
-| `lint:format` | Run `prettier --check` on the project code                                  |
-| `format`      | Auto-format all eligible code with prettier                                 |
+| Command       | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| `test`        | Runs all jest tests                                   |
+| `lint`        | Runs all linting checks (prettier, eslint, stylelint) |
+| `lint:css`    | Runs only `stylelint` on the project code             |
+| `lint:js`     | Runs only `eslint` on the project code                |
+| `lint:format` | Run `prettier --check` on the project code            |
+| `format`      | Auto-format all eligible code with prettier           |
 
 ### RuboCop
 
@@ -40,12 +47,12 @@ rake rubocop
 
 You can also run `rake rubocop:autocorrect` or `rake rubocop:autocorrect_all` to handle auto-corrections.
 
-### ERBLint
+### ERB Lint
 
-We run `erblint` as templating lint check against our `engine` directory. From the `engine` directory run:
+We run `erb_lint` as templating lint check against our `engine` directory. From the `engine` directory run:
 
 ```sh
-rake erblint
+rake erb_lint
 ```
 
 ### RSpec
@@ -55,6 +62,20 @@ We run a suite of RSpec tests against our `engine` directory. From the `engine` 
 ```
 rake spec
 ```
+
+We use Appraisal for managing different gemfiles for older Rails versions as well as for testing new ViewComponent versions. You can run appraisals using:
+
+```sh
+bundle exec appraisal install
+```
+
+Followed by:
+
+```sh
+bundle exec appraisal rake spec
+```
+
+See the [Appraisal docs](https://github.com/thoughtbot/appraisal) for a full list of commands.
 
 ### Cypress
 
@@ -101,17 +122,17 @@ npm run backstop:report
 
 If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
 
-```
+```sh
 npm run backstop:approve
 ```
 
 You can run tests for a specific set of scenarios by passing a filter to the backstop command where `Example` is the search term you want to filter by.
 
-```
+```sh
 npm run backstop -- --filter=Example
 ```
 
-For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
+For more details see the [BackstopJS Github page](https://github.com/garris/BackstopJS)
 
 ## Testing with your application
 
@@ -120,8 +141,6 @@ If you'd like to test design system changes locally with your own Rails applicat
 You'll first need to check out a copy of this repository locally and follow the [setup instructions](./02-local-setup.md).
 
 The rest of the instructions assume that the design system has been checked out in the same parent directory as your project with the directory name `design-system`. If this is different you'll need to adjust the relative paths to suit your application.
-
-### Configuring your application
 
 You'll first need to change the path to the design system in your `package.json` to:
 
@@ -141,12 +160,7 @@ Then run run `bundle install` to install the local version of the Rails engine.
 
 Following this you can run your application as normal to start using a local copy of the design system.
 
-### Making local changes to the design system
-
-If you are making local changes to the design system you'll need to:
-
-1. Run `npm run build` from the design-system project if you've changed any JavaScript files (otherwise you can skip this)
-2. Restart your application to pick up any new changes
+If you are making local changes to the design system you may need to restart your application to pick up any new changes.
 
 Once you've finished testing remember to reset the change to your application's `package.json` and `Gemfile` respectively.
 

@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     attr_reader :type, :attributes
 
     def initialize(type: nil, attributes: nil)
-      super
       @type = fetch_or_fallback(
         allowed_values: %i[standard example important adviser],
         given_value: type,

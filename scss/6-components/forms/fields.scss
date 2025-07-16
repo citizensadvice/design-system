@@ -33,10 +33,6 @@
   margin-bottom: 0;
 }
 
-.cads-form-field__heading {
-  @extend %cads-h1;
-}
-
 .cads-form-field__optional {
   color: $cads-language__secondary-text-colour;
   font-weight: normal;

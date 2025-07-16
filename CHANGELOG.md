@@ -1,8 +1,146 @@
 **New**
 
-- Support `page_heading` option when using the form builder
+- Support `page_heading` option for radio and checkbox collections
+
+  This option was added to text inputs, date inputs, and text areas but not radio and checkbox collections. There was a historical `legend_heading` option which performed a similar function so this has been brought in line with the new behaviour.
+
+  The previous option is supported but will log a deprecation warning.
+
+- Add breadcrumb helpers for use in Rails applications.
+
+  Make the following helpers available in controllers:
+
+  - `cads_default_breadcrumbs` for defining an array of default breadcrumbs to use
+  - `cads_add_breadcrumb` for setting a breadcrumb from within a controller 
+  - `cads_add_breadcrumbs` for setting multiple breadcrumbs at once from within a controller
+
+  In addition breadcrumbs can be accessed via a `cads_breadcrumbs` view helper:
+
+  ```
+  render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs)
+  ```
+
+  Typically used from within your application layout:
+
+  ```erb
+  <div class="cads-page">
+    <div class="cads-page-header">
+      <%= render AppHeaderComponent.new %>
+    </div>
+    <div class="cads-page-wrapper">
+      <%= render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs) %>
+      <div id="cads-main-content"><%= yield %></div>
+    </div>
+    <div class="cads-page-footer"><%= render AppFooterComponent.new %></div>
+  </div>
+  ```
+
+  To provide a cleaner interface for the newly provided breadcrumbs helpers the breadcrumbs
+  component has also been updated to accept breadcrumbs as the first argument:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new([])
+  ```
+
+  The previous `links` positional argument will still work but will log a deprecation warning.
+
+## v8.0.3
+
+### 30 June 2025
+
+**Bugfix**
+
+- when header links are collapsed into the nav menu, always show the nav menu when the header links are hidden
+- fix the colour of the text on the header button when focussed and active
+
+## v8.0.2
+
+### 12 June 2025
+
+**Bugfix**
+
+- small visual tweaks to the new header button following designer review to best align with other elements in header
+
+## v8.0.1
+
+### 11 June 2025
+
+**Bugfix**
+
+- the focus colour of the new header button was incorrect, this fixes it
+
+## v8.0.0
+
+### 10 June 2025
+
+**New**
+
+- Add header_buttons slot to header to enable Donate button to be shown in header on public-website
 - Re-add rails-i18n as a dependency for welsh date translations
-- Adds an example wizard steps form to the demo app
+- Support `page_heading` option when using the form builder
+- Adds new typography classes for paragraph and headings in addition to the existing extends
+- Update breadcrumbs component to remove dependency on the icon font
+- **BREAKING:** Deprecate icon font. Disables `$cads-enable-icon-font` by default.
+
+  If you are still relying on the icon font in your application you can
+  add the following to your SCSS settings:
+
+  ```scss
+  $cads-enable-icon-font: true
+  ```
+
+  This will be removed completely in a future version, you should migrate
+  your application to use SVG icons instead.
+
+- Bundle fonts as part of the Rails Engine
+
+  Allows applications to remove the previous manual config from `config/initializers/assets/rb`:
+
+  ```diff
+  - # Add design system fonts to the asset load path
+  - Rails.application.config.assets.paths << Rails.root.join("node_modules/@citizensadvice/design-system/assets/fonts")
+  ```
+
+  The Rails engine now bundles the fonts directly and adds them to the asset pipeline for you. As a convenience you can swap `lib.scss` out with `rails.scss` when importing the design system library:
+
+  ```scss
+  @import '@citizensadvice/design-system/scss/rails.scss';
+  ```
+
+  This is the equivalent to the following:
+
+  ```scss
+  // Configure the font-path for use with the Rails engine
+  // which bundles a copy of the fonts to allow them to be auto loaded.
+  $cads-font-path: './citizens_advice_components';
+
+  @import '@citizensadvice/design-system/scss/lib.scss';
+  ```
+
+- Adds new core page layout classes:
+
+  ```html
+  <div class="cads-page">
+    <div class="cads-page-header"><!-- Application header --></div>
+    <div class="cads-page-wrapper">
+      <div id="cads-main-content"><!-- Application content --></div>
+    </div>
+    <div class="cads-page-footer"><!-- Application footer --></div>
+  <div>
+  ```
+
+- Adds new `PageContent` component for common layouts:
+
+  ```erb
+  <%= render CitizensAdviceComponents::PageContent.new do |c| %>
+    <% c.with_main do %>
+      <h1 class="cads-page-title">Hello Design System!</h1>
+    <% end %>
+    <% c.with_sidebar do %>
+      Some sidebar content
+    <% end %>
+  <% end %>
+  ```
 
 ## v7.0.0
 

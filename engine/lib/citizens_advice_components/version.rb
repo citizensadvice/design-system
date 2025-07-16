@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  VERSION = "7.0.0"
+  VERSION = "8.0.3"
 end

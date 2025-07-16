@@ -6,6 +6,7 @@ The following guides are to help you in contributing to the design system codeba
 2. [Local setup](./contributing/02-local-setup.md)
 3. [Testing](./contributing/03-testing.md)
 4. [Release process](./contributing/04-release-process.md)
+5. [Maintenance policy](./contributing/05-maintenance-process.md)
 
 ## Architecture decision records
 

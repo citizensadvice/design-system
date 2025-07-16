@@ -5,7 +5,6 @@ vendor/
 assets/
 CHANGELOG.md
 docs/
-lib/
 
 # Ignore Rails demo app files
 /demo/public/

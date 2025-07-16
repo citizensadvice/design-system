@@ -7,6 +7,7 @@ module CitizensAdviceComponents
 
     renders_one :account_link, "AccountLink"
     renders_one :logo, "HeaderLogo"
+    renders_one :header_button, "HeaderButton"
     renders_one :search_form, "HeaderSearch"
 
     def render?
@@ -14,14 +15,17 @@ module CitizensAdviceComponents
     end
 
     def show_right_column?
-      header_links.any? || account_link.present? || search_form.present?
+      header_links.any? || header_button.present? || account_link.present? || search_form.present?
     end
 
     def skip_links_to_show
-      skip_links.presence || default_skip_links
+      skip_links? ? skip_links : fallback_skip_links
     end
 
-    def default_skip_links
+    # Avoid conflicting with the default_slot_name
+    # method from ViewComponent 4+ designed to work for single slots
+    # https://viewcomponent.org/guide/slots.html#default_slot_name
+    def fallback_skip_links
       [
         SkipLink.new(
           title: t("citizens_advice_components.header.skip_to_navigation"),
@@ -42,7 +46,6 @@ module CitizensAdviceComponents
       attr_reader :title, :url
 
       def initialize(title: nil, url: "/")
-        super
         @title = title
         @url = url
       end
@@ -67,7 +70,6 @@ module CitizensAdviceComponents
       attr_reader :title, :url, :lang
 
       def initialize(title:, url:, current_site: false, lang: nil)
-        super
         @title = title
         @url = url
         @current_site = current_site
@@ -87,11 +89,23 @@ module CitizensAdviceComponents
       end
     end
 
+    class HeaderButton < Base
+      attr_reader :title, :url
+
+      def initialize(title:, url:)
+        @title = title
+        @url = url
+      end
+
+      def call
+        link_to title, url, class: "cads-button cads-button__primary"
+      end
+    end
+
     class AccountLink < Base
       attr_reader :title, :url
 
       def initialize(title: nil, url: nil)
-        super
         @title = title
         @url = url
       end
@@ -113,7 +127,6 @@ module CitizensAdviceComponents
       attr_reader :search_action_url, :search_param
 
       def initialize(search_action_url:, search_param: nil)
-        super
         @search_action_url = search_action_url
         @search_param = search_param || :q
       end

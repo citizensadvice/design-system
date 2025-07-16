@@ -12,13 +12,13 @@ cd "$(dirname "$0")"
 function setup_npm_package() {
   echo_task "Installing and setting up the npm package"
   npm install
-  npm run build
 }
 
 function setup_engine() {
   echo_task "Installing Rails engine dependencies"
   pushd engine
   bundle install
+  bundle exec appraisal install
   popd
 }
 

@@ -45,7 +45,6 @@ module.exports = function backstopCommon(baseUrl) {
         url: `${baseUrl}/${url}`,
         onReadyScript: 'onReadyEmulatePrint.js',
         viewports: [{ label: 'print', width: 1024, height: 1024 }],
-        selectors: ['#content'],
       },
       {
         label: `${labelPrefix}`,
@@ -408,6 +407,11 @@ module.exports = function backstopCommon(baseUrl) {
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {
+        label: `Forms/Radio group (page heading)`,
+        url: componentUrlFor(`radio_group/page_heading`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
         label: `Forms/Checkbox group (basic)`,
         url: componentUrlFor(`checkbox_group/basic`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
@@ -430,6 +434,11 @@ module.exports = function backstopCommon(baseUrl) {
       {
         label: `Forms/Checkbox group (long)`,
         url: componentUrlFor(`checkbox_group/long`),
+        viewports: [{ label: 'form-field', width: 800, height: 400 }],
+      },
+      {
+        label: `Forms/Checkbox group (page heading)`,
+        url: componentUrlFor(`checkbox_group/page_heading`),
         viewports: [{ label: 'form-field', width: 800, height: 400 }],
       },
       {

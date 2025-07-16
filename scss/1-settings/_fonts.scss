@@ -3,5 +3,5 @@
 // in the same directory as compiled stylesheets
 $cads-font-path: '.' !default;
 
-// Allow icon fonts to be disabled (used to test deprecating icon fonts completely)
-$cads-enable-icon-font: true !default;
+// Controls if the icon font is enabled (Deprecated: disabled by default)
+$cads-enable-icon-font: false !default;

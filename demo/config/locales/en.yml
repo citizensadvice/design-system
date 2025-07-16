@@ -63,3 +63,5 @@ en:
         text_area_default: Default
         text_area_required: Required
         text_area_with_hint: With hint
+  global:
+    home: Home

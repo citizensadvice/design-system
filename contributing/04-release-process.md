@@ -59,3 +59,7 @@ Once the npm package has been published you need to make a release in GitHub.
 4. Copy the contents of the changelog for the release into the release notes section
 5. If you are publishing and alpha or beta version check "This is a pre-release"
 6. Publish the release
+
+## Read next
+
+[Maintenance policy →](./05-maintenance-policy.md)

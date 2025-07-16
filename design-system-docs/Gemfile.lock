@@ -15,7 +15,7 @@ GIT
 PATH
   remote: ../engine
   specs:
-    citizens_advice_components (7.0.0)
+    citizens_advice_components (8.0.3)
       actionpack (>= 7.1.0, < 9.0)
       actionview (>= 7.1.0, < 9.0)
       activemodel (>= 7.1.0, < 9.0)
@@ -23,7 +23,7 @@ PATH
       activesupport (>= 7.1.0, < 9.0)
       rails-i18n (>= 7.0.10)
       railties (>= 7.1.0, < 9.0)
-      view_component (>= 2.0.0, < 4.0)
+      view_component (>= 2.0.0, < 5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -67,9 +67,9 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     amazing_print (1.6.0)
     ast (2.4.3)
-    base64 (0.2.0)
-    benchmark (0.4.0)
-    bigdecimal (3.1.9)
+    base64 (0.3.0)
+    benchmark (0.4.1)
+    bigdecimal (3.2.1)
     bridgetown (1.3.4)
       bridgetown-builder (= 1.3.4)
       bridgetown-core (= 1.3.4)
@@ -109,12 +109,12 @@ GEM
       view_component (>= 2.49)
     builder (3.3.0)
     colorator (1.1.0)
-    concurrent-ruby (1.3.4)
-    connection_pool (2.5.0)
+    concurrent-ruby (1.3.5)
+    connection_pool (2.5.3)
     crass (1.0.6)
     csv (3.3.0)
     date (3.4.1)
-    drb (2.2.1)
+    drb (2.2.3)
     erubi (1.13.0)
     faraday (2.12.1)
       faraday-net_http (>= 2.0, < 3.5)
@@ -155,12 +155,12 @@ GEM
     net-http (0.6.0)
       uri
     nio4r (2.7.4)
-    nokogiri (1.18.7)
+    nokogiri (1.18.8)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.18.7-arm64-darwin)
+    nokogiri (1.18.8-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.7-x86_64-darwin)
+    nokogiri (1.18.8-x86_64-darwin)
       racc (~> 1.4)
     parallel (1.26.3)
     parser (3.3.7.4)
@@ -174,8 +174,9 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.12)
-    rack-session (2.0.0)
+    rack (3.1.16)
+    rack-session (2.1.1)
+      base64 (>= 0.1.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
       rack (>= 1.3)
@@ -267,9 +268,9 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.3)
     useragent (0.16.11)
-    view_component (3.22.0)
+    view_component (3.23.2)
       activesupport (>= 5.2.0, < 8.1)
-      concurrent-ruby (= 1.3.4)
+      concurrent-ruby (~> 1)
       method_source (~> 1.0)
     zeitwerk (2.7.1)
 
@@ -287,7 +288,7 @@ DEPENDENCIES
   htmlbeautifier
   nokogiri
   puma
-  view_component (~> 3.22)
+  view_component (~> 3.23)
 
 BUNDLED WITH
    2.5.9

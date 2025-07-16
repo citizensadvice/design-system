@@ -6,6 +6,7 @@ class HeaderPreview < ViewComponent::Preview
       c.with_logo(title: "Citizens Advice homepage", url: "/")
       c.with_skip_links(skip_links)
       c.with_header_links(header_links)
+      c.with_header_button(title: "Donate", url: "/about-us/donate/")
       c.with_search_form(search_action_url: "/search")
       c.with_account_link(title: "Sign in", url: "/sign-in")
     end
@@ -47,6 +48,17 @@ class HeaderPreview < ViewComponent::Preview
     )
   end
 
+  def with_short_navigation
+    render_with_template(
+      template: "header_preview/with_navigation",
+      locals: {
+        skip_links:,
+        header_links:,
+        navigation_links: short_navigation_links
+      }
+    )
+  end
+
   private
 
   def navigation_links
@@ -61,6 +73,12 @@ class HeaderPreview < ViewComponent::Preview
       { url: "/immigration/", title: "Immigration" },
       { url: "/health/", title: "Health" },
       { url: "/more", title: "More from us" }
+    ]
+  end
+
+  def short_navigation_links
+    [
+      { url: "/intranet/", title: "Home" }
     ]
   end
 

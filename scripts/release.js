@@ -7,7 +7,7 @@ const { prompt } = require('inquirer').default;
 const semver = require('semver');
 const { checkRepoStatus, ok, showError } = require('./releaseHelpers');
 
-const log = console.log; // eslint-disable-line
+const log = console.log;
 const DO_NOT_RELEASE = 'Do not release';
 const PATH = path.join(__dirname, '..');
 const ORG_NAME = '@citizensadvice';
@@ -62,7 +62,7 @@ prompt([
 
   const packageVersion =
     packageVersions ||
-    require(path.join(__dirname, '..', 'package.json')).version; // eslint-disable-line
+    require(path.join(__dirname, '..', 'package.json')).version;
   const packageSemver = semver.parse(packageVersion);
   log(
     `The latest published version of ${FULL_PACKAGE_NAME} is currently ${chalk.bold(
@@ -88,7 +88,7 @@ prompt([
   );
   choices.push(DO_NOT_RELEASE);
 
-  const currentVersion = packageVersion; // eslint-disable-line
+  const currentVersion = packageVersion;
 
   log(chalk.dim('---'));
 

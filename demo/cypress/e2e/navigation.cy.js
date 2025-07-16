@@ -67,6 +67,20 @@ describe('Navigation', () => {
     });
   });
 
+  context('when on a small screen with a short nav', () => {
+    beforeEach(() => {
+      loadComponentExampleWithShortNav();
+      cy.viewport(375, 667);
+    });
+
+    it('moves header navigation items into the greedy navigation even if no main nav items have been', () => {
+      cy.findByRole('button', { name: /More/i }).click();
+      assertItemsInMainNavigation(['Home']);
+
+      assertItemsInGreedyNavigation(['AdviserNet', 'Cymraeg', 'Sign in']);
+    });
+  });
+
   context('when interacting with a mouse', () => {
     beforeEach(() => {
       loadComponentExample();
@@ -142,6 +156,10 @@ describe('Navigation', () => {
 
   function loadComponentExample(locale = 'en') {
     cy.visitComponentUrl('header/with_navigation', locale);
+  }
+
+  function loadComponentExampleWithShortNav(locale = 'en') {
+    cy.visitComponentUrl('header/with_short_navigation', locale);
   }
 
   function assertNavigationOpen() {

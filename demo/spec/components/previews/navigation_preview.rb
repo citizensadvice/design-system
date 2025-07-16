@@ -17,4 +17,14 @@ class NavigationPreview < ViewComponent::Preview
       ]
     )
   end
+
+  def short
+    render CitizensAdviceComponents::Navigation.new(
+      links: [
+        { url: "/intranet/", title: "Home" },
+        { url: "/intranet/national/browse/", title: "Topics" },
+        { url: "/intranet/search/", title: "Search" }
+      ]
+    )
+  end
 end

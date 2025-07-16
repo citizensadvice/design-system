@@ -12,7 +12,7 @@ Use breadcrumbs when a page is located in a hierarchy of at least two levels.
 
 ## When not to use
 
-Do not use breadcrumbs on a website with a flat hierarchy or to show the journey through a transaction. If a page is taking users through a multistep process, use the "[Step-by-step Sidebar Navigation](https://www.figma.com/file/J9qfbS9n1pUM2dpRQnTXUD/Design-system-2.0?node-id=813%3A132)" (or consider if a progress indicator is needed) instead.
+Do not use breadcrumbs on a website with a flat hierarchy or to show the journey through a transaction. If a page is taking users through a multistep process, use the "[Step-by-step Sidebar Navigation](https://www.figma.com/file/J9qfbS9n1pUM2dpRQnTXUD/Design-system-2.0?node-id=813%3A132)" (or consider if a progress indicator is needed instead).
 
 ## How it works
 
@@ -35,10 +35,7 @@ Make sure your breadcrumb items reflect the page titles exactly for screen reade
 
 ## Site level breadcrumbs
 
-When breadcrumbs are displayed across the top of site content they must be wrapped in a `.cads-breadcrumb-wrapper`, this
-will correctly style and align the breadcrumbs with site content. See sample pages for details.
-
-NB: If you are using the `ViewComponent` version of the breadcrumbs, they will be wrapped for you by default. You can pass `full_width: false` if you don't want those crumbs wrapped.
+When breadcrumbs are displayed across the top of site content they are wrapped in a `.cads-breadcrumb-wrapper`.
 
 <%= render(Shared::ComponentExample.new(:breadcrumbs, :default)) %>
 
@@ -46,19 +43,19 @@ NB: If you are using the `ViewComponent` version of the breadcrumbs, they will b
 
 ### No collapse
 
-To prevent the default collapse behaviour on the small breakpoint, pass `"type" => "no-collapse"`. For example: in search results.
+Prevents the default collapse behaviour on the small breakpoint (for example in search results).
 
 <%= render(Shared::ComponentExample.new(:breadcrumbs, :no_collapse)) %>
 
 ### Long page titles in breadcrumbs
 
-This story shows how longer breadcrumb titles are displayed.
+This example shows how longer breadcrumb titles are displayed.
 
 <%= render(Shared::ComponentExample.new(:breadcrumbs, :long)) %>
 
 ### Not full width
 
-When shown somewhere where they should not be full width, as in a search result, you can pass in `full_width: false`. This will prevent the default wrapping behaviour mentioned above.
+Used when the breadcrumb should not be full width, as in a search result. This will prevent the default wrapping behaviour mentioned above.
 
 <%= render(Shared::ComponentExample.new(:breadcrumbs, :not_full_width)) %>
 
@@ -70,10 +67,16 @@ If you do not want the last crumb to indicate the current page (for screen reade
 
 ## Using with Rails
 
-If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+If you are using the `citizens_advice_components` gem there is a view component interface provided. For the default use-case of rendering a global breadcrumb trail we provide some helpers so that breadcrumbs can be rendered with this one-liner:
+
+```erb
+<%% render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs) %%>
+```
+
+See the [Using with Rails](/guides/using-with-rails) for more information about how the helper works. If you using the component for anything custom you can populate the links manually:
 
 <%= render(Shared::ComponentExampleSource.new(:breadcrumbs, :default)) %>
 
-### Component arguments
+The component accepts an array of links with a `url` and `title` properties, in addition to the following optional component arguments:
 
 <%= render Shared::ArgumentsTable.new(:breadcrumbs) %>

@@ -1,5 +1,8 @@
 .generators
 .rakeTasks
 
+# https://github.com/thoughtbot/appraisal?tab=readme-ov-file#version-control
+gemfiles/*.gemfile.lock
+
 /spec/test_app/tmp/*
 /spec/test_app/log/*

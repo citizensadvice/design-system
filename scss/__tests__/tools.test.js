@@ -1,9 +1,10 @@
-/* eslint-env jest */
 const sass = require('sass');
 const path = require('path');
 
 test('importing tools does not output css', () => {
-  const output = sass.compile(`scss/2-tools/tools-imports.scss`);
+  const output = sass.compile(`scss/2-tools/tools-imports.scss`, {
+    logger: sass.Logger.silent,
+  });
   expect(output.css.toString()).toEqual('');
 });
 
@@ -14,7 +15,10 @@ describe('animation', () => {
         `@use 'scss/2-tools/animation';
         .example { @include animation.cads-transition-animation(); }
         .example-custom { @include animation.cads-transition-animation(color); }`,
-        { loadPaths: [path.resolve(__dirname, '../../')] },
+        {
+          loadPaths: [path.resolve(__dirname, '../../')],
+          logger: sass.Logger.silent,
+        },
       )
       .css.toString();
     expect(output).toContain('transition-property: background, border;');
@@ -47,6 +51,7 @@ describe('grid', () => {
 
     const result = sass.compileString(data, {
       loadPaths: [path.resolve(__dirname, '../../')],
+      logger: sass.Logger.silent,
     });
     expect(result.css.toString()).toContain(`width: ${expected};`);
   });
@@ -63,6 +68,7 @@ describe('grid', () => {
     expect(() =>
       sass.compileString(data, {
         loadPaths: [path.resolve(__dirname, '../../')],
+        logger: sass.Logger.silent,
       }),
     ).toThrow(`Column count can't be greater than $cads-grid-columns`);
   });
@@ -82,6 +88,7 @@ describe('typography', () => {
         .adjacent { @include typography.cads-adjacent-heading-margin(2em); }`,
           {
             loadPaths: [path.resolve(__dirname, '../../')],
+            logger: sass.Logger.silent,
           },
         )
         .css.toString(),
