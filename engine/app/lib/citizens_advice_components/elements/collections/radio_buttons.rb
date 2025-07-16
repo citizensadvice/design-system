@@ -8,8 +8,10 @@ module CitizensAdviceComponents
           tag.div(class: form_field_classes) do
             safe_join([
               error_marker,
-              tag.fieldset(class: "cads-form-field__content cads-form-group cads-form-group--radio") do
-                safe_join([legend_html, hint_html, error_message_html, radios_html])
+              tag.div(class: "cads-form-field__content") do
+                tag.fieldset(class: "cads-form-group cads-form-group--radio") do
+                  safe_join([legend_html, hint_html, error_message_html, radios_html])
+                end
               end
             ])
           end

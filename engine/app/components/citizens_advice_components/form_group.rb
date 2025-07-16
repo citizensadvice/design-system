@@ -19,18 +19,31 @@ module CitizensAdviceComponents
       @hint = options[:hint]
       @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
       @legend_heading = fetch_or_fallback_boolean(options[:legend_heading], fallback: false)
+      @page_heading = fetch_or_fallback_boolean(options[:page_heading], fallback: false)
+
+      legend_heading_deprecation
+    end
+
+    def extra_fieldset_classes
+      []
+    end
+
+    private
+
+    def fieldset_classes
+      common_fieldset_classes << extra_fieldset_classes
     end
 
     def common_fieldset_classes
-      %w[cads-form-field__content cads-form-group]
+      %w[cads-form-group]
     end
 
-    def fieldset_classes
-      raise NotImplementedError
-    end
+    def legend_heading_deprecation
+      return if @legend_heading.blank?
 
-    def input_type
-      Checkable::Checkbox
+      CitizensAdviceComponents.deprecator.warn(
+        "The legend_heading option is deprecated, use page_heading instead"
+      )
     end
 
     def render?
@@ -53,8 +66,8 @@ module CitizensAdviceComponents
       @hint.present?
     end
 
-    def legend_heading?
-      @legend_heading
+    def page_heading?
+      @legend_heading.presence || @page_heading
     end
   end
 end

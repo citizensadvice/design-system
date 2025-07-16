@@ -1,5 +1,11 @@
 **New**
 
+- Support `page_heading` option for radio and checkbox collections
+
+  This option was added to text inputs, date inputs, and text areas but not radio and checkbox collections. There was a historical `legend_heading` option which performed a similar function so this has been brought in line with the new behaviour.
+
+  The previous option is supported but will log a deprecation warning.
+
 - Add breadcrumb helpers for use in Rails applications.
 
   Make the following helpers available in controllers:

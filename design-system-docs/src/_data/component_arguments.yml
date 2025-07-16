@@ -56,19 +56,19 @@ radio_group:
   - argument: label
     description: Required, the text for the label associated with the input
   - argument: options
-    description: Optional, a hash with one or more of the following values
-  - argument: hint
+    description: 'Optional, a hash with one or more of the following values:'
+  - argument: 'options[:hint]'
     description: '→ Optional, hint text for the input'
-  - argument: error_message
+  - argument: 'options[:error_message]'
     description: '→ Optional, an error message for the input'
-  - argument: optional
+  - argument: 'options[:optional]'
     description: '→ Optional, boolean indicating the field is optional (ie not required)'
-  - argument: size
+  - argument: 'options[:size]'
     description: '→ Optional, the size of the radio buttons. One of <code>nil</code>, <code>:small</code>, <code>:regular</code>'
-  - argument: layout
+  - argument: 'options[:layout]'
     description: '→ Optional, the layout of the radio buttons. One of <code>nil</code>, <code>:inline</code>, <code>:list</code>'
-  - argument: legend_heading
-    description: '→ Optional, wraps the text inside the legend in <code>h1</code>'
+  - argument: 'options[:page_heading]'
+    description: '→ Optional, boolean indicating the field label is a page heading'
 breadcrumbs:
   - argument: type
     description: 'Optional, one of <code>:collapse</code> (default), <code>:no_collapse</code>'
@@ -225,13 +225,15 @@ checkbox_group:
   - argument: legend
     description: Required, the text for the fieldset legend associated with the inputs
   - argument: options
-    description: Optional, a hash with one or more of the following values
-  - argument: hint
+    description: 'Optional, a hash with one or more of the following values:'
+  - argument: 'options[:hint]'
     description: '→ Optional, hint text for the input'
-  - argument: error_message
+  - argument: 'options[:error_message]'
     description: '→ Optional, an error message for the input'
-  - argument: optional
+  - argument: 'options[:optional]'
     description: '→ Optional, boolean indicating the field is optional (ie not required)'
+  - argument: 'options[:page_heading]'
+    description: '→ Optional, boolean indicating the field label is a page heading'
 date_input:
   - argument: name
     description: Required, field name
