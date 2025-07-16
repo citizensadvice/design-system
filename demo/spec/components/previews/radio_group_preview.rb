@@ -98,13 +98,11 @@ class RadioGroupPreview < ViewComponent::Preview
     end
   end
 
-  def legend_heading
+  def page_heading
     render CitizensAdviceComponents::RadioGroup.new(
-      legend: "Example radio group",
-      name: "radio-buttons-legend-heading",
-      options: {
-        legend_heading: true
-      }
+      legend: "Example page heading radio group",
+      name: "radio-buttons-page-heading",
+      options: { page_heading: true }
     ) do |c|
       c.with_inputs(radios)
     end

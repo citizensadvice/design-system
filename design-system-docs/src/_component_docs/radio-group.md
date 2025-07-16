@@ -69,11 +69,11 @@ Any additional key/value pairs (beyond `label` and `value`) in your radio button
 
 <%= render(Shared::ComponentExample.new(:radio_group, :additional_attributes)) %>
 
-### With heading in the legend
+### Page heading
 
 Used for one question per page forms. Using similar approach to the one described in gov.uk - [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/#legends-as-page-headings).
 
-<%= render(Shared::ComponentExample.new(:radio_group, :legend_heading)) %>
+<%= render(Shared::ComponentExample.new(:radio_group, :page_heading)) %>
 
 ### Checkbox ids (View component only)
 
