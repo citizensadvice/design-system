@@ -1,17 +1,51 @@
 # frozen_string_literal: true
 
 module CitizensAdviceComponents
-  class DateInput < Input
-    attr_reader :name, :label, :errors, :values
+  class DateInput < Base
+    attr_reader(
+      :name,
+      :label,
+      :values,
+      :errors,
+      :error_message,
+      :hint
+    )
 
-    def initialize(values: nil, errors: nil, **args)
-      super(**args.merge({ type: :text }))
+    def initialize(name:, label:, values: nil, errors: nil, options: nil)
+      @name = name
+      @label = label
       @values = values
       @errors = errors
+
+      return if options.blank?
+
+      @error_message = options[:error_message]
+      @hint = options[:hint]
+      @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
+      @page_heading = fetch_or_fallback_boolean(options[:page_heading], fallback: false)
+    end
+
+    private
+
+    def optional?
+      @optional
+    end
+
+    def error?
+      @error_message.present?
+    end
+
+    def hint?
+      @hint.present?
+    end
+
+    def page_heading?
+      @page_heading
     end
 
     def input_attributes(timespan)
       {
+        type: "text",
         class: input_classes(timespan),
         name: input_id(timespan),
         id: input_id(timespan),
@@ -29,8 +63,6 @@ module CitizensAdviceComponents
         for: input_id(timespan)
       }
     end
-
-    private
 
     def value_for(timespan)
       return if values.blank?
