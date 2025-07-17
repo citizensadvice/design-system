@@ -1,4 +1,4 @@
-<%= form_with model: current_step, url: wizard_steps_example_step_path, method: :patch do |form| %>
+<%= form_with model: current_step, url: example_form_builder_step_path, method: :patch do |form| %>
   <%= form.cads_error_summary %>
   <%= render current_step.class.name.underscore, form: form %>
 
