@@ -10,6 +10,7 @@ import {
   initTargetedContent,
   initDisclosure,
   initOnThisPage,
+  initCharacterCount,
 } from '@citizensadvice/design-system';
 
 import initCodeCopy from './components/code-copy';
@@ -22,6 +23,7 @@ try {
   initTargetedContent();
   initDisclosure();
   initOnThisPage();
+  initCharacterCount();
   initCodeCopy();
   initSampleCode();
   initComponentExamples();
