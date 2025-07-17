@@ -11,5 +11,11 @@ Rails.application.routes.draw do
       post "/", to: "example_form#create", as: "create"
       get "/success", to: "example_form#success", as: "success"
     end
+
+    scope "/wizard-steps-example", as: "wizard_steps_example" do
+      root to: "example_steps#start", as: :start
+      get "/success", to: "example_steps#success", as: :success
+      resources :steps, only: %i[index show update], controller: "example_steps"
+    end
   end
 end

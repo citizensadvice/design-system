@@ -324,6 +324,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wizard_steps (0.1.4)
     zeitwerk (2.7.2)
 
 PLATFORMS
@@ -351,6 +352,7 @@ DEPENDENCIES
   rails (~> 8.0.2)
   tzinfo-data
   web-console (>= 3.3.0)
+  wizard_steps
 
 BUNDLED WITH
    2.5.9

@@ -1,0 +1,8 @@
+<h1 class="cads-page-title"><%= t(".title")%></h1>
+
+<div class="cads-prose-direct-descendants">
+  <%= form.cads_text_area(:text_area_default, label: t(".text_area_default.label")) %>
+  <%= form.cads_text_area(:text_area_required, label: t(".text_area_required.label"), required: true) %>
+  <%= form.cads_text_area(:text_area_with_hint, label: t(".text_area_with_hint.label"), hint: t(".text_area_with_hint.hint")) %>
+</div>
+

@@ -1,0 +1,5 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <%= render "form", current_step: current_step, wizard: wizard %>
+  <% end %>
+<% end %>
