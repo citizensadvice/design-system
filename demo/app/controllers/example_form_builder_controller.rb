@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ExampleStepsController < ApplicationController
+class ExampleFormBuilderController < ApplicationController
   include WizardSteps
 
   before_action :set_breadcrumbs
@@ -17,9 +17,9 @@ class ExampleStepsController < ApplicationController
 
   def previous_step_url
     if wizard.previous_key
-      wizard_steps_example_step_path(wizard.previous_key)
+      example_form_builder_step_path(id: wizard.previous_key)
     else
-      wizard_steps_example_start_path
+      example_form_builder_start_path
     end
   end
 
@@ -30,7 +30,7 @@ class ExampleStepsController < ApplicationController
   end
 
   def step_path(step = params[:id])
-    wizard_steps_example_step_path(id: step)
+    example_form_builder_step_path(id: step)
   end
 
   def wizard_store_key
@@ -38,6 +38,6 @@ class ExampleStepsController < ApplicationController
   end
 
   def on_complete(_response)
-    redirect_to wizard_steps_example_success_path
+    redirect_to example_form_builder_success_path
   end
 end
