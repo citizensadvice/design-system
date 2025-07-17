@@ -1,9 +1,0 @@
-<h1>Example form</h1>
-
-<%= form_with model: @person, url: example_forms_path, method: :post do |f| %>
-  <%= f.cads_error_summary %>
-
-  <%= f.cads_text_field :first_name %>
-  <%= f.cads_text_field :last_name %>
-  <%= f.cads_button "Save" %>
-<% end %>

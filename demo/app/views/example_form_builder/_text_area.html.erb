@@ -1,0 +1,13 @@
+<h1 class="cads-page-title">Text areas</h1>
+
+<%= form.cads_text_area(
+  :text_area_default,
+  required: true
+) %>
+
+<%= form.cads_text_area(
+  :text_area_custom,
+  hint: "Text areas can have hint text and accept custom rows",
+  rows: 5
+) %>
+

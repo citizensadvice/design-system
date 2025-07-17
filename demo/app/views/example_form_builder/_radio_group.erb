@@ -1,0 +1,8 @@
+<%= form.cads_collection_radio_buttons(
+  :favourite_drink,
+  collection: [["Tea", "0001"], ["Coffee", "0000"], ["Water", "8888"]],
+  text_method: :first,
+  value_method: :last,
+  page_heading: true,
+  hint: "Some fields support using the label as the page title"
+) %>
