@@ -31,4 +31,10 @@ RSpec.describe "collection check boxes" do
     expect(page).to have_unchecked_field("person[pizza_toppings][]", type: "checkbox", with: "Anchovies")
     expect(page).to have_unchecked_field("person[pizza_toppings][]", type: "checkbox", with: "Olives")
   end
+
+  it "renders a page heading" do
+    within "#page_heading_check_boxes" do
+      expect(page).to have_css("legend h1.cads-page-title", text: "Contact preferences")
+    end
+  end
 end

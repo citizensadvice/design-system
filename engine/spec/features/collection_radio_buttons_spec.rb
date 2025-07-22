@@ -18,4 +18,10 @@ RSpec.describe "collection radio buttons" do
       expect(page).to have_field("person_favourite_drink-input")
     end
   end
+
+  it "renders a page heading" do
+    within "#page_heading_radio_buttons" do
+      expect(page).to have_css("legend h1.cads-page-title", text: "Favourite drink")
+    end
+  end
 end

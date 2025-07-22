@@ -1,0 +1,16 @@
+<%= form_with model: current_step, url: wizard_steps_example_step_path, method: :patch do |form| %>
+  <%= form.cads_error_summary %>
+  <%= render current_step.class.name.underscore, form: form %>
+
+  <% if wizard.last_step? %>
+    <%= form.cads_button t("navigation.submit") %>
+  <% elsif wizard.can_proceed? %>
+    <%= form.cads_button t("navigation.next"), icon_right: :arrow_right %>
+  <% end %>
+<% end %>
+
+<% unless wizard.last_step? %>
+  <%= form_with model: current_step, url: previous_step_url, method: :get do |form| %>
+    <%= form.cads_button t("navigation.previous"), variant: :secondary, icon_left: :arrow_left %>
+  <% end %>
+<% end %>

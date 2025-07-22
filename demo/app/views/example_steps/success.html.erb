@@ -1,0 +1,11 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title">Thank you for your submission</h1>
+
+    <div class="cads-prose">
+      <p>Thank you for your submission. This is a sample form.</p>
+
+      <p><a href="<%= wizard_steps_example_start_path %>">Start again</a></p>
+    </div>
+  <% end %>
+<% end  %>

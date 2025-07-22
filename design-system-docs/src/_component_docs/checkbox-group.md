@@ -37,6 +37,12 @@ Error messages are used to highlight where users need to change information. The
 
 <%= render(Shared::ComponentExample.new(:checkbox_group, :error)) %>
 
+### Page heading
+
+Used for one question per page forms. Using similar approach to the one described in gov.uk - [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/#legends-as-page-headings).
+
+<%= render(Shared::ComponentExample.new(:radio_group, :page_heading)) %>
+
 ### Additional attributes (View component only)
 
 Any additional key/value pairs (beyond `label` and `value`) in your checkbox button definition will be added to the input.

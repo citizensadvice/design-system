@@ -74,6 +74,16 @@ class CheckboxGroupPreview < ViewComponent::Preview
     end
   end
 
+  def page_heading
+    render CitizensAdviceComponents::CheckboxGroup.new(
+      legend: "Example page heading checkbox group",
+      name: "checkbox-buttons-page-heading",
+      options: { page_heading: true }
+    ) do |c|
+      c.with_inputs(checkboxes)
+    end
+  end
+
   private
 
   def checkboxes

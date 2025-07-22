@@ -3,5 +3,9 @@
     <%= f.cads_collection_check_boxes :pizza_toppings, collection: ["Anchovies", "Cheese", "Pepperoni", "Olives"], text_method: :itself %>
   </div>
 
+  <div id="page_heading_check_boxes">
+    <%= f.cads_collection_check_boxes :contact_preferences, collection: ["Email", "Phone", "Post"], text_method: :itself, page_heading: true %>
+  </div>
+
   <%= f.cads_button %>
 <% end %>
