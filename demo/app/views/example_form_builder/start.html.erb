@@ -1,0 +1,17 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title">Example form builder form</h1>
+
+    <div class="cads-prose">
+      <p>This is a multi-step form, created using the <a href="https://github.com/DFE-Digital/wizard_steps" target="_blank">wizard_steps</a> gem in combination with the Citizens Advice Design System form builder.</p>
+      <p>
+        Each step in the form illustrates fields which can be created using the form builder, particularly focussed on "one thing per page" examples.
+        A simpler but more complete <%= link_to("single page form", example_form_new_path) %> example is also provided.
+      </p>
+    </div>
+
+    <%= form_with url: example_form_builder_step_path(id: ExampleWizard.step_keys.first), method: :get do |form| %>
+      <%= form.cads_button t("navigation.start"), icon_right: :arrow_right %>
+    <% end %>
+  <% end %>
+<% end %>
