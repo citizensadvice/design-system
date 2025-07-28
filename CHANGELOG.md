@@ -1,3 +1,7 @@
+## v8.1.0
+
+### 22 July 2025
+
 **New**
 
 - Support `page_heading` option for radio and checkbox collections
