@@ -2,8 +2,6 @@
 
 class AppHeaderComponent < ViewComponent::Base
   def initialize(signed_in: false)
-    super
-
     @signed_in = signed_in
   end
 

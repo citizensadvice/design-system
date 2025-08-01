@@ -28,9 +28,9 @@ module Demo
     config.active_model.i18n_customize_full_message = true
 
     config.view_component.show_previews = true
-    config.view_component.default_preview_layout = "component_preview"
-    config.view_component.preview_controller = "PreviewController"
-    config.view_component.preview_paths << Rails.root.join("spec/components/previews")
+    config.view_component.previews.default_layout = "component_preview"
+    config.view_component.previews.controller = "PreviewController"
+    config.view_component.previews.paths << Rails.root.join("spec/components/previews")
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

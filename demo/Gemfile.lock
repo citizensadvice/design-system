@@ -102,7 +102,7 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     benchmark (0.4.1)
-    bigdecimal (3.2.1)
+    bigdecimal (3.2.2)
     bindex (0.8.1)
     builder (3.3.0)
     byebug (12.0.0)
@@ -311,10 +311,9 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.3)
     useragent (0.16.11)
-    view_component (3.23.2)
-      activesupport (>= 5.2.0, < 8.1)
+    view_component (4.0.0)
+      activesupport (>= 7.1.0, < 8.1)
       concurrent-ruby (~> 1)
-      method_source (~> 1.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -351,6 +350,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.2)
   tzinfo-data
+  view_component
   web-console (>= 3.3.0)
   wizard_steps
 

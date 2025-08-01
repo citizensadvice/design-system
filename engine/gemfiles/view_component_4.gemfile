@@ -8,7 +8,7 @@ gem "activemodel", "~> 8.0.0"
 gem "activerecord", "~> 8.0.0"
 gem "activesupport", "~> 8.0.0"
 gem "railties", "~> 8.0.0"
-gem "view_component", "4.0.0.rc1"
+gem "view_component", "4.0.0"
 
 group :development, :test do
   gem "appraisal"

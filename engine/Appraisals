@@ -42,5 +42,5 @@ appraise "view_component_4" do
   gem "activesupport", rails_version
   gem "railties", rails_version
 
-  gem "view_component", "4.0.0.rc1"
+  gem "view_component", "4.0.0"
 end
