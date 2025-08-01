@@ -3,6 +3,11 @@ inherit_gem:
     - default.yml
     - default-rails.yml
 
+Lint/MissingSuper:
+  Exclude:
+    # Calls to super in subclasses of ViewComponent::Base aren't needed
+    - 'app/components/**/*'
+
 Metrics/MethodLength:
   CountAsOne: ['hash', 'array']
 
