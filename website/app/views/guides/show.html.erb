@@ -1,0 +1,23 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= @guide.title %></h1>
+    <% if @guide.on_this_page? %>
+      <%= render(OnThisPageComponent.new(@guide.html)) %>
+    <% end %>
+    <div class="cads-prose-direct-descendants">
+      <%= @guide.html %>
+    </div>
+    <%= render "partials/feedback_prompt" %>
+  <% end %>
+  <% c.with_sidebar do %>
+    <%= render CitizensAdviceComponents::SectionLinks.new(
+      title: "In this section",
+      section_title: "Guides",
+      section_title_url: guides_path
+    ) do |section_links|
+      section_links.with_section_links(@guides.map do |guide|
+        { url: guide_path(guide), title: guide.title }
+      end)
+    end %>
+  <% end %>
+<% end %>

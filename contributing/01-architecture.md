@@ -35,7 +35,7 @@ It is also used as a place to run all of our automated tests in an environment t
 
 ## Documentation website
 
-We have also include documentation website under `design-system-docs`. See the [design-system-docs README for instructions on how to run the documentation website locally](../design-system-docs/README.md)
+We have also include documentation website under `website`. [See the website README](../website/README.md) for instructions on how to run the documentation website locally.
 
 The documentation website is deployed via Netlify which allows us to access previews of work in progress changes. You can request a preview deploy for any pull request by adding the "docs preview" label.
 

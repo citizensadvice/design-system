@@ -1,6 +1,0 @@
-layout: component
-show_on_this_page: true
-extra_breadcrumbs:
-  - title: 'Components'
-    url: '/components'
-section_title_url: '/components'

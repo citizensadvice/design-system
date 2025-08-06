@@ -1,0 +1,8 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= @page.title %></h1>
+    <div class="cads-prose-direct-descendants">
+      <%= @page.html %>
+    </div>
+  <% end %>
+<% end %>

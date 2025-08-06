@@ -1,0 +1,18 @@
+inherit_gem:
+  citizens-advice-style:
+    - default.yml
+    - default-rails.yml
+
+Lint/MissingSuper:
+  Exclude:
+    # Calls to super in subclasses of ViewComponent::Base aren't needed
+    - "app/components/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    # Models use decant which is based on .define blocks
+    - "app/models/*"
+
+Rails/RakeEnvironment:
+  Exclude:
+    - "Rakefile"

@@ -1,0 +1,57 @@
+---
+title: default
+iframe: true
+---
+
+<%= render CitizensAdviceComponents::Footer.new do |c| %>
+  <% c.with_feedback_link(url: "https://www.research.net/r/J8PLH2H", new_tab: true) %>
+  <% c.with_column(
+    title: "Advice",
+    links: [
+      { url: "#", title: "Benefits" },
+      { url: "#", title: "Work" },
+      { url: "#", title: "Debt and Money" },
+      { url: "#", title: "Consumer" },
+      { url: "#", title: "Family" },
+      { url: "#", title: "Housing" },
+      { url: "#", title: "Law and courts" },
+      { url: "#", title: "Immigration" },
+      { url: "#", title: "Health" }
+    ]
+  ) %>
+  <% c.with_column(
+    title: "Resources and tools",
+    links: [
+      { url: "#", title: "Advisor resources" },
+      { url: "#", title: "Education resources" },
+      { url: "#", title: "Accessibility" },
+      { url: "#", title: "Site search" },
+      { url: "#", title: "A-Z of advice" }
+    ]
+  ) %>
+  <% c.with_column(
+    title: "More from us",
+    links: [
+      { url: "#", title: "About us" },
+      { url: "#", title: "Annual reports" },
+      { url: "#", title: "Contact us" },
+      { url: "#", title: "Complaints" },
+      { url: "#", title: "Media" },
+      { url: "#", title: "Policy research" },
+      { url: "#", title: "Support us" },
+      { url: "#", title: "Volunteering" },
+      { url: "#", title: "Jobs" }
+    ]
+  ) %>
+  <% c.with_column(
+    title: "About Citizens Advice",
+    links: [
+      { url: "#", title: "How we provide advice" },
+      { url: "#", title: "The difference we make" },
+      { url: "#", title: "Support us" },
+      { url: "#", title: "How Citizens Advice works" },
+      { url: "#", title: "Disclaimer and Copyright" },
+      { url: "#", title: "Privacy and cookies" }
+    ]
+  ) %>
+<% end %>
