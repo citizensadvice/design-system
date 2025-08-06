@@ -1,0 +1,49 @@
+---
+title: With text in a column
+iframe: true
+---
+
+<%= render CitizensAdviceComponents::Footer.new do |c| %>
+  <% c.with_column(
+    title: "Advice",
+    links: [
+      { url: "#", title: "Benefits" },
+      { url: "#", title: "Work" },
+      { url: "#", title: "Debt and Money" },
+      { url: "#", title: "Consumer" },
+      { url: "#", title: "Family" },
+      { url: "#", title: "Housing" },
+      { url: "#", title: "Law and courts" },
+      { url: "#", title: "Immigration" },
+      { url: "#", title: "Health" }
+    ]
+  ) %>
+  <% c.with_column(
+    title: "Connect with us",
+    links: [
+      { url: "https://example.com", title: "Twitter" },
+      { url: "https://example.com", title: "Facebook" },
+      { url: "https://example.com", title: "YouTube" }
+    ]
+  ) %>
+  <% c.with_column(
+    title: "Citizens Advice network",
+    text_lines: [
+      "Our network provides advice in 2,500 locations across England and Wales.",
+      "We have over 21,500 volunteers supporting the delivery of our work alongside 7,000 paid staff.",
+      "Our service is worth at least £750 million to society."
+    ],
+    links: [
+      { url: "#", title: "More about Citizens Advice" }
+    ]
+  ) %>
+  <% c.with_column(
+    title: "About this site",
+    links: [
+      { url: "#", title: "Accessibility statement" },
+      { url: "#", title: "Terms and conditions" },
+      { url: "#", title: "Privacy and cookies" }
+    ]
+  ) %>
+  <% c.with_legal_summary("Citizens Advice Edenbridge & Westerham is the operating name of Edenbridge & Westerham Citizens Advice Bureau. Authorised and regulated by the Financial Conduct Authority. FRN: 620747. Charity registration number: 1155993. Company number: 8880174. Registered office: The Eden Centre, Four Elms Road, EDENBRIDGE, Kent, TN8 6BY") %>
+<% end %>

@@ -1,0 +1,20 @@
+---
+title: all options
+form: true
+---
+
+<%= render CitizensAdviceComponents::TextInput.new(
+  name: "my-input",
+  label: "My input",
+  type: :text,
+  width: :sixteen_chars,
+  options: {
+    hint: "Hint text",
+    error_message: "Error message",
+    optional: true,
+    value: "Input value",
+    additional_attributes: {
+      "data-test-id": "test"
+    }
+  }
+) %>
