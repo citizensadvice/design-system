@@ -74,7 +74,7 @@ updates:
   # Documentation website
   ##
   - package-ecosystem: bundler
-    directory: '/design-system-docs'
+    directory: '/website'
     schedule:
       interval: monthly
     groups:
@@ -85,7 +85,7 @@ updates:
           - 'patch'
 
   - package-ecosystem: npm
-    directory: '/design-system-docs'
+    directory: '/website'
     schedule:
       interval: monthly
     groups:

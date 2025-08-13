@@ -21,15 +21,15 @@ jobs:
         with:
           ruby-version: '3.4.2'
           bundler-cache: true
-          working-directory: design-system-docs
+          working-directory: website
 
       # Install dependencies
       - uses: bahmutov/npm-install@v1
         with:
-          working-directory: design-system-docs
+          working-directory: website
 
-      - run: ./bin/bridgetown deploy
-        working-directory: design-system-docs
+      - run: ./bin/static-build
+        working-directory: website
 
       - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.1
@@ -37,5 +37,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: ./design-system-docs/output
+          build-dir: ./website/build
           config-path: ./netlify.toml
