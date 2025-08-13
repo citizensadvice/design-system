@@ -1,3 +1,7 @@
+## v8.2.0
+
+### 13 August 2025
+
 **New**
 
 - Officially support ViewComponent 4
