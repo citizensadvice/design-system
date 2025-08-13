@@ -35,9 +35,10 @@ function check_demo_app() {
 
 function check_docs() {
   echo_task "Checking docs"
-  pushd design-system-docs
+  pushd website
   bundle exec rubocop
-  bin/bridgetown deploy
+  bundle exec erb_lint --lint-all
+  bin/static-build
   popd
 }
 

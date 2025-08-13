@@ -1,0 +1,38 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gem "bootsnap", require: false
+gem "cssbundling-rails"
+gem "decant"
+gem "htmlbeautifier"
+gem "jsbundling-rails"
+gem "kramdown"
+gem "kramdown-parser-gfm"
+gem "meta-tags"
+gem "nokogiri"
+gem "parklife"
+gem "propshaft"
+gem "puma", ">= 5.0"
+gem "rails", "~> 8.0.2"
+gem "rouge"
+gem "tzinfo-data", platforms: %i[windows jruby]
+gem "view_component"
+
+gem "citizens_advice_components", path: "../engine"
+
+group :development, :test do
+  gem "citizens-advice-style",
+      github: "citizensadvice/citizens-advice-style-ruby",
+      tag: "v12.0.0"
+
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+  gem "dotenv", ">= 3.0"
+  gem "erb_lint", require: false
+end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "web-console"
+end

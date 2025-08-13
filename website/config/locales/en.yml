@@ -1,0 +1,9 @@
+en:
+  global:
+    title: "Citizens Advice Design System"
+  sections:
+    home: Home
+    guides: Guides
+    foundations: Foundations
+    components: Components
+    accessibility: Accessibility

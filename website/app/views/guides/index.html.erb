@@ -1,0 +1,12 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= title t("sections.guides") %></h1>
+    <div class="text-list">
+      <ul class="text-list__links">
+        <% @guides.each do |guide| %>
+          <li><%= link_to guide, guide_path(guide) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

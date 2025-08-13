@@ -1,0 +1,22 @@
+---
+title: with custom content
+---
+
+<%= render CitizensAdviceComponents::SectionLinks.new(
+  title: "Related Content",
+  section_title: "Applying to the EU settlement scheme",
+  section_title_url: "#"
+) do |c| %>
+  <% c.with_section_links([
+    { title: "Preparing to apply for pre-settled and settled status", url: "#" },
+    { title: "Applying for pre-settled and settled status", url: "#" },
+    { title: "Updating and proving your pre-settled or settled status", url: "#" },
+    { title: "Switching from pre-settled to settled status", url: "#" },
+    { title: "Problems with your settled status decision", url: "#" }
+  ]) %>
+  <% c.with_custom_content do %>
+    <div class="section-links-example-custom-content">
+      Custom content
+    </div>
+  <% end %>
+<% end %>

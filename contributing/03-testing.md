@@ -39,7 +39,7 @@ All top-level package commands can be run using `npm run`:
 
 ### RuboCop
 
-For ruby code we run `rubocop` checks against our `engine`, `demo`, and `design-system-docs` directories. From any of these directories run:
+For ruby code we run `rubocop` checks against our `engine`, `demo`, and `website` directories. From any of these directories run:
 
 ```sh
 rake rubocop

@@ -1,0 +1,9 @@
+<%= render CitizensAdviceComponents::PageContent.new(full_width: true) do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= title "Not found" %></h1>
+
+    <div class="cads-prose">
+      <p>The page you are looking for could not be found</p>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= @foundation.title %></h1>
+    <%= render(OnThisPageComponent.new(@foundation.html)) %>
+    <div class="cads-prose-direct-descendants">
+      <%= @foundation.html %>
+    </div>
+    <%= render "partials/feedback_prompt" %>
+  <% end %>
+  <% c.with_sidebar do %>
+    <%= render CitizensAdviceComponents::SectionLinks.new(
+      title: "In this section",
+      section_title: t("sections.foundations"),
+      section_title_url: foundations_path
+    ) do |section_links|
+      section_links.with_section_links(@foundations.map do |foundation|
+        { url: foundation_path(foundation), title: foundation.title }
+      end)
+    end %>
+  <% end %>
+<% end %>

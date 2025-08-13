@@ -1,0 +1,18 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= t("global.title") %></h1>
+    <div class="cads-prose">
+      <h3><%= link_to "Guides", guides_path %></h3>
+      <p>Guides on how to use the Citizens Advice Design System in your product.</p>
+
+      <h3><%= link_to "Foundations", foundations_path %></h3>
+      <p>Foundations including colours, fonts, spacing, icons, and borders.</p>
+
+      <h3><%= link_to "Components", home_path %></h3>
+      <p>Documentation for each component in the design system e.g. targeted content.</p>
+
+      <h3><%= link_to "Accessibility", home_path %></h3>
+      <p>Accessibility guidance and general accessibility information.</p>
+    </div>
+  <% end %>
+<% end %>

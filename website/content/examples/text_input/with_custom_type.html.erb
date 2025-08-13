@@ -1,0 +1,14 @@
+---
+title: with custom type
+form: true
+---
+
+<%= render CitizensAdviceComponents::TextInput.new(
+  name: "example-input-password",
+  label: "Example input",
+  type: :password,
+  options: {
+    value: "It's a secret",
+    hint: "This input has type 'password'"
+  }
+) %>

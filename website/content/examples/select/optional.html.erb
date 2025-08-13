@@ -1,0 +1,18 @@
+---
+title: optional
+form: true
+---
+
+<%= render CitizensAdviceComponents::Select.new(
+  select_options: [
+    ["Casebook", "casebook"],
+    ["Content platform", "content-platform"],
+    ["SMT", "smart-meter-tool"],
+    ["Find your local Citizens Advice", "FYLCA"]
+  ],
+  name: "product",
+  label: "Choose a product",
+  options: {
+    optional: true
+  }
+) %>
