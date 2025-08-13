@@ -28,16 +28,8 @@ module CitizensAdviceComponents
     def fallback_skip_links
       [
         SkipLink.new(
-          title: t("citizens_advice_components.header.skip_to_navigation"),
-          url: "#cads-navigation"
-        ),
-        SkipLink.new(
           title: t("citizens_advice_components.header.skip_to_content"),
           url: "#cads-main-content"
-        ),
-        SkipLink.new(
-          title: t("citizens_advice_components.header.skip_to_footer"),
-          url: "#cads-footer"
         )
       ]
     end

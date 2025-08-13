@@ -17,8 +17,6 @@ cy:
       close_search: Cau Chwilio
       open_search: Ymchwiliad agored
       skip_to_content: Neidio i’r prif gynnwys
-      skip_to_footer: Neidio i’r troedyn
-      skip_to_navigation: Neidio i’r llywio
     navigation:
       dropdown_label: Mwy
       dropdown_label_close: Cau

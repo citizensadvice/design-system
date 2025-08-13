@@ -43,10 +43,8 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
         end
       end
 
-      it { is_expected.to have_css ".cads-skip-links a", count: 3 }
-      it { is_expected.to have_link "Skip to navigation", href: "#cads-navigation" }
+      it { is_expected.to have_css ".cads-skip-links a", count: 1 }
       it { is_expected.to have_link "Skip to main content", href: "#cads-main-content" }
-      it { is_expected.to have_link "Skip to footer", href: "#cads-footer" }
     end
 
     context "with custom skip links" do
