@@ -66,7 +66,7 @@ Or by passing a custom block to render your own HTML:
 
 ### Skip links
 
-Skip links are optional. We provide a default set for you but you can provide your own.
+Skip links are optional. We provide a default for you to skip to the main content, but you can provide your own. [Having a single skip link in the header is usually sufficient](https://webaim.org/techniques/skipnav/#multiple).
 
 ```erb
 <%%= render CitizensAdviceComponents::Header.new do |c|
@@ -77,7 +77,7 @@ Skip links are optional. We provide a default set for you but you can provide yo
 end %>
 ```
 
-If you use the defaults you'll need to be using the `Navigation` and `Footer` components and add a `#cads-main-content` ID to your main content area.
+If you use the defaults you'll need to add a `#cads-main-content` ID to your main content area.
 
 ### Header links
 

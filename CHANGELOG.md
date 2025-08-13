@@ -1,6 +1,7 @@
 **New**
 
 - Officially support ViewComponent 4
+- Header: by default there is now only a single skip link (to the main content), following [best practice accessility guidance](https://webaim.org/techniques/skipnav/#multiple).
 
 ## v8.1.0
 
