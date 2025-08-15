@@ -13,6 +13,7 @@ en:
         first_name: 'First name'
         last_name: 'Last name'
         your_enquiry: 'Your complaint or enquiry'
+        currency: 'Currency'
         total_amount: 'What was the total amount paid for the goods or services?'
         date_of_purchase: 'When did you purchase the goods or services?'
         contacted_trader: 'Have you contacted the trader about this complaint?'
@@ -41,6 +42,8 @@ en:
               blank: Enter your last name
             your_enquiry:
               blank: Provide details of your complaint or enquiry
+            currency:
+              inclusion: Select a currency
             total_amount:
               blank: Tell us the total amount paid for the goods or services
             date_of_purchase:
