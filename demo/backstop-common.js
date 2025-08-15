@@ -38,18 +38,23 @@ module.exports = function backstopCommon(baseUrl) {
     ];
   }
 
-  function buildSamplePageScenarios(labelPrefix, url) {
+  function buildSamplePageScenario(labelPrefix, url) {
+    return [
+      {
+        label: `${labelPrefix}`,
+        url: `${baseUrl}/${url}`,
+        readySelector: '.cads-has-greedy-nav',
+      },
+    ];
+  }
+
+  function buildPrintPageScenario(labelPrefix, url) {
     return [
       {
         label: `${labelPrefix} (Print)`,
         url: `${baseUrl}/${url}`,
         onReadyScript: 'onReadyEmulatePrint.js',
         viewports: [{ label: 'print', width: 1024, height: 1024 }],
-      },
-      {
-        label: `${labelPrefix}`,
-        url: `${baseUrl}/${url}`,
-        readySelector: '.cads-has-greedy-nav',
       },
     ];
   }
@@ -520,8 +525,25 @@ module.exports = function backstopCommon(baseUrl) {
         label: 'Example links',
         url: componentUrlFor('links/example_links'),
       },
-      ...buildSamplePageScenarios('Sample Page/Content page', 'content-sample'),
-      ...buildSamplePageScenarios('Sample Page/Form page', 'form-sample'),
+      ...buildSamplePageScenario('Sample Page/Content page', 'content-sample'),
+      ...buildPrintPageScenario('Sample Page/Content page', 'content-sample'),
+      ...buildSamplePageScenario('Sample Page/Form page', 'form-sample'),
+      ...buildSamplePageScenario(
+        'Sample page/Form builder (text fields)',
+        'form-builder-sample/steps/text_fields',
+      ),
+      ...buildSamplePageScenario(
+        'Sample page/Form builder (text areas)',
+        'form-builder-sample/steps/text_area',
+      ),
+      ...buildSamplePageScenario(
+        'Sample page/Form builder (text areas)',
+        'form-builder-sample/steps/date_field',
+      ),
+      ...buildSamplePageScenario(
+        'Sample page/Form builder (text areas)',
+        'form-builder-sample/steps/radio_group',
+      ),
     ],
     dockerCommandTemplate:
       'docker run --rm -i --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
