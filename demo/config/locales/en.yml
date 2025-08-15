@@ -17,6 +17,7 @@ en:
         date_of_purchase: 'When did you purchase the goods or services?'
         contacted_trader: 'Have you contacted the trader about this complaint?'
         trader_response: "Outline the trader's response to the complaint, if any"
+        confirmation: 'Happy for us to contact you?'
       example_form_builder/text_fields:
         text_field_default: Default text field
         text_field_width: Text field with a custom width

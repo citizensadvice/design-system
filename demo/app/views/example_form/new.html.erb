@@ -32,7 +32,9 @@
         required: true
       )%>
 
+
       <%= f.cads_text_area :trader_response %>
+      <%= f.cads_check_box :confirmation %>
 
       <%= f.cads_button "Submit complaint", icon_right: :arrow_right %>
     <% end %>
