@@ -34,6 +34,7 @@ class ExampleFormController < ApplicationController
       example_form: %i[
         first_name
         last_name
+        currency
         your_enquiry
         total_amount
         date_of_purchase

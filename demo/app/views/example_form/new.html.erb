@@ -15,6 +15,19 @@
         required: true
       ) %>
 
+      <%= f.cads_collection_select(
+        :currency,
+        collection: [
+          ["Choose an option", ""],
+          ["GBP", "GBP"],
+          ["EUR", "EUR"],
+          ["USD", "USD"]
+        ],
+        text_method: :first,
+        value_method: :last,
+        required: true
+      )%>
+
       <%= f.cads_text_field(
         :total_amount,
         hint: "Enter a value in pounds and pence only e.g. £112.00",
