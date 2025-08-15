@@ -3,7 +3,7 @@ describe('Sample form', function () {
     cy.visit('/form-sample');
   });
 
-  it('shows errors when submitting an empty form', function () {
+  it('shows and allows anchoring to errors', function () {
     submitForm();
 
     assertErrorMessages([
@@ -14,6 +14,10 @@ describe('Sample form', function () {
       'Tell us the date you purchased the goods or services',
       'Tell us if you have contacted the trader about this complaint',
     ]);
+
+    // Test anchoring to errors
+    cy.findByRole('link', { name: 'Enter your first name' }).click();
+    cy.focused().should('have.attr', 'name', 'example_form[first_name]');
   });
 
   it('validates date inputs', function () {
