@@ -14,6 +14,7 @@ class ExampleForm
   attribute :date_of_purchase, :date
   attribute :contacted_trader, :boolean
   attribute :trader_response, :string
+  attribute :confirmation, :boolean
 
   validates :first_name, presence: true
   validates :last_name, presence: true

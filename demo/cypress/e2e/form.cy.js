@@ -30,6 +30,13 @@ describe('Sample form', function () {
     assertErrorMessages(['Date of purchase must be in the past']);
   });
 
+  it('renders hidden input for checkboxes', () => {
+    cy.get('input[type=hidden][name="example_form[confirmation]"]').should(
+      'have.value',
+      '0',
+    );
+  });
+
   it('shows success message on completion', function () {
     cy.findByLabelText('First name').type('Example');
 
@@ -56,6 +63,10 @@ describe('Sample form', function () {
     cy.findByLabelText(/Outline the trader's response/).type(
       'Example response',
     );
+
+    cy.findByLabelText('Happy for us to contact you?')
+      .click()
+      .should('be.checked');
 
     submitForm();
 
