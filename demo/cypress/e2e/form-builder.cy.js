@@ -42,6 +42,8 @@ describe('Form builder', function () {
   }
 
   function stepDateField() {
+    cy.findByRole('heading', { name: 'Date of birth' }).should('be.visible');
+
     cy.findByRole('group', {
       name: 'Date of birth',
     }).within(() => {
@@ -66,6 +68,7 @@ describe('Form builder', function () {
   }
 
   function stepRadioGroup() {
+    cy.findByRole('heading', { name: 'Favourite drink' }).should('be.visible');
     cy.findByLabelText('Coffee').click();
     submitForm();
   }
