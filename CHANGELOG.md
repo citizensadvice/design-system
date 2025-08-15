@@ -1,3 +1,9 @@
+**New**
+
+- **BREAKING:** Remove icon font
+  
+  Products still using the icon font for their own components will need to self-host a copy of the icon font from a previous release until they are able to fully migrate away.
+
 ## v8.2.0
 
 ### 13 August 2025
