@@ -11,7 +11,7 @@ We have a number of different layers of tests:
 
 - Static analysis (linting, code-formatting)
 - Unit tests (jest for client-side code, rspec for ruby components)
-- Cypress tests (component behaviour tests as well as accessibility checks)
+- Cypress tests (for behavioural tests as well as accessibility checks)
 - Backstop (for visual regression testing)
 
 For development purposes we provide a top-level script to run all checks:
@@ -82,7 +82,7 @@ See the [Appraisal docs](https://github.com/thoughtbot/appraisal) for a full lis
 We use [Cypress](https://www.cypress.io/) for two main things:
 
 1. To run accessibility checks against every component example using [`cypress-axe`](https://github.com/component-driven/cypress-axe)
-2. For behavioural tests against any interactive components (e.g. targeted content)
+2. For behavioural tests against any interactive components (e.g. targeted content) as well as end-to-end tests for the design system form builder.
 
 You can run both from within the `demo` directory by either running:
 
