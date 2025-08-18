@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'docs preview')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'created'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
