@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
-    "clipboard-copy": "^4.0.1",
-    "iframe-resizer": "^4.4.5"
+    "@open-iframe-resizer/core": "^1.6.0",
+    "clipboard-copy": "^4.0.1"
   },
   "devDependencies": {
     "esbuild": "^0.25.9",
