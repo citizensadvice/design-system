@@ -21,10 +21,6 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
-    ignore:
-      # https://github.com/citizensadvice/design-system/issues/3297
-      - dependency-name: 'eslint'
-        versions: ['9.x']
 
   ##
   # Rails engine
@@ -39,8 +35,7 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
-    ignore:
-      - dependency-name: 'concurrent-ruby'
+
   ##
   # Demo app
   ##
@@ -76,7 +71,7 @@ updates:
   - package-ecosystem: bundler
     directory: '/website'
     schedule:
-      interval: monthly
+      interval: weekly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
@@ -87,7 +82,7 @@ updates:
   - package-ecosystem: npm
     directory: '/website'
     schedule:
-      interval: monthly
+      interval: weekly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
