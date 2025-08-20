@@ -9,7 +9,7 @@
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
     "clipboard-copy": "^4.0.1",
-    "iframe-resizer": "^4.4.5"
+    "iframe-resizer": "^5.5.2"
   },
   "devDependencies": {
     "esbuild": "^0.25.8",
