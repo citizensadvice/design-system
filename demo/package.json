@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.25.9",
     "sass": "^1.75.0"
   },
   "devDependencies": {
@@ -24,9 +24,9 @@
     "@testing-library/cypress": "^10.0.3",
     "axe-core": "^4.10.3",
     "backstopjs": "^6.3.25",
-    "cypress": "^14.5.3",
+    "cypress": "^14.5.4",
     "cypress-axe": "^1.6.0",
     "cypress-real-events": "^1.14.0",
-    "start-server-and-test": "^2.0.12"
+    "start-server-and-test": "^2.0.13"
   }
 }
