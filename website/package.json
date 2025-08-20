@@ -12,7 +12,7 @@
     "iframe-resizer": "^4.4.5"
   },
   "devDependencies": {
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.25.9",
     "sass": "^1.89.2",
     "sass-export": "^2.1.2",
     "serve": "^14.2.4"
