@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "standalone", media: "all" %>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
   </head>
   <body class="component-example-<%= params[:category] %> component-example-<%= params[:category] %>-<%= params[:slug] %>">
     <%= yield %>
