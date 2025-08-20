@@ -33,4 +33,4 @@ You can then serve the site using:
 npx serve build
 ```
 
-This uses `serve` which is included as a development dependency, but any static file server command will do.
+This uses `serve`, but any static file server command will do.

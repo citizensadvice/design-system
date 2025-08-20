@@ -14,7 +14,6 @@
   "devDependencies": {
     "esbuild": "^0.25.9",
     "sass": "^1.89.2",
-    "sass-export": "^2.1.2",
-    "serve": "^14.2.4"
+    "sass-export": "^2.1.2"
   }
 }
