@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-    "build:css": "sass ./app/assets/stylesheets:./app/assets/builds --no-source-map --load-path=node_modules",
+    "build:css": "sass ./app/assets/stylesheets:./app/assets/builds --silence-deprecation=import --quiet-deps --no-source-map --load-path=node_modules",
     "update-colour-data": "npx sass-export --dependencies='../scss/1-settings/' ../scss/1-settings/_colour-language.scss -o config/data/colour_language.json"
   },
   "dependencies": {
