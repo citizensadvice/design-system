@@ -34,7 +34,7 @@ class ExampleFormBuilderController < ApplicationController
   end
 
   def wizard_store_key
-    :wizard_steps_example
+    :example_form_builder
   end
 
   def on_complete(_response)
