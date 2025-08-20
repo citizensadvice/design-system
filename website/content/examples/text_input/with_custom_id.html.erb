@@ -1,0 +1,11 @@
+---
+title: with custom id
+form: true
+---
+
+<%= render CitizensAdviceComponents::TextInput.new(
+  name: "example-input-basic[test]",
+  id: "test-id",
+  label: "Example input",
+  type: :text
+) %>

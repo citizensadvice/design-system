@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="no-js" lang="<%= I18n.locale %>">
+  <head>
+    <%= display_meta_tags(default_meta_tags) %>
+    <%= cads_meta_preload_fonts %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "theme", media: "all" %>
+    <style><%= Rouge::Themes::CadsTheme.render(scope: ".highlight") %></style>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+  </head>
+  <body>
+    <div class="cads-page">
+      <div class="cads-page-header">
+        <%= render AppHeaderComponent.new %>
+      </div>
+      <div class="cads-page-wrapper">
+        <%= render CitizensAdviceComponents::Breadcrumbs.new(cads_breadcrumbs) %>
+        <div id="cads-main-content"><%= content_for?(:content) ? yield(:content) : yield %></div>
+      </div>
+      <div class="cads-page-footer">
+        <%= render AppFooterComponent.new %>
+      </div>
+    </div>
+    <%= javascript_include_tag "theme", type: "module" %>
+  </body>
+</html>

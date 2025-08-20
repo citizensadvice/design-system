@@ -1,0 +1,36 @@
+---
+title: with navigation
+iframe: true
+---
+
+<%= render CitizensAdviceComponents::Header.new do |c| %>
+  <% c.with_logo(title: "Citizens Advice homepage", url: "#") %>
+  <% c.with_skip_links([
+    { title: "Skip to navigation", url: "#cads-navigation" },
+    { title: "Skip to main content", url: "#cads-main-content" },
+    { title: "Skip to footer", url: "#cads-footer" }
+  ]) %>
+  <% c.with_header_links([
+    { title: "Public site", url: "#", current_site: true },
+    { title: "AdviserNet", url: "#" },
+    { title: "Intranet", url: "#" },
+    { title: "Cymraeg", url: "#", lang: "cy" }
+  ]) %>
+  <% c.with_search_form(search_action_url: "#") %>
+  <% c.with_account_link(title: "Sign in", url: "#") %>
+<% end %>
+
+<%= render CitizensAdviceComponents::Navigation.new(
+  links: [
+    { url: "#", title: "Benefits" },
+    { url: "#", title: "Work" },
+    { url: "#", title: "Debt and money" },
+    { url: "#", title: "Consumer" },
+    { url: "#", title: "Housing" },
+    { url: "#", title: "Family" },
+    { url: "#", title: "Law and courts" },
+    { url: "#", title: "Immigration" },
+    { url: "#", title: "Health" },
+    { url: "#", title: "More from us" }
+  ]
+) %>

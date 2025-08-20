@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:css": "sass ./app/assets/stylesheets:./app/assets/builds --no-source-map --load-path=node_modules",
+    "update-colour-data": "npx sass-export --dependencies='../scss/1-settings/' ../scss/1-settings/_colour-language.scss -o config/data/colour_language.json"
+  },
+  "dependencies": {
+    "@citizensadvice/design-system": "file:../",
+    "clipboard-copy": "^4.0.1",
+    "iframe-resizer": "^4.4.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.8",
+    "sass": "^1.89.2",
+    "sass-export": "^2.1.2",
+    "serve": "^14.2.4"
+  }
+}

@@ -34,8 +34,8 @@ function setup_demo_app() {
 
 function setup_docs_website() {
   echo_task "Setting up the documentation website"
-  pushd design-system-docs
-  bundle install
+  pushd website
+  bin/setup
   npm install
   popd
 }

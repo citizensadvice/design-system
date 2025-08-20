@@ -1,0 +1,12 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= title t("sections.foundations") %></h1>
+    <div class="text-list">
+      <ul class="text-list__links">
+        <% @foundations.each do |foundation| %>
+          <li><%= link_to foundation, foundation_path(foundation) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

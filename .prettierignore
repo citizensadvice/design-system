@@ -10,9 +10,8 @@ docs/
 /demo/public/
 /demo/visual-regression/backstop_data/
 
-# Ignore design-system-docs output
-/design-system-docs/output/
-/design-system-docs/.bridgetown-webpack/
-/design-system-docs/.bridgetown-cache/
-/design-system-docs/src/_data/colour_language.json
-/design-system-docs/src/google72951c9396a77d88.html
+# Ignore docs website output
+/website/build/
+/website/vendor/
+/website/public/
+/website/tmp/

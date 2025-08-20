@@ -1,0 +1,41 @@
+<div class="component-example">
+  <div class="component-example__links">
+    <a href="<%= "/examples/#{example.slug}" %>" rel="noreferrer" target="_blank">
+      Open example in a new tab
+    </a>
+  </div>
+  <div class="component-example__preview">
+    <% if example.iframe? %>
+      <iframe
+        class="component-example__iframe js-component-example-iframe"
+        title="<%= example.title.downcase %> example"
+        src="<%= "/examples/#{example.slug}" %>"
+        frameborder="0"
+        loading="lazy"></iframe>
+    <% else %>
+      <%#
+        Wrap form components in a form content.
+        A form context affects how screen readers behave,
+        we set novalidate as we do not rely on html validation
+        for our forms so we don't want this behaviour.
+      %>
+      <% if example.form? %><form action="" novalidate><% end %>
+      <%= example.html %>
+      <% if example.form? %></form><% end %>
+    <% end %>
+  </div>
+  <% if example.show_html? || example.show_source? %>
+    <div class="component-example__source js-code-copy">
+      <% if example.show_html? %>
+        <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "HTML code", id: "html-code-#{example.id}")) do %>
+          <pre class="highlight" tabindex="0"><code><%= sanitize example.highlighted_html %></code></pre>
+        <% end %>
+      <% end %>
+      <% if example.show_source? %>
+        <%= render(CitizensAdviceComponents::Disclosure.new(closed_summary: "ERB code", id: "erb-code-#{example.id}")) do %>
+          <pre class="highlight" tabindex="0"><code><%= sanitize example.highlighted_source %></code></pre>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

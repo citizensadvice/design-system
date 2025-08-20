@@ -6,7 +6,7 @@ import eslintPluginVitest from '@vitest/eslint-plugin';
 
 export default defineConfig([
   eslintConfigPrettier,
-  globalIgnores(['docs/', 'vendor/', 'demo/', 'design-system-docs/']),
+  globalIgnores(['docs/', 'vendor/', 'demo/', 'website/']),
   {
     files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },

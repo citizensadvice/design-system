@@ -1,0 +1,13 @@
+---
+title: with error message
+form: true
+---
+
+<%= render CitizensAdviceComponents::TextInput.new(
+  name: "example-input-error",
+  label: "Email address",
+  type: :text,
+  options: {
+    error_message: "Enter a valid email address, like name@example.com"
+  }
+) %>

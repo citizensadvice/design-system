@@ -165,17 +165,19 @@ jobs:
         with:
           ruby-version: '3.4.2'
           bundler-cache: true
-          working-directory: design-system-docs
+          working-directory: website
 
       # Install dependencies
       - uses: bahmutov/npm-install@v1
         with:
-          working-directory: design-system-docs
+          working-directory: website
 
-      # Run rubocop against docs code
+      # Run lint checks against docs code
       - run: bundle exec rubocop --format progress --format github
-        working-directory: design-system-docs
+        working-directory: website
+      - run: bundle exec erb_lint --lint-all
+        working-directory: website
 
-      # Run a production build to confirm that assets compile correctly
-      - run: ./bin/bridgetown deploy
-        working-directory: design-system-docs
+      # Run a static build to confirm that assets compile correctly
+      - run: ./bin/static-build
+        working-directory: website
