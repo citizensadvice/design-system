@@ -3,7 +3,7 @@ describe('Sample form', function () {
     cy.visit('/form-sample');
   });
 
-  it('shows errors when submitting an empty form', function () {
+  it('shows and allows anchoring to errors', function () {
     submitForm();
 
     assertErrorMessages([
@@ -14,6 +14,10 @@ describe('Sample form', function () {
       'Tell us the date you purchased the goods or services',
       'Tell us if you have contacted the trader about this complaint',
     ]);
+
+    // Test anchoring to errors
+    cy.findByRole('link', { name: 'Enter your first name' }).click();
+    cy.focused().should('have.attr', 'name', 'example_form[first_name]');
   });
 
   it('validates date inputs', function () {
@@ -30,6 +34,13 @@ describe('Sample form', function () {
     assertErrorMessages(['Date of purchase must be in the past']);
   });
 
+  it('renders hidden input for checkboxes', () => {
+    cy.get('input[type=hidden][name="example_form[confirmation]"]').should(
+      'have.value',
+      '0',
+    );
+  });
+
   it('shows success message on completion', function () {
     cy.findByLabelText('First name').type('Example');
 
@@ -37,6 +48,7 @@ describe('Sample form', function () {
 
     cy.findByLabelText('Your complaint or enquiry').type('Example enquiry');
 
+    cy.findByLabelText('Currency').select('GBP');
     cy.findByLabelText(/What was the total amount paid/).type('£1500');
 
     cy.findByRole('group', {
@@ -56,6 +68,10 @@ describe('Sample form', function () {
     cy.findByLabelText(/Outline the trader's response/).type(
       'Example response',
     );
+
+    cy.findByLabelText('Happy for us to contact you?')
+      .click()
+      .should('be.checked');
 
     submitForm();
 
