@@ -11,8 +11,10 @@
 .component-example__links {
   @include cads-typographic-scale-text-small();
 
-  text-align: right;
-  margin-bottom: $cads-spacing-7;
+  & {
+    text-align: right;
+    margin-bottom: $cads-spacing-7;
+  }
 }
 .component-example__preview {
   border: none;
