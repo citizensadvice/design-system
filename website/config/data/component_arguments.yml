@@ -245,13 +245,13 @@ date_input:
     description: Optional, placeholder values
   - argument: options
     description: "Optional, a hash with one or more of the following values:"
-  - argument: page_heading
+  - argument: "options[:page_heading]"
     description: "→ Optional, boolean indicating the field label is a page heading"
-  - argument: hint
+  - argument: "options[:hint]"
     description: "→ Optional, hint text for the input"
-  - argument: error_message
+  - argument: "options[:error_message]"
     description: "→ Optional, an error message for the input"
-  - argument: optional
+  - argument: "options[:optional]"
     description: "→ Optional, boolean indicating the field is optional (ie not required)"
 select:
   - argument: name
