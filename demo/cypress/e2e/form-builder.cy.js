@@ -4,6 +4,7 @@ describe('Form builder', function () {
     stepStart();
     stepTextFields();
     stepTextAreas();
+    stepTextFieldPageHeading();
     stepDateField();
     stepRadioGroup();
     stepSuccess();
@@ -38,6 +39,11 @@ describe('Form builder', function () {
       'Example response',
     );
 
+    submitStep();
+  }
+
+  function stepTextFieldPageHeading() {
+    cy.findByLabelText('Text field page heading').type('Example response');
     submitStep();
   }
 

@@ -6,6 +6,7 @@ class ExampleWizard < WizardSteps::Base
   self.steps = [
     ExampleFormBuilder::TextFields,
     ExampleFormBuilder::TextArea,
+    ExampleFormBuilder::TextFieldPageHeading,
     ExampleFormBuilder::DateField,
     ExampleFormBuilder::RadioGroup
   ].freeze
