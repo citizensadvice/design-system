@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <%= form_with url: example_form_builder_step_path(id: ExampleWizard.step_keys.first), method: :get do |form| %>
+    <%= form_with url: example_form_builder_step_path(id: ExampleWizard.first_key), method: :get do |form| %>
       <%= form.cads_button t("navigation.start"), icon_right: :arrow_right %>
     <% end %>
   <% end %>

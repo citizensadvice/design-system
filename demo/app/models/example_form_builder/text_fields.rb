@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "active_record/attribute_assignment"
-
 module ExampleFormBuilder
   class TextFields < WizardSteps::Step
     attribute :text_field_default, :string
