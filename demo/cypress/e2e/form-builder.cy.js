@@ -2,9 +2,9 @@ describe('Form builder', function () {
   it('can submit the form', function () {
     cy.visit('/form-builder-sample');
     stepStart();
-    stepTextFields();
-    stepTextAreas();
+    stepTextField();
     stepTextFieldPageHeading();
+    stepTextArea();
     stepDateField();
     stepRadioGroup();
     stepSuccess();
@@ -18,7 +18,7 @@ describe('Form builder', function () {
     cy.findByRole('button', { name: /Start/ }).click();
   }
 
-  function stepTextFields() {
+  function stepTextField() {
     submitStep();
 
     assertErrorMessages(["Default text field can't be blank"]);
@@ -30,7 +30,12 @@ describe('Form builder', function () {
     submitStep();
   }
 
-  function stepTextAreas() {
+  function stepTextFieldPageHeading() {
+    cy.findByLabelText('Text field page heading').type('Example response');
+    submitStep();
+  }
+
+  function stepTextArea() {
     submitStep();
 
     assertErrorMessages(["Default text area can't be blank"]);
@@ -39,11 +44,6 @@ describe('Form builder', function () {
       'Example response',
     );
 
-    submitStep();
-  }
-
-  function stepTextFieldPageHeading() {
-    cy.findByLabelText('Text field page heading').type('Example response');
     submitStep();
   }
 

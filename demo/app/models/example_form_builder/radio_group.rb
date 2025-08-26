@@ -2,6 +2,6 @@
 
 module ExampleFormBuilder
   class RadioGroup < WizardSteps::Step
-    attribute :favourite_drink, array: true
+    attribute :favourite_drink
   end
 end

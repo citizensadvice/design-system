@@ -529,19 +529,23 @@ module.exports = function backstopCommon(baseUrl) {
       ...buildPrintPageScenario('Sample Page/Content page', 'content-sample'),
       ...buildSamplePageScenario('Sample Page/Form page', 'form-sample'),
       ...buildSamplePageScenario(
-        'Sample page/Form builder (text fields)',
-        'form-builder-sample/steps/text_fields',
+        'Sample page/Form builder (text field)',
+        'form-builder-sample/steps/text_field',
       ),
       ...buildSamplePageScenario(
-        'Sample page/Form builder (text areas)',
+        'Sample page/Form builder (text field page heading)',
+        'form-builder-sample/steps/text_field_page_heading',
+      ),
+      ...buildSamplePageScenario(
+        'Sample page/Form builder (text area)',
         'form-builder-sample/steps/text_area',
       ),
       ...buildSamplePageScenario(
-        'Sample page/Form builder (text areas)',
+        'Sample page/Form builder (date field)',
         'form-builder-sample/steps/date_field',
       ),
       ...buildSamplePageScenario(
-        'Sample page/Form builder (text areas)',
+        'Sample page/Form builder (radio group)',
         'form-builder-sample/steps/radio_group',
       ),
     ],

@@ -4,9 +4,9 @@ class ExampleWizard < WizardSteps::Base
   attr_reader :store
 
   self.steps = [
-    ExampleFormBuilder::TextFields,
-    ExampleFormBuilder::TextArea,
+    ExampleFormBuilder::TextField,
     ExampleFormBuilder::TextFieldPageHeading,
+    ExampleFormBuilder::TextArea,
     ExampleFormBuilder::DateField,
     ExampleFormBuilder::RadioGroup
   ].freeze

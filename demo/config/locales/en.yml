@@ -19,7 +19,7 @@ en:
         contacted_trader: 'Have you contacted the trader about this complaint?'
         trader_response: "Outline the trader's response to the complaint, if any"
         confirmation: 'Happy for us to contact you?'
-      example_form_builder/text_fields:
+      example_form_builder/text_field:
         text_field_default: Default text field
         text_field_width: Text field with a custom width
       example_form_builder/text_area:
