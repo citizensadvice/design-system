@@ -12,10 +12,10 @@ Rails.application.routes.draw do
       get "/success", to: "example_form#success", as: "success"
     end
 
-    scope "/wizard-steps-example", as: "wizard_steps_example" do
-      root to: "example_steps#start", as: :start
-      get "/success", to: "example_steps#success", as: :success
-      resources :steps, only: %i[index show update], controller: "example_steps"
+    scope "/form-builder-sample", as: "example_form_builder" do
+      root to: "example_form_builder#start", as: :start
+      get "/success", to: "example_form_builder#success", as: :success
+      resources :steps, only: %i[index show update], controller: "example_form_builder"
     end
   end
 end

@@ -13,14 +13,23 @@ en:
         first_name: 'First name'
         last_name: 'Last name'
         your_enquiry: 'Your complaint or enquiry'
+        currency: 'Currency'
         total_amount: 'What was the total amount paid for the goods or services?'
         date_of_purchase: 'When did you purchase the goods or services?'
         contacted_trader: 'Have you contacted the trader about this complaint?'
         trader_response: "Outline the trader's response to the complaint, if any"
-      example_steps/text_area:
+        confirmation: 'Happy for us to contact you?'
+      example_form_builder/text_field:
+        text_field_default: Default text field
+        text_field_width: Text field with a custom width
+      example_form_builder/text_area:
         text_area_default: Default text area
-        text_area_required: Required text area
-        text_area_with_hint: Text area with hint
+        text_area_custom: Customised text area
+      example_form_builder/date_field:
+        date_of_birth: Date of birth
+      example_form_builder/radio_group:
+        favourite_drink: Favourite drink
+
     errors:
       models:
         example_form:
@@ -33,6 +42,8 @@ en:
               blank: Enter your last name
             your_enquiry:
               blank: Provide details of your complaint or enquiry
+            currency:
+              inclusion: Select a currency
             total_amount:
               blank: Tell us the total amount paid for the goods or services
             date_of_purchase:
@@ -42,26 +53,3 @@ en:
             contacted_trader:
               blank: Tell us if you have contacted the trader about this complaint
               invalid: Tell us if you have contacted the trader about this complaint
-  example_steps:
-    start:
-      title: Example wizard steps form
-      paragraphs_html:
-        <p>This is a multi-step form, created using the <a href="https://github.com/DFE-Digital/wizard_steps" target="_blank">wizard_steps</a> gem in combination with the Citizens Advice FormBuilder.</p>
-        <p>Each step in the form illustrates fields which can be created using the form builder.</p>
-    text_area:
-      title: Text area
-      text_area_default:
-        label: Default
-      text_area_required:
-        label: Required
-      text_area_with_hint:
-        label: With hint
-        hint: Example hint text
-    review_answers:
-      title: Review answers
-      subtitle: Check your answers before submitting
-      text_area:
-        heading: Text area
-        text_area_default: Default
-        text_area_required: Required
-        text_area_with_hint: With hint
