@@ -108,7 +108,9 @@ class FooterPreview < ViewComponent::Preview
           { url: "/about-us/citizens-advice-privacy-policy/", title: "Privacy and cookies" }
         ]
       )
-      c.with_additional_logo(src: "https://www.fundraisingregulator.org.uk/fr-badge/6d8352f2-d995-4eea-bb60-a28c2dc8d842/en/black", alt: "Fundraising Regulator registered")
+      c.with_additional_logo do
+        image_tag("https://www.fundraisingregulator.org.uk/fr-badge/6d8352f2-d995-4eea-bb60-a28c2dc8d842/en/black", alt: "Fundraising Regulator registered")
+      end
     end
   end
 

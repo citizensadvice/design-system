@@ -5,7 +5,7 @@ module CitizensAdviceComponents
     attr_reader :homepage_url
 
     renders_one :feedback_link, "FooterFeedbackLink"
-    renders_one :additional_logo, "FooterAdditionalLogo"
+    renders_one :additional_logo
 
     renders_one :legal_summary, lambda { |text|
       text.presence || legal_summary_default
@@ -54,15 +54,6 @@ module CitizensAdviceComponents
 
       def new_tab?
         @new_tab.present?
-      end
-    end
-
-    class FooterAdditionalLogo < Base
-      attr_reader :src, :alt
-
-      def initialize(src:, alt:)
-        @src = src
-        @alt = alt
       end
     end
   end
