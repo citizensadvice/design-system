@@ -108,6 +108,11 @@ on_this_page_links_slot:
 footer:
   - argument: homepage_url
     description: "Optional, defaults to <code>/</code>"
+footer_additional_logo_slot:
+  - argument: src
+    description: "Required, the URL to the image to be included here"
+  - argument: alt
+    description: "Required, alt text for the logo"
 footer_feedback_link_slot:
   - argument: title
     description: "Optional, title for the column"

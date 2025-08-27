@@ -16,6 +16,10 @@ title: Footer
 
 <%= render(ExampleComponent.new(:footer, :with_text)) %>
 
+### With an additional logo
+
+<%= render(ExampleComponent.new(:footer, :with_additional_logo)) %>
+
 ## Using with Rails
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
@@ -53,3 +57,10 @@ Each slot accepts the following named arguments:
 The component accepts `legal_summary` to render a customised text at the bottom of the footer. The slot requires a text string.
 
 If the slot is not provided, the legal summary will display default text.
+
+### Additional logo slot
+
+The component accepts `additional_logo` to render an additional logo alongside the legal text in the footer. This is intended
+for including additional regulator or other important logos, such as the Fundraising Regulator. The slot accepts the following named arguments:
+
+<%= render ArgumentsTableComponent.new(:footer_additional_logo_slot) %>
