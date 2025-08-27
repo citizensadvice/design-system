@@ -10,7 +10,15 @@ class ExampleSourceComponent < ViewComponent::Base
     example.present?
   end
 
+  def call
+    tag.pre(class: "highlight", tabindex: "0") { source }
+  end
+
   private
+
+  def source
+    tag.code { sanitize example.highlighted_source }
+  end
 
   def example
     @example ||= ComponentExample.find("#{@category}/#{@slug}")
