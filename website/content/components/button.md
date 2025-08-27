@@ -51,21 +51,20 @@ In different contexts, you can use primary and secondary buttons side by side. Y
 Buttons have a clear `:focus` style when tabbing or focussing on the button
 When selecting a button, it will depress slightly to give users visual feedback that an action has taken place.
 
-Use `<input type=submit>` or `<button>` elements depending on if the button submits a form, or performs an interaction.
-Do not use anchor tags with an empty href when you want a button `<a href=”#”>`. Read more about [why the empty href is a bad thing](https://adrianroselli.com/2016/01/links-buttons-submits-and-divs-oh-hell.html).
+Use `<input type=submit>` or `<button>` elements depending on if the button submits a form, or performs an interaction. Do not use anchor tags with an empty href when you want a button `<a href=”#”>`. Read more about [why the empty href is a bad thing](https://adrianroselli.com/2016/01/links-buttons-submits-and-divs-oh-hell.html).
 
 ## Using with Rails
 
-If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
-
-<%= render(ExampleSourceComponent.new(:button, :primary)) %>
-
-### Component arguments
-
-<%= render ArgumentsTableComponent.new(:button) %>
-
-### Icon slots
-
-The button component accepts an `icon_left` or `icon_right` slot for buttons with icons.
+When using with Rails we recommend using the `CitizensAdviceComponents::FormBuilder` form builder which provides a `cads_button` helper:
 
 <%= render(ExampleSourceComponent.new(:button, :previous_next)) %>
+
+This helper accepts the text for the button along with a `variant` and `icon_left` or `icon_right` properties to configure the button. The icon values can be a reference to [any of the included icons](/foundations/icons/) but typically either `:arrow_right` or `:arrow_left`. Custom attributes can be passed through to the button with the `attributes` property.
+
+### View component version
+
+We also provide a standard view component version of the component for use outside of a form context. The view component accepts an `icon_left` or `icon_right` slot for buttons with icons.
+
+<%= render(ExampleSourceComponent.new(:button, :view_component)) %>
+
+<%= render ArgumentsTableComponent.new(:button) %>
