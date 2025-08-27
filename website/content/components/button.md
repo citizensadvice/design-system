@@ -30,7 +30,7 @@ Icons can be placed next to the button label to clarify an action or call attent
 The spacing between an icon and the button text should be 4px. Use the small icon (16px) within a button.
 The icon must be the same color value as the text.
 
-<p><img src="/images/components/button-with-icon-example.png" style="width: 300px" /></p>
+<p><img src="<%= image_path "components/button-with-icon-example.png" %>" style="width: 300px" /></p>
 
 ## Previous / next
 
