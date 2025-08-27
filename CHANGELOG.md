@@ -1,3 +1,7 @@
+**New**
+
+- Footer: a new additional logo slot has been added in the footer to include any additional logos (e.g., the Fundraising Regulator logo for the public-website).
+
 ## v8.2.0
 
 ### 13 August 2025

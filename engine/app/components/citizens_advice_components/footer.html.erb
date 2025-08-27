@@ -55,6 +55,11 @@
         <p class="cads-footer__meta-text" data-testid="copyright"><%= t("citizens_advice_components.footer.copyright", year: current_year) %></p>
         <p class="cads-footer__meta-text" data-testid="legal-summary"><%= legal_summary_text %></p>
       </div>
+      <% if additional_logo.present? %>
+        <div class="cads-footer__additional-logo">
+          <%= additional_logo %>
+        </div>
+      <% end %>
     </div>
   </div>
 </footer>

@@ -5,6 +5,7 @@ module CitizensAdviceComponents
     attr_reader :homepage_url
 
     renders_one :feedback_link, "FooterFeedbackLink"
+    renders_one :additional_logo
 
     renders_one :legal_summary, lambda { |text|
       text.presence || legal_summary_default
