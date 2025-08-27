@@ -14,7 +14,7 @@ RuboCop::RakeTask.new
 
 desc "Run ERB Lint"
 task :erb_lint do
-  `erb_lint --lint-all`
+  `bin/erb_lint --lint-all`
 end
 
 task lint: %i[rubocop erb_lint]
