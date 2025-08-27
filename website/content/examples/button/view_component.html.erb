@@ -1,0 +1,17 @@
+---
+title: View component variant
+---
+
+<%= render CitizensAdviceComponents::Button.new do |c| %>
+  Next
+  <% c.with_icon_right do %>
+    <%= render CitizensAdviceComponents::Icons::ArrowRight.new %>
+  <% end %>
+<% end %>
+
+<%= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c| %>
+  Previous
+  <% c.with_icon_left do %>
+    <%= render CitizensAdviceComponents::Icons::ArrowLeft.new %>
+  <% end %>
+<% end %>
