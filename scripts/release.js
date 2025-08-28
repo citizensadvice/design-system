@@ -1,17 +1,17 @@
-const fs = require('fs');
-const path = require('path');
-const { execSync, spawnSync } = require('child_process');
-const simpleGit = require('simple-git');
-const chalk = require('chalk');
-const { prompt } = require('inquirer').default;
-const semver = require('semver');
-const { checkRepoStatus, ok, showError } = require('./releaseHelpers');
+const fs = require("fs");
+const path = require("path");
+const { execSync, spawnSync } = require("child_process");
+const simpleGit = require("simple-git");
+const chalk = require("chalk");
+const { prompt } = require("inquirer").default;
+const semver = require("semver");
+const { checkRepoStatus, ok, showError } = require("./releaseHelpers");
 
 const log = console.log;
-const DO_NOT_RELEASE = 'Do not release';
-const PATH = path.join(__dirname, '..');
-const ORG_NAME = '@citizensadvice';
-const PACKAGE_NAME = 'design-system';
+const DO_NOT_RELEASE = "Do not release";
+const PATH = path.join(__dirname, "..");
+const ORG_NAME = "@citizensadvice";
+const PACKAGE_NAME = "design-system";
 const FULL_PACKAGE_NAME = `${ORG_NAME}/${PACKAGE_NAME}`;
 
 function updateVersionNumber(newVersion) {
@@ -21,8 +21,8 @@ function updateVersionNumber(newVersion) {
 }
 
 function formattedDate() {
-  return new Intl.DateTimeFormat('en-GB', {
-    dateStyle: 'long',
+  return new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "long",
   }).format(new Date());
 }
 
@@ -37,9 +37,9 @@ This script will create a branch based on your chosen version number and you mus
 pull request to main.`);
 prompt([
   {
-    message: 'Have you updated the Changelog?',
-    type: 'confirm',
-    name: 'confirmation',
+    message: "Have you updated the Changelog?",
+    type: "confirm",
+    name: "confirmation",
     default: false,
   },
 ]).then((changelogUpdated) => {
@@ -55,14 +55,14 @@ prompt([
     shell: true,
   })
     .stdout.toString()
-    .split(',');
+    .split(",");
   packageVersions = packageVersions[packageVersions.length - 1];
   packageVersions = packageVersions.substring(packageVersions.indexOf("'") + 1);
   packageVersions = packageVersions.substring(0, packageVersions.indexOf("'"));
 
   const packageVersion =
     packageVersions ||
-    require(path.join(__dirname, '..', 'package.json')).version;
+    require(path.join(__dirname, "..", "package.json")).version;
   const packageSemver = semver.parse(packageVersion);
   log(
     `The latest published version of ${FULL_PACKAGE_NAME} is currently ${chalk.bold(
@@ -73,44 +73,44 @@ prompt([
   // Setup the available versions
   const choices = [];
   if (semver.prerelease(packageSemver)) {
-    choices.push(packageSemver.inc('prerelease').toString());
+    choices.push(packageSemver.inc("prerelease").toString());
   } else {
-    choices.push(packageSemver.inc('prepatch', 'alpha').toString());
+    choices.push(packageSemver.inc("prepatch", "alpha").toString());
   }
   choices.push(
     ...[
-      packageSemver.inc('patch').toString(),
-      packageSemver.inc('preminor', 'alpha').toString(),
-      packageSemver.inc('minor').toString(),
-      packageSemver.inc('premajor', 'alpha').toString(),
-      packageSemver.inc('patch').toString(),
+      packageSemver.inc("patch").toString(),
+      packageSemver.inc("preminor", "alpha").toString(),
+      packageSemver.inc("minor").toString(),
+      packageSemver.inc("premajor", "alpha").toString(),
+      packageSemver.inc("patch").toString(),
     ],
   );
   choices.push(DO_NOT_RELEASE);
 
   const currentVersion = packageVersion;
 
-  log(chalk.dim('---'));
+  log(chalk.dim("---"));
 
   // Ask what version we want to release these packages as
   prompt({
     message: `Do you want to bump ${FULL_PACKAGE_NAME} from v${currentVersion} to`,
-    type: 'list',
-    name: 'newVersion',
+    type: "list",
+    name: "newVersion",
     choices,
   }).then((answer) => {
     // Get confirmation
     log(answer);
     const { newVersion } = answer;
     if (newVersion === DO_NOT_RELEASE) {
-      showError('You chose not to release any packaages.', true);
+      showError("You chose not to release any packaages.", true);
     }
 
     prompt([
       {
         message: `You chose to release:\n${FULL_PACKAGE_NAME}@${newVersion}\nIs this correct?`,
-        type: 'confirm',
-        name: 'confirmation',
+        type: "confirm",
+        name: "confirmation",
         default: false,
       },
     ]).then((confirmation) => {
@@ -121,41 +121,41 @@ prompt([
       const newVersionBranch = `release/v${newVersion}`;
       const git = simpleGit(PATH);
 
-      git.checkoutBranch(newVersionBranch, 'HEAD', (gitErr) => {
+      git.checkoutBranch(newVersionBranch, "HEAD", (gitErr) => {
         if (gitErr) {
           showError(gitErr, true);
         }
 
         updateVersionNumber(newVersion);
 
-        const changelogPath = path.join(PATH, 'CHANGELOG.md');
-        const changelog = fs.readFileSync(changelogPath, 'utf8');
+        const changelogPath = path.join(PATH, "CHANGELOG.md");
+        const changelog = fs.readFileSync(changelogPath, "utf8");
 
         // Add the new entry
         const changelogEntry = `## v${newVersion}\n\n### ${formattedDate()}`;
         const newChangelog = `${changelogEntry}\n\n${changelog}`;
-        fs.writeFileSync(changelogPath, newChangelog, 'utf8');
+        fs.writeFileSync(changelogPath, newChangelog, "utf8");
 
         try {
-          log(chalk.green.bold('Release prepared.'));
+          log(chalk.green.bold("Release prepared."));
 
           prompt([
             {
               message:
-                'Do you want to commit the changes and prepare the branch?',
-              type: 'confirm',
-              name: 'confirmation',
+                "Do you want to commit the changes and prepare the branch?",
+              type: "confirm",
+              name: "confirmation",
               default: false,
             },
           ]).then((commitChanges) => {
             if (commitChanges.confirmation) {
-              let releaseMessage = '';
+              let releaseMessage = "";
               releaseMessage += `v${newVersion}`;
 
               git
-                .add('.')
+                .add(".")
                 .commit(releaseMessage)
-                .push('origin', newVersionBranch, (gitErr2) => {
+                .push("origin", newVersionBranch, (gitErr2) => {
                   if (gitErr2) {
                     showError(gitErr2, true);
                   }
@@ -167,7 +167,7 @@ prompt([
                   );
                 });
             } else {
-              log(chalk.bold('Changes not committed. Check the repo status.'));
+              log(chalk.bold("Changes not committed. Check the repo status."));
               process.exit(1);
             }
           });

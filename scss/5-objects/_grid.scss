@@ -1,12 +1,12 @@
 // stylelint-disable scss/percent-placeholder-pattern
 
-@use 'sass:map';
-@use 'sass:math';
-@import '../1-settings/breakpoints';
-@import '../1-settings/spacing-sizing';
-@import '../1-settings/grid';
-@import '../2-tools/breakpoints';
-@import '../2-tools/grid';
+@use "sass:map";
+@use "sass:math";
+@import "../1-settings/breakpoints";
+@import "../1-settings/spacing-sizing";
+@import "../1-settings/grid";
+@import "../2-tools/breakpoints";
+@import "../2-tools/grid";
 
 // ============================================================================
 // Grids

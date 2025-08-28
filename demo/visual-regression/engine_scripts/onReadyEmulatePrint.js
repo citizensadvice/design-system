@@ -1,3 +1,3 @@
 module.exports = async (page) => {
-  await page.emulateMediaType('print');
+  await page.emulateMediaType("print");
 };

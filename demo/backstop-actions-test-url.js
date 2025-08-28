@@ -5,7 +5,7 @@
  * in the backstop:ci npm script.
  * See https://github.com/citizensadvice/design-system/pull/2210
  */
-const backstopConfig = require('./backstop-config-actions');
+const backstopConfig = require("./backstop-config-actions");
 const firstUrl = backstopConfig.scenarios[0].url;
 
 console.log(firstUrl);

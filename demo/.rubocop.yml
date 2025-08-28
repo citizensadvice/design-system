@@ -6,10 +6,10 @@ inherit_gem:
 Lint/MissingSuper:
   Exclude:
     # Calls to super in subclasses of ViewComponent::Base aren't needed
-    - 'app/components/**/*'
+    - "app/components/**/*"
 
 Metrics/MethodLength:
-  CountAsOne: ['hash', 'array']
+  CountAsOne: ["hash", "array"]
 
 Metrics/ClassLength:
   Exclude:

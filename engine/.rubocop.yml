@@ -9,7 +9,7 @@ AllCops:
   TargetRubyVersion: 3.2
   Exclude:
     # Ignore generated appraisal gemfiles
-    - 'gemfiles/*'
+    - "gemfiles/*"
 
 Lint/MissingSuper:
   Exclude:
@@ -17,27 +17,27 @@ Lint/MissingSuper:
     # by default and can change the behaviour of **kwargs so we
     # exclude component classes from this rule
     # https://github.com/ViewComponent/view_component/discussions/1545
-    - 'app/components/**/*'
+    - "app/components/**/*"
 
 Style/HashSyntax:
   # We do not necessarily find that Ruby 3.1’s hash value shorthand syntax
   # encourages greater readability so support either style
-  EnforcedShorthandSyntax: 'either'
+  EnforcedShorthandSyntax: "either"
 
 RSpec/ExampleLength:
   Max: 12
-  CountAsOne: ['array', 'hash']
+  CountAsOne: ["array", "hash"]
   Exclude:
     # Feature tests deliberately use longer example blocks
-    - 'spec/features/**/*.rb'
+    - "spec/features/**/*.rb"
 
 RSpec/MultipleExpectations:
   Max: 3
   Exclude:
     # Feature tests deliberately use multiple expectations
-    - 'spec/features/**/*.rb'
+    - "spec/features/**/*.rb"
 
 Rails/RakeEnvironment:
   Exclude:
     # Gem Rakefile is not used in a Rails context
-    - 'Rakefile'
+    - "Rakefile"

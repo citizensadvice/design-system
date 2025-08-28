@@ -3,8 +3,8 @@ updates:
   ##
   # GitHub actions
   ##
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: weekly
 
@@ -12,80 +12,80 @@ updates:
   # Top-level package
   ##
   - package-ecosystem: npm
-    directory: '/'
+    directory: "/"
     schedule:
       interval: weekly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
         update-types:
-          - 'minor'
-          - 'patch'
+          - "minor"
+          - "patch"
 
   ##
   # Rails engine
   ##
   - package-ecosystem: bundler
-    directory: '/engine'
+    directory: "/engine"
     schedule:
       interval: weekly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
         update-types:
-          - 'minor'
-          - 'patch'
+          - "minor"
+          - "patch"
 
   ##
   # Demo app
   ##
   - package-ecosystem: bundler
-    directory: '/demo'
+    directory: "/demo"
     schedule:
       interval: monthly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
         update-types:
-          - 'minor'
-          - 'patch'
+          - "minor"
+          - "patch"
 
   - package-ecosystem: npm
-    directory: '/demo'
+    directory: "/demo"
     schedule:
       interval: monthly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
         update-types:
-          - 'minor'
-          - 'patch'
+          - "minor"
+          - "patch"
         exclude-patterns:
           # Rails minor versions are more like major versions
           # so should be handled separately
-          - 'rails'
+          - "rails"
 
   ##
   # Documentation website
   ##
   - package-ecosystem: bundler
-    directory: '/website'
+    directory: "/website"
     schedule:
       interval: weekly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
         update-types:
-          - 'minor'
-          - 'patch'
+          - "minor"
+          - "patch"
 
   - package-ecosystem: npm
-    directory: '/website'
+    directory: "/website"
     schedule:
       interval: weekly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
         update-types:
-          - 'minor'
-          - 'patch'
+          - "minor"
+          - "patch"

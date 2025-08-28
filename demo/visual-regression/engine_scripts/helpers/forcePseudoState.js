@@ -5,14 +5,14 @@ module.exports = async function forcePseudoState({
   pseudoClass,
 } = {}) {
   const cdp = await page.target().createCDPSession();
-  const docNodeId = (await cdp.send('DOM.getDocument')).root.nodeId;
-  const { nodeId } = await cdp.send('DOM.querySelector', {
+  const docNodeId = (await cdp.send("DOM.getDocument")).root.nodeId;
+  const { nodeId } = await cdp.send("DOM.querySelector", {
     nodeId: docNodeId,
     selector,
   });
 
-  await cdp.send('CSS.enable');
-  await cdp.send('CSS.forcePseudoState', {
+  await cdp.send("CSS.enable");
+  await cdp.send("CSS.forcePseudoState", {
     nodeId,
     forcedPseudoClasses: [pseudoClass],
   });

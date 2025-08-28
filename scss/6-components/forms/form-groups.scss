@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 // ============================================================================
 // Forms: Form groups
@@ -61,7 +61,7 @@ $cads-checkable-border: 3px;
 
   // [ ] / ( ) outer element (ring / box)
   &::before {
-    content: '';
+    content: "";
     box-sizing: border-box;
     position: absolute;
     top: 0;
