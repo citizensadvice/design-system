@@ -3,7 +3,7 @@
 module.exports = async (page, scenario) => {
   // Enable prefers-reduced-motion to disable animations
   await page.emulateMediaFeatures([
-    { name: 'prefers-reduced-motion', value: 'reduce' },
+    { name: "prefers-reduced-motion", value: "reduce" },
   ]);
 
   /**
@@ -12,7 +12,7 @@ module.exports = async (page, scenario) => {
    */
   await page.waitForFunction(() =>
     document.fonts.ready.then(() => {
-      console.log('Fonts loaded');
+      console.log("Fonts loaded");
       return true;
     }),
   );

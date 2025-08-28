@@ -1,7 +1,7 @@
 // Allows applications to control the relative path to fonts
 // Assumes by default a Rails application that is configured to bundle font-files
 // in the same directory as compiled stylesheets
-$cads-font-path: '.' !default;
+$cads-font-path: "." !default;
 
 // Controls if the icon font is enabled (Deprecated: disabled by default)
 $cads-enable-icon-font: false !default;

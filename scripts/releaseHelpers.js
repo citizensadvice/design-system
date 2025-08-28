@@ -1,9 +1,9 @@
-const gitState = require('git-state');
-const chalk = require('chalk');
+const gitState = require("git-state");
+const chalk = require("chalk");
 
 const log = console.log;
-const ok = '\u2713'; // The tick
-const error = '\u2716'; // The cross
+const ok = "\u2713"; // The tick
+const error = "\u2716"; // The cross
 
 const showError = (err, exit) => {
   log(chalk.red.bold(err));
@@ -23,7 +23,7 @@ function checkRepoStatus(repo, testRun) {
 
     let err = false;
 
-    if (branch !== 'main') {
+    if (branch !== "main") {
       showError(
         `${error} You must be in the main branch to release. Currently you are in ${branch}.`,
       );
@@ -43,15 +43,15 @@ function checkRepoStatus(repo, testRun) {
     if (untracked !== 0) {
       showError(
         `${error} There ${
-          untracked === 1 ? 'is' : 'are'
-        } ${untracked} untracked file${untracked === 1 ? '' : 's'}.`,
+          untracked === 1 ? "is" : "are"
+        } ${untracked} untracked file${untracked === 1 ? "" : "s"}.`,
       );
       err = true;
     }
 
     if (err) {
       showError(
-        'Please ensure you are in the main branch and that the repo is in a clean state.',
+        "Please ensure you are in the main branch and that the repo is in a clean state.",
         !testRun,
       );
     }

@@ -1,8 +1,8 @@
 ---
 EnableDefaultLinters: true
 exclude:
-  - '**/vendor/**/*'
-  - '**/node_modules/**/*'
+  - "**/vendor/**/*"
+  - "**/node_modules/**/*"
 linters:
   ErbSafety:
     enabled: true

@@ -1,5 +1,5 @@
-@use 'sass:list';
-@use '../1-settings/animation' as animation-settings;
+@use "sass:list";
+@use "../1-settings/animation" as animation-settings;
 
 @mixin cads-transition-animation($properties...) {
   @if list.length($properties) == 0 {

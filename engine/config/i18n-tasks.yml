@@ -14,8 +14,8 @@ data:
 # https://github.com/glebm/i18n-tasks/pull/415
 search:
   relative_paths:
-    - 'app/components'
+    - "app/components"
   paths:
-    - 'app/components'
+    - "app/components"
   relative_roots:
-    - 'app/components'
+    - "app/components"

@@ -19,7 +19,7 @@ jobs:
       # Setup docs site
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.2'
+          ruby-version: "3.4.2"
           bundler-cache: true
           working-directory: website
 

@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 // ============================================================================
 // Forms: Radio groups
@@ -21,7 +21,7 @@ $cads-radio-selected-size: 0.625rem;
     // We create the 'button' entirely out of 'border' so that they remain
     // 'filled' even when colours are overridden in the browser.
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: $cads-radio-selected-size;
       left: $cads-radio-selected-size;
