@@ -1,15 +1,23 @@
-name: Design System Docs (main)
+name: Docs preview
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types:
+      # Trigger when the pull request is labelled.
+      # Used to only deploy previews when the "docs preview" label is added.
+      - labeled
+      # Trigger when an existing PR is updated.
+      # Used to make sure new previews are deployed for changes after the label is added.
+      - synchronize
 
 jobs:
-  publish:
-    name: Publish release to Netlify
+  # This job will:
+  #   * deploy a draft every time there is a pull request created that has the expected label
+  #   * comment on that pull request with the deploy URL
+  docs-preview:
+    name: Deploy docs preview to Netlify
     runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]'
+    if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'docs preview')
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
@@ -31,11 +39,13 @@ jobs:
       - run: ./bin/static-build
         working-directory: website
 
-      - name: Deploy production to Netlify
+      - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           build-dir: ./website/build
+          draft: true
+          comment-on-pull-request: true
           config-path: ./netlify.toml
