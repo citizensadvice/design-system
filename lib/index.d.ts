@@ -1,4 +1,4 @@
-declare module '@citizensadvice/design-system' {
+declare module "@citizensadvice/design-system" {
   export function initDisclosure(): void;
   export function initErrorSummary(): void;
   export function initHeader(): void;

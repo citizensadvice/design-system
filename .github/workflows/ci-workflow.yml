@@ -5,7 +5,7 @@ on:
       - main
   pull_request:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: "0 2 * * *"
 
 jobs:
   node-test:
@@ -26,10 +26,10 @@ jobs:
       fail-fast: false
       matrix:
         # Test against active Ruby versions (https://endoflife.date/ruby)
-        ruby_version: ['3.2', '3.3', '3.4']
+        ruby_version: ["3.2", "3.3", "3.4"]
         # Explicitly list appraisals to run in matrix for improved reporting
         # in the GitHub actions workflow
-        appraisal: ['rails_7_1', 'rails_7_1', 'rails_8_0', 'view_component_4']
+        appraisal: ["rails_7_1", "rails_7_1", "rails_8_0", "view_component_4"]
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.appraisal }}.gemfile
     defaults:
@@ -56,7 +56,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: '3.4.2'
+          ruby-version: "3.4.2"
           working-directory: engine
       - run: bundle exec rubocop --format progress --format github
       - run: bundle exec erb_lint --lint-all
@@ -76,7 +76,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.2'
+          ruby-version: "3.4.2"
           bundler-cache: true
           working-directory: demo
 
@@ -103,7 +103,7 @@ jobs:
       - run: ./bin/rails cypress:run
         working-directory: demo
         env:
-          CYPRESS_RAILS_CYPRESS_OPTS: '--browser chrome'
+          CYPRESS_RAILS_CYPRESS_OPTS: "--browser chrome"
 
       # Archive test screenshots
       - uses: actions/upload-artifact@v4
@@ -127,7 +127,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.2'
+          ruby-version: "3.4.2"
           bundler-cache: true
           working-directory: demo
 
@@ -163,7 +163,7 @@ jobs:
       # Setup docs site
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.2'
+          ruby-version: "3.4.2"
           bundler-cache: true
           working-directory: website
 

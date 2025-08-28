@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 
 // ============================================================================
 // Navigation
@@ -137,7 +137,7 @@
   position: relative;
   display: none;
 
-  &[aria-haspopup='true'] {
+  &[aria-haspopup="true"] {
     display: block;
   }
 
@@ -171,7 +171,7 @@
     fill: currentcolor;
   }
 
-  &[aria-expanded='true'] {
+  &[aria-expanded="true"] {
     .cads-greedy-nav__toggle-icon {
       transform: rotate(180deg);
     }
@@ -190,7 +190,7 @@
   padding: 0;
   margin: 0;
 
-  &[aria-hidden='false'] {
+  &[aria-hidden="false"] {
     display: block;
   }
 
@@ -268,7 +268,7 @@
 
     &::before {
       display: none;
-      content: '';
+      content: "";
       border-top: $cads-border-width-small solid $cads-palette__white;
       position: relative;
 

@@ -4,30 +4,30 @@
 
 /* open-sans-regular - latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   src:
-    local('Open Sans Regular'),
-    local('OpenSans-Regular'),
-    url('#{$cads-font-path}/open-sans-v26-latin-regular.woff2') format('woff2'),
+    local("Open Sans Regular"),
+    local("OpenSans-Regular"),
+    url("#{$cads-font-path}/open-sans-v26-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$cads-font-path}/open-sans-v26-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("#{$cads-font-path}/open-sans-v26-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 
   font-display: swap;
 }
 
 /* open-sans-700 - latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
   src:
-    local('Open Sans Bold'),
-    local('OpenSans-Bold'),
-    url('#{$cads-font-path}/open-sans-v26-latin-700.woff2') format('woff2'),
+    local("Open Sans Bold"),
+    local("OpenSans-Bold"),
+    url("#{$cads-font-path}/open-sans-v26-latin-700.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$cads-font-path}/open-sans-v26-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("#{$cads-font-path}/open-sans-v26-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 
   font-display: swap;
 }
@@ -53,79 +53,79 @@
   @font-face {
     font-family: cads;
     src:
-      url('#{$cads-font-path}/cads.eot?#iefix') format('embedded-opentype'),
-      url('#{$cads-font-path}/cads.woff') format('woff'),
-      url('#{$cads-font-path}/cads.ttf') format('truetype'),
-      url('#{$cads-font-path}/cads.svg#cads') format('svg');
+      url("#{$cads-font-path}/cads.eot?#iefix") format("embedded-opentype"),
+      url("#{$cads-font-path}/cads.woff") format("woff"),
+      url("#{$cads-font-path}/cads.ttf") format("truetype"),
+      url("#{$cads-font-path}/cads.svg#cads") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
   }
 
-  [class^='cads-icon_']::before,
-  [class*=' cads-icon_']::before {
+  [class^="cads-icon_"]::before,
+  [class*=" cads-icon_"]::before {
     @include cads-icon;
   }
 
   .cads-icon_arrow-right::before {
-    content: '\0041';
+    content: "\0041";
   }
 
   .cads-icon_checkmark::before {
-    content: '\0042';
+    content: "\0042";
   }
 
   .cads-icon_exclamation-circle::before {
-    content: '\0043';
+    content: "\0043";
   }
 
   .cads-icon_arrow-left::before {
-    content: '\0044';
+    content: "\0044";
   }
 
   .cads-icon_file::before {
-    content: '\0046';
+    content: "\0046";
   }
 
   .cads-icon_minus::before {
-    content: '\0047';
+    content: "\0047";
   }
 
   .cads-icon_plus::before {
-    content: '\0048';
+    content: "\0048";
   }
 
   .cads-icon_print::before {
-    content: '\0049';
+    content: "\0049";
   }
 
   .cads-icon_redo::before {
-    content: '\004a';
+    content: "\004a";
   }
 
   .cads-icon_search::before {
-    content: '\004b';
+    content: "\004b";
   }
 
   .cads-icon_delete::before {
-    content: '\004c';
+    content: "\004c";
   }
 
   .cads-icon_email::before {
-    content: '\004d';
+    content: "\004d";
   }
 
   .cads-icon_references::before {
-    content: '\004e';
+    content: "\004e";
   }
 
   .cads-icon_undo::before {
-    content: '\004f';
+    content: "\004f";
   }
 
   // Close icon is + icon rotated
   .cads-icon_close::before {
-    content: '\0048';
+    content: "\0048";
     display: inline-block;
     transform: rotate(45deg);
   }

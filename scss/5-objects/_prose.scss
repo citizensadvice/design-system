@@ -1,4 +1,4 @@
-@use '../1-settings/prose' as prose-config;
+@use "../1-settings/prose" as prose-config;
 
 @mixin cads-prose() {
   h1 {
@@ -88,12 +88,12 @@
 
 @media print {
   a[href]::after {
-    content: (' (' attr(href) ')');
+    content: (" (" attr(href) ")");
     display: inline;
   }
 
-  a[href^='/']::after {
-    content: (' (#{prose-config.$cads-internal-link-domain}' attr(href) ')');
+  a[href^="/"]::after {
+    content: (" (#{prose-config.$cads-internal-link-domain}" attr(href) ")");
     display: inline;
     word-break: break-all;
   }

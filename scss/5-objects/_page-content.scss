@@ -10,8 +10,8 @@
   // iOS Safari - compensate for the search box
   min-height: 100dvh;
   grid-template:
-    'header' minmax(min-content, max-content) 'main' auto
-    'footer' minmax(min-content, max-content) / 100%;
+    "header" minmax(min-content, max-content) "main" auto
+    "footer" minmax(min-content, max-content) / 100%;
 
   // Hide any additional automatically generated rows
   grid-auto-rows: 0;
