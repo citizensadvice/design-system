@@ -5,11 +5,11 @@
 /** @define asset-type; weak */
 .cads-asset-type {
   &::before {
-    content: '[';
+    content: "[";
   }
 
   &::after {
-    content: ']';
+    content: "]";
   }
 
   .cads-icon--file {

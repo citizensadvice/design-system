@@ -1,5 +1,5 @@
-@use 'sass:math';
-@import '../1-settings/grid';
+@use "sass:math";
+@import "../1-settings/grid";
 
 @function cads-grid-col-width($cols) {
   @if $cols > $cads-grid-columns {

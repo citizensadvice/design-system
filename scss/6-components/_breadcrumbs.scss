@@ -1,5 +1,5 @@
-@use 'sass:math';
-@use 'sass:map';
+@use "sass:math";
+@use "sass:map";
 
 // ============================================================================
 // Breadcrumbs
@@ -7,8 +7,8 @@
 
 $cads-breadcrumb-icon-size: 8px;
 
-@mixin cads-breadcrumb-arrow($direction: 'right') {
-  content: '';
+@mixin cads-breadcrumb-arrow($direction: "right") {
+  content: "";
   display: block;
   position: absolute;
   margin: auto 0;
@@ -21,7 +21,7 @@ $cads-breadcrumb-icon-size: 8px;
   border-color: $cads-language__input-border-colour;
   border-width: $cads-border-width-small $cads-border-width-small 0 0;
 
-  @if $direction == 'left' {
+  @if $direction == "left" {
     transform: rotate(45deg);
   } @else {
     transform: rotate(-135deg);
@@ -57,7 +57,7 @@ $cads-breadcrumb-icon-size: 8px;
     }
 
     + .cads-breadcrumbs__crumb::before {
-      @include cads-breadcrumb-arrow('left');
+      @include cads-breadcrumb-arrow("left");
     }
   }
 }
@@ -78,7 +78,7 @@ $cads-breadcrumb-icon-size: 8px;
       margin-left: $cads-spacing-5;
 
       &::before {
-        @include cads-breadcrumb-arrow('right');
+        @include cads-breadcrumb-arrow("right");
       }
     }
   }

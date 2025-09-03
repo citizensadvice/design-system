@@ -1,6 +1,6 @@
-@use 'sass:math';
-@import '../1-settings/spacing-sizing';
-@import '../1-settings/typography';
+@use "sass:math";
+@import "../1-settings/spacing-sizing";
+@import "../1-settings/typography";
 
 // Stop the container from going over the given size,
 // useful for header/footer that may sit outside a grid

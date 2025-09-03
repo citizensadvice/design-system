@@ -1,4 +1,4 @@
-const { defineConfig } = require('cypress');
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   video: false,
@@ -6,7 +6,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, _config) {
       // https://github.com/component-driven/cypress-axe#using-the-violationcallback-argument
-      on('task', {
+      on("task", {
         log(message) {
           console.log(message);
 

@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 // ============================================================================
 // Forms: Form field
@@ -76,7 +76,7 @@
     border: $cads-border-width-small solid $cads-language__warning-colour;
 
     &::before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       top: -5px;

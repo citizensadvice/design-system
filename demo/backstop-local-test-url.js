@@ -4,8 +4,8 @@
  * To avoid hardcoding this, output the first URL from the config to use
  * in the backstop:local npm script.
  */
-const backstopConfigCommon = require('./backstop-common');
-const backstopConfig = backstopConfigCommon('http://localhost:3000');
+const backstopConfigCommon = require("./backstop-common");
+const backstopConfig = backstopConfigCommon("http://localhost:3000");
 const firstUrl = backstopConfig.scenarios[0].url;
 
 console.log(firstUrl);
