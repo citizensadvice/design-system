@@ -1,11 +1,5 @@
-name: Continuous Integration
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-  schedule:
-    - cron: "0 2 * * *"
+name: Run all tests
+on: workflow_call
 
 jobs:
   node-test:
@@ -147,6 +141,7 @@ jobs:
             demo/visual-regression/backstop_data/bitmaps_reference
             demo/visual-regression/backstop_data/bitmaps_test
           retention-days: 3
+<<<<<<< HEAD:.github/workflows/ci-workflow.yml
 
   # Runs a build of the docs website as a smoke test
   # to check there's no build failures
@@ -181,3 +176,5 @@ jobs:
       # Run a static build to confirm that assets compile correctly
       - run: ./bin/static-build
         working-directory: website
+=======
+>>>>>>> a3f3beec (Refactor actions workflows):.github/workflows/tests.yml

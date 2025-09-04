@@ -1,4 +1,4 @@
-name: Design System Docs
+name: Docs preview
 
 on:
   pull_request:
@@ -9,16 +9,13 @@ on:
       # Trigger when an existing PR is updated.
       # Used to make sure new previews are deployed for changes after the label is added.
       - synchronize
-  release:
-    types:
-      - created
 
 jobs:
   # This job will:
   #   * deploy a draft every time there is a pull request created that has the expected label
   #   * comment on that pull request with the deploy URL
-  deployPRDraft:
-    name: Deploy draft to Netlify
+  docs-preview:
+    name: Deploy docs preview to Netlify
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'docs preview')
     steps:

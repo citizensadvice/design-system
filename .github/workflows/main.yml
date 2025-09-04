@@ -1,13 +1,16 @@
-name: Design System Docs (main)
-
+name: Push to main
 on:
   push:
     branches:
       - main
 
 jobs:
+  tests:
+    name: Run all tests
+    uses: ./.github/workflows/tests.yml
+
   publish:
-    name: Publish release to Netlify
+    name: Publish docs website to Netlify
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]'
     steps:
