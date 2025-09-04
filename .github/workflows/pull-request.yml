@@ -1,0 +1,40 @@
+name: Pull request
+on:
+  pull_request:
+
+jobs:
+  tests:
+    name: Run all tests
+    uses: ./.github/workflows/tests.yml
+
+  # Runs a build of the docs website as a smoke test
+  # to check there's no build failures.
+  docs-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # Setup docs site
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4.5"
+          bundler-cache: true
+          working-directory: website
+
+      # Install dependencies
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: website
+
+      # Run lint checks against docs code
+      - run: bundle exec rubocop --format progress --format github
+        working-directory: website
+      - run: bundle exec erb_lint --lint-all
+        working-directory: website
+
+      # Run a static build to confirm that assets compile correctly
+      - run: ./bin/static-build
+        working-directory: website

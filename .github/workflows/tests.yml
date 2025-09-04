@@ -1,11 +1,5 @@
-name: Continuous Integration
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-  schedule:
-    - cron: "0 2 * * *"
+name: Run all tests
+on: workflow_call
 
 jobs:
   node-test:
@@ -56,7 +50,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: "3.4.2"
+          ruby-version: "3.4.5"
           working-directory: engine
       - run: bundle exec rubocop --format progress --format github
       - run: bundle exec erb_lint --lint-all
@@ -76,7 +70,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.4.2"
+          ruby-version: "3.4.5"
           bundler-cache: true
           working-directory: demo
 
@@ -127,7 +121,7 @@ jobs:
       # Setup demo app
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.4.2"
+          ruby-version: "3.4.5"
           bundler-cache: true
           working-directory: demo
 
@@ -147,37 +141,3 @@ jobs:
             demo/visual-regression/backstop_data/bitmaps_reference
             demo/visual-regression/backstop_data/bitmaps_test
           retention-days: 3
-
-  # Runs a build of the docs website as a smoke test
-  # to check there's no build failures
-  # This is in addition to any builds run when adding the
-  # "docs preview" label to a pull request.
-  docs-build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      # Setup docs site
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.4.2"
-          bundler-cache: true
-          working-directory: website
-
-      # Install dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: website
-
-      # Run lint checks against docs code
-      - run: bundle exec rubocop --format progress --format github
-        working-directory: website
-      - run: bundle exec erb_lint --lint-all
-        working-directory: website
-
-      # Run a static build to confirm that assets compile correctly
-      - run: ./bin/static-build
-        working-directory: website

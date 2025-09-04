@@ -1,13 +1,16 @@
-name: Design System Docs (main)
-
+name: Push to main
 on:
   push:
     branches:
       - main
 
 jobs:
+  tests:
+    name: Run all tests
+    uses: ./.github/workflows/tests.yml
+
   publish:
-    name: Publish release to Netlify
+    name: Publish docs website to Netlify
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]'
     steps:
@@ -19,7 +22,7 @@ jobs:
       # Setup docs site
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.4.2"
+          ruby-version: "3.4.5"
           bundler-cache: true
           working-directory: website
 

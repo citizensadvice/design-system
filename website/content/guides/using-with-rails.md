@@ -11,10 +11,7 @@ The goal of this guide is to set up a basic Rails application from scratch using
 
 ## Prerequisites
 
-This guide assumes you have some existing Rails knowledge. It also assumes you have the following dependencies installed:
-
-- Ruby version 3.2 or later
-- Node version 18 or later
+This guide assumes you have some existing Rails knowledge. It also assumes you have a recent version of Ruby and Node installed.
 
 ## Creating the application
 
