@@ -1,19 +1,8 @@
 ---
 title: Previous next
 ---
-<div>
-  <%= render CitizensAdviceComponents::Button.new do |c| %>
-    Next
-    <% c.with_icon_right do
-      render CitizensAdviceComponents::Icons::ArrowRight.new
-    end
-  end %>
-</div>
-<div>
-  <%= render CitizensAdviceComponents::Button.new(variant: :secondary) do |c| %>
-    Previous
-    <% c.with_icon_left do
-      render CitizensAdviceComponents::Icons::ArrowLeft.new
-    end
-  end %>
-</div>
+<%= form_with url: "/" do |form| %>
+  <%= form.cads_button "Next", icon_right: :arrow_right, attributes: { "data-example": true } %>
+  <br>
+  <%= form.cads_button "Previous", variant: :secondary, icon_left: :arrow_left %>
+<% end %>
