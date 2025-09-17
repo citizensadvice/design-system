@@ -6,7 +6,7 @@
     @include cads-visually-hidden;
 
     &:focus {
-      clip: auto;
+      clip: auto; // stylelint-disable-line property-no-deprecated
       height: auto;
       margin: 0;
       overflow: visible;
