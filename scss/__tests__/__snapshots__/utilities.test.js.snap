@@ -31,15 +31,6 @@ exports[`visibility styles match snapshot 1`] = `
   width: 1px;
 }
 
-.cads-sr-only-focusable:active, .cads-sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-
 .cads-show-md-up {
   display: none !important;
 }

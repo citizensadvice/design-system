@@ -23,20 +23,6 @@
   @include visibility-tools.cads-visually-hidden;
 }
 
-// @define sr-only-focusable
-.cads-sr-only-focusable {
-  // @v6: deprecate this class, it is undocumented and never used
-  &:active,
-  &:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto; // stylelint-disable-line property-no-deprecated
-    white-space: normal;
-  }
-}
-
 // @define show-md-up
 .cads-show-md-up {
   display: none !important;
