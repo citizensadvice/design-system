@@ -1,7 +1,7 @@
 // This is visually hidden but will still be picked up by the screen reader
 @mixin cads-visually-hidden() {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0); // stylelint-disable-line property-no-deprecated
   height: 1px;
   margin: -1px;
   overflow: hidden;

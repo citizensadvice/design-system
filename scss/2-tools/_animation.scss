@@ -11,6 +11,6 @@
   transition-duration: animation-settings.$cads-animation-speed;
 
   @media screen and (prefers-reduced-motion: reduce) {
-    transition: none !important;
+    transition: none !important; // stylelint-disable-line no-invalid-position-declaration
   }
 }

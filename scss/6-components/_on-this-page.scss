@@ -40,7 +40,7 @@
       // Avoid breaks within css column items
       // https://css-tricks.com/almanac/properties/b/break-inside/
       -webkit-column-break-inside: avoid;
-      page-break-inside: avoid;
+      page-break-inside: avoid; // stylelint-disable-line property-no-deprecated
       break-inside: avoid;
 
       // the two column layout extends the inline bottom border of a focused link

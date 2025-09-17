@@ -32,7 +32,7 @@
     width: auto;
     height: auto;
     overflow: visible;
-    clip: auto;
+    clip: auto; // stylelint-disable-line property-no-deprecated
     white-space: normal;
   }
 }
