@@ -207,6 +207,9 @@ GEM
       nokogiri
       rack-test
       thor
+    parklife-rails (0.3.0)
+      parklife (>= 0.8.0.beta1)
+      rails
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
@@ -367,7 +370,7 @@ DEPENDENCIES
   kramdown-parser-gfm
   meta-tags
   nokogiri
-  parklife
+  parklife-rails
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
