@@ -1,3 +1,5 @@
+- Remove `.cads-sr-only-focusable` class. This has never been used in any internal design system or product code.
+
 ## v8.3.0
 
 ### 27 August 2025
