@@ -24,7 +24,7 @@ gem "citizens_advice_components", path: "../engine"
 group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
-      tag: "v12.0.0"
+      tag: "v12.1.0"
 
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "dotenv", ">= 3.0"
