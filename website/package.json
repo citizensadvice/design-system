@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
-    "@open-iframe-resizer/core": "^1.6.0",
+    "@open-iframe-resizer/core": "^1.6.1",
     "clipboard-copy": "^4.0.1"
   },
   "devDependencies": {
-    "esbuild": "^0.25.9",
+    "esbuild": "^0.25.10",
     "sass": "^1.89.2",
     "sass-export": "^2.1.2"
   }
