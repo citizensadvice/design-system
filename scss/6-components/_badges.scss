@@ -4,13 +4,17 @@
 
 /** @define badge */
 .cads-badge {
-  @include cads-typographic-scale-text-small;
-
+  font-size: 1rem;
   line-height: 0.875rem;
   font-weight: $cads-font-weight__bold;
   display: inline-block;
   margin-bottom: $cads-spacing-3;
   color: $cads-language__secondary-text-colour;
+
+  @include cads-media-breakpoint-down(sm) {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
 }
 
 ///

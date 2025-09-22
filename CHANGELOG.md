@@ -1,3 +1,4 @@
+- Inline text styles for the badge component, instead of using `@include cads-typographic-scale-text-small;`. This resolves a breaking change introduced by host apps using scss >= v1.92 
 - Remove `.cads-sr-only-focusable` class. This has never been used in any internal design system or product code.
 
 ## v8.3.0
