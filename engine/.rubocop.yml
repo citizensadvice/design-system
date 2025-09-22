@@ -11,14 +11,6 @@ AllCops:
     # Ignore generated appraisal gemfiles
     - "gemfiles/*"
 
-Lint/MissingSuper:
-  Exclude:
-    # Calls to super in subclasses of ViewComponent::Base aren't needed
-    # by default and can change the behaviour of **kwargs so we
-    # exclude component classes from this rule
-    # https://github.com/ViewComponent/view_component/discussions/1545
-    - "app/components/**/*"
-
 Style/HashSyntax:
   # We do not necessarily find that Ruby 3.1’s hash value shorthand syntax
   # encourages greater readability so support either style
