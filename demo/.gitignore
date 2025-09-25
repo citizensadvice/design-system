@@ -32,6 +32,7 @@
 /public/packs-test
 /node_modules
 
+/cypress/downloads
 /cypress/screenshots
 /cypress/videos
 
