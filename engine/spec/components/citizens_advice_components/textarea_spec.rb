@@ -38,6 +38,7 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
         name: "example-input[test]",
         id: "test-id",
         label: "Example input",
+        type: :text,
         options: { hint: "This is the hint text",
                    error_message: "Enter your name" }
       )
@@ -151,6 +152,20 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     end
 
     it { is_expected.to have_css "textarea[aria-describedby='example-textarea-error example-textarea-hint']" }
+  end
+
+  context "when a type is specified" do
+    before do
+      render_inline described_class.new(
+        name: "example-textarea",
+        label: "Example textarea",
+        type: :email
+      )
+    end
+
+    it "does not render the type attribute" do
+      expect(page).to have_no_css "textarea[type]"
+    end
   end
 
   context "when additional attributes are provided" do
