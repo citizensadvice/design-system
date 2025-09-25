@@ -85,4 +85,23 @@ RSpec.describe CitizensAdviceComponents::Select, type: :component do
     it { is_expected.to have_css "select[autocomplete=name]" }
     it { is_expected.to have_css "select[data-additional=example]" }
   end
+
+  context "when deprecated type argument is provided" do
+    before do
+      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
+
+      render_inline described_class.new(
+        select_options: select_options,
+        name: name.presence,
+        label: label.presence,
+        options: options,
+        type: :text
+      )
+    end
+
+    it "logs deprecation warning" do
+      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+        .with(/type argument is deprecated/)
+    end
+  end
 end

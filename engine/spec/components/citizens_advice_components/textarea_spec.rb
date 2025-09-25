@@ -38,7 +38,6 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
         name: "example-input[test]",
         id: "test-id",
         label: "Example input",
-        type: :text,
         options: { hint: "This is the hint text",
                    error_message: "Enter your name" }
       )
@@ -154,20 +153,6 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
     it { is_expected.to have_css "textarea[aria-describedby='example-textarea-error example-textarea-hint']" }
   end
 
-  context "when a type is specified" do
-    before do
-      render_inline described_class.new(
-        name: "example-textarea",
-        label: "Example textarea",
-        type: :email
-      )
-    end
-
-    it "does not render the type attribute" do
-      expect(page).to have_no_css "textarea[type]"
-    end
-  end
-
   context "when additional attributes are provided" do
     before do
       render_inline described_class.new(
@@ -208,6 +193,23 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
 
     it "renders the default number of rows" do
       expect(page).to have_css "textarea[rows=8]"
+    end
+  end
+
+  context "when deprecated type argument is provided" do
+    before do
+      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
+
+      render_inline described_class.new(
+        name: "example-textarea",
+        label: "Example textarea",
+        type: :text
+      )
+    end
+
+    it "logs deprecation warning" do
+      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+        .with(/type argument is deprecated/)
     end
   end
 end
