@@ -1,3 +1,7 @@
+## v8.3.2
+
+### 25 September 2025
+
 **Fix**
 
 - Reverts an internal refactoring to `Textarea` and `Select` components which removed an unintentional `type` attribute which some consumers were relying on. A deprecation warning will be included in a future release before removal.
