@@ -3,11 +3,11 @@
 module CitizensAdviceComponents
   module Elements
     class ErrorSummary < Base
-      attr_reader :builder, :template, :object, :object_name
+      attr_reader :builder, :template, :object
       attr_accessor :options
 
-      def initialize(builder, template, object, object_name, options)
-        super(builder, template, object, object_name)
+      def initialize(builder, template, object, options)
+        super(builder, template, object)
 
         @options = options.with_defaults({ heading_level: 2 })
       end

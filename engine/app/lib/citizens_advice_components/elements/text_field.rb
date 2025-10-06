@@ -10,11 +10,10 @@ module CitizensAdviceComponents
         builder,
         template,
         object,
-        object_name,
         attribute,
         options
       )
-        super(builder, template, object, object_name)
+        super(builder, template, object)
 
         @attribute = attribute
         @options = options

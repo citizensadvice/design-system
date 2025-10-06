@@ -10,7 +10,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         attribute,
         options
       ).render
@@ -24,7 +23,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         attribute,
         options
       ).render
@@ -40,7 +38,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         attribute,
         options
       ).render
@@ -76,7 +73,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         attribute,
         collection_arg,
         value_method_arg,
@@ -124,7 +120,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         attribute,
         collection_arg,
         value_method_arg,
@@ -169,7 +164,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         attribute,
         collection_arg,
         value_method_arg,
@@ -191,7 +185,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         button_text: button_text, **
       ).render
     end
@@ -201,7 +194,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         options
       ).render
     end
@@ -211,7 +203,6 @@ module CitizensAdviceComponents
         self,
         @template,
         object,
-        object_name,
         attribute,
         label: label, **
       ).render

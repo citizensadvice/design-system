@@ -12,7 +12,6 @@ module CitizensAdviceComponents
         builder,
         template,
         object,
-        object_name,
         attribute,
         collection,
         value_method,
@@ -30,7 +29,7 @@ module CitizensAdviceComponents
         value_method_param: nil,
         additional_attributes: nil
       )
-        super(builder, template, object, object_name)
+        super(builder, template, object)
 
         @attribute = attribute
         @collection = collection_param || collection

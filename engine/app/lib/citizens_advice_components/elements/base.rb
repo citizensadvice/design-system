@@ -6,18 +6,16 @@ module CitizensAdviceComponents
       include ActionView::Helpers::TagHelper
       include FetchOrFallbackHelper
 
-      attr_reader :builder, :template, :object, :object_name
+      attr_reader :builder, :template, :object
 
       def initialize(
         builder,
         template,
-        object,
-        object_name
+        object
       )
         @builder = builder
         @template = template
         @object = object
-        @object_name = object_name
       end
     end
   end

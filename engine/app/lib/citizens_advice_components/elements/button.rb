@@ -7,8 +7,8 @@ module CitizensAdviceComponents
 
       attr_reader :builder, :template, :object, :options
 
-      def initialize(builder, template, object, object_name, button_text: nil, **kwargs)
-        super(builder, template, object, object_name)
+      def initialize(builder, template, object, button_text: nil, **kwargs)
+        super(builder, template, object)
 
         @button_text = button_text
 

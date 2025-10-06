@@ -11,8 +11,8 @@ module CitizensAdviceComponents
       attr_reader :template, :object, :attribute
       attr_accessor :options
 
-      def initialize(builder, template, object, object_name, attribute, **kwargs)
-        super(builder, template, object, object_name)
+      def initialize(builder, template, object, attribute, **kwargs)
+        super(builder, template, object)
 
         @attribute = attribute
         @options = kwargs

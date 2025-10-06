@@ -5,15 +5,8 @@ module CitizensAdviceComponents
     class TextArea < Base
       include Traits::Field
 
-      def initialize(
-        builder,
-        template,
-        object,
-        object_name,
-        attribute,
-        options
-      )
-        super(builder, template, object, object_name)
+      def initialize(builder, template, object, attribute, options)
+        super(builder, template, object)
 
         @attribute = attribute
         @options = options
