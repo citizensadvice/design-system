@@ -9,16 +9,33 @@ module CitizensAdviceComponents
         tag.div(class: form_field_classes) do
           safe_join([
             error_marker,
-            tag.div(class: "cads-form-field__content") do
-              tag.fieldset(class: "cads-form-group") do
-                safe_join([legend_html, hint_html, error_message_html, date_inputs])
-              end
-            end
+            render_fieldset
           ])
         end
       end
 
       private
+
+      def render_fieldset
+        tag.fieldset(
+          class: "cads-form-group",
+          "aria-describedby": fieldset_described_by
+        ) do
+          safe_join([
+            legend_html,
+            hint_html,
+            error_message_html,
+            date_inputs
+          ])
+        end
+      end
+
+      def fieldset_described_by
+        ids = []
+        ids << error_id if error?
+        ids << hint_id if hint.present?
+        ids.present? ? ids.join(" ") : nil
+      end
 
       def legend_html
         tag.legend(class: "cads-form-field__label") do
@@ -33,19 +50,21 @@ module CitizensAdviceComponents
       def hint_html
         return if hint.nil?
 
-        tag.p(class: "cads-form-field__hint") { hint }
+        tag.p(class: "cads-form-field__hint", id: hint_id) { hint }
       end
 
       def error_message_html
         return unless error?
 
-        tag.p(class: "cads-form-field__error-message") { error_message }
+        tag.p(class: "cads-form-field__error-message", id: error_id) { error_message }
       end
 
       def optional_html
         return unless optional
 
-        tag.span(class: "cads-form-field__optional") { "(optional)" }
+        tag.span(class: "cads-form-field__optional") do
+          "(#{I18n.t('citizens_advice_components.input.optional')})"
+        end
       end
 
       def date_inputs
@@ -57,7 +76,9 @@ module CitizensAdviceComponents
       def day_input
         tag.div(class: "cads-date-input") do
           tag.div(class: "cads-date-input__item") do
-            tag.label(class: "cads-form-field__label", for: "#{field_id}-input") { "Day" } +
+            tag.label(class: "cads-form-field__label", for: "#{field_id}-input") do
+              I18n.t("citizens_advice_components.date_input.day")
+            end +
               tag.input(
                 class: class_names("cads-input", "cads-input--2ch", "cads-input--error": error?),
                 name: date_field_name("3i"),
@@ -72,7 +93,9 @@ module CitizensAdviceComponents
       def month_input
         tag.div(class: "cads-date-input") do
           tag.div(class: "cads-date-input__item") do
-            tag.label(class: "cads-form-field__label", for: date_field_id("2i")) { "Month" } +
+            tag.label(class: "cads-form-field__label", for: date_field_id("2i")) do
+              I18n.t("citizens_advice_components.date_input.month")
+            end +
               tag.input(
                 class: class_names("cads-input", "cads-input--2ch", "cads-input--error": error?),
                 name: date_field_name("2i"),
@@ -87,7 +110,9 @@ module CitizensAdviceComponents
       def year_input
         tag.div(class: "cads-date-input") do
           tag.div(class: "cads-date-input__item") do
-            tag.label(class: "cads-form-field__label", for: date_field_id("1i")) { "Year" } +
+            tag.label(class: "cads-form-field__label", for: date_field_id("1i")) do
+              I18n.t("citizens_advice_components.date_input.year")
+            end +
               tag.input(
                 class: class_names("cads-input", "cads-input--4ch", "cads-input--error": error?),
                 name: date_field_name("1i"),
@@ -117,6 +142,18 @@ module CitizensAdviceComponents
 
       def year_value
         current_value.year if current_value.is_a?(Date)
+      end
+
+      def hint_id
+        "#{field_id}-hint"
+      end
+
+      def error_id
+        "#{field_id}-error"
+      end
+
+      def field_id
+        template.field_id(object_name, attribute)
       end
     end
   end

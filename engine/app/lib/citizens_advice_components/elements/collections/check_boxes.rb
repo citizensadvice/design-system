@@ -9,15 +9,34 @@ module CitizensAdviceComponents
             safe_join([
               error_marker,
               tag.div(class: "cads-form-field__content") do
-                tag.fieldset(class: "cads-form-group cads-form-group--checkbox") do
-                  safe_join([legend_html, hint_html, error_message_html, checkboxes_html])
-                end
+                render_fieldset
               end
             ])
           end
         end
 
         private
+
+        def render_fieldset
+          tag.fieldset(
+            class: "cads-form-group cads-form-group--checkbox",
+            "aria-describedby": fieldset_described_by
+          ) do
+            safe_join([
+              legend_html,
+              hint_html,
+              error_message_html,
+              checkboxes_html
+            ])
+          end
+        end
+
+        def fieldset_described_by
+          ids = []
+          ids << error_id if error?
+          ids << hint_id if hint.present?
+          ids.present? ? ids.join(" ") : nil
+        end
 
         def items
           @options[:collection].map do |item|

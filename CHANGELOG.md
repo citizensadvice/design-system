@@ -1,4 +1,11 @@
-**New**
+**Fix**
+
+- Fix translation day, month, and year labels when using `cads_date_field`
+- Fix translation of "(optional)" when using `cads_date_field`, `cads_collection_radio_options`, and `cads_collection_check_boxes`
+- Add `aria-describedby` to fieldset when using `cads_date_field`, `cads_collection_radio_options`, and `cads_collection_check_boxes`
+- Support custom `type` when using `cads_text_field`
+
+**Deprecations**
 
 - Log a deprecation warning when using the `type` argument for `Textarea` and `Select` components. Neither textarea nor select elements accept a type. This argument will be removed in a future version.
 
@@ -16,7 +23,7 @@
 
 **Fix**
 
-- Inline text styles for the badge component, instead of using `@include cads-typographic-scale-text-small;`. This resolves a breaking change introduced by host apps using scss >= v1.92 
+- Inline text styles for the badge component, instead of using `@include cads-typographic-scale-text-small;`. This resolves a breaking change introduced by host apps using scss >= v1.92
 - Remove `.cads-sr-only-focusable` class. This has never been used in any internal design system or product code.
 
 ## v8.3.0
@@ -51,9 +58,8 @@
 - Add breadcrumb helpers for use in Rails applications.
 
   Make the following helpers available in controllers:
-
   - `cads_default_breadcrumbs` for defining an array of default breadcrumbs to use
-  - `cads_add_breadcrumb` for setting a breadcrumb from within a controller 
+  - `cads_add_breadcrumb` for setting a breadcrumb from within a controller
   - `cads_add_breadcrumbs` for setting multiple breadcrumbs at once from within a controller
 
   In addition breadcrumbs can be accessed via a `cads_breadcrumbs` view helper:
@@ -128,7 +134,7 @@
   add the following to your SCSS settings:
 
   ```scss
-  $cads-enable-icon-font: true
+  $cads-enable-icon-font: true;
   ```
 
   This will be removed completely in a future version, you should migrate
@@ -146,7 +152,7 @@
   The Rails engine now bundles the fonts directly and adds them to the asset pipeline for you. As a convenience you can swap `lib.scss` out with `rails.scss` when importing the design system library:
 
   ```scss
-  @import '@citizensadvice/design-system/scss/rails.scss';
+  @import "@citizensadvice/design-system/scss/rails.scss";
   ```
 
   This is the equivalent to the following:
@@ -154,9 +160,9 @@
   ```scss
   // Configure the font-path for use with the Rails engine
   // which bundles a copy of the fonts to allow them to be auto loaded.
-  $cads-font-path: './citizens_advice_components';
+  $cads-font-path: "./citizens_advice_components";
 
-  @import '@citizensadvice/design-system/scss/lib.scss';
+  @import "@citizensadvice/design-system/scss/lib.scss";
   ```
 
 - Adds new core page layout classes:
@@ -168,7 +174,8 @@
       <div id="cads-main-content"><!-- Application content --></div>
     </div>
     <div class="cads-page-footer"><!-- Application footer --></div>
-  <div>
+    <div></div>
+  </div>
   ```
 
 - Adds new `PageContent` component for common layouts:
@@ -193,7 +200,7 @@
 - Remove support for end-of-life Ruby 3.0.x versions
 - Remove support for end-of-life Rails 7.0.x versions
 - Migrate rails form builder to design system engine
-  
+
   This change migrates the external form builder library into the design system itself.
 
   If you are using the existing library in your application you'll need to replace:
@@ -224,8 +231,8 @@
 ### 10 February 2025
 
 **Fix**
-- Make breakpoints configurable by products
 
+- Make breakpoints configurable by products
 
 ## v6.4.0
 
@@ -244,18 +251,19 @@
   For backwards compatibility the old greedy navigation entrypoint will continue to work but will be removed in a future version. The existing code should look something like this:
 
   ```js
-  import greedyNav from '@citizensadvice/design-system/lib/greedy-nav/index';
+  import greedyNav from "@citizensadvice/design-system/lib/greedy-nav/index";
   greedyNav.init();
   ```
 
   To switch to the new entrypoint update your application to use the following code:
 
   ```js
-  import { initNavigation } from "@citizensadvice/design-system"
+  import { initNavigation } from "@citizensadvice/design-system";
   initNavigation();
   ```
 
 **Fix**
+
 - Improves screen reader experience when interacting with checkbox and radio groups in an error state
 
 ## v6.3.0
@@ -263,6 +271,7 @@
 ### 5 December 2024
 
 **New**
+
 - Add support for Rails 8
 - Drop support for Rails 6.1
 
@@ -271,6 +280,7 @@
 ### 13 November 2024
 
 **New**
+
 - Grid: updated grid on large viewports, changing the gutter from 40px to 32px
 
 ## v6.1.0
@@ -278,9 +288,11 @@
 ### 22 October 2024
 
 **New**
+
 - Header: allow `lang` attribute in the header links slot
 
 **Fix**
+
 - Footer: add default aria label fallback when no custom feedback link title is specified
 
 ## v6.0.0
@@ -296,27 +308,29 @@
 - Remove compiled CSS from distributed package: We historically bundled a compiled version of the CSS as lib.css in the distributed package. The intent was to provide an option for projects not using SCSS for styles. However no projects use this method of distributing the styles and font-loading was broken when using the compiled version of the styles so we've made the decision to remove this method of distribution.
 
 **New**
+
 - Summary list component
 - Provides two new configuration option when using the SCSS styles:
   - `$cads-font-path` to provide a custom path to control font loading in your application
   - `$cads-enable-icon-font` to enable or disable the legacy icon font (defaults to `true`)
 - Consistent javascript module imports: Allow all modules to be imported using a consistent interface, either via:
+
   ```js
   import { initModuleA, initModuleB } from "@citizensadvice/design-system
   ```
-  
+
   Or directly via:
-  
+
   ```js
-  import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
+  import { initMyModule } from "@citizensadvice/design-system/lib/my-module";
   ```
 
   For backwards compatibility all existing entrypoints are still supported but may be removed in future versions.
 
 **Fix**
+
 - Make grid configurable by products
 - The new office address is now the default in the footer component and the old address has been removed.
-
 
 ## v5.8.1
 
@@ -346,7 +360,7 @@
 - Include Rails 7.1 in supported version
 - Remove Rails 6.0 from supported versions
 - Remove support for Ruby 2.7
-- Callout: Deprecate `title` attribute; replace with more general  `attributes`
+- Callout: Deprecate `title` attribute; replace with more general `attributes`
 - Inputs: added optional `id` attribute
 - Selects: remove unused (but required) `type` attribute
 
@@ -393,6 +407,7 @@
 #### _Aug. 24, 2022_
 
 **New**
+
 - 🔓 Disclosure: Add optional `id` and `additional_attributes`
 
 **Bugfixes**
@@ -425,7 +440,6 @@
 - 🥾 Footer: Fix accessibility issue with external link icons using old icon font and reading out content. Use new SVG icons.
 - 🛤️ Expand version ranges for `citizens_advice_components` to support Rails 7
 
-
 **Bugfixes**
 
 - 👤 Header: Fix accessibility issue with search toggle
@@ -442,7 +456,6 @@
 - 🥾 Footer: Use simpler `Time.current.year` rather than `Time.zone.today.year` for footer year. Allows component to be more portable and usable outside of a Rails context.
 - 🤫 Fix deprecation warning with newer versions of view_component
 
-
 ## <sub>v5.2.0</sub>
 
 #### _Feb. 28, 2022_
@@ -454,6 +467,7 @@
 - 🛂 Ids: Radio buttons and checkbox `id` attributes are now generated using the input's index instead of value
 
 **New**
+
 - 📜 On this page: Adds new `On this page` view component
 - 🛑️️ Error summary: Adds new `Error Summary` view component
 
@@ -462,9 +476,11 @@
 #### _Nov. 17, 2021_
 
 **Bugfixes**
+
 - 🧂 Tables: Account for possibly nil cells
 
 **New**
+
 - ➡️️ Buttons: Adds new `Button` view component with support for icons
 - 🏋 SVG Icons: Added view component SVG icons
 - 📦 Checkbox and Checkbox groups are now available
