@@ -10,8 +10,10 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   describe "#cads_text_area" do
     context "with default arguments" do
+      let(:field) { builder.cads_text_area(:address) }
+
       before do
-        render_inline builder.cads_text_area(:address)
+        render_inline field
       end
 
       it "does not set value as attribute" do
@@ -54,18 +56,19 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with required parameter" do
-      before do
-        render_inline builder.cads_text_area(:address, required: true)
-      end
+      let(:field) { builder.cads_text_area(:address, required: true) }
 
       it "includes aria-required attribute" do
+        render_inline field
         expect(page).to have_css "textarea[aria-required=true]"
       end
     end
 
     context "with hint text" do
+      let(:field) { builder.cads_text_area(:address, hint: "Example hint") }
+
       before do
-        render_inline builder.cads_text_area(:address, hint: "Example hint")
+        render_inline field
       end
 
       it "includes the hint text" do
@@ -78,44 +81,51 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with 'rows' parameter" do
-      before do
-        render_inline builder.cads_text_area(:address, rows: 10)
-      end
+      let(:field) { builder.cads_text_area(:address, rows: 10) }
 
       it "renders the textarea with the correct number of rows" do
+        render_inline field
         expect(page).to have_css "textarea[rows=10]"
       end
     end
 
     context "with 'page_heading' parameter" do
-      before do
-        render_inline builder.cads_text_area(:address, page_heading: true)
-      end
+      let(:field) { builder.cads_text_area(:address, page_heading: true) }
 
       it "wrap the label in a page heading" do
+        render_inline field
         expect(page).to have_css "h1.cads-page-title label", text: "Address"
       end
     end
 
-    describe "additional attributes" do
-      it "passes additional attributes through to element" do
-        pending "Not yet implemented"
-
-        render_inline builder.cads_text_area(
+    context "with additional html options" do
+      let(:field) do
+        builder.cads_text_area(
           :address,
           autocomplete: "name",
           "data-additional": "example"
         )
+      end
 
+      it "passes additional attributes through to element" do
+        pending "Not yet implemented"
+
+        render_inline field
         expect(page).to have_css "textarea[autocomplete=name]"
         expect(page).to have_css "textarea[data-additional=example]"
       end
+    end
 
-      it "passes via additional_attributes for backwards compatability" do
-        render_inline builder.cads_text_area(
+    context "with additional_attributes hash" do
+      let(:field) do
+        builder.cads_text_area(
           :address,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
+      end
+
+      it "passes via additional_attributes for backwards compatability" do
+        render_inline field
         expect(page).to have_css "textarea[autocomplete=name]"
         expect(page).to have_css "textarea[data-additional=example]"
       end
@@ -123,11 +133,11 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) { builder.cads_text_area(:address) }
+      let(:field) { builder.cads_text_area(:address) }
 
       before do
         model.valid? # trigger validation
-        render_inline builder_method
+        render_inline field
       end
 
       it "renders error message" do
@@ -143,7 +153,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       context "when there is hint text" do
-        let(:builder_method) { builder.cads_text_area(:address, hint: "Example hint") }
+        let(:field) { builder.cads_text_area(:address, hint: "Example hint") }
 
         it "sets multiple aria-describedby" do
           expect(page).to have_css "textarea[aria-describedby='example_form_address-error example_form_address-hint']"
@@ -153,11 +163,12 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with no form model" do
       let(:builder) { form_builder_for(nil) }
+      let(:field) { builder.cads_text_area(:address) }
 
       it "can be used without a form model" do
         pending "Not currently implemented"
 
-        render_inline builder.cads_text_area(:address)
+        render_inline field
         expect(page).to have_css "textarea"
       end
     end

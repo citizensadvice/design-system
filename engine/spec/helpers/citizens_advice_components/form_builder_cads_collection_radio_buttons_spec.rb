@@ -17,13 +17,17 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   describe "#cads_collection_radio_buttons" do
     context "with default arguments" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
           collection: example_options,
           text_method: :name,
           value_method: :id
         )
+      end
+
+      before do
+        render_inline field
       end
 
       it "renders all expected options" do
@@ -82,8 +86,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with required parameter" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
           collection: example_options,
           text_method: :name,
@@ -93,20 +97,25 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "labels the field group as required" do
+        render_inline field
         expect(page).to have_css "legend", text: "Currency"
         expect(page).to have_no_text "(optional)"
       end
     end
 
     context "with hint text" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
           collection: example_options,
           text_method: :name,
           value_method: :id,
           hint: "Example hint"
         )
+      end
+
+      before do
+        render_inline field
       end
 
       it "includes the hint text" do
@@ -118,9 +127,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    describe "with 'page_heading' parameter" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+    context "with 'page_heading' parameter" do
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
           collection: example_options,
           text_method: :name,
@@ -130,111 +139,112 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "wraps the legend text in a page heading" do
+        render_inline field
         expect(page).to have_css "legend h1.cads-page-title", text: "Currency"
       end
     end
 
-    describe "layout options" do
-      context "when an invalid layout option is passed" do
-        before do
-          without_fetch_or_fallback_raises do
-            render_inline builder.cads_collection_radio_buttons(
-              :currency,
-              collection: example_options,
-              text_method: :name,
-              value_method: :id,
-              layout: :invalid
-            )
-          end
-        end
-
-        it "renders the radio group in list layout" do
-          expect(page).to have_css ".cads-radio-group--list"
-        end
+    context "when an invalid layout option is passed" do
+      let(:field) do
+        builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
+          layout: :invalid
+        )
       end
 
-      context "when the list layout option is passed" do
-        before do
-          render_inline builder.cads_collection_radio_buttons(
-            :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
-            layout: :list
-          )
-        end
-
-        it "renders the radio group in list layout" do
+      it "renders the radio group in list layout" do
+        without_fetch_or_fallback_raises do
+          render_inline field
           expect(page).to have_css ".cads-radio-group--list"
-        end
-      end
-
-      context "when the inline layout option is passed" do
-        before do
-          render_inline builder.cads_collection_radio_buttons(
-            :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
-            layout: :inline
-          )
-        end
-
-        it "renders the radio group in list layout" do
-          expect(page).to have_css ".cads-radio-group--inline"
         end
       end
     end
 
-    describe "size options" do
-      context "when an invalid size option is passed" do
-        before do
-          without_fetch_or_fallback_raises do
-            render_inline builder.cads_collection_radio_buttons(
-              :currency,
-              collection: example_options,
-              text_method: :name,
-              value_method: :id,
-              size: :invalid
-            )
-          end
-        end
+    context "when the list layout option is passed" do
+      let(:field) do
+        builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
+          layout: :list
+        )
+      end
 
-        it "renders the regular size radio group" do
+      it "renders the radio group in list layout" do
+        render_inline field
+        expect(page).to have_css ".cads-radio-group--list"
+      end
+    end
+
+    context "when the inline layout option is passed" do
+      let(:field) do
+        builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
+          layout: :inline
+        )
+      end
+
+      it "renders the radio group in list layout" do
+        render_inline field
+        expect(page).to have_css ".cads-radio-group--inline"
+      end
+    end
+
+    context "when an invalid size option is passed" do
+      let(:field) do
+        builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
+          size: :invalid
+        )
+      end
+
+      it "renders the regular size radio group" do
+        without_fetch_or_fallback_raises do
+          render_inline field
           expect(page).to have_css ".cads-radio-group--regular"
         end
       end
+    end
 
-      context "when the regular size option is passed" do
-        before do
-          render_inline builder.cads_collection_radio_buttons(
-            :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
-            size: :regular
-          )
-        end
-
-        it "renders the regular size radio group" do
-          expect(page).to have_css ".cads-radio-group--regular"
-        end
+    context "when the regular size option is passed" do
+      before do
+        render_inline builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
+          size: :regular
+        )
       end
 
-      context "when the small size option is passed" do
-        before do
-          render_inline builder.cads_collection_radio_buttons(
-            :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
-            size: :small
-          )
-        end
+      it "renders the regular size radio group" do
+        expect(page).to have_css ".cads-radio-group--regular"
+      end
+    end
 
-        it "renders the small size radio group" do
-          expect(page).to have_css ".cads-radio-group--small"
-        end
+    context "when the small size option is passed" do
+      before do
+        render_inline builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
+          size: :small
+        )
+      end
+
+      it "renders the small size radio group" do
+        expect(page).to have_css ".cads-radio-group--small"
       end
     end
 

@@ -10,8 +10,10 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   describe "#cads_date_field" do
     context "with default arguments" do
+      let(:field) { builder.cads_date_field(:date_of_purchase) }
+
       before do
-        render_inline builder.cads_date_field(:date_of_purchase)
+        render_inline field
       end
 
       it "renders legend" do
@@ -30,8 +32,10 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "when in Cymraeg" do
+      let(:field) { builder.cads_date_field(:date_of_purchase) }
+
       before do
-        render_inline builder.cads_date_field(:date_of_purchase)
+        render_inline field
       end
 
       around { |example| I18n.with_locale(:cy) { example.run } }
@@ -48,32 +52,30 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with hint text" do
-      before do
-        render_inline builder.cads_date_field(:date_of_purchase, hint: "Example hint")
-      end
+      let(:field) { builder.cads_date_field(:date_of_purchase, hint: "Example hint") }
 
       it "includes the hint text" do
+        render_inline field
         expect(page).to have_text "Example hint"
       end
     end
 
-    describe "with 'page_heading' parameter" do
-      before do
-        render_inline builder.cads_date_field(:date_of_purchase, page_heading: true)
-      end
+    context "with 'page_heading' parameter" do
+      let(:field) { builder.cads_date_field(:date_of_purchase, page_heading: true) }
 
       it "wraps the legend text in a page heading" do
+        render_inline field
         expect(page).to have_css "legend h1.cads-page-title", text: "Date of purchase"
       end
     end
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) { builder.cads_date_field(:date_of_purchase) }
+      let(:field) { builder.cads_date_field(:date_of_purchase) }
 
       before do
         model.valid? # trigger validation
-        render_inline builder_method
+        render_inline field
       end
 
       it "renders error message" do

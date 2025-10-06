@@ -10,13 +10,17 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   describe "#cads_collection_select" do
     context "with default arguments" do
-      before do
-        render_inline builder.cads_collection_select(
+      let(:field) do
+        builder.cads_collection_select(
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
           text_method: :first,
           value_method: :last
         )
+      end
+
+      before do
+        render_inline field
       end
 
       it "renders select field with value" do
@@ -51,8 +55,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with required parameter" do
-      before do
-        render_inline builder.cads_collection_select(
+      let(:field) do
+        builder.cads_collection_select(
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
           text_method: :first,
@@ -62,19 +66,24 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "includes aria-required attribute" do
+        render_inline field
         expect(page).to have_css "select[aria-required=true]"
       end
     end
 
     context "with hint text" do
-      before do
-        render_inline builder.cads_collection_select(
+      let(:field) do
+        builder.cads_collection_select(
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
           text_method: :first,
           value_method: :last,
           hint: "Example hint"
         )
+      end
+
+      before do
+        render_inline field
       end
 
       it "includes the hint text" do
@@ -87,8 +96,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "when additional attributes are provided" do
-      before do
-        render_inline builder.cads_collection_select(
+      let(:field) do
+        builder.cads_collection_select(
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
           text_method: :first,
@@ -100,6 +109,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       it "passes additional attributes through to element" do
         pending "Not yet implemented"
 
+        render_inline field
         expect(page).to have_css "select[autocomplete=name]"
         expect(page).to have_css "select[data-additional=example]"
       end
@@ -107,7 +117,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) do
+      let(:field) do
         builder.cads_collection_select(
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
@@ -118,7 +128,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       before do
         model.valid? # trigger validation
-        render_inline builder_method
+        render_inline field
       end
 
       it "renders error message" do
@@ -134,7 +144,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       context "when there is hint text" do
-        let(:builder_method) do
+        let(:field) do
           builder.cads_collection_select(
             :currency,
             collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],

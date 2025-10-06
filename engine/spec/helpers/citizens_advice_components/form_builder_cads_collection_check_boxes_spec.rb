@@ -17,13 +17,17 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   describe "#cads_collection_check_boxes" do
     context "with default arguments" do
-      before do
-        render_inline builder.cads_collection_check_boxes(
+      let(:field) do
+        builder.cads_collection_check_boxes(
           :currency,
           collection: example_options,
           text_method: :name,
           value_method: :id
         )
+      end
+
+      before do
+        render_inline field
       end
 
       it "renders all expected options" do
@@ -86,8 +90,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with required parameter" do
-      before do
-        render_inline builder.cads_collection_check_boxes(
+      let(:field) do
+        builder.cads_collection_check_boxes(
           :currency,
           collection: example_options,
           text_method: :name,
@@ -97,20 +101,25 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "labels the field group as required" do
+        render_inline field
         expect(page).to have_css "legend", text: "Currency"
         expect(page).to have_no_text "(optional)"
       end
     end
 
     context "with hint text" do
-      before do
-        render_inline builder.cads_collection_check_boxes(
+      let(:field) do
+        builder.cads_collection_check_boxes(
           :currency,
           collection: example_options,
           text_method: :name,
           value_method: :id,
           hint: "Example hint"
         )
+      end
+
+      before do
+        render_inline field
       end
 
       it "includes the hint text" do
@@ -122,9 +131,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    describe "with 'page_heading' parameter" do
-      before do
-        render_inline builder.cads_collection_check_boxes(
+    context "with 'page_heading' parameter" do
+      let(:field) do
+        builder.cads_collection_check_boxes(
           :currency,
           collection: example_options,
           text_method: :name,
@@ -134,13 +143,14 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "wraps the legend text in a page heading" do
+        render_inline field
         expect(page).to have_css "legend h1.cads-page-title", text: "Currency"
       end
     end
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) do
+      let(:field) do
         builder.cads_collection_check_boxes(
           :currency,
           collection: example_options,
@@ -151,7 +161,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       before do
         model.valid? # trigger validation
-        render_inline builder_method
+        render_inline field
       end
 
       it "renders error message" do
@@ -163,7 +173,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       context "when there is hint text" do
-        let(:builder_method) do
+        let(:field) do
           builder.cads_collection_check_boxes(
             :currency,
             collection: example_options,

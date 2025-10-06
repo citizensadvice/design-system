@@ -10,8 +10,10 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   describe "#cads_text_field" do
     context "with default arguments" do
+      let(:field) { builder.cads_text_field(:name) }
+
       before do
-        render_inline builder.cads_text_field(:name)
+        render_inline field
       end
 
       it "renders text field with value" do
@@ -46,28 +48,28 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with required parameter" do
-      before do
-        render_inline builder.cads_text_field(:name, required: true)
-      end
+      let(:field) { builder.cads_text_field(:name, required: true) }
 
       it "includes aria-required attribute" do
+        render_inline field
         expect(page).to have_css "input[aria-required=true]"
       end
     end
 
     context "with custom type" do
-      before do
-        render_inline builder.cads_text_field(:name, type: :email)
-      end
+      let(:field) { builder.cads_text_field(:name, type: :email) }
 
       it "passes through the type" do
+        render_inline field
         expect(page).to have_field(type: :email)
       end
     end
 
     context "with hint text" do
+      let(:field) { builder.cads_text_field(:name, hint: "Example hint") }
+
       before do
-        render_inline builder.cads_text_field(:name, hint: "Example hint")
+        render_inline field
       end
 
       it "includes the hint text" do
@@ -79,9 +81,11 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    describe "with 'page_heading' parameter" do
+    context "with 'page_heading' parameter" do
+      let(:field) { builder.cads_text_field(:name, page_heading: true) }
+
       before do
-        render_inline builder.cads_text_field(:name, page_heading: true)
+        render_inline field
       end
 
       it "wrap the label in a page heading" do
@@ -90,36 +94,35 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with 'width' parameter" do
-      before do
-        render_inline builder.cads_text_field(:name, width: :four_chars)
-      end
+      let(:field) { builder.cads_text_field(:name, width: :four_chars) }
 
       it "renders the input at the correct width" do
+        render_inline field
         expect(page).to have_css ".cads-input--four-chars"
       end
     end
 
     context "with invalid 'width' parameter" do
-      before do
-        without_fetch_or_fallback_raises do
-          render_inline builder.cads_text_field(:name, width: :invalid)
-        end
-      end
+      let(:field) { builder.cads_text_field(:name, width: :invalid) }
 
       it "renders a full width version" do
-        expect(page).to have_css ".cads-input"
+        without_fetch_or_fallback_raises do
+          render_inline field
+          expect(page).to have_css ".cads-input"
+        end
       end
     end
 
     context "when additional attributes are provided" do
-      before do
-        render_inline builder.cads_text_field(
+      let(:field) do
+        builder.cads_text_field(
           :name,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
       end
 
       it "passes additional attributes through to element" do
+        render_inline field
         expect(page).to have_css "input[autocomplete=name]"
         expect(page).to have_css "input[data-additional=example]"
       end
@@ -127,11 +130,11 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) { builder.cads_text_field(:name) }
+      let(:field) { builder.cads_text_field(:name) }
 
       before do
         model.valid? # trigger validation
-        render_inline builder_method
+        render_inline field
       end
 
       it "renders error message" do
@@ -147,7 +150,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       context "when there is hint text" do
-        let(:builder_method) { builder.cads_text_field(:name, hint: "Example hint") }
+        let(:field) { builder.cads_text_field(:name, hint: "Example hint") }
 
         it "sets multiple aria-describedby" do
           expect(page).to have_css "input[aria-describedby='example_form_name-error example_form_name-hint']"
@@ -157,11 +160,12 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with no form model" do
       let(:builder) { form_builder_for(nil) }
+      let(:field) { builder.cads_text_field(:name) }
 
       it "can be used without a form model" do
         pending "Not currently implemented"
 
-        render_inline builder.cads_text_field(:name)
+        render_inline field
         expect(page).to have_field type: :text
       end
     end

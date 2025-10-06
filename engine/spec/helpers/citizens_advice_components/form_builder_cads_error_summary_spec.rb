@@ -7,13 +7,30 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   let(:model) { ExampleForm.invalid_example }
   let(:builder) { form_builder_for(model) }
-  let(:builder_method) { builder.cads_error_summary }
 
   describe "#cads_error_summary" do
+    context "when no errors present" do
+      let(:model) { ExampleForm.valid_example }
+      let(:error_summary) { builder.cads_error_summary }
+
+      it "shows no error summary by default" do
+        render_inline error_summary
+        expect(page).to have_no_css ".cads-error-summary"
+      end
+
+      it "shows no error summary when model is validated" do
+        model.valid?
+        render_inline error_summary
+        expect(page).to have_no_css ".cads-error-summary"
+      end
+    end
+
     context "when errors are present" do
+      let(:error_summary) { builder.cads_error_summary }
+
       before do
         model.valid? # Trigger validations
-        render_inline builder_method
+        render_inline error_summary
       end
 
       it "renders title" do
@@ -35,24 +52,14 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    describe "heading_level" do
+    context "with custom heading_level" do
+      let(:error_summary) { builder.cads_error_summary(heading_level: 3) }
+
       it "renders title with correct heading level" do
         pending "Not yet implemented"
         model.valid? # Trigger validations
-        render_inline builder.cads_error_summary(heading_level: 3)
+        render_inline error_summary
         expect(page).to have_css "h3", text: "There is a problem"
-      end
-    end
-
-    context "when no errors present" do
-      let(:model) { ExampleForm.valid_example }
-
-      before do
-        render_inline builder.cads_error_summary
-      end
-
-      specify "no error summary should be present" do
-        expect(page).to have_no_css ".cads-error-summary"
       end
     end
   end

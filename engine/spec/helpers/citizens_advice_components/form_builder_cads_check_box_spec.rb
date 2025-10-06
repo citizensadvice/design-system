@@ -10,8 +10,10 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   describe "#cads_check_box" do
     context "with default arguments" do
+      let(:field) { builder.cads_check_box(:confirmation) }
+
       before do
-        render_inline builder.cads_check_box(:confirmation)
+        render_inline field
       end
 
       it "renders checkbox with linkable id" do
@@ -40,11 +42,11 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) { builder.cads_check_box(:confirmation) }
+      let(:field) { builder.cads_check_box(:confirmation) }
 
       before do
         model.valid? # trigger validation
-        render_inline builder_method
+        render_inline field
       end
 
       it "renders error message" do
