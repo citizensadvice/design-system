@@ -9,12 +9,48 @@ module CitizensAdviceComponents
             safe_join([
               error_marker,
               tag.div(class: "cads-form-field__content") do
-                tag.fieldset(class: "cads-form-group cads-form-group--radio") do
-                  safe_join([legend_html, hint_html, error_message_html, radios_html])
-                end
+                render_fieldset
               end
             ])
           end
+        end
+
+        def render_fieldset
+          tag.fieldset(
+            class: fieldset_classes
+          ) do
+            safe_join([
+              legend_html,
+              hint_html,
+              error_message_html,
+              radios_html
+            ])
+          end
+        end
+
+        def fieldset_classes
+          class_names(
+            "cads-form-group",
+            "cads-form-group--radio",
+            "cads-radio-group--#{size.to_s.dasherize}": size.present?,
+            "cads-radio-group--#{layout.to_s.dasherize}": layout.present?
+          )
+        end
+
+        def size
+          fetch_or_fallback(
+            given_value: options[:size],
+            allowed_values: [nil, :regular, :small],
+            fallback: :regular
+          )
+        end
+
+        def layout
+          fetch_or_fallback(
+            given_value: options[:layout],
+            allowed_values: [nil, :list, :inline],
+            fallback: :list
+          )
         end
 
         private
