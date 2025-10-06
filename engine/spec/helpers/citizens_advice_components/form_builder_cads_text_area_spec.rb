@@ -115,12 +115,20 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    context "with additional_attributes hash" do
+    context "with deprecated additional_attributes hash" do
       let(:field) do
         builder.cads_text_area(
           :address,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
+      end
+
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
+
+      it "logs deprecation warning" do
+        render_inline field
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with(/additional_attributes hash is deprecated/)
       end
 
       it "passes via additional_attributes for backwards compatability" do
@@ -153,7 +161,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       context "when there is hint text" do
         let(:field) { builder.cads_text_area(:address, hint: "Example hint") }
-        let(:builder_method) { builder.cads_text_area(:address, hint: "Example hint") }
 
         it "sets multiple aria-describedby" do
           expect(page).to have_css "textarea[aria-describedby='example_form_address-error example_form_address-hint']"
@@ -166,7 +173,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) { builder.cads_text_area(:address) }
 
       it "can be used without a form model" do
-        render_inline builder.cads_text_area(:address)
+        render_inline field
         expect(page).to have_css "textarea"
       end
     end

@@ -102,7 +102,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    context "when additional attributes are provided" do
+    context "with deprecated additional_attributes hash" do
       let(:field) do
         builder.cads_collection_select(
           :currency,
@@ -112,21 +112,36 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         )
       end
 
-      context "with html options" do
-        before do
-          render_inline builder.cads_collection_select(
-            :currency,
-            example_options,
-            :id, :name,
-            {},
-            { autocomplete: "name", "data-additional": "example" }
-          )
-        end
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
 
-        it "passes additional attributes through to element" do
-          expect(page).to have_css "select[autocomplete=name]"
-          expect(page).to have_css "select[data-additional=example]"
-        end
+      it "logs deprecation warning" do
+        render_inline field
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with(/additional_attributes hash is deprecated/)
+      end
+
+      it "passes additional attributes through to element" do
+        render_inline field
+        expect(page).to have_css "select[autocomplete=name]"
+        expect(page).to have_css "select[data-additional=example]"
+      end
+    end
+
+    context "with html options" do
+      let(:field) do
+        builder.cads_collection_select(
+          :currency,
+          example_options,
+          :id, :name,
+          {},
+          { autocomplete: "name", "data-additional": "example" }
+        )
+      end
+
+      it "passes additional attributes through to element" do
+        render_inline field
+        expect(page).to have_css "select[autocomplete=name]"
+        expect(page).to have_css "select[data-additional=example]"
       end
     end
 
