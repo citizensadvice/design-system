@@ -40,9 +40,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) do
-        render_inline builder.cads_check_box(:confirmation)
-      end
+      let(:builder_method) { builder.cads_check_box(:confirmation) }
 
       before do
         model.valid? # trigger validation

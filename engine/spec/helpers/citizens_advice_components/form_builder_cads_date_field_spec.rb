@@ -69,9 +69,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) do
-        builder.cads_date_field(:date_of_purchase)
-      end
+      let(:builder_method) { builder.cads_date_field(:date_of_purchase) }
 
       before do
         model.valid? # trigger validation

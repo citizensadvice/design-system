@@ -141,7 +141,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
       let(:builder_method) do
-        render_inline builder.cads_collection_check_boxes(
+        builder.cads_collection_check_boxes(
           :currency,
           collection: example_options,
           text_method: :name,
@@ -164,7 +164,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       context "when there is hint text" do
         let(:builder_method) do
-          render_inline builder.cads_collection_check_boxes(
+          builder.cads_collection_check_boxes(
             :currency,
             collection: example_options,
             text_method: :name,

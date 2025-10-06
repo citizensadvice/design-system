@@ -108,7 +108,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
       let(:builder_method) do
-        render_inline builder.cads_collection_select(
+        builder.cads_collection_select(
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
           text_method: :first,
@@ -135,7 +135,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       context "when there is hint text" do
         let(:builder_method) do
-          render_inline builder.cads_collection_select(
+          builder.cads_collection_select(
             :currency,
             collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
             text_method: :first,
