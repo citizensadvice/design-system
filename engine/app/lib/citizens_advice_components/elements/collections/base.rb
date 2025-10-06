@@ -37,13 +37,23 @@ module CitizensAdviceComponents
         def error_message_html
           return unless error?
 
-          tag.p(class: "cads-form-field__error-message") { error_message }
+          tag.p(class: "cads-form-field__error-message", id: error_id) { error_message }
         end
 
         def optional_html
           return unless optional
 
-          tag.span(class: "cads-form-field__optional") { "(optional)" }
+          tag.span(class: "cads-form-field__optional") do
+            "(#{I18n.t('citizens_advice_components.input.optional')})"
+          end
+        end
+
+        def hint_id
+          "#{field_id}-hint"
+        end
+
+        def error_id
+          "#{field_id}-error"
         end
 
         def item_id(index)

@@ -154,6 +154,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       context "when there is hint text" do
         let(:field) { builder.cads_text_area(:address, hint: "Example hint") }
+        let(:builder_method) { builder.cads_text_area(:address, hint: "Example hint") }
 
         it "sets multiple aria-describedby" do
           expect(page).to have_css "textarea[aria-describedby='example_form_address-error example_form_address-hint']"
@@ -168,7 +169,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       it "can be used without a form model" do
         pending "Not currently implemented"
 
-        render_inline field
+        render_inline builder.cads_text_area(:address)
         expect(page).to have_css "textarea"
       end
     end
