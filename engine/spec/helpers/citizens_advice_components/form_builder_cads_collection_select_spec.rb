@@ -20,9 +20,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -68,9 +67,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           required: true
         )
       end
@@ -85,9 +83,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           hint: "Example hint"
         )
       end
@@ -109,19 +106,27 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
       end
 
-      it "passes additional attributes through to element" do
-        pending "Not yet implemented"
+      context "with html options" do
+        before do
+          render_inline builder.cads_collection_select(
+            :currency,
+            example_options,
+            :id, :name,
+            {},
+            { autocomplete: "name", "data-additional": "example" }
+          )
+        end
 
-        render_inline field
-        expect(page).to have_css "select[autocomplete=name]"
-        expect(page).to have_css "select[data-additional=example]"
+        it "passes additional attributes through to element" do
+          expect(page).to have_css "select[autocomplete=name]"
+          expect(page).to have_css "select[data-additional=example]"
+        end
       end
     end
 
@@ -130,9 +135,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -157,9 +161,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         let(:field) do
           builder.cads_collection_select(
             :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
+            example_options,
+            :id, :name,
             hint: "Example hint"
           )
         end
@@ -167,6 +170,34 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         it "sets multiple aria-describedby" do
           expect(page).to have_css "select[aria-describedby='example_form_currency-error example_form_currency-hint']"
         end
+      end
+    end
+
+    context "with deprecated collection params" do
+      before do
+        allow(CitizensAdviceComponents.deprecator).to receive(:warn)
+
+        render_inline builder.cads_collection_select(
+          :currency,
+          collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
+          text_method: :first,
+          value_method: :last
+        )
+      end
+
+      it "logs deprecation warning for collection param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("collection named parameter is deprecated, pass as positional parameter")
+      end
+
+      it "logs deprecation warning for text_method param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("text_method named parameter is deprecated, pass as positional parameter")
+      end
+
+      it "logs deprecation warning for value_method param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("value_method named parameter is deprecated, pass as positional parameter")
       end
     end
   end

@@ -20,9 +20,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -96,9 +95,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           required: true
         )
       end
@@ -114,9 +112,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           hint: "Example hint"
         )
       end
@@ -138,9 +135,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           page_heading: true
         )
       end
@@ -155,9 +151,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           layout: :invalid
         )
       end
@@ -174,9 +169,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           layout: :list
         )
       end
@@ -191,9 +185,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           layout: :inline
         )
       end
@@ -208,9 +201,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           size: :invalid
         )
       end
@@ -224,33 +216,33 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "when the regular size option is passed" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           size: :regular
         )
       end
 
       it "renders the regular size radio group" do
+        render_inline field
         expect(page).to have_css ".cads-radio-group--regular"
       end
     end
 
     context "when the small size option is passed" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           size: :small
         )
       end
 
       it "renders the small size radio group" do
+        render_inline field
         expect(page).to have_css ".cads-radio-group--small"
       end
     end
@@ -260,9 +252,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :name, :id
         )
       end
 
@@ -283,9 +274,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         let(:field) do
           builder.cads_collection_radio_buttons(
             :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
+            example_options,
+            :id, :name,
             hint: "Example hint"
           )
         end
@@ -293,6 +283,37 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         it "sets multiple aria-describedby" do
           expect(page).to have_css "fieldset[aria-describedby='example_form_currency-error example_form_currency-hint']"
         end
+      end
+    end
+
+    context "with deprecated collection params" do
+      let(:field) do
+        builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id
+        )
+      end
+
+      before do
+        allow(CitizensAdviceComponents.deprecator).to receive(:warn)
+        render_inline field
+      end
+
+      it "logs deprecation warning for collection param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("collection named parameter is deprecated, pass as positional parameter")
+      end
+
+      it "logs deprecation warning for text_method param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("text_method named parameter is deprecated, pass as positional parameter")
+      end
+
+      it "logs deprecation warning for value_method param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("value_method named parameter is deprecated, pass as positional parameter")
       end
     end
   end

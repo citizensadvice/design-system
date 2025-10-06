@@ -81,6 +81,18 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       it "renders error message" do
         expect(page).to have_text "Date of purchase must be less than"
       end
+
+      it "sets aria-describedby" do
+        expect(page).to have_css "fieldset[aria-describedby='example_form_date_of_purchase-error']"
+      end
+
+      context "when there is hint text" do
+        let(:field) { builder.cads_date_field(:date_of_purchase, hint: "Example hint") }
+
+        it "sets multiple aria-describedby" do
+          expect(page).to have_css "fieldset[aria-describedby='example_form_date_of_purchase-error example_form_date_of_purchase-hint']"
+        end
+      end
     end
   end
 end

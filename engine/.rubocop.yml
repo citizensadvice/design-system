@@ -16,6 +16,15 @@ Style/HashSyntax:
   # encourages greater readability so support either style
   EnforcedShorthandSyntax: "either"
 
+Metrics/ClassLength:
+  Exclude:
+    # Exists to delegate to other classes so is verbose
+    - "app/helpers/citizens_advice_components/form_builder.rb"
+    # Large classes to support method deprecations
+    - "app/lib/citizens_advice_components/elements/collection_select.rb"
+    - "app/lib/citizens_advice_components/elements/collection_check_boxes.rb"
+    - "app/lib/citizens_advice_components/elements/collection_radio_buttons.rb"
+
 Metrics/MethodLength:
   Exclude:
     # Implements form builder interfaces which often take many parameters

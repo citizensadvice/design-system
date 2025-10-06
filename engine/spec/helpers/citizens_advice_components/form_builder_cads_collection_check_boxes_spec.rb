@@ -20,9 +20,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_check_boxes(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -100,9 +99,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_check_boxes(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           required: true
         )
       end
@@ -118,9 +116,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_check_boxes(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           hint: "Example hint"
         )
       end
@@ -142,9 +139,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_check_boxes(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           page_heading: true
         )
       end
@@ -160,9 +156,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_check_boxes(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -183,9 +178,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         let(:field) do
           builder.cads_collection_check_boxes(
             :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
+            example_options,
+            :id, :name,
             hint: "Example hint"
           )
         end
@@ -193,6 +187,34 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         it "sets multiple aria-describedby" do
           expect(page).to have_css "fieldset[aria-describedby='example_form_currency-error example_form_currency-hint']"
         end
+      end
+    end
+
+    context "with deprecated collection params" do
+      before do
+        allow(CitizensAdviceComponents.deprecator).to receive(:warn)
+
+        render_inline builder.cads_collection_check_boxes(
+          :currency,
+          collection: example_options,
+          text_method: :id,
+          value_method: :name
+        )
+      end
+
+      it "logs deprecation warning for collection param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("collection named parameter is deprecated, pass as positional parameter")
+      end
+
+      it "logs deprecation warning for text_method param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("text_method named parameter is deprecated, pass as positional parameter")
+      end
+
+      it "logs deprecation warning for value_method param" do
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("value_method named parameter is deprecated, pass as positional parameter")
       end
     end
   end

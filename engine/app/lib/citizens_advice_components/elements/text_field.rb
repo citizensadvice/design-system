@@ -2,8 +2,9 @@
 
 module CitizensAdviceComponents
   module Elements
-    class TextArea < Base
+    class TextField < Base
       include Traits::Field
+      include CitizensAdviceComponents::FetchOrFallbackHelper
 
       def initialize(
         builder,
@@ -23,25 +24,25 @@ module CitizensAdviceComponents
       private
 
       def render_field
-        builder.text_area(
+        builder.text_field(
           attribute,
-          class: "cads-textarea",
+          class: class_names("cads-input", "cads-input--#{width.to_s.dasherize}": width.present?),
           id: input_id,
-          rows: rows,
           required: false, # use aria-required over required attribute
           "aria-required": required?,
           "aria-invalid": error?,
           "aria-describedby": described_by,
-          **text_area_options
+
+          **text_field_options
         )
       end
 
-      def text_area_options
+      def text_field_options
         # The default behaviour of text_field is to pass options on to the HTML element
         # Extract any custom options that we don't want passing on and add expected defaults.
         # For backwards compatability merge in additional_options hash
         options_for_html
-          .without(:rows)
+          .without(:width)
           .merge(options[:additional_attributes] || {})
       end
 
@@ -53,8 +54,12 @@ module CitizensAdviceComponents
         )
       end
 
-      def rows
-        options[:rows].to_i.zero? ? 8 : options[:rows]
+      def width
+        fetch_or_fallback(
+          allowed_values: [nil, :two_chars, :four_chars, :eight_chars, :sixteen_chars],
+          given_value: options[:width],
+          fallback: nil
+        )
       end
     end
   end
