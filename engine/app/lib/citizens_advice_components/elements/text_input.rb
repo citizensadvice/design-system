@@ -8,23 +8,19 @@ module CitizensAdviceComponents
           name: field_name,
           id: field_id,
           label: label,
-          type: options[:type] || :text,
+          type: :text,
           width: options[:width],
-          options: text_input_options
+          options: {
+            hint: hint,
+            optional: optional,
+            value: current_value,
+            error_message: error_message,
+            additional_attributes: options[:additional_attributes],
+            page_heading: options[:page_heading].present?
+          }
         )
 
         component.render_in(@template)
-      end
-
-      def text_input_options
-        {
-          hint: hint,
-          optional: optional,
-          value: current_value,
-          error_message: error_message,
-          additional_attributes: options[:additional_attributes],
-          page_heading: options[:page_heading].present?
-        }
       end
     end
   end

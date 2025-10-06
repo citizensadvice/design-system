@@ -41,12 +41,16 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       around { |example| I18n.with_locale(:cy) { example.run } }
 
       it "translates field names" do
+        pending "Not yet implemented"
+
         expect(page).to have_text "Blwyddyn"
         expect(page).to have_text "Mis"
         expect(page).to have_text "Dydd"
       end
 
       it "translates optional text" do
+        pending "Not yet implemented"
+
         expect(page).to have_text "(dewisol)"
       end
     end

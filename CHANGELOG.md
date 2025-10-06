@@ -1,11 +1,4 @@
-**Fix**
-
-- Fix translation day, month, and year labels when using `cads_date_field`
-- Fix translation of "(optional)" when using `cads_date_field`, `cads_collection_radio_options`, and `cads_collection_check_boxes`
-- Add `aria-describedby` to fieldset when using `cads_date_field`, `cads_collection_radio_options`, and `cads_collection_check_boxes`
-- Support custom `type` when using `cads_text_field`
-
-**Deprecations**
+**New**
 
 - Log a deprecation warning when using the `type` argument for `Textarea` and `Select` components. Neither textarea nor select elements accept a type. This argument will be removed in a future version.
 

@@ -4,66 +4,20 @@ module CitizensAdviceComponents
   module Elements
     module Collections
       class RadioButtons < Base
-        include CitizensAdviceComponents::FetchOrFallbackHelper
-
         def render
           tag.div(class: form_field_classes) do
             safe_join([
               error_marker,
               tag.div(class: "cads-form-field__content") do
-                render_fieldset
+                tag.fieldset(class: "cads-form-group cads-form-group--radio") do
+                  safe_join([legend_html, hint_html, error_message_html, radios_html])
+                end
               end
             ])
           end
         end
 
         private
-
-        def render_fieldset
-          tag.fieldset(
-            class: fieldset_classes,
-            "aria-describedby": fieldset_described_by
-          ) do
-            safe_join([
-              legend_html,
-              hint_html,
-              error_message_html,
-              radios_html
-            ])
-          end
-        end
-
-        def fieldset_classes
-          class_names(
-            "cads-form-group",
-            "cads-form-group--radio",
-            "cads-radio-group--#{size.to_s.dasherize}": size.present?,
-            "cads-radio-group--#{layout.to_s.dasherize}": layout.present?
-          )
-        end
-
-        def size
-          fetch_or_fallback(
-            given_value: options[:size],
-            allowed_values: [nil, :regular, :small],
-            fallback: :regular
-          )
-        end
-
-        def layout
-          fetch_or_fallback(
-            given_value: options[:layout],
-            allowed_values: [nil, :list, :inline],
-            fallback: :list
-          )
-        end
-
-        def fieldset_described_by
-          ids = []
-          ids << error_id if error?
-          ids << hint_id if hint.present?
-          ids.present? ? ids.join(" ") : nil
-        end
 
         def items
           @options[:collection].map do |item|
