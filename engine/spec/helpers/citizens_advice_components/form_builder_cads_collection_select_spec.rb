@@ -189,10 +189,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "with deprecated collection params" do
-      before do
-        allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-        render_inline builder.cads_collection_select(
+      let(:field) do
+        builder.cads_collection_select(
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
           text_method: :first,
@@ -200,19 +198,13 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         )
       end
 
-      it "logs deprecation warning for collection param" do
-        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with("collection named parameter is deprecated, pass as positional parameter")
-      end
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
 
-      it "logs deprecation warning for text_method param" do
-        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with("text_method named parameter is deprecated, pass as positional parameter")
-      end
+      it "logs deprecation warning" do
+        render_inline field
 
-      it "logs deprecation warning for value_method param" do
         expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with("value_method named parameter is deprecated, pass as positional parameter")
+          .with("collection, text_method, and value_method named parameters are deprecated, pass as positional parameter")
       end
     end
   end

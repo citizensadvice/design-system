@@ -6,7 +6,7 @@ module CitizensAdviceComponents
       include Traits::FieldGroup
       include ActionView::Helpers::FormOptionsHelper
 
-      attr_reader :collection, :value_method, :text_method, :label, :hint
+      attr_reader :collection, :value_method, :text_method
 
       def initialize(
         builder,
@@ -17,45 +17,23 @@ module CitizensAdviceComponents
         value_method,
         text_method,
         options = {},
-        html_options = {},
-        # Accept our custom named parameters after the defaults
-        label: nil,
-        hint: nil,
-        required: false,
-        page_heading: false,
-        layout: nil,
-        size: nil,
-        # Deprecated options
-        collection_param: nil,
-        text_method_param: nil,
-        value_method_param: nil,
-        additional_attributes: nil
+        html_options = {}
       )
         super(builder, template, object)
 
         @attribute = attribute
-        @collection = collection_param || collection
-        @text_method = text_method_param || text_method
-        @value_method = value_method_param || value_method
+
+        # Handle deprecating named parmeters in favour Rails default positional paramaters
+        # for collection, text method, and value method
+        collection_params_deprecation if collection.is_a?(Hash)
+
+        @collection = collection.is_a?(Hash) ? collection[:collection] : collection
+        @text_method = collection.is_a?(Hash) ? collection[:text_method] : text_method
+        @value_method = collection.is_a?(Hash) ? collection[:value_method] : value_method
+
         @options = options
         @html_options = html_options
 
-        # Custom properties
-        @label = label
-        @hint = hint
-        @required = required
-        @page_heading = page_heading
-        @layout = layout
-        @size = size
-
-        # Deprecated properties
-        @collection_param = collection_param
-        @text_method_param = text_method_param
-        @value_method_param = value_method_param
-        @additional_attributes = additional_attributes
-        collection_param_deprecation
-        text_method_param_deprecation
-        value_method_param_deprecation
         additional_attributes_deprecation
       end
 
@@ -92,42 +70,16 @@ module CitizensAdviceComponents
         )
       end
 
-      def required?
-        @required.present?
-      end
-
-      def page_heading?
-        @page_heading.present?
-      end
-
       private
 
-      def collection_param_deprecation
-        return if @collection_param.blank?
-
+      def collection_params_deprecation
         CitizensAdviceComponents.deprecator.warn(
-          "collection named parameter is deprecated, pass as positional parameter"
-        )
-      end
-
-      def text_method_param_deprecation
-        return if @text_method_param.blank?
-
-        CitizensAdviceComponents.deprecator.warn(
-          "text_method named parameter is deprecated, pass as positional parameter"
-        )
-      end
-
-      def value_method_param_deprecation
-        return if @value_method_param.blank?
-
-        CitizensAdviceComponents.deprecator.warn(
-          "value_method named parameter is deprecated, pass as positional parameter"
+          "collection, text_method, and value_method named parameters are deprecated, pass as positional parameter"
         )
       end
 
       def additional_attributes_deprecation
-        return if @additional_attributes.blank?
+        return if options[:additional_attributes].blank?
 
         CitizensAdviceComponents.deprecator.warn(
           "additional_attributes hash is deprecated, pass directly via options hash"
@@ -136,7 +88,7 @@ module CitizensAdviceComponents
 
       def size
         fetch_or_fallback(
-          given_value: @size,
+          given_value: options[:size],
           allowed_values: [nil, :regular, :small],
           fallback: :regular
         )
@@ -144,7 +96,7 @@ module CitizensAdviceComponents
 
       def layout
         fetch_or_fallback(
-          given_value: @layout,
+          given_value: options[:layout],
           allowed_values: [nil, :list, :inline],
           fallback: :list
         )

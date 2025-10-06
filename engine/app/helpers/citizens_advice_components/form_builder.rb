@@ -52,22 +52,7 @@ module CitizensAdviceComponents
       value_method_arg = nil,
       text_method_arg = nil,
       options = {},
-      html_options = {},
-      # Add our own additional properties
-      label: nil,
-      hint: nil,
-      required: false,
-      page_heading: false,
-      layout: nil,
-      size: nil,
-      # Deprecated options
-      # This core collection_select method accepts collection, value_method, and text_method as
-      # positional arguments as well as html_options for passing options to the HTML element,
-      # but we historically accepted them as named arguments. Support both for backwards compatability
-      collection: nil,
-      value_method: nil,
-      text_method: nil,
-      additional_attributes: nil
+      html_options = {}
     )
       Elements::CollectionRadioButtons.new(
         self,
@@ -78,17 +63,7 @@ module CitizensAdviceComponents
         value_method_arg,
         text_method_arg,
         options,
-        html_options,
-        label: label,
-        hint: hint,
-        required: required,
-        page_heading: page_heading,
-        layout: layout,
-        size: size,
-        collection_param: collection,
-        value_method_param: value_method,
-        text_method_param: text_method,
-        additional_attributes: additional_attributes
+        html_options
       ).render
     end
 
@@ -101,20 +76,7 @@ module CitizensAdviceComponents
       value_method_arg = nil,
       text_method_arg = nil,
       options = {},
-      html_options = {},
-      # Add our own additional properties
-      label: nil,
-      hint: nil,
-      required: false,
-      page_heading: false,
-      # Deprecated options
-      # This core collection_select method accepts collection, value_method, and text_method as
-      # positional arguments as well as html_options for passing options to the HTML element,
-      # but we historically accepted them as named arguments. Support both for backwards compatability
-      collection: nil,
-      value_method: nil,
-      text_method: nil,
-      additional_attributes: nil
+      html_options = {}
     )
       Elements::CollectionCheckBoxes.new(
         self,
@@ -125,15 +87,7 @@ module CitizensAdviceComponents
         value_method_arg,
         text_method_arg,
         options,
-        html_options,
-        label: label,
-        hint: hint,
-        required: required,
-        page_heading: page_heading,
-        collection_param: collection,
-        value_method_param: value_method,
-        text_method_param: text_method,
-        additional_attributes: additional_attributes
+        html_options
       ).render
     end
 
@@ -146,19 +100,7 @@ module CitizensAdviceComponents
       value_method_arg = nil,
       text_method_arg = nil,
       options = {},
-      html_options = {},
-      # Add our own additional properties
-      label: nil,
-      hint: nil,
-      required: false,
-      # Deprecated options
-      # This core collection_select method accepts collection, value_method, and text_method as
-      # positional arguments as well as html_options for passing options to the HTML element,
-      # but we historically accepted them as named arguments. Support both for backwards compatability
-      collection: nil,
-      value_method: nil,
-      text_method: nil,
-      additional_attributes: nil
+      html_options = {}
     )
       Elements::CollectionSelect.new(
         self,
@@ -169,14 +111,7 @@ module CitizensAdviceComponents
         value_method_arg,
         text_method_arg,
         options,
-        html_options,
-        label: label,
-        hint: hint,
-        required: required,
-        collection_param: collection,
-        value_method_param: value_method,
-        text_method_param: text_method,
-        additional_attributes: additional_attributes
+        html_options
       ).render
     end
 

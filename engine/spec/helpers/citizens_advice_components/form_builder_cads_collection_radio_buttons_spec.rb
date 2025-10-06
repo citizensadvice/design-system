@@ -296,24 +296,13 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         )
       end
 
-      before do
-        allow(CitizensAdviceComponents.deprecator).to receive(:warn)
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
+
+      it "logs deprecation warning" do
         render_inline field
-      end
 
-      it "logs deprecation warning for collection param" do
         expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with("collection named parameter is deprecated, pass as positional parameter")
-      end
-
-      it "logs deprecation warning for text_method param" do
-        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with("text_method named parameter is deprecated, pass as positional parameter")
-      end
-
-      it "logs deprecation warning for value_method param" do
-        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with("value_method named parameter is deprecated, pass as positional parameter")
+          .with("collection, text_method, and value_method named parameters are deprecated, pass as positional parameter")
       end
     end
   end
