@@ -7,15 +7,22 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
   let(:model) { ExampleForm.valid_example }
   let(:builder) { form_builder_for(model) }
+  let(:example_options) do
+    [
+      FormOption.new(id: "GBP", name: "£ Pound sterling"),
+      FormOption.new(id: "EUR", name: "€ Euro"),
+      FormOption.new(id: "USD", name: "$ United States dollar")
+    ]
+  end
 
   describe "#cads_collection_select" do
     context "with default arguments" do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
-          text_method: :first,
-          value_method: :last
+          collection: example_options,
+          text_method: :name,
+          value_method: :id
         )
       end
 
@@ -23,8 +30,11 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         render_inline field
       end
 
-      it "renders select field with value" do
-        expect(page).to have_select("example_form[currency]", selected: "GBP")
+      it "renders expected options and values" do
+        expect(page).to have_select("example_form[currency]", selected: "£ Pound sterling", with_options: example_options.map(&:name))
+        example_options.each do |option|
+          expect(page).to have_css "select option[value='#{option.id}']"
+        end
       end
 
       it "links the label to the input" do
@@ -58,9 +68,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
-          text_method: :first,
-          value_method: :last,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
           required: true
         )
       end
@@ -75,9 +85,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
-          text_method: :first,
-          value_method: :last,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
           hint: "Example hint"
         )
       end
@@ -99,9 +109,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
-          text_method: :first,
-          value_method: :last,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
       end
@@ -120,9 +130,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
-          text_method: :first,
-          value_method: :last
+          collection: example_options,
+          text_method: :name,
+          value_method: :id
         )
       end
 
@@ -147,9 +157,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         let(:field) do
           builder.cads_collection_select(
             :currency,
-            collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
-            text_method: :first,
-            value_method: :last,
+            collection: example_options,
+            text_method: :name,
+            value_method: :id,
             hint: "Example hint"
           )
         end

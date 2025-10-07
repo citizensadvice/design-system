@@ -9,9 +9,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
   let(:builder) { form_builder_for(model) }
   let(:example_options) do
     [
-      FormOption.new(id: "GBP", name: "GBP"),
-      FormOption.new(id: "EUR", name: "EUR"),
-      FormOption.new(id: "USD", name: "USD")
+      FormOption.new(id: "GBP", name: "£ Pound sterling"),
+      FormOption.new(id: "EUR", name: "€ Euro"),
+      FormOption.new(id: "USD", name: "$ United States Dollar")
     ]
   end
 
@@ -30,8 +30,15 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         render_inline field
       end
 
-      it "renders all expected options" do
+      it "renders expected number of options" do
         expect(page).to have_field("example_form[currency]", type: :radio, count: 3)
+      end
+
+      it "renders expected options and values" do
+        example_options.each do |option|
+          expect(page).to have_css "label", text: option.name
+          expect(page).to have_css "input[value='#{option.id}']"
+        end
       end
 
       it "renders first option with linkable id" do
