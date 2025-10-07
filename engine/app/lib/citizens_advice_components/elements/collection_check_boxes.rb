@@ -13,7 +13,7 @@ module CitizensAdviceComponents
         template,
         object,
         attribute,
-        collection,
+        collection_or_options,
         value_method,
         text_method,
         options = {},
@@ -23,16 +23,29 @@ module CitizensAdviceComponents
 
         @attribute = attribute
 
-        # Handle deprecating named parmeters in favour Rails default positional paramaters
-        # for collection, text method, and value method
-        collection_params_deprecation if collection.is_a?(Hash)
+        # The standard Rails collection_radio_buttons method accepts collection,
+        # text_method, and value_method as positional arguments followed by an options
+        # and separate html_options hash. Our original component accepted named arguments.
+        #
+        # If collection is a hash then we have the older named arguments format so we
+        # need to extract our expected paramters out of the hash. Otherwise use the new defaults.
+        if collection_or_options.is_a? Hash
+          collection_params_deprecation
 
-        @collection = collection.is_a?(Hash) ? collection[:collection] : collection
-        @text_method = collection.is_a?(Hash) ? collection[:text_method] : text_method
-        @value_method = collection.is_a?(Hash) ? collection[:value_method] : value_method
+          @collection = collection_or_options[:collection]
+          @text_method = collection_or_options[:text_method]
+          @value_method = collection_or_options[:value_method]
 
-        @options = options
-        @html_options = html_options
+          @options = collection_or_options.without(:collection, :text_method, :value_method)
+          @html_options = {} # html_options not supported in this format
+        else
+          @collection = collection_or_options
+          @text_method = text_method
+          @value_method = value_method
+
+          @options = options
+          @html_options = html_options
+        end
 
         additional_attributes_deprecation
       end

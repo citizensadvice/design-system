@@ -196,7 +196,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
           :currency,
           collection: example_options,
           text_method: :id,
-          value_method: :name
+          value_method: :name,
+          page_heading: true
         )
       end
 
@@ -207,6 +208,11 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
         expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
           .with("collection, text_method, and value_method named parameters are deprecated, pass as positional parameter")
+      end
+
+      it "passes options along" do
+        render_inline field
+        expect(page).to have_css "legend h1.cads-page-title", text: "Currency"
       end
     end
   end

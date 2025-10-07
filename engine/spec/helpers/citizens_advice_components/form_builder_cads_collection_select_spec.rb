@@ -194,7 +194,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
           :currency,
           collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
           text_method: :first,
-          value_method: :last
+          value_method: :last,
+          hint: "Example hint"
         )
       end
 
@@ -205,6 +206,11 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
         expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
           .with("collection, text_method, and value_method named parameters are deprecated, pass as positional parameter")
+      end
+
+      it "passes options along" do
+        render_inline field
+        expect(page).to have_text "Example hint"
       end
     end
   end
