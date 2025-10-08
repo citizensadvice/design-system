@@ -16,9 +16,19 @@ Style/HashSyntax:
   # encourages greater readability so support either style
   EnforcedShorthandSyntax: "either"
 
+Metrics/MethodLength:
+  Exclude:
+    # Implements form builder interfaces which often take many parameters
+    - "app/lib/citizens_advice_components/elements/*.rb"
+    - "app/helpers/citizens_advice_components/form_builder.rb"
+
 Metrics/ParameterLists:
-  # Prefer explicit parameters over compact interfaces
+  # Prefer explicit parameters to compact interfaces
   Max: 8
+  Exclude:
+    # Implements form builder interfaces which often take many parameters
+    - "app/lib/citizens_advice_components/elements/*.rb"
+    - "app/helpers/citizens_advice_components/form_builder.rb"
 
 RSpec/ExampleLength:
   Max: 12
@@ -32,6 +42,9 @@ RSpec/MultipleExpectations:
   Exclude:
     # Feature tests deliberately use multiple expectations
     - "spec/features/**/*.rb"
+
+RSpec/NestedGroups:
+  Max: 4
 
 Rails/RakeEnvironment:
   Exclude:
