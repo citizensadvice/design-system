@@ -5,6 +5,7 @@ require "active_support/core_ext/module/delegation"
 module CitizensAdviceComponents
   module Elements
     class Base
+      include CitizensAdviceComponents::FetchOrFallbackHelper
       include ActionView::Context
 
       delegate :content_tag, :tag, :safe_join, :link_to, :capture, to: :@template
