@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This controller is intended for top-level pages like /accessibility
+# for new sections add a dedicated controller and model for your content
 class PagesController < ApplicationController
   def show
     @page = Page.find(params[:slug])
