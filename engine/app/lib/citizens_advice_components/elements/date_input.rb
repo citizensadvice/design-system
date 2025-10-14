@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   module Elements
-    class DateInput < Base
+    class DateInput < Field
       include ActionView::Helpers::TagHelper
 
       def render
