@@ -1,5 +1,6 @@
 **New**
 
+- Support `heading_level` option when using `cads_error_summary`
 - Support `size` and `layout` options when using `cads_collection_radio_buttons`
 - Log a deprecation warning when using the `type` argument for `Textarea` and `Select` components. Neither textarea nor select elements accept a type. This argument will be removed in a future version.
 
