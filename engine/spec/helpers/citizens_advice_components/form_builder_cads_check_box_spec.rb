@@ -16,16 +16,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         render_inline field
       end
 
-      it "renders checkbox with linkable id" do
-        expect(page).to have_field(
-          "example_form[confirmation]",
-          with: "1",
-          type: :checkbox,
-          checked: true
-        )
-
-        pending "Bug: checkbox generates IDs by name"
-
+      it "renders checkbox" do
+        expect(page).to have_css "label", text: "Confirmation"
         expect(page).to have_field(
           "example_form[confirmation]",
           with: "1",
@@ -51,25 +43,12 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       it "renders error message" do
         expect(page).to have_css(
-          "[id='example_form[confirmation]-error']",
-          text: "Confirmation can't be blank"
-        )
-
-        pending "Bug: checkbox generates IDs by name"
-
-        expect(page).to have_css(
           "#example_form_confirmation-error",
           text: "Confirmation can't be blank"
         )
       end
 
       it "sets aria-describedby" do
-        expect(page).to have_css(
-          "input[aria-describedby='example_form[confirmation]-error']"
-        )
-
-        pending "Bug: checkbox generates IDs by name"
-
         expect(page).to have_css(
           "input[aria-describedby='example_form_confirmation-error']"
         )
