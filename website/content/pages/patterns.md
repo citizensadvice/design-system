@@ -6,9 +6,9 @@ Patterns are groups of components that form a reusable solution to a design prob
 
 Each pattern in this section includes:
 
-* guidance on when and why to use it
-* examples for different use cases and contexts
-* best practice for implementation
+- guidance on when and why to use it
+- examples for different use cases and contexts
+- best practice for implementation
 
 ## Asking users for...
 
