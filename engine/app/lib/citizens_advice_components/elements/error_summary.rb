@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   module Elements
-    class ErrorSummary < Base
+    class ErrorSummary < Field
       def render
         component = CitizensAdviceComponents::ErrorSummary.new
         component.with_errors(error_messages)

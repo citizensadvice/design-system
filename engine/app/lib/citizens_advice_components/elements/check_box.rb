@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   module Elements
-    class CheckBox < Base
+    class CheckBox < Field
       def render
         safe_join([hidden_field, checkbox_field])
       end

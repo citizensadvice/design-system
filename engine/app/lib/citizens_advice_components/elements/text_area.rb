@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   module Elements
-    class TextArea < Base
+    class TextArea < Field
       def render
         component = CitizensAdviceComponents::Textarea.new(
           name: field_name,
