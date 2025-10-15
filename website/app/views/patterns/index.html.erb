@@ -1,0 +1,23 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= title t("sections.patterns") %></h1>
+    <div class="cads-prose-direct-descendants">
+      <p>Patterns are groups of components that form a reusable solution to a design problem. Use them to help users complete a specific task or navigate a page type.</p>
+      <p>Each pattern in this section includes:</p>
+      <ul>
+        <li>guidance on when and why to use it</li>
+        <li>examples for different use cases and contexts</li>
+        <li>best practice for implementation</li>
+      </ul>
+
+    </div>
+    <div class="text-list">
+      <h2 class="text-list__title">Asking users for...</h2>
+      <ul class="text-list__links">
+        <% @patterns.each do |pattern| %>
+          <li><%= link_to pattern, pattern_path(pattern) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

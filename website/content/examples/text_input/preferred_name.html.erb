@@ -1,0 +1,14 @@
+---
+title: preferred_name
+form: true
+---
+
+<%= render CitizensAdviceComponents::TextInput.new(
+  name: "preferred-name",
+  label: "What's your preferred name?",
+  type: :text,
+  options: {
+    hint: "This is the name we’ll use when we contact you",
+    additional_attributes: { autocomplete: "name", spellcheck: false }
+  }
+) %>
