@@ -4,6 +4,7 @@ en:
   sections:
     home: Home
     guides: Guides
+    patterns: Patterns
     foundations: Foundations
     components: Components
     accessibility: Accessibility

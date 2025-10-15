@@ -1,16 +1,6 @@
 ---
 title: Names
-parent_breadcrumb:
-  title: Patterns
-  url: /patterns/
 ---
-
-<%= render CitizensAdviceComponents::OnThisPage.new do |c| %>
-<% c.with_links([
-{ label: "When to use this", id: "when-to-use" },
-{ label: "How it works", id: "how-it-works" },
-]) %>
-<% end %>
 
 <%= render(ExampleComponent.new(:text_input, :full_name)) %>
 

@@ -5,7 +5,6 @@
 class PagesController < ApplicationController
   def show
     @page = Page.find(params[:slug])
-    cads_add_breadcrumb @page.parent_breadcrumb if @page.parent_breadcrumb.present?
     cads_add_breadcrumb title: @page.title
     set_meta_tags title: [@page.title]
   end

@@ -1,0 +1,23 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title"><%= @pattern.title %></h1>
+    <% if @pattern.on_this_page? %>
+      <%= render(OnThisPageComponent.new(@pattern.html)) %>
+    <% end %>
+    <div class="cads-prose-direct-descendants">
+      <%= @pattern.html %>
+    </div>
+    <%= render "partials/feedback_prompt" %>
+  <% end %>
+  <% c.with_sidebar do %>
+    <%= render CitizensAdviceComponents::SectionLinks.new(
+      title: "In this section",
+      section_title: t("sections.patterns"),
+      section_title_url: patterns_path
+    ) do |section_links|
+      section_links.with_section_links(@patterns.map do |pattern|
+        { url: pattern_path(pattern), title: pattern.title }
+      end)
+    end %>
+  <% end %>
+<% end %>

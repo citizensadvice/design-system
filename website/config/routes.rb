@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :guides, only: %i[index show], param: :slug
   resources :foundations, only: %i[index show], param: :slug
   resources :components, only: %i[index show], param: :slug
+  resources :patterns, only: %i[index show], param: :slug
   get "/examples", to: "examples#index", as: :examples
   get "/examples/:category/:slug", to: "examples#show", as: :example
   get "/:slug", to: "pages#show", as: :page, format: :html
