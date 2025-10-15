@@ -8,7 +8,7 @@ class PatternsController < ApplicationController
   def show
     @pattern = Pattern.find(params[:slug])
     cads_add_breadcrumb title: @pattern.title
-    set_meta_tags title: [t("sections.patterns"), @pattern.title]
+    set_meta_tags title: [t("sections.patterns.title"), @pattern.title]
   end
 
   private
@@ -18,6 +18,6 @@ class PatternsController < ApplicationController
   end
 
   def set_breadcrumbs
-    cads_add_breadcrumb title: t("sections.patterns"), url: patterns_path
+    cads_add_breadcrumb title: t("sections.patterns.title"), url: patterns_path
   end
 end

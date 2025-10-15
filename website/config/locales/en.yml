@@ -1,10 +1,20 @@
 en:
   global:
     title: "Citizens Advice Design System"
-  sections:
     home: Home
-    guides: Guides
-    patterns: Patterns
-    foundations: Foundations
-    components: Components
-    accessibility: Accessibility
+  sections:
+    guides:
+      title: Guides
+      description: Guides on how to use the Citizens Advice Design System in your product.
+    foundations:
+      title: Foundations
+      description: Foundations including colours, fonts, spacing, icons, and borders.
+    components:
+      title: Components
+      description: Documentation for each component in the design system e.g. targeted content.
+    patterns:
+      title: Patterns
+      description: Documentation for each pattern in the design system - for example, asking for names.
+    accessibility:
+      title: Accessibility
+      description: Accessibility guidance and general accessibility information.

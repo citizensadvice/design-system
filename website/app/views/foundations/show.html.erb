@@ -10,7 +10,7 @@
   <% c.with_sidebar do %>
     <%= render CitizensAdviceComponents::SectionLinks.new(
       title: "In this section",
-      section_title: t("sections.foundations"),
+      section_title: t("sections.foundations.title"),
       section_title_url: foundations_path
     ) do |section_links|
       section_links.with_section_links(@foundations.map do |foundation|

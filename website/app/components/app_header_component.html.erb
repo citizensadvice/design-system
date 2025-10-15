@@ -1,6 +1,6 @@
 <%= render CitizensAdviceComponents::Header.new do |c| %>
-  <%- c.with_logo(title: title) do %>
-    <a href="/" title="<%= title %>" class="docs-logo">
+  <%- c.with_logo(title: t("global.title")) do %>
+    <a href="/" title="<%= t("global.title") %>" class="docs-logo">
       <svg viewBox="0 0 284 52" xmlns="http://www.w3.org/2000/svg">
         <path d="M48.9997 24.3939C48.9997 39.4659 36.1697 51.9999 23.0087 51.9999C23.0087 51.9999 24.5213 47.997 24.5 47.997C10.972 47.997 0 38.0058 0 24.421C0 10.934 10.969 0 24.5 0C38.031 0 49 10.934 49 24.421" />
         <path d="M79.9531 26.6719C79.9531 30.4323 78.8802 33.3125 76.7344 35.3125C74.599 37.3125 71.5104 38.3125 67.4688 38.3125H61V15.4688H68.1719C71.901 15.4688 74.7969 16.4531 76.8594 18.4219C78.9219 20.3906 79.9531 23.1406 79.9531 26.6719ZM74.9219 26.7969C74.9219 21.8906 72.7552 19.4375 68.4219 19.4375H65.8438V34.3125H67.9219C72.5885 34.3125 74.9219 31.8073 74.9219 26.7969Z" />
@@ -20,10 +20,5 @@
   <% end %>
 <% end %>
 <%= render CitizensAdviceComponents::Navigation.new(
-  links: [
-    { url: guides_path, title: t("sections.guides") },
-    { url: foundations_path, title: t("sections.foundations") },
-    { url: components_path, title: t("sections.components") },
-    { url: page_path("accessibility"), title: t("sections.accessibility") }
-  ]
+  links: navigation_sections
 ) %>
