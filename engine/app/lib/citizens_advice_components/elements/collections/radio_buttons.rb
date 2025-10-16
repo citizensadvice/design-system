@@ -4,6 +4,10 @@ module CitizensAdviceComponents
   module Elements
     module Collections
       class RadioButtons < Base
+        include CitizensAdviceComponents::FetchOrFallbackHelper
+
+        protected
+
         def render
           tag.div(class: form_field_classes) do
             safe_join([
@@ -15,9 +19,12 @@ module CitizensAdviceComponents
           end
         end
 
+        private
+
         def render_fieldset
           tag.fieldset(
-            class: fieldset_classes
+            class: fieldset_classes,
+            "aria-describedby": fieldset_described_by
           ) do
             safe_join([
               legend_html,
@@ -53,7 +60,12 @@ module CitizensAdviceComponents
           )
         end
 
-        private
+        def fieldset_described_by
+          ids = []
+          ids << error_id if error?
+          ids << hint_id if hint.present?
+          ids.present? ? ids.join(" ") : nil
+        end
 
         def items
           @options[:collection].map do |item|
