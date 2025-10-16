@@ -1,6 +1,22 @@
-**New**
+**Breaking changes**
 
 - Remove support for end-of-life Rails 7.1.x versions
+- Remove deprecated `links` parameter from breadcrumbs component.
+
+  Before:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new(links: [])
+  ```
+
+  After:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new([])
+  ```
+
+**New**
+
 - Support `size` and `layout` options when using `cads_collection_radio_buttons`
 - Log a deprecation warning when using the `type` argument for `Textarea` and `Select` components. Neither textarea nor select elements accept a type. This argument will be removed in a future version.
 
