@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def cads_default_breadcrumbs
-    [{ title: t("sections.home"), url: home_path }]
+    [{ title: t("global.home"), url: home_path }]
   end
 end

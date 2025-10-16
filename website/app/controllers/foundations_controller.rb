@@ -8,7 +8,7 @@ class FoundationsController < ApplicationController
   def show
     @foundation = Foundation.find(params[:slug])
     cads_add_breadcrumb title: @foundation.title
-    set_meta_tags title: [t("sections.foundations"), @foundation.title]
+    set_meta_tags title: [t("sections.foundations.title"), @foundation.title]
   end
 
   private
@@ -18,6 +18,6 @@ class FoundationsController < ApplicationController
   end
 
   def set_breadcrumbs
-    cads_add_breadcrumb title: t("sections.foundations"), url: foundations_path
+    cads_add_breadcrumb title: t("sections.foundations.title"), url: foundations_path
   end
 end

@@ -1,3 +1,20 @@
+**Breaking changes**
+
+- Remove support for end-of-life Rails 7.1.x versions
+- Remove deprecated `links` parameter from breadcrumbs component.
+
+  Before:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new(links: [])
+  ```
+
+  After:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new([])
+  ```
+
 **New**
 
 - Remove support for end-of-life Rails 7.1.x versions

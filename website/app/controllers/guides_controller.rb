@@ -8,7 +8,7 @@ class GuidesController < ApplicationController
   def show
     @guide = Guide.find(params[:slug])
     cads_add_breadcrumb title: @guide.title
-    set_meta_tags title: [t("sections.guides"), @guide.title]
+    set_meta_tags title: [t("sections.guides.title"), @guide.title]
   end
 
   private
@@ -18,6 +18,6 @@ class GuidesController < ApplicationController
   end
 
   def set_breadcrumbs
-    cads_add_breadcrumb title: t("sections.guides"), url: guides_path
+    cads_add_breadcrumb title: t("sections.guides.title"), url: guides_path
   end
 end
