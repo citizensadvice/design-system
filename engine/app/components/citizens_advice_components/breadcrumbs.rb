@@ -4,12 +4,8 @@ module CitizensAdviceComponents
   class Breadcrumbs < Base
     attr_reader :type
 
-    # Deprecation note: The links argument deprecated in favour of
-    # passing breadcrumbs in as the first argument for a cleaner API.
-    # Remove the links argument in v9.0.0
-    def initialize(breadcrumbs = nil, links: nil, type: :collapse, current_page: true, full_width: true)
-      @deprecated_links = links
-      @breadcrumbs = breadcrumbs.presence || links
+    def initialize(breadcrumbs, type: :collapse, current_page: true, full_width: true)
+      @breadcrumbs = breadcrumbs.to_a
       @type = fetch_or_fallback(
         allowed_values: %i[collapse no_collapse],
         given_value: type,
@@ -17,8 +13,6 @@ module CitizensAdviceComponents
       )
       @current_page = fetch_or_fallback_boolean(current_page, fallback: true)
       @full_width = fetch_or_fallback_boolean(full_width, fallback: true)
-
-      links_deprecation
     end
 
     def render?
@@ -26,14 +20,6 @@ module CitizensAdviceComponents
     end
 
     private
-
-    def links_deprecation
-      return if @deprecated_links.blank?
-
-      CitizensAdviceComponents.deprecator.warn(
-        "The links attribute is deprecated, pass breadcrumbs as the first argument instead"
-      )
-    end
 
     def breadcrumbs_html
       breadcrumbs.map.with_index do |breadcrumb, index|

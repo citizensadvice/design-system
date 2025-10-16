@@ -90,21 +90,6 @@ RSpec.describe CitizensAdviceComponents::Breadcrumbs, type: :component do
     it { is_expected.to have_css "span[aria-current=location]", text: "Staying in the UK" }
   end
 
-  context "when deprecated links argument is provided" do
-    before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-      render_inline described_class.new(
-        links: sample_links
-      )
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/links attribute is deprecated/)
-    end
-  end
-
   private
 
   def sample_links
