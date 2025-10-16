@@ -23,7 +23,7 @@ jobs:
         ruby_version: ["3.2", "3.3", "3.4"]
         # Explicitly list appraisals to run in matrix for improved reporting
         # in the GitHub actions workflow
-        appraisal: ["rails_7_1", "rails_7_1", "rails_8_0", "view_component_4"]
+        appraisal: ["rails_7_2", "rails_8_0", "view_component_4"]
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.appraisal }}.gemfile
     defaults:

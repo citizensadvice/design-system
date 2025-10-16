@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,lib}/**/*", "README.md"]
 
   %w[actionpack actionview activemodel activerecord activesupport railties].each do |rails_lib|
-    spec.add_dependency rails_lib, [">= 7.1.0", "< 9.0"]
+    spec.add_dependency rails_lib, [">= 7.2.0", "< 9.0"]
   end
 
   spec.add_dependency "rails-i18n", ">= 7.0.10"
