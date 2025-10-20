@@ -19,6 +19,7 @@ task :erb_lint do
   `erb_lint --lint-all`
 end
 
+desc "Sync fonts between npm source and engine"
 task :sync_fonts do
   source_files = Dir["../assets/fonts/*"]
   dest_path = File.expand_path("./app/assets/fonts/citizens_advice_components/", __dir__)
