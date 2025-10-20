@@ -1,8 +1,22 @@
 **Breaking changes**
 
+- Remove support for end-of-life Rails 7.1.x versions
 - Remove icon font
 
   Products still using the icon font for their own components will need to self-host a copy of the icon font from a previous release until they are able to fully migrate away.
+- Remove deprecated `links` parameter from breadcrumbs component.
+
+  Before:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new(links: [])
+  ```
+
+  After:
+
+  ```rb
+  render CitizensAdviceComponents::Breadcrumbs.new([])
+  ```
 
 **New**
 
@@ -197,7 +211,7 @@
 
 **New**
 
-- Remove support for end-of-life Ruby 3.0.x versions
+- Remove support for end-of-life Ruby 3.1.x versions
 - Remove support for end-of-life Rails 7.0.x versions
 - Migrate rails form builder to design system engine
   
