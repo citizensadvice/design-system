@@ -21,9 +21,14 @@ jobs:
       matrix:
         # Test against active Ruby versions (https://endoflife.date/ruby)
         ruby_version: ["3.2", "3.3", "3.4"]
-        # Explicitly list appraisals to run in matrix for improved reporting
-        # in the GitHub actions workflow
-        appraisal: ["rails_7_2", "rails_8_0", "rails_8_1", "view_component_3"]
+        # List appraisals to run in matrix for improved reporting
+        appraisal: ["rails_7_2", "rails_8_0", "rails_8_1"]
+        include:
+          # Explicitly test against previously supported view component version
+          # using the oldest supported Rails version. This can be removed when
+          # we no longer want to test against view component 3.x directly
+          - ruby_version: "3.2"
+            appraisal: "view_component_3"
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.appraisal }}.gemfile
     defaults:
