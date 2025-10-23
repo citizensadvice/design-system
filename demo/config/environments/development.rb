@@ -35,6 +35,12 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  # Highlight code that triggered redirect in logs.
+  config.action_dispatch.verbose_redirect_logs = true
+
+  # Suppress logger output for asset requests.
+  config.assets.quiet = true
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
