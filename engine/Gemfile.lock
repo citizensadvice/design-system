@@ -15,7 +15,7 @@ GIT
 PATH
   remote: .
   specs:
-    citizens_advice_components (8.3.2)
+    citizens_advice_components (9.0.0)
       actionpack (>= 7.2.0, < 9.0)
       actionview (>= 7.2.0, < 9.0)
       activemodel (>= 7.2.0, < 9.0)

@@ -1,3 +1,7 @@
+## v9.0.0
+
+### 23 October 2025
+
 **Breaking changes**
 
 - Remove support for end-of-life Rails 7.1.x versions
