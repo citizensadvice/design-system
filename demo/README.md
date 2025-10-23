@@ -15,7 +15,7 @@ This app:
 Following this you should be able to run the dev server with:
 
 ```sh
-./bin/dev
+just demo-dev
 ```
 
 The engine code bundles a set of component previews which can be seen at `http://localhost:3000/rails/view_components`.
