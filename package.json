@@ -48,7 +48,7 @@
     "stylelint": "^16.6.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-selector-bem-pattern": "^4.0.0",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.3"
   },
   "browserslist": [
     "IE 11",
