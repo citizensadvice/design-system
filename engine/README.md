@@ -4,19 +4,21 @@ A Rails Engine packaged as a gem which provides a set of [view components](https
 
 ## Running engine checks
 
-Install gem dependencies
+Run tests with via just or, within the `engine` directory directly via `rake`:
 
 ```sh
-bundle install
+just engine-check
 ```
 
-Run rake
+By default this will run all rspec, rubocop, and erb-lint checks. You can view all available tasks with `rake -T`.
+
+We use Appraisal for managing different gemfiles for older Rails versions as well as for testing new ViewComponent versions. By default the just recipe above will run all appraisal specs, you can run appraisals using:
 
 ```sh
-rake
+bundle exec appraisal help
 ```
 
-By default this will run all rspec, rubocop, and erb-lint checks. You can view all available tasks with `rake -T`
+See the [Appraisal docs](https://github.com/thoughtbot/appraisal) for a full list of commands and how to work with the `Appraisals` file.
 
 ## Utility tasks
 
@@ -24,22 +26,6 @@ We provide some additional utility tasks for developing the engine.
 
 Font files can be synced between the package and the engine with:
 
-```
-rake sync_fonts
-```
-
-## Testing older library versions
-
-We use Appraisal for managing different gemfiles for older Rails versions as well as for testing new ViewComponent versions. You can run appraisals using:
-
 ```sh
-bundle exec appraisal install
+just engine-sync
 ```
-
-Followed by:
-
-```sh
-bundle exec appraisal rake spec
-```
-
-See the [Appraisal docs](https://github.com/thoughtbot/appraisal) for a full list of commands.
