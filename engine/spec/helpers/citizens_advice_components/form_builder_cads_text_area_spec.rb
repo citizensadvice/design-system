@@ -58,8 +58,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     context "with required parameter" do
       let(:field) { builder.cads_text_area(:address, required: true) }
 
-      it "includes aria-required attribute" do
+      it "uses aria-required instead of required attribute" do
         render_inline field
+        expect(page).to have_no_css "textarea[required]"
         expect(page).to have_css "textarea[aria-required=true]"
       end
     end
@@ -108,20 +109,26 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "passes additional attributes through to element" do
-        pending "Not yet implemented"
-
         render_inline field
         expect(page).to have_css "textarea[autocomplete=name]"
         expect(page).to have_css "textarea[data-additional=example]"
       end
     end
 
-    context "with additional_attributes hash" do
+    context "with deprecated additional_attributes hash" do
       let(:field) do
         builder.cads_text_area(
           :address,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
+      end
+
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
+
+      it "logs deprecation warning" do
+        render_inline field
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with(/additional_attributes hash is deprecated/)
       end
 
       it "passes via additional_attributes for backwards compatability" do
@@ -166,11 +173,16 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) { builder.cads_text_area(:address) }
 
       it "can be used without a form model" do
-        pending "Not currently implemented"
-
         render_inline field
         expect(page).to have_css "textarea"
       end
+    end
+  end
+
+  describe "#cads_textarea" do
+    it "supports aliased name" do
+      render_inline builder.cads_textarea(:address)
+      expect(page).to have_css "textarea"
     end
   end
 end
