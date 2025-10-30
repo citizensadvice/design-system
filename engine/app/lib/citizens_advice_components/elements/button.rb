@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   module Elements
-    class Button < Base
+    class Button < Field
       def initialize(template, object, button_text: nil, **)
         super(template, object, nil, **)
 

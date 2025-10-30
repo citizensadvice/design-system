@@ -2,7 +2,7 @@
 
 module CitizensAdviceComponents
   module Elements
-    class TextInput < Base
+    class TextInput < Field
       def render
         component = CitizensAdviceComponents::TextInput.new(
           name: field_name,
