@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
-    "esbuild": "^0.25.10",
+    "esbuild": "^0.25.11",
     "sass": "^1.90.0"
   },
   "devDependencies": {
     "@citizensadvice/design-system": "file:../",
     "@testing-library/cypress": "^10.1.0",
-    "axe-core": "^4.10.3",
+    "axe-core": "^4.11.0",
     "backstopjs": "^6.3.25",
     "cypress": "^15.2.0",
     "cypress-axe": "^1.7.0",
