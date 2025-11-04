@@ -71,7 +71,7 @@ updates:
   - package-ecosystem: bundler
     directory: "/website"
     schedule:
-      interval: weekly
+      interval: monthly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
@@ -82,7 +82,7 @@ updates:
   - package-ecosystem: npm
     directory: "/website"
     schedule:
-      interval: weekly
+      interval: monthly
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
