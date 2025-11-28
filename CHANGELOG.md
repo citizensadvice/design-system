@@ -1,3 +1,7 @@
+**New**
+
+- Support custom `type` when using `cads_text_field`
+
 ## v9.0.0
 
 ### 23 October 2025
