@@ -1,6 +1,7 @@
 **New**
 
 - Support custom `type` when using `cads_text_field`
+- Support `heading_level` option when using `cads_error_summary`
 
 ## v9.0.0
 
