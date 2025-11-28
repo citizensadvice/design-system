@@ -3,7 +3,7 @@
 module CitizensAdviceComponents
   module Elements
     module Collections
-      class Base < CitizensAdviceComponents::Elements::Base
+      class Base < CitizensAdviceComponents::Elements::Field
         include ActionView::Helpers::FormOptionsHelper
 
         private

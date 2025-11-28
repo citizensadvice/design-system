@@ -1,3 +1,8 @@
+**New**
+
+- Support custom `type` when using `cads_text_field`
+- Allows `cads_text_field` to be used without a model
+
 ## v9.0.0
 
 ### 23 October 2025
