@@ -10,7 +10,7 @@ This is the documentation website for the Citizens Advice Design System. The sit
 Following this you should be able to run the dev server with:
 
 ```sh
-./bin/dev
+just website-dev
 ```
 
 The docs should now be running on [localhost:4000](https://localhost:4000/)
@@ -24,7 +24,7 @@ Content for the docs site is stored under `content` and grouped by section, with
 You can generate a static build of the site using:
 
 ```sh
-bin/static-build
+just website-build
 ```
 
 You can then serve the site using:

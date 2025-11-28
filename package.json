@@ -18,10 +18,10 @@
     "NOTICE"
   ],
   "scripts": {
-    "release": "npm run lint && node ./scripts/release",
-    "prepublishOnly": "npm run lint && node ./scripts/publish",
+    "release": "just check-all && node ./scripts/release",
+    "prepublishOnly": "just check-all && node ./scripts/publish",
     "format": "prettier --write .",
-    "lint:format": "prettier --check .",
+    "format:check": "prettier --check .",
     "lint:css": "stylelint \"./scss/**/*.scss\"",
     "lint:js": "eslint .",
     "lint": "npm-run-all lint:*",
