@@ -2,8 +2,17 @@
 
 module CitizensAdviceComponents
   class FormBuilder < ActionView::Helpers::FormBuilder
-    def cads_text_field(attribute, label: nil, hint: nil, required: false, **)
-      Elements::TextInput.new(@template, object, attribute, label: label, required: required, hint: hint, **).render
+    # Labelled text_field element
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-text_field
+    # f.cads_text_field(:name)
+    def cads_text_field(attribute, **options)
+      Elements::TextField.new(
+        self,
+        @template,
+        object,
+        attribute,
+        options
+      ).render
     end
 
     def cads_text_area(attribute, label: nil, hint: nil, required: false, **)
