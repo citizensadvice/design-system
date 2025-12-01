@@ -1,5 +1,6 @@
 **New**
 
+- Add support for `heading_level` to `cads_error_summary`
 - Support custom `type` when using `cads_text_field`
 - Allows `cads_text_field` to be used without a model
 
