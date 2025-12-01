@@ -16,6 +16,11 @@ Style/HashSyntax:
   # encourages greater readability so support either style
   EnforcedShorthandSyntax: "either"
 
+Metrics/ClassLength:
+  Exclude:
+    # Exists to delegate to other classes so is verbose
+    - "app/helpers/citizens_advice_components/form_builder.rb"
+
 Metrics/MethodLength:
   Exclude:
     # Implements form builder interfaces which often take many parameters

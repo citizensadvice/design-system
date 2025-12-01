@@ -20,9 +20,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -87,8 +86,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         around { |example| I18n.with_locale(:cy) { example.run } }
 
         it "translates optional label" do
-          pending "Not yet implemented"
-
           expect(page).to have_css "legend", text: "Currency (dewisol)", normalize_ws: true
         end
       end
@@ -98,9 +95,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           required: true
         )
       end
@@ -116,9 +112,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           hint: "Example hint"
         )
       end
@@ -132,8 +127,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "sets aria-describedby" do
-        pending "Doesn't yet associate an ID with the error message"
-
         expect(page).to have_css "fieldset[aria-describedby=example_form_currency-hint]"
       end
     end
@@ -142,9 +135,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           page_heading: true
         )
       end
@@ -159,9 +151,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           layout: :invalid
         )
       end
@@ -178,9 +169,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           layout: :list
         )
       end
@@ -195,9 +185,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           layout: :inline
         )
       end
@@ -212,9 +201,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           size: :invalid
         )
       end
@@ -228,83 +216,99 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     end
 
     context "when the regular size option is passed" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           size: :regular
         )
       end
 
       it "renders the regular size radio group" do
+        render_inline field
         expect(page).to have_css ".cads-radio-group--regular"
       end
     end
 
     context "when the small size option is passed" do
-      before do
-        render_inline builder.cads_collection_radio_buttons(
+      let(:field) do
+        builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           size: :small
         )
       end
 
       it "renders the small size radio group" do
+        render_inline field
         expect(page).to have_css ".cads-radio-group--small"
       end
     end
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:builder_method) do
+      let(:field) do
         builder.cads_collection_radio_buttons(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :name, :id
         )
       end
 
       before do
         model.valid? # trigger validation
-        render_inline builder_method
+        render_inline field
       end
 
       it "renders error message" do
-        expect(page).to have_text "Currency is not included in the list"
-
-        pending "Doesn't yet associate an ID with the error message"
-
         expect(page).to have_css "#example_form_currency-error", text: "Currency is not included in the list"
       end
 
       it "sets aria-describedby" do
-        pending "Doesn't yet associate an ID with the error message"
-
         expect(page).to have_css "fieldset[aria-describedby='example_form_currency-error']"
       end
 
       context "when there is hint text" do
-        let(:builder_method) do
+        let(:field) do
           builder.cads_collection_radio_buttons(
             :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
+            example_options,
+            :id, :name,
             hint: "Example hint"
           )
         end
 
         it "sets multiple aria-describedby" do
-          pending "Doesn't yet associate an ID with the error message"
-
           expect(page).to have_css "fieldset[aria-describedby='example_form_currency-error example_form_currency-hint']"
         end
+      end
+    end
+
+    context "with deprecated collection params" do
+      let(:field) do
+        builder.cads_collection_radio_buttons(
+          :currency,
+          collection: example_options,
+          text_method: :name,
+          value_method: :id,
+          page_heading: true
+        )
+      end
+
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
+
+      it "logs deprecation warning" do
+        render_inline field
+
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("collection, text_method, and value_method named parameters are deprecated, pass as positional parameter")
+      end
+
+      it "passes options along" do
+        render_inline field
+        expect(page).to have_css "legend h1.cads-page-title", text: "Currency"
       end
     end
   end

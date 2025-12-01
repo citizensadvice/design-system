@@ -20,9 +20,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -68,9 +67,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           required: true
         )
       end
@@ -85,9 +83,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           hint: "Example hint"
         )
       end
@@ -105,20 +102,43 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    context "when additional attributes are provided" do
+    context "with deprecated additional_attributes hash" do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id,
+          example_options,
+          :id, :name,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
       end
 
-      it "passes additional attributes through to element" do
-        pending "Not yet implemented"
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
 
+      it "logs deprecation warning" do
+        render_inline field
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with(/additional_attributes hash is deprecated/)
+      end
+
+      it "passes additional attributes through to element" do
+        render_inline field
+        expect(page).to have_css "select[autocomplete=name]"
+        expect(page).to have_css "select[data-additional=example]"
+      end
+    end
+
+    context "with html options" do
+      let(:field) do
+        builder.cads_collection_select(
+          :currency,
+          example_options,
+          :id, :name,
+          {},
+          { autocomplete: "name", "data-additional": "example" }
+        )
+      end
+
+      it "passes additional attributes through to element" do
         render_inline field
         expect(page).to have_css "select[autocomplete=name]"
         expect(page).to have_css "select[data-additional=example]"
@@ -130,9 +150,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) do
         builder.cads_collection_select(
           :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
+          example_options,
+          :id, :name
         )
       end
 
@@ -157,9 +176,8 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         let(:field) do
           builder.cads_collection_select(
             :currency,
-            collection: example_options,
-            text_method: :name,
-            value_method: :id,
+            example_options,
+            :id, :name,
             hint: "Example hint"
           )
         end
@@ -167,6 +185,32 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         it "sets multiple aria-describedby" do
           expect(page).to have_css "select[aria-describedby='example_form_currency-error example_form_currency-hint']"
         end
+      end
+    end
+
+    context "with deprecated collection params" do
+      let(:field) do
+        builder.cads_collection_select(
+          :currency,
+          collection: [%w[GBP GBP], %w[EUR EUR], %w[USD USD]],
+          text_method: :first,
+          value_method: :last,
+          hint: "Example hint"
+        )
+      end
+
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
+
+      it "logs deprecation warning" do
+        render_inline field
+
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with("collection, text_method, and value_method named parameters are deprecated, pass as positional parameter")
+      end
+
+      it "passes options along" do
+        render_inline field
+        expect(page).to have_text "Example hint"
       end
     end
   end
