@@ -50,8 +50,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     context "with required parameter" do
       let(:field) { builder.cads_text_field(:name, required: true) }
 
-      it "includes aria-required attribute" do
+      it "uses aria-required instead of required attribute" do
         render_inline field
+        expect(page).to have_no_css "input[required]"
         expect(page).to have_css "input[aria-required=true]"
       end
     end
@@ -60,8 +61,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) { builder.cads_text_field(:name, type: :email) }
 
       it "passes through the type" do
-        pending "Not yet implemented"
-
         render_inline field
         expect(page).to have_field(type: :email)
       end
@@ -115,11 +114,28 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    context "when additional attributes are provided" do
+    context "with deprecated additional_attributes hash" do
       let(:field) do
         builder.cads_text_field(
           :name,
           additional_attributes: { autocomplete: "name", "data-additional": "example" }
+        )
+      end
+
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
+
+      it "logs deprecation warning" do
+        render_inline field
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with(/additional_attributes hash is deprecated/)
+      end
+    end
+
+    context "with additional attributes" do
+      let(:field) do
+        builder.cads_text_field(
+          :name,
+          autocomplete: "name", "data-additional": "example"
         )
       end
 
@@ -165,8 +181,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) { builder.cads_text_field(:name) }
 
       it "can be used without a form model" do
-        pending "Not currently implemented"
-
         render_inline field
         expect(page).to have_field type: :text
       end
