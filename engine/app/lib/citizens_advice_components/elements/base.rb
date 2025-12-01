@@ -5,7 +5,6 @@ module CitizensAdviceComponents
     class Base
       include CitizensAdviceComponents::FetchOrFallbackHelper
       include ActionView::Helpers::TagHelper
-      include FetchOrFallbackHelper
 
       attr_reader :builder, :template, :object
 
