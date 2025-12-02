@@ -115,6 +115,19 @@ module CitizensAdviceComponents
       ).render
     end
 
+    # Labelled check_box field
+    # https://api.rubyonrails.org/v3.2/classes/ActionView/Helpers/FormHelper.html#method-i-check_box
+    # f.cads_text_field(:example)
+    def cads_check_box(attribute, label: nil, **)
+      Elements::CheckBox.new(
+        self,
+        @template,
+        object,
+        attribute,
+        label: label, **
+      ).render
+    end
+
     # Button element
     # f.cads_button "Submit complaint", icon_right: :arrow_right
     def cads_button(button_text = "Save changes", **)
@@ -135,10 +148,6 @@ module CitizensAdviceComponents
         object,
         options
       ).render
-    end
-
-    def cads_check_box(attribute, label: nil, **)
-      Elements::CheckBox.new(@template, object, attribute, label: label, **).render
     end
   end
 end
