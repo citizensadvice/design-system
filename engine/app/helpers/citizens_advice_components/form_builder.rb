@@ -35,16 +35,25 @@ module CitizensAdviceComponents
       Elements::Collections::Select.new(@template, object, attribute, label: label, hint: hint, required: required, **).render
     end
 
+    # Labelled check_box field
+    # https://api.rubyonrails.org/v3.2/classes/ActionView/Helpers/FormHelper.html#method-i-check_box
+    # f.cads_text_field(:example)
+    def cads_check_box(attribute, label: nil, **)
+      Elements::CheckBox.new(
+        self,
+        @template,
+        object,
+        attribute,
+        label: label, **
+      ).render
+    end
+
     def cads_button(button_text = "Save changes", **)
       Elements::Button.new(@template, object, button_text: button_text, **).render
     end
 
     def cads_error_summary
       Elements::ErrorSummary.new(@template, object, :unused).render
-    end
-
-    def cads_check_box(attribute, label: nil, **)
-      Elements::CheckBox.new(@template, object, attribute, label: label, **).render
     end
   end
 end
