@@ -1,7 +1,19 @@
 **New**
 
+- Allows `cads_text_field` and `cads_textarea` to be used without a model
 - Support custom `type` when using `cads_text_field`
-- Allows `cads_text_field` to be used without a model
+- Alias `cads_textarea` and `cads_text_area`
+- Allow passing additional attributes to `cads_textarea` e.g.
+
+  ```rb
+  cads_text_area(
+    :address,
+    autocomplete: "name",
+    "data-additional": "example"
+  )
+  ```
+
+  If using the previous named `additional_attributes` hash, this will log a deprecation warning and will be removed in a future version.
 
 ## v9.0.0
 

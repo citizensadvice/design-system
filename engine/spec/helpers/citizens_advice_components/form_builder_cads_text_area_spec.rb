@@ -108,8 +108,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "passes additional attributes through to element" do
-        pending "Not yet implemented"
-
         render_inline field
         expect(page).to have_css "textarea[autocomplete=name]"
         expect(page).to have_css "textarea[data-additional=example]"
@@ -166,8 +164,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:field) { builder.cads_text_area(:address) }
 
       it "can be used without a form model" do
-        pending "Not currently implemented"
-
         render_inline field
         expect(page).to have_css "textarea"
       end

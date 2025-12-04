@@ -15,9 +15,19 @@ module CitizensAdviceComponents
       ).render
     end
 
-    def cads_text_area(attribute, label: nil, hint: nil, required: false, **)
-      Elements::TextArea.new(@template, object, attribute, label: label, required: required, hint: hint, **).render
+    # Labelled text_area element
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-textarea
+    # f.cads_textarea(:address)
+    def cads_textarea(attribute, **options)
+      Elements::TextArea.new(
+        self,
+        @template,
+        object,
+        attribute,
+        options
+      ).render
     end
+    alias cads_text_area cads_textarea
 
     def cads_date_field(attribute, label: nil, hint: nil, required: false, **)
       Elements::DateInput.new(@template, object, attribute, label: label, required: required, hint: hint, **).render
