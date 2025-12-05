@@ -1,3 +1,7 @@
+**Fix**
+
+- Fix bug where `cads_check_box` would generate HTML IDs based on name instead e.g. `example_form[confirmation]-error` vs `example_form_confirmation-error`
+
 **New**
 
 - Support custom `type` when using `cads_text_field`
