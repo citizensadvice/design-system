@@ -2,13 +2,20 @@
 
 module CitizensAdviceComponents
   module Elements
-    class Button < Field
-      def initialize(template, object, button_text: nil, **)
-        super(template, object, nil, **)
+    class Button < Base
+      include ActionView::Context
+
+      attr_reader :builder, :template, :object, :options
+
+      def initialize(builder, template, object, button_text: nil, **kwargs)
+        super(builder, template, object)
 
         @button_text = button_text
-        @icon_left = options[:icon_left]
-        @icon_right = options[:icon_right]
+
+        @options = kwargs.with_defaults(default_options)
+
+        @icon_left = @options[:icon_left]
+        @icon_right = @options[:icon_right]
 
         @options.except!(:icon_left, :icon_right)
       end
