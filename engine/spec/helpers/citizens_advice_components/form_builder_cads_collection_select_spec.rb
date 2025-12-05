@@ -117,8 +117,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
 
       it "passes additional attributes through to element" do
-        pending "Not yet implemented"
-
         render_inline field
         expect(page).to have_css "select[autocomplete=name]"
         expect(page).to have_css "select[data-additional=example]"

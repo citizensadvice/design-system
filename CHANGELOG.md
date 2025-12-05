@@ -1,7 +1,19 @@
 **New**
 
-- Support custom `type` when using `cads_text_field`
 - Allows `cads_text_field` to be used without a model
+- Support custom `type` when using `cads_text_field`
+- Fixes missing welsh translation for "Optional" label on all `cads_collection` fields
+- Fixes missing aria-describedby attributes on all `cads_collection` fields
+- Deprecate named parameters for `cads_colleciton` fields
+
+  All `cads_collection` fields have been updated to support equivalent arguments to the Rails native equivalents e.g.
+
+  ```rb
+  cads_collection_radio_buttons(attribute, collection, value_method, text_method, options = {}, html_options = {}
+  ```
+
+  The previous arguments using named paramters are still supported but a deprecation warning will be logged and will
+  be removed in a future major version.
 
 ## v9.0.0
 
