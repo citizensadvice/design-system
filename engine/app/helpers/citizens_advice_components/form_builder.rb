@@ -19,8 +19,18 @@ module CitizensAdviceComponents
       Elements::TextArea.new(@template, object, attribute, label: label, required: required, hint: hint, **).render
     end
 
-    def cads_date_field(attribute, label: nil, hint: nil, required: false, **)
-      Elements::DateInput.new(@template, object, attribute, label: label, required: required, hint: hint, **).render
+    # Labelled date field. Mirrors the native date_field but with the major distinction of rendering
+    # a three-field date input with separate day, month, and year parts.
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-date_field
+    # f.cads_date_field(:date)
+    def cads_date_field(attribute, **options)
+      Elements::DateField.new(
+        self,
+        @template,
+        object,
+        attribute,
+        options
+      ).render
     end
 
     # Labelled collection_select element

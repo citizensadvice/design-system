@@ -1,8 +1,8 @@
 **New**
 
+- Fixes missing welsh translations for `cads_date_field` and all `cads_collection` fields
 - Allows `cads_text_field` to be used without a model
 - Support custom `type` when using `cads_text_field`
-- Fixes missing welsh translation for "Optional" label on all `cads_collection` fields
 - Fixes missing aria-describedby attributes on all `cads_collection` fields
 - Deprecate named parameters for `cads_colleciton` fields
 
