@@ -5,10 +5,11 @@
 - Allows `cads_text_field` and `cads_textarea` to be used without a model
 - Alias `cads_textarea` and `cads_text_area`
 
-**Fixes**
+**Fix**
 
-- Fixes missing Welsh translations for internal text for all form builder fields
-- Fixes missing aria-describedby attributes on all `cads_collection` fields
+- Fix missing welsh translation for "Optional" label on all `cads_collection` fields
+- Fix missing aria-describedby attributes on all `cads_collection` fields
+- Fix bug where `cads_check_box` would generate HTML IDs based on name instead e.g. `example_form[confirmation]-error` vs `example_form_confirmation-error`
 
 **Deprecations**
 
