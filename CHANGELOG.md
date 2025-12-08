@@ -3,6 +3,14 @@
 - Support custom `type` when using `cads_text_field`
 - Allows `cads_text_field` and `cads_textarea` to be used without a model
 - Alias `cads_textarea` and `cads_text_area`
+
+**Fixes**
+
+- Fixes missing Welsh translations for internal text for all form builder fields
+- Fixes missing aria-describedby attributes on all `cads_collection` fields
+
+**Deprecations**
+
 - Allow passing additional attributes to `cads_textarea` e.g.
 
   ```rb
@@ -14,13 +22,6 @@
   ```
 
   If using the previous named `additional_attributes` hash, this will log a deprecation warning and will be removed in a future version.
-
-**Fixes**
-
-- Fixes missing welsh translation for "Optional" label on all `cads_collection` fields
-- Fixes missing aria-describedby attributes on all `cads_collection` fields
-
-**Deprecations**
 
 - Deprecate named parameters for `cads_colleciton` fields
 
