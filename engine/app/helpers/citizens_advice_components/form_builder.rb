@@ -45,8 +45,15 @@ module CitizensAdviceComponents
       Elements::Collections::Select.new(@template, object, attribute, label: label, hint: hint, required: required, **).render
     end
 
+    # Button element
+    # f.cads_button "Submit complaint", icon_right: :arrow_right
     def cads_button(button_text = "Save changes", **)
-      Elements::Button.new(@template, object, button_text: button_text, **).render
+      Elements::Button.new(
+        self,
+        @template,
+        object,
+        button_text: button_text, **
+      ).render
     end
 
     def cads_error_summary
