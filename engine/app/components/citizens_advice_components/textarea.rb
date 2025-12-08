@@ -4,7 +4,7 @@ module CitizensAdviceComponents
   class Textarea < Base
     DEFAULT_ROWS = 8
 
-    attr_reader :name, :label, :error_message, :hint, :value, :id
+    attr_reader :name, :label, :error_message, :hint, :value, :id, :character_count
 
     def initialize(name:, label:, rows: DEFAULT_ROWS, id: nil, options: nil, type: nil)
       @name = name
@@ -34,6 +34,7 @@ module CitizensAdviceComponents
       @hint = options[:hint]
       @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
       @page_heading = fetch_or_fallback_boolean(options[:page_heading], fallback: false)
+      @character_count = options[:character_count]
 
       @value = options[:value]
       @additional_attributes = options[:additional_attributes]
@@ -41,6 +42,10 @@ module CitizensAdviceComponents
 
     def format_rows(rows)
       rows.to_i.zero? ? DEFAULT_ROWS : rows
+    end
+
+    def character_count?
+      @character_count.present?
     end
 
     def page_heading?
@@ -85,10 +90,15 @@ module CitizensAdviceComponents
       "#{general_id}-hint"
     end
 
+    def character_count_id
+      "#{general_id}-info"
+    end
+
     def described_by
       ids = []
       ids << error_id if error?
       ids << hint_id if hint?
+      ids << character_count_id if character_count?
       ids.present? ? ids.join(" ") : nil
     end
 
@@ -104,12 +114,29 @@ module CitizensAdviceComponents
       }
     end
 
+    def character_count_attributes
+      return {} unless character_count?
+
+      {
+        "data-character-count": character_count,
+        "data-character-count-over-limit": t("citizens_advice_components.character_count.over_limit"),
+        "data-character-count-remaining-zero": t("citizens_advice_components.character_count.remaining_zero"),
+        "data-character-count-remaining-one": t("citizens_advice_components.character_count.remaining_one"),
+        "data-character-count-remaining-other": t("citizens_advice_components.character_count.remaining_other")
+      }
+    end
+
+    def additional_attributes
+      return {} if @additional_attributes.blank?
+
+      @additional_attributes
+    end
+
     def input_attributes
-      if @additional_attributes.present?
-        base_input_attributes.merge @additional_attributes
-      else
-        base_input_attributes
-      end
+      base_input_attributes.merge(
+        character_count_attributes,
+        additional_attributes
+      )
     end
   end
 end
