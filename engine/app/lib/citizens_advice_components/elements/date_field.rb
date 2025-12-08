@@ -98,10 +98,6 @@ module CitizensAdviceComponents
       def page_heading
         options[:page_heading]
       end
-
-      def hint
-        options[:hint]
-      end
     end
   end
 end
