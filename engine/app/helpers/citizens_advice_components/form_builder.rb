@@ -33,16 +33,76 @@ module CitizensAdviceComponents
       Elements::DateInput.new(@template, object, attribute, label: label, required: required, hint: hint, **).render
     end
 
-    def cads_collection_radio_buttons(attribute, label: nil, hint: nil, required: false, **)
-      Elements::Collections::RadioButtons.new(@template, object, attribute, label: label, hint: hint, required: required, **).render
+    # Labelled collection_select element
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select
+    # f.cads_collection_select(:my_argument, Locations.all)
+    def cads_collection_radio_buttons(
+      attribute,
+      collection_arg = nil,
+      value_method_arg = nil,
+      text_method_arg = nil,
+      options = {},
+      html_options = {}
+    )
+      Elements::CollectionRadioButtons.new(
+        self,
+        @template,
+        object,
+        attribute,
+        collection_arg,
+        value_method_arg,
+        text_method_arg,
+        options,
+        html_options
+      ).render
     end
 
-    def cads_collection_check_boxes(attribute, label: nil, hint: nil, required: false, **)
-      Elements::Collections::CheckBoxes.new(@template, object, attribute, label: label, hint: hint, required: required, **).render
+    # Labelled collection_check_boxes element
+    # https ://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select
+    # f.cads_collection_check_boxes(:my_argument, Locations.all, :id, :name)
+    def cads_collection_check_boxes(
+      attribute,
+      collection_arg = nil,
+      value_method_arg = nil,
+      text_method_arg = nil,
+      options = {},
+      html_options = {}
+    )
+      Elements::CollectionCheckBoxes.new(
+        self,
+        @template,
+        object,
+        attribute,
+        collection_arg,
+        value_method_arg,
+        text_method_arg,
+        options,
+        html_options
+      ).render
     end
 
-    def cads_collection_select(attribute, label: nil, hint: nil, required: false, **)
-      Elements::Collections::Select.new(@template, object, attribute, label: label, hint: hint, required: required, **).render
+    # Labelled collection_select element
+    # https ://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select
+    # f.cads_collection_select(:my_argument, Locations.all, :id, :name)
+    def cads_collection_select(
+      attribute,
+      collection_arg = nil,
+      value_method_arg = nil,
+      text_method_arg = nil,
+      options = {},
+      html_options = {}
+    )
+      Elements::CollectionSelect.new(
+        self,
+        @template,
+        object,
+        attribute,
+        collection_arg,
+        value_method_arg,
+        text_method_arg,
+        options,
+        html_options
+      ).render
     end
 
     # Button element
