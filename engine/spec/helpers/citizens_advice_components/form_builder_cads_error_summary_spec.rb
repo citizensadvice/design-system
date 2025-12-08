@@ -56,7 +56,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       let(:error_summary) { builder.cads_error_summary(heading_level: 3) }
 
       it "renders title with correct heading level" do
-        pending "Not yet implemented"
         model.valid? # Trigger validations
         render_inline error_summary
         expect(page).to have_css "h3", text: "There is a problem"

@@ -126,8 +126,15 @@ module CitizensAdviceComponents
       ).render
     end
 
-    def cads_error_summary
-      Elements::ErrorSummary.new(@template, object, :unused).render
+    # Custom method to display a list of errors where validation errors are present
+    # f.cads_error_summary
+    def cads_error_summary(options = {})
+      Elements::ErrorSummary.new(
+        self,
+        @template,
+        object,
+        options
+      ).render
     end
 
     def cads_check_box(attribute, label: nil, **)
