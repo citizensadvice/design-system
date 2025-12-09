@@ -3,11 +3,11 @@ title: page heading
 form: true
 ---
 
-<%= render CitizensAdviceComponents::Textarea.new(
-  name: "example-textarea-page-heading",
-  label: "Example textarea with page heading",
-  options: {
-    page_heading: true,
-    hint: "This is the hint for the input"
-  }
-) %>
+<%= form_with model: Forms::TextArea.new, url: "/" do |form| %>
+  <%= form.cads_text_area(
+    :text_area_page_heading,
+    hint: "Example hint text",
+    required: true,
+    page_heading: true
+  ) %>
+<% end %>

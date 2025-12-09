@@ -1,14 +1,13 @@
 ---
-title: With page heading
+title: With error message
 ---
 
-<% @model = Forms::Radios.valid_example %>
+<% @model = Forms::Radios.invalid_example %>
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_radio_buttons(
-    :radios_page_heading,
+    :radios_required,
     collection: @model.options,
     text_method: :name,
-    value_method: :id,
-    page_heading: true
+    value_method: :id
   ) %>
 <% end %>
