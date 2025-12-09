@@ -17,10 +17,20 @@ We have a number of different layers of tests:
 For development purposes we provide a top-level script to run all checks:
 
 ```
-./check-all
+just check-all
 ```
 
 This can take a while to run so is most useful to check your local environment and to run once you've finished developing a new feature. The rest of this guide covers the each type of check in more detail and how to run them individually.
+
+## Formatting
+
+We provide a just command for formatting the codebase:
+
+```sh
+just format
+```
+
+You can check the formatting without making changes with `just check-format`
 
 ### Prettier, Stylelint, ESLint, and Jest
 
