@@ -1,15 +1,14 @@
 **New**
 
+
+- **Feature parity for Rails form builder components**:
+
+  This release introduces some preparatory work to bring feature parity to the Rails form builder components and the original view component interfaces. This is preparation for a _future_ release which will make the form builder interfaces the default going fowards and eventuall deprecate the view component interfaces. If you have not yet moved your forms over to use Rails form builder methods this release should make it easier to do so.
+
 - Add support for `heading_level` to `cads_error_summary`
 - Support custom `type` when using `cads_text_field`
 - Allows `cads_text_field` and `cads_textarea` to be used without a model
 - Alias `cads_textarea` and `cads_text_area`
-
-**Fix**
-
-- Fix missing welsh translation for "Optional" label on all `cads_collection` fields
-- Fix missing aria-describedby attributes on all `cads_collection` fields
-- Fix bug where `cads_check_box` would generate HTML IDs based on name instead e.g. `example_form[confirmation]-error` vs `example_form_confirmation-error`
 
 **Deprecations**
 
@@ -35,6 +34,12 @@
 
   The previous arguments using named paramters are still supported but a deprecation warning will be logged and will
   be removed in a future major version.
+
+**Fix**
+
+- Fix missing welsh translation for "Optional" label on all `cads_collection` fields
+- Fix missing aria-describedby attributes on all `cads_collection` fields
+- Fix bug where `cads_check_box` would generate HTML IDs based on name instead e.g. `example_form[confirmation]-error` vs `example_form_confirmation-error`
 
 ## v9.0.0
 

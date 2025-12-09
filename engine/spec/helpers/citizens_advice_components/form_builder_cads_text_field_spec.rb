@@ -129,6 +129,12 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
           .with(/additional_attributes hash is deprecated/)
       end
+
+      it "passes via additional_attributes for backwards compatability" do
+        render_inline field
+        expect(page).to have_css "input[autocomplete=name]"
+        expect(page).to have_css "input[data-additional=example]"
+      end
     end
 
     context "with additional attributes" do

@@ -98,31 +98,38 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    context "with additional html options" do
+    context "with deprecated additional_attributes hash" do
       let(:field) do
         builder.cads_text_area(
-          :address,
-          autocomplete: "name",
-          "data-additional": "example"
+          :name,
+          additional_attributes: { autocomplete: "name", "data-additional": "example" }
         )
       end
 
-      it "passes additional attributes through to element" do
+      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
+
+      it "logs deprecation warning" do
+        render_inline field
+        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
+          .with(/additional_attributes hash is deprecated/)
+      end
+
+      it "passes via additional_attributes for backwards compatability" do
         render_inline field
         expect(page).to have_css "textarea[autocomplete=name]"
         expect(page).to have_css "textarea[data-additional=example]"
       end
     end
 
-    context "with additional_attributes hash" do
+    context "with additional_attributes" do
       let(:field) do
         builder.cads_text_area(
           :address,
-          additional_attributes: { autocomplete: "name", "data-additional": "example" }
+          autocomplete: "name", "data-additional": "example"
         )
       end
 
-      it "passes via additional_attributes for backwards compatability" do
+      it "passes additional attributes through to element" do
         render_inline field
         expect(page).to have_css "textarea[autocomplete=name]"
         expect(page).to have_css "textarea[data-additional=example]"
