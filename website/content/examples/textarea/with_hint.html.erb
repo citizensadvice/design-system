@@ -3,10 +3,6 @@ title: with hint
 form: true
 ---
 
-<%= render CitizensAdviceComponents::Textarea.new(
-  name: "example-textarea-hint",
-  label: "Example textarea (with hint)",
-  options: {
-    hint: "Example hint text"
-  }
-) %>
+<%= form_with model: Forms::TextArea.new, url: "/" do |form| %>
+  <%= form.cads_text_area(:text_area, hint: "Example hint text") %>
+<% end %>

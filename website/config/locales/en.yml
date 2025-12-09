@@ -18,3 +18,66 @@ en:
     accessibility:
       title: Accessibility
       description: Accessibility guidance and general accessibility information.
+  activemodel:
+    attributes:
+      forms/radios:
+        radios: Example radio group
+        radios_required: Example radio group
+        radios_hint: Example radio group with hint
+        radios_inline: Example radio group (inline layout)
+        radios_small: Example radio group (small size)
+        radios_page_heading: Example radio group with page heading
+      forms/select:
+        select: Example select
+        select_required: Example select
+        select_hint: Example select with hint
+      forms/text_field:
+        text_field: Example text field
+        text_field_hint: Example text field with hint
+        text_field_password: Example text field with custom type
+        text_field_email: Email address
+        text_field_two_chars: Day
+        text_field_four_chars: Year
+        text_field_eight_chars: Postcode
+        text_field_sixteen_chars: Phone number
+        text_field_page_heading: Text field with page heading
+      forms/text_area:
+        text_area: Example textarea
+        text_area_hint: Example textarea with hint
+        text_area_required: Example textarea
+        text_area_rows: Example textarea with custom rows
+        text_area_page_heading: Example text area with page heading
+
+    errors:
+      models:
+        # See this guide for why format: "%{message}" is used
+        # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/radios:
+          format: "%{message}"
+          attributes:
+            radios_required:
+              inclusion: Select an option
+        forms/select:
+          format: "%{message}"
+          attributes:
+            select_required:
+              inclusion: Select an option
+        forms/text_field:
+          format: "%{message}"
+          attributes:
+            text_field_email:
+              invalid: Enter an email address in the correct format, like name@example.com
+        forms/text_area:
+          format: "%{message}"
+          attributes:
+            text_area_required:
+              blank: Example error message
+        forms/error_summary:
+          format: "%{message}"
+          attributes:
+            name:
+              blank: Enter your full name
+            date_of_birth:
+              less_than: Date of birth must be in the past
+            email:
+              invalid: Enter an email address in the correct format, like name@example.com
