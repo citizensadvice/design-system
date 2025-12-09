@@ -33,7 +33,7 @@ en:
     errors:
       models:
         example_form:
-          # https://guides.rubyonrails.org/configuring.html#configuring-active-model
+          # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
           format: "%{message}"
           attributes:
             first_name:
