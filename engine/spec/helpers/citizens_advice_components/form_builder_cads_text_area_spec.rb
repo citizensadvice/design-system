@@ -98,6 +98,30 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
+    context "when a character count is provided" do
+      let(:field) { builder.cads_text_area(:address, character_count: 500) }
+
+      before do
+        render_inline field
+      end
+
+      it "passes the character count onto the component" do
+        expect(page).to have_css "textarea[data-character-count=500]"
+      end
+
+      it "displays a fallback character count message" do
+        expect(page).to have_text "You can enter up to 500 characters"
+      end
+
+      context "when welsh language" do
+        around { |example| I18n.with_locale(:cy) { example.run } }
+
+        it "displays a welsh language fallback character count message" do
+          expect(page).to have_text "You can enter up to 500 characters (cy)"
+        end
+      end
+    end
+
     context "with deprecated additional_attributes hash" do
       let(:field) do
         builder.cads_text_area(
@@ -121,11 +145,12 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
       end
     end
 
-    context "with additional_attributes" do
+    context "with additional attributes" do
       let(:field) do
         builder.cads_text_area(
           :address,
-          autocomplete: "name", "data-additional": "example"
+          autocomplete: "name",
+          "data-additional": "example"
         )
       end
 
