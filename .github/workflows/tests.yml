@@ -106,7 +106,7 @@ jobs:
           CYPRESS_RAILS_CYPRESS_OPTS: "--browser chrome"
 
       # Archive test screenshots
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: cypress-screenshots
           path: demo/cypress/screenshots
@@ -138,7 +138,7 @@ jobs:
       - run: npm run backstop:ci
         working-directory: demo
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: backstop-report
