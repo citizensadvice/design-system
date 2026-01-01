@@ -12,7 +12,7 @@
     "clipboard-copy": "^4.0.1"
   },
   "devDependencies": {
-    "esbuild": "^0.27.0",
+    "esbuild": "^0.27.2",
     "sass": "^1.93.2",
     "sass-export": "^2.1.2"
   }
