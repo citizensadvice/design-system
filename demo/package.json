@@ -24,7 +24,7 @@
     "@testing-library/cypress": "^10.1.0",
     "axe-core": "^4.11.0",
     "backstopjs": "^6.3.25",
-    "cypress": "^15.2.0",
+    "cypress": "^15.8.1",
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
     "start-server-and-test": "^2.1.3"
