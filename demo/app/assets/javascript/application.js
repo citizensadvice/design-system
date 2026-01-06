@@ -5,6 +5,7 @@ import {
   initOnThisPage,
   initDisclosure,
   initErrorSummary,
+  initCharacterCount
 } from '@citizensadvice/design-system';
 
 initHeader();
@@ -13,3 +14,4 @@ initTargetedContent();
 initOnThisPage();
 initDisclosure();
 initErrorSummary();
+initCharacterCount();
