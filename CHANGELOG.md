@@ -1,6 +1,6 @@
 **New**
 
-
+- Set `i18n_customize_full_message` by default
 - **Feature parity for Rails form builder components**:
 
   This release introduces some preparatory work to bring feature parity to the Rails form builder components and the original view component interfaces. This is preparation for a _future_ release which will make the form builder interfaces the default going fowards and eventuall deprecate the view component interfaces. If you have not yet moved your forms over to use Rails form builder methods this release should make it easier to do so.
