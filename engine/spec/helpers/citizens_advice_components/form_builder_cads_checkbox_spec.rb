@@ -8,9 +8,9 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
   let(:model) { ExampleForm.valid_example }
   let(:builder) { form_builder_for(model) }
 
-  describe "#cads_check_box" do
+  describe "#cads_checkbox" do
     context "with default arguments" do
-      let(:field) { builder.cads_check_box(:confirmation) }
+      let(:field) { builder.cads_checkbox(:confirmation) }
 
       before do
         render_inline field
@@ -40,7 +40,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
-      let(:field) { builder.cads_check_box(:confirmation) }
+      let(:field) { builder.cads_checkbox(:confirmation) }
 
       before do
         model.valid? # trigger validation
@@ -59,6 +59,21 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
           "input[aria-describedby='example_form_confirmation-error']"
         )
       end
+    end
+  end
+
+  describe "#cads_check_box" do
+    let(:field) { builder.cads_checkbox(:confirmation) }
+
+    it "aliases #cads_checkbox" do
+      render_inline field
+
+      expect(page).to have_field(
+        "example_form[confirmation]",
+        with: "1",
+        type: :checkbox,
+        checked: true
+      )
     end
   end
 end
