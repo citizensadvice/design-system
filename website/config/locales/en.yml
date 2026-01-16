@@ -20,6 +20,11 @@ en:
       description: Accessibility guidance and general accessibility information.
   activemodel:
     attributes:
+      forms/checkbox_group:
+        checkbox_group: Example checkbox group
+        checkbox_group_required: Example checkbox group
+        checkbox_group_hint: Example checkbox group
+        checkbox_group_page_heading: Example checkbox group with page heading
       forms/radios:
         radios: Example radio group
         radios_required: Example radio group
@@ -52,6 +57,11 @@ en:
       models:
         # See this guide for why format: "%{message}" is used
         # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/checkbox_group:
+          format: "%{message}"
+          attributes:
+            checkbox_group_required:
+              inclusion: Select an option
         forms/radios:
           format: "%{message}"
           attributes:
