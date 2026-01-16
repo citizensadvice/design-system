@@ -58,14 +58,18 @@ initErrorSummary();
 
 If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
 
-<%= render(ExampleSourceComponent.new(:error_summary, :with_autofocus)) %>
+```erb
+<%%= form_with model: @model do |form| %>
+  <%%= form.cads_error_summary %>
+<%% end %>
+```
 
-### Component arguments
+This uses the Rails validations API behind the scenes and will display the first `full_message` for any errors present on the model. Nothing will be shown if no errors are present. The method optionally accepts a `heading_level` parameter to override the heading level of the title.
 
-<%= render ArgumentsTableComponent.new(:error_summary) %>
+### View component version
 
-### Errors slot
+We also provide an older view component version of the component. Due to the complexities of generating error IDs yourself it's highly recommended you use the form builder methods if you need full validations.
 
-The error summary component accepts a required `errors` slot. Errors are an array of the following options:
+<%= render(ExampleSourceComponent.new(:error_summary, :view_component)) %>
 
-<%= render ArgumentsTableComponent.new(:error_summary_errors_slot) %>
+The view component interface accepts an optional `heading_level` argument to override the heading level of the title. The `with_errors` slot accepts an array of objects each with a required `href` and `message`.
