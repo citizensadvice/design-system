@@ -9,6 +9,8 @@
 - Support custom `type` when using `cads_text_field`
 - Allows `cads_text_field` and `cads_textarea` to be used without a model
 - Alias `cads_textarea` and `cads_text_area`
+- Alias `cads_collection_checkboxes` and `cads_collection_check_boxes`
+- Alias `cads_checkbox` and `cads_check_box`
 
 **Deprecations**
 
