@@ -37,6 +37,19 @@ class TextareaPreview < ViewComponent::Preview
     )
   end
 
+  def with_character_count
+    render(
+      CitizensAdviceComponents::Textarea.new(
+        name: "example-input-character-count",
+        label: "Example input",
+        type: :text,
+        options: {
+          character_count: 1000
+        }
+      )
+    )
+  end
+
   def error
     render CitizensAdviceComponents::Textarea.new(
       name: "example-input-error",
