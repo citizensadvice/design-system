@@ -44,8 +44,8 @@ module CitizensAdviceComponents
     end
 
     # Labelled collection_select element
-    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select
-    # f.cads_collection_select(:my_argument, Locations.all)
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_radio_buttons
+    # f.cads_collection_radio_buttons(:my_argument, Locations.all)
     def cads_collection_radio_buttons(
       attribute,
       collection_arg = nil,
@@ -68,9 +68,9 @@ module CitizensAdviceComponents
     end
 
     # Labelled collection_check_boxes element
-    # https ://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_checkboxes
     # f.cads_collection_check_boxes(:my_argument, Locations.all, :id, :name)
-    def cads_collection_check_boxes(
+    def cads_collection_checkboxes(
       attribute,
       collection_arg = nil,
       value_method_arg = nil,
@@ -90,9 +90,10 @@ module CitizensAdviceComponents
         html_options
       ).render
     end
+    alias cads_collection_check_boxes cads_collection_checkboxes
 
     # Labelled collection_select element
-    # https ://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select
     # f.cads_collection_select(:my_argument, Locations.all, :id, :name)
     def cads_collection_select(
       attribute,
@@ -116,9 +117,9 @@ module CitizensAdviceComponents
     end
 
     # Labelled check_box field
-    # https://api.rubyonrails.org/v3.2/classes/ActionView/Helpers/FormHelper.html#method-i-check_box
-    # f.cads_text_field(:example)
-    def cads_check_box(attribute, label: nil, **)
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-checkbox
+    # f.cads_checkbox(:example)
+    def cads_checkbox(attribute, label: nil, **)
       Elements::CheckBox.new(
         self,
         @template,
@@ -127,6 +128,7 @@ module CitizensAdviceComponents
         label: label, **
       ).render
     end
+    alias cads_check_box cads_checkbox
 
     # Button element
     # f.cads_button "Submit complaint", icon_right: :arrow_right
