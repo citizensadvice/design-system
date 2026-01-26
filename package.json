@@ -47,7 +47,7 @@
     "semver": "^7.3.8",
     "simple-git": "^3.18.0",
     "stylelint": "^16.6.1",
-    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-selector-bem-pattern": "^4.0.0",
     "vitest": "^4.0.3"
   },
