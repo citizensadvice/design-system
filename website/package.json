@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
-    "@open-iframe-resizer/core": "^2.1.0",
+    "@open-iframe-resizer/core": "^2.2.0",
     "clipboard-copy": "^4.0.1"
   },
   "devDependencies": {
