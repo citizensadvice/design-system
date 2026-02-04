@@ -24,6 +24,10 @@ title: Textarea
 
 <%= render(ExampleComponent.new(:textarea, :with_error_message)) %>
 
+### With character count
+
+<%= render(ExampleComponent.new(:textarea, :with_character_count)) %>
+
 ### With value
 
 <%= render(ExampleComponent.new(:textarea, :with_value)) %>

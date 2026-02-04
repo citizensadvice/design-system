@@ -24,6 +24,12 @@ cy:
       dropdown_aria_label_close: Cau llywio
     input:
       optional: dewisol
+    character_count:
+      fallback: You can enter up to %{character_count} characters (cy)
+      over_limit: You have CHARACTER_COUNT characters too many (cy)
+      remaining_zero: You have 0 characters remaining (cy)
+      remaining_one: You have 1 character remaining (cy)
+      remaining_other: You have CHARACTER_COUNT characters remaining (cy)
     date_input:
       year: Blwyddyn
       month: Mis
