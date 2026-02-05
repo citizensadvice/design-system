@@ -14,7 +14,7 @@ gem "nokogiri"
 gem "parklife-rails"
 gem "propshaft"
 gem "puma", ">= 5.0"
-gem "rails", "~> 8.1.1"
+gem "rails", "~> 8.1.2"
 gem "rouge"
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "view_component"
