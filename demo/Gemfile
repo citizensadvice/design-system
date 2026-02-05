@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 # Rails
-gem "rails", "~> 8.1.1"
+gem "rails", "~> 8.1.2"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -42,7 +42,7 @@ end
 
 group :development do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
-  gem "listen", "~> 3.8"
+  gem "listen", "~> 3.10"
   gem "pry"
   gem "web-console", ">= 3.3.0"
 end
