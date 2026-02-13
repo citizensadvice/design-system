@@ -20,6 +20,14 @@ en:
       description: Accessibility guidance and general accessibility information.
   activemodel:
     attributes:
+      forms/checkbox:
+        checkbox: I agree to the terms and conditions
+        checkbox_required: I agree to the terms and conditions
+      forms/checkbox_group:
+        checkbox_group: Example checkbox group
+        checkbox_group_required: Example checkbox group
+        checkbox_group_hint: Example checkbox group with hint
+        checkbox_group_page_heading: Example checkbox group with page heading
       forms/date_field:
         date_field: Example date field
         date_field_required: Example date field
@@ -57,6 +65,16 @@ en:
       models:
         # See this guide for why format: "%{message}" is used
         # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/checkbox:
+          format: "%{message}"
+          attributes:
+            checkbox_required:
+              blank: You must agree to the terms and conditions
+        forms/checkbox_group:
+          format: "%{message}"
+          attributes:
+            checkbox_group_required:
+              inclusion: Select an option
         forms/date_field:
           format: "%{message}"
           attributes:

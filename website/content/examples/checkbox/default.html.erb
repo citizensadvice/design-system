@@ -3,11 +3,7 @@ title: default
 form: true
 ---
 
-<%= render CitizensAdviceComponents::CheckboxSingle.new(
-  name: "a-single-checkbox"
-) do |c| %>
-  <% c.with_checkbox(
-    label: "I agree to the great terms and conditions",
-    value: "agreed-to-tcs"
-  ) %>
+<% @model = Forms::Checkbox.valid_example %>
+<%= form_with model: @model, url: "/" do |form| %>
+  <%= form.cads_checkbox(:checkbox) %>
 <% end %>

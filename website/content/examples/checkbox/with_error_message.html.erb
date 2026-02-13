@@ -2,12 +2,8 @@
 title: with error message
 form: true
 ---
-<%= render CitizensAdviceComponents::CheckboxSingle.new(
-  name: "a-single-checkbox-error",
-  error_message: "Agree to the terms and conditions"
-) do |c| %>
-  <% c.with_checkbox(
-     label: "I agree to the great terms and conditions",
-     value: "agreed-to-tcs-error"
-   ) %>
+
+<% @model = Forms::Checkbox.invalid_example %>
+<%= form_with model: @model, url: "/" do |form| %>
+  <%= form.cads_checkbox(:checkbox_required) %>
 <% end %>
