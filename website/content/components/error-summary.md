@@ -66,6 +66,8 @@ If you are using the `citizens_advice_components` gem, you can call the componen
 
 This uses the Rails validations API behind the scenes and will display the first `full_message` for any errors present on the model. Nothing will be shown if no errors are present. The method optionally accepts a `heading_level` parameter to override the heading level of the title.
 
+See the [Using the Rails form builder](/guides/rails-form-builder) guide for more details.
+
 ### View component version
 
 We also provide an older view component version of the component. Due to the complexities of generating error IDs yourself it's highly recommended you use the form builder methods if you need full validations.

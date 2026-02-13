@@ -3,9 +3,7 @@ title: Using with Rails
 order: 2
 ---
 
-This guide walks through the process of using the Design System components in a [Rails](https://rubyonrails.org/) application.
-
-This is the web application framework we use for the majority of our products at Citizens Advice.
+This guide walks through the process of using the Design System components in a Ruby on Rails application, the web application framework we use for the majority of our products at Citizens Advice.
 
 The goal of this guide is to set up a basic Rails application from scratch using the design system. Along the way we'll describe any best practices or considerations you might need to make.
 
