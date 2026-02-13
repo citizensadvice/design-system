@@ -4,28 +4,28 @@ title: Radio group
 
 A radio allows a user to select only one option from a group of exclusive choices and it is usually displayed in a radio group.
 
-<%= render(ExampleComponent.new(:radio_group, :default)) %>
-
-## When not to use
-
 Do not use a radio group if the user:
 
 - should be able to select one or more choices from a list of options (use a checkbox group for this)
 - there is only one checkbox in the list of options, for example agreeing to terms and conditions (use checkbox for this)
 
-## How it works
+## Examples
+
+The default behaviour is stacked radios, use this if there are more than 2 options or the option text is long.
+
+<%= render(ExampleComponent.new(:radio_group, :default)) %>
 
 ### Inline
 
+You can use inline radios if there are only 2 options and the text is short.
+
 <%= render(ExampleComponent.new(:radio_group, :inline)) %>
 
-Use inline radios if there are only 2 options and the text is short.
+### Small
 
-### Stacked
+<%= render(ExampleComponent.new(:radio_group, :small)) %>
 
-<%= render(ExampleComponent.new(:radio_group, :long)) %>
-
-Use stacked radios if there are more than 2 options or the text is very long.
+Use standard radios in almost all cases. Use small radios to make them less visually prominent or on pages with lots of dense information. Small radios can be stacked or inline.
 
 ### With hint
 
@@ -33,21 +33,17 @@ Use hint text for help that’s relevant to the majority of users, based on the 
 
 <%= render(ExampleComponent.new(:radio_group, :hint)) %>
 
-### With optional field marker
-
-<%= render(ExampleComponent.new(:radio_group, :optional)) %>
-
 ### With error message
 
 Error messages are used to highlight where users need to change information. They’re used together with an error summary.
 
-<%= render(ExampleComponent.new(:radio_group, :error)) %>
+<%= render(ExampleComponent.new(:radio_group, :error_message)) %>
 
-## Small radios
+### Page heading
 
-<%= render(ExampleComponent.new(:radio_group, :small)) %>
+Used for one question per page forms. Using similar approach to the one described in gov.uk - [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/#legends-as-page-headings).
 
-Use standard radios in almost all cases. Use small radios to make them less visually prominent or on pages with lots of dense information, such as caseworking software. Small radios can be stacked or inline.
+<%= render(ExampleComponent.new(:radio_group, :page_heading)) %>
 
 ## Implementation
 
@@ -57,32 +53,61 @@ The components we provide use wrap radio groups in a fieldset. In this context t
 
 ## Using with Rails
 
-If you are using the `citizens_advice_components` gem, you can call the component from within a following the example below.
+When using with Rails we recommend using the form builder method provided by `CitizensAdviceComponents::FormBuilder`.
 
-The radio buttons themselves can be defined using a simple hash, and passed into the `RadioGroup` component like this:
+```rb
+cads_collection_radio_buttons(attribute, collection:, value_method:, text_method:, options = {})
+```
 
-<%= render(ExampleSourceComponent.new(:radio_group, :default)) %>
+The method works similarly to the default [`collection_radio_buttons` helper](https://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_radio_buttons).
 
-### Additional attributes (View component only)
+```erb
+<%%= form_with model: @model, url: "/" do |form| %>
+  <%%= form.cads_collection_radio_buttons(
+    :example,
+    collection: [
+      ["option_1", "Option 1"],
+      ["option_2", "Option 2"],
+      ["option_3", "Option 3"],
+      ["option_4", "Option 4"],
+      ["option_5", "Option 5"],
+    ],
+    text_method: :first,
+    value_method: :last,
+    hint: "Example hint text",
+    required: true
+  ) %>
+<%% end %>
+```
 
-Any additional key/value pairs (beyond `label` and `value`) in your radio button definition will be added to the input.
+But this can also work with any collection:
 
-<%= render(ExampleComponent.new(:radio_group, :additional_attributes)) %>
+```erb
+<%%= form_with model: @model, url: "/" do |form| %>
+  <%%= form.cads_collection_radio_buttons(
+    :example,
+    collection: Locations.all,
+    text_method: :id,
+    value_method: :name,
+    hint: "Example hint text"
+  ) %>
+<%% end %>
+```
 
-### Page heading
+The `:value_method` and `:text_method` parameters are methods to be called on each member of `collection`. The return values are used as the value attribute and contents of each `<option>` tag, respectively.
 
-Used for one question per page forms. Using similar approach to the one described in gov.uk - [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/#legends-as-page-headings).
+The method accepts an `options` hash with the following optional parameters:
 
-<%= render(ExampleComponent.new(:radio_group, :page_heading)) %>
+- `:label` - The text for the label associated with the input. Defaults to using translations.
+- `:hint` - Hint text for the input
+- `:required` - Boolean indicating the field is optional (i.e. not required)
+- `:size` - The size of the radio buttons. One of `:small`, `:regular` (default: `:regular`)
+- `:layout` - The layout of the radio buttons. One of `:inline`, `:list` (default: `:list`)
+- `:page_heading` - Wraps the `<legend>` in a `<h1>`
 
-### Checkbox ids (View component only)
+### View component version
 
-The `id` attribute for each input will be automatically generated for you by the view component. They will take the form of:
-`[name]-[index]`, where `[index]` is the position of the checkbox in the array passed into `c.with_inputs` above. eg `my-checkbox-0`, `my-checkbox-1`, etc.
-It is also possible to have an id which is not generated by the `name` by passing an `id` attribute. In this case, the format will be `[id]-[index]`.
+We also provide an older view component version of the component
 
-<%= render(ExampleComponent.new(:radio_group, :with_custom_id)) %>
-
-### Component arguments
-
+<%= render ExampleSourceComponent.new(:radio_group, :view_component) %>
 <%= render ArgumentsTableComponent.new(:radio_group) %>
