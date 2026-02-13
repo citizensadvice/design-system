@@ -26,8 +26,13 @@ en:
       forms/checkbox_group:
         checkbox_group: Example checkbox group
         checkbox_group_required: Example checkbox group
-        checkbox_group_hint: Example checkbox group
+        checkbox_group_hint: Example checkbox group with hint
         checkbox_group_page_heading: Example checkbox group with page heading
+      forms/date_field:
+        date_field: Example date field
+        date_field_required: Example date field
+        date_field_hint: Example date field with hint
+        date_field_page_heading: Example date field with page heading
       forms/radios:
         radios: Example radio group
         radios_required: Example radio group
@@ -70,6 +75,12 @@ en:
           attributes:
             checkbox_group_required:
               inclusion: Select an option
+        forms/date_field:
+          format: "%{message}"
+          attributes:
+            date_field_required:
+              less_than: Date must be in the past
+              blank: Enter a date
         forms/radios:
           format: "%{message}"
           attributes:

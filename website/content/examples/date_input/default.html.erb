@@ -2,4 +2,6 @@
 title: default
 ---
 
-<%= render CitizensAdviceComponents::DateInput.new(name: "dob", label: "Date of birth") %>
+<%= form_with model: Forms::DateField.new, url: "/" do |form| %>
+  <%= form.cads_date_field(:date_field) %>
+<% end %>
