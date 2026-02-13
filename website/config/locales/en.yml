@@ -18,3 +18,16 @@ en:
     accessibility:
       title: Accessibility
       description: Accessibility guidance and general accessibility information.
+    errors:
+      models:
+        # See this guide for why format: "%{message}" is used
+        # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/error_summary:
+          format: "%{message}"
+          attributes:
+            name:
+              blank: Enter your full name
+            date_of_birth:
+              less_than: Date of birth must be in the past
+            email:
+              invalid: Enter an email address in the correct format, like name@example.com
