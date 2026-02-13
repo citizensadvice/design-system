@@ -17,7 +17,7 @@ class ExampleSourceComponent < ViewComponent::Base
   private
 
   def source
-    tag.code { sanitize example.highlighted_source }
+    tag.code { sanitize example.highlighted_source.strip }
   end
 
   def example
