@@ -20,6 +20,11 @@ en:
       description: Accessibility guidance and general accessibility information.
   activemodel:
     attributes:
+      forms/date_field:
+        date_field: Example date field
+        date_field_required: Example date field
+        date_field_hint: Example date field with hint
+        date_field_page_heading: Example date field with page heading
       forms/radios:
         radios: Example radio group
         radios_required: Example radio group
@@ -52,6 +57,12 @@ en:
       models:
         # See this guide for why format: "%{message}" is used
         # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/date_field:
+          format: "%{message}"
+          attributes:
+            date_field_required:
+              less_than: Date must be in the past
+              blank: Enter a date
         forms/radios:
           format: "%{message}"
           attributes:
