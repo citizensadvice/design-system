@@ -3,10 +3,6 @@ title: with error message
 form: true
 ---
 
-<%= render CitizensAdviceComponents::Textarea.new(
-  name: "example-textarea-with-error-message",
-  label: "Example textarea",
-  options: {
-    error_message: "Example error message"
-  }
-) %>
+<%= form_with model: Forms::TextArea.invalid_example, url: "/" do |form| %>
+  <%= form.cads_text_area(:text_area_required, required: true) %>
+<% end %>
