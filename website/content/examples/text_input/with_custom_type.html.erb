@@ -1,14 +1,7 @@
 ---
 title: with custom type
-form: true
 ---
 
-<%= render CitizensAdviceComponents::TextInput.new(
-  name: "example-input-password",
-  label: "Example input",
-  type: :password,
-  options: {
-    value: "It's a secret",
-    hint: "This input has type 'password'"
-  }
-) %>
+<%= form_with model: Forms::TextField.valid_example, url: "/" do |form| %>
+  <%= form.cads_text_field(:text_field_password, type: :password, hint: "This input has type 'password'") %>
+<% end %>
