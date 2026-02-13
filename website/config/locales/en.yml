@@ -18,10 +18,24 @@ en:
     accessibility:
       title: Accessibility
       description: Accessibility guidance and general accessibility information.
+  activemodel:
+    attributes:
+      forms/text_area:
+        text_area: Example textarea
+        text_area_hint: Example textarea with hint
+        text_area_required: Example textarea
+        text_area_rows: Example textarea with custom rows
+        text_area_page_heading: Example text area with page heading
+
     errors:
       models:
         # See this guide for why format: "%{message}" is used
         # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/text_area:
+          format: "%{message}"
+          attributes:
+            text_area_required:
+              blank: Example error message
         forms/error_summary:
           format: "%{message}"
           attributes:
