@@ -15,10 +15,10 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     ]
   end
 
-  describe "#cads_collection_check_boxes" do
+  describe "#cads_collection_checkboxes" do
     context "with default arguments" do
       let(:field) do
-        builder.cads_collection_check_boxes(:currency, example_options, :id, :name)
+        builder.cads_collection_checkboxes(:currency, example_options, :id, :name)
       end
 
       before do
@@ -93,7 +93,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with required parameter" do
       let(:field) do
-        builder.cads_collection_check_boxes(:currency, example_options, :id, :name, required: true)
+        builder.cads_collection_checkboxes(:currency, example_options, :id, :name, required: true)
       end
 
       it "labels the field group as required" do
@@ -105,7 +105,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with hint text" do
       let(:field) do
-        builder.cads_collection_check_boxes(:currency, example_options, :id, :name, hint: "Example hint")
+        builder.cads_collection_checkboxes(:currency, example_options, :id, :name, hint: "Example hint")
       end
 
       before do
@@ -123,7 +123,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with 'page_heading' parameter" do
       let(:field) do
-        builder.cads_collection_check_boxes(:currency, example_options, :id, :name, page_heading: true)
+        builder.cads_collection_checkboxes(:currency, example_options, :id, :name, page_heading: true)
       end
 
       it "wraps the legend text in a page heading" do
@@ -135,7 +135,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
     context "with validation errors" do
       let(:model) { ExampleForm.invalid_example }
       let(:field) do
-        builder.cads_collection_check_boxes(:currency, example_options, :id, :name)
+        builder.cads_collection_checkboxes(:currency, example_options, :id, :name)
       end
 
       before do
@@ -155,7 +155,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       context "when there is hint text" do
         let(:field) do
-          builder.cads_collection_check_boxes(:currency, example_options, :id, :name, hint: "Example hint")
+          builder.cads_collection_checkboxes(:currency, example_options, :id, :name, hint: "Example hint")
         end
 
         it "sets multiple aria-describedby" do
@@ -166,7 +166,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
     context "with deprecated named attributes" do
       let(:field) do
-        builder.cads_collection_check_boxes(
+        builder.cads_collection_checkboxes(
           :currency,
           collection: example_options,
           text_method: :name,
@@ -180,6 +180,19 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         render_inline field
         expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
           .with(/collection, text_method, and value_method named parameters are deprecated/)
+      end
+    end
+  end
+
+  describe "#cads_collection_check_boxes" do
+    let(:field) { builder.cads_collection_check_boxes(:currency, example_options, :id, :name) }
+
+    it "aliases cads_collection_checkboxes" do
+      render_inline field
+
+      example_options.each do |option|
+        expect(page).to have_css "label", text: option.name
+        expect(page).to have_css "input[value='#{option.id}']"
       end
     end
   end
