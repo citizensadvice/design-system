@@ -1,16 +1,13 @@
 ---
 title: with error
-form: true
 ---
 
-<%= render CitizensAdviceComponents::Select.new(
-  select_options: [
-    ["Casebook", "casebook"],
-    ["Content platform", "content-platform"],
-    ["SMT", "smart-meter-tool"],
-    ["Find your local Citizens Advice", "FYLCA"]
-  ],
-  name: "product",
-  label: "Choose a product",
-  options: { error_message: "Select a product" }
-) %>
+<% @model = Forms::Select.invalid_example %>
+<%= form_with model: @model, url: "/" do |form| %>
+  <%= form.cads_collection_select(
+    :select_required,
+    collection: @model.select_options,
+    text_method: :name,
+    value_method: :id
+  ) %>
+<% end %>

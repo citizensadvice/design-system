@@ -20,6 +20,10 @@ en:
       description: Accessibility guidance and general accessibility information.
   activemodel:
     attributes:
+      forms/select:
+        select: Example select
+        select_required: Example select
+        select_hint: Example select with hint
       forms/text_field:
         text_field: Example text field
         text_field_hint: Example text field with hint
@@ -41,6 +45,11 @@ en:
       models:
         # See this guide for why format: "%{message}" is used
         # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/select:
+          format: "%{message}"
+          attributes:
+            select_required:
+              inclusion: Select an option
         forms/text_field:
           format: "%{message}"
           attributes:
