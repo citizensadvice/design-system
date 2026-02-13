@@ -20,6 +20,13 @@ en:
       description: Accessibility guidance and general accessibility information.
   activemodel:
     attributes:
+      forms/radios:
+        radios: Example radio group
+        radios_required: Example radio group
+        radios_hint: Example radio group with hint
+        radios_inline: Example radio group (inline layout)
+        radios_small: Example radio group (small size)
+        radios_page_heading: Example radio group with page heading
       forms/select:
         select: Example select
         select_required: Example select
@@ -45,6 +52,11 @@ en:
       models:
         # See this guide for why format: "%{message}" is used
         # https://guides.rubyonrails.org/configuring.html#config-active-model-i18n-customize-full-message
+        forms/radios:
+          format: "%{message}"
+          attributes:
+            radios_required:
+              inclusion: Select an option
         forms/select:
           format: "%{message}"
           attributes:
