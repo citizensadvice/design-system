@@ -1,5 +1,6 @@
 **New**
 
+- Remove support for end-of-life Ruby 3.2.x versions
 - Support Date-like objects in date fields
 
 ## v9.1.0
