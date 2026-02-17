@@ -1,5 +1,6 @@
 **New**
 
+- Test against Ruby 4.x
 - Set `i18n_customize_full_message` by default
 - **Feature parity for Rails form builder components**:
 
