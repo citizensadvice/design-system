@@ -1,14 +1,14 @@
 ---
-title: with custom id
+title: View component
 form: true
 ---
+
 <%= render CitizensAdviceComponents::CheckboxGroup.new(
   legend: "This is the group legend",
-  name: "my-checkbox-group[test][]",
-  id: "my-checkbox-group-test"
+  name: "my-checkbox-group"
 ) do |c|
   c.with_inputs([
-    { label: "Option 1", value: 1 },
+    { label: "Option 1", value: 1, checked: true },
     { label: "Option 2", value: 2 },
     { label: "Option 3", value: 3 }
   ])
