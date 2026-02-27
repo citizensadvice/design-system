@@ -150,14 +150,6 @@ section_links_links_slot:
     description: "Required, url for the section link"
   - argument: title
     description: "Required, title for the section link"
-error_summary:
-  - argument: heading_level
-    description: "Optional, sets the heading level of the title. Defaults to <code>2</code>"
-error_summary_errors_slot:
-  - argument: href
-    description: "Required, error href"
-  - argument: message
-    description: "Required, error message"
 disclosure:
   - argument: closed_summary
     description: "Required, the button text when the component is closed"

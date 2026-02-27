@@ -1,0 +1,15 @@
+---
+title: view component
+form: true
+---
+
+<%= render CitizensAdviceComponents::Select.new(
+  select_options: [
+    ["tv_advert", "TV advert"],
+    ["local_newspaper", "Local newspaper advert"],
+    ["friend_family", "Friend/family recommendation"],
+    ["internet", "Website / internet search"]
+  ],
+  name: "how_did_you_hear",
+  label: "How you heard about Citizens Advice"
+) %>

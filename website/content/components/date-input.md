@@ -10,40 +10,42 @@ A date input field allows the user to enter a date they remember.
 
 <%= render(ExampleComponent.new(:date_input, :default)) %>
 
-### Optional
-
-<%= render(ExampleComponent.new(:date_input, :optional)) %>
-
-### Page heading
-
-<%= render(ExampleComponent.new(:date_input, :page_heading)) %>
-
 ### With hint
 
 <%= render(ExampleComponent.new(:date_input, :with_hint)) %>
 
 ### With error message
 
-<%= render(ExampleComponent.new(:date_input, :with_error)) %>
+<%= render(ExampleComponent.new(:date_input, :with_error_message)) %>
 
-### With incomplete error
+### Page heading
 
-<%= render(ExampleComponent.new(:date_input, :with_incomplete_error)) %>
-
-### With validation error
-
-<%= render(ExampleComponent.new(:date_input, :with_validation_error)) %>
-
-### With values
-
-<%= render(ExampleComponent.new(:date_input, :with_values)) %>
+<%= render(ExampleComponent.new(:date_input, :page_heading)) %>
 
 ## Using with Rails
 
-If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+When using with Rails we recommend using the form builder method provided by `CitizensAdviceComponents::FormBuilder`.
 
-<%= render(ExampleSourceComponent.new(:date_input, :default)) %>
+```erb
+<%%= form_with model: @model, url: "/" do |form| %>
+  <%%= form.cads_date_field(
+    :date_of_birth,
+    hint: "Example hint text",
+    required: true
+  ) %>
+<%% end %>
+```
 
-### Component arguments
+The method accepts an `options` hash with the following optional parameters:
 
+- `:label` - The text for the label associated with the input. Defaults to using translations.
+- `:hint` - Hint text for the input
+- `:required` - Boolean indicating the field is optional (i.e. not required)
+- `:page_heading` - Wraps the `<legend>` in a `<h1>`
+
+### View component version
+
+We also provide an older view component version of the component
+
+<%= render ExampleSourceComponent.new(:date_input, :view_component) %>
 <%= render ArgumentsTableComponent.new(:date_input) %>

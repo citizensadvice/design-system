@@ -2,11 +2,6 @@
 title: page heading
 ---
 
-<%= render CitizensAdviceComponents::DateInput.new(
-      name: "bday",
-      label: "Date of birth",
-      options: {
-        page_heading: true,
-        hint: "Enter your date of birth, like 01 02 1990"
-      }
-    ) %>
+<%= form_with model: Forms::DateField.new, url: "/" do |form| %>
+  <%= form.cads_date_field(:date_field_page_heading, page_heading: true) %>
+<% end %>

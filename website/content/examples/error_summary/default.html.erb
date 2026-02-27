@@ -2,13 +2,10 @@
 title: default
 ---
 
-<%= render CitizensAdviceComponents::ErrorSummary.new(
-  # Disable autofocus.
-  # For example purposes only, in production you should leave this enabled
-  autofocus: false
-) do |c| %>
-  <% c.with_errors([
-    { href: "#your-name-input", message: "Enter your full name" },
-    { href: "#your-email-input", message: "Enter an email address in the correct format, like name@example.com" }
-  ]) %>
+<%= form_with model: Forms::ErrorSummary.invalid_example, url: "/" do |form| %>
+  <%= form.cads_error_summary(
+    # Disable autofocus.
+    # For example purposes only, in production you should leave this enabled
+    autofocus: false
+  ) %>
 <% end %>

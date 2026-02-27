@@ -1,15 +1,15 @@
 ---
-title: With page heading
+title: With error summary
 form: true
 ---
 
-<% @model = Forms::CheckboxGroup.valid_example %>
+<% @model = Forms::CheckboxGroup.invalid_example %>
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_checkboxes(
-    :checkbox_group,
+    :checkbox_group_required,
     collection: @model.options,
     text_method: :name,
     value_method: :id,
-    page_heading: true
+    required: true
   ) %>
 <% end %>

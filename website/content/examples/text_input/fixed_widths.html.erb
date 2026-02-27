@@ -1,32 +1,19 @@
 ---
 title: fixed widths
-form: true
 ---
 
-<%= render CitizensAdviceComponents::TextInput.new(
-  width: :two_chars,
-  name: "example-input-fixed-width-two_chars",
-  label: "Example input", type: :text,
-  options: { hint: "This input is two_chars wide" }
-) %>
+<%= form_with model: Forms::TextField.new, url: "/" do |form| %>
+  <%= form.cads_text_field(:text_field_two_chars, hint: "This input is two_chars wide", width: :two_chars) %>
+<% end %>
 
-<%= render CitizensAdviceComponents::TextInput.new(
-  width: :four_chars,
-  name: "example-input-fixed-width-four_chars",
-  label: "Example input", type: :text,
-  options: { hint: "This input is four_chars wide" }
-) %>
+<%= form_with model: Forms::TextField.new, url: "/" do |form| %>
+  <%= form.cads_text_field(:text_field_four_chars, hint: "This input is four_chars wide", width: :four_chars) %>
+<% end %>
 
-<%= render CitizensAdviceComponents::TextInput.new(
-  width: :eight_chars,
-  name: "example-input-fixed-width-eight_chars",
-  label: "Example input", type: :text,
-  options: { hint: "This input is eight_chars wide" }
-) %>
+<%= form_with model: Forms::TextField.new, url: "/" do |form| %>
+  <%= form.cads_text_field(:text_field_eight_chars, hint: "This input is eight_chars wide", width: :eight_chars) %>
+<% end %>
 
-<%= render CitizensAdviceComponents::TextInput.new(
-  width: :sixteen_chars,
-  name: "example-input-fixed-width-sixteen_chars",
-  label: "Example input", type: :text,
-  options: { hint: "This input is sixteen_chars wide" }
-) %>
+<%= form_with model: Forms::TextField.new, url: "/" do |form| %>
+  <%= form.cads_text_field(:text_field_sixteen_chars, hint: "This input is sixteen_chars wide", width: :sixteen_chars) %>
+<% end %>

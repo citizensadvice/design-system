@@ -16,13 +16,11 @@ Use hint text for help that’s relevant to the majority of users, based on the 
 
 <%= render(ExampleComponent.new(:text_input, :with_hint_text)) %>
 
-### Optional
+### With error message
 
-<%= render(ExampleComponent.new(:text_input, :optional)) %>
+Error messages are used to highlight where users need to change information. They’re used together with an error summary
 
-### Page heading
-
-<%= render(ExampleComponent.new(:text_input, :page_heading)) %>
+<%= render(ExampleComponent.new(:text_input, :with_error_message)) %>
 
 ### Fixed widths
 
@@ -30,33 +28,15 @@ Help users understand the purpose of the input by making the input size appropri
 
 <%= render(ExampleComponent.new(:text_input, :fixed_widths)) %>
 
-### With error message
+### Page heading
 
-Error messages are used to highlight where users need to change information. They’re used together with an error summary
-
-<%= render(ExampleComponent.new(:text_input, :with_error_message)) %>
-
-### With value
-
-<%= render(ExampleComponent.new(:text_input, :with_value)) %>
-
-### With custom type
-
-<%= render(ExampleComponent.new(:text_input, :with_custom_type)) %>
-
-### With custom id
-
-By default the id is based on the `name`. This can be customised by passing an `id` argument.
-
-<%= render(ExampleComponent.new(:text_input, :with_custom_id)) %>
+<%= render(ExampleComponent.new(:text_input, :page_heading)) %>
 
 ## Implementation
 
-You must always have a `label` associated with the input element.
-
-Use the correct input `type` so the purpose of each input field can be determined.
-
-When collecting information about a user, use the `autocomplete` attribute to help users complete forms more quickly.
+- You must always have a `label` associated with the input element.
+- Use the correct input `type` so the purpose of each input field can be determined.
+- When collecting information about a user, use the `autocomplete` attribute to help users complete forms more quickly.
 
 [Read more about input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html) at WCAG 2.1.
 
@@ -67,14 +47,48 @@ The following needs more research:
 
 ## Using with Rails
 
-If you are using the `citizens_advice_components` gem, you can call the component from within a template using:
+When using with Rails we recommend using the form builder method provided by `CitizensAdviceComponents::FormBuilder`.
 
-<%= render(ExampleSourceComponent.new(:text_input, :all_options)) %>
+```rb
+cads_text_field(attribute, **options)
+```
 
-### Component arguments
+The method works similarly to the default [`text_field` helper](https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-text_field).
+
+```erb
+<%%= form_with model: @model, url: "/" do |form| %>
+  <%%= form.cads_text_field(:example) %>
+<%% end %>
+```
+
+With options:
+
+```erb
+<%%= form_with model: @model, url: "/" do |form| %>
+  <%%= form.cads_text_field(
+    :example,
+    hint: "Example hint",
+    required: true,
+    width: :sixteen_chars,
+    additional_attributes: { "data-testid": "example" }
+  ) %>
+<%% end %>
+```
+
+The method accepts the following optional parameters:
+
+- `:label` - The text for the label associated with the input. Defaults to using translations.
+- `:hint` - Hint text for the input
+- `:required` - Boolean indicating the field is optional (i.e. not required)
+- `:type` - Input type. Defaults to `:text`
+- `:width` - Predefined width, one of: `:two_char`, `:four_char`, `:eight_char`, `:sixteen_char`
+- `:page_heading` - Wraps the `<label>` in a `<h1>`
+- `:additional_attributes` - Hash of additional attributes rendered onto the input, e.g. `{ autocomplete: "name" }`
+
+### View component version
+
+We also provide an older view component version of the component
+
+<%= render(ExampleSourceComponent.new(:text_input, :view_component)) %>
 
 <%= render ArgumentsTableComponent.new(:text_input) %>
-
-### Additional type values
-
-If you need access to inputs with additional type values, eg file or color, you can use the base `Input` view component instead. The interface is the same except you may not specify a width parameter.

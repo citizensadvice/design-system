@@ -1,0 +1,8 @@
+---
+title: with rows
+form: true
+---
+
+<%= form_with model: Forms::TextArea.valid_example, url: "/" do |form| %>
+  <%= form.cads_text_area(:text_area_rows, rows: 5) %>
+<% end %>

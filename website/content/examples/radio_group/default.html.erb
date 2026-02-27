@@ -1,13 +1,13 @@
 ---
 title: Default
-form: true
 ---
-<%= render CitizensAdviceComponents::RadioGroup.new(
-  legend: "Example radio group",
-  name: "radio-buttons"
-) do |c|
-  c.with_inputs([
-    { label: "Option 1", value: "1" },
-    { label: "Option 2", value: "2" }
-  ])
-end %>
+
+<% @model = Forms::Radios.valid_example %>
+<%= form_with model: @model, url: "/" do |form| %>
+  <%= form.cads_collection_radio_buttons(
+    :radios,
+    collection: @model.options,
+    text_method: :name,
+    value_method: :id
+  ) %>
+<% end %>
