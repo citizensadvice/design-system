@@ -18,8 +18,8 @@
     "NOTICE"
   ],
   "scripts": {
-    "release": "just check-all && node ./scripts/release",
-    "prepublishOnly": "just check-all && node ./scripts/publish",
+    "release": "just check-all && node ./scripts/release.mjs",
+    "prepublishOnly": "just check-all && node ./scripts/publish.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint:css": "stylelint \"./scss/**/*.scss\"",
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
+    "@inquirer/prompts": "^8.2.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/user-event": "^14.5.1",
@@ -36,10 +37,8 @@
     "chalk": "^4.1.2",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
-    "git-state": "^4.1.0",
     "glob": "^13.0.6",
     "globals": "^17.0.0",
-    "inquirer": "^12.0.0",
     "jsdom": "^28.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
