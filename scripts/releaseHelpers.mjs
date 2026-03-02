@@ -1,7 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import chalk from "chalk";
 import simpleGit from "simple-git";
 
 import pkg from "../package.json" with { type: "json" };
@@ -13,12 +12,12 @@ export const packageVersion = pkg.version;
 export const packageRoot = path.join(fileURLToPath(import.meta.url), "../..");
 
 export function exitWithError(err) {
-  console.log(chalk.red.bold(err));
+  console.log(err);
   process.exit(1);
 }
 
 export function exitWithoutPublishing() {
-  console.log(chalk.red.bold("Exiting without publishing"));
+  console.log("Exiting without publishing");
   process.exit(1);
 }
 

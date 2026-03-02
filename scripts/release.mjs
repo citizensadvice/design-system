@@ -3,7 +3,6 @@ import path from "node:path";
 import { execSync } from "node:child_process";
 
 import { confirm, select } from "@inquirer/prompts";
-import chalk from "chalk";
 import semver from "semver";
 import simpleGit from "simple-git";
 
@@ -27,9 +26,9 @@ function getChoices() {
 }
 
 function updateVersionNumber(newVersion) {
-  console.log(chalk.blue.dim(`Updating version number to ${newVersion}`));
+  console.log(`Updating version number to ${newVersion}`);
   execSync(`npm --no-git-tag-version version ${newVersion}`);
-  console.log(chalk.green(`Updated version number to ${newVersion}`));
+  console.log(`Updated version number to ${newVersion}`);
 }
 
 function writeNewChangelog(newVersion) {
@@ -44,7 +43,7 @@ function writeNewChangelog(newVersion) {
   const changelogEntry = `## v${newVersion}\n\n### ${publishDate}`;
   const newChangelog = `${changelogEntry}\n\n${changelog}`;
   fs.writeFileSync(changelogPath, newChangelog, "utf8");
-  console.log(chalk.green(`Changelog updated`));
+  console.log(`Changelog updated`);
 }
 
 await checkRepoStatus(packageRoot);
@@ -62,9 +61,9 @@ try {
   const choices = getChoices();
 
   console.log(
-    `The latest published version of ${packageName} is currently ${chalk.bold(
-      packageVersion,
-    )}`,
+    `The latest published version of ${packageName} is currently ${
+      packageVersion
+    }`,
   );
 
   const newVersion = await select({
@@ -90,7 +89,7 @@ try {
     updateVersionNumber(newVersion);
     writeNewChangelog(newVersion);
 
-    console.log(chalk.green.bold("Release prepared."));
+    console.log("Release prepared.");
 
     const confirmCommit = await confirm({
       message: "Do you want to commit the changes and prepare the branch?",
@@ -107,9 +106,7 @@ try {
       .push("origin", newVersionBranch);
 
     console.log(
-      chalk.green(
-        `Changes committed and pushed. You must now create a pull request for branch v${newVersion}.`,
-      ),
+      `Changes committed and pushed. You must now create a pull request for branch v${newVersion}.`,
     );
   } catch (gitErr) {
     exitWithError(gitErr);
