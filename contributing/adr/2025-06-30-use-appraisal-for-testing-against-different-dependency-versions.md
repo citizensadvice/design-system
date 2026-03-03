@@ -1,4 +1,4 @@
-# 12. Use Appraisal for testing against different dependency versions
+# Use Appraisal for testing against different dependency versions
 
 Date: 2025-06-30
 

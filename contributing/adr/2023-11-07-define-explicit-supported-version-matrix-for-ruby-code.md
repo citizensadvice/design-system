@@ -1,4 +1,4 @@
-# 6. Define explicit supported version matrix for Ruby code
+# Define explicit supported version matrix for Ruby code
 
 Date: 2023-11-07
 

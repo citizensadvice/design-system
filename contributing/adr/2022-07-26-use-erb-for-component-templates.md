@@ -1,4 +1,4 @@
-# 5. Use ERB for component templates
+# Use ERB for component templates
 
 Date: 2022-07-26
 

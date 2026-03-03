@@ -1,4 +1,4 @@
-# 14. Deprecate form components in favour of form builder
+# Deprecate form components in favour of form builder
 
 Date: 2025-11-28
 
