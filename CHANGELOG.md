@@ -1,3 +1,7 @@
+## v9.1.0
+
+### 3 March 2026
+
 **New**
 
 - Test against Ruby 4.x
