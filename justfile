@@ -22,6 +22,9 @@ adr title:
 # Setup project
 setup: package-setup engine-setup demo-setup website-setup
 
+# Run release checks only
+check-release: format-check package-check engine-check
+
 # Run all checks
 check-all: format-check package-check engine-check demo-check website-check
 

@@ -18,8 +18,8 @@
     "NOTICE"
   ],
   "scripts": {
-    "release": "just check-all && node ./scripts/release",
-    "prepublishOnly": "just check-all && node ./scripts/publish",
+    "release": "just check-release && node ./scripts/release",
+    "prepublishOnly": "just check-release && node ./scripts/publish",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint:css": "stylelint \"./scss/**/*.scss\"",
