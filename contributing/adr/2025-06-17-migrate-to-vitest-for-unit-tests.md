@@ -1,4 +1,4 @@
-# 11. Migrate to vitest for unit tests
+# Migrate to vitest for unit tests
 
 Date: 2025-06-17
 

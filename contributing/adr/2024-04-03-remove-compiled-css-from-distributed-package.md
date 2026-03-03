@@ -1,4 +1,4 @@
-# 8. Remove compiled CSS from distributed package
+# Remove compiled CSS from distributed package
 
 Date: 2024-04-03
 

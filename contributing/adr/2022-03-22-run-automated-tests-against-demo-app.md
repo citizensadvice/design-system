@@ -1,4 +1,4 @@
-# 2. Run automated tests against demo app
+# Run automated tests against demo app
 
 Date: 2022-03-22
 

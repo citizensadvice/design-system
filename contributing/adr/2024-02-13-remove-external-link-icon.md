@@ -1,4 +1,4 @@
-# 7. Remove external link icon
+# Remove external link icon
 
 Date: 2024-02-13
 

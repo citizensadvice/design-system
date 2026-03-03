@@ -1,4 +1,4 @@
-# 13. Use Rails with Parklife for documentation website
+# Use Rails with Parklife for documentation website
 
 Date: 2025-08-04
 
