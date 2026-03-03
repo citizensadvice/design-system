@@ -3,6 +3,7 @@ import {
   checkRepoStatus,
   packageRoot,
   packageVersion,
+  exitWithoutPublishing,
 } from "./releaseHelpers.mjs";
 
 await checkRepoStatus(packageRoot);
@@ -15,5 +16,5 @@ const versionConfirmed = await confirm({
 });
 
 if (!versionConfirmed) {
-  process.exit(1);
+  exitWithoutPublishing();
 }

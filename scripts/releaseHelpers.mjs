@@ -5,7 +5,7 @@ import simpleGit from "simple-git";
 
 import pkg from "../package.json" with { type: "json" };
 
-export const packageName = `@citizensadvice/design-system`;
+export const packageName = pkg.name;
 
 export const packageVersion = pkg.version;
 
