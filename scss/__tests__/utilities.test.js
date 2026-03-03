@@ -1,4 +1,4 @@
-const { globSync } = require("glob");
+const { globSync } = require("node:fs");
 const sass = require("sass");
 const path = require("path");
 
