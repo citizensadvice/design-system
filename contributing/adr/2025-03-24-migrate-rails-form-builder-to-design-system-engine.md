@@ -1,4 +1,4 @@
-# 9. Migrate rails form builder to design system engine
+# Migrate rails form builder to design system engine
 
 Date: 2025-03-24
 

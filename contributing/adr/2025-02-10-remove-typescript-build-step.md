@@ -1,4 +1,4 @@
-# 10. Remove TypeScript build step
+# Remove TypeScript build step
 
 Date: 2025-02-10
 

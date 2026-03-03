@@ -1,4 +1,4 @@
-# 3. Use Cypress for automated tests
+# Use Cypress for automated tests
 
 Date: 2022-03-22
 

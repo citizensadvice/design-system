@@ -1,4 +1,4 @@
-# 4. Only run docs preview build when a label is added
+# Only run docs preview build when a label is added
 
 Date: 2022-04-20
 
