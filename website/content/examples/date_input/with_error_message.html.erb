@@ -1,0 +1,7 @@
+---
+title: with error message
+---
+
+<%= form_with model: Forms::DateField.invalid_example, url: "/" do |form| %>
+  <%= form.cads_date_field(:date_field_required) %>
+<% end %>
