@@ -12,7 +12,7 @@ To perform a release you need:
 
 ## Handling pre-releases
 
-We don't use pre-releases or alpha versions as both the engine and package can be installed directly via git. See the "Testing with your application" section of the [testing guide](./03-testing.md) for more information.
+We don't use pre-releases or alpha versions as both the engine and package can be installed directly via git. See [the "Testing with your application" section](./03-testing.md#testing-with-your-application) of the testing guide for more information.
 
 ## Prepare the release
 
@@ -27,9 +27,9 @@ This will run some checks, prompt you to select a new package version, and prepa
 Once this is done you will need to:
 
 - update the `CitizensAdviceComponents::VERSION` engine constant to match. There is a spec which checks the versions match in case you forget to do this.
-- update the `Gemfile.lock` files for the `engine`, `demo` and `website` apps. The easiest way to do this is run the [setup script](./02-local-setup.md)
+- update the `Gemfile.lock` files for the `engine`, `demo` and `website` apps. The easiest way to do this is to run `just setup` and then commit the changes.
 
-From here you should create a new pull request from the release branch and request a review on #design-system-dev in Slack.
+From here you should create a new pull request from the release branch and request a review on `#design-system-dev` in Slack.
 
 ## Publish to npm
 

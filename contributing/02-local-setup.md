@@ -4,10 +4,10 @@ This guide runs through how to set up the design system project locally as a con
 
 ## Prerequisites
 
-Running the project locally requires a few dependencies to be installed.
+Running the project locally requires the following language ependencies to be installed.
 
-- **Ruby version 3.4**. We include a `.ruby-version` file in each sub-directory that needs it so if you are using a version manager like [rvm](https://rvm.io/) or [rbenv](https://github.com/rbenv/rbenv) it should pick this up.
-- **Node version 22**. We include a `.nvmrc` file in the root of the project so if you are using [nvm](https://github.com/nvm-sh/nvm) it should pick this up.
+- **Ruby** — We include a `.ruby-version` file in the root of the project with the required version so if you are using a version manager like [rvm](https://rvm.io/) or [rbenv](https://github.com/rbenv/rbenv) it should pick this up.
+- **Node** — We include a `.nvmrc` file in the root of the project with the required version so if you are using [nvm](https://github.com/nvm-sh/nvm) it should pick this up.
 
 ## Using just commands
 
