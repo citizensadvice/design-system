@@ -36,13 +36,15 @@ We intend for the existing components to be available until _at least_ `v10.0.0`
 
 ## Consequences
 
-In order to fully deprecate the view component interfaces for form elements we must meet the following pre-requisites:
+In order to fully deprecate the view component interfaces for form elements we must meet the following prerequisites:
 
 - Test coverage equivalent to view component interfaces. Currently we have good integration tests but minimal unit tests for the form builder methods themselves which makes refactoring harder
 - Decoupling form builder methods from underlying view component interfaces
 - Feature parity for available options
 - Optionally, form builder interfaces updated to delegate to their native Rails counterparts where possible. This isn't a requirement but makes it significantly easier to maintain and use the methods as we can defer more logic to underlying Rails methods
 - Optionally, the ability to use form builder components with or without a model. Currently only possible with a model. Made possible by the change above to delegate rendering to the equivalent rails helpers like `label`, `text_field`, and `collection_radio_buttons`
+
+As of [v9.1.0](https://github.com/citizensadvice/design-system/releases/tag/v9.1.0) these prerequisites have been met.
 
 The positive consequences of these changes would be a single interface for form elements which would remove the maintenance burden and drift that comes from maintaining parallel implementations. Aligning with native Rails equivalents also simplifies documentation as we can focus on the parts that are custom.
 
