@@ -2,4 +2,20 @@
 
 Source code for the public Citizens Advice Design system.
 
-You can [view the documentation site](https://citizens-advice-design-system.netlify.app/) for guidance on how to use the Design System in your product. For working on the project itself, see the [contribution guides](CONTRIBUTING.md).
+## Public documentation
+
+You can [view the documentation site](https://citizens-advice-design-system.netlify.app/) for guidance on how to use the Design System in your product.
+
+## Contributing guides
+
+The following guides are to help you in contributing to the design system codebase and are best read in order:
+
+1. [Architecture overview](./contributing/01-architecture.md)
+2. [Local setup](./contributing/02-local-setup.md)
+3. [Testing](./contributing/03-testing.md)
+4. [Release process](./contributing/04-release-process.md)
+5. [Maintenance policy](./contributing/05-maintenance-process.md)
+
+## Architecture decision records
+
+We use architecture decision records (ADRs) to document code-level architectural decisions that we make. These are stored in [`contributing/adr`](./contributing/adr/README.md).
