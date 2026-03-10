@@ -6,7 +6,7 @@ module CitizensAdviceComponents
       include Traits::FieldGroup
       include ActionView::Helpers::FormOptionsHelper
 
-      attr_reader :collection, :value_method, :text_method
+      attr_reader :collection, :value_method, :text_method, :html_options
 
       def initialize(
         builder,
@@ -52,28 +52,19 @@ module CitizensAdviceComponents
 
       protected
 
-      # rubocop:disable Metrics/AbcSize
       def render_field_group
-        radios = collection.map.with_index do |item, index|
-          tag.div(class: "cads-form-group__item") do
-            tag.input(
-              class: "cads-form-group__input",
-              type: "radio",
-              id: item_id(index),
-              name: builder.field_name(attribute).to_s,
-              value: value_for_collection(item, value_method),
-              checked: value_for_collection(item, value_method).eql?(current_value)
-            ) +
-              tag.label(class: "cads-form-group__label", for: item_id(index)) do
-                value_for_collection(item, text_method)
-              end
-          end
+        builder.collection_radio_buttons(
+          attribute,
+          collection,
+          value_method,
+          text_method,
+          options,
+          html_options
+        ) do |radio_builder|
+          tag.div(class: "cads-form-group__item") { radio_button_for(radio_builder) }
         end
-
-        safe_join(radios)
       end
 
-      # rubocop:enable Metrics/AbcSize
       def fieldset_classes
         class_names(
           "cads-form-group",
@@ -84,6 +75,15 @@ module CitizensAdviceComponents
       end
 
       private
+
+      def radio_button_for(radio_builder)
+        index = collection.find_index radio_builder.object
+        id = "#{builder.field_id(attribute)}-#{index.zero? ? 'input' : index}"
+        safe_join([
+          radio_builder.radio_button(class: "cads-form-group__input", id: id),
+          radio_builder.label(class: "cads-form-group__label", for: id) { radio_builder.text }
+        ])
+      end
 
       def collection_params_deprecation
         CitizensAdviceComponents.deprecator.warn(
@@ -113,18 +113,6 @@ module CitizensAdviceComponents
           allowed_values: [nil, :list, :inline],
           fallback: :list
         )
-      end
-
-      def item_id(index)
-        if index.zero?
-          "#{builder.field_id(attribute)}-input"
-        else
-          "#{builder.field_id(attribute)}-#{index}"
-        end
-      end
-
-      def current_value
-        object.send(attribute)
       end
     end
   end
