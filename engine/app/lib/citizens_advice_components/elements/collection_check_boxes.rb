@@ -6,7 +6,7 @@ module CitizensAdviceComponents
       include Traits::FieldGroup
       include ActionView::Helpers::FormOptionsHelper
 
-      attr_reader :collection, :value_method, :text_method
+      attr_reader :collection, :value_method, :text_method, :html_options
 
       def initialize(
         builder,
@@ -53,16 +53,16 @@ module CitizensAdviceComponents
       protected
 
       def render_field_group
-        checkboxes = collection.map.with_index do |item, index|
-          tag.div(class: "cads-form-group__item") do
-            render_input_for(item, index) +
-              tag.label(class: "cads-form-group__label", for: item_id(index)) do
-                value_for_collection(item, text_method)
-              end
-          end
+        builder.collection_check_boxes(
+          attribute,
+          collection,
+          value_method,
+          text_method,
+          options,
+          html_options
+        ) do |check_box_builder|
+          tag.div(class: "cads-form-group__item") { check_box_for(check_box_builder) }
         end
-
-        safe_join([render_hidden_field, checkboxes])
       end
 
       def fieldset_classes
@@ -74,23 +74,13 @@ module CitizensAdviceComponents
 
       private
 
-      def render_input_for(item, index)
-        tag.input(
-          class: "cads-form-group__input",
-          type: "checkbox",
-          id: item_id(index),
-          name: "#{builder.field_name(attribute)}[]",
-          value: value_for_collection(item, value_method),
-          checked: Array(value_for_collection(item, value_method)).include?(current_value)
-        )
-      end
-
-      def render_hidden_field
-        tag.input(
-          type: "hidden",
-          name: "#{builder.field_name(attribute)}[]",
-          value: ""
-        )
+      def check_box_for(check_box_builder)
+        index = collection.find_index check_box_builder.object
+        id = "#{builder.field_id(attribute)}-#{index.zero? ? 'input' : index}"
+        safe_join([
+          check_box_builder.check_box(class: "cads-form-group__input", id: id),
+          check_box_builder.label(class: "cads-form-group__label", for: id) { check_box_builder.text }
+        ])
       end
 
       def collection_params_deprecation
@@ -105,18 +95,6 @@ module CitizensAdviceComponents
         CitizensAdviceComponents.deprecator.warn(
           "additional_attributes hash is deprecated, pass directly via options hash"
         )
-      end
-
-      def item_id(index)
-        if index.zero?
-          "#{builder.field_id(attribute)}-input"
-        else
-          "#{builder.field_id(attribute)}-#{index}"
-        end
-      end
-
-      def current_value
-        object.send(attribute)
       end
     end
   end
