@@ -5,9 +5,17 @@
 
       <h1 class="cads-page-title">Example form</h1>
 
-      <%= f.cads_text_field(:first_name, width: :sixteen_chars, required: true) %>
+      <%= f.cads_text_field(
+        :first_name,
+        width: :sixteen_chars,
+        required: true
+      ) %>
 
-      <%= f.cads_text_field(:last_name, width: :sixteen_chars, required: true) %>
+      <%= f.cads_text_field(
+        :last_name,
+        width: :sixteen_chars,
+        required: true
+      ) %>
 
       <%= f.cads_text_area(
         :your_enquiry,
@@ -17,14 +25,10 @@
 
       <%= f.cads_collection_select(
         :currency,
-        collection: [
-          ["Choose an option", ""],
-          ["GBP", "GBP"],
-          ["EUR", "EUR"],
-          ["USD", "USD"]
-        ],
-        text_method: :first,
-        value_method: :last,
+        @form.currency_choices,
+        :id,
+        :name,
+        prompt: "Choose an option",
         required: true
       )%>
 
@@ -35,16 +39,18 @@
         required: true
       ) %>
 
-      <%= f.cads_date_field :date_of_purchase, required: true %>
+      <%= f.cads_date_field(
+        :date_of_purchase,
+        required: true
+      ) %>
 
       <%= f.cads_collection_radio_buttons(
         :contacted_trader,
-        collection: [["Yes", "yes"], ["No", "no"]],
-        text_method: :first,
-        value_method: :last,
+        [["Yes", "yes"], ["No", "no"]],
+        :last,
+        :first,
         required: true
       )%>
-
 
       <%= f.cads_text_area :trader_response %>
       <%= f.cads_check_box :confirmation %>
