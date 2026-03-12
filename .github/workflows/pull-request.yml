@@ -25,9 +25,8 @@ jobs:
           working-directory: website
 
       # Install dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: website
+      - run: npm ci
+        working-directory: website
 
       # Run lint checks against docs code
       - run: bundle exec rubocop --format progress --format github

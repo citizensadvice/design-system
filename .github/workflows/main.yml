@@ -27,9 +27,8 @@ jobs:
           working-directory: website
 
       # Install dependencies
-      - uses: bahmutov/npm-install@v1
-        with:
-          working-directory: website
+      - run: npm ci
+        working-directory: website
 
       - run: ./bin/static-build
         working-directory: website
