@@ -48,7 +48,7 @@ describe("Sample form", function () {
 
     cy.findByLabelText("Your complaint or enquiry").type("Example enquiry");
 
-    cy.findByLabelText("Currency").select("GBP");
+    cy.findByLabelText("Currency").select("£ GBP");
     cy.findByLabelText(/What was the total amount paid/).type("£1500");
 
     cy.findByRole("group", {

@@ -7,6 +7,8 @@ class ExampleForm
   include ActiveModel::Attributes
   include ActiveRecord::AttributeAssignment
 
+  Option = Data.define(:name, :id)
+
   attribute :first_name, :string
   attribute :last_name, :string
   attribute :your_enquiry, :string
@@ -20,8 +22,16 @@ class ExampleForm
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :your_enquiry, presence: true
-  validates :currency, inclusion: { in: %w[GBP EUR USD] }
+  validates :currency, presence: true, inclusion: { in: ->(model) { model.currency_choices.map(&:id) } }
   validates :total_amount, presence: true
   validates :date_of_purchase, comparison: { less_than: Time.zone.today }
   validates :contacted_trader, presence: true
+
+  def currency_choices
+    [
+      Option.new(id: "GBP", name: "£ GBP"),
+      Option.new(id: "EUR", name: "€ EUR"),
+      Option.new(id: "USD", name: "$ USD")
+    ]
+  end
 end
