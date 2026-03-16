@@ -30,7 +30,7 @@ We provide a just command for formatting the codebase:
 just format
 ```
 
-You can check the formatting without making changes with `just check-format`
+You can check the formatting without making changes with `just format-check`
 
 ### Prettier, Stylelint, ESLint, and Jest
 
