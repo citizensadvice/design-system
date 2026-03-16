@@ -16,6 +16,24 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
   end
 
   describe "#cads_collection_radio_buttons" do
+    context "with no form model" do
+      let(:builder) { form_builder_for(nil) }
+      let(:field) do
+        builder.cads_collection_radio_buttons(
+          :currency,
+          example_options,
+          :id,
+          :name,
+          label: "Currency"
+        )
+      end
+
+      it "can be used without a form model" do
+        render_inline field
+        expect(page).to have_field("currency", type: :radio, count: 3)
+      end
+    end
+
     context "with default arguments" do
       let(:field) do
         builder.cads_collection_radio_buttons(:currency, example_options, :id, :name)
