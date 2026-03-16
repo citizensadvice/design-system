@@ -1,3 +1,7 @@
+**New**
+
+- Support Date-like objects in date fields
+
 ## v9.1.0
 
 ### 3 March 2026
@@ -92,7 +96,7 @@
 
 **Fix**
 
-- Inline text styles for the badge component, instead of using `@include cads-typographic-scale-text-small;`. This resolves a breaking change introduced by host apps using scss >= v1.92 
+- Inline text styles for the badge component, instead of using `@include cads-typographic-scale-text-small;`. This resolves a breaking change introduced by host apps using scss >= v1.92
 - Remove `.cads-sr-only-focusable` class. This has never been used in any internal design system or product code.
 
 ## v8.3.0
@@ -129,7 +133,7 @@
   Make the following helpers available in controllers:
 
   - `cads_default_breadcrumbs` for defining an array of default breadcrumbs to use
-  - `cads_add_breadcrumb` for setting a breadcrumb from within a controller 
+  - `cads_add_breadcrumb` for setting a breadcrumb from within a controller
   - `cads_add_breadcrumbs` for setting multiple breadcrumbs at once from within a controller
 
   In addition breadcrumbs can be accessed via a `cads_breadcrumbs` view helper:
@@ -269,7 +273,7 @@
 - Remove support for end-of-life Ruby 3.1.x versions
 - Remove support for end-of-life Rails 7.0.x versions
 - Migrate rails form builder to design system engine
-  
+
   This change migrates the external form builder library into the design system itself.
 
   If you are using the existing library in your application you'll need to replace:
@@ -380,9 +384,9 @@
   ```js
   import { initModuleA, initModuleB } from "@citizensadvice/design-system
   ```
-  
+
   Or directly via:
-  
+
   ```js
   import { initMyModule } from "@citizensadvice/design-system/lib/my-module"
   ```

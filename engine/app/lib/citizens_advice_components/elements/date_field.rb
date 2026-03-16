@@ -80,15 +80,15 @@ module CitizensAdviceComponents
       end
 
       def day_value
-        current_value.day if current_value.is_a?(Date)
+        current_value.day if current_value.respond_to?(:day)
       end
 
       def month_value
-        current_value.month if current_value.is_a?(Date)
+        current_value.month if current_value.respond_to?(:month)
       end
 
       def year_value
-        current_value.year if current_value.is_a?(Date)
+        current_value.year if current_value.respond_to?(:year)
       end
 
       def current_value
