@@ -113,6 +113,21 @@ The search form is optional. In order to configure it you need to provide a `sea
 end %>
 ```
 
+### Custom search form slot
+
+The custom search form is optional. It can be used in cases where the search form needs more options or a different input component than the default search form. For example, it can be used when introducing an autocomplete field.
+If the custom search form slot is used, then the default search form will not appear.
+
+```erb
+<%%= render CitizensAdviceComponents::Header.new do |c|
+      c.with_custom_search_form do
+        form_tag(search_action_url: "/test-search", method: :get, role: "search") do
+          render CitizensAdviceComponents::Search.new(value: "")
+        end
+      end
+end %>
+```
+
 ### Account link slot
 
 The account link slot can be configured in two different ways. Either as a plain link accepting a `title` and `url`:

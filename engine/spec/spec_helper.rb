@@ -31,6 +31,7 @@ Capybara.enable_aria_label = true
 
 RSpec.configure do |config|
   config.include ActiveSupport::Testing::TimeHelpers
+  config.include ActionView::Helpers::FormTagHelper
   config.include ViewComponent::TestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component
   config.include TestHelpers
