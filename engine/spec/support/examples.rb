@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 FormOption = Data.define(:id, :name)
+DateLike = Data.define(:day, :month, :year)
 
 class ExampleForm
   include ActiveModel::Model
@@ -11,6 +12,7 @@ class ExampleForm
   attribute :currency, :string
   attribute :date_of_purchase, :date
   attribute :confirmation, :boolean
+  attribute :date_like_value
 
   validates :name, presence: true
   validates :address, presence: true
@@ -24,7 +26,8 @@ class ExampleForm
       address: "Example address",
       currency: "GBP",
       date_of_purchase: Date.new(2023, 1, 1),
-      confirmation: true
+      confirmation: true,
+      date_like_value: DateLike.new(year: 2026, month: 11, day: 20)
     )
   end
 

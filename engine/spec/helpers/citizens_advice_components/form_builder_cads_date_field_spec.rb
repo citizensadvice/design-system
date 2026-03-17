@@ -82,5 +82,20 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         expect(page).to have_text "Date of purchase must be less than"
       end
     end
+
+    context "with date-like attribute" do
+      let(:field) { builder.cads_date_field(:date_like_value) }
+
+      before do
+        model.valid? # trigger validation
+        render_inline field
+      end
+
+      it "renders three input fields" do
+        expect(page).to have_field "example_form[date_like_value(3i)]", with: model.date_like_value.day
+        expect(page).to have_field "example_form[date_like_value(2i)]", with: model.date_like_value.month
+        expect(page).to have_field "example_form[date_like_value(1i)]", with: model.date_like_value.year
+      end
+    end
   end
 end
