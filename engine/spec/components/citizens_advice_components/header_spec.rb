@@ -138,4 +138,19 @@ RSpec.describe CitizensAdviceComponents::Header, type: :component do
       it { is_expected.to have_button "Ymchwiliad agored" }
     end
   end
+
+  describe "custom_search_form slot" do
+    before do
+      render_inline(described_class.new) do |c|
+        c.with_logo(title: "Logo title", url: "/")
+        c.with_custom_search_form do
+          form_tag("/test-search", method: :get, role: "search") do
+            render_inline CitizensAdviceComponents::Search.new(value: "")
+          end
+        end
+      end
+    end
+
+    it { is_expected.to have_css "form[action='/test-search']" }
+  end
 end

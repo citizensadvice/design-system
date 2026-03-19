@@ -1,6 +1,7 @@
 **New**
 
 - Support Date-like objects in date fields
+- Add support for `custom_search_form` to the header component
 
 ## v9.1.0
 
