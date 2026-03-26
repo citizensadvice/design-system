@@ -10,12 +10,14 @@ module CitizensAdviceComponents
     renders_one :header_button, "HeaderButton"
     renders_one :search_form, "HeaderSearch"
 
+    renders_one :custom_search_form
+
     def render?
       logo.present?
     end
 
     def show_right_column?
-      header_links.any? || header_button.present? || account_link.present? || search_form.present?
+      header_links.any? || header_button.present? || account_link.present? || search_form.present? || custom_search_form.present?
     end
 
     def skip_links_to_show

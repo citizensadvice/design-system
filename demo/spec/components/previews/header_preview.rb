@@ -38,6 +38,16 @@ class HeaderPreview < ViewComponent::Preview
     )
   end
 
+  def with_custom_search_form
+    render_with_template(
+      locals: {
+        skip_links:,
+        header_links:,
+        navigation_links:
+      }
+    )
+  end
+
   def with_navigation
     render_with_template(
       locals: {
