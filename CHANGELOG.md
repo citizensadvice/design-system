@@ -2,6 +2,7 @@
 
 - Remove support for end-of-life Ruby 3.2.x versions
 - Support Date-like objects in date fields
+- Improve compatibility for collection fields, allows `cads_collection_check_boxes` and `cads_collection_radio_buttons` to be used without a form model
 
 ## v9.1.0
 
