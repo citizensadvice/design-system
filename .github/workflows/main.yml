@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]'
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           node-version-file: .nvmrc
 
       # Setup docs site
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64
         with:
           ruby-version: "4.0.1"
           bundler-cache: true
@@ -34,7 +34,7 @@ jobs:
         working-directory: website
 
       - name: Deploy production to Netlify
-        uses: South-Paw/action-netlify-deploy@v1.2.1
+        uses: South-Paw/action-netlify-deploy@2e5ce944afb065f54453c5cc03291670687b454b
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
