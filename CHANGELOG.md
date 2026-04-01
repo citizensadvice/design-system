@@ -1,3 +1,7 @@
+## v9.2.0
+
+### 31 March 2026
+
 **New**
 
 - Remove support for end-of-life Ruby 3.2.x versions
