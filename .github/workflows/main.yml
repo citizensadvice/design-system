@@ -20,7 +20,7 @@ jobs:
           node-version-file: .nvmrc
 
       # Setup docs site
-      - uses: ruby/setup-ruby@4c56a21280b36d862b5fc31348f463d60bdc55d5
+      - uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f
         with:
           ruby-version: "4.0.1"
           bundler-cache: true
