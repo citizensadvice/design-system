@@ -70,7 +70,7 @@ With options:
     hint: "Example hint",
     required: true,
     width: :sixteen_chars,
-    additional_attributes: { "data-testid": "example" }
+    "data-testid": "example"
   ) %>
 <%% end %>
 ```
@@ -83,7 +83,7 @@ The method accepts the following optional parameters:
 - `:type` - Input type. Defaults to `:text`
 - `:width` - Predefined width, one of: `:two_char`, `:four_char`, `:eight_char`, `:sixteen_char`
 - `:page_heading` - Wraps the `<label>` in a `<h1>`
-- `:additional_attributes` - Hash of additional attributes rendered onto the input, e.g. `{ autocomplete: "name" }`
+- additional attributes can be added directly after the other attributes e.g. `autocomplete: "name"`
 
 ### View component version
 

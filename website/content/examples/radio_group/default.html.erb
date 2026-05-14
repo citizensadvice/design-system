@@ -6,8 +6,8 @@ title: Default
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_radio_buttons(
     :radios,
-    collection: @model.options,
-    text_method: :name,
-    value_method: :id
+    @model.options,
+    :id,
+    :name
   ) %>
 <% end %>

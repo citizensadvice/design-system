@@ -6,9 +6,9 @@ title: With hint
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_radio_buttons(
     :radios_hint,
-    collection: @model.options,
-    text_method: :name,
-    value_method: :id,
+    @model.options,
+    :id,
+    :name,
     hint: "Example hint text"
   ) %>
 <% end %>

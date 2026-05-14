@@ -6,9 +6,9 @@ title: Inline
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_radio_buttons(
     :radios_inline,
-    collection: @model.options.take(2),
-    text_method: :name,
-    value_method: :id,
+    @model.options.take(2),
+    :id,
+    :name,
     layout: :inline
   ) %>
 <% end %>

@@ -6,9 +6,9 @@ title: With page heading
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_radio_buttons(
     :radios_page_heading,
-    collection: @model.options,
-    text_method: :name,
-    value_method: :id,
+    @model.options,
+    :id,
+    :name,
     page_heading: true
   ) %>
 <% end %>

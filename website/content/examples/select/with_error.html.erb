@@ -6,8 +6,8 @@ title: with error
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_select(
     :select_required,
-    collection: @model.select_options,
-    text_method: :name,
-    value_method: :id
+    @model.select_options,
+    :id,
+    :name
   ) %>
 <% end %>
