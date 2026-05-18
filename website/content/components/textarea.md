@@ -49,7 +49,7 @@ With options:
     hint: "Example hint",
     required: true,
     rows: 5,
-    additional_attributes: { "data-testid": "example" }
+    "data-testid": "example"
   ) %>
 <%% end %>
 ```
@@ -61,7 +61,7 @@ The method accepts the following optional parameters:
 - `:required` - Boolean indicating the field is optional (i.e. not required)
 - `:rows` - The number of rows for the textarea. Defaults to `8`
 - `:page_heading` - Wraps the `<label>` in a `<h1>`
-- `:additional_attributes` - Hash of additional attributes rendered onto the input, e.g. `{ autocomplete: "name" }`
+- additional attributes can be added directly after the other attributes e.g. `autocomplete: "name"`
 
 ### View component version
 

@@ -6,9 +6,9 @@ title: with hint
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_select(
     :select_hint,
-    collection: @model.select_options,
-    text_method: :name,
-    value_method: :id,
+    @model.select_options,
+    :id,
+    :name,
     hint: "Example hint text"
   ) %>
 <% end %>

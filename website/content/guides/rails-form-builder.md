@@ -204,14 +204,14 @@ From here you can use the available form helpers to render each field:
 
 <%%= f.cads_collection_select(
   :currency,
-  collection: [
+  [
     ["Choose an option", ""],
     ["GBP", "GBP"],
     ["EUR", "EUR"],
     ["USD", "USD"]
   ],
-  text_method: :first,
-  value_method: :last,
+  :last,
+  :first,
   required: true
 )%>
 
@@ -226,9 +226,9 @@ From here you can use the available form helpers to render each field:
 
 <%%= f.cads_collection_radio_buttons(
   :contacted_trader,
-  collection: [["Yes", "yes"], ["No", "no"]],
-  text_method: :first,
-  value_method: :last,
+  [["Yes", "yes"], ["No", "no"]],
+  :last,
+  :first,
   required: true
 )%>
 
@@ -245,4 +245,4 @@ Putting this all together this should look something like this:
 
 - Experiment with different options to each of the form helpers. You can find more detail on the options available in the [component guides](/components).
 - Try defining some additional validations and seeing how that corresponds to the locale file
-- Look at the additonal examples in the demo app
+- Look at the additional examples in the demo app

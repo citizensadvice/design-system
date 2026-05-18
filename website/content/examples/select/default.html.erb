@@ -7,8 +7,8 @@ form: true
 <%= form_with model: @model, url: "/" do |form| %>
   <%= form.cads_collection_select(
     :select,
-    collection: @model.select_options,
-    text_method: :name,
-    value_method: :id
+    @model.select_options,
+    :id,
+    :name
   ) %>
 <% end %>

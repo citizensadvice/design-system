@@ -44,7 +44,7 @@ The components we provide use wrap checkbox groups in a fieldset. In this contex
 When using with Rails we recommend using the form builder method provided by `CitizensAdviceComponents::FormBuilder`.
 
 ```rb
-cads_collection_checkboxes(attribute, collection:, value_method:, text_method:, options = {})
+cads_collection_checkboxes(attribute, collection, value_method, text_method, options = {}, html_options = {})
 ```
 
 The method works similarly to the default [`collection_checkboxes` helper](https://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_checkboxes).
@@ -53,15 +53,15 @@ The method works similarly to the default [`collection_checkboxes` helper](https
 <%%= form_with model: @model, url: "/" do |form| %>
   <%%= form.cads_collection_checkboxes(
     :example,
-    collection: [
+    [
       ["option_1", "Option 1"],
       ["option_2", "Option 2"],
       ["option_3", "Option 3"],
       ["option_4", "Option 4"],
       ["option_5", "Option 5"],
     ],
-    text_method: :first,
-    value_method: :last,
+    :first,
+    :last,
     hint: "Example hint text",
     required: true
   ) %>
@@ -74,15 +74,13 @@ But this can also work with any collection:
 <%%= form_with model: @model, url: "/" do |form| %>
   <%%= form.cads_collection_checkboxes(
     :example,
-    collection: Locations.all,
-    text_method: :id,
-    value_method: :name,
+    Locations.all,
+    :id,
+    :name,
     hint: "Example hint text"
   ) %>
 <%% end %>
 ```
-
-The `:value_method` and `:text_method` parameters are methods to be called on each member of `collection`. The return values are used as the value attribute and contents of each checkbox.
 
 The method accepts an `options` hash with the following optional parameters:
 
