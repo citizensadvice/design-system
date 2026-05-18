@@ -1,3 +1,11 @@
+## v9.2.1
+
+**Fixes**
+
+- Fix missing format for checkbox and file components, addresses a `WARNING: Template format` log warning
+
+### 18 May 2026
+
 ## v9.2.0
 
 ### 31 March 2026
