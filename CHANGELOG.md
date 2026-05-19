@@ -1,3 +1,7 @@
+**New**
+
+- Add support for `custom_search_form` to the header component
+
 ## v9.2.1
 
 **Fixes**
