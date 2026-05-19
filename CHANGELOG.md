@@ -1,3 +1,7 @@
+## v9.3.0
+
+### 19 May 2026
+
 **New**
 
 - Add support for `custom_search_form` to the header component
