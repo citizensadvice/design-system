@@ -37,7 +37,7 @@ jobs:
         working-directory: engine
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-      - uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f
+      - uses: ruby/setup-ruby@6aaa311d81eba98ae12eaffbcb63296ace0efcde
         with:
           bundler-cache: true
           ruby-version: ${{ matrix.ruby_version }}
@@ -53,7 +53,7 @@ jobs:
         working-directory: engine
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-      - uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f
+      - uses: ruby/setup-ruby@6aaa311d81eba98ae12eaffbcb63296ace0efcde
         with:
           bundler-cache: true
           ruby-version: "4.0.3"
@@ -74,7 +74,7 @@ jobs:
           node-version-file: .nvmrc
 
       # Setup demo app
-      - uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f
+      - uses: ruby/setup-ruby@6aaa311d81eba98ae12eaffbcb63296ace0efcde
         with:
           ruby-version: "4.0.3"
           bundler-cache: true
@@ -124,7 +124,7 @@ jobs:
           node-version-file: .nvmrc
 
       # Setup demo app
-      - uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f
+      - uses: ruby/setup-ruby@6aaa311d81eba98ae12eaffbcb63296ace0efcde
         with:
           ruby-version: "4.0.3"
           bundler-cache: true
