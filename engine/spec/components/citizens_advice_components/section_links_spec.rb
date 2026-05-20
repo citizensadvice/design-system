@@ -36,7 +36,7 @@ RSpec.describe CitizensAdviceComponents::SectionLinks, type: :component do
     end
 
     it "renders the additional content" do
-      expect(page).to have_content "Example content"
+      expect(page).to have_text "Example content"
     end
   end
 
