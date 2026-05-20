@@ -89,7 +89,7 @@ module CitizensAdviceComponents
       ids = []
       ids << error_id if error?
       ids << hint_id if hint?
-      ids.present? ? ids.join(" ") : nil
+      ids.presence&.join(" ")
     end
 
     def base_input_attributes
