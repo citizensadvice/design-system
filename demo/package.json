@@ -28,5 +28,10 @@
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
     "start-server-and-test": "^3.0.2"
+  },
+  "overrides": {
+    "@cypress/request": {
+      "qs": "^6.15.2"
+    }
   }
 }
