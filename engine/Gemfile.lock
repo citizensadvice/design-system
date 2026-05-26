@@ -281,7 +281,7 @@ GEM
       concurrent-ruby (~> 1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.8.1)
+    zeitwerk (2.8.2)
 
 PLATFORMS
   aarch64-linux
@@ -304,4 +304,4 @@ DEPENDENCIES
   rspec-rails
 
 BUNDLED WITH
-   2.5.9
+  4.0.10
