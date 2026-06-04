@@ -1,11 +1,16 @@
-<% if full_width? %><div class="cads-breadcrumbs-wrapper"><% end %>
-<nav class="cads-breadcrumbs cads-breadcrumbs--<%= type.to_s.dasherize %>" aria-label="breadcrumbs">
-  <ul class="cads-breadcrumbs__list">
-    <% breadcrumbs_html.each do |breadcrumbs_html| %>
-      <li class="cads-breadcrumbs__crumb">
-        <%= breadcrumbs_html %>
-      </li>
-    <% end %>
-  </ul>
-</nav>
-<% if full_width? %></div><% end %>
+<% breadcrumbs_content = capture do %>
+  <nav class="<%= class_names(
+    "cads-breadcrumbs",
+    "cads-breadcrumbs--#{type.to_s.dasherize}"
+  ) %>" aria-label="Breadcrumbs">
+    <ul class="cads-breadcrumbs__list">
+      <% breadcrumbs_html.each do |breadcrumbs_html| %>
+        <li class="cads-breadcrumbs__crumb">
+          <%= breadcrumbs_html %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>
+
+<%= full_width? ? content_tag(:div, breadcrumbs_content, class: "cads-breadcrumbs-wrapper") : breadcrumbs_content %>

@@ -101,15 +101,6 @@ module CitizensAdviceComponents
       def current?
         @current
       end
-
-      def attrs
-        {
-          href: href,
-          "aria-label": aria_label,
-          "aria-current": ("page" if current?),
-          "data-testid": "paging-control"
-        }
-      end
     end
   end
 end

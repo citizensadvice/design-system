@@ -14,9 +14,10 @@ RSpec::Core::RakeTask.new(:spec)
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
-desc "Run ERB Lint"
-task :erb_lint do
-  system "erb_lint --lint-all"
+desc "Run herb"
+task :herb do
+  system "herb analyze"
+  system "herb lint"
 end
 
 desc "Sync fonts between npm source and engine"
@@ -26,6 +27,6 @@ task :sync_fonts do
   FileUtils.cp_r source_files, dest_path
 end
 
-task lint: %i[rubocop erb_lint]
+task lint: %i[rubocop herb]
 
 task default: %i[spec lint]

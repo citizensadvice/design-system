@@ -5,7 +5,10 @@
         <%= tag.a(
           pagination_link.label,
           class: "cads-paging__button",
-          **pagination_link.attrs
+          href: pagination_link.href,
+          "aria-label": pagination_link.aria_label,
+          "aria-current": ("page" if pagination_link.current?),
+          "data-testid": "paging-control"
         ) %>
       </li>
     <% end %>

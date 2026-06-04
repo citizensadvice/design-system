@@ -8,23 +8,23 @@
             class="cads-on-this-page__toggle cads-linkbutton js-cads-on-this-page-toggle"
             aria-expanded="false"
             data-testid="on-this-page-toggle"
-            data-label-when-hiding="<%= "Show sub-headings for #{link.label}" %>"
-            data-label-when-showing="<%= "Hide sub-headings for #{link.label}" %>">
+            data-label-when-hiding="Show sub-headings for <%= link.label %>"
+            data-label-when-showing="Hide sub-headings for <%= link.label %>">
             <%= render CitizensAdviceComponents::Icons::PlusMinus.new %>
           </button>
         <% end %>
-        <a href="<%= "##{link.id}" %>"
+        <a href="#<%= link.id %>"
           class="cads-on-this-page__link cads-hyperlink"
           data-testid="on-this-page-link">
           <%= link.label %>
         </a>
         <% if show_children_for?(link) %>
           <ul class="cads-on-this-page__list cads-on-this-page__list--nested"
-            id="<%= "#{link.id}-list" %>"
+            id="<%= link.id %>-list"
             data-testid="on-this-page-children">
             <% link.children.each do |child| %>
               <li class="cads-on-this-page__list-item">
-                <a href="<%= "##{child[:id]}" %>"
+                <a href="#<%= child[:id] %>"
                   class="cads-on-this-page__link cads-hyperlink"
                   data-testid="on-this-page-child-link">
                   <%= child[:label] %>

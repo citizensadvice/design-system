@@ -28,7 +28,7 @@ group :development, :test do
 
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "dotenv", ">= 3.0"
-  gem "erb_lint", require: false
+  gem "herb"
 end
 
 group :development do

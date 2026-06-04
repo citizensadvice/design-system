@@ -7,7 +7,9 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "theme", media: "all" %>
     <style><%= Rouge::Themes::CadsTheme.render(scope: ".highlight") %></style>
-    <script>document.querySelector('html').classList.remove('no-js');</script>
+    <% javascript_tag nonce: true do %>
+      document.querySelector('html').classList.remove('no-js');
+    <% end %>
   </head>
   <body>
     <div class="cads-page">

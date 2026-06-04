@@ -12,11 +12,12 @@ Rake::Task[:default].prerequisites.clear if Rake::Task.task_defined?(:default)
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
-desc "Run ERB Lint"
-task :erb_lint do
-  system "bin/erb_lint --lint-all"
+desc "Run herb"
+task :herb do
+  system "herb analyze"
+  system "herb lint"
 end
 
-task lint: %i[rubocop erb_lint]
+task lint: %i[rubocop herb]
 
 task default: %i[lint]

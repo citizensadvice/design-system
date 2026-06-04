@@ -31,7 +31,7 @@ jobs:
       # Run lint checks against docs code
       - run: bundle exec rubocop --format progress --format github
         working-directory: website
-      - run: bundle exec erb_lint --lint-all
+      - run: bundle exec herb analyze && bundle exec herb lint
         working-directory: website
 
       # Run a static build to confirm that assets compile correctly

@@ -1,3 +1,4 @@
-<% if @example.form? %><form action="" novalidate><% end %>
-<%= @example.html %>
-<% if @example.form? %></form><% end %>
+<% form_content = capture do %>
+  <%= @example.html %>
+<% end %>
+<%= @example.form? ? content_tag(:form, form_content, action: "", novalidate: true) : form_content %>

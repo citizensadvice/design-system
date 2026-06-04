@@ -63,7 +63,8 @@ engine-setup:
 [working-directory('./engine')]
 engine-check:
     bundle exec rubocop
-    bundle exec erb_lint --lint-all
+    bundle exec herb analyze
+    bundle exec herb lint
     bundle exec appraisal rake spec
 
 # Sync fonts between npm source and engine
@@ -106,7 +107,8 @@ website-setup:
 [working-directory('./website')]
 website-check:
     bundle exec rubocop
-    bundle exec erb_lint --lint-all
+    bundle exec herb analyze
+    bundle exec herb lint
     bin/static-build
 
 # Run a dev server for the website
