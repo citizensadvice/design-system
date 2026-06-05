@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::Select, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::Select, type: :component do
   subject { page }
 
   let(:select_options) do
