@@ -2,7 +2,7 @@
 
 class CheckboxGroupPreview < ViewComponent::Preview
   def basic
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "This is the group legend",
       name: "my-checkbox-group"
     ) do |c|
@@ -11,7 +11,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
   end
 
   def custom_id
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "Example checkbox group",
       name: "checkbox-buttons-attrs[test][]",
       id: "test-id"
@@ -21,7 +21,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
   end
 
   def error
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "Example checkbox group",
       name: "checkbox-buttons-error",
       options: {
@@ -33,7 +33,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
   end
 
   def optional
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "Example checkbox group",
       name: "checkbox-buttons-optional",
       options: {
@@ -45,7 +45,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
   end
 
   def hint
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "Example checkbox group",
       name: "checkbox-buttons-hint",
       options: {
@@ -57,7 +57,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
   end
 
   def long
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "Example checkbox group",
       name: "checkbox-buttons-long"
     ) do |c|
@@ -66,7 +66,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
   end
 
   def additional_attributes
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "Example checkbox group",
       name: "checkbox-buttons-attrs"
     ) do |c|
@@ -75,7 +75,7 @@ class CheckboxGroupPreview < ViewComponent::Preview
   end
 
   def page_heading
-    render CitizensAdviceComponents::CheckboxGroup.new(
+    render CitizensAdviceComponents::Legacy::CheckboxGroup.new(
       legend: "Example page heading checkbox group",
       name: "checkbox-buttons-page-heading",
       options: { page_heading: true }
