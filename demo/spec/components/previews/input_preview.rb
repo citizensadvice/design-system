@@ -3,13 +3,13 @@
 class InputPreview < ViewComponent::Preview
   def basic
     render(
-      CitizensAdviceComponents::Input.new(name: "example-input-basic", label: "Example input", type: :text)
+      CitizensAdviceComponents::Legacy::Input.new(name: "example-input-basic", label: "Example input", type: :text)
     )
   end
 
   def hint
     render(
-      CitizensAdviceComponents::Input.new(
+      CitizensAdviceComponents::Legacy::Input.new(
         name: "example-input-with-hint",
         label: "Example input with hint",
         type: :text,
@@ -22,7 +22,7 @@ class InputPreview < ViewComponent::Preview
 
   def optional
     render(
-      CitizensAdviceComponents::Input.new(
+      CitizensAdviceComponents::Legacy::Input.new(
         name: "example-input-optional",
         label: "Example input",
         type: :text,
@@ -35,7 +35,7 @@ class InputPreview < ViewComponent::Preview
 
   def error
     render(
-      CitizensAdviceComponents::Input.new(
+      CitizensAdviceComponents::Legacy::Input.new(
         name: "example-input-error",
         label: "Email address",
         type: :text,
@@ -49,7 +49,7 @@ class InputPreview < ViewComponent::Preview
 
   def type
     render(
-      CitizensAdviceComponents::Input.new(
+      CitizensAdviceComponents::Legacy::Input.new(
         name: "example-input-password",
         label: "Example input",
         type: :password,
@@ -68,7 +68,7 @@ class InputPreview < ViewComponent::Preview
     }
 
     render(
-      CitizensAdviceComponents::Input.new(
+      CitizensAdviceComponents::Legacy::Input.new(
         name: "example-input-attrs",
         label: "Example input",
         type: :text,
