@@ -1,3 +1,21 @@
+**Breaking changes**
+
+- Deprecate form components in favour of form builder
+
+  Moves the following view components under a `CitizensAdviceComponents::Legacy` namespace:
+
+  - `CitizensAdviceComponents::Legacy::CheckboxGroup`
+  - `CitizensAdviceComponents::Legacy::CheckboxSingle`
+  - `CitizensAdviceComponents::Legacy::DateInput`
+  - `CitizensAdviceComponents::Legacy::ErrorSummary`
+  - `CitizensAdviceComponents::Legacy::Input`
+  - `CitizensAdviceComponents::Legacy::RadioGroup`
+  - `CitizensAdviceComponents::Legacy::Select`
+  - `CitizensAdviceComponents::Legacy::Textarea`
+  - `CitizensAdviceComponents::Legacy::TextInput`
+
+  These components will be under this namespace until at least version 11 of the design system, after which they will be removed entirely. If you've not already you will need to either plan your migration or vendor the components you use into your own application.
+
 ## v9.3.0
 
 ### 19 May 2026
