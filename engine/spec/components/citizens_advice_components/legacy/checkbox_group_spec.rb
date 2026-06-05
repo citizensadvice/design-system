@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::CheckboxGroup, type: :component do
   subject { page }
 
   context "when default arguments are provided" do
