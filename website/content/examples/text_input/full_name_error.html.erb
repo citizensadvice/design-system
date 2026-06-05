@@ -3,7 +3,7 @@ title: full_name_error
 form: true
 ---
 
-<%= render CitizensAdviceComponents::ErrorSummary.new(
+<%= render CitizensAdviceComponents::Legacy::ErrorSummary.new(
   # Disable autofocus.
   # For example purposes only, in production you should leave this enabled
   autofocus: false
@@ -11,7 +11,7 @@ form: true
   <% c.with_errors([{ href: "#name-error-input", message: "Enter your full name" }]) %>
 <% end %>
 
-<%= render CitizensAdviceComponents::TextInput.new(
+<%= render CitizensAdviceComponents::Legacy::TextInput.new(
   name: "name-error",
   label: "Full name",
   type: :text,
