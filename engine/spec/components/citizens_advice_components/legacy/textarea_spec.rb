@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::Textarea, type: :component do
   subject { page }
 
   context "with default arguments" do

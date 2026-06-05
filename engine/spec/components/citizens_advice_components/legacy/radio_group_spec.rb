@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::RadioGroup, type: :component do
   subject { page }
 
   context "when default arguments are provided" do
