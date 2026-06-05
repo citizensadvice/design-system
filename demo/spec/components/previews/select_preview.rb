@@ -2,13 +2,13 @@
 
 class SelectPreview < ViewComponent::Preview
   def default
-    render CitizensAdviceComponents::Select.new(
+    render CitizensAdviceComponents::Legacy::Select.new(
       select_options: options, name: "product", label: "Choose a product"
     )
   end
 
   def error
-    render CitizensAdviceComponents::Select.new(
+    render CitizensAdviceComponents::Legacy::Select.new(
       select_options: options,
       name: "product",
       label: "Choose a product",
@@ -17,7 +17,7 @@ class SelectPreview < ViewComponent::Preview
   end
 
   def hint
-    render CitizensAdviceComponents::Select.new(
+    render CitizensAdviceComponents::Legacy::Select.new(
       select_options: options, name: "product",
       label: "Choose a product",
       options: { hint: "Choose a product from the list below" }
@@ -25,7 +25,7 @@ class SelectPreview < ViewComponent::Preview
   end
 
   def value
-    render CitizensAdviceComponents::Select.new(
+    render CitizensAdviceComponents::Legacy::Select.new(
       select_options: options,
       name: "product",
       label: "Choose a product",
@@ -34,7 +34,7 @@ class SelectPreview < ViewComponent::Preview
   end
 
   def optional
-    render CitizensAdviceComponents::Select.new(
+    render CitizensAdviceComponents::Legacy::Select.new(
       select_options: options,
       name: "product",
       label: "Choose a product",

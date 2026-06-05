@@ -2,11 +2,11 @@
 
 class DateInputPreview < ViewComponent::Preview
   def example
-    render CitizensAdviceComponents::DateInput.new(name: "dob", label: "Date of birth")
+    render CitizensAdviceComponents::Legacy::DateInput.new(name: "dob", label: "Date of birth")
   end
 
   def hint
-    render CitizensAdviceComponents::DateInput.new(
+    render CitizensAdviceComponents::Legacy::DateInput.new(
       name: "bday",
       label: "Date of birth",
       options: {
@@ -16,7 +16,7 @@ class DateInputPreview < ViewComponent::Preview
   end
 
   def page_heading
-    render CitizensAdviceComponents::DateInput.new(
+    render CitizensAdviceComponents::Legacy::DateInput.new(
       name: "bday",
       label: "Date of birth",
       options: {
@@ -27,7 +27,7 @@ class DateInputPreview < ViewComponent::Preview
   end
 
   def optional
-    render CitizensAdviceComponents::DateInput.new(
+    render CitizensAdviceComponents::Legacy::DateInput.new(
       name: "bday",
       label: "Date of birth",
       options: {
@@ -37,7 +37,7 @@ class DateInputPreview < ViewComponent::Preview
   end
 
   def error
-    render CitizensAdviceComponents::DateInput.new(
+    render CitizensAdviceComponents::Legacy::DateInput.new(
       name: "bday",
       label: "Date of birth",
       errors: %i[day month year],
@@ -48,7 +48,7 @@ class DateInputPreview < ViewComponent::Preview
   end
 
   def incomplete_error
-    render CitizensAdviceComponents::DateInput.new(
+    render CitizensAdviceComponents::Legacy::DateInput.new(
       name: "bday",
       label: "Date of birth",
       errors: %i[year],
@@ -63,7 +63,7 @@ class DateInputPreview < ViewComponent::Preview
   end
 
   def validation_error
-    render CitizensAdviceComponents::DateInput.new(
+    render CitizensAdviceComponents::Legacy::DateInput.new(
       name: "bday",
       label: "Date of birth",
       errors: %i[day],
@@ -79,7 +79,7 @@ class DateInputPreview < ViewComponent::Preview
   end
 
   def values
-    render CitizensAdviceComponents::DateInput.new(
+    render CitizensAdviceComponents::Legacy::DateInput.new(
       name: "bday",
       label: "Date of birth",
       values: {
