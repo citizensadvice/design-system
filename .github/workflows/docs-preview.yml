@@ -19,13 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'docs preview')
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           node-version-file: .nvmrc
 
       # Setup docs site
-      - uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
+      - uses: ruby/setup-ruby@12fd324f1d0b43274fdc8130f6980590a667c455 # v1.312.0
         with:
           ruby-version: "4.0.5"
           bundler-cache: true
