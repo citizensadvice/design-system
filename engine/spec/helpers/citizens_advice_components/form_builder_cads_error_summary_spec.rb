@@ -39,7 +39,7 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
 
       it "renders a list for error messages" do
         expect(page).to have_css ".cads-error-summary"
-        expect(page).to have_css "li a", count: 5
+        expect(page).to have_css "li a", count: 6
       end
 
       it "renders messages with links to the associated input" do

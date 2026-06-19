@@ -116,6 +116,31 @@ module CitizensAdviceComponents
       ).render
     end
 
+    def cads_grouped_collection_select(
+      attribute,
+      collection,
+      group_method,
+      group_label_method,
+      option_key_method,
+      option_value_method,
+      options = {},
+      html_options = {}
+    )
+      Elements::GroupedCollectionSelect.new(
+        self,
+        @template,
+        object,
+        attribute,
+        collection,
+        group_method,
+        group_label_method,
+        option_key_method,
+        option_value_method,
+        options,
+        html_options
+      ).render
+    end
+
     # Labelled check_box field
     # https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-checkbox
     # f.cads_checkbox(:example)
