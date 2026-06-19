@@ -1,0 +1,24 @@
+---
+title: with hint
+---
+
+<% @model = ExampleForm.valid_example %>
+<% @example_options = [
+  FormOptionGroup.new("Africa", [
+    FormOption.new(name: "South Africa", id: "ZA"),
+    FormOption.new(name: "Somalia", id: "SO")
+  ])
+] %>
+
+<%= form_with model: @model, url: "/" do |form| %>
+  <%= form.cads_grouped_collection_select(
+        :country,
+        @example_options,
+        :options,
+        :name,
+        :id,
+        :name,
+        label: "Country",
+        hint: "Please pick a country from the regional groups listed above."
+      ) %>
+<% end %>

@@ -32,6 +32,17 @@
         required: true
       )%>
 
+      <%= f.cads_grouped_collection_select(
+            :country,
+            @form.country_groups,
+            :options,
+            :name,
+            :id,
+            :name,
+            prompt: "Choose a country",
+            required: true
+          ) %>
+
       <%= f.cads_text_field(
         :total_amount,
         hint: "Enter a value in pounds and pence only e.g. £112.00",

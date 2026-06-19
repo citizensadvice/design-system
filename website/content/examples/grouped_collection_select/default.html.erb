@@ -1,0 +1,28 @@
+---
+title: default
+form: true
+---
+
+<% @model = ExampleForm.valid_example %>
+<% @example_options = [
+  FormOptionGroup.new("Africa", [
+    FormOption.new(name: "South Africa", id: "ZA"),
+    FormOption.new(name: "Somalia", id: "SO")
+  ]),
+  FormOptionGroup.new("Europe", [
+    FormOption.new(name: "Denmark", id: "DE"),
+    FormOption.new(name: "Finland", id: "FI")
+  ])
+] %>
+
+<%= form_with model: @model, url: "/" do |form| %>
+  <%= form.cads_grouped_collection_select(
+        :country,
+        @example_options,
+        :options,
+        :name,
+        :id,
+        :name,
+        label: "Country"
+      ) %>
+<% end %>
