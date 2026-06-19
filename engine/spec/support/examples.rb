@@ -23,6 +23,19 @@ class ExampleForm
   validates :date_of_purchase, comparison: { less_than: Time.zone.today }
   validates :confirmation, presence: true
 
+  def country_groups
+    [
+      FormOptionGroup.new("Africa", [
+        FormOption.new(name: "South Africa", id: "ZA"),
+        FormOption.new(name: "Somalia", id: "SO")
+      ]),
+      FormOptionGroup.new("Europe", [
+        FormOption.new(name: "Denmark", id: "DE"),
+        FormOption.new(name: "Finland", id: "FI")
+      ])
+    ]
+  end
+
   def self.valid_example
     new(
       name: "Example name",
