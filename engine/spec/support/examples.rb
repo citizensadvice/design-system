@@ -18,8 +18,8 @@ class ExampleForm
 
   validates :name, presence: true
   validates :address, presence: true
-  validates :country, inclusion: { in: %w[GBP EUR USD] }
-  validates :currency, inclusion: { in: %w[ZA SO DK FI] }
+  validates :country, inclusion: { in: %w[ZA SO DE FI] }
+  validates :currency, inclusion: { in: %w[GBP EUR USD] }
   validates :date_of_purchase, comparison: { less_than: Time.zone.today }
   validates :confirmation, presence: true
 
