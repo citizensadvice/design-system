@@ -1,3 +1,9 @@
+**Breaking Changes**
+
+- Drop support for ViewComponent 3.x
+
+  ViewComponent 4 is essentially a long-term-support version now and there are security fixes that are only available in the 4.x branch.
+
 ## v9.4.0
 
 ### 8 July 2026
