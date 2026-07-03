@@ -17,17 +17,17 @@
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
     "esbuild": "^0.28.1",
-    "sass": "^1.90.0"
+    "sass": "^1.101.0"
   },
   "devDependencies": {
     "@citizensadvice/design-system": "file:../",
     "@testing-library/cypress": "^10.1.3",
-    "axe-core": "^4.11.4",
+    "axe-core": "^4.12.1",
     "backstopjs": "^6.3.25",
-    "cypress": "^15.14.2",
+    "cypress": "^15.18.0",
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
-    "start-server-and-test": "^3.0.2"
+    "start-server-and-test": "^3.0.11"
   },
   "overrides": {
     "@cypress/request": {
