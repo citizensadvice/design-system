@@ -33,15 +33,6 @@ appraise "rails_8_1" do
   gem "railties", rails_version
 end
 
-appraise "rails_main" do
-  gem "actionpack", github: "rails/rails", branch: "main"
-  gem "actionview", github: "rails/rails", branch: "main"
-  gem "activemodel", github: "rails/rails", branch: "main"
-  gem "activerecord", github: "rails/rails", branch: "main"
-  gem "activesupport", github: "rails/rails", branch: "main"
-  gem "railties", github: "rails/rails", branch: "main"
-end
-
 # Explicitly test against previously supported view component version
 # using the oldest supported Rails version. This can be removed when
 # we drop support for view component 3.x
