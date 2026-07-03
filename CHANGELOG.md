@@ -1,5 +1,6 @@
 **Breaking Changes**
 
+- Remove support for Rails 7.2.x versions
 - Drop support for ViewComponent 3.x
 
   ViewComponent 4 is essentially a long-term-support version now and there are security fixes that are only available in the 4.x branch.
