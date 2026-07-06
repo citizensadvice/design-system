@@ -81,7 +81,7 @@ jobs:
           working-directory: demo
 
       # Cache cypress binary
-      - uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
           path: /home/runner/.cache/Cypress
           key: cypress-binary-${{ hashFiles('package-lock.json') }}
