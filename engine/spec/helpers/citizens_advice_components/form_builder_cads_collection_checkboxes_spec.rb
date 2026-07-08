@@ -181,25 +181,6 @@ RSpec.describe CitizensAdviceComponents::FormBuilder do
         end
       end
     end
-
-    context "with deprecated named attributes" do
-      let(:field) do
-        builder.cads_collection_checkboxes(
-          :currency,
-          collection: example_options,
-          text_method: :name,
-          value_method: :id
-        )
-      end
-
-      before { allow(CitizensAdviceComponents.deprecator).to receive(:warn) }
-
-      it "logs deprecation warning" do
-        render_inline field
-        expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-          .with(/collection, text_method, and value_method named parameters are deprecated/)
-      end
-    end
   end
 
   describe "#cads_collection_check_boxes" do
