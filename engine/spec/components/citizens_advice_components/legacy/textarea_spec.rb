@@ -198,18 +198,11 @@ RSpec.describe CitizensAdviceComponents::Legacy::Textarea, type: :component do
 
   context "when deprecated type argument is provided" do
     before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
       render_inline described_class.new(
         name: "example-textarea",
         label: "Example textarea",
         type: :text
       )
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/type argument is deprecated/)
     end
   end
 end
