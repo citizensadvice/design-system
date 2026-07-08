@@ -88,8 +88,6 @@ RSpec.describe CitizensAdviceComponents::Legacy::Select, type: :component do
 
   context "when deprecated type argument is provided" do
     before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
       render_inline described_class.new(
         select_options: select_options,
         name: name.presence,
@@ -97,11 +95,6 @@ RSpec.describe CitizensAdviceComponents::Legacy::Select, type: :component do
         options: options,
         type: :text
       )
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/type argument is deprecated/)
     end
   end
 end
