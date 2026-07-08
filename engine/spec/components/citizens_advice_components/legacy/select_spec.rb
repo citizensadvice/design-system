@@ -85,16 +85,4 @@ RSpec.describe CitizensAdviceComponents::Legacy::Select, type: :component do
     it { is_expected.to have_css "select[autocomplete=name]" }
     it { is_expected.to have_css "select[data-additional=example]" }
   end
-
-  context "when deprecated type argument is provided" do
-    before do
-      render_inline described_class.new(
-        select_options: select_options,
-        name: name.presence,
-        label: label.presence,
-        options: options,
-        type: :text
-      )
-    end
-  end
 end

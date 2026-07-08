@@ -195,14 +195,4 @@ RSpec.describe CitizensAdviceComponents::Legacy::Textarea, type: :component do
       expect(page).to have_css "textarea[rows=8]"
     end
   end
-
-  context "when deprecated type argument is provided" do
-    before do
-      render_inline described_class.new(
-        name: "example-textarea",
-        label: "Example textarea",
-        type: :text
-      )
-    end
-  end
 end
