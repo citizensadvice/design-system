@@ -159,18 +159,6 @@ RSpec.describe CitizensAdviceComponents::Legacy::CheckboxGroup, type: :component
     it { is_expected.to have_css "legend h1.cads-page-title", text: "Checkbox group field" }
   end
 
-  context "when deprecated legend_heading option is provided" do
-    before do
-      render_inline described_class.new(
-        legend: "Checkbox group field",
-        name: "checkboxes",
-        options: { legend_heading: true }
-      ) do |c|
-        c.with_inputs(sample_inputs)
-      end
-    end
-  end
-
   private
 
   def sample_inputs
