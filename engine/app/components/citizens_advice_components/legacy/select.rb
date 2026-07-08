@@ -14,7 +14,6 @@ module CitizensAdviceComponents
         @type = type
 
         set_options(options)
-        type_deprecation
       end
 
       def render_select_options
@@ -22,14 +21,6 @@ module CitizensAdviceComponents
       end
 
       private
-
-      def type_deprecation
-        return if @type.blank?
-
-        CitizensAdviceComponents.deprecator.warn(
-          "The type argument is deprecated, type is not a valid property of a <select>"
-        )
-      end
 
       def set_options(options)
         return if options.blank?
