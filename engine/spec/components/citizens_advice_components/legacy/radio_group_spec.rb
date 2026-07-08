@@ -130,18 +130,6 @@ RSpec.describe CitizensAdviceComponents::Legacy::RadioGroup, type: :component do
     it { is_expected.to have_css "legend h1.cads-page-title", text: "Radio group field" }
   end
 
-  context "when deprecated legend_heading option is provided" do
-    before do
-      render_inline described_class.new(
-        legend: "Radio group field",
-        name: "radio-group",
-        options: { legend_heading: true }
-      ) do |c|
-        c.with_inputs(sample_inputs)
-      end
-    end
-  end
-
   describe "layout options" do
     context "when an invalid layout option is passed" do
       before do
