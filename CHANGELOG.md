@@ -5,6 +5,16 @@
 
   ViewComponent 4 is essentially a long-term-support version now and there are security fixes that are only available in the 4.x branch.
 
+- Remove named parameters for `cads_collection` fields
+
+  All `cads_collection` fields have been updated to solely use the Rails native equivalents e.g.
+
+  ```rb
+  cads_collection_radio_buttons(attribute, collection, value_method, text_method, options = {}, html_options = {}
+  ```
+
+**Deprecations**
+
 - Deprecate form components in favour of form builder
 
   Moves the following view components under a `CitizensAdviceComponents::Legacy` namespace:
@@ -88,7 +98,7 @@
 
   If using the previous named `additional_attributes` hash, this will log a deprecation warning and will be removed in a future version.
 
-- Deprecate named parameters for `cads_colleciton` fields
+- Deprecate named parameters for `cads_collection` fields
 
   All `cads_collection` fields have been updated to support equivalent arguments to the Rails native equivalents e.g.
 
@@ -96,7 +106,7 @@
   cads_collection_radio_buttons(attribute, collection, value_method, text_method, options = {}, html_options = {}
   ```
 
-  The previous arguments using named paramters are still supported but a deprecation warning will be logged and will
+  The previous arguments using named parameters are still supported but a deprecation warning will be logged and will
   be removed in a future major version.
 
 **Fix**
