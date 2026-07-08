@@ -21,8 +21,6 @@ module CitizensAdviceComponents
         @optional = fetch_or_fallback_boolean(options[:optional], fallback: false)
         @legend_heading = fetch_or_fallback_boolean(options[:legend_heading], fallback: false)
         @page_heading = fetch_or_fallback_boolean(options[:page_heading], fallback: false)
-
-        legend_heading_deprecation
       end
 
       def extra_fieldset_classes
@@ -37,14 +35,6 @@ module CitizensAdviceComponents
 
       def common_fieldset_classes
         %w[cads-form-group]
-      end
-
-      def legend_heading_deprecation
-        return if @legend_heading.blank?
-
-        CitizensAdviceComponents.deprecator.warn(
-          "The legend_heading option is deprecated, use page_heading instead"
-        )
       end
 
       def render?
