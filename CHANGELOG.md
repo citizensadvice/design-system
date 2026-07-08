@@ -13,6 +13,10 @@
   cads_collection_radio_buttons(attribute, collection, value_method, text_method, options = {}, html_options = {}
   ```
 
+- Remove `additional_attributes` named parameter from `cads_text_field`, `cads_text_area`, and `cads_check_box`.
+
+  Only support passing attributes on like the Rails native equivalents for fields.
+
 **Deprecations**
 
 - Deprecate form components in favour of form builder
