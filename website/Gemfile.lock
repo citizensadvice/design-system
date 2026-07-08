@@ -15,7 +15,7 @@ GIT
 PATH
   remote: ../engine
   specs:
-    citizens_advice_components (9.3.0)
+    citizens_advice_components (9.4.0)
       actionpack (>= 7.2.0, < 9.0)
       actionview (>= 7.2.0, < 9.0)
       activemodel (>= 7.2.0, < 9.0)
@@ -389,4 +389,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   4.0.12
+  4.0.12
