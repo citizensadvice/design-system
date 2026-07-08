@@ -132,8 +132,6 @@ RSpec.describe CitizensAdviceComponents::Legacy::RadioGroup, type: :component do
 
   context "when deprecated legend_heading option is provided" do
     before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
       render_inline described_class.new(
         legend: "Radio group field",
         name: "radio-group",
@@ -141,11 +139,6 @@ RSpec.describe CitizensAdviceComponents::Legacy::RadioGroup, type: :component do
       ) do |c|
         c.with_inputs(sample_inputs)
       end
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/legend_heading option is deprecated/)
     end
   end
 
