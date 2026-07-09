@@ -1,3 +1,7 @@
+## v9.4.0
+
+### 8 July 2026
+
 **New**
 
 - Add `cads_grouped_collection_select` to `FormBuilder` to support rendering grouped option collections
