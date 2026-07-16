@@ -42,6 +42,7 @@
 **New**
 
 - Add `cads_grouped_collection_select` to `FormBuilder` to support rendering grouped option collections
+- Remove deprecated `initGreedyNav`, use `initNavigation` instead.
 
 ## v9.3.0
 
