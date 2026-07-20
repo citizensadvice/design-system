@@ -36,10 +36,3 @@ The method works similarly to the default [`checkbox` helper](https://api.rubyon
   <%%= form.cads_checkbox(:example) %>
 <%% end %>
 ```
-
-### View component version
-
-We also provide an older view component version of the component
-
-<%= render ExampleSourceComponent.new(:checkbox, :view_component) %>
-<%= render ArgumentsTableComponent.new(:checkbox) %>

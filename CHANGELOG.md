@@ -1,3 +1,40 @@
+**Breaking Changes**
+
+- Remove support for Rails 7.2.x versions
+- Drop support for ViewComponent 3.x
+
+  ViewComponent 4 is essentially a long-term-support version now and there are security fixes that are only available in the 4.x branch.
+
+- Remove named parameters for `cads_collection` fields
+
+  All `cads_collection` fields have been updated to solely use the Rails native equivalents e.g.
+
+  ```rb
+  cads_collection_radio_buttons(attribute, collection, value_method, text_method, options = {}, html_options = {}
+  ```
+
+- Remove `additional_attributes` named parameter from `cads_text_field`, `cads_text_area`, and `cads_check_box`.
+
+  Only support passing attributes on like the Rails native equivalents for fields.
+
+**Deprecations**
+
+- Deprecate form components in favour of form builder
+
+  Moves the following view components under a `CitizensAdviceComponents::Legacy` namespace:
+
+  - `CitizensAdviceComponents::Legacy::CheckboxGroup`
+  - `CitizensAdviceComponents::Legacy::CheckboxSingle`
+  - `CitizensAdviceComponents::Legacy::DateInput`
+  - `CitizensAdviceComponents::Legacy::ErrorSummary`
+  - `CitizensAdviceComponents::Legacy::Input`
+  - `CitizensAdviceComponents::Legacy::RadioGroup`
+  - `CitizensAdviceComponents::Legacy::Select`
+  - `CitizensAdviceComponents::Legacy::Textarea`
+  - `CitizensAdviceComponents::Legacy::TextInput`
+
+  These components will be under this namespace until at least version 11 of the design system, after which they will be removed entirely. If you've not already you will need to either plan your migration or vendor the components you use into your own application.
+
 ## v9.4.0
 
 ### 8 July 2026
@@ -5,6 +42,7 @@
 **New**
 
 - Add `cads_grouped_collection_select` to `FormBuilder` to support rendering grouped option collections
+- Remove deprecated `initGreedyNav`, use `initNavigation` instead.
 
 ## v9.3.0
 
@@ -65,7 +103,7 @@
 
   If using the previous named `additional_attributes` hash, this will log a deprecation warning and will be removed in a future version.
 
-- Deprecate named parameters for `cads_colleciton` fields
+- Deprecate named parameters for `cads_collection` fields
 
   All `cads_collection` fields have been updated to support equivalent arguments to the Rails native equivalents e.g.
 
@@ -73,7 +111,7 @@
   cads_collection_radio_buttons(attribute, collection, value_method, text_method, options = {}, html_options = {}
   ```
 
-  The previous arguments using named paramters are still supported but a deprecation warning will be logged and will
+  The previous arguments using named parameters are still supported but a deprecation warning will be logged and will
   be removed in a future major version.
 
 **Fix**

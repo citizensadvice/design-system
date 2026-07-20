@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::RadioGroup, type: :component do
   subject { page }
 
   context "when default arguments are provided" do
@@ -128,25 +128,6 @@ RSpec.describe CitizensAdviceComponents::RadioGroup, type: :component do
     end
 
     it { is_expected.to have_css "legend h1.cads-page-title", text: "Radio group field" }
-  end
-
-  context "when deprecated legend_heading option is provided" do
-    before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-      render_inline described_class.new(
-        legend: "Radio group field",
-        name: "radio-group",
-        options: { legend_heading: true }
-      ) do |c|
-        c.with_inputs(sample_inputs)
-      end
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/legend_heading option is deprecated/)
-    end
   end
 
   describe "layout options" do

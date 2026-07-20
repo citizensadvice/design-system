@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::CheckboxGroup, type: :component do
   subject { page }
 
   context "when default arguments are provided" do
@@ -157,25 +157,6 @@ RSpec.describe CitizensAdviceComponents::CheckboxGroup, type: :component do
     end
 
     it { is_expected.to have_css "legend h1.cads-page-title", text: "Checkbox group field" }
-  end
-
-  context "when deprecated legend_heading option is provided" do
-    before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-      render_inline described_class.new(
-        legend: "Checkbox group field",
-        name: "checkboxes",
-        options: { legend_heading: true }
-      ) do |c|
-        c.with_inputs(sample_inputs)
-      end
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/legend_heading option is deprecated/)
-    end
   end
 
   private
