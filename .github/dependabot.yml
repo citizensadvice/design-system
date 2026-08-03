@@ -1,8 +1,6 @@
 version: 2
 updates:
-  ##
   # GitHub actions
-  ##
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -10,9 +8,7 @@ updates:
     cooldown:
       default-days: 7
 
-  ##
-  # Top-level package
-  ##
+  # npm top-level package
   - package-ecosystem: npm
     directory: "/"
     schedule:
@@ -26,40 +22,12 @@ updates:
           - "minor"
           - "patch"
 
-  ##
-  # Rails engine
-  ##
-  - package-ecosystem: bundler
-    directory: "/engine"
-    schedule:
-      interval: weekly
-    cooldown:
-      default-days: 7
-    groups:
-      # Group everything except major version updates and security vulnerabilities
-      regular-updates:
-        update-types:
-          - "minor"
-          - "patch"
-
-  ##
-  # Demo app
-  ##
-  - package-ecosystem: bundler
-    directory: "/demo"
-    schedule:
-      interval: monthly
-    cooldown:
-      default-days: 7
-    groups:
-      # Group everything except major version updates and security vulnerabilities
-      regular-updates:
-        update-types:
-          - "minor"
-          - "patch"
-
+  # npm sub-projects
   - package-ecosystem: npm
-    directory: "/demo"
+    directories:
+      - "/demo"
+      - "/website"
+      - "/engine"
     schedule:
       interval: monthly
     cooldown:
@@ -67,19 +35,17 @@ updates:
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
+        group-by: dependency-name
         update-types:
           - "minor"
           - "patch"
-        exclude-patterns:
-          # Rails minor versions are more like major versions
-          # so should be handled separately
-          - "rails"
 
-  ##
-  # Documentation website
-  ##
+  # bundler sub-projects
   - package-ecosystem: bundler
-    directory: "/website"
+    directories:
+      - "/demo"
+      - "/website"
+      - "/engine"
     schedule:
       interval: monthly
     cooldown:
@@ -87,19 +53,7 @@ updates:
     groups:
       # Group everything except major version updates and security vulnerabilities
       regular-updates:
-        update-types:
-          - "minor"
-          - "patch"
-
-  - package-ecosystem: npm
-    directory: "/website"
-    schedule:
-      interval: monthly
-    cooldown:
-      default-days: 7
-    groups:
-      # Group everything except major version updates and security vulnerabilities
-      regular-updates:
+        group-by: dependency-name
         update-types:
           - "minor"
           - "patch"
