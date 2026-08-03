@@ -9,9 +9,9 @@ Running the project locally requires the following language ependencies to be in
 - **Ruby** — We include a `.ruby-version` file in the root of the project with the required version so if you are using a version manager like [rvm](https://rvm.io/) or [rbenv](https://github.com/rbenv/rbenv) it should pick this up.
 - **Node** — We include a `.nvmrc` file in the root of the project with the required version so if you are using [nvm](https://github.com/nvm-sh/nvm) it should pick this up.
 
-## Using just commands
+## Using just recipies
 
-The design system codebase is made up of different languages and components which all have their own tools for running commands. To help manage this we provide a `justfile` which allows running commands via `just` from within any directory. Throughout the guides we'll reference these commands.
+The design system codebase is made up of different languages and components which all have their own tools for running recipies. To help manage this we provide a `justfile` which allows running recipies via `just` from within any directory. Throughout the guides we'll reference these recipies.
 
 You can install this with:
 
@@ -21,7 +21,7 @@ brew install just
 
 ## Setting up the project
 
-We provide a top-level setup script which handles the following:
+We provide a top-level setup recipe which handles the following:
 
 1. Setting up and building the top-level npm package
 2. Installing the Rails engine gem dependencies
