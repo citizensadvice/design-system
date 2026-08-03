@@ -1,5 +1,4 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-restricted-syntax */
+/* oxlint-disable no-await-in-loop, no-restricted-syntax */
 module.exports = async (page, scenario) => {
   // Enable prefers-reduced-motion to disable animations
   await page.emulateMediaFeatures([
