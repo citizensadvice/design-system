@@ -3,20 +3,20 @@
 class TextInputPreview < ViewComponent::Preview
   def basic
     render(
-      CitizensAdviceComponents::TextInput.new(name: "example-input-basic", label: "Example input", type: :text)
+      CitizensAdviceComponents::Legacy::TextInput.new(name: "example-input-basic", label: "Example input", type: :text)
     )
   end
 
   def value
     render(
-      CitizensAdviceComponents::TextInput.new(name: "example-input-value", label: "Example input", options: { value: "Lorem ipsum" },
-                                              type: :text)
+      CitizensAdviceComponents::Legacy::TextInput.new(name: "example-input-value", label: "Example input", options: { value: "Lorem ipsum" },
+                                                      type: :text)
     )
   end
 
   def hint
     render(
-      CitizensAdviceComponents::TextInput.new(
+      CitizensAdviceComponents::Legacy::TextInput.new(
         name: "example-input-with-hint",
         label: "Example input with hint",
         type: :text,
@@ -29,7 +29,7 @@ class TextInputPreview < ViewComponent::Preview
 
   def optional
     render(
-      CitizensAdviceComponents::TextInput.new(
+      CitizensAdviceComponents::Legacy::TextInput.new(
         name: "example-input-optional",
         label: "Example input",
         type: :text,
@@ -42,7 +42,7 @@ class TextInputPreview < ViewComponent::Preview
 
   def error
     render(
-      CitizensAdviceComponents::TextInput.new(
+      CitizensAdviceComponents::Legacy::TextInput.new(
         name: "example-input-error",
         label: "Email address",
         type: :text,
@@ -55,7 +55,7 @@ class TextInputPreview < ViewComponent::Preview
 
   def page_heading
     render(
-      CitizensAdviceComponents::TextInput.new(
+      CitizensAdviceComponents::Legacy::TextInput.new(
         name: "example-input-page-heading",
         label: "Example input with page heading",
         type: :text,
@@ -71,7 +71,7 @@ class TextInputPreview < ViewComponent::Preview
 
   def type
     render(
-      CitizensAdviceComponents::TextInput.new(
+      CitizensAdviceComponents::Legacy::TextInput.new(
         name: "example-input-password",
         label: "Example input",
         type: :password,
@@ -90,7 +90,7 @@ class TextInputPreview < ViewComponent::Preview
     }
 
     render(
-      CitizensAdviceComponents::TextInput.new(
+      CitizensAdviceComponents::Legacy::TextInput.new(
         name: "example-input-attrs",
         label: "Example input",
         type: :text,
@@ -104,7 +104,7 @@ class TextInputPreview < ViewComponent::Preview
 
   def custom_id
     render(
-      CitizensAdviceComponents::TextInput.new(name: "example-input[custom-id]", label: "Example input", id: "test-id", type: :text)
+      CitizensAdviceComponents::Legacy::TextInput.new(name: "example-input[custom-id]", label: "Example input", id: "test-id", type: :text)
     )
   end
 end

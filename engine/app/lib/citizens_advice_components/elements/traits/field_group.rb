@@ -74,7 +74,9 @@ module CitizensAdviceComponents
         end
 
         def options_for_html
-          options.without(:label, :hint, :required, :page_heading, :additional_attributes)
+          # The default behaviour of fields is to pass options on to the HTML element
+          # Extract any custom options that we don't want passing on and add expected defaults.
+          options.without(:label, :hint, :required, :page_heading)
         end
 
         def input_id

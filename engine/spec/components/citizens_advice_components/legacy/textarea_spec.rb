@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::Textarea, type: :component do
   subject { page }
 
   context "with default arguments" do
@@ -193,23 +193,6 @@ RSpec.describe CitizensAdviceComponents::Textarea, type: :component do
 
     it "renders the default number of rows" do
       expect(page).to have_css "textarea[rows=8]"
-    end
-  end
-
-  context "when deprecated type argument is provided" do
-    before do
-      allow(CitizensAdviceComponents.deprecator).to receive(:warn)
-
-      render_inline described_class.new(
-        name: "example-textarea",
-        label: "Example textarea",
-        type: :text
-      )
-    end
-
-    it "logs deprecation warning" do
-      expect(CitizensAdviceComponents.deprecator).to have_received(:warn)
-        .with(/type argument is deprecated/)
     end
   end
 end

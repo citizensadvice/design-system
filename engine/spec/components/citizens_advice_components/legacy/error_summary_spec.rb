@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::ErrorSummary, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::ErrorSummary, type: :component do
   subject { page }
 
   context "when there are no errors provided" do
