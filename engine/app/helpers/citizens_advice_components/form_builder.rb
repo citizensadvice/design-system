@@ -48,9 +48,9 @@ module CitizensAdviceComponents
     # f.cads_collection_radio_buttons(:my_argument, Locations.all)
     def cads_collection_radio_buttons(
       attribute,
-      collection_arg = nil,
-      value_method_arg = nil,
-      text_method_arg = nil,
+      collection,
+      value_method,
+      text_method,
       options = {},
       html_options = {}
     )
@@ -59,9 +59,9 @@ module CitizensAdviceComponents
         @template,
         object,
         attribute,
-        collection_arg,
-        value_method_arg,
-        text_method_arg,
+        collection,
+        value_method,
+        text_method,
         options,
         html_options
       ).render
@@ -72,9 +72,9 @@ module CitizensAdviceComponents
     # f.cads_collection_check_boxes(:my_argument, Locations.all, :id, :name)
     def cads_collection_checkboxes(
       attribute,
-      collection_arg = nil,
-      value_method_arg = nil,
-      text_method_arg = nil,
+      collection,
+      value_method,
+      text_method,
       options = {},
       html_options = {}
     )
@@ -83,9 +83,9 @@ module CitizensAdviceComponents
         @template,
         object,
         attribute,
-        collection_arg,
-        value_method_arg,
-        text_method_arg,
+        collection,
+        value_method,
+        text_method,
         options,
         html_options
       ).render
@@ -97,9 +97,9 @@ module CitizensAdviceComponents
     # f.cads_collection_select(:my_argument, Locations.all, :id, :name)
     def cads_collection_select(
       attribute,
-      collection_arg = nil,
-      value_method_arg = nil,
-      text_method_arg = nil,
+      collection,
+      value_method,
+      text_method,
       options = {},
       html_options = {}
     )
@@ -108,9 +108,9 @@ module CitizensAdviceComponents
         @template,
         object,
         attribute,
-        collection_arg,
-        value_method_arg,
-        text_method_arg,
+        collection,
+        value_method,
+        text_method,
         options,
         html_options
       ).render

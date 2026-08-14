@@ -6,6 +6,6 @@ require "citizens_advice_components/version"
 module CitizensAdviceComponents
   def self.deprecator
     # https://api.rubyonrails.org/classes/ActiveSupport/Deprecation.html
-    @deprecator ||= ActiveSupport::Deprecation.new("9.0", "CitizensAdviceComponents")
+    @deprecator ||= ActiveSupport::Deprecation.new("11.0", "CitizensAdviceComponents")
   end
 end
