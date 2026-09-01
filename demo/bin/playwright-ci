@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+export DOCKER_CLI_HINTS=false
+
+# Pull image first to simplify wait time
+docker pull mcr.microsoft.com/playwright:v$(npx playwright --version | awk '{print $2}')-noble
+
+(
+  bin/start-playwright-server &
+
+  # Wait for websocket to respond to expected port
+  timeout 60s bash -c '
+    until nc -z localhost 5000; do
+      echo "Waiting for server on port 5000..."
+      sleep 2
+    done
+  '
+
+  # Clean up after ourselves
+  trap "docker stop playwright-server" EXIT INT TERM
+
+  npx playwright test $@
+)

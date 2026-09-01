@@ -55,5 +55,8 @@
     "last 2 Safari versions",
     "last 2 ChromeAndroid versions",
     "last 2 iOS versions"
-  ]
+  ],
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  }
 }

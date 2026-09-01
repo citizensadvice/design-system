@@ -32,9 +32,12 @@
 /public/packs-test
 /node_modules
 
-/cypress/downloads
-/cypress/screenshots
-/cypress/videos
-
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

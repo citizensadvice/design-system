@@ -77,6 +77,7 @@ engine-sync:
 demo-setup:
     bundle install
     npm install
+    npx playwright install --with-deps chromium
     bin/rails log:clear tmp:clear
     bin/rails restart
 
@@ -85,8 +86,7 @@ demo-setup:
 [working-directory('./demo')]
 demo-check:
     bundle exec rubocop
-    bin/rails cypress:run
-    npm run backstop:local
+    bin/playwright-ci --quiet
 
 # Run a dev server for the demo app
 [group('demo')]

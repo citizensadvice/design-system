@@ -11,8 +11,7 @@ We have a number of different layers of tests:
 
 - Static analysis (linting, code-formatting)
 - Unit tests (jest for client-side code, rspec for ruby components)
-- Cypress tests (for behavioural tests as well as accessibility checks)
-- Backstop (for visual regression testing)
+- Playwright tests (visual regression testing, behavioural tests as well as accessibility checks)
 
 For development purposes we provide a top-level script to run all checks:
 
@@ -87,62 +86,36 @@ bundle exec appraisal rake spec
 
 See the [Appraisal docs](https://github.com/thoughtbot/appraisal) for a full list of commands.
 
-### Cypress
+We use [Playwright](https://playwright.dev) for interactive testing of components and example pages, covering a mix of:
 
-We use [Cypress](https://www.cypress.io/) for two main things:
+- Visual regression tests for all component states
+- Basic accessibility testing with aXe
+- Behavioural tests against any interactive components (e.g. targeted content)
+- End-to-end tests for form builder examples
 
-1. To run accessibility checks against every component example using [`cypress-axe`](https://github.com/component-driven/cypress-axe)
-2. For behavioural tests against any interactive components (e.g. targeted content) as well as end-to-end tests for the design system form builder.
-
-You can run both from within the `demo` directory by either running:
-
-```sh
-./bin/rails cypress:open
-```
-
-Which will open the Cypress UI for interactive testing, or by running:
+You can run these from within the `demo` directory by running:
 
 ```sh
-./bin/rails cypress:run
+npm run playwright
 ```
 
-Which will run all tests in a headless browser.
-
-### BackstopJS
-
-We use [BackstopJS](https://github.com/garris/BackstopJS) to automate visual regression testing of components by comparing DOM screenshots over time. The tests are run inside of Docker to ensure rendering consistency across different environments.
-
-Firstly, run the demo app using:
+If you want to update visual regression test snapshots you can use:
 
 ```sh
-./bin/rails server -e test
+npm run playwright:update
 ```
 
-With the demo app running, you can start the backstop tests using:
+And to open the interactive UI, use:
 
 ```sh
-npm run backstop
+npm run playwright:ui
 ```
 
-After a test run is complete you can run view the report in a browser using:
+When authoring new tests it can be more useful to run `playwright` commands directly e.g. to focus on a single test. When running this way, you'll need to:
 
-```sh
-npm run backstop:report
-```
-
-If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
-
-```sh
-npm run backstop:approve
-```
-
-You can run tests for a specific set of scenarios by passing a filter to the backstop command where `Example` is the search term you want to filter by.
-
-```sh
-npm run backstop -- --filter=Example
-```
-
-For more details see the [BackstopJS Github page](https://github.com/garris/BackstopJS)
+1. Run the test server with `npm run start-test-server`
+2. Separately run `npm run start-playwright-server`
+3. Then you ran run individual playwright commands e.g. `npx playwright --ui playwright/sample-form.spec.js`
 
 ## Testing with your application
 
