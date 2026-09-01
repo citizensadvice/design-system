@@ -1,41 +1,32 @@
-/* eslint-disable vitest/expect-expect */
+const { test } = require("node:test");
 const stylelintConfig = require("./stylelint.config");
 
-function testCadsPattern(pattern) {
-  const regex = new RegExp(pattern);
+test("internal naming matches expected conventions", (t) => {
+  [
+    stylelintConfig.rules["scss/at-function-pattern"],
+    stylelintConfig.rules["scss/at-mixin-pattern"],
+    stylelintConfig.rules["scss/dollar-variable-pattern"][0],
+    stylelintConfig.rules["scss/percent-placeholder-pattern"][0],
+  ].forEach((pattern) => {
+    const regex = new RegExp(pattern);
 
-  const validNames = ["cads-prefixed"];
-  validNames.forEach((name) => {
-    expect(regex.test(name)).toBeTruthy();
+    const validNames = ["cads-prefixed"];
+    validNames.forEach((name) => {
+      t.assert.strictEqual(regex.test(name), true);
+    });
+
+    const invalidNames = [
+      "no-prefix",
+      "cadsButIncorrectCase",
+      "just__dOwNrIGht--Odd",
+    ];
+    invalidNames.forEach((name) => {
+      t.assert.strictEqual(regex.test(name), false);
+    });
   });
-
-  const invalidNames = [
-    "no-prefix",
-    "cadsButIncorrectCase",
-    "just__dOwNrIGht--Odd",
-  ];
-  invalidNames.forEach((name) => {
-    expect(regex.test(name)).toBeFalsy();
-  });
-}
-
-test("scss/at-function-pattern", () => {
-  testCadsPattern(stylelintConfig.rules["scss/at-function-pattern"]);
 });
 
-test("scss/at-mixin-pattern", () => {
-  testCadsPattern(stylelintConfig.rules["scss/at-mixin-pattern"]);
-});
-
-test("scss/dollar-variable-pattern", () => {
-  testCadsPattern(stylelintConfig.rules["scss/dollar-variable-pattern"][0]);
-});
-
-test("scss/percent-placeholder-pattern", () => {
-  testCadsPattern(stylelintConfig.rules["scss/percent-placeholder-pattern"][0]);
-});
-
-test("selector-class-pattern", () => {
+test("css selectors match expected conventions", (t) => {
   const regex = new RegExp(stylelintConfig.rules["selector-class-pattern"][0]);
 
   const validNames = [
@@ -47,7 +38,7 @@ test("selector-class-pattern", () => {
     "no-js",
   ];
   validNames.forEach((name) => {
-    expect(regex.test(name)).toBeTruthy();
+    t.assert.strictEqual(regex.test(name), true);
   });
 
   const invalidNames = [
@@ -56,6 +47,6 @@ test("selector-class-pattern", () => {
     "just__dOwNrIGht--Odd",
   ];
   invalidNames.forEach((name) => {
-    expect(regex.test(name)).toBeFalsy();
+    t.assert.strictEqual(regex.test(name), false);
   });
 });

@@ -2,7 +2,6 @@ import js from "@eslint/js";
 import globals from "globals";
 import { defineConfig, globalIgnores } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginVitest from "@vitest/eslint-plugin";
 
 export default defineConfig([
   eslintConfigPrettier,
@@ -19,16 +18,6 @@ export default defineConfig([
         "error",
         { argsIgnorePattern: "^_", caughtErrors: "none" },
       ],
-    },
-  },
-  {
-    files: ["**/*.test.{js,mjs,cjs}"],
-    plugins: { vitest: eslintPluginVitest },
-    extends: [eslintPluginVitest.configs.recommended],
-    languageOptions: {
-      globals: {
-        ...eslintPluginVitest.environments.env.globals,
-      },
     },
   },
 ]);

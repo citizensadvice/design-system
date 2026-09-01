@@ -1,7 +1,5 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
 exports[`visibility styles match snapshot 1`] = `
-".cads-hide {
+.cads-hide {
   display: none !important;
 }
 
@@ -125,5 +123,6 @@ exports[`visibility styles match snapshot 1`] = `
   .cads-hide-lg-only {
     display: none !important;
   }
-}"
+}
+
 `;
