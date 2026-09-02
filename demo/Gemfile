@@ -36,8 +36,6 @@ group :development, :test do
   gem "citizens-advice-style",
       github: "citizensadvice/citizens-advice-style-ruby",
       tag: "v12.1.0"
-
-  gem "cypress-rails"
 end
 
 group :development do

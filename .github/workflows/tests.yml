@@ -65,84 +65,37 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
-      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Install Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version-file: .nvmrc
 
-      # Setup demo app
-      - uses: ruby/setup-ruby@003a5c4d8d6321bd302e38f6f0ec593f77f06600 # v1.319.0
+      - name: Install Ruby and dependencies
+        uses: ruby/setup-ruby@003a5c4d8d6321bd302e38f6f0ec593f77f06600 # v1.319.0
         with:
           ruby-version: "4.0.5"
           bundler-cache: true
           working-directory: demo
 
-      # Cache cypress binary
-      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      - name: Install npm dependencies
+        run: npm ci
+        working-directory: demo
+
+      - name: Run RuboCop
+        run: bundle exec rubocop --format progress --format github
+        working-directory: demo
+
+      - name: Run Playwright
+        run: bin/playwright-ci
+        working-directory: demo
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: ${{ !cancelled() }}
         with:
-          path: /home/runner/.cache/Cypress
-          key: cypress-binary-${{ hashFiles('package-lock.json') }}
-
-      # Install dependencies
-      - run: npm ci
-        working-directory: demo
-
-      # Run rubocop against demo app code
-      - run: bundle exec rubocop --format progress --format github
-        working-directory: demo
-
-      # Run asset build
-      - run: ./bin/rails assets:precompile
-        working-directory: demo
-
-      # Run cypress tests
-      - run: ./bin/rails cypress:run
-        working-directory: demo
-        env:
-          CYPRESS_RAILS_CYPRESS_OPTS: "--browser chrome"
-
-      # Archive test screenshots
-      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
-        with:
-          name: cypress-screenshots
-          path: demo/cypress/screenshots
-        if: ${{ failure() }}
-
-  demo-app-backstop:
-    runs-on: ubuntu-latest
-    env:
-      RAILS_ENV: test
-      CYPRESS_INSTALL_BINARY: 0
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
-        with:
-          node-version-file: .nvmrc
-
-      # Setup demo app
-      - uses: ruby/setup-ruby@003a5c4d8d6321bd302e38f6f0ec593f77f06600 # v1.319.0
-        with:
-          ruby-version: "4.0.5"
-          bundler-cache: true
-          working-directory: demo
-
-      # Install dependencies
-      - run: npm ci
-        working-directory: demo
-
-      - run: npm run backstop:ci
-        working-directory: demo
-
-      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
-        if: failure()
-        with:
-          name: backstop-report
-          path: |
-            demo/visual-regression/backstop_data/html_report
-            demo/visual-regression/backstop_data/bitmaps_reference
-            demo/visual-regression/backstop_data/bitmaps_test
-          retention-days: 3
+          name: playwright-report
+          path: demo/playwright-report/
+          retention-days: 7

@@ -11,8 +11,7 @@ We have a number of different layers of tests:
 
 - Static analysis (linting, code-formatting)
 - Unit tests (jest for client-side code, rspec for ruby components)
-- Cypress tests (for behavioural tests as well as accessibility checks)
-- Backstop (for visual regression testing)
+- Playwright tests (visual regression testing, behavioural tests as well as accessibility checks)
 
 For development purposes we provide a top-level script to run all checks:
 
@@ -74,18 +73,36 @@ Specifically for engine checks, we use Appraisal for managing different gemfiles
 
 ## Browser tests
 
-We use the `demo` app to run a series of browser tests, specifically:
+We use [Playwright](https://playwright.dev) for interactive testing of components and example pages, covering a mix of:
 
-- Cypress for component and accesibility testing; and
-- BackstopJS for visual regression testing
+- Visual regression tests for all component states
+- Basic accessibility testing with aXe
+- Behavioural tests against any interactive components (e.g. targeted content)
+- End-to-end tests for form builder examples
 
-You can run these tests using:
+You can run these from within the `demo` directory by running:
 
 ```sh
-just test-demo
+npm run playwright
 ```
 
-They also form part of the slower `test-all` and `check-all` commands. If you are looking to work directly with the tests themselves as part of development see the [related demo guide](../demo/README.md).
+If you want to update visual regression test snapshots you can use:
+
+```sh
+npm run playwright:update
+```
+
+And to open the interactive UI, use:
+
+```sh
+npm run playwright:ui
+```
+
+When authoring new tests it can be more useful to run `playwright` commands directly e.g. to focus on a single test. When running this way, you'll need to:
+
+1. Start the playwright server with `bin/start-playwright-server`
+2. Separately run a local Rails server `bin/dev`
+3. You can now run individual playwright commands e.g. `npx playwright --ui playwright/sample-form.spec.js`
 
 ## Testing with your application
 

@@ -20,53 +20,35 @@ bin/dev
 
 The engine code bundles a set of component previews which can be seen at `http://localhost:3000/rails/view_components`.
 
-## Working with Cypress tests
+## Running Playwright tests
 
-We use [Cypress](https://www.cypress.io/) for two main things:
+We use [Playwright](https://playwright.dev) for interactive testing of components and example pages, covering a mix of:
 
-1. To run accessibility checks against every component example using [`cypress-axe`](https://github.com/component-driven/cypress-axe)
-2. For behavioural tests against any interactive components (e.g. targeted content)
+- Visual regression tests for all component states
+- Basic accessibility testing with aXe
+- Behavioural tests against any interactive components (e.g. targeted content)
+- End-to-end tests for form builder examples
 
-You can run both from within the `demo` directory by either running:
-
-```sh
-./bin/rails cypress:open
-```
-
-When running Cypress this way you'll need a copy of the demo app running with `bin/dev`.
-
-## Working with visual regression tests
-
-We use [BackstopJS](https://github.com/garris/BackstopJS) to automate visual regression testing of components by comparing DOM screenshots over time. The tests are run inside of Docker to ensure rendering consistency across different environments.
-
-Firstly, run the demo app using:
+You can run these from within the `demo` directory by running:
 
 ```sh
-./bin/rails server -e test
+npm run playwright
 ```
 
-With the demo app running, you can start the backstop tests using:
+If you want to update visual regression test snapshots you can use:
 
 ```sh
-npm run backstop
+npm run playwright:update
 ```
 
-After a test run is complete you can run view the report in a browser using:
+And to open the interactive UI, use:
 
 ```sh
-npm run backstop:report
+npm run playwright:ui
 ```
 
-If the test you ran looks good, then go ahead and approve it. Approving changes will update your reference files with the results from your last test. Future tests are compared against your most recent approved test screenshots.
+When authoring new tests it can be more useful to run `playwright` commands directly e.g. to focus on a single test. When running this way, you'll need to:
 
-```
-npm run backstop:approve
-```
-
-You can run tests for a specific set of scenarios by passing a filter to the backstop command where `Example` is the search term you want to filter by.
-
-```
-npm run backstop -- --filter=Example
-```
-
-For more advanced details see the [BackstopJS Github's page](https://github.com/garris/BackstopJS)
+1. Run the test server with `npm run start-test-server`
+2. Separately run `npm run start-playwright-server`
+3. Then you ran run individual playwright commands e.g. `npx playwright --ui playwright/sample-form.spec.js`
