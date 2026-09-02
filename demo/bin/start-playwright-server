@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+docker run --rm --init \
+  --name=playwright-server \
+  --network=host \
+  --add-host=hostmachine:host-gateway \
+  --workdir /home/pwuser \
+  --user pwuser \
+  mcr.microsoft.com/playwright:v$(npx playwright --version | awk '{print $2}')-noble \
+  /bin/sh -c "exec npx -y playwright@$(npx playwright --version | awk '{print $2}') run-server --port 5000 --host 0.0.0.0"
