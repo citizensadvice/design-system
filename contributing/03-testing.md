@@ -32,18 +32,18 @@ just format
 
 You can check the formatting without making changes with `just format-check`
 
-### Prettier, Stylelint, ESLint, and Jest
+### Prettier, Stylelint, Oxlint, and Jest
 
-The repository is centred around a node module which is managed by the `package.json` at the top-level of the repository. This provides commands for running prettier against the project as well as linting (eslint) and unit tests (jest) for client-side code.
+The repository is centred around a node module which is managed by the `package.json` at the top-level of the repository. This provides commands for running prettier against the project as well as linting (oxlint) and unit tests (jest) for client-side code.
 
 All top-level package commands can be run using `npm run`:
 
 | Command       | Description                                           |
 | ------------- | ----------------------------------------------------- |
 | `test`        | Runs all jest tests                                   |
-| `lint`        | Runs all linting checks (prettier, eslint, stylelint) |
+| `lint`        | Runs all linting checks (prettier, oxlint, stylelint) |
 | `lint:css`    | Runs only `stylelint` on the project code             |
-| `lint:js`     | Runs only `eslint` on the project code                |
+| `lint:js`     | Runs only `oxlint` on the project code                |
 | `lint:format` | Run `prettier --check` on the project code            |
 | `format`      | Auto-format all eligible code with prettier           |
 
