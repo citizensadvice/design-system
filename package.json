@@ -10,8 +10,6 @@
     "assets",
     "scss",
     "lib",
-    "!lib/**/*.test.js",
-    "!scss/**/__tests__",
     "CHANGELOG.md",
     "README.md",
     "LICENSE",
@@ -25,35 +23,23 @@
     "lint:css": "stylelint \"./scss/**/*.scss\"",
     "lint:js": "eslint .",
     "lint": "npm run lint:js && npm run lint:css",
-    "test": "vitest run"
+    "test": "node --test ./node-test/*.test.js"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@inquirer/prompts": "^8.2.0",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/user-event": "^14.5.1",
-    "@vitest/eslint-plugin": "^1.2.7",
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.5",
     "globals": "^17.4.0",
-    "jsdom": "^30.0.1",
     "prettier": "^3.2.5",
     "sass": "^1.69.0",
     "semver": "^7.3.8",
     "simple-git": "^3.18.0",
     "stylelint": "^17.11.1",
     "stylelint-config-standard-scss": "^17.0.0",
-    "stylelint-selector-bem-pattern": "^5.0.0",
-    "vitest": "^4.0.3"
+    "stylelint-selector-bem-pattern": "^5.0.0"
   },
-  "browserslist": [
-    "IE 11",
-    "last 2 Edge versions",
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Safari versions",
-    "last 2 ChromeAndroid versions",
-    "last 2 iOS versions"
-  ]
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  }
 }
