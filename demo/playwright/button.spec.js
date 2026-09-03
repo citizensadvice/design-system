@@ -6,23 +6,23 @@ import {
 } from "./playwright-helpers";
 
 describe("Button (primary)", async () => {
-  buildButtonTestsFor("primary", "button/primary")
+  buildButtonTestsFor("primary", "button/primary");
 });
 
 describe("Button (secondary)", async () => {
-  buildButtonTestsFor("secondary", "button/secondary")
+  buildButtonTestsFor("secondary", "button/secondary");
 });
 
 describe("Button (tertiary)", async () => {
-  buildButtonTestsFor("tertiary", "button/tertiary")
+  buildButtonTestsFor("tertiary", "button/tertiary");
 });
 
 describe("Button (with left icon)", () => {
-  buildButtonTestsFor("with-left-icon", "button/with_left_icon")
+  buildButtonTestsFor("with-left-icon", "button/with_left_icon");
 });
 
 describe("Button (with right icon)", () => {
-  buildButtonTestsFor("with-right-icon", "button/with_right_icon")
+  buildButtonTestsFor("with-right-icon", "button/with_right_icon");
 });
 
 function buildButtonTestsFor(type, urlPath) {
