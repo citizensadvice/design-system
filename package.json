@@ -10,8 +10,6 @@
     "assets",
     "scss",
     "lib",
-    "!lib/**/*.test.js",
-    "!scss/**/tests",
     "CHANGELOG.md",
     "README.md",
     "LICENSE",
