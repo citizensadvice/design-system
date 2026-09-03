@@ -15,12 +15,12 @@ This app:
 Following this you should be able to run the dev server with:
 
 ```sh
-just demo-dev
+bin/dev
 ```
 
 The engine code bundles a set of component previews which can be seen at `http://localhost:3000/rails/view_components`.
 
-## Running cypress tests
+## Working with Cypress tests
 
 We use [Cypress](https://www.cypress.io/) for two main things:
 
@@ -33,15 +33,9 @@ You can run both from within the `demo` directory by either running:
 ./bin/rails cypress:open
 ```
 
-Which will open the Cypress UI for interactive testing, or by running:
+When running Cypress this way you'll need a copy of the demo app running with `bin/dev`.
 
-```sh
-./bin/rails cypress:run
-```
-
-Which will run all tests in a headless browser.
-
-## Running visual regression tests
+## Working with visual regression tests
 
 We use [BackstopJS](https://github.com/garris/BackstopJS) to automate visual regression testing of components by comparing DOM screenshots over time. The tests are run inside of Docker to ensure rendering consistency across different environments.
 
