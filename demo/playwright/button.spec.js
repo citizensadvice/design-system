@@ -1,69 +1,62 @@
-import { test, expect } from "@playwright/test";
+import { describe, expect, test } from "@playwright/test";
 import {
   componentUrl,
   viewports,
   expectNoAxeViolations,
 } from "./playwright-helpers";
 
-test("Button (primary)", async ({ page }) => {
-  await page.goto(componentUrl("button/primary"));
-
-  await expectNoAxeViolations(page);
-
-  await expectButtonStates(page, "primary");
+describe("Button (primary)", async () => {
+  buildButtonTestsFor("primary", "button/primary")
 });
 
-test("Button (secondary)", async ({ page }) => {
-  await page.goto(componentUrl("button/secondary"));
-
-  await expectNoAxeViolations(page);
-
-  await expectButtonStates(page, "secondary");
+describe("Button (secondary)", async () => {
+  buildButtonTestsFor("secondary", "button/secondary")
 });
 
-test("Button (tertiary)", async ({ page }) => {
-  await page.goto(componentUrl("button/tertiary"));
-
-  await expectNoAxeViolations(page);
-
-  await expectButtonStates(page, "tertiary");
+describe("Button (tertiary)", async () => {
+  buildButtonTestsFor("tertiary", "button/tertiary")
 });
 
-test("Button (with left icon)", async ({ page }) => {
-  await page.goto(componentUrl("button/with_left_icon"));
-
-  await expectNoAxeViolations(page);
-
-  await expectButtonStates(page, "with-left-icon");
+describe("Button (with left icon)", () => {
+  buildButtonTestsFor("with-left-icon", "button/with_left_icon")
 });
 
-test("Button (with right icon)", async ({ page }) => {
-  await page.goto(componentUrl("button/with_right_icon"));
-
-  await expectNoAxeViolations(page);
-
-  await expectButtonStates(page, "with-right-icon");
+describe("Button (with right icon)", () => {
+  buildButtonTestsFor("with-right-icon", "button/with_right_icon")
 });
 
-async function expectButtonStates(page, type) {
-  await page.setViewportSize({ width: 400, height: 200 });
+function buildButtonTestsFor(type, urlPath) {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl(urlPath));
+    await page.setViewportSize({ width: 400, height: 200 });
+    await expectNoAxeViolations(page);
+  });
 
-  const button = page.getByRole("button");
+  test("initial state", async ({ page }) => {
+    await expect(page).toHaveScreenshot(`button-${type}.png`);
+  });
 
-  // Initial state
-  await expect(page).toHaveScreenshot(`button-${type}.png`);
+  test("hover state", async ({ page }) => {
+    const button = page.getByRole("button");
 
-  // Hover state
-  await button.hover();
-  await expect(page).toHaveScreenshot(`button-${type}-hover.png`);
+    await button.hover();
+    await expect(page).toHaveScreenshot(`button-${type}-hover.png`);
+  });
 
-  // Focus state
-  await button.focus();
-  await expect(page).toHaveScreenshot(`button-${type}-focus.png`);
+  test("focus state", async ({ page }) => {
+    const button = page.getByRole("button");
 
-  // Active state
-  await button.hover();
-  await page.mouse.down();
-  await expect(page).toHaveScreenshot(`button-${type}-active.png`);
-  await page.mouse.up();
+    await button.focus();
+    await expect(page).toHaveScreenshot(`button-${type}-focus.png`);
+  });
+
+  test("active state", async ({ page }) => {
+    const button = page.getByRole("button");
+
+    // Active state
+    await button.hover();
+    await page.mouse.down();
+    await expect(page).toHaveScreenshot(`button-${type}-active.png`);
+    await page.mouse.up();
+  });
 }
