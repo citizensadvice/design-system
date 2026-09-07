@@ -1,10 +1,16 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import { componentUrl, expectNoAxeViolations } from "./playwright-helpers";
 
-test("Contact details", async ({ page }) => {
-  await page.goto(componentUrl("contact_details/example"));
+describe("Contact details", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("contact_details/example"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
-  await expect(page).toHaveScreenshot("contact-details.png");
+  test("visual regression check", async ({ page }) => {
+    await expect(page).toHaveScreenshot("contact-details.png");
+  });
 });

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   viewports,
@@ -6,7 +6,7 @@ import {
   expectScrolledIntoView,
 } from "./playwright-helpers";
 
-test.describe("Sample content page", () => {
+describe("Sample content page", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/content-sample", { waitUntil: "networkidle" });
   });

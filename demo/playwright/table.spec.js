@@ -1,60 +1,87 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   defaultViewports,
   expectNoAxeViolations,
 } from "./playwright-helpers";
 
-test("Table (default)", async ({ page }) => {
-  await page.goto(componentUrl("table/example"));
+describe("Table (default)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("table/example"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(`table-default-${viewport.label}.png`, {
-      fullPage: true,
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(
+        `table-default-${viewport.label}.png`,
+        {
+          fullPage: true,
+        },
+      );
     });
   }
 });
 
-test("Table (long)", async ({ page }) => {
-  await page.goto(componentUrl("table/table/long_table"));
+describe("Table (long)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("table/long_table"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(`table-long-${viewport.label}.png`, {
-      fullPage: true,
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(`table-long-${viewport.label}.png`, {
+        fullPage: true,
+      });
     });
   }
 });
 
-test("Table (no caption)", async ({ page }) => {
-  await page.goto(componentUrl("table/table/no_caption"));
+describe("Table (no caption)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("table/no_caption"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(
-      `table-no-caption-${viewport.label}.png`,
-      { fullPage: true },
-    );
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(
+        `table-no-caption-${viewport.label}.png`,
+        { fullPage: true },
+      );
+    });
   }
 });
 
-test("Table (no responsive headers)", async ({ page }) => {
-  await page.goto(componentUrl("table/table/no_responsive_headers"));
+describe("Table (no responsive headers)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("table/table/no_responsive_headers"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(
-      `table-no-responsive-headers-${viewport.label}.png`,
-      { fullPage: true },
-    );
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(
+        `table-no-responsive-headers-${viewport.label}.png`,
+        { fullPage: true },
+      );
+    });
   }
 });

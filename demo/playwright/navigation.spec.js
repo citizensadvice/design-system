@@ -1,10 +1,10 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import { componentUrl, expectNoAxeViolations } from "./playwright-helpers";
 
 // Visual regression tests handled in header.spec.js,
 // these tests focus on header interaction and greedy nav behaviour
-test.describe("Header", () => {
-  test("no greed navigation on large screens", async ({ page }) => {
+describe("Navigation", () => {
+  test("no greedy navigation on large screens", async ({ page }) => {
     await page.goto(componentUrl("header/with_navigation"));
     await page.setViewportSize({ width: 1440, height: 860 });
 

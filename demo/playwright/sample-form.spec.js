@@ -1,23 +1,23 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   expectNoAxeViolations,
   defaultViewports,
 } from "./playwright-helpers";
 
-test.describe("Sample form", () => {
+describe("Sample form", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/form-sample", { waitUntil: "networkidle" });
   });
 
-  test("visual regression check", async ({ page }) => {
-    for (const viewport of defaultViewports) {
+  for (const viewport of defaultViewports) {
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
       await page.setViewportSize(viewport);
       await expect(page).toHaveScreenshot(`sample-form-${viewport.label}.png`, {
         fullPage: true,
       });
-    }
-  });
+    });
+  }
 
   test("visual regression check (with errors)", async ({ page }) => {
     await submitForm(page);

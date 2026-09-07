@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   viewports,
@@ -6,11 +6,23 @@ import {
   expectScrolledIntoView,
 } from "./playwright-helpers";
 
-test("Search", async ({ page }) => {
-  await page.goto(componentUrl("search/example"));
-  await page.setViewportSize(viewports.medium);
-  await expect(page).toHaveScreenshot("search.png");
+describe("Search", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("search/example"));
+  });
 
-  await page.getByLabel(/Search through site content/).focus();
-  await expect(page).toHaveScreenshot("search-focus.png");
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
+
+  test("visual regression check", async ({ page }) => {
+    await page.setViewportSize(viewports.medium);
+    await expect(page).toHaveScreenshot("search.png");
+  });
+
+  test("visual regression check (focus)", async ({ page }) => {
+    await page.setViewportSize(viewports.medium);
+    await page.getByLabel(/Search through site content/).focus();
+    await expect(page).toHaveScreenshot("search-focus.png");
+  });
 });

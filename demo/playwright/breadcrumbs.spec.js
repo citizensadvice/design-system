@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   viewports,
@@ -6,54 +6,78 @@ import {
   expectNoAxeViolations,
 } from "./playwright-helpers";
 
-test("Breadcrumbs (collapsing)", async ({ page }) => {
-  await page.goto(componentUrl("breadcrumbs/collapsing"));
+describe("Breadcrumbs (collapsing)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("breadcrumbs/collapsing"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    const element = await page.locator(".cads-breadcrumbs-wrapper");
-    await expect(element).toHaveScreenshot(
-      `breadcrumbs-collapsing-${viewport.label}.png`,
-    );
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      const element = await page.locator(".cads-breadcrumbs-wrapper");
+      await expect(element).toHaveScreenshot(
+        `breadcrumbs-collapsing-${viewport.label}.png`,
+      );
+    });
   }
 });
 
-test("Breadcrumbs (long)", async ({ page }) => {
-  await page.goto(componentUrl("breadcrumbs/long"));
+describe("Breadcrumbs (long)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("breadcrumbs/long"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    const element = await page.locator(".cads-breadcrumbs-wrapper");
-    await expect(element).toHaveScreenshot(
-      `breadcrumbs-long-${viewport.label}.png`,
-    );
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      const element = await page.locator(".cads-breadcrumbs-wrapper");
+      await expect(element).toHaveScreenshot(
+        `breadcrumbs-long-${viewport.label}.png`,
+      );
+    });
   }
 });
 
-test("Breadcrumbs (no collapse)", async ({ page }) => {
-  await page.goto(componentUrl("breadcrumbs/not_collapsing"));
+describe("Breadcrumbs (no collapse)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("breadcrumbs/not_collapsing"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    const element = await page.locator(".cads-breadcrumbs-wrapper");
-    await expect(element).toHaveScreenshot(
-      `breadcrumbs-no-collapse-${viewport.label}.png`,
-    );
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      const element = await page.locator(".cads-breadcrumbs-wrapper");
+      await expect(element).toHaveScreenshot(
+        `breadcrumbs-no-collapse-${viewport.label}.png`,
+      );
+    });
   }
 });
 
-test("Breadcrumbs (not full width)", async ({ page }) => {
-  await page.goto(componentUrl("breadcrumbs/not_full_width"));
+describe("Breadcrumbs (not full width)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("breadcrumbs/not_full_width"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
-  // Set wide enough to capture expected behaviour
-  await page.setViewportSize({ width: 1400, height: 200 });
-  await expect(page).toHaveScreenshot("breadcrumbs-not-full-width-large.png");
+  test("visual regression check", async ({ page }) => {
+    // Set wide enough to capture expected behaviour
+    await page.setViewportSize({ width: 1400, height: 200 });
+    await expect(page).toHaveScreenshot("breadcrumbs-not-full-width-large.png");
+  });
 });

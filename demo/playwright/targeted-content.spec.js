@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   defaultViewports,
@@ -6,16 +6,37 @@ import {
   expectScrolledIntoView,
 } from "./playwright-helpers";
 
-test.describe("Targeted content (default)", () => {
-  test("visual regression check", async ({ page }) => {
-    for (const viewport of defaultViewports) {
-      // Load the page fresh each time to reset the open state
-      await page.goto(componentUrl("targeted_content/default"));
+describe("Targeted content (default)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("targeted_content/default"), {
+      waitUntil: "networkidle",
+    });
+  });
+
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+
+    await page
+      .getByTestId("targeted-content-title")
+      .getByRole("button", { name: /If you are/i })
+      .click();
+
+    // Recheck accessibility violations
+    await expectNoAxeViolations(page);
+  });
+
+  for (const viewport of defaultViewports) {
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
       await page.setViewportSize(viewport);
       await expect(page).toHaveScreenshot(
         `targeted-content-default-${viewport.label}.png`,
       );
+    });
 
+    test(`visual regression check ${viewport.label} (open)`, async ({
+      page,
+    }) => {
+      await page.setViewportSize(viewport);
       await page
         .getByTestId("targeted-content-title")
         .getByRole("button", { name: /If you are/i })
@@ -25,16 +46,10 @@ test.describe("Targeted content (default)", () => {
         `targeted-content-default-${viewport.label}-open.png`,
         { fullPage: true },
       );
-    }
-  });
+    });
+  }
 
   test("interactivity check", async ({ page }) => {
-    await page.goto(componentUrl("targeted_content/default"), {
-      waitUntil: "networkidle",
-    });
-
-    await expectNoAxeViolations(page);
-
     const headingButton = page
       .getByTestId("targeted-content-title")
       .getByRole("button", { name: /If you are/i });
@@ -49,16 +64,17 @@ test.describe("Targeted content (default)", () => {
     await headingButton.click();
     await expect(openText).toBeVisible();
     await expect(headingButton).toHaveAttribute("aria-expanded", "true");
-
-    // Recheck accessibility violations
-    await expectNoAxeViolations(page);
   });
+});
 
-  test("anchors to content", async ({ page }) => {
+describe("Targeted content (anchor)", () => {
+  test.beforeEach(async ({ page }) => {
     await page.goto(componentUrl("targeted_content/anchor"), {
       waitUntil: "networkidle",
     });
+  });
 
+  test("anchors to content", async ({ page }) => {
     const headingButton = page
       .getByTestId("targeted-content-title")
       .getByRole("button", { name: /If you are/i });
@@ -75,33 +91,58 @@ test.describe("Targeted content (default)", () => {
   });
 });
 
-// Only visual test for adviser variant
-test("Targeted content (adviser)", async ({ page }) => {
-  for (const viewport of defaultViewports) {
-    // Load the page fresh each time to reset the open state
-    await page.goto(componentUrl("targeted_content/default"));
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(
-      `targeted-content-default-${viewport.label}.png`,
-    );
+describe("Targeted content (adviser)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("targeted_content/adviser"), {
+      waitUntil: "networkidle",
+    });
+  });
+
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
 
     await page
       .getByTestId("targeted-content-title")
-      .getByRole("button", { name: /If you are/i })
+      .getByRole("button", { name: /Students or/i })
       .click();
 
-    await expect(page).toHaveScreenshot(
-      `targeted-content-default-${viewport.label}-open.png`,
-      { fullPage: true },
-    );
+    // Recheck accessibility violations
+    await expectNoAxeViolations(page);
+  });
+
+  for (const viewport of defaultViewports) {
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(
+        `targeted-content-adviser-${viewport.label}.png`,
+      );
+    });
+
+    test(`visual regression check ${viewport.label} (open)`, async ({
+      page,
+    }) => {
+      await page.setViewportSize(viewport);
+      await page
+        .getByTestId("targeted-content-title")
+        .getByRole("button", { name: /Students or/i })
+        .click();
+
+      await expect(page).toHaveScreenshot(
+        `targeted-content-adviser-${viewport.label}-open.png`,
+        { fullPage: true },
+      );
+    });
   }
 });
 
-test.describe("Targeted content (fallback)", () => {
+describe("Targeted content (fallback)", () => {
   test.use({ javaScriptEnabled: false });
 
-  test("visual regression check", async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     await page.goto(componentUrl("targeted_content/default"));
+  });
+
+  test("visual regression check", async ({ page }) => {
     await expect(page).toHaveScreenshot("targeted-content-fallback.png");
   });
 });

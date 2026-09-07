@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   defaultViewports,
@@ -6,15 +6,27 @@ import {
   expectScrolledIntoView,
 } from "./playwright-helpers";
 
-test.describe("On this page (with nested links)", () => {
-  test("visual regression check", async ({ page }) => {
-    for (const viewport of defaultViewports) {
-      // Load the page fresh each time to reset the open state
-      await page.goto(componentUrl("on_this_page/with_nested_links"));
+describe("On this page (with nested links)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("on_this_page/with_nested_links"));
+  });
+
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
+
+  for (const viewport of defaultViewports) {
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
       await page.setViewportSize(viewport);
       await expect(page).toHaveScreenshot(
         `on-this-page-with-nested-links-${viewport.label}.png`,
       );
+    });
+
+    test(`visual regression check ${viewport.label} (open)`, async ({
+      page,
+    }) => {
+      await page.setViewportSize(viewport);
 
       await page
         .getByRole("button", { name: /Show sub-headings for Link 2/i })
@@ -24,8 +36,8 @@ test.describe("On this page (with nested links)", () => {
         `on-this-page-with-nested-links-${viewport.label}-open.png`,
         { fullPage: true },
       );
-    }
-  });
+    });
+  }
 
   test("interactivity check", async ({ page }) => {
     await page.goto(componentUrl("on_this_page/with_nested_links"), {
@@ -58,26 +70,40 @@ test.describe("On this page (with nested links)", () => {
   });
 });
 
-// Only visual test for column variant
-test("On this page (with columns)", async ({ page }) => {
-  await page.goto(componentUrl("on_this_page/with_columns"));
+describe("On this page (with columns)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("on_this_page/with_columns"));
+  });
+
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(
-      `on-this-page-with-columns-${viewport.label}.png`,
-    );
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(
+        `on-this-page-with-columns-${viewport.label}.png`,
+      );
+    });
   }
 });
 
-// Only visual test for no column variant
-test("On this page (with no columns)", async ({ page }) => {
-  await page.goto(componentUrl("on_this_page/with_no_columns"));
+describe("On this page (with no columns)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("on_this_page/with_no_columns"));
+  });
+
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(
-      `on-this-page-with-no-columns-${viewport.label}.png`,
-    );
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(
+        `on-this-page-with-no-columns-${viewport.label}.png`,
+      );
+    });
   }
 });

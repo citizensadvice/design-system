@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   viewports,
@@ -6,21 +6,23 @@ import {
   expectNoAxeViolations,
 } from "./playwright-helpers";
 
-test.describe("Header", () => {
+describe("Header", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(componentUrl("header/with_navigation"), {
       waitUntil: "networkidle",
     });
   });
 
-  test("visual regression check (viewports)", async ({ page }) => {
-    for (const viewport of defaultViewports) {
-      await page.setViewportSize(viewport);
-      await expectNoAxeViolations(page);
-
-      await expect(page).toHaveScreenshot(`header-${viewport.label}.png`);
-    }
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
   });
+
+  for (const viewport of defaultViewports) {
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(`header-${viewport.label}.png`);
+    });
+  }
 
   test("allows toggling search on small screens", async ({ page }) => {
     await page.setViewportSize(viewports.small);

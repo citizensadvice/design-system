@@ -1,17 +1,25 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   defaultViewports,
   expectNoAxeViolations,
 } from "./playwright-helpers";
 
-test("Notice banner", async ({ page }) => {
-  await page.goto(componentUrl("notice_banner/example"));
+describe("Notice banner", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(componentUrl("notice_banner/example"));
+  });
 
-  await expectNoAxeViolations(page);
+  test("accessibility check", async ({ page }) => {
+    await expectNoAxeViolations(page);
+  });
 
   for (const viewport of defaultViewports) {
-    await page.setViewportSize(viewport);
-    await expect(page).toHaveScreenshot(`notice-banner-${viewport.label}.png`);
+    test(`visual regression check ${viewport.label}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await expect(page).toHaveScreenshot(
+        `notice-banner-${viewport.label}.png`,
+      );
+    });
   }
 });

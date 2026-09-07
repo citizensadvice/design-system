@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { describe, test, expect } from "@playwright/test";
 import {
   componentUrl,
   viewports,
@@ -6,7 +6,7 @@ import {
   expectScrolledIntoView,
 } from "./playwright-helpers";
 
-test.describe("Disclosure", () => {
+describe("Disclosure", () => {
   test("visual regression check", async ({ page }) => {
     await page.goto(componentUrl("disclosure/example"), {
       waitUntil: "networkidle",
@@ -48,7 +48,7 @@ test.describe("Disclosure", () => {
   });
 });
 
-test.describe("Disclosure (fallback)", () => {
+describe("Disclosure (fallback)", () => {
   test.use({ javaScriptEnabled: false });
 
   test("visual regression check", async ({ page }) => {
