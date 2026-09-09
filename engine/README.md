@@ -7,10 +7,12 @@ A Rails Engine packaged as a gem which provides a set of [view components](https
 Run tests with via just or, within the `engine` directory directly via `rake`:
 
 ```sh
-just engine-check
+just lint-engine test-engine
 ```
 
-By default this will run all rspec, rubocop, and erb-lint checks. You can view all available tasks with `rake -T`.
+This will run all rspec, rubocop, and erb-lint checks. You can view all available tasks with `rake -T`.
+
+## Working with Appraisal
 
 We use Appraisal for managing different gemfiles for older Rails versions as well as for testing new ViewComponent versions. By default the just recipe above will run all appraisal specs, you can run appraisals using:
 
@@ -27,5 +29,5 @@ We provide some additional utility tasks for developing the engine.
 Font files can be synced between the package and the engine with:
 
 ```sh
-just engine-sync
+rake sync_fonts
 ```
