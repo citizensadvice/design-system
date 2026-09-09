@@ -3,6 +3,7 @@ on: workflow_call
 
 jobs:
   node-test:
+    name: Package checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -16,7 +17,7 @@ jobs:
 
   engine-specs:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby_version }} (${{ matrix.appraisal }})
+    name: Engine specs for Ruby ${{ matrix.ruby_version }} (${{ matrix.appraisal }})
     strategy:
       fail-fast: false
       matrix:
@@ -46,6 +47,7 @@ jobs:
           bundle exec appraisal ${{ matrix.appraisal }} rake spec
 
   engine-lint:
+    name: Engine lint checks
     needs: engine-specs
     runs-on: ubuntu-latest
     defaults:
@@ -61,7 +63,8 @@ jobs:
       - run: bundle exec rubocop --format progress --format github
       - run: bundle exec erb_lint --lint-all
 
-  demo-app:
+  playwright:
+    name: Playwright tests
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
