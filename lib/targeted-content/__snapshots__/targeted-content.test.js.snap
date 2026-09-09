@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`allow toggling targeted content 1`] = `
+exports[`allow toggling targeted content > closed 1`] = `
 "<button type="button" class="cads-targeted-content__button" aria-expanded="false" aria-controls="targeted-content-123-content" aria-label="show this section">
         
     <div class="cads-targeted-content__title-text">Targeted content title</div>
@@ -11,7 +11,7 @@ exports[`allow toggling targeted content 1`] = `
       </button>"
 `;
 
-exports[`allow toggling targeted content 2`] = `
+exports[`allow toggling targeted content > open 1`] = `
 "<button type="button" class="cads-targeted-content__button" aria-expanded="true" aria-controls="targeted-content-123-content" aria-label="close this section">
         
     <div class="cads-targeted-content__title-text">Targeted content title</div>
