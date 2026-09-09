@@ -8,7 +8,8 @@ docs/
 
 # Ignore Rails demo app files
 /demo/public/
-/demo/visual-regression/backstop_data/
+/demo/playwright-report/
+/demo/test-results/
 
 # Ignore docs website output
 /website/build/

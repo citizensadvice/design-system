@@ -16,6 +16,7 @@ _setup-engine:
 _setup-demo:
     bundle install
     npm install
+    npx playwright install --with-deps chromium
     bin/rails log:clear tmp:clear
     bin/rails restart
 
@@ -109,8 +110,7 @@ test-engine:
 [group('tests')]
 [working-directory('./demo')]
 test-demo:
-    bin/rails cypress:run
-    npm run backstop:local
+    bin/playwright-ci --quiet
 
 # Run website tests only
 [group('tests')]
