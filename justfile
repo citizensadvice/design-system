@@ -1,6 +1,28 @@
-# List available recipes
-help:
+_help:
     @just --list
+
+# Setup the project
+setup: _setup-package _setup-engine _setup-demo _setup-website
+
+_setup-package:
+    npm install
+
+[working-directory('./engine')]
+_setup-engine:
+    bundle install
+    bundle exec appraisal install
+
+[working-directory('./demo')]
+_setup-demo:
+    bundle install
+    npm install
+    bin/rails log:clear tmp:clear
+    bin/rails restart
+
+[working-directory('./website')]
+_setup-website:
+    bin/setup
+    npm install
 
 # Generate a new ADR
 [working-directory('./contributing/adr')]
@@ -19,16 +41,12 @@ adr title:
 
     echo "New ADR created at ./contributing/adr/$output"
 
-# Setup project
-setup: package-setup engine-setup demo-setup website-setup
-
-# Run release checks only
-check-release: format-check package-check engine-check
-
-# Run all checks
-check-all: format-check package-check engine-check demo-check website-check
+# Run all lint checks
+[group('lint')]
+lint: lint-fmt lint-package lint-engine lint-website lint-demo
 
 # Run formatters
+[group('lint')]
 format:
     just --fmt --unstable
     npm run format
@@ -36,90 +54,90 @@ format:
 alias fmt := format
 
 # Check format only
-format-check:
+[group('lint')]
+lint-fmt:
     just --fmt --check --unstable
     npm run format:check
 
-# Setup npm package only
-[group('package')]
-package-setup:
-    npm install
-
-# Check npm package only
-[group('package')]
-package-check:
+# Lint package only
+[group('lint')]
+lint-package:
     npm run lint
-    npm test
 
-# Setup engine only
-[group('engine')]
+# Lint engine only
+[group('lint')]
 [working-directory('./engine')]
-engine-setup:
-    bundle install
-    bundle exec appraisal install
-
-# Check engine only
-[group('engine')]
-[working-directory('./engine')]
-engine-check:
+lint-engine:
     bundle exec rubocop
     bundle exec erb_lint --lint-all
+
+# Lint demo app only
+[group('lint')]
+[working-directory('./demo')]
+lint-demo:
+    bundle exec rubocop
+
+# Lint website only
+[group('lint')]
+[working-directory('./website')]
+lint-website:
+    bundle exec rubocop
+    bundle exec erb_lint --lint-all
+
+# Run unit tests (excluding slower browesr checks)
+[group('tests')]
+test: test-package test-engine
+
+alias t := test
+
+# Run all tests
+[group('tests')]
+test-all: test-package test-engine test-demo test-website
+
+# Run npm package tests only
+[group('tests')]
+test-package:
+    npm test
+
+# Run engine tests only
+[group('tests')]
+[working-directory('./engine')]
+test-engine:
     bundle exec appraisal rake spec
 
-# Sync fonts between npm source and engine
-[group('engine')]
-engine-sync:
-    cp -av ./assets/fonts/* ./engine/app/assets/fonts/citizens_advice_components
-
-# Setup demo app only
-[group('demo')]
+# Run demo app tests only
+[group('tests')]
 [working-directory('./demo')]
-demo-setup:
-    bundle install
-    npm install
-    bin/rails log:clear tmp:clear
-    bin/rails restart
-
-# Check demo app only
-[group('demo')]
-[working-directory('./demo')]
-demo-check:
-    bundle exec rubocop
+test-demo:
     bin/rails cypress:run
     npm run backstop:local
 
-# Run a dev server for the demo app
-[group('demo')]
-[working-directory('./demo')]
-demo-dev:
-    bin/dev
-
-# Setup website only
-[group('website')]
+# Run website tests only
+[group('tests')]
 [working-directory('./website')]
-website-setup:
-    bin/setup
-    npm install
-
-# Check website only
-[group('website')]
-[working-directory('./website')]
-website-check:
-    bundle exec rubocop
-    bundle exec erb_lint --lint-all
+test-website:
+    # For the website, running a static build is a sufficent test
     bin/static-build
+
+# Run a dev server for the demo app
+[group('dev')]
+[working-directory('./demo')]
+dev:
+    bin/dev
 
 # Run a dev server for the website
-[group('website')]
+[group('dev')]
 [working-directory('./website')]
-website-dev:
+dev-website:
     bin/dev
 
-# Build a static copy of the website
-[group('website')]
-[working-directory('./website')]
-website-build:
-    bin/static-build
+# Run quick checks only
+[group('checks')]
+check-quick: lint test-package test-engine
+
+# Run all checks
+[group('checks')]
+check-all: lint test-package test-engine test-demo test-website
 
 # Prepare a release
 [group('release')]

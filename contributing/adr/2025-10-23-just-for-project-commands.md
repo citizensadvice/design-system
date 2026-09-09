@@ -18,37 +18,7 @@ An alternative to makefiles is [just](https://just.systems/man/en/introduction.h
 
 ## Decision
 
-Use [just](https://just.systems/man/en/introduction.html) for project specific commands. We will start with an initial list of recipes and expand over time:
-
-```sh
-Available recipes:
-    adr title     # Generate a new ADR
-    check-all     # Run all checks
-    format        # Run formatters [alias: fmt]
-    format-check  # Check format only
-    help          # List available recipes
-    setup         # Setup project
-
-    [demo]
-    demo-check    # Check demo app only
-    demo-dev      # Run a dev server for the demo app
-    demo-setup    # Setup demo app only
-
-    [engine]
-    engine-check  # Check engine only
-    engine-setup  # Setup engine only
-    engine-sync   # Sync fonts between npm source and engine
-
-    [package]
-    package-check # Check npm package only
-    package-setup # Setup npm package only
-
-    [website]
-    website-build # Build a static copy of the website
-    website-check # Check website only
-    website-dev   # Run a dev server for the website
-    website-setup # Setup website only
-```
+Use [just](https://just.systems/man/en/introduction.html) for project specific commands. We will start with an initial list of recipes and expand over time.
 
 ## Consequences
 
