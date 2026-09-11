@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::Input, type: :component do
   subject { page }
 
   context "with default arguments" do
@@ -28,39 +28,6 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
 
     it "does not have an aria-describedby attribute by default" do
       expect(page).to have_no_css "input[aria-describedby]"
-    end
-  end
-
-  context "when an id is provided" do
-    before do
-      render_inline described_class.new(
-        name: "example-input[test]",
-        id: "test-id",
-        label: "Example input",
-        type: :text,
-        options: { hint: "This is the hint text",
-                   error_message: "Enter your name" }
-      )
-    end
-
-    it "adds the correct name to the input" do
-      expect(page).to have_field "Example input", name: "example-input[test]"
-    end
-
-    it "adds the correct id to the input" do
-      expect(page).to have_css "#test-id-input"
-    end
-
-    it "adds the correct id to the label" do
-      expect(page).to have_css "#test-id-label"
-    end
-
-    it "adds the correct id to the hint" do
-      expect(page).to have_css "#test-id-hint"
-    end
-
-    it "adds the correct id to the error message" do
-      expect(page).to have_css "#test-id-error"
     end
   end
 
@@ -105,6 +72,19 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
     end
   end
 
+  context "when the input is a page heading" do
+    before do
+      render_inline described_class.new(
+        name: "example-input-page-heading",
+        label: "Example input with page heading",
+        type: :text,
+        options: { page_heading: true }
+      )
+    end
+
+    it { is_expected.to have_css "h1.cads-page-title label", text: "Example input with page heading" }
+  end
+
   context "when the input is optional" do
     before do
       render_inline described_class.new(
@@ -117,8 +97,8 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
 
     it { is_expected.to have_text "(optional)" }
 
-    it "does not add required to the input" do
-      expect(page).to have_no_css "input[required]"
+    it "does not add aria-required to the input" do
+      expect(page).to have_css "input[aria-required=false]"
     end
 
     context "when in Cymraeg" do
@@ -126,19 +106,6 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
 
       it { is_expected.to have_text "(dewisol)" }
     end
-  end
-
-  context "when the input is a page heading" do
-    before do
-      render_inline described_class.new(
-        name: "example-input-page-heading",
-        label: "Example input with page heading",
-        type: :text,
-        options: { page_heading: true }
-      )
-    end
-
-    it { is_expected.to have_css "h1.cads-page-title label", text: "Example input with page heading" }
   end
 
   context "when an error is present" do
@@ -195,37 +162,5 @@ RSpec.describe CitizensAdviceComponents::TextInput, type: :component do
 
     it { is_expected.to have_css "input[autocomplete=name]" }
     it { is_expected.to have_css "input[data-additional=example]" }
-  end
-
-  context "when a valid width is specified" do
-    before do
-      render_inline described_class.new(
-        name: "example-input",
-        label: "Example input",
-        type: :text,
-        width: :four_chars
-      )
-    end
-
-    it "renders the input at the correct width" do
-      expect(page).to have_css ".cads-input--four-chars"
-    end
-  end
-
-  context "when an invalid width is specified" do
-    before do
-      without_fetch_or_fallback_raises do
-        render_inline described_class.new(
-          name: "example-input",
-          label: "Example input",
-          type: :text,
-          width: :invalid
-        )
-      end
-    end
-
-    it "renders a full width version" do
-      expect(page).to have_css ".cads-input"
-    end
   end
 end

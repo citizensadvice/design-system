@@ -2,7 +2,7 @@
 
 class RadioGroupPreview < ViewComponent::Preview
   def basic
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons"
     ) do |c|
@@ -11,7 +11,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def custom_id
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons[test]",
       id: "test-id"
@@ -21,7 +21,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def error
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons-error",
       options: {
@@ -33,7 +33,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def optional
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons-optional",
       options: {
@@ -45,7 +45,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def hint
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons-hint",
       options: {
@@ -57,7 +57,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def small
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons-small",
       options: {
@@ -69,7 +69,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def inline
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons-inline",
       options: {
@@ -81,7 +81,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def long
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons-long"
     ) do |c|
@@ -90,7 +90,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def additional_attributes
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example radio group",
       name: "radio-buttons-attrs"
     ) do |c|
@@ -99,7 +99,7 @@ class RadioGroupPreview < ViewComponent::Preview
   end
 
   def page_heading
-    render CitizensAdviceComponents::RadioGroup.new(
+    render CitizensAdviceComponents::Legacy::RadioGroup.new(
       legend: "Example page heading radio group",
       name: "radio-buttons-page-heading",
       options: { page_heading: true }

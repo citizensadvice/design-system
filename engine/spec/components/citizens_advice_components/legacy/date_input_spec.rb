@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CitizensAdviceComponents::DateInput, type: :component do
+RSpec.describe CitizensAdviceComponents::Legacy::DateInput, type: :component do
   subject { page }
 
   context "with default arguments" do

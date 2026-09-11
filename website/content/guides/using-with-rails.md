@@ -322,10 +322,10 @@ However some components have some companion JavaScript behaviour. In our case th
 Add the following to your `app/javascript/application.js` entrypoint:
 
 ```js
-import { initHeader, initGreedyNav } from "@citizensadvice/design-system";
+import { initHeader, initNavigation } from "@citizensadvice/design-system";
 
 initHeader();
-initGreedyNav();
+initNavigation();
 ```
 
 Each of the [component guides](/components) tell you if they require any additional JavaScript along with any polyfills they might require for older browsers.
