@@ -17,6 +17,8 @@
 
   Only support passing attributes on like the Rails native equivalents for fields.
 
+- Remove deprecated `initGreedyNav` in favour of `initNavigation`
+
 **Deprecations**
 
 - Deprecate form components in favour of form builder
