@@ -1,19 +1,23 @@
 @use "../1-settings/prose" as prose-config;
 
 @mixin cads-prose() {
-  h1 {
+  h1,
+  .cads-h1 {
     @extend %cads-h1;
   }
 
-  h2 {
+  h2,
+  .cads-h2 {
     @extend %cads-h2;
   }
 
-  h3 {
+  h3,
+  .cads-h3 {
     @extend %cads-h3;
   }
 
-  h4 {
+  h4,
+  .cads-h4 {
     @extend %cads-h4;
   }
 
