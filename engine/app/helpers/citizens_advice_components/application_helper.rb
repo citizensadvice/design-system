@@ -5,14 +5,14 @@ module CitizensAdviceComponents
     def cads_meta_preload_fonts
       safe_join([
         tag.link(
-          href: asset_path("citizens_advice_components/open-sans-v26-latin-700.woff2"),
+          href: asset_path("citizens_advice_components/open-sans-v44-latin-700.woff2"),
           rel: "preload",
           as: "font",
           type: "font/woff2",
           crossorigin: "true"
         ),
         tag.link(
-          href: asset_path("citizens_advice_components/open-sans-v26-latin-regular.woff2"),
+          href: asset_path("citizens_advice_components/open-sans-v44-latin-regular.woff2"),
           rel: "preload",
           as: "font",
           type: "font/woff2",

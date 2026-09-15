@@ -9,7 +9,14 @@ test("default font-path", () => {
     })
     .css.toString();
 
-  expect(output).toContain('url("./open-sans');
+  for (const variant of ["regular", "700"]) {
+    expect(output).toContain(
+      `url("./open-sans-v44-latin-${variant}.woff2") format("woff2")`,
+    );
+    expect(output).toContain(
+      `url("./open-sans-v44-latin-${variant}.woff") format("woff")`,
+    );
+  }
 });
 
 test("with custom font-path", () => {
