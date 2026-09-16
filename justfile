@@ -16,6 +16,7 @@ _setup-engine:
 _setup-demo:
     bundle install
     npm install
+    npx playwright install --with-deps chromium
     bin/rails log:clear tmp:clear
     bin/rails restart
 
@@ -84,7 +85,7 @@ lint-website:
     bundle exec rubocop
     bundle exec erb_lint --lint-all
 
-# Run unit tests (excluding slower browesr checks)
+# Run unit tests (excluding slower browser checks)
 [group('tests')]
 test: test-package test-engine
 
@@ -92,7 +93,7 @@ alias t := test
 
 # Run all tests
 [group('tests')]
-test-all: test-package test-engine test-demo test-website
+test-all: test-package test-engine test-playwright test-website
 
 # Run npm package tests only
 [group('tests')]
@@ -105,18 +106,17 @@ test-package:
 test-engine:
     bundle exec appraisal rake spec
 
-# Run demo app tests only
+# Run playwright browser tests only
 [group('tests')]
 [working-directory('./demo')]
-test-demo:
-    bin/rails cypress:run
-    npm run backstop:local
+test-playwright:
+    bin/playwright-ci --quiet
 
 # Run website tests only
 [group('tests')]
 [working-directory('./website')]
 test-website:
-    # For the website, running a static build is a sufficent test
+    # For the website, running a static build is a sufficient test
     bin/static-build
 
 # Run a dev server for the demo app
@@ -137,7 +137,7 @@ check-quick: lint test-package test-engine
 
 # Run all checks
 [group('checks')]
-check-all: lint test-package test-engine test-demo test-website
+check-all: lint test-package test-engine test-playwright test-website
 
 # Prepare a release
 [group('release')]
