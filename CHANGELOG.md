@@ -1,3 +1,7 @@
+## v10.0.0
+
+### 16 September 2026
+
 **Breaking Changes**
 
 - Remove support for Rails 7.2.x versions
