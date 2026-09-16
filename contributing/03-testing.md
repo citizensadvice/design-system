@@ -11,8 +11,7 @@ We have a number of different layers of tests:
 
 - Static analysis (linting, code-formatting)
 - Unit tests (jest for client-side code, rspec for ruby components)
-- Cypress tests (for behavioural tests as well as accessibility checks)
-- Backstop (for visual regression testing)
+- Playwright tests (visual regression testing, behavioural tests as well as accessibility checks)
 
 For development purposes we provide a top-level script to run all checks:
 
@@ -59,7 +58,7 @@ Or on a per-component level with e.g. `just lint-engine`
 
 Similar to lint checks, each component of the design system runs unit tests depending on the environment:
 
-- The top-level package runs unit tests using Vites
+- The top-level package runs unit tests using `node:test`
 - The engine and demo apps run unit tests using RSpec
 
 You can run them all with:
@@ -70,22 +69,24 @@ just test
 
 Or `just t` for short; or on a per-component level with e.g. `just test-engine`.
 
-Specifically for engine checks, we use Appraisal for managing different gemfiles for older Rails versions. The Just recipe will run all versions. For details on working with individual appraisals see the [related engine guide](../demo/README.md).
+Specifically for engine checks, we use Appraisal for managing different gemfiles for older Rails versions. The Just recipe will run all versions. For details on working with individual appraisals see the [related engine guide](../engine/README.md).
 
 ## Browser tests
 
-We use the `demo` app to run a series of browser tests, specifically:
+We use [Playwright](https://playwright.dev) for interactive testing of components and example pages, covering a mix of:
 
-- Cypress for component and accesibility testing; and
-- BackstopJS for visual regression testing
+- Visual regression tests for all component states
+- Basic accessibility testing with aXe
+- Behavioural tests against any interactive components (e.g. targeted content)
+- End-to-end tests for form builder examples
 
-You can run these tests using:
+You can these locally using:
 
 ```sh
-just test-demo
+just test-playwright
 ```
 
-They also form part of the slower `test-all` and `check-all` commands. If you are looking to work directly with the tests themselves as part of development see the [related demo guide](../demo/README.md).
+See the [related demo app guide](../demo/README.md) for more details on authoring individual playwright tests.
 
 ## Testing with your application
 

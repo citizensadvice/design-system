@@ -115,9 +115,6 @@ GEM
     crass (1.0.7)
     cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
-    cypress-rails (0.7.1)
-      puma (>= 3.8.0)
-      railties (>= 5.2.0)
     date (3.5.1)
     drb (2.2.3)
     erb (6.0.7)
@@ -356,7 +353,6 @@ DEPENDENCIES
   citizens-advice-style!
   citizens_advice_components!
   cssbundling-rails
-  cypress-rails
   haml-rails
   jsbundling-rails
   listen (~> 3.10)

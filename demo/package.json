@@ -3,35 +3,22 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "backstop": "npx backstop test --docker --config=backstop-config.js",
-    "backstop:reference": "npx backstop reference --docker --config=backstop-config.js",
-    "backstop:approve": "npx backstop approve --config=backstop-config.js",
-    "backstop:report": "npx backstop openReport --config=backstop-config.js",
-    "backstop:local": "start-server-and-test start-test-server $(node backstop-local-test-url.js) backstop",
-    "backstop:ci": "start-server-and-test start-test-server $(node backstop-actions-test-url.js) backstop:actions",
-    "backstop:actions": "npx backstop test --docker --config=backstop-config-actions.js",
+    "test": "npm run playwright",
+    "playwright": "npx playwright test",
+    "playwright:update": "npx playwright test --update-snapshots",
+    "playwright:ui": "npx playwright test --ui",
+    "start-playwright-server": "./bin/start-playwright-server",
     "start-test-server": "RAILS_ENV=test ./bin/rails assets:precompile && ./bin/rails server -e test",
     "build:css": "sass ./app/assets/stylesheets/:./app/assets/builds --silence-deprecation=import --quiet-deps --no-source-map --load-path=node_modules",
     "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "dependencies": {
     "@citizensadvice/design-system": "file:../",
-    "esbuild": "^0.28.1",
-    "sass": "^1.101.0"
+    "esbuild": "^0.28.2",
+    "sass": "^1.103.1"
   },
   "devDependencies": {
-    "@citizensadvice/design-system": "file:../",
-    "@testing-library/cypress": "^10.1.3",
-    "axe-core": "^4.12.1",
-    "backstopjs": "^6.3.25",
-    "cypress": "^15.19.0",
-    "cypress-axe": "^1.7.0",
-    "cypress-real-events": "^1.15.0",
-    "start-server-and-test": "^3.0.11"
-  },
-  "overrides": {
-    "@cypress/request": {
-      "qs": "^6.15.2"
-    }
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "1.62.1"
   }
 }
