@@ -4,7 +4,7 @@ import { execSync } from "node:child_process";
 
 import { confirm, select } from "@inquirer/prompts";
 import semver from "semver";
-import simpleGit from "simple-git";
+import { simpleGit } from "simple-git";
 
 import {
   packageVersion,
