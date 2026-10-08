@@ -31,7 +31,7 @@
     "prettier": "^3.2.5",
     "sass": "^1.69.0",
     "semver": "^7.3.8",
-    "simple-git": "^3.18.0",
+    "simple-git": "^4.0.1",
     "stylelint": "^17.11.1",
     "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-selector-bem-pattern": "^5.0.0"
